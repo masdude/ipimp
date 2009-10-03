@@ -103,6 +103,7 @@
     <Compile Include="Code\Misc\SQLiteMembershipProvider.vb" />
     <Compile Include="Code\Misc\SQLiteRoleProvider.vb" />
     <Compile Include="Code\TVServer\Streams.vb" />
+    <Compile Include="Code\TVServer\Transcode.vb" />
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
