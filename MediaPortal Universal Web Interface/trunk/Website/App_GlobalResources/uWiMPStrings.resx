@@ -871,4 +871,7 @@
   <data name="unknown_title" xml:space="preserve">
     <value>Unknown title</value>
   </data>
+  <data name="enter_keyboard_command" xml:space="preserve">
+    <value>Keyboard shortcuts</value>
+  </data>
 </root>
