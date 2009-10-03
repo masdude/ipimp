@@ -202,6 +202,13 @@
       <DependentUpon>ClientManagementUpdateResult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="iPhone\Admin\ManageSettings.aspx.designer.vb">
+      <DependentUpon>ManageSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ManageSettings.aspx.vb">
+      <DependentUpon>ManageSettings.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="iPhone\Admin\UserManagementDeleteResult.aspx.designer.vb">
       <DependentUpon>UserManagementDeleteResult.aspx</DependentUpon>
     </Compile>
@@ -1028,6 +1035,7 @@
     <Content Include="iPhone\Admin\ClientManagementUpdate.aspx" />
     <Content Include="iPhone\Admin\ClientManagementUpdateMenu.aspx" />
     <Content Include="iPhone\Admin\ClientManagementUpdateResult.aspx" />
+    <Content Include="iPhone\Admin\ManageSettings.aspx" />
     <Content Include="iPhone\Admin\UserManagementDeleteResult.aspx" />
     <Content Include="iPhone\Admin\UserManagementDeleteConfirm.aspx" />
     <Content Include="iPhone\Admin\UserManagementDeleteUser.aspx" />
