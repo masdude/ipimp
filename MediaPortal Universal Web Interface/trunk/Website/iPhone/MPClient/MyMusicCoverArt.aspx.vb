@@ -85,7 +85,7 @@ Partial Public Class MyMusicCoverArt
         markup += String.Format("<h3>{0} - {1}</h3>", artist, album)
         markup += "<div class=""iBlock"" >"
         markup += "<p>"
-        markup += String.Format("<img src=""{0}"" height=""300"" style=""display:block; margin-left:auto; margin-right:auto;""/>", imagePath)
+        markup += String.Format("<img src=""{0}"" width=""280"" style=""display:block; margin-left:auto; margin-right:auto;""/>", imagePath)
         markup += "</p>"
         markup += "</ul>"
         markup += "</div>"
