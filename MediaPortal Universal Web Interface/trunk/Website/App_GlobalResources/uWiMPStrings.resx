@@ -874,4 +874,7 @@
   <data name="enter_keyboard_command" xml:space="preserve">
     <value>Keyboard shortcuts</value>
   </data>
+  <data name="select_list_size" xml:space="preserve">
+    <value>Select page size</value>
+  </data>
 </root>
