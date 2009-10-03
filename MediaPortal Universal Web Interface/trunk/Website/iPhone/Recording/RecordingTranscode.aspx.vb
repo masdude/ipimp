@@ -10,7 +10,7 @@ Partial Public Class RecordingTranscode
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim recordingID As String = Request.QueryString("id")
+        Dim recordingID As String = Request.QueryString("recid")
         Dim wa As String = String.Format("waTranscode{0}", recordingID)
         Dim action As String = Request.QueryString("action")
 
@@ -64,11 +64,16 @@ Partial Public Class RecordingTranscode
         Dim markup As String = String.Empty
 
         markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
-        markup += "<div class=""iBlock"">"
         markup += String.Format("<h3>{0}</h3>", recording.Title)
         markup += String.Format("<h3>{0}</h3>", recording.StartTime)
-
+        markup += "<ul class=""iArrow"">"
+        markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "are_you_sure"))
         markup += "</ul>"
+        markup += "</div>"
+
+        markup += "<div>"
+        markup += String.Format("<a href=""Recording/RecordingTranscodeResult.aspx?recid={0}#_TranscodeResult{0}"" rev=""async"" rel=""Action"" class=""iButton iBWarn"">{1}</a></li>", recordingID, GetGlobalResourceObject("uWiMPStrings", "yes"))
+        markup += String.Format("<a href=""#"" onclick=""return WA.Back()"" rel=""Back"" class=""iButton iBClassic"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "no"))
         markup += "</div>"
 
         Return markup

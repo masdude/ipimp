@@ -85,9 +85,10 @@ Partial Public Class RecordingWatch
             markup += "</div>"
             markup += String.Format("<div class=""iBlock""><p>{0}</p></div>", GetGlobalResourceObject("uWiMPStrings", "quicktime"))
         Else
+            markup += "</div>"
             recURI = String.Format("http://{0}/TVLogos/{1}.png", Request.ServerVariables("HTTP_HOST"), channel.DisplayName)
             markup += "<ul class=""iArrow"">"
-            markup += String.Format("<li><a href=""Recording/RecordingTranscode.aspx?recid={0}&action=transcode#_Transcode{0}"" rev=""async"">{1}</a></li>", recordingID, GetGlobalResourceObject("uWiMPStrings", "not_transcoded"))
+            markup += String.Format("<li><a href=""Recording/RecordingTranscode.aspx?recid={0}#_Transcode{0}"" rev=""async"">{1}</a></li>", recordingID, GetGlobalResourceObject("uWiMPStrings", "not_transcoded"))
             markup += "</ul>"
             markup += "</div>"
         End If
