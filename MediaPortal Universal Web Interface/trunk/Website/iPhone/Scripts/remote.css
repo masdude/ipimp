@@ -1,0 +1,97 @@
+﻿#remote-body {
+	margin:0;
+    background: #c8c8c8 url(pinstripes.png);
+}
+
+#remote-div {
+	width:320px;
+}
+
+table {
+	border-spacing:0;
+}
+
+td {
+	padding:1;
+}
+
+td.grid {
+	font-size:36px;
+	height:78px;
+	width:78px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+td.smallgrid 
+{
+	padding-top:5px;
+	padding-left:21px;
+	padding-right:21px;
+	font-size:18px;
+	height:39px;
+	width:39px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.remoteButton {
+    display: block;
+    text-align: center;
+    background-color:Transparent;
+    vertical-align: middle;
+    font-size: 36px;
+    width:76px;
+    height:76px;
+    font-weight: bold;
+    text-decoration: inherit;
+    color: inherit;
+    background:#015de6 url(Img/select.gif) top repeat-x;
+}
+
+.starbar {
+  /* position: relative; */
+ height: 30px;
+  /* margin-left: 18px; */
+  margin:10px 10px 20px 10px;
+  border-width: 1px;
+  border-style:solid;
+  border-color:#a9acaf;
+  -webkit-border-radius:8px;
+  padding-left:20px;
+  padding-top:5px;
+  background-color:#fff;
+}
+.starbar .outer {
+  position: absolute;
+  width: 200px;
+  height: 20px;
+  background: url(stars.gif) no-repeat 0px 0px;
+}
+.starbar .inner { 
+/*  position: absolute;*/
+  width: 0;
+  height: 20px;
+  background: url(stars.gif) no-repeat 0px -20px;
+}
+
+.meta {
+  left:210px;
+  position:absolute;
+  padding-top:2px;
+}
+
+.imdbtable 
+{
+  width:100%;
+  border-width: 1px;
+  border-style:solid;
+  border-color:#a9acaf;
+  -webkit-border-radius:8px;
+  padding:10px;
+  background-color:#fff;
+  color:#4c566c;
+}
+
+
+ 

@@ -1,0 +1,92 @@
+﻿Imports System.IO
+Imports System.Xml
+Imports TvDatabase
+
+Partial Public Class RecordingsByGenreList
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        Response.ContentType = "text/xml"
+        Response.ContentEncoding = Encoding.UTF8
+
+        Dim genre As String = Request.QueryString("genre")
+        Dim wa As String = String.Format("waRecGenre{0}", genre)
+
+        Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
+        Dim xw As XmlWriter = New XmlTextWriter(tw)
+
+        'start doc
+        xw.WriteStartDocument()
+
+        'start root
+        xw.WriteStartElement("root")
+
+        'go
+        xw.WriteStartElement("go")
+        xw.WriteAttributeString("to", wa)
+        xw.WriteEndElement()
+        'end go
+
+        'start title
+        xw.WriteStartElement("title")
+        xw.WriteAttributeString("set", wa)
+        xw.WriteEndElement()
+        'end title
+
+        'start dest
+        xw.WriteStartElement("destination")
+        xw.WriteAttributeString("mode", "replace")
+        xw.WriteAttributeString("zone", wa)
+        xw.WriteAttributeString("create", "true")
+        xw.WriteEndElement()
+        'end dest
+
+        'start data
+        xw.WriteStartElement("data")
+        xw.WriteCData(DisplayRecordingsByGenre(wa, genre))
+        xw.WriteEndElement()
+        'end data
+
+        'end root
+        xw.WriteEndElement()
+
+        'end doc
+        xw.WriteEndDocument()
+        xw.Close()
+
+    End Sub
+
+    Private Function DisplayRecordingsByGenre(ByVal wa As String, ByVal genre As String) As String
+
+        Dim markup As String = String.Empty
+        markup += String.Format("<div class=""iList"" id=""{0}"">", wa)
+        markup += String.Format("<h2>{0} {1}</h2>", GetGlobalResourceObject("uWiMPStrings", "recordings"), genre)
+        markup += "<ul class=""iArrow iShop"">"
+
+        Dim recordings As List(Of Recording) = uWiMP.TVServer.Recordings.GetRecordingsForGenre(genre)
+        If recordings.Count > 1 Then recordings.Sort(New uWiMP.TVServer.RecordingGenreComparer)
+        Dim recording As Recording
+        Dim image, imageName As String
+        Dim MP4path As String = uWiMP.TVServer.Utilities.GetAppConfig("STREAMPATH")
+        Dim channel As Channel
+
+        For Each recording In recordings
+            channel = uWiMP.TVServer.Channels.GetChannelByChannelId(recording.IdChannel)
+            imageName = MP4path & "\" & Path.GetFileNameWithoutExtension(recording.FileName) & ".png"
+            If uWiMP.TVServer.Utilities.DoesFileExist(imageName) Then
+                image = String.Format("http://" & Request.ServerVariables("HTTP_HOST") & "/MP4/{0}.png", Path.GetFileNameWithoutExtension(recording.FileName))
+            Else
+                image = String.Format("http://" & Request.ServerVariables("HTTP_HOST") & "/TVLogos/{0}.png", channel.DisplayName)
+            End If
+            markup += String.Format("<li><a href=""Recording/RecordedProgram.aspx?id={0}#_RecProgram{0}"" rev=""async""><img src=""{1}"" class=""iFull"" /><em>{2}</em><big>{3}<small>{4}</small></big></a></li>", recording.IdRecording.ToString, image, channel.DisplayName, recording.Title, recording.StartTime)
+        Next
+
+        markup += "</ul>"
+        markup += "</div>"
+
+        Return markup
+
+    End Function
+
+End Class
