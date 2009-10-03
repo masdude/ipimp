@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "uWiMPweb", "Website\uWiMPweb.vbproj", "{C6225B72-F553-46AB-88DC-C23A606292D6}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MPClientController", "MPClientController\MPClientController.vbproj", "{BE2A1819-AFE7-4866-A975-FA372D714E39}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6225B72-F553-46AB-88DC-C23A606292D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6225B72-F553-46AB-88DC-C23A606292D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6225B72-F553-46AB-88DC-C23A606292D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6225B72-F553-46AB-88DC-C23A606292D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE2A1819-AFE7-4866-A975-FA372D714E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE2A1819-AFE7-4866-A975-FA372D714E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE2A1819-AFE7-4866-A975-FA372D714E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE2A1819-AFE7-4866-A975-FA372D714E39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
