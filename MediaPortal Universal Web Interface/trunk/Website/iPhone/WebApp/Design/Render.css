@@ -1,11 +1,12 @@
 html{-webkit-text-size-adjust:none;-webkit-touch-callout:none;height:100%}
+*:not(input):not(textarea):not(select){-webkit-user-select: none}
 body *{text-overflow:ellipsis;font-family:helvetica,arial,sans-serif;-webkit-tap-highlight-color:rgba(0,0,0,0);z-index:0}
-body{margin:0;color:#000;background-color:#000;height:100%;-webkit-transform:translate(0,0)}
+body{margin:0;color:#000;background-color:#000;height:100%;-webkit-transform:translate3d(0,0,0)}
 img{border:0}
 a[rel=action],a[rel=back]{display:none}
 #WebApp{background:#aebac2 url(Img/bg.png);min-height:100%}
 #iGroup{position:relative;overflow:hidden}
-.iLayer{display:none;-webkit-transform:translate(0,0);width:100%}
+.iLayer{display:none;-webkit-transform:translate3d(0,0,0);width:100%}
 .iItem{display:none}
 #__wa_media{display:none;width:0;height:0}
 #__wa_shadow{position:absolute;width:100%;left:0;top:0;bottom:0;z-index:1;display:none;background-color:#000;opacity:0.5}
@@ -82,6 +83,9 @@ ul.iArrow li.__sel.__lod a{background-image:url(Img/loader-white-100x12x1.png)}
 .iCheck li.__dis{color:#8f8f8f}
 .iCheck li.__act.__dis a{color:#8f8f8f;background-image:url(Img/check-dis.png)}
 #iGroup .iButton{display:block;position:static}
+.iButton.__dis i{opacity:0.5}
+.iButton i{display:block;width:16px;height:32px}
+.iButton i.__add{background:url(Img/more.png) center no-repeat}
 #waBackButton,#waHomeButton,#waLeftButton,#waRightButton,.iButton,.iLeftButton,.iRightButton{position:absolute;border-width:0 10px 0 10px;top:6px;margin:0;white-space:nowrap;overflow:hidden;display:none;text-decoration:none;max-width:15%;height:32px;line-height:32px;font-size:13px;-webkit-border-radius:4px;z-index:1}
 #waBackButton:active{-webkit-border-image: url(Img/button-back-touch.png) 0 10 0 15}
 #waBackButton{left:4px;border-width:0 10px 0 15px;-webkit-border-image: url(Img/button-back.png) 0 10 0 15;-webkit-border-top-left-radius:22px;-webkit-border-bottom-left-radius:22px}
@@ -122,7 +126,7 @@ li.iRadio a label{display:none}
 .iBar,#iHeader{position:relative;z-index:1;height:44px;background-color:#8195af;-webkit-box-sizing:border-box;border-width:22px 0 1px;-webkit-border-image:url(Img/bg-head.png) 22 0 1 0;color:#fff;font-weight:bold;text-shadow:rgba(0,0,0,0.7) 0 -1px 0}
 #iHeader a{text-decoration:none;color:inherit}
 #iHeader > div{margin-top:-22px}
-#iHeader > div,#waHeadTitle{display:none;-webkit-transform:translate(0,0);position:absolute;width:100%;top:0;bottom:0;left:0}
+#iHeader > div,#waHeadTitle{display:none;-webkit-transform:translate3d(0,0,0);position:absolute;width:100%;top:0;bottom:0;left:0}
 .__ani #iGroup .iLayer{position:absolute;top:0}
 .__ani #iGroup .iLayer,.__ani #iHeader #waHeadTitle{-webkit-transition-property:-webkit-transform;-webkit-transition-duration:0.35s}
 .__ani #iHeader > div{-webkit-transition-property:-webkit-transform,opacity;-webkit-transition-duration: 0.35s,0.35s}
