@@ -179,12 +179,8 @@ Partial Public Class MCERemoteControl
         markup += "</table>"
         markup += "<table>"
         markup += "<tr>"
-        markup += String.Format("<td class=""smallgrid""><input maxlength=""12"" class=""textbox"" type=""text"" id=""jsKeyboard"" placeholder=""{0}""/></li></td>", GetGlobalResourceObject("uWiMPStrings", "enter_keyboard_command"))
-        markup += String.Format("<td class=""smallgrid""><img src=""{1}{2}.png"" />", "", imageURI, "red")
-        'markup += String.Format("<td class=""smallgrid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "red")
-        'markup += String.Format("<td class=""smallgrid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "green")
-        'markup += String.Format("<td class=""smallgrid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "yellow")
-        'markup += String.Format("<td class=""smallgrid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "blue")
+        markup += String.Format("<td><input maxlength=""12"" class=""textbox"" type=""text"" id=""jsKeyboard"" placeholder=""{0}""/></li></td>", GetGlobalResourceObject("uWiMPStrings", "enter_keyboard_command"))
+        markup += String.Format("<td><a class=""sendButton"" href=""#"" onclick=""return sendkeystring();"" >{0}</a>", GetGlobalResourceObject("uWiMPStrings", "send"))
         markup += "</tr>"
         markup += "</table>"
         markup += "</div>"

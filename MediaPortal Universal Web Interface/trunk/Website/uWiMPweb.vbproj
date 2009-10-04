@@ -1058,6 +1058,7 @@
     <Content Include="images\remote\rewind.png" />
     <Content Include="images\remote\right.png" />
     <Content Include="images\remote\skip.png" />
+    <Content Include="iPhone\Scripts\smbtnblue.png" />
     <Content Include="images\remote\stop.png" />
     <Content Include="images\remote\tv.png" />
     <Content Include="images\remote\tvguide.png" />

@@ -40,12 +40,29 @@ td.smallgrid
 	padding-top:5px;
 	padding-left:12px;
 	padding-right:12px;
+	margin-left:10px;
 	font-size:18px;
 	height:22px;
-	width:160px;
+	width:190px;
 	text-align:center;
 	vertical-align:middle;
     -webkit-border-radius: 8px;
+}
+
+.sendButton 
+{
+    float:left;
+    display:block;
+    text-align: center;
+    background-color:Transparent;
+    margin-left:20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width:52px;
+	font-size:18px;
+	text-decoration: inherit;
+    color: white;
+    -webkit-border-image: url(smbtnblue.png) 0 10 0 10;
 }
 
 .remoteButton {
