@@ -877,4 +877,7 @@
   <data name="select_list_size" xml:space="preserve">
     <value>Select page size</value>
   </data>
+  <data name="send" xml:space="preserve">
+    <value>Send</value>
+  </data>
 </root>
