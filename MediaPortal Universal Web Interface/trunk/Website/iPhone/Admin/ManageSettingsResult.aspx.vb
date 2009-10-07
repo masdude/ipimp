@@ -19,7 +19,7 @@
 Imports System.IO
 Imports System.Xml
 
-Partial Public Class ManageSettings
+Partial Public Class ManageSettingsResult
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -27,7 +27,8 @@ Partial Public Class ManageSettings
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim wa As String = "waSettings"
+        Dim wa As String = "waSettingsResult"
+        Dim pagesize As String = Request.QueryString("pagesize")
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -60,7 +61,7 @@ Partial Public Class ManageSettings
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(ManageSettings())
+        xw.WriteCData(UpdateSettings(pagesize))
         xw.WriteEndElement()
         'end data
 
@@ -73,26 +74,31 @@ Partial Public Class ManageSettings
 
     End Sub
 
-    Private Function ManageSettings() As String
+    Private Function UpdateSettings(ByVal pagesize As String) As String
 
         Dim markup As String = String.Empty
-        Dim pagesize As Integer = uWiMP.TVServer.Utilities.GetAppConfig("PAGESIZE")
-        markup += "<div class=""iPanel"" >"
-        markup += "<fieldset>"
-        markup += "<legend>" & GetGlobalResourceObject("uWiMPStrings", "ipimp_settings") & "</legend>"
+        Dim success As Boolean = False
+
+        If uWiMP.TVServer.Utilities.SetAppConfig("PAGESIZE", pagesize) = True Then
+            success = True
+        Else
+            success = False
+        End If
+
+        markup += "<div class=""iMenu"" >"
+
+        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "ipimp_settings"))
         markup += "<ul>"
-        markup += String.Format("<li id=""jsPageSize"" class=""iRadio"" value=""autoback"">{0}", GetGlobalResourceObject("uWiMPStrings", "select_list_size"))
-        markup += String.Format("<label><input type=""radio"" name=""jsPageSize"" value=""5"" checked=""{0}""/> 5</label>", IIf(pagesize = 5, "checked", ""))
-        markup += String.Format("<label><input type=""radio"" name=""jsPageSize"" value=""10"" checked=""{0}""/> 10</label>", IIf(pagesize = 10, "checked", ""))
-        markup += String.Format("<label><input type=""radio"" name=""jsPageSize"" value=""20"" checked=""{0}""/> 20</label>", IIf(pagesize = 20, "checked", ""))
-        markup += String.Format("<label><input type=""radio"" name=""jsPageSize"" value=""50"" checked=""{0}""/> 50</label>", IIf(pagesize = 50, "checked", ""))
+
+        If success Then
+            markup += String.Format("<li>Settings updated.</li>", GetGlobalResourceObject("uWiMPStrings", "ipimp_settings_success"))
+        Else
+            markup += String.Format("<li style=""color:red"">Settings update failed.</li>", GetGlobalResourceObject("uWiMPStrings", "ipimp_settings_fail"))
+        End If
+
         markup += "</li>"
         markup += "</ul>"
-        markup += "</fieldset>"
-        markup += "</div>"
 
-        markup += "<div>"
-        markup += String.Format("<a href=""#"" onclick=""return updatesettings();"" rel=""Action"" class=""iButton iBAction"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "update"))
         markup += "</div>"
 
         Return markup

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="ManageSettingsResult.aspx.vb" Inherits="Website.ManageSettingsResult" %>
