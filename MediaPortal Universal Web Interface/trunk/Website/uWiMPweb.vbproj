@@ -209,6 +209,13 @@
       <DependentUpon>ManageSettings.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="iPhone\Admin\ManageSettingsResult.aspx.designer.vb">
+      <DependentUpon>ManageSettingsResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ManageSettingsResult.aspx.vb">
+      <DependentUpon>ManageSettingsResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="iPhone\Admin\UserManagementDeleteResult.aspx.designer.vb">
       <DependentUpon>UserManagementDeleteResult.aspx</DependentUpon>
     </Compile>
@@ -1058,6 +1065,7 @@
     <Content Include="images\remote\rewind.png" />
     <Content Include="images\remote\right.png" />
     <Content Include="images\remote\skip.png" />
+    <Content Include="iPhone\Admin\ManageSettingsResult.aspx" />
     <Content Include="iPhone\Scripts\smbtnblue.png" />
     <Content Include="images\remote\stop.png" />
     <Content Include="images\remote\tv.png" />
