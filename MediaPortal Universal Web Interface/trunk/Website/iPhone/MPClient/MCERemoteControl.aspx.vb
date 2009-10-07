@@ -179,8 +179,8 @@ Partial Public Class MCERemoteControl
         markup += "</table>"
         markup += "<table>"
         markup += "<tr>"
-        markup += String.Format("<td><input maxlength=""12"" class=""textbox"" type=""text"" id=""jsKeyboard"" placeholder=""{0}""/></li></td>", GetGlobalResourceObject("uWiMPStrings", "enter_keyboard_command"))
-        markup += String.Format("<td><a class=""sendButton"" href=""#"" onclick=""return sendkeystring();"" >{0}</a>", GetGlobalResourceObject("uWiMPStrings", "send"))
+        'markup += String.Format("<td><input maxlength=""12"" class=""textbox"" type=""text"" id=""jsKeyString"" placeholder=""{0}""/></li></td>", GetGlobalResourceObject("uWiMPStrings", "enter_keyboard_command"))
+        'markup += String.Format("<td><a class=""sendButton"" href=""#"" onclick=""return sendkeystring('{0}');"" >{1}</a>", friendly, GetGlobalResourceObject("uWiMPStrings", "send"))
         markup += "</tr>"
         markup += "</table>"
         markup += "</div>"

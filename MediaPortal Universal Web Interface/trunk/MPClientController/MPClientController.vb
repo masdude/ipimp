@@ -37,7 +37,9 @@ Namespace MPClientController
         Private listener As Sockets.TcpListener
         Private client As Sockets.TcpClient
         Private thread As Thread
-        Private handler As InputHandler
+        Private remoteHandler As InputHandler
+        Private keyboardHandler As MediaPortal.Hooks.KeyboardHook
+
 
         Const DEFAULT_PORT As Integer = 55667
 
@@ -88,7 +90,8 @@ Namespace MPClientController
 #Region "IPlugin members"
 
         Public Sub Start() Implements MediaPortal.GUI.Library.IPlugin.Start
-            handler = New InputHandler("iPiMP")
+            remoteHandler = New InputHandler("iPiMP")
+
             DoStart()
         End Sub
 
@@ -230,7 +233,11 @@ Namespace MPClientController
                     results = PowerOptions.DoPowerOption(request.Filter)
 
                 Case "button"
-                    results = SendButton(request.Filter)
+                    If Left(request.Filter.ToLower, 10) = "keystring_" Then
+                        results = SendKeystring(Split(request.Filter, "_")(1))
+                    Else
+                        results = SendButton(request.Filter)
+                    End If
 
                 Case "nowplaying"
                     results = NowPlaying.GetNowPlaying()
@@ -323,13 +330,16 @@ Namespace MPClientController
             PlayDVD = 809
             MyPlaylists = 810
 
+            'Try some keyboard keys
+            F2 = 820
+
         End Enum
 
         Private Function SendButton(ByVal request As String) As String
 
             Dim btn As RemoteButton
 
-            Select Case request
+            Select Case request.ToLower
                 Case "stop"
                     btn = RemoteButton.Stop
                 Case "record"
@@ -442,11 +452,13 @@ Namespace MPClientController
                     btn = RemoteButton.PlayDVD
                 Case "playlists"
                     btn = RemoteButton.MyPlaylists
+                Case "f2"
+                    btn = RemoteButton.F2
                 Case Else
                     btn = RemoteButton.Ok
             End Select
 
-            handler.MapAction(btn)
+            remoteHandler.MapAction(btn)
             System.Threading.Thread.Sleep(100)
             Log.Debug("plugin: iPiMPClient - Pressed button {0}", btn.ToString)
 
@@ -461,6 +473,171 @@ Namespace MPClientController
 
         End Function
 
+        Private Function SendKeystring(ByVal request As String) As String
+
+            Dim keystring As Integer = 0
+            Dim modifiers As Integer = 0
+            Dim modifier As String = String.Empty
+
+            If InStr(request, "+") > 0 Then
+                modifier = Split(request, "+")(0)
+                request = Split(request, "+")(1)
+            End If
+
+            Select Case modifier.ToLower
+                Case "ctrl"
+                    modifier = 2
+                Case "shift"
+                    modifier = 1
+                Case "alt"
+                    modifier = 0
+                Case Else
+                    modifier = 0
+            End Select
+
+            Select Case request.ToLower
+                Case "0"
+                    keystring = Keys.D0
+                Case "1"
+                    keystring = Keys.D1
+                Case "2"
+                    keystring = Keys.D2
+                Case "3"
+                    keystring = Keys.D3
+                Case "4"
+                    keystring = Keys.D4
+                Case "5"
+                    keystring = Keys.D5
+                Case "6"
+                    keystring = Keys.D6
+                Case "7"
+                    keystring = Keys.D7
+                Case "8"
+                    keystring = Keys.D8
+                Case "9"
+                    keystring = Keys.D9
+
+                Case "a"
+                    keystring = Keys.A
+                Case "b"
+                    keystring = Keys.B
+                Case "c"
+                    keystring = Keys.C
+                Case "d"
+                    keystring = Keys.D
+                Case "e"
+                    keystring = Keys.E
+                Case "f"
+                    keystring = Keys.F
+                Case "g"
+                    keystring = Keys.G
+                Case "h"
+                    keystring = Keys.H
+                Case "i"
+                    keystring = Keys.I
+                Case "j"
+                    keystring = Keys.J
+                Case "k"
+                    keystring = Keys.K
+                Case "l"
+                    keystring = Keys.L
+                Case "m"
+                    keystring = Keys.M
+                Case "n"
+                    keystring = Keys.N
+                Case "o"
+                    keystring = Keys.O
+                Case "p"
+                    keystring = Keys.P
+                Case "q"
+                    keystring = Keys.Q
+                Case "r"
+                    keystring = Keys.R
+                Case "s"
+                    keystring = Keys.S
+                Case "t"
+                    keystring = Keys.T
+                Case "u"
+                    keystring = Keys.U
+                Case "v"
+                    keystring = Keys.V
+                Case "w"
+                    keystring = Keys.W
+                Case "x"
+                    keystring = Keys.X
+                Case "y"
+                    keystring = Keys.Y
+                Case "z"
+                    keystring = Keys.Z
+
+                Case "f1"
+                    keystring = Keys.F1
+                Case "f2"
+                    keystring = Keys.F2
+                Case "f3"
+                    keystring = Keys.F3
+                Case "f4"
+                    keystring = Keys.F4
+                Case "f5"
+                    keystring = Keys.F5
+                Case "f6"
+                    keystring = Keys.F6
+                Case "f7"
+                    keystring = Keys.F7
+                Case "f8"
+                    keystring = Keys.F8
+                Case "f9"
+                    keystring = Keys.F9
+                Case "f10"
+                    keystring = Keys.F10
+                Case "f11"
+                    keystring = Keys.F11
+                Case "f12"
+                    keystring = Keys.F12
+
+                Case "pageup"
+                    keystring = Keys.PageUp
+                Case "pagedown"
+                    keystring = Keys.PageDown
+                Case "tab"
+                    keystring = Keys.Tab
+                Case "esc", "escape"
+                    keystring = Keys.Escape
+                Case "home"
+                    keystring = Keys.Home
+                Case "end"
+                    keystring = Keys.End
+                Case "del", "delete"
+                    keystring = Keys.Delete
+                Case "enter", "return", "rtn"
+                    keystring = Keys.Enter
+                Case " ", "space"
+                    keystring = Keys.Space
+
+                Case Else
+                    keystring = 0
+
+            End Select
+
+            Dim key As MediaPortal.GUI.Library.Key = New MediaPortal.GUI.Library.Key(keystring + (modifiers * 32), 0)
+            Dim action As MediaPortal.GUI.Library.Action = New Action(key, MediaPortal.GUI.Library.Action.ActionType.ACTION_KEY_PRESSED, 0, 0)
+
+            GUIWindowManager.OnAction(action)
+
+            'SendKeys.Send(String.Format("{0}{1}", modifier, keystring))
+            System.Threading.Thread.Sleep(100)
+            Log.Debug("plugin: iPiMPClient - Sent keystring - modifier {0}, keychar {1}", modifier, keystring)
+            Log.Debug("plugin: iPiMPClient - {0}", action.ToString)
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteEndObject()
+
+            Return jw.ToString
+
+        End Function
 #End Region
 
         Public Class MPClientRequest
