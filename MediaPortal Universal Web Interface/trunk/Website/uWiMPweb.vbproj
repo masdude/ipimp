@@ -723,6 +723,13 @@
       <DependentUpon>RecordingTranscode.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="iPhone\Recording\RecordingTranscodeResult.aspx.designer.vb">
+      <DependentUpon>RecordingTranscodeResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingTranscodeResult.aspx.vb">
+      <DependentUpon>RecordingTranscodeResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="iPhone\Recording\RecordingWatch.aspx.designer.vb">
       <DependentUpon>RecordingWatch.aspx</DependentUpon>
     </Compile>
@@ -1066,6 +1073,7 @@
     <Content Include="images\remote\right.png" />
     <Content Include="images\remote\skip.png" />
     <Content Include="iPhone\Admin\ManageSettingsResult.aspx" />
+    <Content Include="iPhone\Recording\RecordingTranscodeResult.aspx" />
     <Content Include="iPhone\Scripts\smbtnblue.png" />
     <Content Include="images\remote\stop.png" />
     <Content Include="images\remote\tv.png" />
