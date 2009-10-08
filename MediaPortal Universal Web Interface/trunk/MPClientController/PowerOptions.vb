@@ -28,19 +28,17 @@ Namespace MPClientController
         Public Shared Function DoPowerOption(ByVal poweroption As String)
 
             Select Case poweroption.ToLower
-                Case "logoff"
+                Case "0"
                     MediaPortal.Util.WindowsController.ExitWindows(RestartOptions.LogOff, True)
-                Case "suspend"
+                Case "1"
                     MediaPortal.Util.WindowsController.ExitWindows(RestartOptions.Suspend, True)
-                Case "hibernate"
+                Case "2"
                     MediaPortal.Util.WindowsController.ExitWindows(RestartOptions.Hibernate, True)
-                Case "reboot"
+                Case "3"
                     MediaPortal.Util.WindowsController.ExitWindows(RestartOptions.Reboot, True)
-                Case "shutdown"
+                Case "4"
                     MediaPortal.Util.WindowsController.ExitWindows(RestartOptions.ShutDown, True)
-                Case "poweroff"
-                    MediaPortal.Util.WindowsController.ExitWindows(RestartOptions.PowerOff, True)
-                Case "close"
+                Case "5"
                     Dim action As Action = New Action(action.ActionType.ACTION_EXIT, 0, 0)
                     GUIGraphicsContext.OnAction(action)
             End Select

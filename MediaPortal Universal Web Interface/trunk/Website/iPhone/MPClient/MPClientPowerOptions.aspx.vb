@@ -82,20 +82,14 @@ Partial Public Class MPClientPowerOptions
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_options"))
         markup += "<ul class=""iArrow"">"
 
-        markup += String.Format("<li id=""jsPowerOption"" class=""iRadio"" value=""autoback"">{0}", GetGlobalResourceObject("uWiMPStrings", "power_option_select"))
-        markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_logoff"))
-        markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_suspend"))
-        markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_hibernate"))
-        markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_reboot"))
-        markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_shutdown"))
-        markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_close"))
+        markup += String.Format("<li><a href=""MPClient/MPClientPowerOptionsConfirm.aspx?friendly={0}&option=0#_MPClientPowerOptionsConfirm'"" rev=""async"" >{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_logoff"))
+        markup += String.Format("<li><a href=""MPClient/MPClientPowerOptionsConfirm.aspx?friendly={0}&option=1#_MPClientPowerOptionsConfirm'"" rev=""async"" >{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_suspend"))
+        markup += String.Format("<li><a href=""MPClient/MPClientPowerOptionsConfirm.aspx?friendly={0}&option=2#_MPClientPowerOptionsConfirm'"" rev=""async"" >{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_hibernate"))
+        markup += String.Format("<li><a href=""MPClient/MPClientPowerOptionsConfirm.aspx?friendly={0}&option=3#_MPClientPowerOptionsConfirm'"" rev=""async"" >{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_reboot"))
+        markup += String.Format("<li><a href=""MPClient/MPClientPowerOptionsConfirm.aspx?friendly={0}&option=4#_MPClientPowerOptionsConfirm'"" rev=""async"" >{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_shutdown"))
+        markup += String.Format("<li><a href=""MPClient/MPClientPowerOptionsConfirm.aspx?friendly={0}&option=5#_MPClientPowerOptionsConfirm'"" rev=""async"" >{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_close"))
 
-        markup += "</li>"
         markup += "</ul>"
-        markup += "</div>"
-
-        markup += "<div>"
-        markup += String.Format("<a href=""#"" rel=""Action"" class=""iButton iBAction"" onclick=""return poweroption('{0}')"">{1}</a>", friendly, GetGlobalResourceObject("uWiMPStrings", "submit"))
         markup += "</div>"
 
         Return markup
