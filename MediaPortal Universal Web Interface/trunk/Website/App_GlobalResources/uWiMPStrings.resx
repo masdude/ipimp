@@ -880,4 +880,10 @@
   <data name="send" xml:space="preserve">
     <value>Send</value>
   </data>
+  <data name="transcoding_running" xml:space="preserve">
+    <value>Transcoding is running</value>
+  </data>
+  <data name="transcoding_started" xml:space="preserve">
+    <value>Transcoding has started</value>
+  </data>
 </root>
