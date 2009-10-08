@@ -19,6 +19,7 @@
 Imports Jayrock.Json
 Imports Jayrock.Json.Conversion
 Imports MediaPortal.Util
+Imports MediaPortal.GUI.Library
 
 Namespace MPClientController
 
@@ -39,6 +40,9 @@ Namespace MPClientController
                     MediaPortal.Util.WindowsController.ExitWindows(RestartOptions.ShutDown, True)
                 Case "poweroff"
                     MediaPortal.Util.WindowsController.ExitWindows(RestartOptions.PowerOff, True)
+                Case "close"
+                    Dim action As Action = New Action(action.ActionType.ACTION_EXIT, 0, 0)
+                    GUIGraphicsContext.OnAction(action)
             End Select
 
             Dim jw As New JsonTextWriter

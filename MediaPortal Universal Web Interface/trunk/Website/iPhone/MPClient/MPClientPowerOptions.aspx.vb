@@ -88,6 +88,7 @@ Partial Public Class MPClientPowerOptions
         markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_hibernate"))
         markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_reboot"))
         markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_shutdown"))
+        markup += String.Format("<label><input type=""radio"" name=""jsPowerOption"" value=""{0}"" /> {0}</label>", GetGlobalResourceObject("uWiMPStrings", "power_close"))
 
         markup += "</li>"
         markup += "</ul>"
