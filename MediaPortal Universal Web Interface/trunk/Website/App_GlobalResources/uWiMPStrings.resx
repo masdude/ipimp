@@ -212,6 +212,7 @@
   </data>
   <data name="yesno" xml:space="preserve">
     <value>Yes|No</value>
+    <comment>This is the text which appears on a toggle button.</comment>
   </data>
   <data name="administrator" xml:space="preserve">
     <value>Administrator</value>
