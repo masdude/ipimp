@@ -149,15 +149,6 @@ function sendmessage(friendly) {
     return false;
 }
 
-function poweroption(friendly) {
-    var doc = document.getElementById('jsPowerOption');
-    var o = doc.childNodes;
-    var option = o[0].firstChild.innerHTML;
-
-    WA.Request('MPClient/MPClientPowerOptionsConfirm.aspx?friendly=' + friendly + '&option=' + option + '#_MPClientPowerOptionsConfirm', null, -1, true, null);
-    return false;
-}
-
 function sendkeystring(friendly) {
     keystring = document.getElementById('jsKeyString').value;
     WA.Request('MPClient/MCERemoteControlButton.aspx?friendly=' + friendly + '&button=' + keystring + '#_MCEButton', null, -1, false, null);

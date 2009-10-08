@@ -80,7 +80,7 @@ Partial Public Class MPClientPowerOptionsConfirm
         Dim markup As String = String.Empty
 
         markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
-        markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", String.Format("power_{0}", poweroption.ToLower)))
+        markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_options"))
         markup += "<ul class=""iArrow"">"
         If poweroption = "" Then
             markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "power_option_not_selected"))

@@ -90,7 +90,7 @@ Partial Public Class MPClientPowerOptionsResult
         Dim success As Boolean = CType(jo("result"), Boolean)
 
         markup += "<div class=""iMenu"">"
-        markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", String.Format("power_{0}", poweroption.ToLower)))
+        markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_options"))
         markup += "<ul>"
         If success Then
             markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "power_option_success"))
