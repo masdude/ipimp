@@ -99,7 +99,11 @@ Partial Public Class MPClientPowerOptionsResult
         End If
         markup += "</ul>"
         markup += "</div>"
-        
+
+        markup += "<div>"
+        markup += String.Format("<a href=""MPClient/MainMenu.aspx#_MPClientMenu"" rev=""async"" rel=""Action"" class=""iButton iBClassic"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "home"))
+        markup += "</div>"
+
         Return markup
 
     End Function
