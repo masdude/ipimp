@@ -13,8 +13,6 @@ var MPClientRev
 var MPClientVer
 var CommonApp
 var DotNetDir
-var LogoPath
-var TVPath
 
 var AdvancedInstall
 var Wiki
@@ -25,3 +23,13 @@ var InstalliPiMPWeb
 var InstalliPiMPTVplugin
 var InstalliPiMPMPplugin
 var InstallNoTVServer
+
+var Timeout
+var Pagesize
+var TCPPort
+var IPAddress
+var LogoPath
+var TVPath
+var Listen
+
+
