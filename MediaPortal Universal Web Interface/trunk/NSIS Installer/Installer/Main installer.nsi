@@ -64,6 +64,7 @@ BrandingText "$(STRING_BRANDING)"
 !include "WelcomeSections\Welcome.nsh"
 !include "WelcomeSections\SimpleInstall.nsh"
 !include "WelcomeSections\AdvancedInstall.nsh"
+!include "WelcomeSections\ApacheOptions.nsh"
 
 ;!insertmacro MUI_PAGE_INSTFILES
 
