@@ -32,32 +32,32 @@ Function ApacheOptions
 	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${SS_BITMAP} 0 0 0 109u 193u ""
 	Pop $p4ImageControl
 
-	StrCpy $0 $PLUGINSDIR\apache.bmp
+	StrCpy $0 "Images\iPiMPapache.bmp"
 	System::Call 'user32::LoadImage(i 0, t r0, i ${IMAGE_BITMAP}, i 0, i 0, i ${LR_LOADFROMFILE}) i.s'
 	Pop $p4Image
 
 	SendMessage $p4ImageControl ${STM_SETIMAGE} ${IMAGE_BITMAP} $p4Image
 
-	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -130u 20u "Apache web server settings"
+	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -130u 20u "$(STRING_APACHEINSTALL_LINE1)"
 	Pop $p4Headline
 
 	SendMessage $p4Headline ${WM_SETFONT} $Headline_font 0
 
-        ${NSD_CreateLabel} 120u 40u 130u 18u "Enter the TCP port to listen on:$\r$\n(This will default to port 80 if left blank)"
+        ${NSD_CreateLabel} 120u 40u 130u 18u "$(STRING_APACHEINSTALL_LINE2)"
 	Pop $p4Label1
         
 	${NSD_CreateText} 255u 40u 36u 12u ""
 	Pop $p4Textbox1
         ${NSD_SetText} $p4Textbox1 $TCPPort
 
-        ${NSD_CreateLabel} 120u 70u 130u 18u "Enter the IP address to listen on:$\r$\n(This will default to all IPs if left blank)"
+        ${NSD_CreateLabel} 120u 70u 130u 18u "$(STRING_APACHEINSTALL_LINE3)"
 	Pop $p4Label2
 
 	${NSD_CreateText} 255u 70u 63u 12u ""
 	Pop $p4Textbox2
         ${NSD_SetText} $p4Textbox1 $IPAddress
 
-        ${NSD_CreateLabel} 120u 100u 130u 18u "Confirm the TV logos folder:$\r$\n(These will be used in the web interface)"
+        ${NSD_CreateLabel} 120u 100u 130u 18u "$(STRING_APACHEINSTALL_LINE4)"
 	Pop $p4Label3
 	
         ${NSD_CreateDirRequest} 120u 120u 200u 12u "$LogoPath"
@@ -67,37 +67,37 @@ Function ApacheOptions
         Pop $p4Button1
         ${NSD_OnClick} $p4Button1 p4OnDirBrowseButton
 
-        ${NSD_CreateLabel} 120u 140u 130u 18u "Select a login timeout:$\r$\n(After that period you'll have to re-login)"
+        ${NSD_CreateLabel} 120u 140u 130u 18u "$(STRING_APACHEINSTALL_LINE5)"
 	Pop $p4Label4
 
         ${NSD_CreateDropList} 255u 142u 40u 80u ""
         Pop $p4DropList
 
-        ${NSD_CB_AddString} $p4DropList "30 mins"
-        ${NSD_CB_AddString} $p4DropList "1 hour"
-        ${NSD_CB_AddString} $p4DropList "8 hours"
-        ${NSD_CB_AddString} $p4DropList "1 day"
-        ${NSD_CB_AddString} $p4DropList "1 week"
-        ${NSD_CB_AddString} $p4DropList "1 month"
-        ${NSD_CB_AddString} $p4DropList "1 year"
+        ${NSD_CB_AddString} $p4DropList "$(STRING_APACHEINSTALL_LINE6)"
+        ${NSD_CB_AddString} $p4DropList "$(STRING_APACHEINSTALL_LINE7)"
+        ${NSD_CB_AddString} $p4DropList "$(STRING_APACHEINSTALL_LINE8)"
+        ${NSD_CB_AddString} $p4DropList "$(STRING_APACHEINSTALL_LINE9)"
+        ${NSD_CB_AddString} $p4DropList "$(STRING_APACHEINSTALL_LINE10)"
+        ${NSD_CB_AddString} $p4DropList "$(STRING_APACHEINSTALL_LINE11)"
+        ${NSD_CB_AddString} $p4DropList "$(STRING_APACHEINSTALL_LINE12)"
 
         ${Select} $Timeout
             ${Case} "30"
-              ${NSD_CB_SelectString} $p4DropList "30 mins"
+              ${NSD_CB_SelectString} $p4DropList "$(STRING_APACHEINSTALL_LINE6)"
             ${Case} "60"
-              ${NSD_CB_SelectString} $p4DropList "1 hour"
+              ${NSD_CB_SelectString} $p4DropList "$(STRING_APACHEINSTALL_LINE7)"
             ${Case} "480"
-              ${NSD_CB_SelectString} $p4DropList "8 hours"
+              ${NSD_CB_SelectString} $p4DropList "$(STRING_APACHEINSTALL_LINE8)"
             ${Case} "1440"
-              ${NSD_CB_SelectString} $p4DropList "1 day"
+              ${NSD_CB_SelectString} $p4DropList "$(STRING_APACHEINSTALL_LINE9)"
             ${Case} "10080"
-              ${NSD_CB_SelectString} $p4DropList "1 week"
+              ${NSD_CB_SelectString} $p4DropList "$(STRING_APACHEINSTALL_LINE10)"
             ${Case} "44640"
-              ${NSD_CB_SelectString} $p4DropList "1 month"
+              ${NSD_CB_SelectString} $p4DropList "$(STRING_APACHEINSTALL_LINE11)"
             ${Case} "525600"
-              ${NSD_CB_SelectString} $p4DropList "1 year"
+              ${NSD_CB_SelectString} $p4DropList "$(STRING_APACHEINSTALL_LINE12)"
             ${CaseElse}
-              ${NSD_CB_SelectString} $p4DropList "30 mins"
+              ${NSD_CB_SelectString} $p4DropList "$(STRING_APACHEINSTALL_LINE6)"
         ${EndSelect}
 
         ${If} $Timeout == ""
@@ -105,7 +105,7 @@ Function ApacheOptions
               ${NSD_CB_SelectString} $p4DropList $Timeout
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 160u 130u 18u "Select a size for long lists:$\r$\n(To make long lists more manageable.)"
+        ${NSD_CreateLabel} 120u 160u 130u 18u "$(STRING_APACHEINSTALL_LINE13)"
 	Pop $p4Label5
 
         ${NSD_CreateDropList} 255u 162u 40u 80u ""
@@ -155,7 +155,7 @@ Function p4OnDirBrowseButton
         Pop $R0
         ${If} $R0 == $p4Button1
               ${NSD_GetText} $p4Directory $R0
-              nsDialogs::SelectFolderDialog /NOUNLOAD "Locate your TV logo folder." $R0
+              nsDialogs::SelectFolderDialog /NOUNLOAD "$(STRING_APACHEINSTALL_LINE14)" $R0
               Pop $R0
 
               ${If} $R0 != error
@@ -172,7 +172,7 @@ Function ApacheOptionsValidate
         Call ValidateIP
         ${If} ${Errors}
               ClearErrors
-              MessageBox MB_ICONEXCLAMATION|MB_OK "$IPAddress is not a valid ip address."
+              MessageBox MB_ICONEXCLAMATION|MB_OK "$(STRING_APACHEINSTALL_LINE15)"
               Abort
         ${EndIf}
 
@@ -188,11 +188,11 @@ Function ApacheOptionsValidate
 
        ${NSD_GetText} $p4Directory $LogoPath
        IfFileExists "$LogoPath\*.*" +3 0
-       MessageBox MB_ICONINFORMATION|MB_OK "Cannot find $LogoPath"
+       MessageBox MB_ICONINFORMATION|MB_OK "$(STRING_APACHEINSTALL_LINE16)"
        Abort
 
        StrCmp "$LogoPath" "" 0 +3
-       MessageBox MB_ICONINFORMATION|MB_OK "No TV logo path provided."
+       MessageBox MB_ICONINFORMATION|MB_OK "$(STRING_APACHEINSTALL_LINE17)"
        Abort
 
        ${NSD_GetText} $p4DropList $Timeout
