@@ -10,13 +10,13 @@
 
   ${If} "${COMPONENT}" == "TV"
   ${AndIf} $1 == 2
-      MessageBox MB_ICONINFORMATION|MB_OK "MediaPortal TV Server ${MIN_MPVERSION} or greater must be installed $\r$\nto install this component."
+      MessageBox MB_ICONINFORMATION|MB_OK "$(STRING_CHECKVERSION_LINE1)"
       Abort
   ${EndIf}
 
   ${If} "${COMPONENT}" == "MP"
   ${AndIf} $1 == 2
-      MessageBox MB_ICONINFORMATION|MB_OK "MediaPortal Client ${MIN_MPVERSION} or greater must be installed $\r$\nto install this component."
+      MessageBox MB_ICONINFORMATION|MB_OK "$(STRING_CHECKVERSION_LINE2)"
       Abort
   ${EndIf}
 
