@@ -1,4 +1,4 @@
-#summary iPhone interface to MediaPortal
+http://www.vanderboon.co.uk/images/ipimp4.png
 
 = iPhone interface to !MediaPortal =
 
