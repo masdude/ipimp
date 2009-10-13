@@ -1,5 +1,6 @@
 var Headline_font
-
+var unmsg
+  
 var TVService
 var ServerPath
 var ClientPath
@@ -31,5 +32,13 @@ var IPAddress
 var LogoPath
 var TVPath
 var Listen
+
+var Delete
+var TranscodeNow
+var TranscodeTime
+var VideoBitrate
+var AudioBitrate
+var MP4Path
+
 
 
