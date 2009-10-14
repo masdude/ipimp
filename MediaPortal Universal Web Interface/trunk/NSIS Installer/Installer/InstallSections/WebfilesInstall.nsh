@@ -17,5 +17,11 @@ Section InstallWebFiles
 
   !include "InstallSections\Webfiles.nsh"
   
+  SetOutPath "$INSTDIR\Aspx"
+  File "..\Include\Website\web.config"
+
+  SetOutPath "$INSTDIR\Aspx\App_Data"
+  File "..\Include\Database\uWiMP.db"
+    
 SectionEnd
 
