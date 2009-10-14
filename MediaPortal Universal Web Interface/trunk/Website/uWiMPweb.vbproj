@@ -97,6 +97,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\uWiMPStrings.nl-NL.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.de-DE.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.en-GB.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.en-GB.resx</DependentUpon>
+    </Compile>
     <Compile Include="Code\Misc\MPClientClasses.vb" />
     <Compile Include="Code\Misc\MPClientDatabase.vb" />
     <Compile Include="Code\Misc\MPClientRemoting.vb" />
@@ -1027,6 +1042,18 @@
     <Content Include="iPhone\WebApp\Img\menos.png" />
     <Content Include="iPhone\WebApp\Img\more.png" />
     <Content Include="iPhone\WebApp\Img\next.png" />
+    <Content Include="App_GlobalResources\uWiMPStrings.en-GB.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.en-GB.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.de-DE.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.de-DE.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.nl-NL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.nl-NL.designer.vb</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
