@@ -21,6 +21,8 @@
 ;
 !include "Macros\Language.nsh"
 !include "Macros\CheckMPVersions.nsh"
+!include "Macros\RemoveFilesAndFolders.nsh"
+!include "Macros\FileManagement.nsh"
 
 ;
 ; NSIS functions
@@ -47,8 +49,45 @@
 !define MUI_ICON "..\icons\iPiMP.ico"
 !define MUI_UNICON "..\icons\uniPiMP.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "Images\iPiMPinstall.bmp"
-
 !insertmacro LANG_LOAD "English"
+
+;
+; Setup pages
+;
+!include "WelcomeSections\Welcome.nsh"
+;!insertmacro MUI_PAGE_LICENSE "GPL3.txt"
+;!include "WelcomeSections\Licence.nsh"
+!include "WelcomeSections\SimpleInstall.nsh"
+!include "WelcomeSections\AdvancedInstall.nsh"
+!include "WelcomeSections\ApacheOptions.nsh"
+!include "WelcomeSections\TranscodeOptions.nsh"
+!include "WelcomeSections\InstallLocation.nsh"
+
+;
+; Installation
+;
+!insertmacro MUI_PAGE_INSTFILES
+!include "InstallSections\CheckPrevious.nsh"
+!include "InstallSections\ApacheInstall.nsh"
+!include "InstallSections\ApacheModAspNet.nsh"
+!include "InstallSections\WebfilesInstall.nsh"
+!include "InstallSections\ApacheService.nsh"
+!include "InstallSections\TVServerPlugin.nsh"
+!include "InstallSections\MPClientPlugin.nsh"
+!include "InstallSections\AdditionalIcons.nsh"
+!include "InstallSections\PostInstall.nsh"
+
+;
+;
+; UnInstallation
+;
+!include "UnInstallSections\UnMPClientPlugin.nsh"
+!include "UnInstallSections\UnTVServerPlugin.nsh"
+!include "UnInstallSections\UnApacheService.nsh"
+!include "UnInstallSections\UnWebfilesInstall.nsh"
+!include "UnInstallSections\UnApacheModAspNet.nsh"
+!include "UninstallSections\UnApacheInstall.nsh"
+!include "UninstallSections\Uninstall.nsh"
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "${PRODUCT_NAME}_${PRODUCT_VERSION}_setup.exe"
@@ -57,22 +96,3 @@ InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
 BrandingText "$(STRING_BRANDING)"
-
-;-------------
-; Setup pages
-;-------------
-!include "WelcomeSections\Welcome.nsh"
-!include "WelcomeSections\SimpleInstall.nsh"
-!include "WelcomeSections\AdvancedInstall.nsh"
-!include "WelcomeSections\ApacheOptions.nsh"
-
-;!insertmacro MUI_PAGE_INSTFILES
-
-Section -AdditionalIcons
-  SetOutPath $INSTDIR
-
-  WriteIniStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
-  CreateDirectory "$SMPROGRAMS\iPiMP"
-  CreateShortCut "$SMPROGRAMS\iPiMP\Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
-  CreateShortCut "$SMPROGRAMS\iPiMP\Uninstall.lnk" "$INSTDIR\uninst.exe"
-SectionEnd
