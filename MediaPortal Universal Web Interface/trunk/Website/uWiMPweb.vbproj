@@ -962,11 +962,11 @@
       <DependentUpon>ServiceStatus.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="My Project\AssemblyInfo_temp.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
       <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
       <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
@@ -1307,6 +1307,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PreBuildEvent>C:\Program Files\TortoiseSVN\bin\subwcrev.exe $(ProjectDir). $(ProjectDir)Properties\AssemblyInfo_temp.vb $(ProjectDir)Properties\AssemblyInfo.vb</PreBuildEvent>
+    <PreBuildEvent>"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "$(SolutionDir)Website" "$(ProjectDir)My Project\AssemblyInfo_temp.vb" "$(ProjectDir)My Project\AssemblyInfo.vb"</PreBuildEvent>
   </PropertyGroup>
 </Project>
