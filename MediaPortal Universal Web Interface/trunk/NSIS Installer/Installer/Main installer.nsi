@@ -90,7 +90,7 @@
 !include "UninstallSections\Uninstall.nsh"
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "${PRODUCT_NAME}_${PRODUCT_VERSION}_setup.exe"
+OutFile "..\${PRODUCT_NAME}_${PRODUCT_VERSION}_setup.exe"
 InstallDir "$PROGRAMFILES\${PRODUCT_NAME}"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
