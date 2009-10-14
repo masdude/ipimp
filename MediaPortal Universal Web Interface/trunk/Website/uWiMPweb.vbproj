@@ -1237,6 +1237,7 @@
     <Content Include="iPhone\TVServer\ServiceActionResult.aspx" />
     <Content Include="iPhone\TVServer\ServiceStatus.aspx" />
     <Content Include="iPhone\Web.config" />
+    <Content Include="iPhone\WebApp\Design\Img\button-orange.png" />
     <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x1.png" />
     <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x10.png" />
     <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x11.png" />
