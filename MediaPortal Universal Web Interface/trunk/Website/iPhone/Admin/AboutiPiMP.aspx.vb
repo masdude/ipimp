@@ -88,11 +88,15 @@ Partial Public Class AboutiPiMP
         markup += "<br><br>"
         markup += "<small>"
         markup += "Developed by Cheezey."
-        markup += "<br><br>"
-        markup += "Translations by him, him, him & him."
+        markup += "<br>"
+        markup += "Dutch translation by minvis."
+        markup += "<br>"
+        markup += "German translation by rhartinger."
         markup += "<br><br>"
         markup += String.Format("You are running version <b>{0}</b>", uWiMP.TVServer.Utilities.GetAppConfig("VERSION"))
         markup += "</small>"
+        markup += "<br>"
+        markup += "<a href=""http://www.visualsvn.com/""><img src=""http://www.visualsvn.com/images/VisualSVN_125x37.gif"" alt=""Powered by VisualSVN!"" /></a>"
         markup += "</center>"
         markup += "</div>"
 
