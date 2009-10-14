@@ -1,8 +1,6 @@
 ;
 ; iPiMP installer - built with NSIS 2.45
 ;
-; version 4.0.0
-;
 
 ;
 ; Custom definitions
