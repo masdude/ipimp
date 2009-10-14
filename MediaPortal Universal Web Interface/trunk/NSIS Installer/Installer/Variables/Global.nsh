@@ -40,5 +40,7 @@ var VideoBitrate
 var AudioBitrate
 var MP4Path
 
+var ApachPath
+var AspxPath
 
 
