@@ -28,7 +28,7 @@
 ; NSIS functions
 ;
 !include "MUI.nsh"
-;!include "TextReplace.nsh"
+!include "TextReplace.nsh"
 !include "WordFunc.nsh"
 !include "Sections.nsh"
 !include "LogicLib.nsh"
@@ -41,6 +41,8 @@
 ;
 !include "Functions\ValidateIP.nsh"
 !include "Functions\Initialisation.nsh"
+!include "Functions\StrSlash.nsh"
+!include "Functions\IsPortOpen.nsh"
 
 ;
 ; MUI Settings
@@ -71,6 +73,7 @@
 !include "InstallSections\ApacheInstall.nsh"
 !include "InstallSections\ApacheModAspNet.nsh"
 !include "InstallSections\WebfilesInstall.nsh"
+!include "InstallSections\UpdateConfig.nsh"
 !include "InstallSections\ApacheService.nsh"
 !include "InstallSections\TVServerPlugin.nsh"
 !include "InstallSections\MPClientPlugin.nsh"
