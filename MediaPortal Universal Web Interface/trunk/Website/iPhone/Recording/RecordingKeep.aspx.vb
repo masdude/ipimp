@@ -84,12 +84,12 @@ Partial Public Class RecordingKeep
         markup += String.Format("<h3>{0}</h3>", recording.Title)
         markup += String.Format("<h3>{0}</h3>", recording.StartTime)
         markup += "<ul class=""iArrow"">"
-        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, uWiMP.TVServer.Recordings.KeepType.UntilWatched, GetGlobalResourceObject("uWiMPStrings", "keep_until_watched"))
-        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, uWiMP.TVServer.Recordings.KeepType.UntilSpaceNeeded, GetGlobalResourceObject("uWiMPStrings", "keep_until_space_needed"))
-        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, uWiMP.TVServer.Recordings.KeepType.Always, GetGlobalResourceObject("uWiMPStrings", "keep_always"))
-        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, uWiMP.TVServer.Recordings.KeepType.OneWeek, GetGlobalResourceObject("uWiMPStrings", "keep_for_one_week"))
-        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, uWiMP.TVServer.Recordings.KeepType.OneMonth, GetGlobalResourceObject("uWiMPStrings", "keep_for_one_month"))
-        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, uWiMP.TVServer.Recordings.KeepType.OneYear, GetGlobalResourceObject("uWiMPStrings", "keep_for_one_year"))
+        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, CInt(uWiMP.TVServer.Recordings.KeepType.UntilWatched), GetGlobalResourceObject("uWiMPStrings", "keep_until_watched"))
+        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, CInt(uWiMP.TVServer.Recordings.KeepType.UntilSpaceNeeded), GetGlobalResourceObject("uWiMPStrings", "keep_until_space_needed"))
+        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, CInt(uWiMP.TVServer.Recordings.KeepType.Always), GetGlobalResourceObject("uWiMPStrings", "keep_always"))
+        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, CInt(uWiMP.TVServer.Recordings.KeepType.OneWeek), GetGlobalResourceObject("uWiMPStrings", "keep_for_one_week"))
+        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, CInt(uWiMP.TVServer.Recordings.KeepType.OneMonth), GetGlobalResourceObject("uWiMPStrings", "keep_for_one_month"))
+        markup += String.Format("<li><a href=""Recording/RecordingKeepResult.aspx?id={0}&keep={1}#_Keep{1}Rec{0}"" rev=""async"">{2}</a></li>", recordingID, CInt(uWiMP.TVServer.Recordings.KeepType.OneYear), GetGlobalResourceObject("uWiMPStrings", "keep_for_one_year"))
         markup += "</ul>"
         markup += "</div>"
 

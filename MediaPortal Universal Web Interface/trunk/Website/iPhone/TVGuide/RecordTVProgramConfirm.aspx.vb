@@ -30,7 +30,7 @@ Partial Public Class RecordTVProgramConfirm
 
         Dim programID As String = Request.QueryString("program")
         Dim wa As String = "waRecordProgramConfirm" & programID
-        Dim recType As String = Request.QueryString("rectype")
+        Dim recType As Integer = CInt(Request.QueryString("rectype"))
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -76,19 +76,19 @@ Partial Public Class RecordTVProgramConfirm
 
     End Sub
 
-    Private Function RecordProgram(ByVal wa As String, ByVal programID As String, ByVal recType As String) As String
+    Private Function RecordProgram(ByVal wa As String, ByVal programID As String, ByVal recType As Integer) As String
 
         Dim program As Program = uWiMP.TVServer.Programs.GetProgramByProgramId(CInt(programID))
         Dim markup As String = String.Empty
 
         markup += "<div class=""iMenu"" id=""" & wa & """>"
         markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "recording"))
-        markup += String.Format("<h3>{0}</h3>", Program.Title)
-        markup += String.Format("<h3>{0}</h3>", Program.StartTime)
+        markup += String.Format("<h3>{0}</h3>", program.Title)
+        markup += String.Format("<h3>{0}</h3>", program.StartTime)
 
         markup += "<ul class=""iArrow"">"
 
-        If uWiMP.TVServer.Recordings.RecordProgramById(CInt(programID), CInt(recType)) = True Then
+        If uWiMP.TVServer.Recordings.RecordProgramById(CInt(programID), recType) = True Then
             markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "recording_add_success"))
         Else
             markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "recording_add_fail"))
