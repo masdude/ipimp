@@ -2,11 +2,11 @@
 
 == Frequently asked questions ==
 
- # Does iPiMP stream live TV?
+ 1. Does iPiMP stream live TV?
  Not yet, but a solution isn't too far away, using the great work done by Valk & GemX on their respective plugins, it won't be too much additional work to get on demand streaming into iPiMP.
 
- # What browsers does iPiMP support?
+ 2. What browsers does iPiMP support?
  iPiMP uses [http://webapp-net.com/ WebApp.Net] which is a Micro framework developed for the iPhone/iPod touch. These devices use Apple's mobile safari which is a webkit based browser.  As such other webkit based browsers work very well with iPiMP. Check [http://en.wikipedia.org/wiki/List_of_web_browsers#WebKit-based_browsers Wikipedia] out for a list of webkit based browsers.
 
-# What about desktop browsers (IE or Firefox)?
+ *3. What about desktop browsers (IE or Firefox)?*
  iPiMP is usable in Firefox but just doesn't work with IE.  The code is ready to expand to develop a web front end for non webkit browsers, it's just a matter time & resource.
