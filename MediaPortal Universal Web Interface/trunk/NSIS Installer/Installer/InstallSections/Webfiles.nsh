@@ -238,6 +238,7 @@
   File "..\Include\Aspx\iPhone\TVServer\ServiceActionConfirm.aspx"
   File "..\Include\Aspx\iPhone\TVServer\ServiceActionResult.aspx"
   File "..\Include\Aspx\iPhone\TVServer\ServiceStatus.aspx"
+  File "..\Include\Aspx\iPhone\TVServer\TranscodeStatus.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\WebApp"
 
