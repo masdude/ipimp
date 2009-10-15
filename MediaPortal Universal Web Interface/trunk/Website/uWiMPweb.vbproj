@@ -1069,7 +1069,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="apple-touch-icon.png" />
     <Content Include="DefaultLogin.aspx" />
     <Content Include="Desktop\Default.aspx" />
     <Content Include="Desktop\Desktop.Master" />
