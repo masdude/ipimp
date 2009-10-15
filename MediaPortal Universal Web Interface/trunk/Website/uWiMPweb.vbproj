@@ -1069,6 +1069,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="apple-touch-icon.png" />
     <Content Include="DefaultLogin.aspx" />
     <Content Include="Desktop\Default.aspx" />
     <Content Include="Desktop\Desktop.Master" />
@@ -1107,6 +1108,8 @@
     <Content Include="images\remote\right.png" />
     <Content Include="images\remote\skip.png" />
     <Content Include="iPhone\Admin\ManageSettingsResult.aspx" />
+    <Content Include="iPhone\images\apple-touch-icon.png" />
+    <Content Include="iPhone\images\apple-touch-startup.png" />
     <Content Include="iPhone\Recording\RecordingTranscodeResult.aspx" />
     <Content Include="iPhone\Scripts\smbtnblue.png" />
     <Content Include="images\remote\stop.png" />
