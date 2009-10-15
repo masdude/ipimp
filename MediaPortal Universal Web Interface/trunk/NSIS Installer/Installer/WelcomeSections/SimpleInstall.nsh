@@ -191,6 +191,7 @@ Function SimpleInstallValidate
                 StrCpy $InstalliPiMPTVplugin "1"
                 StrCpy $InstalliPiMPMPplugin "1"
                 StrCpy $InstallNoTVServer "0"
+                StrCpy $InstallNoMPClient "0"
                 StrCpy $p2Selection "1"
         ${EndIf}
 
@@ -201,6 +202,7 @@ Function SimpleInstallValidate
                 StrCpy $InstalliPiMPTVplugin "1"
                 StrCpy $InstalliPiMPMPplugin "0"
                 StrCpy $InstallNoTVServer "0"
+                StrCpy $InstallNoMPClient "1"
                 StrCpy $p2Selection "2"
         ${EndIf}
 
@@ -211,6 +213,7 @@ Function SimpleInstallValidate
                 StrCpy $InstalliPiMPTVplugin "0"
                 StrCpy $InstalliPiMPMPplugin "1"
                 StrCpy $InstallNoTVServer "1"
+                StrCpy $InstallNoMPClient "0"
                 StrCpy $p2Selection "3"
         ${EndIf}
 
@@ -221,6 +224,7 @@ Function SimpleInstallValidate
                 StrCpy $InstalliPiMPTVplugin "0"
                 StrCpy $InstalliPiMPMPplugin "1"
                 StrCpy $InstallNoTVServer "1"
+                StrCpy $InstallNoMPClient "0"
                 StrCpy $p2Selection "4"
         ${EndIf}
 

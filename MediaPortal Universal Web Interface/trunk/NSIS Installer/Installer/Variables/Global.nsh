@@ -24,6 +24,7 @@ var InstalliPiMPWeb
 var InstalliPiMPTVplugin
 var InstalliPiMPMPplugin
 var InstallNoTVServer
+var InstallNoMPClient
 
 var Timeout
 var Pagesize
