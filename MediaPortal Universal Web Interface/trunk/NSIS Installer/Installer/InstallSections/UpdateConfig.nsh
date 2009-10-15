@@ -14,19 +14,19 @@ Section UpdateConfig
   ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##VERSION##" "${PRODUCT_VERSION}" "/S=1 /C=0 /AO=1" $0
   ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##PAGESIZE##" "$Pagesize" "/S=1 /C=0 /AO=1" $0
   
-  ${If} $InstallNoTVServer = "1"
+  ${If} $InstallNoTVServer = "0"
     ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##TVSERVER##" "true" "/S=1 /C=0 /AO=1" $0
   ${EndIf}
   
-  ${If} $InstallNoTVServer = "0"
+  ${If} $InstallNoTVServer = "1"
     ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##TVSERVER##" "false" "/S=1 /C=0 /AO=1" $0
   ${EndIf}
   
-  ${If} $InstallNoMPClient = "1"
+  ${If} $InstallNoMPClient = "0"
     ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##MPCLIENT##" "true" "/S=1 /C=0 /AO=1" $0
   ${EndIf}
 
-  ${If} $InstallNoMPClient = "0"
+  ${If} $InstallNoMPClient = "1"
     ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##MPCLIENT##" "false" "/S=1 /C=0 /AO=1" $0
   ${EndIf}
 
