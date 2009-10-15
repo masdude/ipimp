@@ -126,6 +126,8 @@
   File "..\Include\Aspx\iPhone\Admin\UserManagementMenu.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\images"
+  File "..\Include\Aspx\iPhone\images\apple-touch-icon.png"
+  File "..\Include\Aspx\iPhone\images\apple-touch-startup.png"
   File "..\Include\Aspx\iPhone\images\iPiMP logo.png"
   File "..\Include\Aspx\iPhone\images\iPiMP.gif"
   File "..\Include\Aspx\iPhone\images\loader.gif"
@@ -324,5 +326,3 @@
   File "..\Include\Aspx\iPhone\WebApp\Img\more.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\next.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\up.png"
-
-  SetOutPath "$INSTDIR\Aspx\My Project"
