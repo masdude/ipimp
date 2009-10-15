@@ -8,6 +8,9 @@
   SetOutPath "$INSTDIR\Aspx\App_Data"
 
   SetOutPath "$INSTDIR\Aspx\App_GlobalResources"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.de-DE.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.en-GB.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.nl-NL.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.resx"
 
   SetOutPath "$INSTDIR\Aspx\bin"
@@ -28,7 +31,7 @@
   File "..\Include\Aspx\bin\uWiMPweb.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.xml"
 
-  SetOutPath "$INSTDIR\Aspx\bin\debug"
+  SetOutPath "$INSTDIR\Aspx\bin\Release"
 
   SetOutPath "$INSTDIR\Aspx\Code"
 
@@ -267,6 +270,7 @@
   File "..\Include\Aspx\iPhone\WebApp\Design\Img\button-bg.png"
   File "..\Include\Aspx\iPhone\WebApp\Design\Img\button-blue.png"
   File "..\Include\Aspx\iPhone\WebApp\Design\Img\button-light.png"
+  File "..\Include\Aspx\iPhone\WebApp\Design\Img\button-orange.png"
   File "..\Include\Aspx\iPhone\WebApp\Design\Img\button-red.png"
   File "..\Include\Aspx\iPhone\WebApp\Design\Img\button-simple-touch.png"
   File "..\Include\Aspx\iPhone\WebApp\Design\Img\button-simple.png"
@@ -319,3 +323,5 @@
   File "..\Include\Aspx\iPhone\WebApp\Img\more.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\next.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\up.png"
+
+  SetOutPath "$INSTDIR\Aspx\My Project"

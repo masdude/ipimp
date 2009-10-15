@@ -32,7 +32,7 @@ Function ApacheOptions
 	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${SS_BITMAP} 0 0 0 109u 193u ""
 	Pop $p4ImageControl
 
-	StrCpy $0 "Images\iPiMPapache.bmp"
+	StrCpy $0 $PLUGINSDIR\ipimpapache.bmp
 	System::Call 'user32::LoadImage(i 0, t r0, i ${IMAGE_BITMAP}, i 0, i 0, i ${LR_LOADFROMFILE}) i.s'
 	Pop $p4Image
 

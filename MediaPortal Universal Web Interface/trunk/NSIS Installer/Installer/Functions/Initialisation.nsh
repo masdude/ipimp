@@ -2,6 +2,10 @@ Function .onInit
 
   InitPluginsDir
   CreateFont $Headline_font "Tahoma" "14" "700"
+  File /oname=$PLUGINSDIR\ipimp.bmp "Images\iPiMPinstall.bmp"
+  File /oname=$PLUGINSDIR\ipimpapache.bmp "Images\iPiMPapache.bmp"
+  File /oname=$PLUGINSDIR\ipimpgeek.bmp "Images\iPiMPgeek.bmp"
+  File /oname=$PLUGINSDIR\GPL3.txt "GPL3.txt"
 
   ReadRegStr $ServerPath HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\MediaPortal TV Server" "InstallPath"
   ReadRegStr $TVServerMaj HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\MediaPortal TV Server" "VersionMajor"
