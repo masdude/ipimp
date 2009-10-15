@@ -1,8 +1,6 @@
 #summary Frequently Asked Questions
 #labels Featured
 
-== Frequently asked questions ==
-
  * *Does iPiMP stream live TV*?
  Not yet, but a solution isn't too far away, using the great work done by Valk & GemX on their respective plugins, it won't be too much additional work to get on demand streaming into iPiMP.
  * *What browsers does iPiMP support*?
