@@ -29,7 +29,7 @@ Partial Public Class RecordingKeepResult
         Response.ContentEncoding = Encoding.UTF8
 
         Dim recordingID As String = Request.QueryString("id")
-        Dim keep As String = Request.QueryString("keep")
+        Dim keep As Integer = CInt(Request.QueryString("keep"))
         Dim wa As String = String.Format("waKeep{0}Rec{0}", keep, recordingID)
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
@@ -76,7 +76,7 @@ Partial Public Class RecordingKeepResult
 
     End Sub
 
-    Private Function DisplayKeepRecordingResult(ByVal wa As String, ByVal recordingID As String, ByVal keep As String) As String
+    Private Function DisplayKeepRecordingResult(ByVal wa As String, ByVal recordingID As String, ByVal keep As Integer) As String
 
         Dim markup As String = String.Empty
         Dim recording As Recording = uWiMP.TVServer.Recordings.GetRecordingById(CInt(recordingID))
@@ -86,7 +86,7 @@ Partial Public Class RecordingKeepResult
         markup += String.Format("<h3>{0}</h3>", recording.StartTime)
         markup += "<ul class=""iArrow"">"
 
-        If uWiMP.TVServer.Recordings.KeepRecordingById(CInt(recordingID), CInt(keep)) = True Then
+        If uWiMP.TVServer.Recordings.KeepRecordingById(CInt(recordingID), keep) = True Then
             markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "recording_keep_success"))
         Else
             markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "recording_keep_fail"))
