@@ -83,14 +83,27 @@ Partial Public Class MPClientMainMenu
 
         Dim clients As List(Of Client) = uWiMP.TVServer.MPClientDatabase.GetClients
 
-        If (User.IsInRole("remoter")) And (clients.Count > 0) Then
+        If (User.IsInRole("remoter")) Then
+            Select Case clients.Count
+                Case 0
+                    markup += "<ul class=""iArrow"">"
+                    markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "no_clients_defined"))
+                    markup += "</ul>"
+                Case 1
+                    Response.Redirect(String.Format("MPClientMenu.aspx?friendly={0}#_MPClient", clients(0).Friendly))
+                Case Else
+                    markup += "<ul class=""iArrow"">"
+                    For Each client As uWiMP.TVServer.MPClient.Client In clients
+                        markup += String.Format("<li><a href=""MPClient/MPClientMenu.aspx?friendly={0}#_MPClient"" rev=""async"">{0}</a></li>", client.Friendly)
+                    Next
+                    markup += "</ul>"
+                    markup += "<ul class=""iArrow"">"
+                    markup += String.Format("<li><a href=""MPClient/MPClientSendMessage.aspx?friendly=all#_MPClientSendMessage"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "send_message_global"))
+                    markup += "</ul>"
+            End Select
+        Else
             markup += "<ul class=""iArrow"">"
-            For Each client As uWiMP.TVServer.MPClient.Client In clients
-                markup += String.Format("<li><a href=""MPClient/MPClientMenu.aspx?friendly={0}#_MPClient"" rev=""async"">{0}</a></li>", client.Friendly)
-            Next
-            markup += "</ul>"
-            markup += "<ul class=""iArrow"">"
-            markup += String.Format("<li><a href=""MPClient/MPClientSendMessage.aspx?friendly=all#_MPClientSendMessage"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "send_message_global"))
+            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "no_access"))
             markup += "</ul>"
         End If
 

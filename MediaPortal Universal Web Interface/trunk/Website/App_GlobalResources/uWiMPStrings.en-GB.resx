@@ -890,4 +890,7 @@
   <data name="transcoding_started" xml:space="preserve">
     <value>Transcoding has started</value>
   </data>
+  <data name="no_access" xml:space="preserve">
+    <value>You have not been granted this role.</value>
+  </data>
 </root>
