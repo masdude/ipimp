@@ -19,7 +19,7 @@ Function Licence
         nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${SS_BITMAP} 0 0 0 109u 193u ""
 	Pop $LicenceImageControl
 
-	StrCpy $0 "Images\iPiMPinstall.bmp"
+	StrCpy $0 $PLUGINSDIR\ipimp.bmp
 	System::Call 'user32::LoadImage(i 0, t r0, i ${IMAGE_BITMAP}, i 0, i 0, i ${LR_LOADFROMFILE}) i.s'
 	Pop $LicenceImage
 
@@ -33,7 +33,7 @@ Function Licence
         nsDialogs::CreateControl /NOUNLOAD RichEdit20A   ${WS_VISIBLE}|${WS_CHILD}|${WS_TABSTOP}|${WS_VSCROLL}|${ES_MULTILINE}|${ES_WANTRETURN}|${ES_READONLY} ${WS_EX_STATICEDGE} 120u 40u 200u 150u ''
         Pop $RICHEDIT
 
-        System::Call 'kernel32::CreateFile(t "GPL3.txt", i 0x80000000, i 1, i 0, i 3, i 0, i 0) i .r0'
+        System::Call 'kernel32::CreateFile(t "$PLUGINSDIR\GPL3.txt", i 0x80000000, i 1, i 0, i 3, i 0, i 0) i .r0'
         System::Call 'kernel32::GetFileSize(i r0, i 0) i .r1'
         System::Alloc $1
         Pop $2

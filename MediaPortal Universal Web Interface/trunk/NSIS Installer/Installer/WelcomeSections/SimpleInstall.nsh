@@ -29,7 +29,7 @@ Function SimpleInstall
 	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS}|${SS_BITMAP} 0 0 0 109u 193u ""
 	Pop $p2ImageControl
 
-	StrCpy $0 "Images\iPiMPinstall.bmp"
+	StrCpy $0 $PLUGINSDIR\ipimp.bmp
 	System::Call 'user32::LoadImage(i 0, t r0, i ${IMAGE_BITMAP}, i 0, i 0, i ${LR_LOADFROMFILE}) i.s'
 	Pop $p2Image
 

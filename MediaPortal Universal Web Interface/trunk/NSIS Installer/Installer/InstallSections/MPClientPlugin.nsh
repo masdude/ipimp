@@ -11,8 +11,8 @@ Section MPClientPlugin
   SetOverwrite TRY
 
   SetOutPath "$ClientPath\plugins\process"
-  File "..\..\MPClientController\bin\Release\MPClientController.dll"
-  File "..\..\MPClientController\bin\Release\Jayrock.Json.dll"
+  File "..\..\MPClientController\bin\Debug\MPClientController.dll"
+  File "..\..\MPClientController\bin\Debug\Jayrock.Json.dll"
 
   SetOutPath "$ClientPath\InputDeviceMappings\defaults"
   File "..\Include\Remote\iPiMP.xml"

@@ -11,14 +11,14 @@ Section TVServerPlugin
   SetOverwrite TRY
 
   SetOutPath "$INSTDIR\Utilities"
-  ;File "..\Include\Utilities\ffmpeg.exe"
+  File "..\Include\Utilities\ffmpeg.exe"
 
   SetOutPath "$ServerPath"
-  File "..\..\iPiMPConfigurePlugin\bin\iPiMPConfigurePlugin.exe"
-  File "..\..\iPiMPTranscodeClient\bin\iPiMPTranscodeClient.exe"
+  File "..\..\iPiMPConfigurePlugin\bin\Debug\iPiMPConfigurePlugin.exe"
+  File "..\..\iPiMPTranscodeClient\bin\Debug\iPiMPTranscodeClient.exe"
 
   SetOutPath "$ServerPath\Plugins"
-  File "..\..\iPiMPTranscodeToMP4\bin\iPiMPTranscodeToMP4.dll"
+  File "..\..\iPiMPTranscodeToMP4\bin\Debug\iPiMPTranscodeToMP4.dll"
 
   CreateShortCut "$SMPROGRAMS\iPiMP\iPiMPTranscodeClient.lnk" "$ServerPath\iPiMPTranscodeClient.exe"
 
