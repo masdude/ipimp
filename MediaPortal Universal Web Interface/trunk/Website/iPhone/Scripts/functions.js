@@ -127,13 +127,12 @@ function playtracks(wadiv, friendly, filter) {
     return false;
 }
 
-
 function musicsearch(friendly) {
     var artist = document.getElementById('jsMusicSearchArtist').value;
     var album = document.getElementById('jsMusicSearchAlbum').value;
     var track = document.getElementById('jsMusicSearchTrack').value;
     var genre = document.getElementById('jsMusicSearchGenre').value;
-    WA.Request('MPClient/MyMusicListTracksForSearch.aspx?friendly=' + friendly + '&search=' + artist + ',' + album + ',' + track + ',' + genre + '&start=0#_MyMusicSearchResults', null, -1, true, null);
+    WA.Request('MPClient/MyMusicListTracksForSearch.aspx?friendly=' + friendly + '&search=' + escape(artist + ',' + album + ',' + track + ',' + genre) + '&start=0#_MyMusicSearchResults', null, -1, true, null);
     return false;
 }
 

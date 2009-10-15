@@ -48,9 +48,9 @@ Partial Public Class MyMusicListTracksForSearch
         If start >= pagesize Then
         Else
             'go
-            'xw.WriteStartElement("go")
-            'xw.WriteAttributeString("to", wa)
-            'xw.WriteEndElement()
+            xw.WriteStartElement("go")
+            xw.WriteAttributeString("to", wa)
+            xw.WriteEndElement()
             'end go
 
             'start title
