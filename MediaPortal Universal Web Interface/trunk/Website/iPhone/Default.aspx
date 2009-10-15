@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="WebApp/Design/Render.css" />
     <link rel="Stylesheet" href="Scripts/remote.css" />
     <link rel="Stylesheet" href="Scripts/starbar.css" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="apple-touch-startup-image" href="images/apple-touch-startup.png" />
     <script type="text/javascript" src="WebApp/Action/Logic.js"></script>
     <script type="text/javascript" src="Scripts/functions.js"></script>
 </head>
