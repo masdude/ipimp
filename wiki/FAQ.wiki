@@ -1,5 +1,6 @@
 #summary Frequently Asked Questions
 
-= Frequently asked questions =
+== Frequently asked questions ==
 
  # Does iPiMP stream live TV?
+ No.
