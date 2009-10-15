@@ -15,13 +15,21 @@ Section UpdateConfig
   ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##PAGESIZE##" "$Pagesize" "/S=1 /C=0 /AO=1" $0
   
   ${If} $InstallNoTVServer = "1"
-    ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##NOTVSRV##" "true" "/S=1 /C=0 /AO=1" $0
+    ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##TVSERVER##" "true" "/S=1 /C=0 /AO=1" $0
   ${EndIf}
   
   ${If} $InstallNoTVServer = "0"
-    ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##NOTVSRV##" "false" "/S=1 /C=0 /AO=1" $0
+    ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##TVSERVER##" "false" "/S=1 /C=0 /AO=1" $0
   ${EndIf}
   
+  ${If} $InstallNoMPClient = "1"
+    ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##MPCLIENT##" "true" "/S=1 /C=0 /AO=1" $0
+  ${EndIf}
+
+  ${If} $InstallNoMPClient = "0"
+    ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##MPCLIENT##" "false" "/S=1 /C=0 /AO=1" $0
+  ${EndIf}
+
   ${If} $InstallApache = "0"
     ${If} ${IPIMPDEBUG} == "1"
       MessageBox MB_OK|MB_ICONINFORMATION "UpdateConfig part 2 skipped"
