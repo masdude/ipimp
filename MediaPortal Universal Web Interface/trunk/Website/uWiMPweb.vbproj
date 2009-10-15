@@ -927,6 +927,13 @@
       <DependentUpon>CardActionResult.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="iPhone\TVServer\TranscodeStatus.aspx.designer.vb">
+      <DependentUpon>TranscodeStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\TranscodeStatus.aspx.vb">
+      <DependentUpon>TranscodeStatus.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="iPhone\TVServer\DiskStatus.aspx.designer.vb">
       <DependentUpon>DiskStatus.aspx</DependentUpon>
     </Compile>
@@ -1231,6 +1238,7 @@
     <Content Include="iPhone\TVServer\CardStatusMenu.aspx" />
     <Content Include="iPhone\TVServer\CardActionConfirm.aspx" />
     <Content Include="iPhone\TVServer\CardActionResult.aspx" />
+    <Content Include="iPhone\TVServer\TranscodeStatus.aspx" />
     <Content Include="iPhone\TVServer\DiskStatus.aspx" />
     <Content Include="iPhone\TVServer\MainMenu.aspx" />
     <Content Include="iPhone\TVServer\ServiceActionConfirm.aspx" />
