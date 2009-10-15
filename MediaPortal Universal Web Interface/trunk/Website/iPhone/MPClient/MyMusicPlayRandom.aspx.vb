@@ -95,7 +95,7 @@ Partial Public Class MyMusicPlayRandom
         markup += "<ul class=""iArrow"">"
 
         If success Then
-            markup += String.Format("<li><a href=""MPClient/MPClientRemoteControl.aspx?friendly={0}#_MPClientRemote1"" rev=""async"">{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "remote_control"))
+            markup += String.Format("<li><a href=""MPClient/MCERemoteControl.aspx?friendly={0}#_Remote1"" rev=""async"">{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "remote_control"))
             markup += String.Format("<li><a href=""MPClient/MyMusicSavePlaylist.aspx?friendly={0}#_MyMusicSavePlaylist"" rev=""async"">{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "save_playlist"))
         Else
             markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "could_not_start_music"))
