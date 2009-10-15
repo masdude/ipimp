@@ -70,11 +70,11 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,4 +121,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PreBuildEvent>"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "$(SolutionDir)iPiMPTranscodeClient" "$(ProjectDir)My Project\AssemblyInfo_temp.vb" "$(ProjectDir)My Project\AssemblyInfo.vb"</PreBuildEvent>
+  </PropertyGroup>
 </Project>

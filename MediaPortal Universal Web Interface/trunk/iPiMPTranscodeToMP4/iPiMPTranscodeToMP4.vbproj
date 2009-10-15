@@ -80,11 +80,11 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="iPiMPTranscodeToMP4.vb" />
-    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,4 +130,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PreBuildEvent>"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "$(SolutionDir)iPiMPTranscodeToMP4" "$(ProjectDir)My Project\AssemblyInfo_temp.vb" "$(ProjectDir)My Project\AssemblyInfo.vb"
+
+COPY /Y "$(SolutionDir)NSIS Installer\Installer\InstallSections\TVServerPlugin_$(ConfigurationName).nsh" "$(SolutionDir)NSIS Installer\Installer\InstallSections\TVServerPlugin.nsh"</PreBuildEvent>
+  </PropertyGroup>
 </Project>
