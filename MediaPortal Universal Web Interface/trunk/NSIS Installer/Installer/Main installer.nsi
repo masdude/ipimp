@@ -56,7 +56,7 @@
 ;
 !include "WelcomeSections\Welcome.nsh"
 ;!insertmacro MUI_PAGE_LICENSE "GPL3.txt"
-;!include "WelcomeSections\Licence.nsh"
+!include "WelcomeSections\Licence.nsh"
 !include "WelcomeSections\SimpleInstall.nsh"
 !include "WelcomeSections\AdvancedInstall.nsh"
 !include "WelcomeSections\ApacheOptions.nsh"
