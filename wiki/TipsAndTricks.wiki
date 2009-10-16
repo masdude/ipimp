@@ -2,3 +2,6 @@
 
  * *Slider boxes*
  These aren't sliders, they just look like them, so tap - don't slide. :)
+
+ * *Transcoding fails*
+ Only report these issues if transcoding fails when using the DEFAULT iPiMP parameters.  There is a *Default* button on the iPiMPTranscodeToMP4 plugin which can be used to reset these parameters.  More often than not invalid FFMPEG parameters are the issue.
