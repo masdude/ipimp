@@ -11,10 +11,6 @@ Section InstallWebFiles
 
   SetOverwrite TRY
 
-  IfFileExists "$TEMP\uWiMP.db" 0 +3
-    Delete "$INSTDIR\Aspx\App_Data\uWiMP.db"
-    !insertmacro RestoreFile "$INSTDIR\Aspx\App_Data" "uWiMP.db"
-
   !include "InstallSections\Webfiles.nsh"
   
   SetOutPath "$INSTDIR\Aspx"
@@ -22,6 +18,12 @@ Section InstallWebFiles
 
   SetOutPath "$INSTDIR\Aspx\App_Data"
   File "..\Include\Database\uWiMP.db"
+    
+  IfFileExists "$TEMP\uWiMP.db" 0 +5
+    Delete "$INSTDIR\Aspx\App_Data\uWiMP.db"
+    !insertmacro RestoreFile "$INSTDIR\Aspx\App_Data" "uWiMP.db"
+    Delete "$TEMP\uWiMP.db"
+    
     
 SectionEnd
 
