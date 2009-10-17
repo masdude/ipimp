@@ -29,7 +29,7 @@ Function Welcome
 	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 32u 200u 82u "$(STRING_WELCOME_LINE1)"
 	Pop $TEXT
 	
-	${NSD_CreateLink} 120u 120u 200u 8u "$(STRING_WELCOME_LINE2)"
+	${NSD_CreateLink} 120u 120u 200u 16u "$(STRING_WELCOME_LINE2)"
         Pop $LINK
         ${NSD_OnClick} $LINK onClickMyLink
 	
