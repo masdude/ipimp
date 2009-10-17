@@ -1074,6 +1074,7 @@
     <Content Include="Desktop\Desktop.Master" />
     <Content Include="Desktop\scripts\wz_tooltip.js" />
     <Content Include="images\dvd.png" />
+    <Content Include="images\imdb\blankmovie.png" />
     <Content Include="images\music\blankmusic.png" />
     <Content Include="images\radio.png" />
     <Content Include="images\rec.png" />
@@ -1286,7 +1287,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\imdb\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />

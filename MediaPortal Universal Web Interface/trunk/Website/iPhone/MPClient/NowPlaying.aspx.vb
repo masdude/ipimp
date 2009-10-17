@@ -534,10 +534,13 @@ Partial Public Class NowPlaying
 
         If File.Exists(Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg")) Then File.Delete(Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg"))
 
-        SaveVideoImageByUrlToDisk(movie.ThumbURL, Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg"))
-
-        Return String.Format("../../images/imdb/{0}.jpg", movie.IMDBNumber)
-
+        If Not movie.ThumbURL = "" Then
+            SaveVideoImageByUrlToDisk(movie.ThumbURL, Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg"))
+            Return String.Format("../../images/imdb/{0}.jpg", movie.IMDBNumber)
+        Else
+            Return "../../images/imdb/blankmovie.png"
+        End If
+        
     End Function
 
     Private Function SaveMusicImageToDisk(ByVal artist As String, ByVal album As String, ByVal imageString As String) As String

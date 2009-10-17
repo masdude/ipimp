@@ -47,6 +47,7 @@
   File "..\Include\Aspx\images\tv.png"
 
   SetOutPath "$INSTDIR\Aspx\images\imdb"
+  File "..\Include\Aspx\images\imdb\blankmovie.png"
 
   SetOutPath "$INSTDIR\Aspx\images\music"
   File "..\Include\Aspx\images\music\blankmusic.png"
