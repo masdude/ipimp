@@ -46,31 +46,31 @@ Function ApacheOptions
         ${NSD_CreateLabel} 120u 40u 130u 18u "$(STRING_APACHEINSTALL_LINE2)"
 	Pop $p4Label1
         
-	${NSD_CreateText} 255u 40u 36u 12u ""
+	${NSD_CreateText} 280u 40u 40u 12u ""
 	Pop $p4Textbox1
         ${NSD_SetText} $p4Textbox1 $TCPPort
 
-        ${NSD_CreateLabel} 120u 70u 130u 18u "$(STRING_APACHEINSTALL_LINE3)"
+        ${NSD_CreateLabel} 120u 70u 135u 18u "$(STRING_APACHEINSTALL_LINE3)"
 	Pop $p4Label2
 
-	${NSD_CreateText} 255u 70u 63u 12u ""
+	${NSD_CreateText} 255u 70u 65u 12u ""
 	Pop $p4Textbox2
         ${NSD_SetText} $p4Textbox1 $IPAddress
 
-        ${NSD_CreateLabel} 120u 100u 130u 18u "$(STRING_APACHEINSTALL_LINE4)"
+        ${NSD_CreateLabel} 120u 100u 135u 18u "$(STRING_APACHEINSTALL_LINE4)"
 	Pop $p4Label3
 	
         ${NSD_CreateDirRequest} 120u 120u 200u 12u "$LogoPath"
         Pop $p4Directory
         
-        ${NSD_CreateBrowseButton} 255u 100u 40u 14u "Browse..."
+        ${NSD_CreateBrowseButton} 280u 100u 40u 14u "Browse..."
         Pop $p4Button1
         ${NSD_OnClick} $p4Button1 p4OnDirBrowseButton
 
-        ${NSD_CreateLabel} 120u 140u 130u 18u "$(STRING_APACHEINSTALL_LINE5)"
+        ${NSD_CreateLabel} 120u 140u 160u 18u "$(STRING_APACHEINSTALL_LINE5)"
 	Pop $p4Label4
 
-        ${NSD_CreateDropList} 255u 142u 40u 80u ""
+        ${NSD_CreateDropList} 280u 142u 40u 80u ""
         Pop $p4DropList
 
         ${NSD_CB_AddString} $p4DropList "$(STRING_APACHEINSTALL_LINE6)"
@@ -105,10 +105,10 @@ Function ApacheOptions
               ${NSD_CB_SelectString} $p4DropList $Timeout
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 160u 130u 18u "$(STRING_APACHEINSTALL_LINE13)"
+        ${NSD_CreateLabel} 120u 160u 160u 18u "$(STRING_APACHEINSTALL_LINE13)"
 	Pop $p4Label5
 
-        ${NSD_CreateDropList} 255u 162u 40u 80u ""
+        ${NSD_CreateDropList} 280u 162u 40u 80u ""
         Pop $p4DropList2
 
         ${NSD_CB_AddString} $p4DropList2 "5"

@@ -34,7 +34,7 @@
 !insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE11 "MediaPortal Client oder TV Server wird nicht gefunden!"
 !insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE12 "Du mußt eine Installationsvariante auswählen!"
 
-!insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE1 "Fortgeschrittene iPiMP Installation"
+!insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE1 "Fortgeschrittene Installation"
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE2 "Apache version"
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE3 "Apache mod_aspdotnet"
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE4 "iPiMP web files"
@@ -50,9 +50,9 @@
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE14 "Du bist noch nicht so weit voran....$\r$\n$\r$\nDu mußt eine Installations Option auswählen!"
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE15 "Du installierst die iPimp Web Dateien aber nicht den Apache Web Server, das setzt jedoch einen anderen Web Server voraus, der für iPimP konfiguriert werden kann.$\r$\n$\r$\nIst das korret?"
 
-!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE1 "Apache Web Server Einstellungen"
-!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE2 "Den TCP port angeben:$\r$\n(Standard ist Port 80 wenn das Feld leer bleibt)"
-!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE3 "IP Addresse angeben:$\r$\n(Standard sind alle IP Adressen wenn das Feld leer bleibt)"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE1 "Web Server Einstellungen"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE2 "Den TCP port angeben: (Standard ist$\r$\nPort 80 wenn das Feld leer bleibt)"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE3 "IP Addresse angeben: (Standard sind alle$\r$\nIP Adressen wenn das Feld leer bleibt)"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE4 "Den Ordner für die TV logos bestätigen:$\r$\n(Dieser wird im Web Interface verwendet)"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE5 "Einen Timeout für den Login auswählen:$\r$\n(Nach dieser Zeitspanne muß man sich neu einloggen)"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE6 "30 min"

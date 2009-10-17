@@ -41,7 +41,7 @@ Function AdvancedInstall
 
 	SendMessage $p3Headline ${WM_SETFONT} $Headline_font 0
 
-	${NSD_CreateCheckbox} 120u 40u 120u 8u "$(STRING_ADVANCEDINSTALL_LINE2) ${APACHE_VERSION}"
+	${NSD_CreateCheckbox} 120u 40u 160u 8u "$(STRING_ADVANCEDINSTALL_LINE2) ${APACHE_VERSION}"
 	Pop $p3Checkbox1
         ${If} $InstallApache == "1"
               ${NSD_Check} $p3Checkbox1
@@ -50,7 +50,7 @@ Function AdvancedInstall
 	GetFunctionAddress $0 Onp3Checkbox1
 	nsDialogs::OnClick $p3Checkbox1 $0
 
-	${NSD_CreateCheckbox} 120u 50u 120u 8u "$(STRING_ADVANCEDINSTALL_LINE3)"
+	${NSD_CreateCheckbox} 120u 50u 160u 8u "$(STRING_ADVANCEDINSTALL_LINE3)"
 	Pop $p3Checkbox2
         ${If} $InstallModAspNet == "1"
               ${NSD_Check} $p3Checkbox2
@@ -58,7 +58,7 @@ Function AdvancedInstall
 	GetFunctionAddress $0 Onp3Checkbox2
 	nsDialogs::OnClick $p3Checkbox2 $0
 
-	${NSD_CreateCheckbox} 120u 60u 120u 8u "$(STRING_ADVANCEDINSTALL_LINE4)"
+	${NSD_CreateCheckbox} 120u 60u 160u 8u "$(STRING_ADVANCEDINSTALL_LINE4)"
 	Pop $p3Checkbox3
         ${If} $InstalliPiMPWeb == "1"
               ${NSD_Check} $p3Checkbox3
@@ -66,7 +66,7 @@ Function AdvancedInstall
 	GetFunctionAddress $0 Onp3Checkbox3
 	nsDialogs::OnClick $p3Checkbox3 $0
 
-	${NSD_CreateCheckbox} 120u 70u 120u 8u "$(STRING_ADVANCEDINSTALL_LINE5)"
+	${NSD_CreateCheckbox} 120u 70u 160u 8u "$(STRING_ADVANCEDINSTALL_LINE5)"
 	Pop $p3Checkbox4
         ${If} $InstalliPiMPTVplugin == "1"
               ${NSD_Check} $p3Checkbox4
@@ -82,7 +82,7 @@ Function AdvancedInstall
 	GetFunctionAddress $0 Onp3Checkbox5
 	nsDialogs::OnClick $p3Checkbox5 $0
 
-	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 120u 180u 60u "$(STRING_ADVANCEDINSTALL_LINE7)"
+	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 120u 190u 70u "$(STRING_ADVANCEDINSTALL_LINE7)"
 	Pop $p3Text1
 
 	SetCtlColors $p3Dialog "" 0xffffff

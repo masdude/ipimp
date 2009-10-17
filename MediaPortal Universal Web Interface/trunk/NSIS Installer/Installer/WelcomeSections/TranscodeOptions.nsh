@@ -41,15 +41,15 @@ Function TranscodeOptions
 
 	SendMessage $p5ImageControl ${STM_SETIMAGE} ${IMAGE_BITMAP} $p5Image
 
-	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -130u 20u "$(STRING_TVPLUGININSTALL_LINE1)"
+	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -130u 30u "$(STRING_TVPLUGININSTALL_LINE1)"
 	Pop $p5Headline
 
 	SendMessage $p5Headline ${WM_SETFONT} $Headline_font 0
 
-        ${NSD_CreateLabel} 120u 40u 130u 18u "$(STRING_TVPLUGININSTALL_LINE2)"
+        ${NSD_CreateLabel} 120u 40u 150u 18u "$(STRING_TVPLUGININSTALL_LINE2)"
 	Pop $p5Label6
 
-        ${NSD_CreateDropList} 255u 40u 40u 80u ""
+        ${NSD_CreateDropList} 280u 40u 40u 80u ""
         Pop $p5DropList6
 
         ${NSD_CB_AddString} $p5DropList6 "$(STRING_YES)"
@@ -63,10 +63,10 @@ Function TranscodeOptions
               ${NSD_CB_SelectString} $p5DropList6 "$(STRING_YES)"
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 60u 130u 18u "$(STRING_TVPLUGININSTALL_LINE3)"
+        ${NSD_CreateLabel} 120u 60u 150u 18u "$(STRING_TVPLUGININSTALL_LINE3)"
 	Pop $p5Label1
 
-        ${NSD_CreateDropList} 255u 60u 40u 80u ""
+        ${NSD_CreateDropList} 280u 60u 40u 80u ""
         Pop $p5DropList1
 
         ${NSD_CB_AddString} $p5DropList1 "$(STRING_YES)"
@@ -80,10 +80,10 @@ Function TranscodeOptions
               ${NSD_CB_SelectString} $p5DropList1 "$(STRING_NO)"
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 80u 130u 18u "$(STRING_TVPLUGININSTALL_LINE4)"
+        ${NSD_CreateLabel} 120u 80u 150u 18u "$(STRING_TVPLUGININSTALL_LINE4)"
 	Pop $p5Label2
 
-        ${NSD_CreateDropList} 255u 80u 40u 80u ""
+        ${NSD_CreateDropList} 280u 80u 40u 80u ""
         Pop $p5DropList2
 
         ${NSD_CB_AddString} $p5DropList2 "$(STRING_TVPLUGININSTALL_LINE5)"
@@ -118,10 +118,10 @@ Function TranscodeOptions
               ${NSD_CB_SelectString} $p5DropList2 $TranscodeTime
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 100u 130u 18u "$(STRING_TVPLUGININSTALL_LINE6)"
+        ${NSD_CreateLabel} 120u 100u 150u 18u "$(STRING_TVPLUGININSTALL_LINE6)"
 	Pop $p5Label3
 
-        ${NSD_CreateDropList} 255u 100u 40u 80u ""
+        ${NSD_CreateDropList} 280u 100u 40u 80u ""
         Pop $p5DropList3
 
         ${NSD_CB_AddString} $p5DropList3 "64"
@@ -161,10 +161,10 @@ Function TranscodeOptions
               ${NSD_CB_SelectString} $p5DropList3 $VideoBitrate
         ${EndIf}
         
-        ${NSD_CreateLabel} 120u 120u 130u 18u "$(STRING_TVPLUGININSTALL_LINE7)"
+        ${NSD_CreateLabel} 120u 120u 150u 18u "$(STRING_TVPLUGININSTALL_LINE7)"
 	Pop $p5Label4
 
-        ${NSD_CreateDropList} 255u 120u 40u 80u ""
+        ${NSD_CreateDropList} 280u 120u 40u 80u ""
         Pop $p5DropList4
 
         ${NSD_CB_AddString} $p5DropList4 "32"
@@ -182,7 +182,7 @@ Function TranscodeOptions
               ${NSD_CB_SelectString} $p5DropList4 $AudioBitrate
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 140u 130u 18u "$(STRING_TVPLUGININSTALL_LINE8)"
+        ${NSD_CreateLabel} 120u 140u 150u 18u "$(STRING_TVPLUGININSTALL_LINE8)"
 	Pop $p5Label5
 	
 	StrCmp $MP4Path "" 0 +2
@@ -190,7 +190,7 @@ Function TranscodeOptions
         ${NSD_CreateDirRequest} 120u 160u 200u 12u "$MP4Path"
         Pop $p5Directory
         
-        ${NSD_CreateBrowseButton} 255u 140u 40u 14u "$(STRING_TVPLUGININSTALL_LINE9)"
+        ${NSD_CreateBrowseButton} 280u 140u 40u 14u "$(STRING_TVPLUGININSTALL_LINE9)"
         Pop $p5Button1
         ${NSD_OnClick} $p5Button1 p5OnDirBrowseButton
 

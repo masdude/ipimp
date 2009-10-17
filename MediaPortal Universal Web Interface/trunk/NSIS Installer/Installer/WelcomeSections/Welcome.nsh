@@ -33,7 +33,7 @@ Function Welcome
         Pop $LINK
         ${NSD_OnClick} $LINK onClickMyLink
 	
-	${NSD_CreateCheckbox} 225u -32 90u 8u "$(STRING_WELCOME_LINE3)"
+	${NSD_CreateCheckbox} 120u -32 200u 8u "$(STRING_WELCOME_LINE3)"
 	Pop $CHECKBOX
 
         ${If} $AdvancedInstall == "1"
