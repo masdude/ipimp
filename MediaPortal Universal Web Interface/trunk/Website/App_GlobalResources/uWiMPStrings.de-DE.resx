@@ -876,7 +876,7 @@
     <value>Tastatur Kurzbefehle</value>
   </data>
   <data name="select_list_size" xml:space="preserve">
-    <value>Seitengröße auswählen</value>
+    <value>Listenlänge auswählen</value>
   </data>
   <data name="send" xml:space="preserve">
     <value>Senden</value>
