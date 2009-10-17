@@ -50,6 +50,7 @@
 !define MUI_UNICON "..\icons\uniPiMP.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "Images\iPiMPinstall.bmp"
 !insertmacro LANG_LOAD "English"
+!insertmacro LANG_LOAD "German"
 
 ;
 ; Setup pages
