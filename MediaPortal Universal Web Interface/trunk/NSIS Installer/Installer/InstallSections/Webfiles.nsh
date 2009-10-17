@@ -31,8 +31,6 @@
   File "..\Include\Aspx\bin\uWiMPweb.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.xml"
 
-  SetOutPath "$INSTDIR\Aspx\bin\Release"
-
   SetOutPath "$INSTDIR\Aspx\Code"
 
   SetOutPath "$INSTDIR\Aspx\Desktop"
