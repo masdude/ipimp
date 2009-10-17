@@ -561,6 +561,7 @@ ul.iArrow li.__sel.__lod a { background-image:url(Img/loader-white-100x12x1.png)
 }
 *:not(.iPush).iBWarn 	{ -webkit-border-image: url(Img/button-red.png) 0 10 0 10; }
 *:not(.iPush).iBClassic	{ -webkit-border-image: url(Img/button-simple.png) 0 10 0 10; }
+*:not(.iPush).iBOrange  { -webkit-border-image: url(Img/button-orange.png) 0 10 0 10; }
 *:not(.iPush).iBAction	{ -webkit-border-image: url(Img/button-blue.png) 0 10 0 10; }
 
 .iPush {
