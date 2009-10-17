@@ -103,7 +103,6 @@ Partial Public Class RecordingTranscodeResult
             markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "transcoding_started"))
         End If
 
-        markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "are_you_sure"))
         markup += "</ul>"
         markup += "</div>"
 
