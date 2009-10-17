@@ -93,7 +93,7 @@ Partial Public Class ServiceActionResult
         markup += "</div>"
 
         markup += "<div>"
-        markup += String.Format("<a href=""#""  rel=""Action"" class=""iButton iBClassic"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "home"))
+        markup += String.Format("<a href=""#_Home""  rel=""Action"" class=""iButton iBClassic"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "home"))
         markup += String.Format("<a href=""TVServer/ServiceStatus.aspx#_ServiceStatus"" rev=""async"" rel=""Back"" class=""iButton iBClassic"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "back"))
         markup += "</div>"
 

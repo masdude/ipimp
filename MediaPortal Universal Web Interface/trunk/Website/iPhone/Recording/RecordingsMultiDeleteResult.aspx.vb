@@ -102,7 +102,7 @@ Partial Public Class RecordingMultiDeleteResult
         markup += "</div>"
 
         markup += "<div>"
-        markup += String.Format("<a href=""#"" rel=""Action"" class=""iButton iBClassic"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "home"))
+        markup += String.Format("<a href=""#_Home"" rel=""Action"" class=""iButton iBClassic"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "home"))
         markup += String.Format("<a href=""Recording/RecordingsMultiDelete.aspx?start=0#_RecDelete"" rev=""async"" rel=""Back"" class=""iButton iBClassic"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "back"))
         markup += "</div>"
 

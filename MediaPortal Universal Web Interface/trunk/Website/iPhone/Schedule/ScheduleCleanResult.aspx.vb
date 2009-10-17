@@ -106,7 +106,7 @@ Partial Public Class ScheduleCleanResult
         markup += "</div>"
 
         markup += "<div>"
-        markup += String.Format("<a href=""#"" rel=""Action"" class=""iButton iBClassic"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "home"))
+        markup += String.Format("<a href=""#_Home"" rel=""Action"" class=""iButton iBClassic"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "home"))
         markup += String.Format("<a href=""Scheules/MainMenu.aspx#_Schedules"" rev=""async"" rel=""Back"" class=""iButton iBClassic"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "back"))
         markup += "</div>"
 
