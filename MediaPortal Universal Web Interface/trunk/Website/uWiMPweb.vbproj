@@ -97,6 +97,31 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\uWiMPStrings.de-DE.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.en-GB.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.en-GB.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.fo-FO.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.fo-FO.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.it-IT.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.it-IT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.nl-NL.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.nl-NL.resx</DependentUpon>
+    </Compile>
     <Compile Include="Code\Misc\MPClientClasses.vb" />
     <Compile Include="Code\Misc\MPClientDatabase.vb" />
     <Compile Include="Code\Misc\MPClientRemoting.vb" />
@@ -1038,25 +1063,17 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.de-DE.designer.vb</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\uWiMPStrings.no-NO.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>uWiMPStrings.no-NO.designer.vb</LastGenOutput>
-    </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.en-GB.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.en-GB.designer.vb</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\uWiMPStrings.sv-SV.resx">
+    <Content Include="App_GlobalResources\uWiMPStrings.fo-FO.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>uWiMPStrings.sv-SV.designer.vb</LastGenOutput>
+      <LastGenOutput>uWiMPStrings.fo-FO.designer.vb</LastGenOutput>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.it-IT.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.it-IT.designer.vb</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\uWiMPStrings.fo-FO.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>uWiMPStrings.fo-FO.designer.vb</LastGenOutput>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.nl-NL.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
