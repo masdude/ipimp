@@ -10,8 +10,12 @@
   SetOutPath "$INSTDIR\Aspx\App_GlobalResources"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.de-DE.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.en-GB.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.fo-FO.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.it-IT.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.nl-NL.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.no-NO.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.sv-SV.resx"
 
   SetOutPath "$INSTDIR\Aspx\bin"
   File "..\Include\Aspx\bin\DirectShowLib.dll"
@@ -325,3 +329,5 @@
   File "..\Include\Aspx\iPhone\WebApp\Img\more.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\next.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\up.png"
+
+  SetOutPath "$INSTDIR\Aspx\My Project"
