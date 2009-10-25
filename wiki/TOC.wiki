@@ -10,3 +10,4 @@
   * [Advanced_Installations Advanced installs]
   * [Apache_Configuration Apache installs]
   * [Transcode_Plugin_Configuration Transcode plugin configuration]
+  * [Installation_Folder Installation folder]
