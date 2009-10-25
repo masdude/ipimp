@@ -97,30 +97,40 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_GlobalResources\uWiMPStrings.de-DE.designer.vb">
+    <Compile Include="App_GlobalResources\uWiMPStrings.da.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>uWiMPStrings.de-DE.resx</DependentUpon>
+      <DependentUpon>uWiMPStrings.da.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.de.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.de.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\uWiMPStrings.en-GB.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>uWiMPStrings.en-GB.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\uWiMPStrings.fo-FO.designer.vb">
+    <Compile Include="App_GlobalResources\uWiMPStrings.fo.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>uWiMPStrings.fo-FO.resx</DependentUpon>
+      <DependentUpon>uWiMPStrings.fo.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\uWiMPStrings.it-IT.designer.vb">
+    <Compile Include="App_GlobalResources\uWiMPStrings.it.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>uWiMPStrings.it-IT.resx</DependentUpon>
+      <DependentUpon>uWiMPStrings.it.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\uWiMPStrings.nl-NL.designer.vb">
+    <Compile Include="App_GlobalResources\uWiMPStrings.nl.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>uWiMPStrings.nl-NL.resx</DependentUpon>
+      <DependentUpon>uWiMPStrings.nl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.no.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.no.resx</DependentUpon>
     </Compile>
     <Compile Include="Code\Misc\MPClientClasses.vb" />
     <Compile Include="Code\Misc\MPClientDatabase.vb" />
@@ -1059,25 +1069,33 @@
     <Content Include="iPhone\WebApp\Img\menos.png" />
     <Content Include="iPhone\WebApp\Img\more.png" />
     <Content Include="iPhone\WebApp\Img\next.png" />
-    <Content Include="App_GlobalResources\uWiMPStrings.de-DE.resx">
+    <Content Include="App_GlobalResources\uWiMPStrings.de.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>uWiMPStrings.de-DE.designer.vb</LastGenOutput>
+      <LastGenOutput>uWiMPStrings.de.designer.vb</LastGenOutput>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.en-GB.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.en-GB.designer.vb</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\uWiMPStrings.fo-FO.resx">
+    <Content Include="App_GlobalResources\uWiMPStrings.fo.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>uWiMPStrings.fo-FO.designer.vb</LastGenOutput>
+      <LastGenOutput>uWiMPStrings.fo.designer.vb</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\uWiMPStrings.it-IT.resx">
+    <Content Include="App_GlobalResources\uWiMPStrings.it.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>uWiMPStrings.it-IT.designer.vb</LastGenOutput>
+      <LastGenOutput>uWiMPStrings.it.designer.vb</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\uWiMPStrings.nl-NL.resx">
+    <Content Include="App_GlobalResources\uWiMPStrings.nl.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>uWiMPStrings.nl-NL.designer.vb</LastGenOutput>
+      <LastGenOutput>uWiMPStrings.nl.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.da.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.da.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.no.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.no.designer.vb</LastGenOutput>
     </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
