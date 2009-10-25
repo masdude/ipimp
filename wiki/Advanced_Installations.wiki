@@ -2,8 +2,14 @@ This page allows the individual iPiMP components to be selected for install, the
 
 http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-004.PNG<br><br>
 
- # *Apache webserver 2.2.14* installs a default Apache 2.2.11 http server.<br><br>
+ # *Apache webserver 2.2.14* installs a default Apache 2.2.14 http server.<br><br>
  # *Apache mod_aspdotnet* installs a loadable Apache 2 module for serving ASP.NET content using Microsoft's ASP.NET hosting and .NET runtime within the Apache HTTP server process.<br><br>
  # *iPiMP web files* installs the iPiMP web application.<br><br>
  # *iPiMP transcode TV server plugin* installs a TV server plugin which transcodes !MediaPortal recordings, further details on this plugin are discussed later.<br><br>
  # *iPiMP !MediaPortal client remote control plugin* installs a !MediaPortal client process plugin which the iPiMP web application communicates with to remotely control a !MediaPortal client.<br><br>
+
+After selecting the desired standard or advanced installation options you will be presented with some configuration pages depending on the option(s) selected.  
+
+As far as possible the default options will be sufficient for most users so clicking next should be sufficient, however the following sections will describe the settings.
+
+[Apache_Configuration Next]
