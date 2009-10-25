@@ -21,7 +21,6 @@
  * MP client plugin - Added a Global Message option to send a message to all clients
  * Installer - Completely rewritten to support multiple languages
  * Installer - English & German languages
-[iPiMPWiki Back]
 
 3.5.0 updates include
  * MP client plugin - Added Now Playing screen
@@ -124,5 +123,3 @@
  * Added client transcode utility
 
 1.0.0 Initial release
-
-[iPiMPWiki Back]
