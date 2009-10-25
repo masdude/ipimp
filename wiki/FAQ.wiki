@@ -1,4 +1,3 @@
-#labels Featured
 #sidebar TOC
 
  * *Does iPiMP stream live TV*?
