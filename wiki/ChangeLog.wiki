@@ -21,6 +21,7 @@
  * Installer - Completely rewritten to support multiple languages
  * Installer - English & German languages
 [iPiMPWiki Back]
+
 3.5.0 updates include
  * MP client plugin - Added Now Playing screen
  * MP client plugin - My Music can now enqueue tracks & albums
