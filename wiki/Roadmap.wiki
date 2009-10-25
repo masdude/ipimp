@@ -1,0 +1,9 @@
+#sidebar TOC
+
+This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  These are in no particular order.
+
+ # Get live TV working (This is the number 1 priority!)
+ # Add TVSeries to MP client plugin
+ # Add MovingPictures to MP client plugin
+ # Get movie and music streaming from MP clients working
+ # Expand MP client remote control to allow keyboard strings
