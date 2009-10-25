@@ -22,18 +22,17 @@
 
  At a command prompt run
 
- {{{C:\Program Files\iPiMP\apache\bin\httpd.exe -k stop -n iPiMPweb
- C:\Program Files\iPiMP\apache\bin\httpd.exe -k uninstall -n iPiMPweb}}}
+ {{{C:\Program Files\iPiMP\apache\bin\httpd.exe -k stop -n iPiMPweb}}}
+ {{{C:\Program Files\iPiMP\apache\bin\httpd.exe -k uninstall -n iPiMPweb}}}
 
  Delete the following files
 
- C:\Program Files\iPiMP\`*`.`*`
-
+ C:\Program Files\iPiMP\`*`.`*`<br>
  C:\Program Files\Team !MediaPortal\!MediaPortal TV Server\iPiMPConfigurePlugin.exe<br>
  C:\Program Files\Team !MediaPortal\!MediaPortal TV Server\iPiMPTranscodeClient.exe<br>
  C:\Program Files\Team !MediaPortal\!MediaPortal TV Server\Plugins\iPiMPTranscodeToMP4.dll<br>
  C:\Program Files\Team !MediaPortal\!MediaPortal\plugins\process\MPClientController.dll<br>
- C:\Program Files\Team !MediaPortal\!MediaPortal\plugins\process\JayRock.Json.dll<br>
+ C:\Program Files\Team !MediaPortal\!MediaPortal\plugins\process\!JayRock.Json.dll<br>
  C:\Program Files\Team !MediaPortal\!MediaPortal\!InputDeviceMappings\defaults\iPiMP.xml
 
  Delete the following registry key
