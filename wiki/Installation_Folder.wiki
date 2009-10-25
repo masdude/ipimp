@@ -1,0 +1,4 @@
+Select a folder in which to install the iPiMP files.<br><br>
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-007.PNG
+
+[Installation_Warnings Next]
