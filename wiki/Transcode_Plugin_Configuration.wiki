@@ -1,3 +1,4 @@
+#sidebar TOC
 This plugin transcodes !MediaPortal recordings into iPhone compatible MP4 format, these MP4’s can then be streamed by the iPiMP web application to your iPhone or alternatively copied into your iTunes and synched to your videos.  The plugin can be configured to transcode as soon as a recording finishes or alternatively on a daily schedule at a specified time.<br><br>
 http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-006.PNG<br><br>
 
