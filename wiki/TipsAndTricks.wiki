@@ -16,21 +16,20 @@ You'll need the following pieces of information:
   * For interim use and testing, you can just use your current assigned IP address – if you are running a cable modem, or ADSL, this will probably not change very often – only when the router is re-booted (and sometimes not even then). Just point your browser to http://www.whatsmyip.org and you will see a text printout of your IP address. 
   * Or you can use a dedicated domain name which your ISP can provide.
   * Or you can use a Dynamic DNS service (e.g. [[http://www.no-ip.com/services/managed_dns/free_dynamic_dns.html|No-IP.com]])
- So if your IP was 82.210.112.7 then you would use http://82.210.112.7:80 <<BR>>
+ So if your IP was 82.210.112.7 then you would use http://82.210.112.7:80
  Or if your domain is my.domainname.com, then you would use http://my.domainname.com:80 
 
  * Internal IP address of your web server running iPiMP
  * The port you selected when installing iPiMP
 
-Now the next important thing you need to do is forward the port through your modem/router. You need to enable incoming connections from the internet on the port you have selected. <<BR>><<BR>>
-This will usually be in the advanced section of your router configuration. It will usually be referred to as Port Forwarding or Port Mapping.<<BR>><<BR>>
-You need to direct incoming traffic on the port you have selected (e.g. 80) to the PC running the iPiMP web server.  Some routers refer to this as “Virtual Servers”. Your router documentation should be able to help you with this.<<BR>><<BR>>
+Now the next important thing you need to do is forward the port through your modem/router. You need to enable incoming connections from the internet on the port you have selected.
+This will usually be in the advanced section of your router configuration. It will usually be referred to as Port Forwarding or Port Mapping.
+You need to direct incoming traffic on the port you have selected (e.g. 80) to the PC running the iPiMP web server.  Some routers refer to this as “Virtual Servers”. Your router documentation should be able to help you with this.
 You can search on the net for Port Forwarding as well. There is a lot of good information and help 
-groups. <<BR>><<BR>>
+groups.
 You will need to follow the procedure above to make sure that your firewall is not blocking the 
-server. <<BR>><<BR>>
-The only way you can test your connection from the internet is from a location NOT ON YOUR LOCAL NETWORK! Try it from somewhere else, or get a friend to try it.<<BR>><<BR>><<BR>><<BR>>
-
+server.
+The only way you can test your connection from the internet is from a location NOT ON YOUR LOCAL NETWORK! Try it from somewhere else, or get a friend to try it.
 
  * *To manually change the login timeout*
  * Open C:\Program Files\iPiMP\aspx\web.config
