@@ -29,16 +29,11 @@
 
  C:\Program Files\iPiMP\`*`.`*`
 
- C:\Program Files\Team !MediaPortal\!MediaPortal TV Server\iPiMPConfigurePlugin.exe
-
- C:\Program Files\Team !MediaPortal\!MediaPortal TV Server\iPiMPTranscodeClient.exe
-
- C:\Program Files\Team !MediaPortal\!MediaPortal TV Server\Plugins\iPiMPTranscodeToMP4.dll
-
- C:\Program Files\Team !MediaPortal\!MediaPortal\plugins\process\MPClientController.dll
-
- C:\Program Files\Team !MediaPortal\!MediaPortal\plugins\process\JayRock.Json.dll
-
+ C:\Program Files\Team !MediaPortal\!MediaPortal TV Server\iPiMPConfigurePlugin.exe<br>
+ C:\Program Files\Team !MediaPortal\!MediaPortal TV Server\iPiMPTranscodeClient.exe<br>
+ C:\Program Files\Team !MediaPortal\!MediaPortal TV Server\Plugins\iPiMPTranscodeToMP4.dll<br>
+ C:\Program Files\Team !MediaPortal\!MediaPortal\plugins\process\MPClientController.dll<br>
+ C:\Program Files\Team !MediaPortal\!MediaPortal\plugins\process\JayRock.Json.dll<br>
  C:\Program Files\Team !MediaPortal\!MediaPortal\!InputDeviceMappings\defaults\iPiMP.xml
 
  Delete the following registry key
@@ -47,7 +42,7 @@
 
  * *Reset your iPiMP database*
 
- Copy the attached uWiMP.db to C:\Program Files\iPiMP\aspx\App_Data
+ Copy the attached uWiMP.db to C:\Program Files\iPiMP\aspx\App_Data\
 
 
  * *Using iPiMP over the internet*
