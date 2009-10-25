@@ -1,13 +1,8 @@
-[iPiMPWiki Introduction]
-
-[ChangeLog]
-
-[TipsAndTricks Tips & Tricks]
-
-[Troubleshooting]
-
-[Roadmap]
-
-[FAQ Frequently Asked Questions]
-
-[Install_Introduction Installation]
+ * [iPiMPWiki Introduction]
+ * [ChangeLog]
+ * [TipsAndTricks Tips & Tricks]
+ * [Troubleshooting]
+ * [Roadmap]
+ * [FAQ Frequently Asked Questions]
+ * [Install_Introduction Installation]
+   * [Install_overview Installation overview]
