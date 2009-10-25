@@ -1,3 +1,4 @@
+#sidebar TOC
 ----
 4.0.0 updates include
  * Web - Completely rewritten to support multiple languages
