@@ -1,6 +1,7 @@
- There are 4 standard installation options provided.<br><br>
+#sidebar TOC
+There are 4 standard installation options provided.<br><br>
 
- http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-003.PNG<br><br>
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-003.PNG<br><br>
 
  # *Singleseat installation* is recommended for installation on a PC running both the !MediaPortal TV Server and !MediaPortal client and you want to interact with both the TV Server and !MediaPortal clients from your iPhone.  This option will install all iPiMP components.<br><br>
  # *Dedicated TV server installation* is recommended for installation on a PC running only the !MediaPortal TV Server and you want to interact with both the TV Server and !MediaPortal clients from your iPhone.  This option will install all iPiMP components except the iPiMP !MediaPortal remote control plugin.<br><br>
