@@ -1,4 +1,4 @@
-#summary Tips & Tricks
+#sidebar TOC
 
  * *Slider boxes*
  These aren't sliders, they just look like them, so tap - don't slide. :)
