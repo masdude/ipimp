@@ -1,0 +1,4 @@
+#sidebar TOC
+That concludes the installation and configuration of iPiMP on the PC side, now onto the application itself.
+
+[First_Use Next]
