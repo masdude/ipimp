@@ -1,0 +1,6 @@
+#sidebar TOC
+The installation will then progress displaying a progress bar and progress details followed by a success screen.<br><br>
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-010.PNG<br><br>
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-011.PNG
+
+[Transcode_Plugin_Configuration Next]
