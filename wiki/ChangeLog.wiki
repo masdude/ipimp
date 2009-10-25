@@ -20,7 +20,7 @@
  * MP client plugin - Added a Global Message option to send a message to all clients
  * Installer - Completely rewritten to support multiple languages
  * Installer - English & German languages
-
+[iPiMPWiki Back]
 3.5.0 updates include
  * MP client plugin - Added Now Playing screen
  * MP client plugin - My Music can now enqueue tracks & albums
@@ -95,7 +95,7 @@
  * TV transcode client - moved to the correct folder so the shortcut works (duh)
  * Installer - backs up & restores user database to maintain user accounts between releases
 
-2.1.0 updates include...
+2.1.0 updates include
  * Web - TV search is back :)
  * Web - Added delete multi recordings page
  * Web - Refactored to use AJAX more (should be faster page loads)
@@ -109,7 +109,7 @@
  * TV transcode client - added ability to change video & audio bitrate
  * Installer - detects your TV server install path
 
-2.0.1 updates include...
+2.0.1 updates include
  * Fixed setting user permissions.
  * Fixed settings facility -now updates path of web site and tv server plugin
  * Fixed installer - now updates web site and tv server plugin settings - you just need to enable the tv server plugin.
@@ -122,3 +122,4 @@
  * Added client transcode utility
 
 1.0.0 Initial release
+[iPiMPWiki Back]
