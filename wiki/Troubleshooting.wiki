@@ -1,3 +1,4 @@
+#sidebar TOC
  * *Log gathering*
 
  To help with troubleshooting stop !MediaPortal, start !MediaPortal, retry what you were attempting in !MediaPortal, then run the following commands...
