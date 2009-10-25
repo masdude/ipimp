@@ -11,6 +11,4 @@ http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-017.PNG
 
 You can then close the !MediaPortal client configuration utility.
 
-That concludes the installation and configuration of iPiMP on the PC side, now onto the application itself.
-
 [First_Use Next]
