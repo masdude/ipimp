@@ -46,6 +46,7 @@
 
   SetOutPath "$INSTDIR\Aspx\images"
   File "..\Include\Aspx\images\dvd.png"
+  File "..\Include\Aspx\images\MP-logo.png"
   File "..\Include\Aspx\images\radio.png"
   File "..\Include\Aspx\images\rec.png"
   File "..\Include\Aspx\images\tv.png"
@@ -329,3 +330,5 @@
   File "..\Include\Aspx\iPhone\WebApp\Img\more.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\next.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\up.png"
+
+  SetOutPath "$INSTDIR\Aspx\My Project"
