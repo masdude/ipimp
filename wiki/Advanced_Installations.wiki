@@ -1,3 +1,4 @@
+#sidebar TOC
 This page allows the individual iPiMP components to be selected for install, the standard options above just group these selections together for simplicity.<br><br>
 
 http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-004.PNG<br><br>
