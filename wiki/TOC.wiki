@@ -8,3 +8,5 @@
   * [Install_overview Installation overview]
   * [Standard_Installations Standard installs]
   * [Advanced_Installations Advanced installs]
+  * [Apache_Configuration Apache installs]
+  * [Transcode_Plugin_Configuration Transcode plugin configuration]
