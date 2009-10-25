@@ -14,6 +14,6 @@ The iPiMP installer provides standard and advanced install options to hopefully 
 
 Some useful links …	
 || *Team !MediaPortal* || [http://www.team-mediaportal.com/ Team MediaPortal] ||
-|| iPiMP 4.0.0 forum thread || [http://forum.team-mediaportal.com/community-plugins-294/iphone-interface-mediaportal-ipimp-3-0-0-a-46556/ MediaPortal Forums]
+|| iPiMP 4.0.0 forum thread || [http://forum.team-mediaportal.com/community-plugins-294/iphone-interface-mediaportal-ipimp-3-0-0-a-46556/ MediaPortal Forums] ||
 || ffmpeg || [http://ffmpeg.mplayerhq.hu/] ||
 || WebApp.net || [http://webapp.net.free.fr] ||
