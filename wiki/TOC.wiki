@@ -1,3 +1,7 @@
 [iPiMPWiki Introduction]
 
 [ChangeLog]
+
+[TipsAndTricks Tips & Tricks]
+
+[FAQ Frequently Asked Questions]
