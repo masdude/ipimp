@@ -6,4 +6,6 @@
 
 [Troubleshooting]
 
+[Roadmap]
+
 [FAQ Frequently Asked Questions]
