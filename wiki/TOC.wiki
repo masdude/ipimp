@@ -4,4 +4,6 @@
 
 [TipsAndTricks Tips & Tricks]
 
+[Troubleshooting]
+
 [FAQ Frequently Asked Questions]
