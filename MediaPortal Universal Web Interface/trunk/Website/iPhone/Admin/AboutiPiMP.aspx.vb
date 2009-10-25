@@ -108,6 +108,8 @@ Partial Public Class AboutiPiMP
         markup += "<br>"
         markup += "iPiMP uses <a target=""_blank"" href=""http://webapp.net.free.fr/"">WebApp.Net</a> - an iPhone/iPod touch Web<br>Application Micro-Framework."
         markup += "<br>"
+        markup += "iPiMP uses <a target=""_blank"" href=""http://jayrock.berlios.de/"">Jayrock</a> - an open source implementation of JSON."
+        markup += "<br>"
         markup += "iPiMP uses <a target=""_blank"" href=""http://www.visualsvn.com"">VisualSVN</a> - an SVN add-on for<br>Visual Studio."
         markup += "<br>"
         markup += "<a target=""_blank"" href=""http://www.visualsvn.com/""><img src=""http://www.visualsvn.com/images/VisualSVN_125x37.gif"" alt=""Powered by VisualSVN!"" /></a>"
