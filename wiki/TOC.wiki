@@ -1,2 +1,2 @@
-[Introduction]
+[iPiMPWiki Introduction]
 [ChangeLog]
