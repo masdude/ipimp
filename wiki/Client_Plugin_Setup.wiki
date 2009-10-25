@@ -11,4 +11,4 @@ http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-017.PNG
 
 You can then close the !MediaPortal client configuration utility.
 
-[First_Use Next]
+[Usage Next]
