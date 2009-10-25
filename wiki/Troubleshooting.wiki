@@ -3,20 +3,20 @@
 
  To help with troubleshooting stop !MediaPortal, start !MediaPortal, retry what you were attempting in !MediaPortal, then run the following commands...
 
-    * %comspec% /c ipconfig /all > c:\ipconfig.txt
-    * %comspec% /c netstat -abnop TCP > c:\netstat.txt
-    * %comspec% /c dir "%programfiles%\ipimp" /o:n /s > c:\ipimpfiles.txt
+ %comspec% /c ipconfig /all > c:\ipconfig.txt
+ %comspec% /c netstat -abnop TCP > c:\netstat.txt
+ %comspec% /c dir "%programfiles%\ipimp" /o:n /s > c:\ipimpfiles.txt
 
  Once complete collect the following files, then zip & [http://forum.team-mediaportal.com/community-plugins-294/v2-0-1-iphone-interface-mediaportal-ipimp-46556/index999.html post] them:
 
-    * %appdata%\Team !MediaPortal\!MediaPortal\log\error.log
-    * %appdata%\Team !MediaPortal\!MediaPortal\log\!MediaPortal.log
-    * %appdata%\Team !MediaPortal\!MediaPortal TV Server\log\error.log
-    * %appdata%\Team !MediaPortal\!MediaPortal TV Server\log\tv.log
-    * %appdata%\Team !MediaPortal\!MediaPortal TV Server\Gentle.Config
-    * C:\Program Files\iPiMP\apache\conf\iPiMP.conf
-    * C:\Program Files\iPiMP\apache\logs\error.log
-    * C:\Program Files\iPiMP\aspx\web.config
-    * C:\ipconfig.txt
-    * C:\netstat.txt
-    * C:\ipimpfiles.txt
+ %appdata%\Team !MediaPortal\!MediaPortal\log\error.log
+ %appdata%\Team !MediaPortal\!MediaPortal\log\!MediaPortal.log
+ %appdata%\Team !MediaPortal\!MediaPortal TV Server\log\error.log
+ %appdata%\Team !MediaPortal\!MediaPortal TV Server\log\tv.log
+ %appdata%\Team !MediaPortal\!MediaPortal TV Server\Gentle.Config
+ C:\Program Files\iPiMP\apache\conf\iPiMP.conf
+ C:\Program Files\iPiMP\apache\logs\error.log
+ C:\Program Files\iPiMP\aspx\web.config
+ C:\ipconfig.txt
+ C:\netstat.txt
+ C:\ipimpfiles.txt
