@@ -1,3 +1,4 @@
+#sidebar TOC
 iPiMP is a web interface for !MediaPortal specifically designed for the iPhone, it uses !MediaPortal interfaces to communicate with both the TV Server and !MediaPortal client components. 
 
 You can use iPiMP to interact with your !MediaPortal TV Server allowing you to view your TV guide, read program details, schedule programs to be recorded, email program details as well as view,  manage & watch your existing recordings.  Watching live TV though is not possible (yet!).
