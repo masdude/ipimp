@@ -1111,6 +1111,7 @@
     <Content Include="Desktop\scripts\wz_tooltip.js" />
     <Content Include="images\dvd.png" />
     <Content Include="images\imdb\blankmovie.png" />
+    <Content Include="images\MP-logo.png" />
     <Content Include="images\music\blankmusic.png" />
     <Content Include="images\radio.png" />
     <Content Include="images\rec.png" />
