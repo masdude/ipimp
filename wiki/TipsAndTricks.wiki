@@ -22,7 +22,7 @@
 
  At a command prompt run
 
- {{{C:\Program Files\iPiMP\apache\bin\httpd.exe -k stop -n iPiMPweb}}}
+ {{{C:\Program Files\iPiMP\apache\bin\httpd.exe -k stop -n iPiMPweb}}}<br>
  {{{C:\Program Files\iPiMP\apache\bin\httpd.exe -k uninstall -n iPiMPweb}}}
 
  Delete the following files
@@ -41,7 +41,7 @@
 
  * *Reset your iPiMP database*
 
- Copy the attached uWiMP.db to C:\Program Files\iPiMP\aspx\App_Data\
+ Copy the attached uWiMP.db to C:\Program Files\iPiMP\aspx\!App_Data\
 
 
  * *Using iPiMP over the internet*
