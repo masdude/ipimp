@@ -1,3 +1,4 @@
+#sidebar TOC
 http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-005.PNG
 
 The TCP port is the port used by the apache web server to listen for requests, by default this will be 80.
