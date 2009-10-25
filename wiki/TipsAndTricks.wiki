@@ -9,10 +9,10 @@
  * *To manually change the login timeout*
  Open C:\Program Files\iPiMP\aspx\web.config
  Locate the following line
- <forms name=".ASPXAUTH" loginUrl="login.aspx" protection="All" '''timeout="525600"''' path="/" requireSSL="false" slidingExpiration="true" defaultUrl="default.aspx" cookieless="!UseCookies"/>
+ {{{<forms name=".ASPXAUTH" loginUrl="login.aspx" protection="All" '''timeout="525600"''' path="/" requireSSL="false" slidingExpiration="true" defaultUrl="default.aspx" cookieless="!UseCookies"/>}}}
  Change the timeout value to whatever time you want in minutes (525600 mins = 1 year)
  Repeat this change in the line<<BR>>
- <roleManager defaultProvider="SQLiteRoleProvider" enabled="true" cacheRolesInCookie="true" cookieName=".ASPROLES" '''cookieTimeout="525600"''' cookiePath="/" cookieRequireSSL="false" cookieSlidingExpiration="true" cookieProtection="All">
+ {{{<roleManager defaultProvider="SQLiteRoleProvider" enabled="true" cacheRolesInCookie="true" cookieName=".ASPROLES" '''cookieTimeout="525600"''' cookiePath="/" cookieRequireSSL="false" cookieSlidingExpiration="true" cookieProtection="All">}}}
 
 
  * *To manually uninstall iPiMP*
