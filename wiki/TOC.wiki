@@ -15,4 +15,5 @@
   * [Installation_Progress Installation progress]
   * [Transcode_Plugin_Setup TV Server plugin setup]
   * [Client_Plugin_Setup MP Client plugin setup]
+ * [Usage]
   * [First_Use First use]
