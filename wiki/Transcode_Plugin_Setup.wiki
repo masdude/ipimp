@@ -1,0 +1,22 @@
+#sidebar TOC
+You need to enable the TV Server transcode plugin, to do this launch the !MediaPortal TV Server Configuration utility and select the plugins branch.<br><br>
+
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-012.PNG<br><br>
+
+Enable the iPiMPTranscodeToMP4 plugin by ticking its checkbox, this will add the iPiMPTranscodeToMP4 configuration option to the Plugins branch.<br><br>
+
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-013.PNG<br><br>
+
+Select the iPiMPTransdoceToMP4 configuration branch to review the settings saved by the installer.<br><br>
+
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-014.PNG<br><br>
+
+You can edit the parameters passed to the ffmpeg process to generate the MP4 files, if you do change this you must use {0} for the video bitrate and {1} for the audio bitrate.  The Default button will reset the paramteres to the iPiMP default.<br><br>
+To startup the transcode plugin the !MediaPortal TV Server service should be restarted, this will interrupt any live TV viewing or recordings briefly.<br><br>
+To restart the TV Server service, select Manual Control and click the button labeled ‘Stop Service’, once the service has stopped this button will say ‘Start Service’ so click it again to restart the TV Server service.<br><br>
+
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-015.PNG<br><br>
+
+You can then close the TV Server configuration utility.
+
+[Client_Plugin_Setup Next]
