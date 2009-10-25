@@ -11,3 +11,4 @@
   * [Apache_Configuration Apache installs]
   * [Transcode_Plugin_Configuration Transcode plugin configuration]
   * [Installation_Folder Installation folder]
+  * [Installation_Warnings Installation warnings]
