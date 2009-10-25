@@ -17,3 +17,4 @@
   * [Client_Plugin_Setup MP Client plugin setup]
  * [Usage]
   * [First_Use First use]
+  * [Navigation_Basics Navigation basics]
