@@ -117,7 +117,7 @@
  * Added additional page for delete schedules.
  * Added user permission specific menus to tv guide, recordings & schedules - e.g. you only see delete if you're a 'deleter'
 
-2.0.0 Migrated to [http://webapp.net.free.fr/|WebApp.Net]
+2.0.0 Migrated to [http://webapp.net.free.fr/ WebApp.Net]
  * Added transcode tv server plugin
  * Added client transcode utility
 
