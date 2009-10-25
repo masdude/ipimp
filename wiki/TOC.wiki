@@ -5,4 +5,6 @@
  * [Roadmap]
  * [FAQ Frequently Asked Questions]
  * [Install_Introduction Installation]
-   * [Install_overview Installation overview]
+  * [Install_overview Installation overview]
+  * [Standard_Installations Standard installs]
+  * [Advanced_Installations Advanced installs]
