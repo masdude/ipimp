@@ -6,29 +6,6 @@
  * *Transcoding fails*
  Only report these issues if transcoding fails when using the DEFAULT iPiMP parameters.  There is a *Default* button on the iPiMPTranscodeToMP4 plugin which can be used to reset these parameters.  More often than not invalid FFMPEG parameters are the issue.
 
- * *Using iPiMP over the internet*
-
- To use iPiMP (or any other TCP based service) over the internet you need to configure your modem/router to do port forwarding.
-
- You'll need the following pieces of information:
-
- * External IP address - your ISP provides you with one of these when your cable modem / asdl router connects. It is recommended that you have a fixed IP address if you are going to run a web server of any kind, your ISP can give you more information about this. If you don’t want to get a fixed IP address, there are a couple of alternatives. 
-  * For interim use and testing, you can just use your current assigned IP address – if you are running a cable modem, or ADSL, this will probably not change very often – only when the router is re-booted (and sometimes not even then). Just point your browser to http://www.whatsmyip.org and you will see a text printout of your IP address. 
-  * Or you can use a dedicated domain name which your ISP can provide.
-  * Or you can use a Dynamic DNS service (e.g. [[http://www.no-ip.com/services/managed_dns/free_dynamic_dns.html|No-IP.com]])
- So if your IP was 82.210.112.7 then you would use http://82.210.112.7:80
- Or if your domain is my.domainname.com, then you would use http://my.domainname.com:80 
-
- * Internal IP address of your web server running iPiMP
- * The port you selected when installing iPiMP
-
- Now the next important thing you need to do is forward the port through your modem/router. You need to enable incoming connections from the internet on the port you have selected.
- This will usually be in the advanced section of your router configuration. It will usually be referred to as Port Forwarding or Port Mapping.
- You need to direct incoming traffic on the port you have selected (e.g. 80) to the PC running the iPiMP web server.  Some routers refer to this as “Virtual Servers”. Your router documentation should be able to help you with this.
- You can search on the net for Port Forwarding as well. There is a lot of good information and help groups.
- You will need to follow the procedure above to make sure that your firewall is not blocking the server.
- The only way you can test your connection from the internet is from a location NOT ON YOUR LOCAL NETWORK! Try it from somewhere else, or get a friend to try it.
-
  * *To manually change the login timeout*
  Open C:\Program Files\iPiMP\aspx\web.config
  Locate the following line
@@ -58,7 +35,7 @@
 
  Delete the following registry key
 
- HKLM\SOFTWARE\Microsoft\Windows\!CurrentVersion\!UnInstall\iPiMP\*.*
+ HKLM\SOFTWARE\Microsoft\Windows\!CurrentVersion\!UnInstall\iPiMP\
 
  * *Reset your iPiMP database*
 
