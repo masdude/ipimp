@@ -12,3 +12,4 @@
   * [Transcode_Plugin_Configuration Transcode plugin configuration]
   * [Installation_Folder Installation folder]
   * [Installation_Warnings Installation warnings]
+  * [Installation_Progress Installation progress]
