@@ -8,11 +8,13 @@
   SetOutPath "$INSTDIR\Aspx\App_Data"
 
   SetOutPath "$INSTDIR\Aspx\App_GlobalResources"
-  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.de-DE.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.da.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.de.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.en-GB.resx"
-  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.fo-FO.resx"
-  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.it-IT.resx"
-  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.nl-NL.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.fo.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.it.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.nl.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.no.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.resx"
 
   SetOutPath "$INSTDIR\Aspx\bin"
