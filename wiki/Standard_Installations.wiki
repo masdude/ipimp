@@ -6,3 +6,5 @@
  # *Dedicated TV server installation* is recommended for installation on a PC running only the !MediaPortal TV Server and you want to interact with both the TV Server and !MediaPortal clients from your iPhone.  This option will install all iPiMP components except the iPiMP !MediaPortal remote control plugin.<br><br>
  # *!MediaPortal remote control web installation* is recommended for installation on a PC running only the !MediaPortal client and you want to interact with it from an iPiMP installation on the same PC.  This option will install all iPiMP components except the iPiMP TV server transcode plugin.<br><br>
  # *!MediaPortal remote control plugin* is recommended for installation on a PC running only the !MediaPortal client and you want to interact with it from an existing  iPiMP installation, this option requires that option 1, 2 or 3 above has been installed on another PC.  This option installs the iPiMP !MediaPortal remote control plugin only.
+
+[Advanced_Installations Next]
