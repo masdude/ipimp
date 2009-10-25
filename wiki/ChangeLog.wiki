@@ -4,6 +4,7 @@
  * Web - Completely rewritten to support multiple languages
  * Web - English language - thanks to cheezey :-)
  * Web - German language - thanks to rhartinger
+ * Web - Norwegian language - thanks to Reon
  * Web - New iPiMP logo
  * Web - Added a loading page for fullscreen app layout
  * Web - All buttons have been moved to the title bar to give a common layout to all screens
