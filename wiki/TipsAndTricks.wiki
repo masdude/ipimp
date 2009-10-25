@@ -60,9 +60,9 @@
  * Internal IP address of your web server running iPiMP
  * The port you selected when installing iPiMP
 
- Now the next important thing you need to do is forward the port through your modem/router. You need to enable incoming connections from the internet on the port you have selected.
- This will usually be in the advanced section of your router configuration. It will usually be referred to as Port Forwarding or Port Mapping.
- You need to direct incoming traffic on the port you have selected (e.g. 80) to the PC running the iPiMP web server.  Some routers refer to this as “Virtual Servers”. Your router documentation should be able to help you with this.
- You can search on the net for Port Forwarding as well. There is a lot of good information and help groups.
- You will need to follow the procedure above to make sure that your firewall is not blocking the server.
+ Now the next important thing you need to do is forward the port through your modem/router. You need to enable incoming connections from the internet on the port you have selected.<br>
+ This will usually be in the advanced section of your router configuration. It will usually be referred to as Port Forwarding or Port Mapping.<br>
+ You need to direct incoming traffic on the port you have selected (e.g. 80) to the PC running the iPiMP web server.  Some routers refer to this as “Virtual Servers”. Your router documentation should be able to help you with this.<br>
+ You can search on the net for Port Forwarding as well. There is a lot of good information and help groups.<br>
+ You will need to follow the procedure above to make sure that your firewall is not blocking the server.<br>
  The only way you can test your connection from the internet is from a location NOT ON YOUR LOCAL NETWORK! Try it from somewhere else, or get a friend to try it.
