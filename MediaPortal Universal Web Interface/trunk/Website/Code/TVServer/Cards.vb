@@ -275,6 +275,19 @@ Namespace uWiMP.TVServer
 
         End Function
 
+
+        Public Shared Function StartTimeshifting(ByVal userName As String, ByVal idChannel As Integer) As TvResult
+
+            SetupConnection()
+
+            Dim user As New User
+            Dim vcard As VirtualCard = New VirtualCard(user)
+            Dim result As TvResult = RemoteControl.Instance.StartTimeShifting(user, idChannel, vcard)
+
+            Return result
+
+        End Function
+
     End Class
 
 End Namespace

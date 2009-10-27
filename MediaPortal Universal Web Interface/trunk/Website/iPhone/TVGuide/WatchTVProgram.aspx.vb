@@ -19,8 +19,9 @@
 Imports System.IO
 Imports System.Xml
 Imports TvDatabase
+Imports TvControl
 
-Partial Public Class TVProgram
+Partial Public Class WatchTVProgram
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -28,8 +29,8 @@ Partial Public Class TVProgram
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim programID As String = Request.QueryString("program")
-        Dim wa As String = "waProgram" & programID
+        Dim channelID As String = Request.QueryString("channel")
+        Dim wa As String = "waWatchChannel" & channelID
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -62,7 +63,7 @@ Partial Public Class TVProgram
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayProgram(wa, programID))
+        xw.WriteCData(WatchChannel(channelID))
         xw.WriteEndElement()
         'end data
 
@@ -75,36 +76,20 @@ Partial Public Class TVProgram
 
     End Sub
 
-    Private Function DisplayProgram(ByVal wa As String, ByVal programID As String) As String
+    Private Function WatchChannel(ByVal channelID As String) As String
 
-        Dim program As Program = uWiMP.TVServer.Programs.GetProgramByProgramId(CInt(programID))
+        
+        Dim markup As String = String.Empty
 
-        Dim markup As String = ""
-
-        markup += "<div class=""iMenu"" id=""" & wa & """>"
-        markup += "<div class=""iBlock"">"
-        markup += String.Format("<h3>{0}</h3>", program.Title)
-        markup += String.Format("<h3>{0}</h3>", program.StartTime)
-        markup += String.Format("<p>{0}</p>", program.Description)
-        markup += "</div>"
-
+        markup += "<div class=""iMenu"">"
         markup += "<ul class=""iArrow"">"
 
-        If User.IsInRole("recorder") Then
-            markup += String.Format("<li><a href=""TVGuide/RecordTVProgram.aspx?program={0}#_RecordProgram{0}"" rev=""async"">Record</a></li>", programID)
+        Dim result As TvResult = uWiMP.TVServer.Cards.StartTimeshifting(User.Identity.Name, channelID)
+        If result = TvResult.Succeeded Then
+            markup += "<li>Success</li>"
+        Else
+            markup += "<li>Fail</li>"
         End If
-
-        If program.IsRunningAt(Now) Then
-            If User.IsInRole("watcher") Then
-                markup += String.Format("<li><a href=""TVGuide/WatchTVProgram.aspx?channel={0}#_WatchChannel{0}"" rev=""async"">Watch</a></li>", program.IdChannel)
-            End If
-        End If
-
-        Dim mailSubject As String = String.Format("{3} {0} at {1} - {2}", uWiMP.TVServer.Channels.GetChannelNameByChannelId(program.IdChannel), program.StartTime, program.Title, GetGlobalResourceObject("uWiMPStrings", "email_subject"))
-        Dim mailBody As String = program.Description
-
-        markup += String.Format("<li><a href=""mailto:?subject={0}&body={1}"">{2}</a></li>", mailSubject, mailBody, GetGlobalResourceObject("uWiMPStrings", "email"))
-        markup += "</ul>"
 
         markup += "</div>"
         markup += "</div>"
