@@ -120,7 +120,7 @@ Partial Public Class MyMusicListAlbumsForYear
         Next
 
         If (start + (pagesize - 1)) < UBound(albums) Then
-            markup += String.Format("<li id=""morealbumsyear"" class=""iMore""><a href=""MPClient/MyMusicListAlbumsForGenre.aspx?friendly={0}&value={1}&start={2}#_MyMusicListAlbumForGenre"" rev=""async"" title=""{3}"">{4}</a></li>", friendly, year, (start + pagesize).ToString, GetGlobalResourceObject("uWiMPStrings", "loading"), GetGlobalResourceObject("uWiMPStrings", "more"))
+            markup += String.Format("<li id=""morealbumsyear"" class=""iMore""><a href=""MPClient/MyMusicListAlbumsForYear.aspx?friendly={0}&value={1}&start={2}#_MyMusicListAlbumForGenre"" rev=""async"" title=""{3}"">{4}</a></li>", friendly, year, (start + pagesize).ToString, GetGlobalResourceObject("uWiMPStrings", "loading"), GetGlobalResourceObject("uWiMPStrings", "more"))
         End If
 
         If start = 0 Then
