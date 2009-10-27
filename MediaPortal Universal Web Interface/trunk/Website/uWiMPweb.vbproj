@@ -919,6 +919,13 @@
       <DependentUpon>SearchTVGuideResults.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="iPhone\TVGuide\WatchTVProgram.aspx.designer.vb">
+      <DependentUpon>WatchTVProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\WatchTVProgram.aspx.vb">
+      <DependentUpon>WatchTVProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="iPhone\TVServer\CardStatus.aspx.designer.vb">
       <DependentUpon>CardStatus.aspx</DependentUpon>
     </Compile>
@@ -1274,6 +1281,7 @@
     <Content Include="iPhone\TVGuide\TVProgram.aspx" />
     <Content Include="iPhone\TVGuide\SearchTVGuide.aspx" />
     <Content Include="iPhone\TVGuide\SearchTVGuideResults.aspx" />
+    <Content Include="iPhone\TVGuide\WatchTVProgram.aspx" />
     <Content Include="iPhone\TVServer\CardStatus.aspx" />
     <Content Include="iPhone\TVServer\CardStatusMenu.aspx" />
     <Content Include="iPhone\TVServer\CardActionConfirm.aspx" />
@@ -1354,12 +1362,9 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PreBuildEvent>"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "$(SolutionDir)Website" "$(ProjectDir)My Project\AssemblyInfo_temp.vb" "$(ProjectDir)My Project\AssemblyInfo.vb"
-
-"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "$(SolutionDir)Website" "$(SolutionDir)NSIS Installer\Installer\Definitions\ProductDetails_temp.nsh" "$(SolutionDir)NSIS Installer\Installer\Definitions\ProductDetails.nsh"
-
-%25WINDIR%25\SYSTEM32\CScript //NoLogo "$(SolutionDir)NSIS Installer\Include\ListFiles.vbs" "$(SolutionDir)NSIS Installer\Include\Aspx" &gt;"$(SolutionDir)NSIS Installer\Installer\InstallSections\Webfiles.nsh"</PreBuildEvent>
-    <PostBuildEvent>"C:\Program Files (x86)\NSIS\makensis.exe"  /NOTIFYHWND 1640592  "$(SolutionDir)NSIS Installer\Installer\Main installer.nsi"
-</PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
