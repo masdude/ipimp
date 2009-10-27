@@ -1,0 +1,1 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="UserManagementDeleteUser.aspx.vb" Inherits="Website.UserManagementDeleteUser" %>
