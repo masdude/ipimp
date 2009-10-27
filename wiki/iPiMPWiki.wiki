@@ -53,5 +53,3 @@ You can also use iPiMP to interact with your !MediaPortal clients, you can use i
  * Delete user 
  * Change password 
  * !MediaPortal clients (add, delete, edit) 
-
-[http://www.visualsvn.com/ http://www.visualsvn.com/images/VisualSVN_125x37.gif]
