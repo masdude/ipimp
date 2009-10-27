@@ -5,6 +5,7 @@ This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  The
  * Get live TV working (This is the number 1 priority!)
  * Add TVSeries to MP client plugin
  * Add [http://code.google.com/p/moving-pictures/ MovingPictures] to MP client plugin
+ * Add a proper TV guide facility (view multiple channels at once)
  * Get movie and music streaming from MP clients working
  * Expand MP client remote control to allow keyboard strings
  * Migrate to GemX's web services plugin (depending on how development of that goes)
