@@ -111,7 +111,7 @@ Namespace MPClientController
                     For Each artist As String In filters
                         Dim letter As New Char
                         letter = Left(artist, 1).ToUpper
-                        If Not Char.IsLetter(letter) Then letter = "#"
+                        If Not Char.IsLetter(letter) Then letter = "0"
                         If Not subset.Contains(letter) Then subset.Add(letter)
                     Next
                     subset.Sort()
@@ -124,7 +124,7 @@ Namespace MPClientController
                     If Not value = "*" Then
                         For Each artist As String In filters
                             Dim letter As Char = Left(artist, 1).ToUpper
-                            If Not Char.IsLetter(letter) Then letter = "#"
+                            If Not Char.IsLetter(letter) Then letter = "0"
                             If letter = value.ToUpper Then
                                 If Not subset.Contains(artist) Then subset.Add(artist)
                             End If
@@ -140,7 +140,7 @@ Namespace MPClientController
                     For Each song As Song In songs
                         Dim letter As New Char
                         letter = Left(song.Album, 1).ToUpper
-                        If Not Char.IsLetter(letter) Then letter = "#"
+                        If Not Char.IsLetter(letter) Then letter = "0"
                         If Not subset.Contains(letter) Then subset.Add(letter)
                     Next
                     subset.Sort()
