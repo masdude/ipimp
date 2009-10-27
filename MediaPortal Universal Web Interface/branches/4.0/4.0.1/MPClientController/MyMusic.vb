@@ -435,21 +435,24 @@ Namespace MPClientController
 
             Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
             Dim playlistDir As String = xmlReader.GetValueAsString("music", "playlists", "")
-            Dim playlistFiles As String() = Directory.GetFiles(playlistDir)
+            Dim playlistFiles As String() = Directory.GetFiles(playlistDir, "*.m3u")
 
             Dim playlists As New List(Of String)
             Dim playlist As String
 
-            If random Then
-                Dim index As Integer = New MediaPortal.Util.PseudoRandomNumberGenerator().Next(0, (playlistFiles.Length - 1))
-                playlists.Add(Path.GetFileNameWithoutExtension(playlistFiles(index)))
+            If playlistFiles.Count > 0 Then
+                If random Then
+                    Dim index As Integer = New MediaPortal.Util.PseudoRandomNumberGenerator().Next(0, (playlistFiles.Length - 1))
+                    playlists.Add(Path.GetFileNameWithoutExtension(playlistFiles(index)))
+                Else
+                    For Each playlist In Directory.GetFiles(playlistDir, "*.m3u")
+                        playlists.Add(Path.GetFileNameWithoutExtension(playlist))
+                    Next
+                End If
             Else
-                For Each playlist In Directory.GetFiles(playlistDir, "*.m3u")
-                    playlists.Add(Path.GetFileNameWithoutExtension(playlist))
-                Next
+                playlists.Add("noplaylists")
             End If
 
-            If playlists.Count = 0 Then playlists.Add("noplaylists")
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
             jw.WriteStartObject()
