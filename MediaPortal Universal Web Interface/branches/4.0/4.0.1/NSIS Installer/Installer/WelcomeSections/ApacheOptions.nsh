@@ -50,7 +50,7 @@ Function ApacheOptions
 	Pop $p4Textbox1
         ${NSD_SetText} $p4Textbox1 $TCPPort
 
-        ${NSD_CreateLabel} 120u 70u 135u 18u "$(STRING_APACHEINSTALL_LINE3)"
+        ${NSD_CreateLabel} 120u 70u 135u 28u "$(STRING_APACHEINSTALL_LINE3)"
 	Pop $p4Label2
 
 	${NSD_CreateText} 255u 70u 65u 12u ""
