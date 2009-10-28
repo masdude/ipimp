@@ -51,6 +51,7 @@
 !define MUI_WELCOMEFINISHPAGE_BITMAP "Images\iPiMPinstall.bmp"
 !insertmacro LANG_LOAD "English"
 !insertmacro LANG_LOAD "German"
+!insertmacro LANG_LOAD "Danish"
 
 ;
 ; Setup pages
