@@ -22,7 +22,7 @@
  {{{<roleManager defaultProvider="SQLiteRoleProvider" enabled="true" cacheRolesInCookie="true" cookieName=".ASPROLES" '''cookieTimeout="525600"''' cookiePath="/" cookieRequireSSL="false" cookieSlidingExpiration="true" cookieProtection="All">}}}
 
  * *To manually uninstall iPiMP*
-[WikiSyntax#Wiki-style_markup]
+[TipsAndTricks#Wiki-style_markup]
  Close your !MediaPortal client and stop your TV Server service then:
 
  At a command prompt run
