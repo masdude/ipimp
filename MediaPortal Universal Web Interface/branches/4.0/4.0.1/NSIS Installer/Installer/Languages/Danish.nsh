@@ -1,4 +1,4 @@
-!define LANG "ENGLISH"
+!define LANG "DANISH"
 
 !insertmacro LANG_STRING STRING_YES "Ja"
 !insertmacro LANG_STRING STRING_NO "Nej"
