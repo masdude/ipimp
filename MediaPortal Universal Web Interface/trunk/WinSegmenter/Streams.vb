@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports TagLib
 
 
 Public Class Streams
@@ -25,6 +26,10 @@ Public Class Streams
         Dim chunkCount As Integer = 1
         ' iterate read/writes between streams
         Dim i As Integer = 0
+
+        Dim m3u8 As System.IO.File
+
+
         Do
             If outFile Is Nothing Then
                 outFile = New FileStream(String.Format("D:\temp\ffmpeg\out{0}.ts", chunkCount.ToString), FileMode.Create, FileAccess.Write, FileShare.None)
@@ -36,8 +41,13 @@ Public Class Streams
             If i > 1000000 Then
                 outFile.Close()
                 outFile = Nothing
+                Dim tFile As TagLib.File = TagLib.File.Create(String.Format("D:\temp\ffmpeg\out{0}.ts", chunkCount.ToString))
+
+                tFile.Length
+
                 chunkCount += 1
                 i = 0
+
             End If
         Loop
 
