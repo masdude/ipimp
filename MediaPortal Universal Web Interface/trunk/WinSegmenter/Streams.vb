@@ -1,47 +1,48 @@
 ﻿Imports System.IO
 
-Namespace WinSegmenter
 
-    Public Class Streams
+Public Class Streams
 
-        Public Sub Test()
-
-            Dim inputStream As Stream = Console.OpenStandardInput()
-            Dim bytes(100) As Byte
-            Console.WriteLine("To decode, type or paste the UTF7 encoded string and press enter:")
-            Console.WriteLine("(Example: ""M+APw-nchen ist wundervoll"")")
-            Dim outputLength As Integer = inputStream.Read(bytes, 0, 100)
-            Dim chars As Char() = Encoding.UTF7.GetChars(bytes, 0, outputLength)
-            Console.WriteLine("Decoded string:")
-            Console.WriteLine(New String(chars))
-
-        End Sub
-
-        Public Sub CopyStreamContents(ByVal objInput As Stream, ByVal objOutput As Stream)
-
-            ' assert these are the right kind of streams
-            If objInput Is Nothing Then Throw New ArgumentNullException("input")
-            If objOutput Is Nothing Then Throw New ArgumentNullException("output")
-            If Not objInput.CanRead Then Throw New ArgumentException("Input stream must support CanRead")
-            If Not objOutput.CanWrite Then Throw New ArgumentException("Output stream must support CanWrite")
-
-            ' skip if the input stream is empty (if seeking is supported)
-            If objInput.CanSeek Then If objInput.Length = 0 Then Exit Sub
-
-            ' allocate buffer (if all pre-conditions are met)
-            Dim buffer(1023) As Byte
-            Dim count As Integer = buffer.Length
-
-            ' iterate read/writes between streams
-            Do
-                count = objInput.Read(buffer, 0, count)
-                If count = 0 Then Exit Do
-                objOutput.Write(buffer, 0, count)
-            Loop
-
-        End Sub
-
-    End Class
+    Const chunk2 As Integer = 1048576
+    Const chunk As Integer = 1023
 
 
-End Namespace
+    Public Shared Sub CopyStreamContents(ByVal inStream As Stream)
+
+        ' assert these are the right kind of streams
+        If inStream Is Nothing Then Throw New ArgumentNullException("input")
+        If Not inStream.CanRead Then Throw New ArgumentException("Input stream must support CanRead")
+
+        ' prepare the output filestreams
+        Dim outFile As FileStream = Nothing
+
+        ' skip if the input stream is empty (if seeking is supported)
+        If inStream.CanSeek Then If inStream.Length = 0 Then Exit Sub
+
+        ' allocate buffer (if all pre-conditions are met)
+        Dim buffer(chunk) As Byte
+        Dim count As Integer = buffer.Length
+        Dim chunkCount As Integer = 1
+        ' iterate read/writes between streams
+        Dim i As Integer = 0
+        Do
+            If outFile Is Nothing Then
+                outFile = New FileStream(String.Format("D:\temp\ffmpeg\out{0}.ts", chunkCount.ToString), FileMode.Create, FileAccess.Write, FileShare.None)
+            End If
+            i += count
+            count = inStream.Read(buffer, 0, count)
+            If count = 0 Then Exit Do
+            outFile.Write(buffer, 0, count)
+            If i > 1000000 Then
+                outFile.Close()
+                outFile = Nothing
+                chunkCount += 1
+                i = 0
+            End If
+        Loop
+
+    End Sub
+
+End Class
+
+

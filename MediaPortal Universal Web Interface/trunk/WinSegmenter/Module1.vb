@@ -1,11 +1,14 @@
-﻿Namespace WinSegmenter
+﻿Imports System.IO
 
-    Module Module1
 
-        Sub Main()
+Module Module1
 
-        End Sub
+    Sub Main()
 
-    End Module
+        Dim inputStream As Stream = Console.OpenStandardInput()
+        Streams.CopyStreamContents(inputStream)
 
-End Namespace
+    End Sub
+
+End Module
+
