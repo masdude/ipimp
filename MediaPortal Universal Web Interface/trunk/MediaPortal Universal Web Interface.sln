@@ -94,11 +94,13 @@ Global
 		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Debug|x86.Build.0 = Debug|Any CPU
 		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Release|x86.ActiveCfg = Release|Any CPU
+		{B5667D5E-A2C2-410E-83B8-D0761E864054}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
