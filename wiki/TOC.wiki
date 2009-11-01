@@ -1,7 +1,7 @@
  * [iPiMPWiki Introduction]
  * [ChangeLog]
  * [TipsAndTricks Tips & Tricks]
- * [Known_Issues_Workarounds Known Issues and workrounds]
+ * [Known_Issues_Workarounds Known Issues & workrounds]
  * [Troubleshooting]
  * [Roadmap]
  * [FAQ Frequently Asked Questions]
