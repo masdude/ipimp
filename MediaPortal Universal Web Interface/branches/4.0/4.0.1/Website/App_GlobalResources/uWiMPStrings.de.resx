@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="about_ipimp" xml:space="preserve">
-    <value>Ãœber iPiMP</value>
+    <value>Über iPiMP</value>
   </data>
   <data name="administration" xml:space="preserve">
     <value>Administration</value>
   </data>
   <data name="back" xml:space="preserve">
-    <value>ZurÃ¼ck</value>
+    <value>Zurück</value>
   </data>
   <data name="change_password" xml:space="preserve">
-    <value>Passwort Ã¤ndern</value>
+    <value>Passwort ändern</value>
   </data>
   <data name="confirm_password" xml:space="preserve">
-    <value>Passwort bestÃ¤tigen</value>
+    <value>Passwort bestätigen</value>
   </data>
   <data name="create_user" xml:space="preserve">
     <value>Benutzer Erzeugen</value>
   </data>
   <data name="delete_user" xml:space="preserve">
-    <value>Benutzer lÃ¶schen</value>
+    <value>Benutzer löschen</value>
   </data>
   <data name="finishing_at" xml:space="preserve">
     <value>Endet bei</value>
@@ -218,10 +218,10 @@
     <value>Administrator</value>
   </data>
   <data name="delete" xml:space="preserve">
-    <value>LÃ¶schen</value>
+    <value>Löschen</value>
   </data>
   <data name="deleter" xml:space="preserve">
-    <value>LÃ¶scher</value>
+    <value>Löscher</value>
   </data>
   <data name="no_users" xml:space="preserve">
     <value>Es sind eine Benutzer definiert</value>
@@ -242,22 +242,22 @@
     <value>Erfolgreich erstellt</value>
   </data>
   <data name="has_been_deleted" xml:space="preserve">
-    <value>wurde gelÃ¶scht</value>
+    <value>wurde gelöscht</value>
   </data>
   <data name="has_been_deleted_fail" xml:space="preserve">
-    <value>wurde nicht gelÃ¶scht</value>
+    <value>wurde nicht gelöscht</value>
   </data>
   <data name="pass_change_fail" xml:space="preserve">
-    <value>Ã„ndern des Passwortes fehlgeschlagen</value>
+    <value>Ändern des Passwortes fehlgeschlagen</value>
   </data>
   <data name="pass_change_success" xml:space="preserve">
-    <value>Passwort geÃ¤ndert</value>
+    <value>Passwort geändert</value>
   </data>
   <data name="pass_dont_match" xml:space="preserve">
-    <value>PasswÃ¶rter nicht identisch</value>
+    <value>Passwörter nicht identisch</value>
   </data>
   <data name="role_add_fail" xml:space="preserve">
-    <value>Benutzer kann nicht hinzugefÃ¼gt werden {0}.</value>
+    <value>Benutzer kann nicht hinzugefügt werden {0}.</value>
   </data>
   <data name="username_blank" xml:space="preserve">
     <value>Benutzername darf nicht leer sein</value>
@@ -266,7 +266,7 @@
     <value>Benutzername existiert schon</value>
   </data>
   <data name="loading" xml:space="preserve">
-    <value>LÃ¤dt, bitte warten...</value>
+    <value>Lädt, bitte warten...</value>
   </data>
   <data name="remember_me" xml:space="preserve">
     <value>Merken?</value>
@@ -287,7 +287,7 @@
     <value>Genre</value>
   </data>
   <data name="now_and_next" xml:space="preserve">
-    <value>Jetzt &amp; SpÃ¤ter</value>
+    <value>Jetzt &amp; Später</value>
   </data>
   <data name="no_programs_found" xml:space="preserve">
     <value>Keine Programme gefunden</value>
@@ -308,7 +308,7 @@
     <value>Morgen</value>
   </data>
   <data name="next_day" xml:space="preserve">
-    <value>NÃ¤chster Tag</value>
+    <value>Nächster Tag</value>
   </data>
   <data name="programs_on" xml:space="preserve">
     <value>Programme auf</value>
@@ -335,16 +335,16 @@
     <value>Email senden</value>
   </data>
   <data name="email_subject" xml:space="preserve">
-    <value>Dich wÃ¼rde vielleicht auch das interessieren</value>
+    <value>Dich würde vielleicht auch das interessieren</value>
   </data>
   <data name="once" xml:space="preserve">
     <value>Einmal</value>
   </data>
   <data name="recording_add_fail" xml:space="preserve">
-    <value>Aufnahme kann nicht hinzufÃ¼gen</value>
+    <value>Aufnahme kann nicht hinzufügen</value>
   </data>
   <data name="recording_add_success" xml:space="preserve">
-    <value>Aufnahme hinzugefÃ¼gt</value>
+    <value>Aufnahme hinzugefügt</value>
   </data>
   <data name="searching" xml:space="preserve">
     <value>Suche, bitte warten ...</value>
@@ -365,7 +365,7 @@
     <value>Letztes Jahr</value>
   </data>
   <data name="older" xml:space="preserve">
-    <value>Ã„lter</value>
+    <value>Älter</value>
   </data>
   <data name="recordings" xml:space="preserve">
     <value>Aufnahmen</value>
@@ -416,7 +416,7 @@
     <value>Bist du sicher?</value>
   </data>
   <data name="delete_keep" xml:space="preserve">
-    <value>LÃ¶schen|Behalten</value>
+    <value>Löschen|Behalten</value>
   </data>
   <data name="display_more" xml:space="preserve">
     <value>Mehr anzeigen ...</value>
@@ -425,13 +425,13 @@
     <value>Immer behalten</value>
   </data>
   <data name="keep_for_one_month" xml:space="preserve">
-    <value>Behalten fÃ¼r 1 Monat</value>
+    <value>Behalten für 1 Monat</value>
   </data>
   <data name="keep_for_one_week" xml:space="preserve">
-    <value>Behalten fÃ¼r 1 Woche</value>
+    <value>Behalten für 1 Woche</value>
   </data>
   <data name="keep_for_one_year" xml:space="preserve">
-    <value>Behalten fÃ¼r 1 Jahr</value>
+    <value>Behalten für 1 Jahr</value>
   </data>
   <data name="keep_until_space_needed" xml:space="preserve">
     <value>Behalten bis Festplatte voll ist</value>
@@ -443,19 +443,19 @@
     <value>Nein</value>
   </data>
   <data name="recordings_delete_fail" xml:space="preserve">
-    <value>Aufnahmen konnten nicht gelÃ¶scht werden!</value>
+    <value>Aufnahmen konnten nicht gelöscht werden!</value>
   </data>
   <data name="recordings_delete_success" xml:space="preserve">
-    <value>Aufnahmen erfolgreich gelÃ¶scht</value>
+    <value>Aufnahmen erfolgreich gelöscht</value>
   </data>
   <data name="recordings_selected_delete" xml:space="preserve">
-    <value>Aufnahmen zum LÃ¶schen ausgewÃ¤hlt</value>
+    <value>Aufnahmen zum Löschen ausgewählt</value>
   </data>
   <data name="recording_delete_fail" xml:space="preserve">
-    <value>Aufnahme konnte nicht gelÃ¶scht werden!</value>
+    <value>Aufnahme konnte nicht gelöscht werden!</value>
   </data>
   <data name="recording_delete_success" xml:space="preserve">
-    <value>Aufnahme erfolgreich gelÃ¶scht</value>
+    <value>Aufnahme erfolgreich gelöscht</value>
   </data>
   <data name="recording_keep_fail" xml:space="preserve">
     <value>Aufnahme konnte nicht aktualisiert werden!</value>
@@ -473,7 +473,7 @@
     <value>Geplant letzten Monat</value>
   </data>
   <data name="scheduled_other" xml:space="preserve">
-    <value>Geplant in anderen ZeitrÃ¤umen</value>
+    <value>Geplant in anderen Zeiträumen</value>
   </data>
   <data name="scheduled_this_month" xml:space="preserve">
     <value>Geplant diesen Monat</value>
@@ -482,7 +482,7 @@
     <value>Geplant diese Woche</value>
   </data>
   <data name="schedules" xml:space="preserve">
-    <value>AufnahmeplÃ¤ne</value>
+    <value>Aufnahmepläne</value>
   </data>
   <data name="this_month" xml:space="preserve">
     <value>Dieser Monat</value>
@@ -491,25 +491,25 @@
     <value>Keine Programmbeschreibung</value>
   </data>
   <data name="program_not_found" xml:space="preserve">
-    <value>Programm wurde aus dem EPG gelÃ¶scht.</value>
+    <value>Programm wurde aus dem EPG gelöscht.</value>
   </data>
   <data name="title" xml:space="preserve">
     <value>Titel</value>
   </data>
   <data name="clean_up_schedules" xml:space="preserve">
-    <value>Aufnahmeplan aufrÃ¤umen</value>
+    <value>Aufnahmeplan aufräumen</value>
   </data>
   <data name="schedules_deleted_fail" xml:space="preserve">
-    <value>Termine konnten nicht gelÃ¶scht werden!</value>
+    <value>Termine konnten nicht gelöscht werden!</value>
   </data>
   <data name="schedules_deleted_success" xml:space="preserve">
-    <value>Termine gelÃ¶scht</value>
+    <value>Termine gelöscht</value>
   </data>
   <data name="schedule_delete_fail" xml:space="preserve">
-    <value>Termine konnten nicht gelÃ¶scht werden!</value>
+    <value>Termine konnten nicht gelöscht werden!</value>
   </data>
   <data name="schedule_delete_success" xml:space="preserve">
-    <value>Termin erfolgreich gelÃ¶scht</value>
+    <value>Termin erfolgreich gelöscht</value>
   </data>
   <data name="error" xml:space="preserve">
     <value>!! FUBAR !!</value>
@@ -527,7 +527,7 @@
     <value>Konvertierung Status</value>
   </data>
   <data name="busy" xml:space="preserve">
-    <value>beschÃ¤ftigt</value>
+    <value>beschäftigt</value>
   </data>
   <data name="client_is" xml:space="preserve">
     <value>MP client ist</value>
@@ -569,10 +569,10 @@
     <value>Gb frei</value>
   </data>
   <data name="add" xml:space="preserve">
-    <value>HinzufÃ¼gen</value>
+    <value>Hinzufügen</value>
   </data>
   <data name="client_add" xml:space="preserve">
-    <value>Client hinzufÃ¼gen</value>
+    <value>Client hinzufügen</value>
   </data>
   <data name="client_add_help1" xml:space="preserve">
     <value>Der Name wird verwendet um zum MP Client zu verbinden, wenn der Hostname/IP Adresse leer sind.</value>
@@ -584,7 +584,7 @@
     <value>MAC Addresse wird verwendet um den Client mit Wake on Lan wieder aufzuwecken.</value>
   </data>
   <data name="client_del" xml:space="preserve">
-    <value>LÃ¶sche Client</value>
+    <value>Lösche Client</value>
   </data>
   <data name="client_update" xml:space="preserve">
     <value>Update Client</value>
@@ -611,13 +611,13 @@
     <value>TCP port (optional)</value>
   </data>
   <data name="select_client" xml:space="preserve">
-    <value>Client auswÃ¤hlen</value>
+    <value>Client auswählen</value>
   </data>
   <data name="client_empty" xml:space="preserve">
-    <value>Du muÃŸt einen Namen angeben.</value>
+    <value>Du mußt einen Namen angeben.</value>
   </data>
   <data name="client_not_selected" xml:space="preserve">
-    <value>Du muÃŸt einen Client auswÃ¤hlen.</value>
+    <value>Du mußt einen Client auswählen.</value>
   </data>
   <data name="could_not_be_updated" xml:space="preserve">
     <value>kann nicht aktualisiert werden.</value>
@@ -629,13 +629,13 @@
     <value>Update</value>
   </data>
   <data name="change" xml:space="preserve">
-    <value>Ã„ndern</value>
+    <value>Ändern</value>
   </data>
   <data name="select_user" xml:space="preserve">
-    <value>Benutzer auswÃ¤hlen</value>
+    <value>Benutzer auswählen</value>
   </data>
   <data name="user_not_selected" xml:space="preserve">
-    <value>Du muÃŸt einen Benutzer auswÃ¤hlen.</value>
+    <value>Du mußt einen Benutzer auswählen.</value>
   </data>
   <data name="my_videos" xml:space="preserve">
     <value>My Videos</value>
@@ -711,7 +711,7 @@
     <value>Update Musikdatenbank</value>
   </data>
   <data name="play_100_random" xml:space="preserve">
-    <value>Spiele 100 zufÃ¤llige Titel</value>
+    <value>Spiele 100 zufällige Titel</value>
   </data>
   <data name="enqueue" xml:space="preserve">
     <value>Warteschlange</value>
@@ -720,7 +720,7 @@
     <value>Zufall</value>
   </data>
   <data name="select_tracks" xml:space="preserve">
-    <value>Titel auswÃ¤hlen</value>
+    <value>Titel auswählen</value>
   </data>
   <data name="done" xml:space="preserve">
     <value>Erledigt</value>
@@ -732,7 +732,7 @@
     <value>Keine Playlists gefunden</value>
   </data>
   <data name="play_random_playlist" xml:space="preserve">
-    <value>Spiele zufÃ¤llige Playlist</value>
+    <value>Spiele zufällige Playlist</value>
   </data>
   <data name="search_album" xml:space="preserve">
     <value>Suche Album</value>
@@ -801,10 +801,10 @@
     <value>Power Option fehlgeschlagen</value>
   </data>
   <data name="power_option_not_selected" xml:space="preserve">
-    <value>Du muÃŸt eine Option auswÃ¤hlen</value>
+    <value>Du mußt eine Option auswählen</value>
   </data>
   <data name="power_option_select" xml:space="preserve">
-    <value>Power Option auswÃ¤hlen</value>
+    <value>Power Option auswählen</value>
   </data>
   <data name="power_option_success" xml:space="preserve">
     <value>Power Option erfolgreich</value>
@@ -876,19 +876,22 @@
     <value>Tastatur Kurzbefehle</value>
   </data>
   <data name="select_list_size" xml:space="preserve">
-    <value>ListenlÃ¤nge auswÃ¤hlen</value>
+    <value>Listenlänge auswählen</value>
   </data>
   <data name="send" xml:space="preserve">
     <value>Senden</value>
   </data>
   <data name="power_close" xml:space="preserve">
-    <value>SchlieÃŸen</value>
+    <value>Schließen</value>
   </data>
   <data name="transcoding_running" xml:space="preserve">
-    <value>Umwandlung lÃ¤uft</value>
+    <value>Umwandlung läuft</value>
   </data>
   <data name="transcoding_started" xml:space="preserve">
     <value>Umwandlung hat begonnen</value>
+  </data>
+  <data name="no_access" xml:space="preserve">
+    <value>You have not been granted this role.</value>
   </data>
   <data name="no_channel_groups" xml:space="preserve">
     <value>No channel groups found.</value>
