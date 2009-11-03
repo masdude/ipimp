@@ -896,4 +896,7 @@
   <data name="no_channel_groups" xml:space="preserve">
     <value>No channel groups found.</value>
   </data>
+  <data name="no_channel_groups" xml:space="preserve">
+    <value>No channel groups found.</value>
+  </data>
 </root>
