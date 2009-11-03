@@ -34,10 +34,9 @@ Namespace uWiMP.TVServer
 
             If cg.Count > 1 Then
                 cg.Sort(New ChannelGroupsGroupNameComparer)
-                Return cg
-            Else
-                Return Nothing
             End If
+
+            Return cg
 
         End Function
 

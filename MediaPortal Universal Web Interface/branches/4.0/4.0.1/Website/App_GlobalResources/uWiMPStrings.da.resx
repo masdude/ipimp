@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="iso-8859-1"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -662,7 +662,7 @@
     <value>WOL pakke sendt, forsøg igen om 1 min...</value>
   </data>
   <data name="multiple" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>Added to the end of a decade to indicate plural</comment>
   </data>
   <data name="more" xml:space="preserve">
@@ -892,5 +892,8 @@
   </data>
   <data name="no_access" xml:space="preserve">
     <value>Du har ikke tilladelse til dette.</value>
+  </data>
+  <data name="no_channel_groups" xml:space="preserve">
+    <value>No channel groups found.</value>
   </data>
 </root>
