@@ -1,7 +1,6 @@
 #sidebar TOC
  
  === These are current known issues with iPiMP 4.0.0 ===
- *These will be fixed in 4.0.1*
 
  * *Cannot see !MediaPortal Clients menu item in the Administration menu*
  This issue occurs when you select 'Dedicated TV Server Installation' as the standard install type.  The idea was that some users may not want to use the !MediaPortal client functionality so there should be a way to hide these menu items.  This needs tidying up in the installer/application as it's not quite right ;-)
