@@ -10,7 +10,7 @@
 
  Ensure you do NOT have the Safari download plugin installed on your jailbroken device.
 
- * *Remember Me? doesn't work*
+ * *Remember Me? doesn't work (You always have to login)*
 
  Ensure you have enabled cookies. Settings -> Safari -> Accept Cookies -> 'From visited' or 'Always'
 
