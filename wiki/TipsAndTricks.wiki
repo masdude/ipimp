@@ -49,7 +49,7 @@
 
  * *Reset your iPiMP database*
 
- Copy the attached uWiMP.db to C:\Program Files\iPiMP\aspx\!App_Data\
+ Copy this [[http://ipimp.googlecode.com/files/uWiMP.db uWiMP.db]] to C:\Program Files\iPiMP\aspx\!App_Data\
 
 
  * *Using iPiMP over the internet*
