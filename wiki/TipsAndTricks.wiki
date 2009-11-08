@@ -9,6 +9,8 @@
  * *Streaming MP4's doesn't work*
 
  Ensure you do NOT have the Safari download plugin installed on your jailbroken device.
+ OR
+ Enxure you use VALID ffmpeg parameters in the transcode plugin, if in doubt use the Defaults button on the plugin configuration screen.
 
  * *You are always returned to the login page, even when entering the correct username & password*
 
