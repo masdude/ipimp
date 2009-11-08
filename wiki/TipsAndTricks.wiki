@@ -10,6 +10,10 @@
 
  Ensure you do NOT have the Safari download plugin installed on your jailbroken device.
 
+ * *You are always returned to the login page, even when entering the correct username & password*
+
+ Ensure you have enabled cookies. Settings -> Safari -> Accept Cookies -> 'From visited' or 'Always'
+
  * *Remember Me? doesn't work (You always have to login)*
 
  Ensure you have enabled cookies. Settings -> Safari -> Accept Cookies -> 'From visited' or 'Always'
