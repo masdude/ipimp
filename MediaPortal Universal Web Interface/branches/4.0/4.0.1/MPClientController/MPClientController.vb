@@ -140,6 +140,9 @@ Namespace MPClientController
 #End Region
 
         Private Sub InputReceived()
+
+            Log.Debug("plugin: iPiMPClient - InputReceived")
+
             Const ERRORMESSAGE As String = "ERROR"
             Dim results As String = String.Empty
             Dim response As Byte() = Nothing
@@ -152,6 +155,7 @@ Namespace MPClientController
 
             Dim request As MPClientRequest
             If data.Length > 0 Then
+                Log.Debug("plugin: iPiMPClient - Raw: {0}", data)
                 request = DirectCast(JsonConvert.Import(GetType(MPClientRequest), data), MPClientRequest)
             Else
                 response = System.Text.Encoding.UTF8.GetBytes(ERRORMESSAGE)
