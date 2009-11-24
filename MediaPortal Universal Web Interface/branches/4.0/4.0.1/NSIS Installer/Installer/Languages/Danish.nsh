@@ -1,4 +1,4 @@
-!define LANG "DANISH"
+!define LANG "ENGLISH"
 
 !insertmacro LANG_STRING STRING_YES "Ja"
 !insertmacro LANG_STRING STRING_NO "Nej"
@@ -13,7 +13,7 @@
 
 !insertmacro LANG_STRING STRING_LICENCE_LINE1 "Velkommen til iPiMP!"
 
-!insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE1 "En anden udgave af ${PRODUCT_NAME} er allarede installeret. Ønsker du at fjerne denne?"
+!insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE1 "En anden udgave af ${PRODUCT_NAME} er allerede installeret. Ønsker du at fjerne denne?"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE2 "Den tidligere udgave kunne ikke fjernes - på grund af: $2"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE3 "Det anbefales at du fjerner tidligere udgaver, før du installerer ${PRODUCT_NAME} ${PRODUCT_VERSION}, ønsker du at fjerne den tidligere udgave?"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE4 "OK - Du vil måske opleve problemer med ${PRODUCT_NAME} ${PRODUCT_VERSION}, vær venlig ikke at raportere disse."
@@ -24,14 +24,14 @@
 !insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE1 "Standard iPiMP installlerer"
 !insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE2 "Singleseat installation"
 !insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE3 "Dedikeret TV server installation"
-!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE4 "MediaPortal remote kontrol plugin"
-!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE5 "MediaPortal remote kontrol internet installation"
+!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE4 "MediaPortal fjernbetjenings plugin"
+!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE5 "MediaPortal fjernbetjenings installation"
 !insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE6 "Vælg hvad du ønsker installeret..."
-!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE7 "Dette er opsætningen, hvis du har MediaPortal klienten og TV server installeret på samme PC.$\r$\n$\r$\nDette installerer alt!"
+!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE7 "Dette er opsætningen, hvis du har MediaPortal klient og TV server installeret på samme PC.$\r$\n$\r$\nDette installerer alt!"
 !insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE8 "Dette er opsætningen, hvis du har en selvstændig TV server.$\r$\n$\r$\nDette installerer alt - undtagen klient plugin."
-!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE9 "Dette er opsætningen, hvis du kun har MediaPortal klienten installeret og ønsker at kunne fjernbetjene den fra din iPhone og har iPiMP serveren på en anden PC.$\r$\n$\r$\nFor example in a multi seat MediaPortal setup."
-!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE10 "Dette er opsætningen, hvis du kun har MediaPortal klienten installeret og ønsker at kunne fjernbetjene den fra din iPhone og har iPiMP serveren på den samme PC.$\r$\n$\r$\nFor example if you don't use the TV server."
-!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE11 "Cannot detect MediaPortal client or TV Server!"
+!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE9 "Dette er opsætningen, hvis du kun har MediaPortal klient installeret og ønsker at kunne kontrollere den fra din iPhone og har iPiMP serveren på en anden PC.$\r$\n$\r$\nFor eksempel i multi seat MediaPortal opsætning."
+!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE10 "Dette er opsætningen, hvis du kun har MediaPortal klienten installeret og ønsker at kunne kontrollere den fra din iPhone og har iPiMP serveren på den samme PC.$\r$\n$\r$\nFor eksempel hvis du ikke bruger TV server."
+!insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE11 "Kan ikke finde MediaPortal klient or TV Server!"
 !insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE12 "Du skal vælge en af installationsmulighederne!"
 
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE1 "Advanceret iPiMP installeres"
@@ -39,7 +39,7 @@
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE3 "Apache mod_aspdotnet"
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE4 "iPiMP net filer"
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE5 "iPiMP transcode TV server plugin"
-!insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE6 "iPiMP MediaPortal klient remote kontrol plugin"
+!insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE6 "iPiMP MediaPortal klient fjernkontrol plugin"
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE7 "Vælg hvad du ønsker at installere..."
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE8 "Installerer Apache HTTP server version 2.2.14 (udgivet den 05/10/2009).$\r$\n$\r$\nInstallerer også mod_aspdotnet, et Apache 2 module der server ASP.NET indhold gennem Microsoft's ASP.NET hosting og .NET runtime indenfor Apache HTTP server processer."
 !insertmacro LANG_STRING STRING_ADVANCEDINSTALL_LINE9 "Installerer mod_aspdotnet, et Apache 2 module der server ASP.NET indhold gennem Microsoft's ASP.NET hosting og .NET runtime indenfor Apache HTTP server processer."
@@ -52,7 +52,7 @@
 
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE1 "Apache net server indstillinger"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE2 "Skriv hvilken TCP port der skal lyttes til:$\r$\n(Hvis feltet lades tomt benyttes port 80)"
-!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE3 "Skriv hvilken IP addresse der skal lyttes til:$\r$\n(Hvis feltet lades toms benyttes alle IP adresser)"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE3 "Skriv hvilken IP addresse der skal lyttes til:$\r$\n(Hvis feltet lades tomt benyttes alle IP adresser)"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE4 "Bekræft TV logo folderen:$\r$\n(Disse vil blive benyttet i net visningen)"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE5 "Hvor længe ønsker du at være logget på:$\r$\n(Efter periodens udløb skal du logge på igen)"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE6 "30 minutter"

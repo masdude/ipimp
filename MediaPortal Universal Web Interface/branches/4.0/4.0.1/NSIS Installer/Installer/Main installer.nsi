@@ -52,6 +52,7 @@
 !insertmacro LANG_LOAD "English"
 !insertmacro LANG_LOAD "German"
 !insertmacro LANG_LOAD "Danish"
+!insertmacro LANG_LOAD "Dutch"
 
 ;
 ; Setup pages
