@@ -4,6 +4,7 @@
  * Web - Danish language - thanks to sbp
  * Web - Dutch language - thanks to minvis
  * Web - Fixes for defects 10,11,12,13
+ * Web - Updated to !WebApp.net release 0.5.0
 
 4.0.0 updates include
  * Web - Completely rewritten to support multiple languages
