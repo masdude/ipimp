@@ -1,5 +1,10 @@
 #sidebar TOC
 ----
+*not yet released* 4.0.1 updates include
+ * Web - Danish language - thanks to sbp
+ * Web - Dutch language - thanks to minvis
+ * Web - Fixes for defects 10,11,12,13
+
 4.0.0 updates include
  * Web - Completely rewritten to support multiple languages
  * Web - English language - thanks to cheezey :-)
