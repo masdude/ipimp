@@ -5,6 +5,7 @@
  * Web - Dutch language - thanks to minvis
  * Web - Fixes for defects 10,11,12,13,19
  * Web - Updated to !WebApp.net release 0.5.0
+ * MP client plugin - Added extra logging
  * Installer - Dutch language
 
 4.0.0 updates include
