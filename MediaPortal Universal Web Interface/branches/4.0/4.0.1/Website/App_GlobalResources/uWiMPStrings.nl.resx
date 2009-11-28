@@ -437,7 +437,7 @@
     <value>Behouden tot er ruimte nodig is</value>
   </data>
   <data name="keep_until_watched" xml:space="preserve">
-    <value>Behouden tot het bekeken is/value>
+    <value>Behouden tot het bekeken is</value>
   </data>
   <data name="no" xml:space="preserve">
     <value>Nee</value>
