@@ -1,10 +1,11 @@
 #sidebar TOC
 ----
-*not yet released* 4.0.1 updates include
+ * Web - 4.0.1 updates include
  * Web - Danish language - thanks to sbp
  * Web - Dutch language - thanks to minvis
  * Web - Fixes for defects 10,11,12,13,19
  * Web - Updated to !WebApp.net release 0.5.0
+ * Installer - Dutch language
 
 4.0.0 updates include
  * Web - Completely rewritten to support multiple languages
