@@ -12,6 +12,7 @@
 !insertmacro LANG_STRING STRING_WELCOME_LINE3 "Start geavanceerde installatie"
 
 !insertmacro LANG_STRING STRING_LICENCE_LINE1 "Welkom bij iPiMP!"
+!insertmacro LANG_STRING STRING_LICENCE_AGREE "I Agree"
 
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE1 "Een andere versie van ${PRODUCT_NAME} is al geïstalleerd. Wil je deze eerst deïnstalleren?"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE2 "Deïnstallatie van de vorige versie is mislukt - Reden: $2"

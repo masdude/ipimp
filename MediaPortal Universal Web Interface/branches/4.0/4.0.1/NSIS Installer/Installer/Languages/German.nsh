@@ -12,6 +12,7 @@
 !insertmacro LANG_STRING STRING_WELCOME_LINE3 "Fortgeschrittene Installation ausführen"
 
 !insertmacro LANG_STRING STRING_LICENCE_LINE1 "Willkommen zu iPiMP!"
+!insertmacro LANG_STRING STRING_LICENCE_AGREE "I Agree"
 
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE1 "Eine andere Version von ${PRODUCT_NAME} ist bereits installiert. Möchtest Du diese löschen?"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE2 "Löschen der Vorgängerversion fehlgeschlagen - Fehler: $2"
