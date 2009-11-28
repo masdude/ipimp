@@ -12,6 +12,7 @@
 !insertmacro LANG_STRING STRING_WELCOME_LINE3 "Foretag avanceret installation"
 
 !insertmacro LANG_STRING STRING_LICENCE_LINE1 "Velkommen til iPiMP!"
+!insertmacro LANG_STRING STRING_LICENCE_AGREE "Accepter"
 
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE1 "En anden udgave af ${PRODUCT_NAME} er allerede installeret. Ønsker du at fjerne denne?"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE2 "Den tidligere udgave kunne ikke fjernes - på grund af: $2"

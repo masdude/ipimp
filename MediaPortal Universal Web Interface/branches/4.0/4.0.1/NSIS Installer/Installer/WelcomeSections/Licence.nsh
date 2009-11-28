@@ -50,7 +50,7 @@ Function Licence
 	SetCtlColors $LicenceDialog "" 0xffffff
 
         GetDlgItem $0 $HWNDPARENT 1 ; Next button
-        SendMessage $0 ${WM_SETTEXT} 0 "STR:I Agree"
+        SendMessage $0 ${WM_SETTEXT} 0 "STR:$(STRING_LICENCE_AGREE)"
 
 	Call HideControls
 
