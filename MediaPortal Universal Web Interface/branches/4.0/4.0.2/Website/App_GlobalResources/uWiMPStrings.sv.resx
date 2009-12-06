@@ -344,7 +344,7 @@
     <value>Inspelning kunde inte läggas till</value>
   </data>
   <data name="recording_add_success" xml:space="preserve">
-    <value>Inspelning lades till/value>
+    <value>Inspelning lades till</value>
   </data>
   <data name="searching" xml:space="preserve">
     <value>Sökning pågår, vänligen vänta ...</value>
@@ -831,7 +831,7 @@
     <value>Spelar inget</value>
   </data>
   <data name="now_playing_unknown" xml:space="preserve">
-    <value>Kan inte avgöra vad som spelas/value>
+    <value>Kan inte avgöra vad som spelas</value>
   </data>
   <data name="refresh" xml:space="preserve">
     <value>Uppdatera</value>
