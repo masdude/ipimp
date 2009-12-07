@@ -97,6 +97,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\uWiMPStrings.sv.designer.vb">
+      <DependentUpon>uWiMPStrings.sv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.fr.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\uWiMPStrings.da.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1094,6 +1104,14 @@
     <Content Include="App_GlobalResources\uWiMPStrings.no.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.no.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.fr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.fr.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.sv.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.sv.designer.vb</LastGenOutput>
     </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

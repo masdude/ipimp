@@ -12,10 +12,12 @@
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.de.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.en-GB.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.fo.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.fr.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.it.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.nl.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.no.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.sv.resx"
 
   SetOutPath "$INSTDIR\Aspx\bin"
   File "..\Include\Aspx\bin\DirectShowLib.dll"
