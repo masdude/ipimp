@@ -53,6 +53,8 @@
 !insertmacro LANG_LOAD "German"
 !insertmacro LANG_LOAD "Danish"
 !insertmacro LANG_LOAD "Dutch"
+!insertmacro LANG_LOAD "Swedish"
+!insertmacro LANG_LOAD "French"
 
 ;
 ; Setup pages
