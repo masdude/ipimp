@@ -77,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="iPiMPTranscodeToMP4Setup.vb">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="iPiMPTranscodeToMP4.vb" />
     <Compile Include="My Project\Application.Designer.vb">

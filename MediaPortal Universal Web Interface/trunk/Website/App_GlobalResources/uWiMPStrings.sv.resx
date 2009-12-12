@@ -1,4 +1,4 @@
-ï»¿<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,37 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="about_ipimp" xml:space="preserve">
-    <value>About iPiMP</value>
+    <value>Om iPiMP</value>
   </data>
   <data name="administration" xml:space="preserve">
     <value>Administration</value>
   </data>
   <data name="back" xml:space="preserve">
-    <value>Back</value>
+    <value>Tillbaka</value>
   </data>
   <data name="change_password" xml:space="preserve">
-    <value>Change password</value>
+    <value>Byt lösenord</value>
   </data>
   <data name="confirm_password" xml:space="preserve">
-    <value>Confirm password</value>
+    <value>Bekräfta senord</value>
   </data>
   <data name="create_user" xml:space="preserve">
-    <value>Create user</value>
+    <value>Skapa användare</value>
   </data>
   <data name="delete_user" xml:space="preserve">
-    <value>Delete user</value>
+    <value>Radera användare</value>
   </data>
   <data name="finishing_at" xml:space="preserve">
-    <value>finishing at</value>
+    <value>slutar kl</value>
   </data>
   <data name="grabbing" xml:space="preserve">
-    <value>Grabbing</value>
+    <value>Hämtar</value>
   </data>
   <data name="home" xml:space="preserve">
-    <value>Home</value>
+    <value>Hem</value>
   </data>
   <data name="idle" xml:space="preserve">
-    <value>Idle</value>
+    <value>Sysslolös</value>
   </data>
   <data name="ipimp" xml:space="preserve">
     <value>iPiMP</value>
@@ -157,43 +157,43 @@
     <value>iPiMP administration</value>
   </data>
   <data name="ipimp_settings" xml:space="preserve">
-    <value>iPiMP settings</value>
+    <value>iPiMP inställningar</value>
   </data>
   <data name="is" xml:space="preserve">
-    <value>is</value>
+    <value>är</value>
   </data>
   <data name="logout" xml:space="preserve">
-    <value>Logout</value>
+    <value>Logga ut</value>
   </data>
   <data name="mediaportal_clients" xml:space="preserve">
-    <value>MediaPortal clients</value>
+    <value>MediaPortal clienter</value>
   </data>
   <data name="new_password" xml:space="preserve">
-    <value>New password</value>
+    <value>Nytt lösenord</value>
   </data>
   <data name="old_password" xml:space="preserve">
-    <value>Old password</value>
+    <value>Gammalt lösenord</value>
   </data>
   <data name="recorded_programs" xml:space="preserve">
-    <value>Recorded programs</value>
+    <value>Inspelningar</value>
   </data>
   <data name="recording" xml:space="preserve">
-    <value>Recording</value>
+    <value>Spelar in</value>
   </data>
   <data name="scanning" xml:space="preserve">
-    <value>scanning</value>
+    <value>skannar</value>
   </data>
   <data name="scheduled_programs" xml:space="preserve">
-    <value>Scheduled programs</value>
+    <value>Planerade inspelningar</value>
   </data>
   <data name="started_at" xml:space="preserve">
-    <value>started at</value>
+    <value>startade kl</value>
   </data>
   <data name="submit" xml:space="preserve">
-    <value>Submit</value>
+    <value>OK</value>
   </data>
   <data name="timeshifting" xml:space="preserve">
-    <value>Timeshifting</value>
+    <value>Timeshiftar</value>
   </data>
   <data name="tv_guide" xml:space="preserve">
     <value>TV Guide</value>
@@ -202,320 +202,320 @@
     <value>TV Server status</value>
   </data>
   <data name="unknown" xml:space="preserve">
-    <value>unknown</value>
+    <value>okänt</value>
   </data>
   <data name="username" xml:space="preserve">
-    <value>Username</value>
+    <value>Användarnamn</value>
   </data>
   <data name="user_admin" xml:space="preserve">
-    <value>User administration</value>
+    <value>Användar administration</value>
   </data>
   <data name="yesno" xml:space="preserve">
-    <value>Yes|No</value>
+    <value>Ja|Nej</value>
     <comment>This is the text which appears on a toggle button.</comment>
   </data>
   <data name="administrator" xml:space="preserve">
-    <value>Administrator</value>
+    <value>Administratör</value>
   </data>
   <data name="delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Ta bort</value>
   </data>
   <data name="deleter" xml:space="preserve">
-    <value>Deleter</value>
+    <value>Tar bort</value>
   </data>
   <data name="no_users" xml:space="preserve">
-    <value>There are no users defined</value>
+    <value>Det finns inga angivna användare</value>
   </data>
   <data name="recorder" xml:space="preserve">
-    <value>Recorder</value>
+    <value>Användaren får spela in</value>
   </data>
   <data name="remoter" xml:space="preserve">
-    <value>Remoter</value>
+    <value>Användaren får ändra</value>
   </data>
   <data name="watcher" xml:space="preserve">
-    <value>Watcher</value>
+    <value>Användaren får se</value>
   </data>
   <data name="create_user_fail" xml:space="preserve">
-    <value>Create user failed</value>
+    <value>Det gick inte att skapa användare</value>
   </data>
   <data name="create_user_success" xml:space="preserve">
-    <value>successfully created</value>
+    <value>Användare skapad</value>
   </data>
   <data name="has_been_deleted" xml:space="preserve">
-    <value>has been deleted</value>
+    <value>har tagits bort</value>
   </data>
   <data name="has_been_deleted_fail" xml:space="preserve">
-    <value>has not been deleted</value>
+    <value>har inte tagits bort</value>
   </data>
   <data name="pass_change_fail" xml:space="preserve">
-    <value>Password change failed</value>
+    <value>Lösenordsändring misslyckades</value>
   </data>
   <data name="pass_change_success" xml:space="preserve">
-    <value>Password changed</value>
+    <value>Lösenord ändrat</value>
   </data>
   <data name="pass_dont_match" xml:space="preserve">
-    <value>Passwords do not match</value>
+    <value>Lösenorden matchar inte</value>
   </data>
   <data name="role_add_fail" xml:space="preserve">
-    <value>User could not be added to {0} role.</value>
+    <value>Användaren kunde inte läggas till {0} role.</value>
   </data>
   <data name="username_blank" xml:space="preserve">
-    <value>Username cannot be blank</value>
+    <value>Användarnamn får inte lämnas blankt</value>
   </data>
   <data name="username_exists" xml:space="preserve">
-    <value>Username already exists</value>
+    <value>Användarnamnet används redan</value>
   </data>
   <data name="loading" xml:space="preserve">
-    <value>Loading, please wait...</value>
+    <value>Startar, vänligen vänta...</value>
   </data>
   <data name="remember_me" xml:space="preserve">
-    <value>Remember me?</value>
+    <value>Kom ihåg mig?</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>Login</value>
   </data>
   <data name="password" xml:space="preserve">
-    <value>Password</value>
+    <value>Lösenord</value>
   </data>
   <data name="all" xml:space="preserve">
-    <value>All</value>
+    <value>Alla</value>
   </data>
   <data name="channel_groups" xml:space="preserve">
-    <value>Channel groups</value>
+    <value>Kanalgrupper</value>
   </data>
   <data name="genre" xml:space="preserve">
     <value>Genre</value>
   </data>
   <data name="now_and_next" xml:space="preserve">
-    <value>Now &amp; Next</value>
+    <value>Nu &amp; Nästa</value>
   </data>
   <data name="no_programs_found" xml:space="preserve">
-    <value>No programs found</value>
+    <value>Inga program hittades</value>
   </data>
   <data name="programs_found" xml:space="preserve">
-    <value>Programs found</value>
+    <value>Program hittade</value>
   </data>
   <data name="search" xml:space="preserve">
-    <value>Search</value>
+    <value>Sök</value>
   </data>
   <data name="search_term" xml:space="preserve">
-    <value>Search term</value>
+    <value>Sök efter</value>
   </data>
   <data name="today" xml:space="preserve">
-    <value>Today</value>
+    <value>Idag</value>
   </data>
   <data name="tomorrow" xml:space="preserve">
-    <value>Tomorrow</value>
+    <value>Imorgon</value>
   </data>
   <data name="next_day" xml:space="preserve">
-    <value>Next day</value>
+    <value>Efterföljande dag</value>
   </data>
   <data name="programs_on" xml:space="preserve">
-    <value>Programs on</value>
+    <value>Program på</value>
   </data>
   <data name="at_this_time_at_weekends" xml:space="preserve">
-    <value>At this time at weekends</value>
+    <value>På denna tid lör-sön</value>
   </data>
   <data name="at_this_time_every_day" xml:space="preserve">
-    <value>At this time every day</value>
+    <value>På denna tid varje day</value>
   </data>
   <data name="at_this_time_every_week" xml:space="preserve">
-    <value>At this time every week</value>
+    <value>På denna tid varje vecka</value>
   </data>
   <data name="at_this_time_on_weekdays" xml:space="preserve">
-    <value>At this time on weekdays</value>
+    <value>På denna tid mån-fre</value>
   </data>
   <data name="each_time_on_any_channel" xml:space="preserve">
-    <value>Each time on any channel</value>
+    <value>Varje gång på alla kanaler</value>
   </data>
   <data name="each_time_on_this_channel" xml:space="preserve">
-    <value>Each time on this channel</value>
+    <value>Varje gång på denna kanal</value>
   </data>
   <data name="email" xml:space="preserve">
-    <value>Send email</value>
+    <value>Skicka epost</value>
   </data>
   <data name="email_subject" xml:space="preserve">
-    <value>You may be interested in this...</value>
+    <value>Du kan vara intresserade av detta...</value>
   </data>
   <data name="once" xml:space="preserve">
-    <value>Once</value>
+    <value>En gång</value>
   </data>
   <data name="recording_add_fail" xml:space="preserve">
-    <value>Recording could not be added</value>
+    <value>Inspelning kunde inte läggas till</value>
   </data>
   <data name="recording_add_success" xml:space="preserve">
-    <value>Recording added</value>
+    <value>Inspelning lades till</value>
   </data>
   <data name="searching" xml:space="preserve">
-    <value>Searching, please wait ...</value>
+    <value>Sökning pågår, vänligen vänta ...</value>
   </data>
   <data name="channel" xml:space="preserve">
-    <value>Channel</value>
+    <value>Kanal</value>
   </data>
   <data name="date" xml:space="preserve">
-    <value>Date</value>
+    <value>Datum</value>
   </data>
   <data name="last_month" xml:space="preserve">
-    <value>Last month</value>
+    <value>Senaste månaden</value>
   </data>
   <data name="last_week" xml:space="preserve">
-    <value>Last week</value>
+    <value>Senaste veckan</value>
   </data>
   <data name="last_year" xml:space="preserve">
-    <value>Last year</value>
+    <value>Senaste året</value>
   </data>
   <data name="older" xml:space="preserve">
-    <value>Older</value>
+    <value>Äldre</value>
   </data>
   <data name="recordings" xml:space="preserve">
-    <value>Recordings</value>
+    <value>Inspelningar</value>
   </data>
   <data name="this_week" xml:space="preserve">
-    <value>This week</value>
+    <value>Denna vecka</value>
   </data>
   <data name="hour" xml:space="preserve">
-    <value>hour</value>
+    <value>timme</value>
   </data>
   <data name="hours" xml:space="preserve">
-    <value>hours</value>
+    <value>timmar</value>
   </data>
   <data name="keep" xml:space="preserve">
-    <value>Keep</value>
+    <value>Behåll</value>
   </data>
   <data name="min" xml:space="preserve">
-    <value>min</value>
+    <value>minut</value>
   </data>
   <data name="mins" xml:space="preserve">
-    <value>mins</value>
+    <value>minuter</value>
   </data>
   <data name="not_transcoded" xml:space="preserve">
-    <value>Not transcoded, convert?</value>
+    <value>Inte konverterad, konvertera nu?</value>
   </data>
   <data name="quicktime" xml:space="preserve">
-    <value>Wait until the Quicktime arrow appears before playing.</value>
+    <value>Vänta tills Quicktime pilen visas innan du spelar upp.</value>
   </data>
   <data name="recorded_last_month" xml:space="preserve">
-    <value>Recorded last month</value>
+    <value>Inspelat senaste månaden</value>
   </data>
   <data name="recorded_last_week" xml:space="preserve">
-    <value>Recorded last week</value>
+    <value>Inspelat förra veckan</value>
   </data>
   <data name="recorded_last_year" xml:space="preserve">
-    <value>Recorded last year</value>
+    <value>Inspelat förra året</value>
   </data>
   <data name="recorded_older" xml:space="preserve">
-    <value>Recorded previous years</value>
+    <value>Inspelat föregående år</value>
   </data>
   <data name="recorded_this_week" xml:space="preserve">
-    <value>Recorded this week</value>
+    <value>Inspelat denna vecka</value>
   </data>
   <data name="watch" xml:space="preserve">
-    <value>Watch</value>
+    <value>Visa</value>
   </data>
   <data name="are_you_sure" xml:space="preserve">
-    <value>Are you sure?</value>
+    <value>Är du säker?</value>
   </data>
   <data name="delete_keep" xml:space="preserve">
-    <value>DEL|KEEP</value>
+    <value>Ta bort|Spara</value>
   </data>
   <data name="display_more" xml:space="preserve">
-    <value>Display more ...</value>
+    <value>Visa mer ...</value>
   </data>
   <data name="keep_always" xml:space="preserve">
-    <value>Keep always</value>
+    <value>Behåll alltid</value>
   </data>
   <data name="keep_for_one_month" xml:space="preserve">
-    <value>Keep for one month</value>
+    <value>Behåll i en månad</value>
   </data>
   <data name="keep_for_one_week" xml:space="preserve">
-    <value>Keep for one week</value>
+    <value>Behåll i en vecka</value>
   </data>
   <data name="keep_for_one_year" xml:space="preserve">
-    <value>Keep for one year</value>
+    <value>Behåll i ett år</value>
   </data>
   <data name="keep_until_space_needed" xml:space="preserve">
-    <value>Keep until space needed</value>
+    <value>Behåll tills utrymme behövs</value>
   </data>
   <data name="keep_until_watched" xml:space="preserve">
-    <value>Keep until watched</value>
+    <value>Behåll tills sedd</value>
   </data>
   <data name="no" xml:space="preserve">
-    <value>No</value>
+    <value>Nej</value>
   </data>
   <data name="recordings_delete_fail" xml:space="preserve">
-    <value>recordings could not be deleted!</value>
+    <value>inspelningar kunde inte tas bort!</value>
   </data>
   <data name="recordings_delete_success" xml:space="preserve">
-    <value>recordings successfully deleted</value>
+    <value>inspelningar raderades</value>
   </data>
   <data name="recordings_selected_delete" xml:space="preserve">
-    <value>recordings selected for deletion</value>
+    <value>inspelningar valda för radering</value>
   </data>
   <data name="recording_delete_fail" xml:space="preserve">
-    <value>Recording could not be deleted!</value>
+    <value>Inspelning kunde inte tas bort!</value>
   </data>
   <data name="recording_delete_success" xml:space="preserve">
-    <value>Recording successfully deleted</value>
+    <value>Inspelning raderades</value>
   </data>
   <data name="recording_keep_fail" xml:space="preserve">
-    <value>Recording could not be updated!</value>
+    <value>Inspelning kunde inte uppdateras!</value>
   </data>
   <data name="recording_keep_success" xml:space="preserve">
-    <value>Recording successfully updated</value>
+    <value>Inspelning uppdaterad</value>
   </data>
   <data name="yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Ja</value>
   </data>
   <data name="other" xml:space="preserve">
-    <value>Other</value>
+    <value>Andra</value>
   </data>
   <data name="scheduled_last_month" xml:space="preserve">
-    <value>Scheduled last month</value>
+    <value>Planerade inspelningar senaste månaden</value>
   </data>
   <data name="scheduled_other" xml:space="preserve">
-    <value>Scheduled in other periods</value>
+    <value>Planerade inspelningar i andra perioder</value>
   </data>
   <data name="scheduled_this_month" xml:space="preserve">
-    <value>Scheduled this month</value>
+    <value>Planerade inspelningar denna månad</value>
   </data>
   <data name="scheduled_this_week" xml:space="preserve">
-    <value>Scheduled this week</value>
+    <value>Planerade inspelningar denna vecka</value>
   </data>
   <data name="schedules" xml:space="preserve">
-    <value>Schedules</value>
+    <value>Planerade inspelningar</value>
   </data>
   <data name="this_month" xml:space="preserve">
-    <value>This month</value>
+    <value>Denna månad</value>
   </data>
   <data name="description_not_found" xml:space="preserve">
-    <value>No program description</value>
+    <value>Program beskrivning finns inte</value>
   </data>
   <data name="program_not_found" xml:space="preserve">
-    <value>Program has been deleted from the EPG.</value>
+    <value>Programmet har tagits bort från EPG.</value>
   </data>
   <data name="title" xml:space="preserve">
-    <value>Title</value>
+    <value>Titel</value>
   </data>
   <data name="clean_up_schedules" xml:space="preserve">
-    <value>Clean up schedules</value>
+    <value>Städa bland planerade inspelningar</value>
   </data>
   <data name="schedules_deleted_fail" xml:space="preserve">
-    <value>schedules could not be deleted!</value>
+    <value>Planerade inspelningar kunde inte tas bort!</value>
   </data>
   <data name="schedules_deleted_success" xml:space="preserve">
-    <value>schedules deleted</value>
+    <value>Planerade inspelningar togs bort</value>
   </data>
   <data name="schedule_delete_fail" xml:space="preserve">
-    <value>Schedule could not be deleted!</value>
+    <value>Planerade inspelning kunde inte tas bort</value>
   </data>
   <data name="schedule_delete_success" xml:space="preserve">
-    <value>Schedule successfully deleted</value>
+    <value>Planerade inspelning togs bort</value>
   </data>
   <data name="error" xml:space="preserve">
-    <value>!! FUBAR !!</value>
+    <value>!! FEL !!</value>
   </data>
   <data name="card_status" xml:space="preserve">
-    <value>TV card status</value>
+    <value>TV-kort status</value>
   </data>
   <data name="disk_status" xml:space="preserve">
     <value>Disk status</value>
@@ -524,382 +524,382 @@
     <value>TV service status</value>
   </data>
   <data name="transcode_status" xml:space="preserve">
-    <value>Transcode status</value>
+    <value>Konverterings status</value>
   </data>
   <data name="busy" xml:space="preserve">
-    <value>Busy</value>
+    <value>Upptagen</value>
   </data>
   <data name="client_is" xml:space="preserve">
-    <value>MP client is</value>
+    <value>MP clienten är</value>
   </data>
   <data name="donate" xml:space="preserve">
-    <value>Donate</value>
+    <value>Donera</value>
   </data>
   <data name="stop" xml:space="preserve">
-    <value>Stop</value>
+    <value>Stopp</value>
   </data>
   <data name="stop_recording" xml:space="preserve">
-    <value>Stop recording</value>
+    <value>Stoppa inspelning</value>
   </data>
   <data name="stop_recording_fail" xml:space="preserve">
-    <value>Recording could not be stopped!</value>
+    <value>Inspelning kunde inte stängas av!</value>
   </data>
   <data name="stop_recording_success" xml:space="preserve">
-    <value>Recording stopped successfully</value>
+    <value>Inspelning avstängd</value>
   </data>
   <data name="stop_timeshifting" xml:space="preserve">
-    <value>Stop timeshifting</value>
+    <value>Stoppa timeshifting</value>
   </data>
   <data name="stop_timeshifting_fail" xml:space="preserve">
-    <value>Timeshifting could not be stopped!</value>
+    <value>Timeshifting kunde inte stängas av</value>
   </data>
   <data name="stop_timeshifting_success" xml:space="preserve">
-    <value>Timeshifting stopped successfully</value>
+    <value>Timeshifting avstängd</value>
   </data>
   <data name="service_action_fail" xml:space="preserve">
-    <value>Service action failed!</value>
+    <value>Omstart av TV-Service misslyckades!</value>
   </data>
   <data name="service_action_success" xml:space="preserve">
-    <value>Service action completed successfully</value>
+    <value>TV-Service har startats om</value>
   </data>
   <data name="start" xml:space="preserve">
-    <value>Start</value>
+    <value>Starta</value>
   </data>
   <data name="gb_free" xml:space="preserve">
-    <value>Gb free</value>
+    <value>Gb ledigt</value>
   </data>
   <data name="add" xml:space="preserve">
-    <value>Add</value>
+    <value>Lägg till</value>
   </data>
   <data name="client_add" xml:space="preserve">
-    <value>Add client</value>
+    <value>Lägg till klient</value>
   </data>
   <data name="client_add_help1" xml:space="preserve">
-    <value>The friendly name will be used to try to connect to your MP client if the Hostname/IP address field is left blank.</value>
+    <value>Namnet kommer att användas för att försöka ansluta till din MP klient om Hostname / IP-adress fältet är tomt.</value>
   </data>
   <data name="client_add_help2" xml:space="preserve">
-    <value>TCP port will default to 55667 if left blank.</value>
+    <value>TCP porten kommer att använda 55667 om fältet lämnas blankt.</value>
   </data>
   <data name="client_add_help3" xml:space="preserve">
-    <value>MAC address will be used to attempt a wake on lan if the client cannot be contacted.</value>
+    <value>MAC-adressen kommer att användas för att försöka en Wake on LAN om klienten inte kan kontaktas.</value>
   </data>
   <data name="client_del" xml:space="preserve">
-    <value>Delete client</value>
+    <value>Ta bort klient</value>
   </data>
   <data name="client_update" xml:space="preserve">
-    <value>Update client</value>
+    <value>Uppdatera klient</value>
   </data>
   <data name="could_not_be_created" xml:space="preserve">
-    <value>could not be created.</value>
+    <value>kan inte skapas</value>
   </data>
   <data name="friendly" xml:space="preserve">
-    <value>Friendly name e.g. Lounge</value>
+    <value>Namn, t ex Vardagsrum osv. </value>
   </data>
   <data name="has_been_created" xml:space="preserve">
-    <value>has been created.</value>
+    <value>har skapats.</value>
   </data>
   <data name="hostname" xml:space="preserve">
-    <value>Hostname or IP address (optional)</value>
+    <value>Hostname eller IP address (valfritt)</value>
   </data>
   <data name="mac" xml:space="preserve">
-    <value>MAC Address (00-00-00-00-00-00) (optional)</value>
+    <value>MAC Address (00-00-00-00-00-00) (valfritt)</value>
   </data>
   <data name="no_clients_defined" xml:space="preserve">
-    <value>No clients defined.</value>
+    <value>Inga klienter har definierats.</value>
   </data>
   <data name="port" xml:space="preserve">
-    <value>TCP port (optional)</value>
+    <value>TCP port (valfritt)</value>
   </data>
   <data name="select_client" xml:space="preserve">
-    <value>Select client</value>
+    <value>Välj klient</value>
   </data>
   <data name="client_empty" xml:space="preserve">
-    <value>You need to supply a friendly name.</value>
+    <value>Du måste ange ett namn.</value>
   </data>
   <data name="client_not_selected" xml:space="preserve">
-    <value>You need to select a client.</value>
+    <value>Du måste välja en klient.</value>
   </data>
   <data name="could_not_be_updated" xml:space="preserve">
-    <value>could not be updated.</value>
+    <value>kan inte uppdatera.</value>
   </data>
   <data name="has_been_updated" xml:space="preserve">
-    <value>has been updated.</value>
+    <value>Är uppdaterad.</value>
   </data>
   <data name="update" xml:space="preserve">
-    <value>Update</value>
+    <value>Uppdatera</value>
   </data>
   <data name="change" xml:space="preserve">
-    <value>Change</value>
+    <value>Byt</value>
   </data>
   <data name="select_user" xml:space="preserve">
-    <value>Select user</value>
+    <value>Välj användare</value>
   </data>
   <data name="user_not_selected" xml:space="preserve">
-    <value>You must select a user.</value>
+    <value>Du måste välja användare.</value>
   </data>
   <data name="my_videos" xml:space="preserve">
-    <value>My Videos</value>
+    <value>Mina Videor</value>
   </data>
   <data name="unknown_error" xml:space="preserve">
-    <value>An unknown error has occurred.</value>
+    <value>Ett okänt fel har uppstått.</value>
   </data>
   <data name="videos_all" xml:space="preserve">
-    <value>All videos</value>
+    <value>Alla videor</value>
   </data>
   <data name="videos_by_genre" xml:space="preserve">
-    <value>Videos by genre</value>
+    <value>Video sorterat efter genre</value>
   </data>
   <data name="videos_by_year" xml:space="preserve">
-    <value>Videos by year</value>
+    <value>Video sorterat efter year</value>
   </data>
   <data name="could_not_connect" xml:space="preserve">
-    <value>Could not connect</value>
+    <value>Kunde inte ansluta</value>
   </data>
   <data name="could_not_connect_wol" xml:space="preserve">
-    <value>Could not connect, send WOL.</value>
+    <value>Kunde inte ansluta, sänd WOL.</value>
   </data>
   <data name="wol_sent" xml:space="preserve">
-    <value>WOL packet sent, retry in 1 min...</value>
+    <value>WOL paket sänt, förök igen om 1 min...</value>
   </data>
   <data name="multiple" xml:space="preserve">
     <value>'s</value>
-    <comment>Added to the end of a decade to indicate plural</comment>
+    <comment>Läggs till i slutet av ett decennium för att ange plural</comment>
   </data>
   <data name="more" xml:space="preserve">
-    <value>Load more ...</value>
+    <value>Hämta mera ...</value>
   </data>
   <data name="play" xml:space="preserve">
-    <value>Play</value>
+    <value>Spela</value>
   </data>
   <data name="imdb" xml:space="preserve">
     <value>IMDB</value>
   </data>
   <data name="could_not_start_video" xml:space="preserve">
-    <value>Could not start video.</value>
+    <value>Kan inte starta video.</value>
   </data>
   <data name="now_playing" xml:space="preserve">
-    <value>Now playing</value>
+    <value>Spelar nu</value>
   </data>
   <data name="remote_control" xml:space="preserve">
-    <value>Remote control</value>
+    <value>Fjärrkontroll</value>
   </data>
   <data name="cover_art" xml:space="preserve">
-    <value>Cover Art</value>
+    <value>Omslag</value>
   </data>
   <data name="my_music" xml:space="preserve">
-    <value>My Music</value>
+    <value>Min Musik</value>
   </data>
   <data name="music_by_album" xml:space="preserve">
-    <value>Music by album</value>
+    <value>Musik sorterat efter album</value>
   </data>
   <data name="music_by_artist" xml:space="preserve">
-    <value>Music by artist</value>
+    <value>Musik sorterat efter artist</value>
   </data>
   <data name="music_by_genre" xml:space="preserve">
-    <value>Music by genre</value>
+    <value>Musik sorterat efter genre</value>
   </data>
   <data name="music_by_year" xml:space="preserve">
-    <value>Music by year</value>
+    <value>Musik sorterat efter year</value>
   </data>
   <data name="music_playlists" xml:space="preserve">
-    <value>Music playlists</value>
+    <value>Musik playlists</value>
   </data>
   <data name="music_search" xml:space="preserve">
-    <value>Track search</value>
+    <value>Sök efter titel (Spår)</value>
   </data>
   <data name="music_update" xml:space="preserve">
-    <value>Update music database</value>
+    <value>Uppdatera musik databas</value>
   </data>
   <data name="play_100_random" xml:space="preserve">
-    <value>Play 100 random tracks</value>
+    <value>Spela 100 slumpmässiga spår</value>
   </data>
   <data name="enqueue" xml:space="preserve">
-    <value>Enqueue</value>
+    <value>Sätt i kö</value>
   </data>
   <data name="shuffle" xml:space="preserve">
-    <value>Shuffle</value>
+    <value>Mixa slumpmässiga</value>
   </data>
   <data name="select_tracks" xml:space="preserve">
-    <value>Select tracks</value>
+    <value>Välj spår</value>
   </data>
   <data name="done" xml:space="preserve">
-    <value>Done</value>
+    <value>Färdig</value>
   </data>
   <data name="display_all_tracks" xml:space="preserve">
-    <value>Display all tracks</value>
+    <value>Visa alla titlar (Spår)</value>
   </data>
   <data name="no_playlists_found" xml:space="preserve">
-    <value>No playlists found</value>
+    <value>Inga playlists hittade</value>
   </data>
   <data name="play_random_playlist" xml:space="preserve">
-    <value>Play random playlist</value>
+    <value>Spela slumpmässig playlist</value>
   </data>
   <data name="search_album" xml:space="preserve">
-    <value>Search album</value>
+    <value>Sök album</value>
   </data>
   <data name="search_artist" xml:space="preserve">
-    <value>Search artist</value>
+    <value>Sök artist</value>
   </data>
   <data name="search_genre" xml:space="preserve">
-    <value>Search genre</value>
+    <value>Sök genre</value>
   </data>
   <data name="search_track" xml:space="preserve">
-    <value>Search track</value>
+    <value>Sök spår</value>
   </data>
   <data name="music_update_request_fail" xml:space="preserve">
-    <value>Music update request failed.</value>
+    <value>Musik uppdatering misslyckades.</value>
   </data>
   <data name="music_update_request_success" xml:space="preserve">
-    <value>Music update requested.</value>
+    <value>Musik uppdatering är vald.</value>
   </data>
   <data name="enter_filename" xml:space="preserve">
-    <value>Enter filename (no extension)</value>
+    <value>Skriv filnamn (utan filtyp)</value>
   </data>
   <data name="save_playlist" xml:space="preserve">
-    <value>Save playlist</value>
+    <value>Spara playlist</value>
   </data>
   <data name="save_playlist_fail" xml:space="preserve">
-    <value>Playlist could not be saved</value>
+    <value>Playlist kunde inte sparas</value>
   </data>
   <data name="save_playlist_success" xml:space="preserve">
-    <value>Playlist saved</value>
+    <value>Playlist sparad</value>
   </data>
   <data name="send_message" xml:space="preserve">
-    <value>Send message</value>
+    <value>Skicka meddelande</value>
   </data>
   <data name="enter_message" xml:space="preserve">
-    <value>Enter message</value>
+    <value>Skriv meddelande</value>
   </data>
   <data name="no_messages_sent" xml:space="preserve">
-    <value>No messages sent</value>
+    <value>Meddelande kunde inte skickas</value>
   </data>
   <data name="send_message_fail" xml:space="preserve">
-    <value>Message send failed</value>
+    <value>Meddelande kunde inte skickas</value>
   </data>
   <data name="send_message_success" xml:space="preserve">
-    <value>Message sent</value>
+    <value>Meddelande skickat</value>
   </data>
   <data name="send_message_to" xml:space="preserve">
-    <value>Messages sent to</value>
+    <value>Meddelande skickat till</value>
   </data>
   <data name="message_from" xml:space="preserve">
-    <value>Message from</value>
+    <value>Meddelande från</value>
   </data>
   <data name="send_message_global" xml:space="preserve">
-    <value>Send global message</value>
+    <value>Sänd globalt meddelande</value>
   </data>
   <data name="power_hibernate" xml:space="preserve">
-    <value>Hibernate</value>
+    <value>Dvala (Hibernate)</value>
   </data>
   <data name="power_logoff" xml:space="preserve">
-    <value>Logoff</value>
+    <value>Logga ut</value>
   </data>
   <data name="power_options" xml:space="preserve">
-    <value>Power options</value>
+    <value>Energialternativ</value>
   </data>
   <data name="power_option_fail" xml:space="preserve">
-    <value>Power option failed</value>
+    <value>Energialternativ misslyckades</value>
   </data>
   <data name="power_option_not_selected" xml:space="preserve">
-    <value>You need to select one option</value>
+    <value>Du måste välja ett alternativ</value>
   </data>
   <data name="power_option_select" xml:space="preserve">
-    <value>Select power option</value>
+    <value>Välj energialternativ</value>
   </data>
   <data name="power_option_success" xml:space="preserve">
-    <value>Power option successful</value>
+    <value>Energialternativ OK</value>
   </data>
   <data name="power_reboot" xml:space="preserve">
-    <value>Reboot</value>
+    <value>Starta om</value>
   </data>
   <data name="power_shutdown" xml:space="preserve">
-    <value>Shutdown</value>
+    <value>Stäng av</value>
   </data>
   <data name="power_suspend" xml:space="preserve">
-    <value>Suspend</value>
+    <value>Standby</value>
   </data>
   <data name="movie" xml:space="preserve">
-    <value>Movie</value>
+    <value>Film</value>
   </data>
   <data name="music" xml:space="preserve">
-    <value>Music</value>
+    <value>Musik</value>
   </data>
   <data name="now_playing_dvd" xml:space="preserve">
-    <value>Now playing a DVD</value>
+    <value>Spelar DVD</value>
   </data>
   <data name="now_playing_nothing" xml:space="preserve">
-    <value>Nothing playing</value>
+    <value>Spelar inget</value>
   </data>
   <data name="now_playing_unknown" xml:space="preserve">
-    <value>Could not determine Now Playing</value>
+    <value>Kan inte avgöra vad som spelas</value>
   </data>
   <data name="refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Uppdatera</value>
   </data>
   <data name="show_album" xml:space="preserve">
-    <value>Show album</value>
+    <value>Visa album</value>
   </data>
   <data name="show_artist" xml:space="preserve">
-    <value>Show artist</value>
+    <value>Visa artist</value>
   </data>
   <data name="show_genre" xml:space="preserve">
-    <value>Show genre</value>
+    <value>Visa genre</value>
   </data>
   <data name="show_program" xml:space="preserve">
-    <value>Show program</value>
+    <value>Visa program</value>
   </data>
   <data name="show_recording" xml:space="preserve">
-    <value>Show recording</value>
+    <value>Visa inspelning</value>
   </data>
   <data name="show_video" xml:space="preserve">
-    <value>Show video</value>
+    <value>Visa video</value>
   </data>
   <data name="tv" xml:space="preserve">
     <value>TV</value>
   </data>
   <data name="tvrecording" xml:space="preserve">
-    <value>TV Recording</value>
+    <value>TV inspelningar</value>
   </data>
   <data name="unknown_album" xml:space="preserve">
-    <value>Unknown album</value>
+    <value>Okänt album</value>
   </data>
   <data name="unknown_recording" xml:space="preserve">
-    <value>Unknown recording</value>
+    <value>Okänd inspelning</value>
   </data>
   <data name="unknown_tagline" xml:space="preserve">
-    <value>Unknown tagline</value>
+    <value>Okänt indexeringsord</value>
   </data>
   <data name="unknown_title" xml:space="preserve">
-    <value>Unknown title</value>
+    <value>Okänd titel</value>
   </data>
   <data name="enter_keyboard_command" xml:space="preserve">
-    <value>Keyboard shortcuts</value>
+    <value>Kortkommandon</value>
   </data>
   <data name="select_list_size" xml:space="preserve">
-    <value>Select page size</value>
+    <value>Välj sidstorlek</value>
   </data>
   <data name="send" xml:space="preserve">
-    <value>Send</value>
+    <value>Sänd</value>
   </data>
   <data name="power_close" xml:space="preserve">
-    <value>Close</value>
+    <value>Stäng</value>
   </data>
   <data name="transcoding_running" xml:space="preserve">
-    <value>Transcoding is running</value>
+    <value>Konverting körs</value>
   </data>
   <data name="transcoding_started" xml:space="preserve">
-    <value>Transcoding has started</value>
+    <value>Konverting har startat</value>
   </data>
   <data name="no_access" xml:space="preserve">
-    <value>You have not been granted this role.</value>
+    <value>Du har inte behörighet till detta</value>
   </data>
   <data name="no_channel_groups" xml:space="preserve">
-    <value>No channel groups found.</value>
+    <value>Inga kanalgrupper hittades.</value>
   </data>
   <data name="main_menu" xml:space="preserve">
-    <value>Main menu</value>
+    <value>Huvudmeny</value>
   </data>
   <data name="record" xml:space="preserve">
-    <value>Record</value>
+    <value>Spela in</value>
   </data>
 </root>

@@ -42,7 +42,7 @@
 		<div id="iGroup">
             <div class="iLayer" id="waHome">
                 <div class="iMenu">
-                    <h3>Main menu</h3>
+                    <h3><asp:literal runat="server" ID="litMainMenu" /></h3>
                     <ul class="iArrow"> 
                         <asp:PlaceHolder runat="server" ID="phMainMenu" />
                     </ul>

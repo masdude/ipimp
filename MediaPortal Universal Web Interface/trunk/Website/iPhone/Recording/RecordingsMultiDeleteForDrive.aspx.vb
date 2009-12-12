@@ -61,7 +61,7 @@ Partial Public Class RecordingsMultiDeleteForDrive
             xw.WriteAttributeString("create", "true")
         Else
             xw.WriteAttributeString("mode", "self")
-            xw.WriteAttributeString("zone", "more")
+            xw.WriteAttributeString("zone", "moredrive")
         End If
         xw.WriteEndElement()
         'end dest
@@ -110,7 +110,7 @@ Partial Public Class RecordingsMultiDeleteForDrive
         Next
 
         If (start + pagesize) < count Then
-            markup += String.Format("<li id=""more"" class=""iMore""><a href=""Recording/RecordingsMultiDelete.aspx?start={0}"" rev=""async"" title=""Loading..."">{1}</a></li>", (start + pagesize).ToString, GetGlobalResourceObject("uWiMPStrings", "display_more"))
+            markup += String.Format("<li id=""moredrive"" class=""iMore""><a href=""Recording/RecordingsMultiDeleteForDrive.aspx?start={0}&path={1}#_RecDelete"" rev=""async"" title=""{2}"">{3}</a></li>", (start + pagesize).ToString, path, GetGlobalResourceObject("uWiMPStrings", "loading"), GetGlobalResourceObject("uWiMPStrings", "display_more"))
         End If
 
         If start = 0 Then

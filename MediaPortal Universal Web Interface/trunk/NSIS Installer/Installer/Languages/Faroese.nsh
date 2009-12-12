@@ -1,10 +1,11 @@
-!define LANG "ENGLISH"
+!define LANG "FAROESE"
 
 !insertmacro LANG_STRING STRING_YES "Yes"
 !insertmacro LANG_STRING STRING_NO "No"
 
 !insertmacro LANG_STRING STRING_BRANDING "iPiMP by Cheezey - Manage MediaPortal from your iPhone"
 !insertmacro LANG_STRING STRING_NOWIKI "You haven't read the wiki, do you want to continue?"
+!insertmacro LANG_STRING STRING_BROWSE "Browse..."
 
 !insertmacro LANG_STRING STRING_WELCOME_TITLE "Welcome to iPiMP!"
 !insertmacro LANG_STRING STRING_WELCOME_LINE1 "iPiMP provides web access to various MediaPortal components through a nice iPhone interface.$\r$\n$\r$\nWith iPiMP you can view your TV guides, schedule recordings, watch recordings, manage recordings and schedules and remotely control MediaPortal clients."
@@ -12,6 +13,7 @@
 !insertmacro LANG_STRING STRING_WELCOME_LINE3 "Perform advanced install"
 
 !insertmacro LANG_STRING STRING_LICENCE_LINE1 "Welcome to iPiMP!"
+!insertmacro LANG_STRING STRING_LICENCE_AGREE "I Agree"
 
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE1 "Another version of ${PRODUCT_NAME} is already installed. Would you like to uninstall it?"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE2 "Previous version uninstall failed - Reason: $2"
@@ -117,3 +119,7 @@
 
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE1 "Installing MediaPortal client plugin"
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE2 "Removing MediaPortal client plugin"
+
+!insertmacro LANG_STRING STRING_INIT_LINE1 "Are you sure you want to completely remove $(^Name) and all of its components?"
+!insertmacro LANG_STRING STRING_INIT_LINE2 "Selecting 'Yes' will stop your TV service briefly!!!"
+!insertmacro LANG_STRING STRING_INIT_LINE3 "Please ensure MediaPortal is NOT running."

@@ -260,7 +260,7 @@
     <value>Brukeren kunne ikke blir tilordnet rollen {0}.</value>
   </data>
   <data name="username_blank" xml:space="preserve">
-    <value>Brukernavnet kan ikke være tomt</value>
+    <value>Brukernavnet kan ikke vÃ¦re tomt</value>
   </data>
   <data name="username_exists" xml:space="preserve">
     <value>Brukernavnet eksisterer allerede</value>
@@ -287,7 +287,7 @@
     <value>Sjanger</value>
   </data>
   <data name="now_and_next" xml:space="preserve">
-    <value>Nå &amp; Neste</value>
+    <value>NÃ¥ &amp; Neste</value>
   </data>
   <data name="no_programs_found" xml:space="preserve">
     <value>Ingen programmer funnet</value>
@@ -296,10 +296,10 @@
     <value>Funnet programmer</value>
   </data>
   <data name="search" xml:space="preserve">
-    <value>Søk</value>
+    <value>SÃ¸k</value>
   </data>
   <data name="search_term" xml:space="preserve">
-    <value>Søkeord</value>
+    <value>SÃ¸keord</value>
   </data>
   <data name="today" xml:space="preserve">
     <value>I dag</value>
@@ -311,31 +311,31 @@
     <value>Neste dag</value>
   </data>
   <data name="programs_on" xml:space="preserve">
-    <value>Programmer på</value>
+    <value>Programmer pÃ¥</value>
   </data>
   <data name="at_this_time_at_weekends" xml:space="preserve">
-    <value>På denne tiden i helga</value>
+    <value>PÃ¥ denne tiden i helga</value>
   </data>
   <data name="at_this_time_every_day" xml:space="preserve">
-    <value>På denne tiden hver dag</value>
+    <value>PÃ¥ denne tiden hver dag</value>
   </data>
   <data name="at_this_time_every_week" xml:space="preserve">
-    <value>På denne tiden hver uke</value>
+    <value>PÃ¥ denne tiden hver uke</value>
   </data>
   <data name="at_this_time_on_weekdays" xml:space="preserve">
-    <value>På denne tiden på hverdager</value>
+    <value>PÃ¥ denne tiden pÃ¥ hverdager</value>
   </data>
   <data name="each_time_on_any_channel" xml:space="preserve">
-    <value>Hver gang på alle kanaler</value>
+    <value>Hver gang pÃ¥ alle kanaler</value>
   </data>
   <data name="each_time_on_this_channel" xml:space="preserve">
-    <value>Hver gang på denne kanalen</value>
+    <value>Hver gang pÃ¥ denne kanalen</value>
   </data>
   <data name="email" xml:space="preserve">
     <value>Send e-post</value>
   </data>
   <data name="email_subject" xml:space="preserve">
-    <value>Du kan være interessert i dette... </value>
+    <value>Du kan vÃ¦re interessert i dette... </value>
   </data>
   <data name="once" xml:space="preserve">
     <value>En gang</value>
@@ -347,7 +347,7 @@
     <value>Opptak lagt til</value>
   </data>
   <data name="searching" xml:space="preserve">
-    <value>Søker, vennligst vent ...</value>
+    <value>SÃ¸ker, vennligst vent ...</value>
   </data>
   <data name="channel" xml:space="preserve">
     <value>Kanal</value>
@@ -356,13 +356,13 @@
     <value>Dato</value>
   </data>
   <data name="last_month" xml:space="preserve">
-    <value>Siste måned</value>
+    <value>Siste mÃ¥ned</value>
   </data>
   <data name="last_week" xml:space="preserve">
     <value>Sist uke</value>
   </data>
   <data name="last_year" xml:space="preserve">
-    <value>Siste året</value>
+    <value>Siste Ã¥ret</value>
   </data>
   <data name="older" xml:space="preserve">
     <value>Eldre</value>
@@ -389,22 +389,22 @@
     <value>minutter</value>
   </data>
   <data name="not_transcoded" xml:space="preserve">
-    <value>Ikke omkodet, konvertere nå?</value>
+    <value>Ikke omkodet, konvertere nÃ¥?</value>
   </data>
   <data name="quicktime" xml:space="preserve">
-    <value>Vent til Quicktime-pilen vises før avspillingen startes.</value>
+    <value>Vent til Quicktime-pilen vises fÃ¸r avspillingen startes.</value>
   </data>
   <data name="recorded_last_month" xml:space="preserve">
-    <value>Opptak siste månded</value>
+    <value>Opptak siste mÃ¥nded</value>
   </data>
   <data name="recorded_last_week" xml:space="preserve">
-    <value>Opptak siste måned</value>
+    <value>Opptak siste mÃ¥ned</value>
   </data>
   <data name="recorded_last_year" xml:space="preserve">
-    <value>Opptak siste året</value>
+    <value>Opptak siste Ã¥ret</value>
   </data>
   <data name="recorded_older" xml:space="preserve">
-    <value>Opptak tidligere år</value>
+    <value>Opptak tidligere Ã¥r</value>
   </data>
   <data name="recorded_this_week" xml:space="preserve">
     <value>Opptak denne uken</value>
@@ -425,13 +425,13 @@
     <value>Behold alltid</value>
   </data>
   <data name="keep_for_one_month" xml:space="preserve">
-    <value>Behold en måned</value>
+    <value>Behold en mÃ¥ned</value>
   </data>
   <data name="keep_for_one_week" xml:space="preserve">
     <value>Behold en uke</value>
   </data>
   <data name="keep_for_one_year" xml:space="preserve">
-    <value>Behold ett år</value>
+    <value>Behold ett Ã¥r</value>
   </data>
   <data name="keep_until_space_needed" xml:space="preserve">
     <value>Behold til plassen trengs</value>
@@ -470,13 +470,13 @@
     <value>Annet</value>
   </data>
   <data name="scheduled_last_month" xml:space="preserve">
-    <value>Planlagt sist måned</value>
+    <value>Planlagt sist mÃ¥ned</value>
   </data>
   <data name="scheduled_other" xml:space="preserve">
     <value>Planlagt i andre perioder</value>
   </data>
   <data name="scheduled_this_month" xml:space="preserve">
-    <value>Planlagt denne måned</value>
+    <value>Planlagt denne mÃ¥ned</value>
   </data>
   <data name="scheduled_this_week" xml:space="preserve">
     <value>Planlagt denne uken</value>
@@ -485,7 +485,7 @@
     <value>Planlagt</value>
   </data>
   <data name="this_month" xml:space="preserve">
-    <value>Denne måneden</value>
+    <value>Denne mÃ¥neden</value>
   </data>
   <data name="description_not_found" xml:space="preserve">
     <value>Ingen programbeskrivelse</value>
@@ -524,7 +524,7 @@
     <value>TV service status</value>
   </data>
   <data name="transcode_status" xml:space="preserve">
-    <value>Status på konvertering</value>
+    <value>Status pÃ¥ konvertering</value>
   </data>
   <data name="busy" xml:space="preserve">
     <value>Opptatt</value>
@@ -560,7 +560,7 @@
     <value>Service prosedyren feilet!</value>
   </data>
   <data name="service_action_success" xml:space="preserve">
-    <value>Service prosedyren er fullført</value>
+    <value>Service prosedyren er fullfÃ¸rt</value>
   </data>
   <data name="start" xml:space="preserve">
     <value>Start</value>
@@ -581,7 +581,7 @@
     <value>TCP porten 55667 vil brukes om ikke annet angis.</value>
   </data>
   <data name="client_add_help3" xml:space="preserve">
-    <value>MAC adressen vil brukt til å utføre "Wake on lan" hvis klienten ikke kan kontaktes.</value>
+    <value>MAC adressen vil brukt til Ã¥ utfÃ¸re "Wake on lan" hvis klienten ikke kan kontaktes.</value>
   </data>
   <data name="client_del" xml:space="preserve">
     <value>Slett klient</value>
@@ -614,10 +614,10 @@
     <value>Velg klient</value>
   </data>
   <data name="client_empty" xml:space="preserve">
-    <value>Du må angi et kallenavn.</value>
+    <value>Du mÃ¥ angi et kallenavn.</value>
   </data>
   <data name="client_not_selected" xml:space="preserve">
-    <value>Du må velge en klient.</value>
+    <value>Du mÃ¥ velge en klient.</value>
   </data>
   <data name="could_not_be_updated" xml:space="preserve">
     <value>kunne ikke bli oppdatert.</value>
@@ -635,7 +635,7 @@
     <value>Velg bruker</value>
   </data>
   <data name="user_not_selected" xml:space="preserve">
-    <value>Du må velge en bruker.</value>
+    <value>Du mÃ¥ velge en bruker.</value>
   </data>
   <data name="my_videos" xml:space="preserve">
     <value>Mine filmer</value>
@@ -650,7 +650,7 @@
     <value>Filmer etter sjanger</value>
   </data>
   <data name="videos_by_year" xml:space="preserve">
-    <value>Filmer etter år</value>
+    <value>Filmer etter Ã¥r</value>
   </data>
   <data name="could_not_connect" xml:space="preserve">
     <value>Kunne ikke koble til</value>
@@ -659,7 +659,7 @@
     <value>Kunne ikke koble til, sender WOL.</value>
   </data>
   <data name="wol_sent" xml:space="preserve">
-    <value>WOL pakke sendt, prøver igjen om ett min...</value>
+    <value>WOL pakke sendt, prÃ¸ver igjen om ett min...</value>
   </data>
   <data name="multiple" xml:space="preserve">
     <value>er</value>
@@ -678,7 +678,7 @@
     <value>Kunne ikke starte filmen.</value>
   </data>
   <data name="now_playing" xml:space="preserve">
-    <value>Spilles nå</value>
+    <value>Spilles nÃ¥</value>
   </data>
   <data name="remote_control" xml:space="preserve">
     <value>Fjernkontroll</value>
@@ -699,13 +699,13 @@
     <value>Musikk etter sjanger</value>
   </data>
   <data name="music_by_year" xml:space="preserve">
-    <value>Musikk etter år</value>
+    <value>Musikk etter Ã¥r</value>
   </data>
   <data name="music_playlists" xml:space="preserve">
     <value>Musikkspillelister</value>
   </data>
   <data name="music_search" xml:space="preserve">
-    <value>Sangsøk</value>
+    <value>SangsÃ¸k</value>
   </data>
   <data name="music_update" xml:space="preserve">
     <value>Oppdater musikk database</value>
@@ -735,16 +735,16 @@
     <value>Spill tilfeldig spilleliste</value>
   </data>
   <data name="search_album" xml:space="preserve">
-    <value>Søk album</value>
+    <value>SÃ¸k album</value>
   </data>
   <data name="search_artist" xml:space="preserve">
-    <value>Søk artist</value>
+    <value>SÃ¸k artist</value>
   </data>
   <data name="search_genre" xml:space="preserve">
-    <value>Søk sjanger</value>
+    <value>SÃ¸k sjanger</value>
   </data>
   <data name="search_track" xml:space="preserve">
-    <value>Søk track</value>
+    <value>SÃ¸k track</value>
   </data>
   <data name="music_update_request_fail" xml:space="preserve">
     <value>Musikkoppdatering feilet.</value>
@@ -795,7 +795,7 @@
     <value>Logg av</value>
   </data>
   <data name="power_options" xml:space="preserve">
-    <value>Strømstyring</value>
+    <value>StrÃ¸mstyring</value>
   </data>
   <data name="power_option_fail" xml:space="preserve">
     <value>Power option failed</value>
@@ -813,7 +813,7 @@
     <value>Reboot</value>
   </data>
   <data name="power_shutdown" xml:space="preserve">
-    <value>Slå av</value>
+    <value>SlÃ¥ av</value>
   </data>
   <data name="power_suspend" xml:space="preserve">
     <value>Suspend</value>
@@ -831,7 +831,7 @@
     <value>Nothing playing</value>
   </data>
   <data name="now_playing_unknown" xml:space="preserve">
-    <value>Kunne ikke detektere Spilles nå</value>
+    <value>Kunne ikke detektere Spilles nÃ¥</value>
   </data>
   <data name="refresh" xml:space="preserve">
     <value>Oppdater</value>
@@ -876,7 +876,7 @@
     <value>Hurtigtast</value>
   </data>
   <data name="select_list_size" xml:space="preserve">
-    <value>Vel sidestørrelse</value>
+    <value>Vel sidestÃ¸rrelse</value>
   </data>
   <data name="send" xml:space="preserve">
     <value>Send</value>
@@ -885,12 +885,21 @@
     <value>Lukk</value>
   </data>
   <data name="transcoding_running" xml:space="preserve">
-    <value>Konvertering kjører</value>
+    <value>Konvertering kjÃ¸rer</value>
   </data>
   <data name="transcoding_started" xml:space="preserve">
     <value>Konvertering har startet</value>
   </data>
   <data name="no_access" xml:space="preserve">
     <value>Ingen tilgang.</value>
+  </data>
+  <data name="no_channel_groups" xml:space="preserve">
+    <value>No channel groups found.</value>
+  </data>
+  <data name="main_menu" xml:space="preserve">
+    <value>Main menu</value>
+  </data>
+  <data name="record" xml:space="preserve">
+    <value>Record</value>
   </data>
 </root>

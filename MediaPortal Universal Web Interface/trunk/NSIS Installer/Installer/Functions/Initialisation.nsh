@@ -37,14 +37,14 @@ Function un.onInit
   ReadRegStr $CommonApp HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\explorer\Shell Folders" "Common AppData"
   ReadRegStr $DotNetDir HKLM "SOFTWARE\Microsoft\.NETFramework" "InstallRoot"
 
-  StrCpy $unmsg "Are you sure you want to completely remove $(^Name) and all of its components?"
+  StrCpy $unmsg "$(STRING_INIT_LINE1)"
 
   ${If} $InstalliPiMPTVplugin = "1"
-        StrCpy $unmsg "$unmsg $\nSelecting 'Yes' will stop your TV service briefly!!!"
+        StrCpy $unmsg "$unmsg $\n$(STRING_INIT_LINE2)"
   ${EndIf}
 
   ${If} $InstalliPiMPMPplugin = "1"
-        StrCpy $unmsg "$unmsg $\nPlease ensure MediaPortal is NOT running."
+        StrCpy $unmsg "$unmsg $\n(STRING_INIT_LINE3)"
   ${EndIf}
 
   MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 $unmsg IDYES +2
