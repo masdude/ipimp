@@ -896,4 +896,10 @@
   <data name="no_channel_groups" xml:space="preserve">
     <value>Pas de groupes.</value>
   </data>
+  <data name="main_menu" xml:space="preserve">
+    <value>Main menu</value>
+  </data>
+  <data name="record" xml:space="preserve">
+    <value>Record</value>
+  </data>
 </root>

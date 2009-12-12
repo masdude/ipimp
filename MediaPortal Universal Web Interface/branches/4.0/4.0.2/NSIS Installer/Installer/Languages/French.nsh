@@ -5,6 +5,7 @@
 
 !insertmacro LANG_STRING STRING_BRANDING "iPiMP par Cheezey - Controlez MediaPortal depuis votre iPhone"
 !insertmacro LANG_STRING STRING_NOWIKI "Vous n'avez pas lu le Wiki, voulez vous continuer ?"
+!insertmacro LANG_STRING STRING_BROWSE "Parcourir..."
 
 !insertmacro LANG_STRING STRING_WELCOME_TITLE "Bienvenue à iPiMP!"
 !insertmacro LANG_STRING STRING_WELCOME_LINE1 "iPiMP permet un acces web à plusieurs composants de MediaPortal à partir d'un iPhone.$\r$\n$\r$\nAvec iPiMP vous pouvez consulter vos horaires TV, programmer, controler, regarder vos enregistrements TV et controller les clients MediaPortal."
@@ -118,3 +119,7 @@
 
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE1 "Installation du plugin client MediaPortal"
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE2 "Suppression du plugin client MediaPortal"
+
+!insertmacro LANG_STRING STRING_INIT_LINE1 "Are you sure you want to completely remove $(^Name) and all of its components?"
+!insertmacro LANG_STRING STRING_INIT_LINE2 "Selecting 'Yes' will stop your TV service briefly!!!"
+!insertmacro LANG_STRING STRING_INIT_LINE3 "Please ensure MediaPortal is NOT running."

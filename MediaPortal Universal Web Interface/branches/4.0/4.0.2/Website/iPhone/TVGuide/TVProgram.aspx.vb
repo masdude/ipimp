@@ -81,7 +81,7 @@ Partial Public Class TVProgram
 
         Dim markup As String = ""
 
-        markup += "<div class=""iMenu"" id=""" & wa & """>"
+        markup += "<div class=""iMenu"">"
         markup += "<div class=""iBlock"">"
         markup += String.Format("<h3>{0}</h3>", program.Title)
         markup += String.Format("<h3>{0}</h3>", program.StartTime)
@@ -91,12 +91,12 @@ Partial Public Class TVProgram
         markup += "<ul class=""iArrow"">"
 
         If User.IsInRole("recorder") Then
-            markup += String.Format("<li><a href=""TVGuide/RecordTVProgram.aspx?program={0}#_RecordProgram{0}"" rev=""async"">Record</a></li>", programID)
+            markup += String.Format("<li><a href=""TVGuide/RecordTVProgram.aspx?program={0}#_RecordProgram{0}"" rev=""async"">{1}</a></li>", programID, GetGlobalResourceObject("uWiMPStrings", "record"))
         End If
 
         'If program.IsRunningAt(Now) Then
         'If User.IsInRole("watcher") Then
-        'markup += String.Format("<li><a href=""TVGuide/WatchTVProgram.aspx?program={0}&action=watch#_WatchProgram{0}"" rev=""async"">Watch</a></li>", programID)
+        'markup += String.Format("<li><a href=""TVGuide/WatchTVProgram.aspx?program={0}&action=watch#_WatchProgram{0}"" rev=""async"">{1}</a></li>", programID, GetGlobalResourceObject("uWiMPStrings", "watch"))
         'End If
         'End If
 

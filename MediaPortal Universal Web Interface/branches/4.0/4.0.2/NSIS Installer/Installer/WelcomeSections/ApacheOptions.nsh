@@ -38,12 +38,12 @@ Function ApacheOptions
 
 	SendMessage $p4ImageControl ${STM_SETIMAGE} ${IMAGE_BITMAP} $p4Image
 
-	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -130u 20u "$(STRING_APACHEINSTALL_LINE1)"
+	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -40u 20u "$(STRING_APACHEINSTALL_LINE1)"
 	Pop $p4Headline
 
 	SendMessage $p4Headline ${WM_SETFONT} $Headline_font 0
 
-        ${NSD_CreateLabel} 120u 40u 130u 18u "$(STRING_APACHEINSTALL_LINE2)"
+        ${NSD_CreateLabel} 120u 40u 160u 28u "$(STRING_APACHEINSTALL_LINE2)"
 	Pop $p4Label1
         
 	${NSD_CreateText} 280u 40u 40u 12u ""
@@ -57,13 +57,13 @@ Function ApacheOptions
 	Pop $p4Textbox2
         ${NSD_SetText} $p4Textbox1 $IPAddress
 
-        ${NSD_CreateLabel} 120u 100u 135u 18u "$(STRING_APACHEINSTALL_LINE4)"
+        ${NSD_CreateLabel} 120u 100u 160u 18u "$(STRING_APACHEINSTALL_LINE4)"
 	Pop $p4Label3
 	
         ${NSD_CreateDirRequest} 120u 120u 200u 12u "$LogoPath"
         Pop $p4Directory
         
-        ${NSD_CreateBrowseButton} 280u 100u 40u 14u "Browse..."
+        ${NSD_CreateBrowseButton} 280u 100u 40u 14u "$(STRING_BROWSE)"
         Pop $p4Button1
         ${NSD_OnClick} $p4Button1 p4OnDirBrowseButton
 
