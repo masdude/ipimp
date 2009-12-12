@@ -49,12 +49,12 @@
 !define MUI_ICON "..\icons\iPiMP.ico"
 !define MUI_UNICON "..\icons\uniPiMP.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "Images\iPiMPinstall.bmp"
-;!insertmacro LANG_LOAD "English"
-;!insertmacro LANG_LOAD "German"
-;!insertmacro LANG_LOAD "Danish"
-;!insertmacro LANG_LOAD "Dutch"
+!insertmacro LANG_LOAD "English"
+!insertmacro LANG_LOAD "German"
+!insertmacro LANG_LOAD "Danish"
+!insertmacro LANG_LOAD "Dutch"
 !insertmacro LANG_LOAD "Swedish"
-;!insertmacro LANG_LOAD "French"
+!insertmacro LANG_LOAD "French"
 
 ;
 ; Setup pages
