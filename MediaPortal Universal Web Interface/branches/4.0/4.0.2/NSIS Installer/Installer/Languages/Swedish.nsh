@@ -5,21 +5,22 @@
 
 !insertmacro LANG_STRING STRING_BRANDING "iPiMP av Cheezey - Hantera MediaPortal från din iPhone"
 !insertmacro LANG_STRING STRING_NOWIKI "Du har inte läst wikin, vill du fortsätta?"
+!insertmacro LANG_STRING STRING_BROWSE "Sök..."
 
 !insertmacro LANG_STRING STRING_WELCOME_TITLE "Välkommen till iPiMP!"
 !insertmacro LANG_STRING STRING_WELCOME_LINE1 "iPiMP ger web access till olika MediaPortal komponenter via ett trevligt iPhone-gränssnitt.$\r$\n$\r$\nMed iPiMP du kan visa dina TV-guider, inspelningsscheman, titta ¨på inspelningar, hantera inspelningar och scheman och fjärrstyra MediaPortal klienter."
 !insertmacro LANG_STRING STRING_WELCOME_LINE2 "Läs wikin för fullständiga installations- och användningsinstruktioner."
-!insertmacro LANG_STRING STRING_WELCOME_LINE3 "Utföra avancerad installation"
+!insertmacro LANG_STRING STRING_WELCOME_LINE3 "Utför avancerad installation"
 
 !insertmacro LANG_STRING STRING_LICENCE_LINE1 "Välkommen till iPiMP!"
 !insertmacro LANG_STRING STRING_LICENCE_AGREE "jag samtycker"
 
-!insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE1 "En annan version av $ () PRODUCT_NAME är redan installerad. Vill du avinstallera det?"
+!insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE1 "En annan version av $(PRODUCT_NAME) är redan installerad. Vill du avinstallera det?"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE2 "Tidigare version avinstallerades inte - Fel: $2"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE3 "Det rekommenderas att du avinstallerar alla tidigare versioner innan du installerar $ (PRODUCT_NAME) $ (PRODUCT_VERSION), vill du avinstallera den tidigare versionen?"
-!insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE4 "OK - du kan uppleva problem med $ (PRODUCT_NAME) $ (PRODUCT_VERSION), du ska inte rapportera dessa."
+!insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE4 "OK - du kan uppleva problem med $(PRODUCT_NAME) $(PRODUCT_VERSION), du ska inte rapportera dessa."
 
-!insertmacro LANG_STRING STRING_CHECKVERSION_LINE1 "MediaPortal TV Server $ (MIN_MPVERSION) eller senare måste vara installerat $\r$\nto installera komponenten."
+!insertmacro LANG_STRING STRING_CHECKVERSION_LINE1 "MediaPortal TV Server $(MIN_MPVERSION) eller senare måste vara installerat $\r$\nto installera komponenten."
 !insertmacro LANG_STRING STRING_CHECKVERSION_LINE2 "MediaPortal Client ${MIN_MPVERSION} eller senare måste vara installerat $\r$\nto installera komponenten"
 
 !insertmacro LANG_STRING STRING_SIMPLEINSTALL_LINE1 "Standard iPiMP installerar"
@@ -53,7 +54,7 @@
 
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE1 "Apache webbserver inställningar"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE2 "Ange TCP-port för att lyssna på:$\r$\n(Om rutan lämnas tom så kommer port 80 att användas)"
-!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE3 "Ange IP-adress att lyssna på:$\r$\n(TOm rutan lämnas tom så kommer alla IP att kollas)"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE3 "Ange IP-adress att lyssna på:$\r$\n(Om rutan lämnas tom så kommer alla IP att kollas)"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE4 "Bekräfta TV Logos mappen:$\r$\n(Dessa kommer att användas i webbgränssnittet)"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE5 "Välj en inloggnings timeout:$\r$\n(Efter denna period måste du logga in igen)"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE6 "30 min"
@@ -95,10 +96,10 @@
 !insertmacro LANG_STRING STRING_APACHESERVICE_LINE3 "PiMP Apache service installationen misslyckades - Anledning: $0"
 !insertmacro LANG_STRING STRING_APACHESERVICE_LINE4 "iPiMP Apache service start misslyckades - Anledning: Det finns ett fel i httpd.conf!"
 !insertmacro LANG_STRING STRING_APACHESERVICE_LINE5 "iPiMP Apache service start misslyckades - Anledning: $0"
-!insertmacro LANG_STRING STRING_APACHESERVICE_LINE6 "Installing Apache service"
-!insertmacro LANG_STRING STRING_APACHESERVICE_LINE7 "Starting Apache service"
-!insertmacro LANG_STRING STRING_APACHESERVICE_LINE8 "Stopping Apache service"
-!insertmacro LANG_STRING STRING_APACHESERVICE_LINE9 "Removing Apache service"
+!insertmacro LANG_STRING STRING_APACHESERVICE_LINE6 "Installerar Apache service"
+!insertmacro LANG_STRING STRING_APACHESERVICE_LINE7 "Startar Apache service"
+!insertmacro LANG_STRING STRING_APACHESERVICE_LINE8 "StopparApache service"
+!insertmacro LANG_STRING STRING_APACHESERVICE_LINE9 "Tar bort Apache service"
 !insertmacro LANG_STRING STRING_APACHESERVICE_LINE10 "iPiMP Apache service stop misslyckades - Anledning: Det finns ett fel i httpd.conf!"
 !insertmacro LANG_STRING STRING_APACHESERVICE_LINE11 "iPiMP Apache service stop misslyckades - Anledning: $0"
 !insertmacro LANG_STRING STRING_APACHESERVICE_LINE12 "iPiMP Apache service avlägsnande misslyckades - Anledning: It is already installed!"
@@ -108,7 +109,7 @@
 !insertmacro LANG_STRING STRING_TVSERVICEPLUGIN_LINE1 "Installerar TV Server plugin"
 !insertmacro LANG_STRING STRING_TVSERVICEPLUGIN_LINE2 "Konfigurerar TV Server plugin"
 !insertmacro LANG_STRING STRING_TVSERVICEPLUGIN_LINE3 "Plugin config utility misslyckades - använd SetupTV för att konfigurera."
-!insertmacro LANG_STRING STRING_TVSERVICEPLUGIN_LINE4 "Tae bort TV Server plugin"
+!insertmacro LANG_STRING STRING_TVSERVICEPLUGIN_LINE4 "Tar bort TV Server plugin"
 !insertmacro LANG_STRING STRING_TVSERVICEPLUGIN_LINE5 "Av-konfigurerar TV Server plugin"
 !insertmacro LANG_STRING STRING_TVSERVICEPLUGIN_LINE6 "Plugin konfiguration borttagande misslyckades."
 !insertmacro LANG_STRING STRING_TVSERVICEPLUGIN_LINE7 "Stoppar TV service"
@@ -118,3 +119,7 @@
 
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE1 "Installerar MediaPortal client plugin"
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE2 "Tar bort MediaPortal client plugin"
+
+!insertmacro LANG_STRING STRING_INIT_LINE1 "Är du säker att du vill avinstallera $(^Name) och alla dess komponenter?"
+!insertmacro LANG_STRING STRING_INIT_LINE2 "Genom att välja  'Ja' kommer TV service att stoppas för en kort stund!!!"
+!insertmacro LANG_STRING STRING_INIT_LINE3 "Var vänlig säkerställ att MediaPortal inte är igång."

@@ -190,7 +190,7 @@ Function TranscodeOptions
         ${NSD_CreateDirRequest} 120u 160u 200u 12u "$MP4Path"
         Pop $p5Directory
         
-        ${NSD_CreateBrowseButton} 280u 140u 40u 14u "$(STRING_TVPLUGININSTALL_LINE9)"
+        ${NSD_CreateBrowseButton} 280u 140u 40u 14u "$(STRING_BROWSE)"
         Pop $p5Button1
         ${NSD_OnClick} $p5Button1 p5OnDirBrowseButton
 

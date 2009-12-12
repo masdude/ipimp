@@ -608,7 +608,7 @@
     <value>Inga klienter har definierats.</value>
   </data>
   <data name="port" xml:space="preserve">
-    <value>TCP port (optional)</value>
+    <value>TCP port (valfritt)</value>
   </data>
   <data name="select_client" xml:space="preserve">
     <value>Välj klient</value>
@@ -810,7 +810,7 @@
     <value>Energialternativ OK</value>
   </data>
   <data name="power_reboot" xml:space="preserve">
-    <value>Boota om</value>
+    <value>Starta om</value>
   </data>
   <data name="power_shutdown" xml:space="preserve">
     <value>Stäng av</value>
@@ -882,18 +882,24 @@
     <value>Sänd</value>
   </data>
   <data name="power_close" xml:space="preserve">
-    <value>Stänk</value>
+    <value>Stäng</value>
   </data>
   <data name="transcoding_running" xml:space="preserve">
     <value>Konverting körs</value>
   </data>
   <data name="transcoding_started" xml:space="preserve">
-    <value>Konverting har startay</value>
+    <value>Konverting har startat</value>
   </data>
   <data name="no_access" xml:space="preserve">
     <value>Du har inte behörighet till detta</value>
   </data>
   <data name="no_channel_groups" xml:space="preserve">
     <value>Inga kanalgrupper hittades.</value>
+  </data>
+  <data name="main_menu" xml:space="preserve">
+    <value>Huvudmeny</value>
+  </data>
+  <data name="record" xml:space="preserve">
+    <value>Spela in</value>
   </data>
 </root>
