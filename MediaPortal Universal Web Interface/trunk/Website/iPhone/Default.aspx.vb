@@ -34,6 +34,7 @@ Partial Public Class _Default
             AddTopMenuItems()
             AddAdminMenuItems()
 
+            litMainMenu.Text = GetGlobalResourceObject("uWiMPStrings", "main_menu")
             litTitle.Text = GetGlobalResourceObject("uWiMPStrings", "ipimp")
             litBack.Text = GetGlobalResourceObject("uWiMPStrings", "back")
             litHome.Text = GetGlobalResourceObject("uWiMPStrings", "home")

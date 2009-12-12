@@ -86,9 +86,13 @@ Partial Public Class TVGuideMainMenu
         markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "channel_groups"))
         markup += "<ul class=""iArrow"">"
 
-        For Each group In groups
-            markup += String.Format("<li><a href=""TVGuide/ChannelGroups.aspx?group={0}#_ChannelGroup{0}"" rev=""async"">{1}</a></li>", group.IdGroup.ToString, group.GroupName)
-        Next
+        If groups Is Nothing Then
+            markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "no_channel_groups"))
+        Else
+            For Each group In groups
+                markup += String.Format("<li><a href=""TVGuide/ChannelGroups.aspx?group={0}#_ChannelGroup{0}"" rev=""async"">{1}</a></li>", group.IdGroup.ToString, group.GroupName)
+            Next
+        End If
 
         markup += "</ul>"
         markup += "</div>"

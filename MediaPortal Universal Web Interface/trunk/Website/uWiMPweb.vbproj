@@ -97,6 +97,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\uWiMPStrings.sv.designer.vb">
+      <DependentUpon>uWiMPStrings.sv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.fr.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\uWiMPStrings.da.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1059,8 +1069,6 @@
     <Content Include="iPhone\WebApp\Design\Img\chevron.png" />
     <Content Include="iPhone\WebApp\Design\Img\form-check-text.png" />
     <Content Include="iPhone\WebApp\Design\Img\form-check-texton.png" />
-    <Content Include="iPhone\WebApp\Design\Img\form-clear.gif" />
-    <Content Include="iPhone\WebApp\Design\Img\form-input.gif" />
     <Content Include="iPhone\WebApp\Design\Img\rtl-bullet-media.png" />
     <Content Include="iPhone\WebApp\Design\Img\rtl-button-back-touch.png" />
     <Content Include="iPhone\WebApp\Design\Img\rtl-button-back.png" />
@@ -1103,6 +1111,14 @@
     <Content Include="App_GlobalResources\uWiMPStrings.no.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.no.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.fr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.fr.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.sv.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.sv.designer.vb</LastGenOutput>
     </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -1293,7 +1309,9 @@
     <Content Include="iPhone\TVServer\ServiceActionResult.aspx" />
     <Content Include="iPhone\TVServer\ServiceStatus.aspx" />
     <Content Include="iPhone\Web.config" />
+    <Content Include="iPhone\WebApp\Design\Img\big-button-red-touch.png" />
     <Content Include="iPhone\WebApp\Design\Img\button-orange.png" />
+    <Content Include="iPhone\WebApp\Design\Img\form-head.png" />
     <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x1.png" />
     <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x10.png" />
     <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x11.png" />
@@ -1318,6 +1336,7 @@
     <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x7.png" />
     <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x8.png" />
     <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x9.png" />
+    <Content Include="iPhone\WebApp\Design\Img\next.png" />
     <Content Include="iPhone\WebApp\Img\down.png" />
     <Content Include="iPhone\WebApp\Img\up.png" />
     <None Include="My Project\Application.myapp">

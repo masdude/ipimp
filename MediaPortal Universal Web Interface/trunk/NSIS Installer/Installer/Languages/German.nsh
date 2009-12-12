@@ -5,6 +5,7 @@
 
 !insertmacro LANG_STRING STRING_BRANDING "iPiMP von Cheezey - Steuert MediaPortal mit dem iPhone oder iPod Touch"
 !insertmacro LANG_STRING STRING_NOWIKI "Du hast das Wiki nicht gelesen. Möchtest Du fortsetzen?"
+!insertmacro LANG_STRING STRING_BROWSE "Suchen..."
 
 !insertmacro LANG_STRING STRING_WELCOME_TITLE "Willkommen zu iPiMP!"
 !insertmacro LANG_STRING STRING_WELCOME_LINE1 "iPiMP ermöglicht einen Zugang zu verschiedenen MediaPortal Komponenten über einen übersichtlichen iPod Bildschirm.$\r$\n$\r$\nMit iPiMP kannst Du das TV Programm durchsehen, Aufnahmen programmieren, Aufnahmen ansehen, Aufnahmen verwalten und den iPod/iPhone als Fernbedienung für MediaPortal verwenden."
@@ -12,6 +13,7 @@
 !insertmacro LANG_STRING STRING_WELCOME_LINE3 "Fortgeschrittene Installation ausführen"
 
 !insertmacro LANG_STRING STRING_LICENCE_LINE1 "Willkommen zu iPiMP!"
+!insertmacro LANG_STRING STRING_LICENCE_AGREE "I Agree"
 
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE1 "Eine andere Version von ${PRODUCT_NAME} ist bereits installiert. Möchtest Du diese löschen?"
 !insertmacro LANG_STRING STRING_CHECKPREVIOUS_LINE2 "Löschen der Vorgängerversion fehlgeschlagen - Fehler: $2"
@@ -117,3 +119,7 @@
 
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE1 "Installiert MediaPortal Client plugin"
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE2 "Löscht MediaPortal Client plugin"
+
+!insertmacro LANG_STRING STRING_INIT_LINE1 "Are you sure you want to completely remove $(^Name) and all of its components?"
+!insertmacro LANG_STRING STRING_INIT_LINE2 "Selecting 'Yes' will stop your TV service briefly!!!"
+!insertmacro LANG_STRING STRING_INIT_LINE3 "Please ensure MediaPortal is NOT running."

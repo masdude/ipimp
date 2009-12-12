@@ -35,10 +35,9 @@ Function InstallLocation
         ${NSD_CreateDirRequest} 120u 60u 200u 12u "$INSTDIR"
         Pop $p6Directory
         
-        ${NSD_CreateBrowseButton} 255u 40u 40u 14u "$(STRING_TVPLUGININSTALL_LINE9)"
+        ${NSD_CreateBrowseButton} 280u 40u 40u 14u "$(STRING_BROWSE)"
         Pop $p6Button1
         ${NSD_OnClick} $p6Button1 p6OnDirBrowseButton
-
 
 	SetCtlColors $p6Dialog "" 0xffffff
 	SetCtlColors $p6Headline "" 0xffffff
