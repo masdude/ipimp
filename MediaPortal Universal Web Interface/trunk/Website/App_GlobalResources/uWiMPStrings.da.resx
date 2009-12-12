@@ -897,9 +897,9 @@
     <value>Ingen kanal grupper fundet.</value>
   </data>
   <data name="main_menu" xml:space="preserve">
-    <value>Main menu</value>
+    <value>Hovedmenu</value>
   </data>
   <data name="record" xml:space="preserve">
-    <value>Record</value>
+    <value>Optag</value>
   </data>
 </root>
