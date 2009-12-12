@@ -897,9 +897,9 @@
     <value>No channel groups found.</value>
   </data>
   <data name="main_menu" xml:space="preserve">
-    <value>Main menu</value>
+    <value>Hovedmeny</value>
   </data>
   <data name="record" xml:space="preserve">
-    <value>Record</value>
+    <value>Ta opp</value>
   </data>
 </root>
