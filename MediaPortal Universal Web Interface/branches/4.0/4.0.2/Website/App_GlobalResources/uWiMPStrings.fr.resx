@@ -897,9 +897,9 @@
     <value>Pas de groupes.</value>
   </data>
   <data name="main_menu" xml:space="preserve">
-    <value>Main menu</value>
+    <value>Menu principal</value>
   </data>
   <data name="record" xml:space="preserve">
-    <value>Record</value>
+    <value>Enregistrer</value>
   </data>
 </root>
