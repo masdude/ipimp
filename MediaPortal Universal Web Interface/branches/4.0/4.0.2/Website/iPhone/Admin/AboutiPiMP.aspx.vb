@@ -96,7 +96,7 @@ Partial Public Class AboutiPiMP
         markup += "<br>"
         markup += "Dutch translation by minvis."
         markup += "<br>"
-        markup += "Swedish translation by umlaut."
+        markup += "Swedish translation by umlaut (and his girlfriend)."
         markup += "<br>"
         markup += "French translation by truffe."
         'markup += "<br>"
