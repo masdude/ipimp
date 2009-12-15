@@ -894,12 +894,12 @@
     <value>You have not been granted this role.</value>
   </data>
   <data name="no_channel_groups" xml:space="preserve">
-    <value>No channel groups found.</value>
+    <value>Keine Kanalgruppen gefunden.</value>
   </data>
   <data name="main_menu" xml:space="preserve">
-    <value>Main menu</value>
+    <value>Hauptmenü</value>
   </data>
   <data name="record" xml:space="preserve">
-    <value>Record</value>
+    <value>Aufnahme</value>
   </data>
 </root>
