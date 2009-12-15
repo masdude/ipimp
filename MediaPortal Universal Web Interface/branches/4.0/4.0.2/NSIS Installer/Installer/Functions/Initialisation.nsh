@@ -44,7 +44,7 @@ Function un.onInit
   ${EndIf}
 
   ${If} $InstalliPiMPMPplugin = "1"
-        StrCpy $unmsg "$unmsg $\n(STRING_INIT_LINE3)"
+        StrCpy $unmsg "$unmsg $\n$(STRING_INIT_LINE3)"
   ${EndIf}
 
   MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 $unmsg IDYES +2
