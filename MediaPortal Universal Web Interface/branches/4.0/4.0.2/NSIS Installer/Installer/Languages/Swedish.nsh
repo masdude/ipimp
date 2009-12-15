@@ -91,9 +91,9 @@
 !insertmacro LANG_STRING STRING_WEBFILESINSTALL_LINE2 "Säkerhetskopierar iPiMP databaser"
 !insertmacro LANG_STRING STRING_WEBFILESINSTALL_LINE3 "Tar bort iPiMP web filer"
 
-!insertmacro LANG_STRING STRING_APACHESERVICE_LINE1 "PiMP Apache service installationen misslyckades - Anledning: Den är redan installerad!"
-!insertmacro LANG_STRING STRING_APACHESERVICE_LINE2 "PiMP Apache service installationen misslyckades - Anledning: Det finns ett fel i httpd.conf!"
-!insertmacro LANG_STRING STRING_APACHESERVICE_LINE3 "PiMP Apache service installationen misslyckades - Anledning: $0"
+!insertmacro LANG_STRING STRING_APACHESERVICE_LINE1 "iPiMP Apache service installationen misslyckades - Anledning: Den är redan installerad!"
+!insertmacro LANG_STRING STRING_APACHESERVICE_LINE2 "iPiMP Apache service installationen misslyckades - Anledning: Det finns ett fel i httpd.conf!"
+!insertmacro LANG_STRING STRING_APACHESERVICE_LINE3 "iPiMP Apache service installationen misslyckades - Anledning: $0"
 !insertmacro LANG_STRING STRING_APACHESERVICE_LINE4 "iPiMP Apache service start misslyckades - Anledning: Det finns ett fel i httpd.conf!"
 !insertmacro LANG_STRING STRING_APACHESERVICE_LINE5 "iPiMP Apache service start misslyckades - Anledning: $0"
 !insertmacro LANG_STRING STRING_APACHESERVICE_LINE6 "Installerar Apache service"
