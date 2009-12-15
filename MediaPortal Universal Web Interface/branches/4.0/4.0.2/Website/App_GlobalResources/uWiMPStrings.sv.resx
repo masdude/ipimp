@@ -130,7 +130,7 @@
     <value>Byt lösenord</value>
   </data>
   <data name="confirm_password" xml:space="preserve">
-    <value>Bekräfta senord</value>
+    <value>Bekräfta lösenord</value>
   </data>
   <data name="create_user" xml:space="preserve">
     <value>Skapa användare</value>
@@ -148,7 +148,7 @@
     <value>Hem</value>
   </data>
   <data name="idle" xml:space="preserve">
-    <value>Sysslolös</value>
+    <value>inaktiv</value>
   </data>
   <data name="ipimp" xml:space="preserve">
     <value>iPiMP</value>
@@ -317,7 +317,7 @@
     <value>På denna tid lör-sön</value>
   </data>
   <data name="at_this_time_every_day" xml:space="preserve">
-    <value>På denna tid varje day</value>
+    <value>På denna tid varje dag</value>
   </data>
   <data name="at_this_time_every_week" xml:space="preserve">
     <value>På denna tid varje vecka</value>
@@ -347,7 +347,7 @@
     <value>Inspelning lades till</value>
   </data>
   <data name="searching" xml:space="preserve">
-    <value>Sökning pågår, vänligen vänta ...</value>
+    <value>Söker, vänligen vänta ...</value>
   </data>
   <data name="channel" xml:space="preserve">
     <value>Kanal</value>
@@ -548,13 +548,13 @@
     <value>Inspelning avstängd</value>
   </data>
   <data name="stop_timeshifting" xml:space="preserve">
-    <value>Stoppa timeshifting</value>
+    <value>Stoppa timeshift</value>
   </data>
   <data name="stop_timeshifting_fail" xml:space="preserve">
-    <value>Timeshifting kunde inte stängas av</value>
+    <value>Timeshift kunde inte stängas av</value>
   </data>
   <data name="stop_timeshifting_success" xml:space="preserve">
-    <value>Timeshifting avstängd</value>
+    <value>Timeshift avstängd</value>
   </data>
   <data name="service_action_fail" xml:space="preserve">
     <value>Omstart av TV-Service misslyckades!</value>
@@ -747,22 +747,22 @@
     <value>Sök spår</value>
   </data>
   <data name="music_update_request_fail" xml:space="preserve">
-    <value>Musik uppdatering misslyckades.</value>
+    <value>Musikuppdatering misslyckades.</value>
   </data>
   <data name="music_update_request_success" xml:space="preserve">
-    <value>Musik uppdatering är vald.</value>
+    <value>Musikuppdatering är vald.</value>
   </data>
   <data name="enter_filename" xml:space="preserve">
     <value>Skriv filnamn (utan filtyp)</value>
   </data>
   <data name="save_playlist" xml:space="preserve">
-    <value>Spara playlist</value>
+    <value>Spara spellista</value>
   </data>
   <data name="save_playlist_fail" xml:space="preserve">
-    <value>Playlist kunde inte sparas</value>
+    <value>Spellista kunde inte sparas</value>
   </data>
   <data name="save_playlist_success" xml:space="preserve">
-    <value>Playlist sparad</value>
+    <value>Spellista sparad</value>
   </data>
   <data name="send_message" xml:space="preserve">
     <value>Skicka meddelande</value>
