@@ -4,7 +4,7 @@
  * Web - Swedish language - thanks to umlaut (and his girlfriend)
  * Web - French language - thanks to truffe
  * Web - Removed additional hard coded English phrases (thanks umlaut)
- * Web - Modified! WebApp buttons to allow for wider strings to support other languages
+ * Web - Modified !WebApp buttons to allow for wider strings to support other languages
  * Web - Fixed typo in Schedule Results pages
  * TV transcode plugin - Fix for defect 20
  * Installer - Swedish language
