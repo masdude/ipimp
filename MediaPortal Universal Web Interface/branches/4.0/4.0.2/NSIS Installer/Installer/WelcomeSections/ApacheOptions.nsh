@@ -197,19 +197,19 @@ Function ApacheOptionsValidate
 
        ${NSD_GetText} $p4DropList $Timeout
        ${Select} $Timeout
-            ${Case} "30 mins"
+            ${Case} "$(STRING_APACHEINSTALL_LINE6)"
                     StrCpy $Timeout "30"
-            ${Case} "1 hour"
+            ${Case} "$(STRING_APACHEINSTALL_LINE7)"
                     StrCpy $Timeout "60"
-            ${Case} "8 hours"
+            ${Case} "$(STRING_APACHEINSTALL_LINE8)"
                     StrCpy $Timeout "480"
-            ${Case} "1 day"
+            ${Case} "$(STRING_APACHEINSTALL_LINE9)"
                     StrCpy $Timeout "1440"
-            ${Case} "1 week"
+            ${Case} "$(STRING_APACHEINSTALL_LINE10)"
                     StrCpy $Timeout "10080"
-            ${Case} "1 month"
+            ${Case} "$(STRING_APACHEINSTALL_LINE11)"
                     StrCpy $Timeout "44640"
-            ${Case} "1 year"
+            ${Case} "$(STRING_APACHEINSTALL_LINE12)"
                     StrCpy $Timeout "525600"
             ${CaseElse}
                     StrCpy $Timeout "30"
