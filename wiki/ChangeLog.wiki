@@ -4,7 +4,7 @@
  * Web - Swedish language - thanks to umlaut (and his girlfriend)
  * Web - French language - thanks to truffe
  * Web - Removed additional hard coded English phrases (thanks umlaut)
- * Web - Modified !WebApp buttons to allow for wider strings to support other languages
+ * Web - Modified !WebApp.Net buttons to allow for wider strings to support other languages
  * Web - Fixed typo in Schedule Results pages
  * TV transcode plugin - Fix for defect 20
  * Installer - Swedish language
@@ -14,7 +14,7 @@
  * Web - Danish language - thanks to sbp
  * Web - Dutch language - thanks to minvis
  * Web - Fixes for defects 10,11,12,13,19
- * Web - Updated to !WebApp.net release 0.5.0
+ * Web - Updated to !WebApp.Net release 0.5.0
  * MP client plugin - Added extra logging
  * Installer - Dutch language
 
