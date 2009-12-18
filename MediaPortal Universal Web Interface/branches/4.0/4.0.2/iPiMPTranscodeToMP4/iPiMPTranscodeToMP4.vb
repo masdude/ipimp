@@ -118,7 +118,7 @@ Namespace TVEngine
             AddHandler events.OnTvServerEvent, New TvServerEventHandler(AddressOf iPiMP_OnTvServerEvent)
 
             'If _start.ToLower <> "never" Then
-            If Mid(_start, 3, 1) <> ":" Then
+            If Mid(_start, 3, 1) = ":" Then
                 Try
                     thread = New Thread(AddressOf Me.ScheduledTranscode)
                     thread.Start()
@@ -162,7 +162,7 @@ Namespace TVEngine
                         Log.Info("plugin: iPiMPTranscodeToMP4 - transcoded " & tvEvent.Recording.Title)
 
                         'ElseIf _start.ToLower <> "never" Then
-                    ElseIf Mid(_start, 3, 1) <> ":" Then
+                    ElseIf Mid(_start, 3, 1) = ":" Then
                         Dim path As String = _savepath & "\transcodeme.txt"
                         Dim sw As StreamWriter
                         If File.Exists(path) = False Then
