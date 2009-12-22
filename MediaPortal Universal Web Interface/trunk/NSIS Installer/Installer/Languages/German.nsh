@@ -120,6 +120,6 @@
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE1 "Installiert MediaPortal Client plugin"
 !insertmacro LANG_STRING STRING_MPCLIENTPLUGIN_LINE2 "Löscht MediaPortal Client plugin"
 
-!insertmacro LANG_STRING STRING_INIT_LINE1 "Are you sure you want to completely remove $(^Name) and all of its components?"
-!insertmacro LANG_STRING STRING_INIT_LINE2 "Selecting 'Yes' will stop your TV service briefly!!!"
-!insertmacro LANG_STRING STRING_INIT_LINE3 "Please ensure MediaPortal is NOT running."
+!insertmacro LANG_STRING STRING_INIT_LINE1 "Sind Sie wirklich sicher $(^Name) und alle Komponenten vollständig zu entfernen?"
+!insertmacro LANG_STRING STRING_INIT_LINE2 "Wenn Sie 'JA' auswählen, wird der TV Service sofort gestoppt!!!"
+!insertmacro LANG_STRING STRING_INIT_LINE3 "Bitte stellen Sie sicher dass MediaPortal nicht läuft."
