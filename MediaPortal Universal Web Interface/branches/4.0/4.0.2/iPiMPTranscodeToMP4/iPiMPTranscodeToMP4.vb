@@ -176,7 +176,7 @@ Namespace TVEngine
                             sw.Flush()
                             sw.Close()
                         End If
-                        Log.Info("plugin: iPiMPTranscodeToMP4 - scheduled " & tvEvent.Recording.Title)
+                        Log.Info(String.Format("plugin: iPiMPTranscodeToMP4 - scheduled {0} to {1}", tvEvent.Recording.Title, path))
                     End If
 
                 End If
