@@ -97,6 +97,9 @@ Partial Public Class RecordedProgram
             strDuration += String.Format("{0} {1}", duration.Minutes.ToString, GetGlobalResourceObject("uWiMPStrings", "mins"))
         End If
 
+        Dim MP4path As String = uWiMP.TVServer.Utilities.GetAppConfig("STREAMPATH")
+        Dim recFile As String = String.Format("{0}\{1}.mp4", MP4path, Path.GetFileNameWithoutExtension(recording.FileName))
+
         markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
         markup += "<div class=""iBlock"">"
         markup += String.Format("<h3>{0}</h3>", recording.Title)
@@ -107,7 +110,12 @@ Partial Public Class RecordedProgram
 
         markup += "<ul class=""iArrow"">"
         If User.IsInRole("watcher") Then
-            markup += String.Format("<li><a href=""Recording/RecordingWatch.aspx?id={0}#_WatchRec{0}"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "watch"))
+            If uWiMP.TVServer.Utilities.DoesFileExist(recFile) Then
+                markup += String.Format("<li><a href=""http://{0}/MP4/{1}.mp4"">{2}</a></li>", Request.ServerVariables("HTTP_HOST"), Replace(Path.GetFileNameWithoutExtension(recording.FileName), " ", "%20"), GetGlobalResourceObject("uWiMPStrings", "watch"))
+            Else
+                markup += String.Format("<li><a href=""Recording/RecordingTranscode.aspx?recid={0}#_Transcode{0}"" rev=""async"">{1}</a></li>", recordingID, GetGlobalResourceObject("uWiMPStrings", "not_transcoded"))
+            End If
+            'markup += String.Format("<li><a href=""Recording/RecordingWatch.aspx?id={0}#_WatchRec{0}"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "watch"))
         End If
         If User.IsInRole("deleter") Then
             markup += String.Format("<li><a href=""Recording/RecordingDelete.aspx?id={0}#_DeleteRec{0}"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "delete"))
