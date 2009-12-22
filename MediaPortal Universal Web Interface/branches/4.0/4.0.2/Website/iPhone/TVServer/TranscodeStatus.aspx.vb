@@ -61,7 +61,8 @@ Partial Public Class TranscodeStatus
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayServiceStatus(wa))
+        xw.WriteCData(TranscodeStatus())
+
         xw.WriteEndElement()
         'end data
 
@@ -74,41 +75,10 @@ Partial Public Class TranscodeStatus
 
     End Sub
 
-    Private Function DisplayServiceStatus(ByVal wa As String) As String
-
-        Dim markup As String = String.Empty
-
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
-
-        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "transcode_status"))
-        markup += "<ul class=""iArrow"">"
-
-        Dim status As String = uWiMP.TVServer.Utilities.GetServiceStatus("TVService")
-        If status = "" Then status = GetGlobalResourceObject("uWiMPStrings", "unknown")
-        markup += String.Format("<li>{0}</li>", status)
-
-        markup += "</ul>"
-        markup += "</div>"
-
-        If User.IsInRole("admin") Then
-            markup += "<div>"
-            Select Case status.ToLower
-                Case "running"
-                    markup += String.Format("<a href=""TVServer/ServiceActionConfirm.aspx?action=stop#_ServiceAction"" rev=""async"" rel=""Action"" class=""iButton iBWarn"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "stop"))
-                Case "stopped"
-                    markup += String.Format("<a href=""TVServer/ServiceActionConfirm.aspx?action=start#_ServiceAction"" rev=""async"" rel=""Action"" class=""iButton iBWarn"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "start"))
-            End Select
-            markup += "</div>"
-        End If
-
-        Return markup
-
-    End Function
-
     Private Function TranscodeStatus() As String
 
-        Dim markup As String = ""
-        Dim embed As String = ""
+        Dim markup As String = String.Empty
+        Dim markup2 As String = String.Empty
         Dim task As uWiMP.TVServer.Transcode = Nothing
 
         task = TryCast(Cache("transcoding"), uWiMP.TVServer.Transcode)
@@ -121,26 +91,26 @@ Partial Public Class TranscodeStatus
         If task.Running Then
             Dim startTime As DateTime = task.LastStartTime
             Dim recording As Recording = uWiMP.TVServer.Recordings.GetRecordingById(task.RecordingID)
-            embed += "Transcoding is running."
-            embed += "<br>Currently transcoding " & recording.Title
-            embed += "<br>Shown on " & uWiMP.TVServer.Channels.GetChannelByChannelId(recording.IdChannel).Name & " at " & recording.StartTime
-            embed += "<br>Transcoding started at " & startTime.ToString
-            embed += "<br>Current time is " & Now.ToString
+            markup2 += "Transcoding is running."
+            markup2 += String.Format("<br>Currently transcoding {0}", recording.Title)
+            markup2 += String.Format("<br>Shown on {0} at {1}", uWiMP.TVServer.Channels.GetChannelByChannelId(recording.IdChannel).Name, recording.StartTime)
+            markup2 += String.Format("<br>Transcoding started at {0}", startTime.ToString)
+            markup2 += String.Format("<br>Current time is ", Now.ToString)
         ElseIf uWiMP.TVServer.Transcode.IsFFMpegRunning Then
-            embed += "Transcoding is running."
-            embed += "<br>Unknown program (webserver reset?)"
-            embed += "<br>Transcoding started at " & uWiMP.TVServer.Transcode.GetProgress
-            embed += "<br>Current time is " & Now.ToString
+            markup2 += "Transcoding is running."
+            markup2 += "<br>Unknown program (webserver reset?)"
+            markup2 += String.Format("<br>Transcoding started at ", uWiMP.TVServer.Transcode.GetProgress)
+            markup2 += String.Format("<br>Current time is ", Now.ToString)
         Else
-            embed += "Transcoding is not running."
+            markup2 += "Transcoding is not running."
             If task.firstRunComplete Then
-                embed += "<br>Last time it started at " & task.LastStartTime.ToString() & "<br>" & "and finished at " & task.LastFinishTime.ToString() & "<br>"
+                markup2 += String.Format("<br>Last time it started at {0}<br>and finished at <br>", task.LastStartTime.ToString(), task.LastFinishTime.ToString())
                 If task.LastTaskSuccess Then
-                    embed += "This task succeeded."
+                    markup2 += "This task succeeded."
                 Else
-                    embed += "This task failed."
+                    markup2 += "This task failed."
                     If task.ExceptionOccured IsNot Nothing Then
-                        embed += "<br>The exception was: " & task.ExceptionOccured.ToString()
+                        markup2 += String.Format("<br>The exception was: ", task.ExceptionOccured.ToString())
                     End If
                 End If
             End If
@@ -150,7 +120,7 @@ Partial Public Class TranscodeStatus
         markup += "<h3>Transcoding status</h3>"
 
         markup += "<div class=""iBlock"">"
-        markup += "<p>" & embed & "</p>"
+        markup += String.Format("<p>{0}</p>", markup2)
         markup += "</div>"
 
         markup += "</div>"
