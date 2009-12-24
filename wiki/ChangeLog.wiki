@@ -6,7 +6,8 @@
  * Web - Removed additional hard coded English phrases (thanks umlaut)
  * Web - Modified !WebApp.Net buttons to allow for wider strings to support other languages
  * Web - Fixed typo in Schedule Results pages
- * TV transcode plugin - Fix for defects 20 & 22
+ * Web - Fix for defects 22
+ * TV transcode plugin - Fix for defects 20
  * Installer - Swedish language
  * Installer - French language
 
