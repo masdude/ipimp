@@ -1,6 +1,6 @@
 #sidebar TOC
 ----
-4.0.2 updates include *(not yet released)*
+4.0.2 updates include
  * Web - Swedish language - thanks to umlaut (and his girlfriend)
  * Web - French language - thanks to truffe
  * Web - Removed additional hard coded English phrases (thanks umlaut)
