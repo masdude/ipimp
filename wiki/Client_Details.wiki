@@ -1,0 +1,22 @@
+#sidebar TOC
+You need to know the network details of your clients, this is one ore more of the following:
+
+*Hostname* - what your PC is named on your network. <br>
+*IP Address* - what address your PC has on your network. <br>
+*MAC Address* - the unique ID of your PC's network card. (This is only required if you want to use the Wake On Lan feature.) <br>
+
+All of these pieces of information is available through the IPCONFIG command, to run this open a command prompt (Windows Key + R) then type %COMSPEC% <br>
+
+Then type *IPCONFIG /ALL* <br>
+
+You will get back a load of network information like this:
+
+http://www.vanderboon.co.uk/ipimp/dosbox.PNG
+
+The *Hostname* is labelled *Host name* <br>
+The *IP Address* is labelled *IPv4 Address* <br>
+The *MAC Address* is labelled *Physical Address* <br>
+
+*NOTE* This screenshot is from a Windows 7 PC, your output may look slightly different on different operating systems.
+
+[First_Use Back]
