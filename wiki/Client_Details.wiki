@@ -1,8 +1,8 @@
 #sidebar TOC
-You need to know the network details of your clients, this is one ore more of the following:
+You need to know the network details of your clients, this is one or more of the following:
 
 *Hostname* - what your PC is named on your network. <br>
-*IP Address* - what address your PC has on your network. <br>
+*IP Address* - what address your PC has on your network. (This is only required if your server cannot resolve your client's hostname. <br>
 *MAC Address* - the unique ID of your PC's network card. (This is only required if you want to use the Wake On Lan feature.) <br>
 
 All of these pieces of information is available through the IPCONFIG command, to run this open a command prompt (Windows Key + R) then type %COMSPEC% <br>
