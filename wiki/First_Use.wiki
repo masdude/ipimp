@@ -19,6 +19,8 @@ To use iPiMP to remotely control your !MediaPortal client you have to add it int
 
 You are then prompted for three fields, a friendly name which is used in the iPiMP web application, a hostname or IP address of the !MediaPortal client you want to remotely control, this is used to communicate between the iPiMP web server PC and the !MediaPortal client, lastly there is an optional field for the TCP port if you need to change it from its default of 55667.
 
+You can find instructions on where to find these details on the [Client_Details Client Details] page.
+
 http://www.vanderboon.co.uk/ipimp/IMG_0327.PNG http://www.vanderboon.co.uk/ipimp/IMG_0328.PNG
 
 That is enough information to get you running with the iPiMP application and remote control.
