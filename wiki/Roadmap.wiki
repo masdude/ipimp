@@ -9,3 +9,4 @@ This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  The
  * Get movie and music streaming from MP clients working
  * Expand MP client remote control to allow keyboard strings
  * Migrate to GemX's web services plugin (depending on how development of that goes)
+ * Make iPiMP PowerScheduler friendly
