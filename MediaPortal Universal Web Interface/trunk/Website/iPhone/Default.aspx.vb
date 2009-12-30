@@ -56,7 +56,18 @@ Partial Public Class _Default
 
         If uWiMP.TVServer.Utilities.GetAppConfig("USETVSERVER").ToLower = "true" Then
             markup += "<li><a href=""TVGuide/MainMenu.aspx#_ChannelGroups"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "tv_guide") & "</a></li>"
-            markup += "<li><a href=""Recording/MainMenu.aspx#_Recordings"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "recorded_programs") & "</a></li>"
+            If uWiMP.TVServer.Utilities.GetAppConfig("RECSUBMENU").ToLower = "true" Then
+                markup += "<li><a href=""Recording/MainMenu.aspx#_Recordings"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "recorded_programs") & "</a></li>"
+            Else
+                Select Case uWiMP.TVServer.Utilities.GetAppConfig("RECORDER").ToLower
+                    Case "date"
+                        markup += String.Format("<li><a href=""Recording/RecordingsByDate.aspx?start=0#_RecDate"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "recorded_programs"))
+                    Case "genre"
+                        markup += String.Format("<li><a href=""Recording/RecordingsByGenre.aspx?start=0#_RecGenre"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "recorded_programs"))
+                    Case "channel"
+                        markup += String.Format("<li><a href=""Recording/RecordingsByChannel.aspx?start=0#_RecChannel"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "recorded_programs"))
+                End Select
+            End If
             markup += "<li><a href=""Schedule/MainMenu.aspx#_Schedules"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "scheduled_programs") & "</a></li>"
             markup += "<li><a href=""TVServer/MainMenu.aspx#_TVServer"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "tv_server_status") & "</a></li>"
             litMainMenu.Visible = True
