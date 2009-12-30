@@ -29,6 +29,10 @@ Partial Public Class ManageSettingsResult
 
         Dim wa As String = "waSettingsResult"
         Dim pagesize As String = Request.QueryString("pagesize")
+        Dim order As String = Request.QueryString("order")
+        Dim client As String = Request.QueryString("client")
+        Dim server As String = Request.QueryString("server")
+        Dim submenu As String = Request.QueryString("submenu")
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -61,7 +65,7 @@ Partial Public Class ManageSettingsResult
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(UpdateSettings(pagesize))
+        xw.WriteCData(UpdateSettings(pagesize, order, server, client, submenu))
         xw.WriteEndElement()
         'end data
 
@@ -74,12 +78,38 @@ Partial Public Class ManageSettingsResult
 
     End Sub
 
-    Private Function UpdateSettings(ByVal pagesize As String) As String
+    Private Function UpdateSettings(ByVal pagesize As String, ByVal order As String, _
+                                    ByVal server As String, ByVal client As String, _
+                                    ByVal submenu As String) As String
 
         Dim markup As String = String.Empty
         Dim success As Boolean = False
 
         If uWiMP.TVServer.Utilities.SetAppConfig("PAGESIZE", pagesize) = True Then
+            success = True
+        Else
+            success = False
+        End If
+
+        If uWiMP.TVServer.Utilities.SetAppConfig("RECORDER", order) = True Then
+            success = True
+        Else
+            success = False
+        End If
+
+        If uWiMP.TVServer.Utilities.SetAppConfig("USETVSERVER", server) = True Then
+            success = True
+        Else
+            success = False
+        End If
+
+        If uWiMP.TVServer.Utilities.SetAppConfig("USEMPCLIENT", client) = True Then
+            success = True
+        Else
+            success = False
+        End If
+
+        If uWiMP.TVServer.Utilities.SetAppConfig("SUBMENU", submenu) = True Then
             success = True
         Else
             success = False
@@ -99,6 +129,10 @@ Partial Public Class ManageSettingsResult
         markup += "</li>"
         markup += "</ul>"
 
+        markup += "</div>"
+
+        markup += "<div>"
+        markup += String.Format("<a href=""#"" onclick=""window.location.reload();"" rel=""Action"" class=""iButton iBAction"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "home"))
         markup += "</div>"
 
         Return markup

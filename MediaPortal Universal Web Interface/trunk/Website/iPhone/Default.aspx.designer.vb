@@ -61,6 +61,33 @@ Partial Public Class _Default
     Protected WithEvents phMainMenu As Global.System.Web.UI.WebControls.PlaceHolder
 
     '''<summary>
+    '''litCliMenu control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents litCliMenu As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''phCliMenu control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents phCliMenu As Global.System.Web.UI.WebControls.PlaceHolder
+
+    '''<summary>
+    '''litAdminMenu control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents litAdminMenu As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
     '''phAdminMenu control.
     '''</summary>
     '''<remarks>

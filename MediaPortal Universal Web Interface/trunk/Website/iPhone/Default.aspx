@@ -42,10 +42,15 @@
 		<div id="iGroup">
             <div class="iLayer" id="waHome">
                 <div class="iMenu">
-                    <h3><asp:literal runat="server" ID="litMainMenu" /></h3>
+                    <h3><asp:literal runat="server" ID="litMainMenu" Visible="false"/></h3>
                     <ul class="iArrow"> 
                         <asp:PlaceHolder runat="server" ID="phMainMenu" />
                     </ul>
+                    <h3><asp:literal runat="server" ID="litCliMenu" Visible="false" /></h3>
+                    <ul class="iArrow"> 
+                        <asp:PlaceHolder runat="server" ID="phCliMenu" />
+                    </ul>
+                    <h3><asp:literal runat="server" ID="litAdminMenu" Visible="false" /></h3>
                     <ul class="iArrow"> 
                         <asp:PlaceHolder runat="server" ID="phAdminMenu" />
                     </ul>

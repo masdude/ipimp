@@ -158,6 +158,16 @@ function updatesettings() {
     var doc = document.getElementById('jsPageSize');
     var o = doc.childNodes;
     var pagesize = o[0].firstChild.innerHTML;
-    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize+ '#_SettingsResult', null, -1, true, null);
+
+    doc = document.getElementById('jsRecOrder');
+    o = doc.childNodes;
+    var order = o[0].firstChild.innerHTML;
+
+    var client = document.getElementById('jsMPClientEnable').checked;
+    var server = document.getElementById('jsTVServerEnable').checked;
+    var submenu = document.getElementById('jsMPClientSubmenu').checked;
+
+    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '#_SettingsResult', null, -1, true, null);
+    
     return false;
 }

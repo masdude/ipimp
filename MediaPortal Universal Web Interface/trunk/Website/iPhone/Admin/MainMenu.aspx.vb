@@ -93,9 +93,7 @@ Partial Public Class MainMenu
             markup += "<h3>" & GetGlobalResourceObject("uWiMPStrings", "ipimp_admin") & "</h3>"
             markup += "<ul class=""iArrow"">"
 
-            If uWiMP.TVServer.Utilities.GetAppConfig("USETVSERVER").ToLower = "true" Then
-                markup += "<li><a href=""Admin/ManageSettings.aspx#_Settings"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "ipimp_settings") & "</a></li>"
-            End If
+            markup += "<li><a href=""Admin/ManageSettings.aspx#_Settings"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "ipimp_settings") & "</a></li>"
 
             If uWiMP.TVServer.Utilities.GetAppConfig("USEMPCLIENT").ToLower = "true" Then
                 markup += "<li><a href=""Admin/ClientManagementMainMenu.aspx#_ClientMenu"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "mediaportal_clients") & "</a></li>"
