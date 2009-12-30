@@ -166,8 +166,9 @@ function updatesettings() {
     var client = document.getElementById('jsMPClientEnable').checked;
     var server = document.getElementById('jsTVServerEnable').checked;
     var submenu = document.getElementById('jsMPClientSubmenu').checked;
+    var recsubmenu = document.getElementById('jsRecsSubmenu').checked;
 
-    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '#_SettingsResult', null, -1, true, null);
+    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '#_SettingsResult', null, -1, true, null);
     
     return false;
 }

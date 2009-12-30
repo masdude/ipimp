@@ -914,4 +914,7 @@
   <data name="show_client_submenu" xml:space="preserve">
     <value>List clients in a submenu</value>
   </data>
+  <data name="show_recording_submenu" xml:space="preserve">
+    <value>List recordings in a submenu</value>
+  </data>
 </root>
