@@ -1,5 +1,7 @@
 #sidebar TOC
 ----
+Next version updates include
+ * Web - added configurable main menu
 4.0.2 updates include
  * Web - Swedish language - thanks to umlaut (and his girlfriend)
  * Web - French language - thanks to truffe
