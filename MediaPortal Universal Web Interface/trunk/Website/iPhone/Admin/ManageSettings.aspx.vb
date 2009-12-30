@@ -77,6 +77,11 @@ Partial Public Class ManageSettings
 
         Dim markup As String = String.Empty
         Dim pagesize As Integer = uWiMP.TVServer.Utilities.GetAppConfig("PAGESIZE")
+        Dim recorder As String = uWiMP.TVServer.Utilities.GetAppConfig("RECORDER").ToLower
+        Dim tvserver As Boolean = uWiMP.TVServer.Utilities.GetAppConfig("USETVSERVER")
+        Dim client As Boolean = uWiMP.TVServer.Utilities.GetAppConfig("USEMPCLIENT")
+        Dim submenu As Boolean = uWiMP.TVServer.Utilities.GetAppConfig("SUBMENU")
+
         markup += "<div class=""iPanel"" >"
         markup += "<fieldset>"
         markup += "<legend>" & GetGlobalResourceObject("uWiMPStrings", "ipimp_settings") & "</legend>"
@@ -87,6 +92,14 @@ Partial Public Class ManageSettings
         markup += String.Format("<label><input type=""radio"" name=""jsPageSize"" value=""20"" checked=""{0}""/> 20</label>", IIf(pagesize = 20, "checked", ""))
         markup += String.Format("<label><input type=""radio"" name=""jsPageSize"" value=""50"" checked=""{0}""/> 50</label>", IIf(pagesize = 50, "checked", ""))
         markup += "</li>"
+        markup += String.Format("<li id=""jsRecOrder"" class=""iRadio"" value=""autoback"">{0}", GetGlobalResourceObject("uWiMPStrings", "select_default_rec_order"))
+        markup += String.Format("<label><input type=""radio"" name=""jsRecOrder"" value=""date"" checked=""{0}""/> {1}</label>", IIf(recorder = "date", "checked", ""), GetGlobalResourceObject("uWiMPStrings", "date"))
+        markup += String.Format("<label><input type=""radio"" name=""jsRecOrder"" value=""genre"" checked=""{0}""/> {1}</label>", IIf(recorder = "genre", "checked", ""), GetGlobalResourceObject("uWiMPStrings", "genre"))
+        markup += String.Format("<label><input type=""radio"" name=""jsRecOrder"" value=""channel"" checked=""{0}""/> {1}</label>", IIf(recorder = "channel", "checked", ""), GetGlobalResourceObject("uWiMPStrings", "channel"))
+        markup += "</li>"
+        markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsTVServerEnable"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "enable_server"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(tvserver = True, "checked=""""", ""))
+        markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsMPClientEnable"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "enable_client"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(client = True, "checked=""""", ""))
+        markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsMPClientSubmenu"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "show_client_submenu"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(submenu = True, "checked=""""", ""))
         markup += "</ul>"
         markup += "</fieldset>"
         markup += "</div>"

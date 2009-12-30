@@ -902,4 +902,16 @@
   <data name="record" xml:space="preserve">
     <value>Record</value>
   </data>
+  <data name="enable_client" xml:space="preserve">
+    <value>Include MP client menu</value>
+  </data>
+  <data name="enable_server" xml:space="preserve">
+    <value>Include TV Server menus</value>
+  </data>
+  <data name="select_default_rec_order" xml:space="preserve">
+    <value>Default recording sort order</value>
+  </data>
+  <data name="show_client_submenu" xml:space="preserve">
+    <value>List clients in a submenu</value>
+  </data>
 </root>
