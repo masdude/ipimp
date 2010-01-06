@@ -102,6 +102,11 @@ Partial Public Class TVChannel
             markup += String.Format("<li><a {3} href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async"">{1}<small><br/>{2}</small></a></li>", channel.NextProgram.IdProgram.ToString, channel.NextProgram.Title, channel.NextProgram.StartTime, scheduled)
         End If
         markup += "</ul>"
+
+        markup += "<ul class=""iArrow"">"
+        markup += String.Format("<li><a href=""TVGuide/RecordManual.aspx?channel={0}#_RecordManual"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "manual_record"))
+        markup += "</ul>"
+
         markup += "<ul class=""iArrow"">"
         markup += String.Format("<li><a href=""TVGuide/TVChannelDay.aspx?channel={0}&day=0#_Channel{0}Day0"" rev=""async"">{1}</a></li>", channelID, GetGlobalResourceObject("uWiMPStrings", "today"))
         markup += String.Format("<li><a href=""TVGuide/TVChannelDay.aspx?channel={0}&day=1#_Channel{0}Day1"" rev=""async"">{1}</a></li>", channelID, GetGlobalResourceObject("uWiMPStrings", "tomorrow"))

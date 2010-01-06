@@ -259,6 +259,40 @@ Namespace uWiMP.TVServer
         End Function
 
         ''' <summary>
+        ''' Records a manual schedule.
+        ''' </summary>
+        ''' <param name="channelID">The id of the channel to record.</param>
+        ''' <param name="schedName">A text label for the manual recording.</param>
+        ''' <param name="startTime">The start time of the recording.</param>
+        ''' <param name="endTime">The end time of the recording.</param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public Shared Function RecordProgram(ByVal channelID As Integer, ByVal schedName As String, ByVal startTime As DateTime, ByVal endTime As DateTime) As Boolean
+
+            Try
+
+                Dim layer As New TvBusinessLayer
+                Dim s As Schedule = New Schedule(channelID, schedName, startTime, endTime)
+
+                s.ScheduleType = RecordingType.Once
+                s.PreRecordInterval = Int32.Parse(layer.GetSetting("preRecordInterval", "5").Value)
+                s.PostRecordInterval = Int32.Parse(layer.GetSetting("postRecordInterval", "5").Value)
+                s.Quality = 73
+                s.MaxAirings = 2147483647
+                s.Persist()
+                RemoteControl.Instance.OnNewSchedule()
+
+                Return True
+
+            Catch ex As Exception
+
+                Return False
+
+            End Try
+
+        End Function
+
+        ''' <summary>
         ''' Deletes a recording and all its associated files.
         ''' </summary>
         ''' <param name="idRecording">The id number of the recording.</param>
