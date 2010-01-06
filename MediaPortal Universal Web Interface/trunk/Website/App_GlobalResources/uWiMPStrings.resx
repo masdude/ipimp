@@ -903,18 +903,33 @@
     <value>Record</value>
   </data>
   <data name="enable_client" xml:space="preserve">
-    <value>Include MP client menu</value>
+    <value>MP client menu</value>
   </data>
   <data name="enable_server" xml:space="preserve">
-    <value>Include TV Server menus</value>
+    <value>TV Server menus</value>
   </data>
   <data name="select_default_rec_order" xml:space="preserve">
-    <value>Default recording sort order</value>
+    <value>Recording sort order</value>
   </data>
   <data name="show_client_submenu" xml:space="preserve">
-    <value>List clients in a submenu</value>
+    <value>Clients submenu</value>
   </data>
   <data name="show_recording_submenu" xml:space="preserve">
-    <value>List recordings in a submenu</value>
+    <value>Recordings submenu</value>
+  </data>
+  <data name="moving_pictures" xml:space="preserve">
+    <value>Moving Pictures</value>
+  </data>
+  <data name="manual_record" xml:space="preserve">
+    <value>Manual record</value>
+  </data>
+  <data name="manual_record_duration" xml:space="preserve">
+    <value>Duration (mins) (optional)</value>
+  </data>
+  <data name="manual_record_name" xml:space="preserve">
+    <value>Enter a label for the recording</value>
+  </data>
+  <data name="start_time" xml:space="preserve">
+    <value>Start time (hh:mm)</value>
   </data>
 </root>

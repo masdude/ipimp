@@ -82,7 +82,6 @@ function tvsearch(group) {
     document.getElementById('jsLoading').style.visibility = 'visible';
     
     var search = document.getElementById('jsTVSearchText').value;
-    
     var doc = document.getElementById('jsTVSearchGenre');
     var o = doc.childNodes;
     var genre = o[0].firstChild.innerHTML;
@@ -170,5 +169,17 @@ function updatesettings() {
 
     WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '#_SettingsResult', null, -1, true, null);
     
+    return false;
+}
+
+function manualrecord(channelID) {
+    var doc = document.getElementById('jsStartDate');
+    var o = doc.childNodes;
+    var startDate = o[0].firstChild.innerHTML;
+    var startTime = document.getElementById('jsStartTime').value;
+    var schedName = document.getElementById('jsSchedName').value;
+    var duration = document.getElementById('jsDuration').value;
+
+    WA.Request('TVGuide/RecordManualConfirm.aspx?channel=' + channelID + '&schedName=' + schedName + '&startdate=' + startDate + '&starttime=' + startTime + '&duration=' + duration + '#_RecordManualConfirm', null, -1, true, null);
     return false;
 }
