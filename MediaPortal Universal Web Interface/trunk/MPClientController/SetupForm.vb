@@ -28,6 +28,10 @@ Partial Public Class SetupForm
         LoadSettings()
     End Sub
 
+    Private Sub SetupForm_UnLoad(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.FormClosing
+        SaveSettings()
+    End Sub
+
     Private Sub LoadSettings()
         Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
         Port.Value = xmlReader.GetValueAsInt("MPClientController", "TCPPort", 55667)
