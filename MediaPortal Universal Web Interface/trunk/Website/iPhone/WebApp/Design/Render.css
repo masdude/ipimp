@@ -1,5 +1,5 @@
 html{-webkit-text-size-adjust:none;-webkit-touch-callout:none;height:100%}
-*:not(input[type=text]):not(input[type=password]):not(input[type=text]):not(textarea):not(select){-webkit-user-select: none}
+*:not(input[type=text]):not(input[type=password]):not(input[type=text]):not(input[type=number]):not(textarea):not(select){-webkit-user-select: none}
 body *{text-overflow:ellipsis;font-family:helvetica,arial,sans-serif;-webkit-tap-highlight-color:rgba(0,0,0,0);z-index:0}
 body{margin:0;color:#000;background-color:#000;height:100%;-webkit-transform:translateX(0)}
 img{border:0}
@@ -39,7 +39,7 @@ a[rel=action],a[rel=back]{display:none}
 .iMenu a:not(.iPush),.iPanel a:not(.iPush){margin:-11px -8px -12px;padding:inherit;color:inherit;text-decoration:none;display:block;overflow:hidden}
 .iMenu li img{float:left;border:none;margin:-4px 11px -5px 0}
 .iMenu li:not(.iMore) span,.iPanel li span{float:right;color:#324f85;font-weight:normal}
-.iPanel textarea,.iPanel input[type=text],.iPanel input[type=password],.iPanel input[type=search]{width:100%;display:block;margin:-4px 0 -5px;padding:4px 0 5px;border:0;font-size:inherit;line-height:inherit;font-weight:normal;background:none;-webkit-border-radius:0;-webkit-appearance:none;-webkit-box-sizing:border-box}
+.iPanel textarea,.iPanel input[type=text],.iPanel input[type=number],.iPanel input[type=date],.iPanel input[type=time],.iPanel input[type=password],.iPanel input[type=search]{width:100%;display:block;margin:-4px 0 -5px;padding:4px 0 5px;border:0;font-size:inherit;line-height:inherit;font-weight:normal;background:none;-webkit-border-radius:0;-webkit-appearance:none;-webkit-box-sizing:border-box}
 .iPanel select{width:100%;display:block;font-size:inherit}
 .iPanel label + select,.iPanel label + textarea,.iPanel label + input[type]{margin-top:-24px}
 .iPanel legend{display:inline}
