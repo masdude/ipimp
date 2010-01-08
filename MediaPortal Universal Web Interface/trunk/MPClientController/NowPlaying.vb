@@ -60,20 +60,28 @@ Namespace MPClientController
                         jw.WriteString("dvd")
                     Else
                         Dim movie As New IMDBMovie
-                        Dim movieID As Integer = VideoDatabase.GetMovieId(g_Player.Player.CurrentFile)
-                        VideoDatabase.GetMovieInfoById(movieID, movie)
-                        jw.WriteMember("media")
-                        jw.WriteString("video")
-                        jw.WriteMember("title")
-                        jw.WriteString(movie.Title)
-                        jw.WriteMember("tagline")
-                        jw.WriteString(movie.TagLine)
-                        jw.WriteMember("id")
-                        jw.WriteString(movie.ID)
-                        jw.WriteMember("genre")
-                        jw.WriteString(movie.Genre)
-                        jw.WriteMember("filename")
-                        jw.WriteString(MediaPortal.Util.Utils.SplitFilename(g_Player.Player.CurrentFile.ToString))
+                        Dim movieID As Integer = 0
+                        movieID = VideoDatabase.GetMovieId(g_Player.Player.CurrentFile)
+                        If movieID > 0 Then
+                            VideoDatabase.GetMovieInfoById(movieID, movie)
+                            jw.WriteMember("media")
+                            jw.WriteString("video")
+                            jw.WriteMember("title")
+                            jw.WriteString(movie.Title)
+                            jw.WriteMember("tagline")
+                            jw.WriteString(movie.TagLine)
+                            jw.WriteMember("id")
+                            jw.WriteString(movie.ID)
+                            jw.WriteMember("genre")
+                            jw.WriteString(movie.Genre)
+                            jw.WriteMember("filename")
+                            jw.WriteString(MediaPortal.Util.Utils.SplitFilename(g_Player.Player.CurrentFile.ToString))
+                        Else
+                            Try
+                                Return MovingPictures.GetPlayingMovie.ToString
+                            Catch ex As Exception
+                            End Try
+                        End If
                     End If
                 ElseIf g_Player.IsTVRecording Then
                     jw.WriteMember("media")
