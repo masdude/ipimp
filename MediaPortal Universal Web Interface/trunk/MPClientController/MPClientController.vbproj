@@ -56,6 +56,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Jayrock.Json.dll</HintPath>
     </Reference>
+    <Reference Include="MovingPictures, Version=1.0.1.1001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\Windows\MovingPictures.dll</HintPath>
+    </Reference>
     <Reference Include="RemotePlugins, Version=1.0.1.40040, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\RemotePlugins.dll</HintPath>
@@ -87,7 +91,9 @@
     <Import Include="System.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovingPicture.vb" />
     <Compile Include="Message.vb" />
+    <Compile Include="MovingPictures.vb" />
     <Compile Include="MPClientController.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

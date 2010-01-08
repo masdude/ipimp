@@ -16,10 +16,13 @@
 ' 
 
 
+Imports Jayrock.Json
+Imports Jayrock.Json.Conversion
+
 Imports System.IO
 Imports System.Xml
 
-Partial Public Class MPClientMenu
+Partial Public Class MovingPicturesPlay
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -27,8 +30,9 @@ Partial Public Class MPClientMenu
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim wa As String = "waMPClient"
         Dim friendly As String = Request.QueryString("friendly")
+        Dim movieID As String = Request.QueryString("ID")
+        Dim wa As String = "waMovingPicturesPlayVideo"
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -61,7 +65,7 @@ Partial Public Class MPClientMenu
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMPClientMenu(wa, friendly))
+        xw.WriteCData(PlayVideo(wa, friendly, movieID))
         xw.WriteEndElement()
         'end data
 
@@ -74,29 +78,29 @@ Partial Public Class MPClientMenu
 
     End Sub
 
-    Private Function DisplayMPClientMenu(ByVal wa As String, ByVal friendly As String) As String
-
-        Dim client As uWiMP.TVServer.MPClient.Client
-        client = uWiMP.TVServer.MPClientDatabase.GetClient(friendly)
+    Private Function PlayVideo(ByVal wa As String, ByVal friendly As String, ByVal movieID As String) As String
 
         Dim markup As String = String.Empty
+        Dim mpRequest As New uWiMP.TVServer.MPClient.Request
+        mpRequest.Action = "getmovingpicture"
+        mpRequest.Filter = movieID
+
+        Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
+        Dim movie As uWiMP.TVServer.MPClient.BigMovieInfo = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.BigMovieInfo), response), uWiMP.TVServer.MPClient.BigMovieInfo)
+
+        mpRequest.Action = "playmovingpicture"
+        response = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
 
         markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
-        markup += String.Format("<h3>{0}</h3>", friendly)
+        markup += String.Format("<h3>{0} {1}</h3>", GetGlobalResourceObject("uWiMPStrings", "now_playing"), movie.Title)
         markup += "<ul class=""iArrow"">"
 
-        If uWiMP.TVServer.MPClientRemoting.CanConnect(client.Friendly) Then
-            markup += String.Format("<li><a href=""MPClient/MCERemoteControl.aspx?friendly={0}#_Remote1"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "remote_control"))
-            markup += String.Format("<li><a href=""MPClient/MyVideosMenu.aspx?friendly={0}#_MyVideos"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "my_videos"))
-            markup += String.Format("<li><a href=""MPClient/MyMusicMenu.aspx?friendly={0}#_MyMusic"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "my_music"))
-            markup += String.Format("<li><a href=""MPClient/MovingPicturesMenu.aspx?friendly={0}#_MovingPictures"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "moving_pictures"))
-            markup += String.Format("<li><a href=""MPClient/NowPlaying.aspx?friendly={0}#_MPClientNowPlaying"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "now_playing"))
-            markup += String.Format("<li><a href=""MPClient/MPClientSendMessage.aspx?friendly={0}#_MPClientSendMessage"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "send_message"))
-            markup += String.Format("<li><a href=""MPClient/MPClientPowerOptions.aspx?friendly={0}#_MPClientPowerOptions"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "power_options"))
-        ElseIf client.MACAddress <> "" Then
-            markup += String.Format("<li style=""color:red""><a href=""MPClient/MPClientWOL.aspx?friendly={0}#_MPClientWOL"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "could_not_connect_wol"))
+        If success Then
+            markup += String.Format("<li><a href=""MPClient/MPClientRemoteControl.aspx?friendly={0}#_MPClientRemote1"" rev=""async"">{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "remote_control"))
         Else
-            markup += String.Format("<li style=""color:red"">{1}</li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "could_not_connect"))
+            markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "could_not_start_video"))
         End If
 
         markup += "</ul>"

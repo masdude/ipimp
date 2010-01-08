@@ -932,4 +932,37 @@
   <data name="start_time" xml:space="preserve">
     <value>Start time (hh:mm)</value>
   </data>
+  <data name="movingpictures_all" xml:space="preserve">
+    <value>All movies</value>
+  </data>
+  <data name="movingpictures_certification" xml:space="preserve">
+    <value>Movies by certification</value>
+  </data>
+  <data name="movingpictures_genre" xml:space="preserve">
+    <value>Movies by genre</value>
+  </data>
+  <data name="movingpictures_recent" xml:space="preserve">
+    <value>Recently added movies</value>
+  </data>
+  <data name="movingpictures_unwatched" xml:space="preserve">
+    <value>Unwatched movies</value>
+  </data>
+  <data name="movingpictures_year" xml:space="preserve">
+    <value>Movies by year</value>
+  </data>
+  <data name="one_month" xml:space="preserve">
+    <value>One month</value>
+  </data>
+  <data name="one_week" xml:space="preserve">
+    <value>One week</value>
+  </data>
+  <data name="six_months" xml:space="preserve">
+    <value>Six months</value>
+  </data>
+  <data name="two_weeks" xml:space="preserve">
+    <value>Two weeks</value>
+  </data>
+  <data name="movingpictures_period" xml:space="preserve">
+    <value>Period for recent movies</value>
+  </data>
 </root>
