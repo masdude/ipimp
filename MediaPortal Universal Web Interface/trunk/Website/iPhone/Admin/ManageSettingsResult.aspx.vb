@@ -34,6 +34,7 @@ Partial Public Class ManageSettingsResult
         Dim server As String = Request.QueryString("server")
         Dim submenu As String = Request.QueryString("submenu")
         Dim recsubmenu As String = Request.QueryString("recsubmenu")
+        Dim recent As String = Request.QueryString("recent")
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -66,7 +67,7 @@ Partial Public Class ManageSettingsResult
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(UpdateSettings(pagesize, order, server, client, submenu, recsubmenu))
+        xw.WriteCData(UpdateSettings(pagesize, order, server, client, submenu, recsubmenu, recent))
         xw.WriteEndElement()
         'end data
 
@@ -81,7 +82,8 @@ Partial Public Class ManageSettingsResult
 
     Private Function UpdateSettings(ByVal pagesize As String, ByVal order As String, _
                                     ByVal server As String, ByVal client As String, _
-                                    ByVal submenu As String, ByVal recsubmenu As String) As String
+                                    ByVal submenu As String, ByVal recsubmenu As String, _
+                                    ByVal recent As String) As String
 
         Dim markup As String = String.Empty
         Dim success As Boolean = False
@@ -117,6 +119,12 @@ Partial Public Class ManageSettingsResult
         End If
 
         If uWiMP.TVServer.Utilities.SetAppConfig("SUBMENU", submenu) = True Then
+            success = True
+        Else
+            success = False
+        End If
+
+        If uWiMP.TVServer.Utilities.SetAppConfig("RECENTSIZE", recent) = True Then
             success = True
         Else
             success = False

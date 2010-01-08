@@ -62,10 +62,10 @@ Namespace MPClientController
         End Function
 
         Public Function GetHome(ByRef strButtonText As String, ByRef strButtonImage As String, ByRef strButtonImageFocus As String, ByRef strPictureImage As String) As Boolean Implements ISetupForm.GetHome
-            strButtonText = ""
-            strButtonImage = ""
-            strButtonImageFocus = ""
-            strPictureImage = ""
+            strButtonText = String.Empty
+            strButtonImage = String.Empty
+            strButtonImageFocus = String.Empty
+            strPictureImage = String.Empty
             Return False
         End Function
 
@@ -82,7 +82,7 @@ Namespace MPClientController
         End Function
 
         Public Sub ShowPlugin() Implements ISetupForm.ShowPlugin
-            Dim setupForm As Form = New Global.MPClientController.SetupForm
+            Dim setupForm As Form = New SetupForm
             setupForm.ShowDialog()
         End Sub
 #End Region
@@ -90,9 +90,11 @@ Namespace MPClientController
 #Region "IPlugin members"
 
         Public Sub Start() Implements MediaPortal.GUI.Library.IPlugin.Start
+            Log.Info("plugin: MPClientController1 - started listening on port {0}")
             remoteHandler = New InputHandler("iPiMP")
-
+            Log.Info("plugin: MPClientController2 - started listening on port {0}")
             DoStart()
+            Log.Info("plugin: MPClientController3 - started listening on port {0}")
         End Sub
 
         Public Sub [Stop]() Implements MediaPortal.GUI.Library.IPlugin.Stop
@@ -104,15 +106,18 @@ Namespace MPClientController
 #Region "Thread handling"
 
         Private Sub DoStart()
-
+            Log.Info("plugin: MPClientController4 - started listening on port {0}")
             Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
             Dim port As Integer = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
-
+            Log.Info("plugin: MPClientController5 - started listening on port {0}", port.ToString)
             listener = New System.Net.Sockets.TcpListener(System.Net.IPAddress.Any, port)
+            Log.Info("plugin: MPClientController6 - started listening on port {0}", port.ToString)
             listener.Start()
-
+            Log.Info("plugin: MPClientController7 - started listening on port {0}", port.ToString)
             thread = New System.Threading.Thread(AddressOf DoListen)
+            Log.Info("plugin: MPClientController8 - started listening on port {0}", port.ToString)
             thread.IsBackground = True
+            Log.Info("plugin: MPClientController9 - started listening on port {0}", port.ToString)
             thread.Start()
 
             Log.Info("plugin: MPClientController - started listening on port {0}", port.ToString)
@@ -176,10 +181,11 @@ Namespace MPClientController
 
             Select Case request.Action.ToLower
 
+                'MyVideos
                 Case "getmoviefilter"
                     results = MyVideos.GetVideoFilters(request.Filter, request.Value)
                 Case "getmovies"
-                    If Not (request.Filter = String.Empty) Or (request.Value = String.Empty) Then
+                    If (request.Filter <> String.Empty) And (request.Value <> String.Empty) Then
                         results = MyVideos.GetMovies(request.Filter, request.Value, request.Start, request.PageSize)
                     Else
                         results = MyVideos.GetMovies()
@@ -194,6 +200,24 @@ Namespace MPClientController
                         results = MyVideos.IsVideoIDPlaying(CInt(request.Filter))
                     End If
 
+                    'Moving Pictures
+                Case "getmovingpicturefilter"
+                    results = MovingPictures.GetVideoFilters(request.Filter, request.Value)
+                Case "getmovingpictures"
+                    If (request.Filter <> String.Empty) And (request.Value <> String.Empty) Then
+                        results = MovingPictures.GetMovies(request.Filter, request.Value, request.Start, request.PageSize)
+                    Else
+                        results = MovingPictures.GetMovies
+                    End If
+                Case "getmovingpicture"
+                    If Not request.Filter = String.Empty Then results = MovingPictures.GetVideoInfo(request.Filter)
+                Case "playmovingpicture"
+                    If Not request.Filter = String.Empty Then
+                        MovingPictures.PlayMovie(CInt(request.Filter))
+                        results = MovingPictures.IsVideoIDPlaying(CInt(request.Filter))
+                    End If
+
+                'My Music
                 Case "getmusicfilter"
                     results = MyMusic.GetMusicFilters(request.Filter, request.Value)
                 Case "getalbums"

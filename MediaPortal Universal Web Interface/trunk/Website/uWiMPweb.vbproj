@@ -348,6 +348,69 @@
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListYears.aspx.designer.vb">
+      <DependentUpon>MovingPicturesListYears.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListYears.aspx.vb">
+      <DependentUpon>MovingPicturesListYears.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListDecades.aspx.designer.vb">
+      <DependentUpon>MovingPicturesListDecades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListDecades.aspx.vb">
+      <DependentUpon>MovingPicturesListDecades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListCertifications.aspx.designer.vb">
+      <DependentUpon>MovingPicturesListCertifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListCertifications.aspx.vb">
+      <DependentUpon>MovingPicturesListCertifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListGenres.aspx.designer.vb">
+      <DependentUpon>MovingPicturesListGenres.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListGenres.aspx.vb">
+      <DependentUpon>MovingPicturesListGenres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesPlay.aspx.designer.vb">
+      <DependentUpon>MovingPicturesPlay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesPlay.aspx.vb">
+      <DependentUpon>MovingPicturesPlay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesCoverArt.aspx.designer.vb">
+      <DependentUpon>MovingPicturesCoverArt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesCoverArt.aspx.vb">
+      <DependentUpon>MovingPicturesCoverArt.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesMenu.aspx.designer.vb">
+      <DependentUpon>MovingPicturesMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesMenu.aspx.vb">
+      <DependentUpon>MovingPicturesMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesDisplay.aspx.designer.vb">
+      <DependentUpon>MovingPicturesDisplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesDisplay.aspx.vb">
+      <DependentUpon>MovingPicturesDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesList.aspx.designer.vb">
+      <DependentUpon>MovingPicturesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesList.aspx.vb">
+      <DependentUpon>MovingPicturesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="iPhone\MPClient\MCERemoteControlButton.aspx.designer.vb">
       <DependentUpon>MCERemoteControlButton.aspx</DependentUpon>
     </Compile>
@@ -859,6 +922,20 @@
       <DependentUpon>SchedulesByTitleList.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="iPhone\TVGuide\RecordManualConfirm.aspx.designer.vb">
+      <DependentUpon>RecordManualConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordManualConfirm.aspx.vb">
+      <DependentUpon>RecordManualConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordManual.aspx.designer.vb">
+      <DependentUpon>RecordManual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordManual.aspx.vb">
+      <DependentUpon>RecordManual.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="iPhone\TVGuide\NowAndNext.aspx.designer.vb">
       <DependentUpon>NowAndNext.aspx</DependentUpon>
     </Compile>
@@ -1170,6 +1247,15 @@
     <Content Include="iPhone\Admin\ManageSettingsResult.aspx" />
     <Content Include="iPhone\images\apple-touch-icon.png" />
     <Content Include="iPhone\images\apple-touch-startup.png" />
+    <Content Include="iPhone\MPClient\MovingPicturesListYears.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesListDecades.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesListCertifications.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesListGenres.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesPlay.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesCoverArt.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesMenu.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesDisplay.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesList.aspx" />
     <Content Include="iPhone\Recording\RecordingTranscodeResult.aspx" />
     <Content Include="iPhone\Scripts\smbtnblue.png" />
     <Content Include="images\remote\stop.png" />
@@ -1287,6 +1373,8 @@
     <Content Include="iPhone\Scripts\remote.css" />
     <Content Include="iPhone\Scripts\starbar.css" />
     <Content Include="iPhone\Scripts\stars.gif" />
+    <Content Include="iPhone\TVGuide\RecordManualConfirm.aspx" />
+    <Content Include="iPhone\TVGuide\RecordManual.aspx" />
     <Content Include="iPhone\TVGuide\NowAndNext.aspx" />
     <Content Include="iPhone\TVGuide\RecordTVProgram.aspx" />
     <Content Include="iPhone\TVGuide\RecordTVProgramConfirm.aspx" />

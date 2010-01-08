@@ -82,6 +82,7 @@ Partial Public Class ManageSettings
         Dim tvserver As Boolean = uWiMP.TVServer.Utilities.GetAppConfig("USETVSERVER")
         Dim client As Boolean = uWiMP.TVServer.Utilities.GetAppConfig("USEMPCLIENT")
         Dim submenu As Boolean = uWiMP.TVServer.Utilities.GetAppConfig("SUBMENU")
+        Dim recentsize As Integer = uWiMP.TVServer.Utilities.GetAppConfig("RECENTSIZE")
 
         markup += "<div class=""iPanel"" >"
         markup += "<fieldset>"
@@ -102,6 +103,12 @@ Partial Public Class ManageSettings
         markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsTVServerEnable"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "enable_server"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(tvserver = True, "checked=""""", ""))
         markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsMPClientEnable"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "enable_client"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(client = True, "checked=""""", ""))
         markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsMPClientSubmenu"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "show_client_submenu"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(submenu = True, "checked=""""", ""))
+        markup += String.Format("<li id=""jsRecentSize"" class=""iRadio"" value=""autoback"">{0}", GetGlobalResourceObject("uWiMPStrings", "movingpictures_period"))
+        markup += String.Format("<label><input type=""radio"" name=""jsRecentSize"" value=""7"" checked=""{0}""/> 7</label>", IIf(recentsize = 7, "checked", ""))
+        markup += String.Format("<label><input type=""radio"" name=""jsRecentSize"" value=""14"" checked=""{0}""/> 14</label>", IIf(recentsize = 14, "checked", ""))
+        markup += String.Format("<label><input type=""radio"" name=""jsRecentSize"" value=""31"" checked=""{0}""/> 31</label>", IIf(recentsize = 31, "checked", ""))
+        markup += String.Format("<label><input type=""radio"" name=""jsRecentSize"" value=""180"" checked=""{0}""/> 180</label>", IIf(recentsize = 180, "checked", ""))
+        markup += "</li>"
         markup += "</ul>"
         markup += "</fieldset>"
         markup += "</div>"
