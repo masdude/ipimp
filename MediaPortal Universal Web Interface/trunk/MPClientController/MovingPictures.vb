@@ -226,6 +226,47 @@ Namespace MPClientController
 
         End Function
 
+        Public Shared Function GetPlayingMovie() As JsonTextWriter
+
+            Dim allMovies As New List(Of DBMovieInfo)
+            allMovies = DBMovieInfo.GetAll
+            Dim playingMovie As New DBMovieInfo
+            Dim jw As New JsonTextWriter
+
+            For Each movieInfo As DBMovieInfo In allMovies
+                If (g_Player.Playing) And (g_Player.IsVideo) Then
+                    For Each mediaFile As DBLocalMedia In movieInfo.LocalMedia
+                        If mediaFile.FullPath.ToLower = g_Player.Player.CurrentFile.ToLower Then
+                            playingMovie = movieInfo
+                            jw.PrettyPrint = True
+                            jw.WriteStartObject()
+                            jw.WriteMember("media")
+                            jw.WriteString("movingpicture")
+                            jw.WriteMember("title")
+                            jw.WriteString(playingMovie.Title)
+                            jw.WriteMember("tagline")
+                            jw.WriteString(playingMovie.Tagline)
+                            jw.WriteMember("id")
+                            jw.WriteString(playingMovie.ID)
+                            jw.WriteMember("genre")
+                            jw.WriteString(playingMovie.Genres(0))
+                            jw.WriteMember("filename")
+                            jw.WriteString(MediaPortal.Util.Utils.SplitFilename(g_Player.Player.CurrentFile.ToString))
+                            jw.WriteMember("duration")
+                            jw.WriteString(g_Player.Player.Duration.ToString)
+                            jw.WriteMember("position")
+                            jw.WriteString(g_Player.Player.CurrentPosition.ToString)
+                            jw.WriteEndObject()
+                            Exit For
+                        End If
+                    Next
+                End If
+            Next
+
+            Return jw
+
+        End Function
+
     End Class
 
 End Namespace

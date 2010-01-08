@@ -93,7 +93,9 @@ Partial Public Class NowPlaying
             Case "music"
                 Return PlayingMusic(friendly, jo)
             Case "video"
-                Return PlayingVideo(friendly, jo)
+                Return PlayingVideo(friendly, jo, "video")
+            Case "movingpicture"
+                Return PlayingVideo(friendly, jo, "movingpicture")
             Case "dvd"
                 Return PlayingDVD(friendly, jo)
             Case "radio"
@@ -180,7 +182,7 @@ Partial Public Class NowPlaying
 
     End Function
 
-    Private Function PlayingVideo(ByVal friendly As String, ByVal jo As JsonObject) As String
+    Private Function PlayingVideo(ByVal friendly As String, ByVal jo As JsonObject, ByVal type As String) As String
 
         Dim title As String = CType(jo("title"), String)
         Dim tagline As String = CType(jo("tagline"), String)
@@ -198,7 +200,7 @@ Partial Public Class NowPlaying
         markup += "<div class=""iBlock"">"
         markup += "<table class=""imdbtable"">"
         markup += "<tr>"
-        markup += String.Format("<td align=""center""><img src=""{0}"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", GetVideoCoverArt(friendly, id))
+        markup += String.Format("<td align=""center""><img src=""{0}"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", GetVideoCoverArt(friendly, id, type))
         markup += "</tr>"
         markup += "<tr>"
         markup += "<td align=""center"">"
@@ -228,8 +230,14 @@ Partial Public Class NowPlaying
         markup += "</div>"
 
         markup += "<ul class=""iArrow"">"
-        markup += String.Format("<li><a href=""MPClient/MyVideosDisplay.aspx?friendly={0}&ID={1}#_MPClientVideo"" rev=""async"">{2}</a></li>", friendly, id, GetGlobalResourceObject("uWiMPStrings", "show_video"))
-        markup += String.Format("<li><a href=""MPClient/MyVideosList.aspx?friendly={0}&filter=genre&value={1}&start=0#_MPClientVideos"" rev=""async"">{2}</a></li>", friendly, genre, GetGlobalResourceObject("uWiMPStrings", "show_genre"))
+        If type.ToLower = "video" Then
+            markup += String.Format("<li><a href=""MPClient/MyVideosDisplay.aspx?friendly={0}&ID={1}#_MPClientVideo"" rev=""async"">{2}</a></li>", friendly, id, GetGlobalResourceObject("uWiMPStrings", "show_video"))
+            markup += String.Format("<li><a href=""MPClient/MyVideosList.aspx?friendly={0}&filter=genre&value={1}&start=0#_MPClientVideos"" rev=""async"">{2}</a></li>", friendly, genre, GetGlobalResourceObject("uWiMPStrings", "show_genre"))
+        End If
+        If type.ToLower = "movingpicture" Then
+            markup += String.Format("<li><a href=""MPClient/MovingPicturesDisplay.aspx?friendly={0}&ID={1}#_MovingPicturesVideo{1}"" rev=""async"">{2}</a></li>", friendly, id, GetGlobalResourceObject("uWiMPStrings", "show_video"))
+            markup += String.Format("<li><a href=""MPClient/MovingPicturesList.aspx?friendly={0}&filter=genre&value={1}&start=0#_MovingPicturesMovies{1}"" rev=""async"">{2}</a></li>", friendly, genre, GetGlobalResourceObject("uWiMPStrings", "show_genre"))
+        End If
         markup += "</ul>"
 
         markup += "<ul class=""iArrow"">"
@@ -520,11 +528,11 @@ Partial Public Class NowPlaying
 
     End Function
 
-    Private Function GetVideoCoverArt(ByVal friendly As String, ByVal movieID As String) As String
+    Private Function GetVideoCoverArt(ByVal friendly As String, ByVal movieID As String, ByVal type As String) As String
 
         Dim markup As String = String.Empty
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
-        mpRequest.Action = "getmovie"
+        mpRequest.Action = String.Format("get{0}", type.ToLower)
         mpRequest.Filter = movieID
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
@@ -540,7 +548,7 @@ Partial Public Class NowPlaying
         Else
             Return "../../images/imdb/blankmovie.png"
         End If
-        
+
     End Function
 
     Private Function SaveMusicImageToDisk(ByVal artist As String, ByVal album As String, ByVal imageString As String) As String
