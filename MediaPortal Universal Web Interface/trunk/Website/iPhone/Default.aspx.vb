@@ -124,13 +124,11 @@ Partial Public Class _Default
             Select Case clients.Count
                 Case 0
                     markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "no_clients_defined"))
-                Case 1
-                    Response.Redirect(String.Format("MPClientMenu.aspx?friendly={0}#_MPClient", clients(0).Friendly))
                 Case Else
                     For Each client As uWiMP.TVServer.MPClient.Client In clients
                         markup += String.Format("<li><a href=""MPClient/MPClientMenu.aspx?friendly={0}#_MPClient"" rev=""async"">{0}</a></li>", client.Friendly)
                     Next
-                    markup += String.Format("<li><a href=""MPClient/MPClientSendMessage.aspx?friendly=all#_MPClientSendMessage"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "send_message_global"))
+                    If clients.Count > 1 Then markup += String.Format("<li><a href=""MPClient/MPClientSendMessage.aspx?friendly=all#_MPClientSendMessage"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "send_message_global"))
             End Select
         Else
             markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "no_access"))
