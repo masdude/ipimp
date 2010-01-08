@@ -1,0 +1,1 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="RecordingDeleteResult.aspx.vb" Inherits="Website.RecordingDeleteResult" %>
