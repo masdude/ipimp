@@ -1473,7 +1473,7 @@
 
 "C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "$(SolutionDir)Website" "$(SolutionDir)NSIS Installer\Installer\Definitions\ProductDetails_temp.nsh" "$(SolutionDir)NSIS Installer\Installer\Definitions\ProductDetails.nsh"
 
-%2525WINDIR%2525\SYSTEM32\CScript //NoLogo "$(SolutionDir)NSIS Installer\Include\ListFiles.vbs" "$(SolutionDir)NSIS Installer\Include\Aspx" &amp;gt;"$(SolutionDir)NSIS Installer\Installer\InstallSections\Webfiles.nsh"
+%25WINDIR%25\SYSTEM32\CScript //NoLogo "$(SolutionDir)NSIS Installer\Include\ListFiles.vbs" "$(SolutionDir)NSIS Installer\Include\Aspx" &gt;"$(SolutionDir)NSIS Installer\Installer\InstallSections\Webfiles.nsh"
 </PreBuildEvent>
     <PostBuildEvent>
     </PostBuildEvent>
