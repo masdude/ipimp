@@ -170,8 +170,10 @@ function updatesettings() {
     var server = document.getElementById('jsTVServerEnable').checked;
     var submenu = document.getElementById('jsMPClientSubmenu').checked;
     var recsubmenu = document.getElementById('jsRecsSubmenu').checked;
-
-    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '&recent=' + recent + '#_SettingsResult', null, -1, true, null);
+    var myvideos = document.getElementById('jsMyVideos').checked;
+    var movpics = document.getElementById('jsMovingPictures').checked;
+    
+    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '&recent=' + recent + '&myvideos=' + myvideos + '&movpics=' + movpics + '#_SettingsResult', null, -1, true, null);
     
     return false;
 }
