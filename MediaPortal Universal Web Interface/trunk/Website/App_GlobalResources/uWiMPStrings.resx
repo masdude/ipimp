@@ -903,7 +903,7 @@
     <value>Record</value>
   </data>
   <data name="enable_client" xml:space="preserve">
-    <value>MP client menu</value>
+    <value>MP client menus</value>
   </data>
   <data name="enable_server" xml:space="preserve">
     <value>TV Server menus</value>
