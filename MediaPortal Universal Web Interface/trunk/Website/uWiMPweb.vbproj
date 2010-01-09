@@ -1257,6 +1257,7 @@
     <Content Include="iPhone\MPClient\MovingPicturesDisplay.aspx" />
     <Content Include="iPhone\MPClient\MovingPicturesList.aspx" />
     <Content Include="iPhone\Recording\RecordingTranscodeResult.aspx" />
+    <Content Include="iPhone\Scripts\Adaptive.js" />
     <Content Include="iPhone\Scripts\smbtnblue.png" />
     <Content Include="images\remote\stop.png" />
     <Content Include="images\remote\tv.png" />
