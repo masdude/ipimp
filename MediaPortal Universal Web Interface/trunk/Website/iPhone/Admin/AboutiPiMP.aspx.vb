@@ -27,7 +27,7 @@ Partial Public Class AboutiPiMP
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim wa As String = "waAdmin"
+        Dim wa As String = "waAboutiPiMP"
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
