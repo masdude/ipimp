@@ -31,6 +31,7 @@
     <link rel="apple-touch-startup-image" href="images/apple-touch-startup.png" />
     <script type="text/javascript" src="WebApp/Action/Logic.js"></script>
     <script type="text/javascript" src="Scripts/functions.js"></script>
+    <script type="text/javascript" src="Scripts/Adaptive.js"></script>
 </head>
 <body>
     <div id="WebApp">
