@@ -19,7 +19,7 @@
 Imports System.IO
 Imports System.Xml
 
-Partial Public Class MainMenu
+Partial Public Class AppearanceResult
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -27,7 +27,8 @@ Partial Public Class MainMenu
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim wa As String = "waAdmin"
+        Dim wa As String = "waAppearanceResult"
+        Dim colour As String = Request.QueryString("colour")
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -60,7 +61,7 @@ Partial Public Class MainMenu
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(AddAdminMenuOptions(wa))
+        xw.WriteCData(UpdateSettings(colour))
         xw.WriteEndElement()
         'end data
 
@@ -73,36 +74,35 @@ Partial Public Class MainMenu
 
     End Sub
 
-    Private Function AddAdminMenuOptions(ByVal wa As String) As String
+    Private Function UpdateSettings(ByVal colour As String) As String
 
         Dim markup As String = String.Empty
+        Dim success As Boolean = False
 
-        markup += "<div class=""iMenu"">"
-        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "user_admin"))
-        markup += "<ul class=""iArrow"">"
-        markup += String.Format("<li><a href=""Admin/UserManagementChangePassword.aspx#_ChangePasswordMenu"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "change_password"))
-
-        If User.IsInRole("admin") Then
-            markup += String.Format("<li><a href=""Admin/UserManagementAddUser.aspx#_CreateUserMenu"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "create_user"))
-            markup += String.Format("<li><a href=""Admin/UserManagementDeleteUser.aspx#_DeleteUserMenu"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "delete_user"))
+        If uWiMP.TVServer.Utilities.SetAppConfig("COLOUR", colour) = True Then
+            success = True
+        Else
+            success = False
         End If
+
+        markup += "<div class=""iMenu"" >"
+
+        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "appearance"))
+        markup += "<ul>"
+
+        If success Then
+            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "appearance_success"))
+        Else
+            markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "appearance_fail"))
+        End If
+
+        markup += "</li>"
         markup += "</ul>"
 
-        If User.IsInRole("admin") Then
-            markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "ipimp_admin"))
-            markup += "<ul class=""iArrow"">"
+        markup += "</div>"
 
-            markup += String.Format("<li><a href=""Admin/ManageSettings.aspx#_Settings"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "ipimp_settings"))
-            markup += String.Format("<li><a href=""Admin/AppearanceSelect.aspx#_AppearanceSelect"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "appearance"))
-
-            If uWiMP.TVServer.Utilities.GetAppConfig("USEMPCLIENT").ToLower = "true" Then
-                markup += String.Format("<li><a href=""Admin/ClientManagementMainMenu.aspx#_ClientMenu"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "mediaportal_clients"))
-            End If
-
-            markup += "</ul>"
-
-        End If
-
+        markup += "<div>"
+        markup += String.Format("<a href=""#"" onclick=""window.location.reload();"" rel=""Action"" class=""iButton iBAction"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "home"))
         markup += "</div>"
 
         Return markup

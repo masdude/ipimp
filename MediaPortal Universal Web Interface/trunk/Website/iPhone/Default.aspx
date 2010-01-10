@@ -33,7 +33,7 @@
     <script type="text/javascript" src="Scripts/functions.js"></script>
     <script type="text/javascript" src="Scripts/Adaptive.js"></script>
 </head>
-<body>
+<body onload="changecolour">
     <div id="WebApp">
         <div id="iHeader">
             <span id="waHeadTitle"><asp:literal runat="server" ID="litTitle" /></span>
@@ -64,10 +64,11 @@
         </div>
     </div>
     <form id="form1" runat="server">
-    <div>
-        <asp:PlaceHolder runat="server" ID="phHiddenControls" />
-        <asp:Button ID="aspBtnLogout" runat="server" style="display:none;" />
-    </div>
+        <div>
+            <asp:PlaceHolder runat="server" ID="phHiddenControls" />
+            <asp:Button ID="aspBtnLogout" runat="server" style="display:none;" />
+        </div>
+        <div id="colour"><asp:literal runat="server" id="litColour" /></div>
     </form>
 </body>
 </html>

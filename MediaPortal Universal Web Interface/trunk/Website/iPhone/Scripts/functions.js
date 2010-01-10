@@ -189,3 +189,12 @@ function manualrecord(channelID) {
     WA.Request('TVGuide/RecordManualConfirm.aspx?channel=' + channelID + '&schedName=' + schedName + '&startdate=' + startDate + '&starttime=' + startTime + '&duration=' + duration + '#_RecordManualConfirm', null, -1, true, null);
     return false;
 }
+
+function changecolour() {
+    var doc = document.getElementById('jsAppearance');
+    var o = doc.childNodes;
+    var colour = o[0].firstChild.innerHTML;
+
+    WA.Request('Admin/AppearanceResult.aspx?colour=' + colour + '#_AppearanceResult', null, -1, true, null);
+    return false;
+}
