@@ -227,6 +227,7 @@
   File "..\Include\Aspx\iPhone\Schedule\SchedulesByTitleList.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\Scripts"
+  File "..\Include\Aspx\iPhone\Scripts\Adaptive.js"
   File "..\Include\Aspx\iPhone\Scripts\functions.js"
   File "..\Include\Aspx\iPhone\Scripts\remote.css"
   File "..\Include\Aspx\iPhone\Scripts\smbtnblue.png"
