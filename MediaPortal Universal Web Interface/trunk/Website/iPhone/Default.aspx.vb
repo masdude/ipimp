@@ -44,6 +44,7 @@ Partial Public Class _Default
             litHome.Text = GetGlobalResourceObject("uWiMPStrings", "home")
             litLogout.Text = GetGlobalResourceObject("uWiMPStrings", "logout")
             litDonate.Text = GetGlobalResourceObject("uWiMPStrings", "donate")
+            litColour.Text = uWiMP.TVServer.Utilities.GetAppConfig("COLOUR").ToLower
             
         End If
 

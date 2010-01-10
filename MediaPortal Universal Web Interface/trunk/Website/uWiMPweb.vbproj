@@ -247,6 +247,20 @@
       <DependentUpon>ClientManagementUpdateResult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="iPhone\Admin\AppearanceSelect.aspx.designer.vb">
+      <DependentUpon>AppearanceSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\AppearanceSelect.aspx.vb">
+      <DependentUpon>AppearanceSelect.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\AppearanceResult.aspx.designer.vb">
+      <DependentUpon>AppearanceResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\AppearanceResult.aspx.vb">
+      <DependentUpon>AppearanceResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="iPhone\Admin\ManageSettings.aspx.designer.vb">
       <DependentUpon>ManageSettings.aspx</DependentUpon>
     </Compile>
@@ -1244,6 +1258,8 @@
     <Content Include="images\remote\rewind.png" />
     <Content Include="images\remote\right.png" />
     <Content Include="images\remote\skip.png" />
+    <Content Include="iPhone\Admin\AppearanceSelect.aspx" />
+    <Content Include="iPhone\Admin\AppearanceResult.aspx" />
     <Content Include="iPhone\Admin\ManageSettingsResult.aspx" />
     <Content Include="iPhone\images\apple-touch-icon.png" />
     <Content Include="iPhone\images\apple-touch-startup.png" />

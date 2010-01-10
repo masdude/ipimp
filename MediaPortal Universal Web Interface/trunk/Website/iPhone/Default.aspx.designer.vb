@@ -140,4 +140,13 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents aspBtnLogout As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''litColour control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents litColour As Global.System.Web.UI.WebControls.Literal
 End Class

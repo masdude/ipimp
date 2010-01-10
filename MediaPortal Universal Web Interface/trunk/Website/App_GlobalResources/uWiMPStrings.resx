@@ -965,4 +965,40 @@
   <data name="movingpictures_period" xml:space="preserve">
     <value>Period for recent movies</value>
   </data>
+  <data name="appearance" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="appearance_fail" xml:space="preserve">
+    <value>Appearance update failed.</value>
+  </data>
+  <data name="appearance_success" xml:space="preserve">
+    <value>Appearance updated.</value>
+  </data>
+  <data name="black" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="green" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="orange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="pink" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="purple" xml:space="preserve">
+    <value>Purple</value>
+  </data>
+  <data name="red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="select_colour" xml:space="preserve">
+    <value>Select colour</value>
+  </data>
 </root>
