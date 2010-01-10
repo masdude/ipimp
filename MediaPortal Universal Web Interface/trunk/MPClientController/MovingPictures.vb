@@ -226,7 +226,7 @@ Namespace MPClientController
 
         End Function
 
-        Public Shared Function GetPlayingMovie() As JsonTextWriter
+        Public Shared Function GetPlayingMovie() As String
 
             Dim allMovies As New List(Of DBMovieInfo)
             allMovies = DBMovieInfo.GetAll
@@ -263,7 +263,7 @@ Namespace MPClientController
                 End If
             Next
 
-            Return jw
+            Return jw.ToString
 
         End Function
 

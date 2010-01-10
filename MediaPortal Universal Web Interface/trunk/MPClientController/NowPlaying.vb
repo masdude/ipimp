@@ -77,10 +77,10 @@ Namespace MPClientController
                             jw.WriteMember("filename")
                             jw.WriteString(MediaPortal.Util.Utils.SplitFilename(g_Player.Player.CurrentFile.ToString))
                         Else
-                            Try
-                                Return MovingPictures.GetPlayingMovie.ToString
-                            Catch ex As Exception
-                            End Try
+                            Dim s As String = MovingPictures.GetPlayingMovie
+                            If InStr(s, "movingpicture") > 0 Then
+                                Return s
+                            End If
                         End If
                     End If
                 ElseIf g_Player.IsTVRecording Then
