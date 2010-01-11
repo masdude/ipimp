@@ -11,7 +11,7 @@ This allows you to create users.  Enter the username, the password twice and sel
  * Recorder - allows a user to schedule a recording
  * Watcher - allows a user to watch recordings (and hopefully live TV if it ever gets workins :-s )
  * Deleter - allows a user to delete recordings and schedules.
- * Remoter - allows a user to remotely control MediaPortal clients.
+ * Remoter - allows a user to remotely control !MediaPortal clients.
  * Administrator - has God access.
 
 Click the *Add* button to submit.
