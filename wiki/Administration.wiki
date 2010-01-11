@@ -5,6 +5,6 @@ This page displays the available administration sections available from within t
 
 There are two sections:
  * [User_Admin User administration] - used to create / delete users or change your own password.
- * [iPiMP_Admin iPiMP administration - which allows you to update various iPiMP settings, alter the iPiMP appearance or manage !MediaPortal clients access via the application.
+ * [iPiMP_Admin iPiMP administration] - which allows you to update various iPiMP settings, alter the iPiMP appearance or manage !MediaPortal clients access via the application.
 
 [User_Admin Next]
