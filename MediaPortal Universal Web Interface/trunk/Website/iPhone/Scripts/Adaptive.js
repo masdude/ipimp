@@ -5,7 +5,7 @@
     switch (colour) {
         case "black":
             header = "#1C1C1C";
-            webapp = "#D8D8D8";
+            webapp = "#6E6E6E";
             break;
         case "green":
             header = "#088A08";
