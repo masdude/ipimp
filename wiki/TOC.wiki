@@ -25,7 +25,7 @@
   * [iPiMP_Admin iPiMP administration]
    * [iPiMP_Settings iPiMP settings]
    * [Appearance]
-   * [Client_admin !MediaPortal clients]
+   * [Client_admin MediaPortal clients]
 
 
  [https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6722080 https://www.paypal.com/en_GB/i/btn/btn_donate_SM.gif]
