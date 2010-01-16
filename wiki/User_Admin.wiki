@@ -3,7 +3,7 @@
 
 This allows you to change your own password.  Enter your old password, then your new one twice.  Click the *Change* button to submit.
 
-IMG?
+http://www.vanderboon.co.uk/ipimp/IMG_0095.PNG
 
 *Create user*
 
@@ -16,12 +16,12 @@ This allows you to create users.  Enter the username, the password twice and sel
 
 Click the *Add* button to submit.
 
-IMG?
+http://www.vanderboon.co.uk/ipimp/IMG_0096.PNG
 
 *Delete user*
 
 This allows you to delete users.  Select the user you want to delete, then click the *Delete* button to submit.
 
-IMG?
+http://www.vanderboon.co.uk/ipimp/IMG_0097.PNG
 
 [iPiMP_Admin Next]
