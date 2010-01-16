@@ -6,4 +6,4 @@ IMG?
 
 === You must use the '*Update*' button to save the new colour scheme then the '*Home*' button to apply it, otherwise it will be applied when the application is next loaded. ===
 
-Next
+[Client_admin Next]
