@@ -39,18 +39,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Gentle.Common, Version=1.5.0.29053, Culture=neutral, PublicKeyToken=80b5de62e27be49b">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Gentle.Framework, Version=1.5.0.29053, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\Gentle.Framework.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Gentle.Provider.MySQL, Version=1.5.0.29054, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Gentle.Provider.SQLServer, Version=1.5.0.29053, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Jayrock.Json, Version=0.9.10905.0, Culture=neutral" />
     <Reference Include="System" />
@@ -67,20 +67,20 @@
     <Reference Include="TvBusinessLayer, Version=1.0.1.40079, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TvBusinessLayer.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="TvControl, Version=1.0.1.40078, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TvControl.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="TVDatabase, Version=1.0.1.40079, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TVDatabase.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="TvLibrary.Interfaces, Version=1.0.4.39113, Culture=neutral, processorArchitecture=x86">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
