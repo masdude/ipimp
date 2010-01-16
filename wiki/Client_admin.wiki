@@ -10,12 +10,18 @@ This allows you to add a !MediaPortal client ready for remote control. The follo
 
  * MAC Address - *Optional* - this is the MAC Address (or Hardware address) of the network interface in the !MediaPortal client PC.  If this field is populated and a client connection cannot be established then iPiMP will allow you to send a Wake On LAN packet which can be used to power on a shutdown client.
 
+http://www.vanderboon.co.uk/ipimp/IMG_0103.PNG
+
 *Delete client*
 
 This allows you to delete a !MediaPortal client.  Simply select the required client to delete.
 
+http://www.vanderboon.co.uk/ipimp/IMG_0104.PNG
+
 *Update client*
 
 This allows you to update a !MediaPortal clients' details such as hostname, IP address, MAC address etc.  Simply select the required client and update the required details.
+
+http://www.vanderboon.co.uk/ipimp/IMG_0105.PNG
 
 [iPiMPWiki Message ends]
