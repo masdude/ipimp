@@ -34,8 +34,6 @@
   File "..\Include\Aspx\bin\TVDatabase.dll"
   File "..\Include\Aspx\bin\TvLibrary.Interfaces.dll"
   File "..\Include\Aspx\bin\uWiMPweb.dll"
-  File "..\Include\Aspx\bin\uWiMPweb.pdb"
-  File "..\Include\Aspx\bin\uWiMPweb.xml"
 
   SetOutPath "$INSTDIR\Aspx\Code"
 
