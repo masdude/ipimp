@@ -24,4 +24,4 @@ This allows you to delete users.  Select the user you want to delete, then click
 
 IMG?
 
-[iPiMP_Settings Next]
+[iPiMP_Admin Next]
