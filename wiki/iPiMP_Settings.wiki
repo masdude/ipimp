@@ -1,0 +1,18 @@
+#sidebar TOC
+*iPiMP settings*
+
+This section allows users to configure some aspects of the iPiMP applications behaviour, the following settings are available:
+
+IMG?
+
+ * Select page size - this changes the length of lists displayed in many of the sections in iPiMP, instead of seeing every TV recording for example, you will be presented with a list of a defined size with a '*more*' link at the end which if used will load the next x number of list items.  This reduces the HTTP response sizes and makes for a faster performing application.
+ * Recordings submenu - Yes/No - If '*Yes*is selected then the Recordings section will contain links to sort your Recordings by Date, Genre & Channel.  If no is selected the Recordings section will display your recordings sorted by the configured sort option.
+ * Recording sort order - Date/Genre/Channel - this setting is only used if the previous setting is set to *No*
+ * TV Server menus - Yes/No - Controls whether the TV server menu items (TV Guide, Recorded programs, Scheduled programs & TV Server status) are displayed.
+ * MP client menus - Yes/No - Controls whether the MP client menu items are displayed.
+ * Clients submenu - Yes/No - If '*Yes*' then individual !MediaPortal clients will be displayed on a separate page, otherwise they will be listed on the home page.
+ * My Videos - Yes/No - If '*Yes* then the My Videos link will be displayed on a !MediaPortal client menu.
+ * Moving Pictures - Yes/No - If '*Yes* then the Moving Pictures link will be displayed on a !MediaPortal client menu.
+ * Period for recent movies - This is used if Moving Pictures is selected and controls the number of days which the "Recent Movies" link displays.
+
+Next 
