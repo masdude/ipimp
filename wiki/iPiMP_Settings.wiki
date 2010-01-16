@@ -19,7 +19,7 @@ This section allows users to configure some aspects of iPiMP behaviour, the foll
  * Moving Pictures - Yes/No - If '*Yes*' then the Moving Pictures link will be displayed on a !MediaPortal client menu.
 
  * Period for recent movies - This is used if Moving Pictures is selected and controls the number of days which the "Recent Movies" link displays.
-
+<br>
 
 http://www.vanderboon.co.uk/ipimp/IMG_0098.PNG
 
