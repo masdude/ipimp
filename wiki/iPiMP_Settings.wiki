@@ -6,7 +6,7 @@ This section allows users to configure some aspects of the iPiMP applications be
 IMG?
 
  * Select page size - this changes the length of lists displayed in many of the sections in iPiMP, instead of seeing every TV recording for example, you will be presented with a list of a defined size with a '*more*' link at the end which if used will load the next x number of list items.  This reduces the HTTP response sizes and makes for a faster performing application.
- * Recordings submenu - Yes/No - If '*Yes*is selected then the Recordings section will contain links to sort your Recordings by Date, Genre & Channel.  If no is selected the Recordings section will display your recordings sorted by the configured sort option.
+ * Recordings submenu - Yes/No - If '*Yes* is selected then the Recordings section will contain links to sort your Recordings by Date, Genre & Channel.  If no is selected the Recordings section will display your recordings sorted by the configured sort option.
  * Recording sort order - Date/Genre/Channel - this setting is only used if the previous setting is set to *No*
  * TV Server menus - Yes/No - Controls whether the TV server menu items (TV Guide, Recorded programs, Scheduled programs & TV Server status) are displayed.
  * MP client menus - Yes/No - Controls whether the MP client menu items are displayed.
