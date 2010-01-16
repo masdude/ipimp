@@ -1,7 +1,6 @@
 #sidebar TOC
-*iPiMP settings*
 
-This section allows users to configure some aspects of the iPiMP applications behaviour, the following settings are available:
+This section allows users to configure some aspects of iPiMP behaviour, the following settings are available:
 
 IMG?
 
