@@ -902,4 +902,103 @@
   <data name="record" xml:space="preserve">
     <value>Optag</value>
   </data>
+  <data name="enable_client" xml:space="preserve">
+    <value>MP Klient menu</value>
+  </data>
+  <data name="enable_server" xml:space="preserve">
+    <value>TV Server menu</value>
+  </data>
+  <data name="select_default_rec_order" xml:space="preserve">
+    <value>Sortering af optagelser</value>
+  </data>
+  <data name="show_client_submenu" xml:space="preserve">
+    <value>Klient undermenu</value>
+  </data>
+  <data name="show_recording_submenu" xml:space="preserve">
+    <value>Optagelser undermenu</value>
+  </data>
+  <data name="moving_pictures" xml:space="preserve">
+    <value>Moving Pictures</value>
+  </data>
+  <data name="manual_record" xml:space="preserve">
+    <value>Manual optagelse</value>
+  </data>
+  <data name="manual_record_duration" xml:space="preserve">
+    <value>Varighed (minutter) (valgfri)</value>
+  </data>
+  <data name="manual_record_name" xml:space="preserve">
+    <value>Skriv et navn for optagelsen</value>
+  </data>
+  <data name="start_time" xml:space="preserve">
+    <value>Starter kl (tt:mm)</value>
+  </data>
+  <data name="movingpictures_all" xml:space="preserve">
+    <value>Alle film</value>
+  </data>
+  <data name="movingpictures_certification" xml:space="preserve">
+    <value>Film efter certificering</value>
+  </data>
+  <data name="movingpictures_genre" xml:space="preserve">
+    <value>Film efter genre</value>
+  </data>
+  <data name="movingpictures_recent" xml:space="preserve">
+    <value>Film der er tilføjet for nylig</value>
+  </data>
+  <data name="movingpictures_unwatched" xml:space="preserve">
+    <value>Film der ikke er set </value>
+  </data>
+  <data name="movingpictures_year" xml:space="preserve">
+    <value>Film efter årstal</value>
+  </data>
+  <data name="one_month" xml:space="preserve">
+    <value>En måned</value>
+  </data>
+  <data name="one_week" xml:space="preserve">
+    <value>En uge</value>
+  </data>
+  <data name="six_months" xml:space="preserve">
+    <value>Seks måneder</value>
+  </data>
+  <data name="two_weeks" xml:space="preserve">
+    <value>To uger</value>
+  </data>
+  <data name="movingpictures_period" xml:space="preserve">
+    <value>Periode for nylige film</value>
+  </data>
+  <data name="appearance" xml:space="preserve">
+    <value>Udseende</value>
+  </data>
+  <data name="appearance_fail" xml:space="preserve">
+    <value>Opdatering af udseende mislykkedes</value>
+  </data>
+  <data name="appearance_success" xml:space="preserve">
+    <value>Udseende er opdateret</value>
+  </data>
+  <data name="black" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="blue" xml:space="preserve">
+    <value>Blå</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>Standardindstilling</value>
+  </data>
+  <data name="green" xml:space="preserve">
+    <value>Grøn</value>
+  </data>
+  <data name="orange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="pink" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="purple" xml:space="preserve">
+    <value>Lilla</value>
+  </data>
+  <data name="red" xml:space="preserve">
+    <value>Rød</value>
+  </data>
+  <data name="select_colour" xml:space="preserve">
+    <value>Vælg farve</value>
+  </data>
 </root>

@@ -902,4 +902,103 @@
   <data name="record" xml:space="preserve">
     <value>Spela in</value>
   </data>
+  <data name="enable_client" xml:space="preserve">
+    <value>MP klient menyer</value>
+  </data>
+  <data name="enable_server" xml:space="preserve">
+    <value>TV Server menyer</value>
+  </data>
+  <data name="select_default_rec_order" xml:space="preserve">
+    <value>Sorteringsordning för inspelningar</value>
+  </data>
+  <data name="show_client_submenu" xml:space="preserve">
+    <value>Undermeny för klienter</value>
+  </data>
+  <data name="show_recording_submenu" xml:space="preserve">
+    <value>Undermeny för inspelningar </value>
+  </data>
+  <data name="moving_pictures" xml:space="preserve">
+    <value>Moving Pictures</value>
+  </data>
+  <data name="manual_record" xml:space="preserve">
+    <value>Manuell inspelning</value>
+  </data>
+  <data name="manual_record_duration" xml:space="preserve">
+    <value>Längd (min) (valfritt)</value>
+  </data>
+  <data name="manual_record_name" xml:space="preserve">
+    <value>Ange en etikett för inspelningen</value>
+  </data>
+  <data name="start_time" xml:space="preserve">
+    <value>Start tid (tt:mm)</value>
+  </data>
+  <data name="movingpictures_all" xml:space="preserve">
+    <value>Alla filmer</value>
+  </data>
+  <data name="movingpictures_certification" xml:space="preserve">
+    <value>Filmer sorterade efter certifiering</value>
+  </data>
+  <data name="movingpictures_genre" xml:space="preserve">
+    <value>Filmer sorterade efter genre</value>
+  </data>
+  <data name="movingpictures_recent" xml:space="preserve">
+    <value>Nyligen inlagda filmer</value>
+  </data>
+  <data name="movingpictures_unwatched" xml:space="preserve">
+    <value>Filmer som inte setts ännu</value>
+  </data>
+  <data name="movingpictures_year" xml:space="preserve">
+    <value>Filmer sorterade efter år</value>
+  </data>
+  <data name="one_month" xml:space="preserve">
+    <value>En månad</value>
+  </data>
+  <data name="one_week" xml:space="preserve">
+    <value>En vecka</value>
+  </data>
+  <data name="six_months" xml:space="preserve">
+    <value>Sex månader</value>
+  </data>
+  <data name="two_weeks" xml:space="preserve">
+    <value>Två veckor</value>
+  </data>
+  <data name="movingpictures_period" xml:space="preserve">
+    <value>Tidsrymd för nya filmer</value>
+  </data>
+  <data name="appearance" xml:space="preserve">
+    <value>Utseende</value>
+  </data>
+  <data name="appearance_fail" xml:space="preserve">
+    <value>Utseendeuppdateringen misslyckades.</value>
+  </data>
+  <data name="appearance_success" xml:space="preserve">
+    <value>Utseendet är uppdaterat</value>
+  </data>
+  <data name="black" xml:space="preserve">
+    <value>Svart</value>
+  </data>
+  <data name="blue" xml:space="preserve">
+    <value>Blå</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="green" xml:space="preserve">
+    <value>Grön</value>
+  </data>
+  <data name="orange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="pink" xml:space="preserve">
+    <value>Rosa</value>
+  </data>
+  <data name="purple" xml:space="preserve">
+    <value>Purpur</value>
+  </data>
+  <data name="red" xml:space="preserve">
+    <value>Röd</value>
+  </data>
+  <data name="select_colour" xml:space="preserve">
+    <value>Välj färg</value>
+  </data>
 </root>

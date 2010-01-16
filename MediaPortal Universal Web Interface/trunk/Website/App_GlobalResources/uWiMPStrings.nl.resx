@@ -902,4 +902,103 @@
   <data name="record" xml:space="preserve">
     <value>Record</value>
   </data>
+  <data name="enable_client" xml:space="preserve">
+    <value>MP client menu's</value>
+  </data>
+  <data name="enable_server" xml:space="preserve">
+    <value>TV Server menu's</value>
+  </data>
+  <data name="select_default_rec_order" xml:space="preserve">
+    <value>Opname sorter volgorde</value>
+  </data>
+  <data name="show_client_submenu" xml:space="preserve">
+    <value>Clients submenu</value>
+  </data>
+  <data name="show_recording_submenu" xml:space="preserve">
+    <value>Opname  submenu</value>
+  </data>
+  <data name="moving_pictures" xml:space="preserve">
+    <value>Afbeeldingen verplaatsen</value>
+  </data>
+  <data name="manual_record" xml:space="preserve">
+    <value>Handmatige opname</value>
+  </data>
+  <data name="manual_record_duration" xml:space="preserve">
+    <value>Duur (minuten) (optioneel)</value>
+  </data>
+  <data name="manual_record_name" xml:space="preserve">
+    <value>Vul een label in voor de opname</value>
+  </data>
+  <data name="start_time" xml:space="preserve">
+    <value>Start tijd (uu:mm)</value>
+  </data>
+  <data name="movingpictures_all" xml:space="preserve">
+    <value>Alle fimls</value>
+  </data>
+  <data name="movingpictures_certification" xml:space="preserve">
+    <value>Films op classificatie</value>
+  </data>
+  <data name="movingpictures_genre" xml:space="preserve">
+    <value>Films op genre</value>
+  </data>
+  <data name="movingpictures_recent" xml:space="preserve">
+    <value>Recent toegevoegde films</value>
+  </data>
+  <data name="movingpictures_unwatched" xml:space="preserve">
+    <value>Onbekeken films</value>
+  </data>
+  <data name="movingpictures_year" xml:space="preserve">
+    <value>Films op jaar</value>
+  </data>
+  <data name="one_month" xml:space="preserve">
+    <value>Een maand</value>
+  </data>
+  <data name="one_week" xml:space="preserve">
+    <value>Een week</value>
+  </data>
+  <data name="six_months" xml:space="preserve">
+    <value>Zes maanden</value>
+  </data>
+  <data name="two_weeks" xml:space="preserve">
+    <value>Twee weken</value>
+  </data>
+  <data name="movingpictures_period" xml:space="preserve">
+    <value>Periode voor recente films</value>
+  </data>
+  <data name="appearance" xml:space="preserve">
+    <value>Uiterlijk</value>
+  </data>
+  <data name="appearance_fail" xml:space="preserve">
+    <value>Uiterlijk wijziging mislukt</value>
+  </data>
+  <data name="appearance_success" xml:space="preserve">
+    <value>Uiterlijk gewijzigd</value>
+  </data>
+  <data name="black" xml:space="preserve">
+    <value>Zwart</value>
+  </data>
+  <data name="blue" xml:space="preserve">
+    <value>Blauw</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>Standaard</value>
+  </data>
+  <data name="green" xml:space="preserve">
+    <value>Groen</value>
+  </data>
+  <data name="orange" xml:space="preserve">
+    <value>Oranje</value>
+  </data>
+  <data name="pink" xml:space="preserve">
+    <value>Roze</value>
+  </data>
+  <data name="purple" xml:space="preserve">
+    <value>Paars</value>
+  </data>
+  <data name="red" xml:space="preserve">
+    <value>Rood</value>
+  </data>
+  <data name="select_colour" xml:space="preserve">
+    <value>Selecteer een kleur</value>
+  </data>
 </root>
