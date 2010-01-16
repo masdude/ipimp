@@ -56,10 +56,11 @@
 
  HKLM\SOFTWARE\Microsoft\Windows\!CurrentVersion\!UnInstall\iPiMP\`*`.`*`
 
- * *Reset your iPiMP database*
+ * *Reset your iPiMP database* - for example if you've forgotten your iPiMP admin password.
 
  Copy this [http://ipimp.googlecode.com/files/uWiMP.db uWiMP.db] to C:\Program Files\iPiMP\aspx\!App_Data\
 
+ This will delete all your users and clients and return to the 2 default users admin & demo.
 
  * *Using iPiMP over the internet*
 
