@@ -17,3 +17,5 @@ This allows you to delete a !MediaPortal client.  Simply select the required cli
 *Update client*
 
 This allows you to update a !MediaPortal clients' details such as hostname, IP address, MAC address etc.  Simply select the required client and update the required details.
+
+[iPiMPWiki Message ends]
