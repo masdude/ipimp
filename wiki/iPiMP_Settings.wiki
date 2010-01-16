@@ -23,4 +23,4 @@ IMG?
 
  * Period for recent movies - This is used if Moving Pictures is selected and controls the number of days which the "Recent Movies" link displays.
 
-Next 
+[Appearance Next]
