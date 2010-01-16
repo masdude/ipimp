@@ -1,7 +1,7 @@
 #sidebar TOC
 This page displays the available administration sections available from within the application.  
 
-[IMG]
+http://www.vanderboon.co.uk/ipimp/IMG_0094.PNG
 
 There are two sections:
  * [User_Admin User administration] - used to create / delete users or change your own password.
