@@ -22,4 +22,6 @@ IMG?
 
  * Period for recent movies - This is used if Moving Pictures is selected and controls the number of days which the "Recent Movies" link displays.
 
+== You must use the '*Update*' button to save the new settings then the '*Home*' button to apply them, otherwise they will be applied when the application is next loaded. ==
+
 [Appearance Next]
