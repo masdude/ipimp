@@ -1,0 +1,9 @@
+#sidebar TOC
+
+This section allows a user to alter the colour of the title bar and packground page. A number of preconfigured colour schemes have been provided.  Simply select the required colour.
+
+IMG?
+
+=== You must use the '*Update*' button to save the new colour scheme then the '*Home*' button to apply it, otherwise it will be applied when the application is next loaded. ===
+
+Next
