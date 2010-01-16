@@ -6,7 +6,7 @@
  * Web - added manual scheduling on channel menu
  * Web - updated numeric input fields to display iPhone numeric keyboard
  * Web - added ability to change appearance (colour scheme)
- * MP client plugin - Added Moving Pictures support
+ * MP client plugin - Added Moving Pictures support *(needs Moving Pictures 1.0 Beta 1+)*
 4.0.2 updates include
  * Web - Swedish language - thanks to umlaut (and his girlfriend)
  * Web - French language - thanks to truffe
