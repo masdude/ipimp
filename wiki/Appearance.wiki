@@ -1,6 +1,6 @@
 #sidebar TOC
 
-This section allows a user to alter the colour of the title bar and packground page. A number of preconfigured colour schemes have been provided.  Simply select the required colour.
+This section allows a user to alter the colour of the title bar and background page. A number of preconfigured colour schemes have been provided.  Simply select the required colour.
 
 IMG?
 
