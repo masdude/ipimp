@@ -42,6 +42,7 @@ You can also use iPiMP to interact with your !MediaPortal clients, you can use i
  * Remote control 
  * My Music 
  * My Videos 
+ * Moving Pictures
  * Now Playing 
  * Message 
  * Power options 
