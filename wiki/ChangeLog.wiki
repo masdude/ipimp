@@ -1,5 +1,7 @@
 #sidebar TOC
 ----
+Next version updates include *not yet released*
+ * Web - Dirty hack to link UK channels to iphone.tvcatchup.com to get access to live TV streams - sorry only for UK channels :(
 4.1.0 updates include
  * Web - added configurable main menu
  * Web - added configurable recordings menu
