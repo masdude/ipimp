@@ -2,7 +2,7 @@
 ----
 Next version updates include *not yet released*
  * Web - Dirty hack to link UK channels to iphone.tvcatchup.com to get access to live TV streams TV Server channel names *MUST* match TVCatchup channel names - sorry only for UK channels only :(
- * TV transcode plugin - added support for HandBrake transcoder (can still use ffmpeg)
+ * TV transcode plugin - added support for [http://handbrake.fr/ HandBrake] transcoder (can still use ffmpeg)
  * TV transcode plugin - added support for FFMpeg libx264 presets
  * TV transcode plugin - refactored scheduling code
  * TV transcode plugin - added use of MTN for thumbnail generation
