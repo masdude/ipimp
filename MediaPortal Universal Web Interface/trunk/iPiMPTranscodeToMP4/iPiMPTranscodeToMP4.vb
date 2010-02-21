@@ -203,7 +203,7 @@ Namespace TVEngine
 
             Dim _params As String = String.Format("-B {0} -E {1} -w 88 -h 50 -c 1 -r 1 -i -t -P -z -O ""{2}"" -o .jpg ""{3}""", _preInterval * 60, _postInterval * 60, _folderPath, _recFilename)
 
-            LaunchProcess(String.Format("""{0}""", _mtnPath), _params, _folderPath)
+            LaunchProcess(String.Format("""{0}""", _mtnPath), _params, String.Format("""{0}""", _folderPath))
 
             Log.Debug("plugin: iPiMPTranscodeToMP4 - Screenshot: {0}", _recFilename)
 
@@ -221,7 +221,7 @@ Namespace TVEngine
             Dim _hbparams As String = String.Format("""{2}"" -i ""{0}"" -o ""{1}""", _recFilename, _outfile, _preset)
             Dim _params As String = IIf(_transcoder.ToLower = "ffmpeg", _ffparams, _hbparams)
 
-            LaunchProcess(String.Format("""{0}""", _transcoderPath), _params, _folderPath)
+            LaunchProcess(String.Format("""{0}""", _transcoderPath), _params, String.Format("""{0}""", _folderPath))
 
             Log.Debug("plugin: iPiMPTranscodeToMP4 - Transcode: {0}", _recFilename)
 
