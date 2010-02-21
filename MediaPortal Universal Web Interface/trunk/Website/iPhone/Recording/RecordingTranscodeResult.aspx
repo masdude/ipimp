@@ -1,1 +1,1 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="RecordingTranscodeResult.aspx.vb" Inherits="Website.RecordingTranscodeResult" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="RecordingTranscodeResult.aspx.vb" Inherits="Website.RecordingTranscodeResult" Async="true" %>
