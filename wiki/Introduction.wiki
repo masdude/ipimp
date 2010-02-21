@@ -1,0 +1,32 @@
+#summary An introduction to iPiMP - a Smartphone web interface to MediaPortal
+#sidebar TOC
+
+= Introduction =
+
+iPiMP originally started out life as a web based interface to MediaPortal's TV server, viewable in the iPhone's mobile safari web browser.  It has grown beyond that though, the framework used to generate the navigation features now supports more than just mobile safari, in fact it supports any Webkit based browser.  This means that iPiMP can be used from many other platforms including Android, WebOS, S60 and soon the BlackBerry OS so now you can use iPiMP from many many more Smartphones.
+
+= Highlights = 
+
+iPiMP is a *web application* - you do *NOT* need to install any additional software on your Smartphone.
+
+iPiMP works with your MediaPortal TV server to:
+
+  * Browse your TV guide
+  * Search your TV guide
+  * Quickly see what's on now & next
+  * Schedule programs for recording
+  * Send an email with program details
+  * Browse, Watch, Delete or Transcode your TV recordings
+  * Browse & delete your TV schedules
+  * Check the status of your TV cards, TV service and recording disks
+
+iPiMP works with your MediaPortal clients to:
+
+  * Remote control (mimic an MCE remote)
+  * Control the *My Music* plugin
+  * Control the *My Videos* plugin
+  * Moving Pictures* plugin
+  * Display Now Playing information
+  * Send messages
+  * Power options
+
