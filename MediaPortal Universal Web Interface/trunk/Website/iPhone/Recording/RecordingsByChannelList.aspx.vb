@@ -91,9 +91,9 @@ Partial Public Class RecordingsByChannelList
         Dim MP4path As String = uWiMP.TVServer.Utilities.GetAppConfig("STREAMPATH")
 
         For Each recording In recordings
-            imageName = MP4path & "\" & Path.GetFileNameWithoutExtension(recording.FileName) & ".png"
+            imageName = MP4path & "\" & Path.GetFileNameWithoutExtension(recording.FileName) & ".jpg"
             If uWiMP.TVServer.Utilities.DoesFileExist(imageName) Then
-                image = String.Format("http://" & Request.ServerVariables("HTTP_HOST") & "/MP4/{0}.png", Path.GetFileNameWithoutExtension(recording.FileName))
+                image = String.Format("http://" & Request.ServerVariables("HTTP_HOST") & "/MP4/{0}.jpg", Path.GetFileNameWithoutExtension(recording.FileName))
             Else
                 image = String.Format("http://" & Request.ServerVariables("HTTP_HOST") & "/TVLogos/{0}.png", channel.DisplayName)
             End If
