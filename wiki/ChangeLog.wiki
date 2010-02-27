@@ -9,6 +9,7 @@ Next version updates include *not yet released*
  * TV transcode plugin - added support for [http://handbrake.fr/ HandBrake] transcoder (can still use ffmpeg)
  * TV transcode plugin - added support for FFMpeg libx264 presets
  * TV transcode plugin - refactored scheduling code
+ * TV transcode plugin - added option to exclude channel groups from being transcoded
 4.1.0 updates include
  * Web - added configurable main menu
  * Web - added configurable recordings menu
