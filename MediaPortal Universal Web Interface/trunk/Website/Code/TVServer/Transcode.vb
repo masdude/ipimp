@@ -114,6 +114,7 @@ Namespace uWiMP.TVServer
         Const DEFAULT_IPIMPPATH = "C:\Program Files\iPiMP\Utilities"
         Const DEFAULT_PRESET = "iPhone & iPod Touch"
         Const DEFAULT_CUSTOM = ""
+        Const DEFAULT_GROUPS = ""
 
         Private Shared _transcodeNow As Boolean = DEFAULT_TRANSCODE
         Private Shared _deleteWithRecording As Boolean = DEFAULT_DELETE
@@ -124,6 +125,7 @@ Namespace uWiMP.TVServer
         Private Shared _transcodeTime As String = DEFAULT_STARTTIME
         Private Shared _preset As String = String.Empty
         Private Shared _custom As String = String.Empty
+        Private Shared _groups As New List(Of String)
 
         Private Shared _iPiMPPath As String = DEFAULT_IPIMPPATH
         Private Shared _transcoderPath As String = String.Empty
@@ -151,6 +153,12 @@ Namespace uWiMP.TVServer
                 _custom = layer.GetSetting("iPiMPTranscodeToMP4_Custom", DEFAULT_CUSTOM).Value
                 _preInterval = Int32.Parse(layer.GetSetting("preRecordInterval", "5").Value)
                 _postInterval = Int32.Parse(layer.GetSetting("postRecordInterval", "5").Value)
+                Dim groups As String = layer.GetSetting("iPiMPTranscodeToMP4_Groups", DEFAULT_GROUPS).Value
+                If groups <> "" Then
+                    For Each group As String In Split(groups, ",")
+                        If group <> "" Then _groups.Add(group)
+                    Next
+                End If
 
             Catch ex As Exception
 
@@ -230,34 +238,6 @@ Namespace uWiMP.TVServer
 
         End Sub
 
-        Public Shared Function GetProgress() As String
-
-            Dim processes As Process() = Process.GetProcessesByName("ffmpeg")
-            Dim ffProcess As Process
-            Dim output As String = ""
-
-            For Each ffProcess In processes
-                output = ffProcess.StartTime.ToString
-            Next
-
-            ffProcess = Nothing
-            processes = Nothing
-
-            Return output
-
-        End Function
-
-        Public Shared Function IsFFMpegRunning() As Boolean
-
-            Dim processes As Process() = Process.GetProcessesByName("ffmpeg")
-            If processes.Length > 0 Then
-                Return True
-            Else
-                Return False
-            End If
-
-        End Function
-
         Private Shared Sub Screenshot(ByVal _recFilename As String)
 
             Dim _params As String = String.Format("-B {0} -E {1} -w 88 -h 50 -c 1 -r 1 -i -t -P -z -O ""{2}"" -o .jpg ""{3}""", _preInterval * 60, _postInterval * 60, _folderPath, _recFilename)
@@ -332,12 +312,13 @@ Namespace uWiMP.TVServer
 
         End Sub
 
-        Private Sub backgroundWorker_ProgressChanged(ByVal sender As Object, ByVal e As ProgressChangedEventArgs) Handles backgroundWorker.ProgressChanged
+        Public Shared Function GetProgress() As String
+            Return _lastStartTime
+        End Function
 
-            _progress = 0
-
-        End Sub
-
+        Public Shared Function IsTaskRunning() As Boolean
+            Return _running
+        End Function
 
     End Class
 

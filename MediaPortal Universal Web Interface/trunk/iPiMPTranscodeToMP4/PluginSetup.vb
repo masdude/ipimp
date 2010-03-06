@@ -48,7 +48,6 @@ Namespace SetupTv.Sections
         Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
         Friend WithEvents Custom As System.Windows.Forms.RichTextBox
         Friend WithEvents RichTextBox8 As System.Windows.Forms.RichTextBox
-        Friend WithEvents Label14 As System.Windows.Forms.Label
         Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
         Friend WithEvents Preset As System.Windows.Forms.ComboBox
         Friend WithEvents Label12 As System.Windows.Forms.Label
@@ -64,7 +63,11 @@ Namespace SetupTv.Sections
         Friend WithEvents Label15 As System.Windows.Forms.Label
         Friend WithEvents Label6 As System.Windows.Forms.Label
         Friend WithEvents Label11 As System.Windows.Forms.Label
-
+        Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+        Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+        Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+        Friend WithEvents CheckedListBox1 As System.Windows.Forms.CheckedListBox
+        Friend WithEvents RichTextBox5 As System.Windows.Forms.RichTextBox
 #End Region
 
         Public Sub New()
@@ -99,27 +102,31 @@ Namespace SetupTv.Sections
             Me.DelYes = New System.Windows.Forms.RadioButton
             Me.Label1 = New System.Windows.Forms.Label
             Me.TabPage3 = New System.Windows.Forms.TabPage
+            Me.PictureBox1 = New System.Windows.Forms.PictureBox
+            Me.Label11 = New System.Windows.Forms.Label
             Me.GroupBox9 = New System.Windows.Forms.GroupBox
+            Me.Label6 = New System.Windows.Forms.Label
             Me.audioBitrate = New System.Windows.Forms.NumericUpDown
             Me.videoBitrate = New System.Windows.Forms.NumericUpDown
             Me.Label16 = New System.Windows.Forms.Label
             Me.Label17 = New System.Windows.Forms.Label
             Me.Link = New System.Windows.Forms.LinkLabel
             Me.GroupBox8 = New System.Windows.Forms.GroupBox
+            Me.RichTextBox6 = New System.Windows.Forms.RichTextBox
             Me.Custom = New System.Windows.Forms.RichTextBox
             Me.RichTextBox8 = New System.Windows.Forms.RichTextBox
-            Me.Label14 = New System.Windows.Forms.Label
             Me.GroupBox7 = New System.Windows.Forms.GroupBox
             Me.Preset = New System.Windows.Forms.ComboBox
             Me.Label12 = New System.Windows.Forms.Label
             Me.Label13 = New System.Windows.Forms.Label
+            Me.TabPage2 = New System.Windows.Forms.TabPage
+            Me.GroupBox3 = New System.Windows.Forms.GroupBox
+            Me.RichTextBox5 = New System.Windows.Forms.RichTextBox
+            Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox
             Me.numAudio = New System.Windows.Forms.NumericUpDown
             Me.numVideo = New System.Windows.Forms.NumericUpDown
             Me.Label10 = New System.Windows.Forms.Label
             Me.Label15 = New System.Windows.Forms.Label
-            Me.Label6 = New System.Windows.Forms.Label
-            Me.Label11 = New System.Windows.Forms.Label
-            Me.PictureBox1 = New System.Windows.Forms.PictureBox
             Me.TabControl1.SuspendLayout()
             Me.TabPage1.SuspendLayout()
             Me.GroupBox1.SuspendLayout()
@@ -127,20 +134,23 @@ Namespace SetupTv.Sections
             Me.MP4Group.SuspendLayout()
             Me.DelGroup.SuspendLayout()
             Me.TabPage3.SuspendLayout()
+            CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.GroupBox9.SuspendLayout()
             CType(Me.audioBitrate, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.videoBitrate, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.GroupBox8.SuspendLayout()
             Me.GroupBox7.SuspendLayout()
+            Me.TabPage2.SuspendLayout()
+            Me.GroupBox3.SuspendLayout()
             CType(Me.numAudio, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.numVideo, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
             'TabControl1
             '
             Me.TabControl1.Controls.Add(Me.TabPage1)
             Me.TabControl1.Controls.Add(Me.TabPage3)
+            Me.TabControl1.Controls.Add(Me.TabPage2)
             Me.TabControl1.Location = New System.Drawing.Point(12, 13)
             Me.TabControl1.Name = "TabControl1"
             Me.TabControl1.SelectedIndex = 0
@@ -189,8 +199,8 @@ Namespace SetupTv.Sections
             '
             Me.Handbrake.AutoSize = True
             Me.Handbrake.Location = New System.Drawing.Point(200, 40)
-            Me.Handbrake.Name = "HandBrake"
-            Me.Handbrake.Size = New System.Drawing.Size(78, 17)
+            Me.Handbrake.Name = "Handbrake"
+            Me.Handbrake.Size = New System.Drawing.Size(79, 17)
             Me.Handbrake.TabIndex = 11
             Me.Handbrake.Text = "HandBrake"
             Me.Handbrake.UseVisualStyleBackColor = True
@@ -410,6 +420,24 @@ Namespace SetupTv.Sections
             Me.TabPage3.Text = "Transcoder settings"
             Me.TabPage3.UseVisualStyleBackColor = True
             '
+            'PictureBox1
+            '
+            Me.PictureBox1.Location = New System.Drawing.Point(6, 4)
+            Me.PictureBox1.Name = "PictureBox1"
+            Me.PictureBox1.Size = New System.Drawing.Size(50, 50)
+            Me.PictureBox1.TabIndex = 8
+            Me.PictureBox1.TabStop = False
+            '
+            'Label11
+            '
+            Me.Label11.AutoSize = True
+            Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.Label11.Location = New System.Drawing.Point(62, 10)
+            Me.Label11.Name = "Label11"
+            Me.Label11.Size = New System.Drawing.Size(162, 44)
+            Me.Label11.TabIndex = 6
+            Me.Label11.Text = "Label11"
+            '
             'GroupBox9
             '
             Me.GroupBox9.Controls.Add(Me.Label6)
@@ -422,6 +450,15 @@ Namespace SetupTv.Sections
             Me.GroupBox9.Size = New System.Drawing.Size(442, 64)
             Me.GroupBox9.TabIndex = 7
             Me.GroupBox9.TabStop = False
+            '
+            'Label6
+            '
+            Me.Label6.AutoSize = True
+            Me.Label6.Location = New System.Drawing.Point(6, 16)
+            Me.Label6.Name = "Label6"
+            Me.Label6.Size = New System.Drawing.Size(375, 13)
+            Me.Label6.TabIndex = 4
+            Me.Label6.Text = "You can amend the video and audio bitrates used by the libx264-iPiMP preset."
             '
             'audioBitrate
             '
@@ -475,14 +512,24 @@ Namespace SetupTv.Sections
             '
             'GroupBox8
             '
+            Me.GroupBox8.Controls.Add(Me.RichTextBox6)
             Me.GroupBox8.Controls.Add(Me.Custom)
             Me.GroupBox8.Controls.Add(Me.RichTextBox8)
-            Me.GroupBox8.Controls.Add(Me.Label14)
             Me.GroupBox8.Location = New System.Drawing.Point(6, 127)
             Me.GroupBox8.Name = "GroupBox8"
             Me.GroupBox8.Size = New System.Drawing.Size(442, 115)
             Me.GroupBox8.TabIndex = 5
             Me.GroupBox8.TabStop = False
+            '
+            'RichTextBox6
+            '
+            Me.RichTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
+            Me.RichTextBox6.Location = New System.Drawing.Point(10, 48)
+            Me.RichTextBox6.Name = "RichTextBox6"
+            Me.RichTextBox6.Size = New System.Drawing.Size(151, 61)
+            Me.RichTextBox6.TabIndex = 6
+            Me.RichTextBox6.Text = "Enter command line:" & Global.Microsoft.VisualBasic.ChrW(10) & "Use the following variables:" & Global.Microsoft.VisualBasic.ChrW(10) & "    """"{0}"""" = input filename" & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
+                " """"{1}"""" = output filename"
             '
             'Custom
             '
@@ -501,15 +548,6 @@ Namespace SetupTv.Sections
             Me.RichTextBox8.Size = New System.Drawing.Size(422, 29)
             Me.RichTextBox8.TabIndex = 4
             Me.RichTextBox8.Text = "RichTextBox8"
-            '
-            'Label14
-            '
-            Me.Label14.AutoSize = True
-            Me.Label14.Location = New System.Drawing.Point(6, 48)
-            Me.Label14.Name = "Label14"
-            Me.Label14.Size = New System.Drawing.Size(155, 13)
-            Me.Label14.TabIndex = 2
-            Me.Label14.Text = "Enter command line parameters"
             '
             'GroupBox7
             '
@@ -547,6 +585,48 @@ Namespace SetupTv.Sections
             Me.Label13.Size = New System.Drawing.Size(45, 13)
             Me.Label13.TabIndex = 1
             Me.Label13.Text = "Label13"
+            '
+            'TabPage2
+            '
+            Me.TabPage2.Controls.Add(Me.GroupBox3)
+            Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+            Me.TabPage2.Name = "TabPage2"
+            Me.TabPage2.Size = New System.Drawing.Size(454, 343)
+            Me.TabPage2.TabIndex = 3
+            Me.TabPage2.Text = "Channel Groups"
+            Me.TabPage2.UseVisualStyleBackColor = True
+            '
+            'GroupBox3
+            '
+            Me.GroupBox3.Controls.Add(Me.RichTextBox5)
+            Me.GroupBox3.Controls.Add(Me.CheckedListBox1)
+            Me.GroupBox3.Location = New System.Drawing.Point(4, 4)
+            Me.GroupBox3.Name = "GroupBox3"
+            Me.GroupBox3.Size = New System.Drawing.Size(447, 154)
+            Me.GroupBox3.TabIndex = 1
+            Me.GroupBox3.TabStop = False
+            '
+            'RichTextBox5
+            '
+            Me.RichTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None
+            Me.RichTextBox5.Location = New System.Drawing.Point(6, 19)
+            Me.RichTextBox5.Name = "RichTextBox5"
+            Me.RichTextBox5.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+            Me.RichTextBox5.Size = New System.Drawing.Size(409, 26)
+            Me.RichTextBox5.TabIndex = 12
+            Me.RichTextBox5.Text = "Transcoding takes time and disk space, to reduce this select which Channel groups" & _
+                " you do NOT want to automatically transcode."
+            '
+            'CheckedListBox1
+            '
+            Me.CheckedListBox1.CheckOnClick = True
+            Me.CheckedListBox1.FormattingEnabled = True
+            Me.CheckedListBox1.Location = New System.Drawing.Point(6, 51)
+            Me.CheckedListBox1.MultiColumn = True
+            Me.CheckedListBox1.Name = "CheckedListBox1"
+            Me.CheckedListBox1.Size = New System.Drawing.Size(435, 94)
+            Me.CheckedListBox1.TabIndex = 0
+            Me.CheckedListBox1.ThreeDCheckBoxes = True
             '
             'numAudio
             '
@@ -588,33 +668,6 @@ Namespace SetupTv.Sections
             Me.Label15.TabIndex = 0
             Me.Label15.Text = "Video bitrate"
             '
-            'Label6
-            '
-            Me.Label6.AutoSize = True
-            Me.Label6.Location = New System.Drawing.Point(6, 16)
-            Me.Label6.Name = "Label6"
-            Me.Label6.Size = New System.Drawing.Size(375, 13)
-            Me.Label6.TabIndex = 4
-            Me.Label6.Text = "You can amend the video and audio bitrates used by the libx264-iPiMP preset."
-            '
-            'Label11
-            '
-            Me.Label11.AutoSize = True
-            Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.Label11.Location = New System.Drawing.Point(62, 10)
-            Me.Label11.Name = "Label11"
-            Me.Label11.Size = New System.Drawing.Size(162, 44)
-            Me.Label11.TabIndex = 6
-            Me.Label11.Text = "Label11"
-            '
-            'PictureBox1
-            '
-            Me.PictureBox1.Location = New System.Drawing.Point(6, 4)
-            Me.PictureBox1.Name = "PictureBox1"
-            Me.PictureBox1.Size = New System.Drawing.Size(50, 50)
-            Me.PictureBox1.TabIndex = 8
-            Me.PictureBox1.TabStop = False
-            '
             'PluginSetup
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -635,26 +688,30 @@ Namespace SetupTv.Sections
             Me.DelGroup.PerformLayout()
             Me.TabPage3.ResumeLayout(False)
             Me.TabPage3.PerformLayout()
+            CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
             Me.GroupBox9.ResumeLayout(False)
             Me.GroupBox9.PerformLayout()
             CType(Me.audioBitrate, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.videoBitrate, System.ComponentModel.ISupportInitialize).EndInit()
             Me.GroupBox8.ResumeLayout(False)
-            Me.GroupBox8.PerformLayout()
             Me.GroupBox7.ResumeLayout(False)
             Me.GroupBox7.PerformLayout()
+            Me.TabPage2.ResumeLayout(False)
+            Me.GroupBox3.ResumeLayout(False)
             CType(Me.numAudio, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.numVideo, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
 
         End Sub
 
         Public Overrides Sub OnSectionActivated()
+
             MyBase.OnSectionActivated()
             Log.Info("iPiMPTranscodeToMP4: Configuration activated")
 
             iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4.LoadSettings()
+
+            PopulateChannelGroups()
 
             If iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._deleteWithRecording Then
                 DelYes.Checked = True
@@ -758,7 +815,33 @@ Namespace SetupTv.Sections
             setting.Value = numAudio.Value.ToString
             setting.Persist()
 
+            setting = layer.GetSetting("iPiMPTranscodeToMP4_Groups")
+            Dim checkedGroups As CheckedListBox.CheckedItemCollection = CheckedListBox1.CheckedItems
+            Dim groups As String = String.Empty
+            For Each group As String In checkedGroups
+                groups += String.Format("{0},", group)
+            Next
+            setting.Value = groups
+            setting.Persist()
+
             MyBase.OnSectionDeActivated()
+
+        End Sub
+
+        Private Sub PopulateChannelGroups()
+
+            CheckedListBox1.Items.Clear()
+            For Each Group As ChannelGroup In TvDatabase.ChannelGroup.ListAll
+                CheckedListBox1.Items.Add(Group.GroupName)
+            Next
+
+            For i As Integer = 0 To CheckedListBox1.Items.Count - 1
+                For Each group As String In TVEngine.iPiMPTranscodeToMP4._groups
+                    If CheckedListBox1.Items.Item(i).ToString.ToLower = group.ToLower Then
+                        CheckedListBox1.SetItemChecked(i, True)
+                    End If
+                Next
+            Next
 
         End Sub
 
@@ -850,8 +933,8 @@ Namespace SetupTv.Sections
                 Starttime.Visible = True
             End If
         End Sub
-        Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-        
+        Friend WithEvents RichTextBox6 As System.Windows.Forms.RichTextBox
+
     End Class
 
 End Namespace

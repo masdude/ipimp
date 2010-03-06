@@ -96,7 +96,7 @@ Partial Public Class TranscodeStatus
             markup2 += String.Format("<br>Shown on {0} at {1}", uWiMP.TVServer.Channels.GetChannelByChannelId(recording.IdChannel).Name, recording.StartTime)
             markup2 += String.Format("<br>Transcoding started at {0}", startTime.ToString)
             markup2 += String.Format("<br>Current time is ", Now.ToString)
-        ElseIf uWiMP.TVServer.Transcode.IsFFMpegRunning Then
+        ElseIf uWiMP.TVServer.Transcode.IsTaskRunning Then
             markup2 += "Transcoding is running."
             markup2 += "<br>Unknown program (webserver reset?)"
             markup2 += String.Format("<br>Transcoding started at ", uWiMP.TVServer.Transcode.GetProgress)
