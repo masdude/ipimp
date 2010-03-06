@@ -14,6 +14,7 @@ Imports TvLibrary.Log
 Imports TvLibrary.Interfaces
 Imports TvDatabase
 
+
 Namespace TVEngine
 
     Public Class iPiMPTranscodeToMP4
@@ -29,6 +30,7 @@ Namespace TVEngine
         Const DEFAULT_IPIMPPATH = "C:\Program Files\iPiMP\Utilities"
         Const DEFAULT_PRESET = "iPhone & iPod Touch"
         Const DEFAULT_CUSTOM = ""
+        Const DEFAULT_GROUPS = ""
 
         Friend Shared _transcodeNow As Boolean = DEFAULT_TRANSCODE
         Friend Shared _deleteWithRecording As Boolean = DEFAULT_DELETE
@@ -39,15 +41,18 @@ Namespace TVEngine
         Friend Shared _transcodeTime As String = DEFAULT_STARTTIME
         Friend Shared _preset As String = String.Empty
         Friend Shared _custom As String = String.Empty
+        Friend Shared _groups As New List(Of String)
 
         Private Shared _iPiMPPath As String = DEFAULT_IPIMPPATH
         Private Shared _transcoderPath As String = String.Empty
+        Private Shared _presetPath As String = String.Empty
         Private Shared _mtnPath As String = String.Empty
-        Private Shared appSettings As NameValueCollection = ConfigurationManager.AppSettings
         Private Shared _preInterval As Integer = 0
         Private Shared _postInterval As Integer = 0
 
-        Dim timerThread As Thread
+        Private Shared appSettings As NameValueCollection = ConfigurationManager.AppSettings
+
+        Private timer As System.Threading.Timer
 
 #Region "ITVServer"
 
@@ -102,6 +107,12 @@ Namespace TVEngine
                 _custom = layer.GetSetting("iPiMPTranscodeToMP4_Custom", DEFAULT_CUSTOM).Value
                 _preInterval = Int32.Parse(layer.GetSetting("preRecordInterval", "5").Value)
                 _postInterval = Int32.Parse(layer.GetSetting("postRecordInterval", "5").Value)
+                Dim groups As String = layer.GetSetting("iPiMPTranscodeToMP4_Groups", DEFAULT_GROUPS).Value
+                If groups <> "" Then
+                    For Each group As String In Split(groups, ",")
+                        If group <> "" Then _groups.Add(group)
+                    Next
+                End If
 
             Catch ex As Exception
 
@@ -128,6 +139,7 @@ Namespace TVEngine
                 _transcoderPath = String.Format("{0}\HandBrake\HandBrakeCLI.exe", _iPiMPPath)
             Else
                 _transcoderPath = String.Format("{0}\FFMpeg\FFMpeg.exe", _iPiMPPath)
+                _presetPath = String.Format("{0}\FFMpeg\FFPresets", _iPiMPPath)
             End If
 
         End Sub
@@ -139,58 +151,64 @@ Namespace TVEngine
             If _deleteWithRecording = True Then Watch_RecordedFolders()
 
             Dim events As ITvServerEvent = GlobalServiceProvider.Instance.Get(Of ITvServerEvent)()
-            AddHandler events.OnTvServerEvent, New TvServerEventHandler(AddressOf iPiMP_OnTvServerEvent)
+            AddHandler events.OnTvServerEvent, New TvServerEventHandler(AddressOf OnTvServerEvent)
 
-            If Mid(_transcodeTime, 3, 1) = ":" Then
-                Try
-                    timerThread = New Thread(AddressOf ScheduleTimer)
-                    timerThread.Start()
-                Catch ex As Exception
-                    Log.Error("plugin: iPiMPTranscodeToMP4 - transcode thread start error : {0}", ex.Message)
-                End Try
-            End If
+            If Mid(_transcodeTime, 3, 1) = ":" Then ScheduleTimer()
 
+            Log.Info("plugin: iPiMPTranscodeToMP4 - started")
 
         End Sub
 
         Public Sub MyStop() Implements ITvServerPlugin.Stop
 
-            Dim events As ITvServerEvent = GlobalServiceProvider.Instance.Get(Of ITvServerEvent)()
-            RemoveHandler events.OnTvServerEvent, New TvServerEventHandler(AddressOf iPiMP_OnTvServerEvent)
+            If _deleteWithRecording = True Then StopWatching_RecordedFolders()
 
-            timerThread.Abort()
+            Dim events As ITvServerEvent = GlobalServiceProvider.Instance.Get(Of ITvServerEvent)()
+            RemoveHandler events.OnTvServerEvent, New TvServerEventHandler(AddressOf OnTvServerEvent)
+
+            If Mid(_transcodeTime, 3, 1) = ":" Then StopScheduleTimer()
 
             Log.Info("plugin: iPiMPTranscodeToMP4 stopped")
 
         End Sub
 
-        Private Sub iPiMP_OnTvServerEvent(ByVal sender As Object, ByVal eventArgs As EventArgs)
+        Private Sub OnTvServerEvent(ByVal sender As Object, ByVal eventArgs As EventArgs)
 
             Try
                 Dim tvEvent As TvServerEventArgs = CType(eventArgs, TvServerEventArgs)
 
                 If tvEvent.EventType = TvServerEventType.RecordingEnded Then
 
-                    If _transcodeNow Then
-                        Screenshot(tvEvent.Recording.FileName)
-                        Transcode(tvEvent.Recording.FileName)
-                    ElseIf Mid(_transcodeTime, 3, 1) = ":" Then
-                        Dim path As String = _folderPath & "\transcodeme.txt"
-                        Dim sw As StreamWriter
-                        If File.Exists(path) = False Then
-                            sw = File.CreateText(path)
-                            sw.WriteLine(tvEvent.Recording.FileName)
-                            sw.Flush()
-                            sw.Close()
-                        Else
-                            sw = File.AppendText(path)
-                            sw.WriteLine(tvEvent.Recording.FileName)
-                            sw.Flush()
-                            sw.Close()
-                        End If
-                        Log.Info(String.Format("plugin: iPiMPTranscodeToMP4 - scheduled {0} to {1}", tvEvent.Recording.Title, path))
-                    End If
+                    Dim layer As New TvBusinessLayer
+                    Dim doTranscode As Boolean = True
+                    For Each group As String In _groups
+                        Dim channelGroup As ChannelGroup = layer.GetGroupByName(group)
+                        Dim channels As List(Of Channel) = layer.GetTVGuideChannelsForGroup(channelGroup.IdGroup)
+                        For Each channel As Channel In channels
+                            If channel.IdChannel = tvEvent.Recording.IdChannel Then doTranscode = False
+                        Next
+                    Next
 
+                    If doTranscode Then
+                        If _transcodeNow Then
+                            Screenshot(tvEvent.Recording.FileName)
+                            Transcode(tvEvent.Recording.FileName)
+                        ElseIf Mid(_transcodeTime, 3, 1) = ":" Then
+                            Dim path As String = _folderPath & "\transcodeme.txt"
+                            Dim sw As StreamWriter
+                            If File.Exists(path) Then
+                                sw = File.AppendText(path)
+                            Else
+                                sw = File.CreateText(path)
+                            End If
+                            sw.WriteLine(tvEvent.Recording.FileName)
+                            sw.Flush()
+                            sw.Close()
+                            Log.Info(String.Format("plugin: iPiMPTranscodeToMP4 - scheduled {0} to {1}", tvEvent.Recording.Title, path))
+                        End If
+                    Else
+                        Log.Info(String.Format("plugin: iPiMPTranscodeToMP4 - excluded {0} ", tvEvent.Recording.Title))
+                    End If
                 End If
 
             Catch ex As Exception
@@ -205,8 +223,6 @@ Namespace TVEngine
 
             LaunchProcess(String.Format("""{0}""", _mtnPath), _params, String.Format("""{0}""", _folderPath))
 
-            Log.Debug("plugin: iPiMPTranscodeToMP4 - Screenshot: {0}", _recFilename)
-
         End Sub
 
         Private Shared Sub Transcode(ByVal _recFilename As String)
@@ -217,13 +233,18 @@ Namespace TVEngine
             '{2} = preset
             '{3} = video bitrate
             '{4} = audio bitrate
-            Dim _ffparams As String = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -vpre {2} -s 480x272 -bt {1}k -acodec libfaac -ab {4}k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _preset, _videoBitrate, _audioBitrate)
-            Dim _hbparams As String = String.Format("""{2}"" -i ""{0}"" -o ""{1}""", _recFilename, _outfile, _preset)
-            Dim _params As String = IIf(_transcoder.ToLower = "ffmpeg", _ffparams, _hbparams)
+            Dim params As String = String.Empty
+            If _custom.Length > 0 Then
+                params = String.Format(_custom, _recFilename, _outfile)
+            ElseIf _transcoder.ToLower = "ffmpeg" Then
+                params = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -fpre ""{2}\{3}.ffpreset"" -s 480x272 -bt {4}k -acodec libfaac -ab {5}k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _presetPath, _preset, _videoBitrate, _audioBitrate)
+            ElseIf _transcoder.ToLower = "handbrake" Then
+                params = String.Format("""{0}"" -i ""{1}"" -o ""{2}""", _preset, _recFilename, _outfile)
+            Else
+                Log.Info("plugin: iPiMPTranscodeToMP4 - could not determine transcoding options.")
+            End If
 
-            LaunchProcess(String.Format("""{0}""", _transcoderPath), _params, String.Format("""{0}""", _folderPath))
-
-            Log.Debug("plugin: iPiMPTranscodeToMP4 - Transcode: {0}", _recFilename)
+            LaunchProcess(String.Format("""{0}""", _transcoderPath), params, String.Format("""{0}""", _folderPath))
 
         End Sub
 
@@ -235,14 +256,14 @@ Namespace TVEngine
                 process.StartInfo.Arguments = _params
                 process.StartInfo.WorkingDirectory = _workingFolder
                 process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-                Log.Debug("plugin: iPiMPTranscodeToMP4 - Transcode: {0} {1}", _filename, _params)
+                Log.Info("plugin: iPiMPTranscodeToMP4 - LaunchProcess: {0} {1}", _filename, _params)
                 process.Start()
                 Do Until process.HasExited
                     System.Threading.Thread.Sleep(1000)
                 Loop
-                Log.Debug("plugin: iPiMPTranscodeToMP4 - Transcode complete: {0} {1}", _filename, _params)
+                Log.Info("plugin: iPiMPTranscodeToMP4 - LaunchProcess complete: {0} {1}", _filename, _params)
             Catch ex As Exception
-                Log.Error("plugin: iPiMPTranscodeToMP4 - LaunchProcess(): {0}", ex.Message)
+                Log.Error("plugin: iPiMPTranscodeToMP4 - LaunchProcess: {0}", ex.Message)
             End Try
 
         End Sub
@@ -276,6 +297,45 @@ Namespace TVEngine
                             fsWatcher.EnableRaisingEvents = True
                             watchFolders.Add(cardPath)
                             Log.Info("plugin: iPiMPTranscodeToMP4 - watching: {0}", cardPath)
+                        End If
+                    Catch ex As Exception
+                        Log.Error("plugin: iPiMPTranscodeToMP4 - watcher setup failed: {0}", ex.Message)
+                    End Try
+                End If
+
+                used = False
+
+            Next
+
+        End Sub
+
+        Private Sub StopWatching_RecordedFolders()
+
+            Dim watchFolders As New ArrayList
+            Dim watchFolder As String
+            Dim used As Boolean = False
+
+            Dim cards As IList = TvDatabase.Card.ListAll
+
+            Dim card As Card
+
+            For Each card In cards
+
+                Dim cardPath As String = card.RecordingFolder.ToString
+
+                For Each watchFolder In watchFolders
+                    If watchFolder = cardPath Then used = True
+                Next
+
+                If Not used Then
+                    Try
+                        Dim fsWatcher As New FileSystemWatcher
+                        fsWatcher.Path = cardPath
+                        fsWatcher.IncludeSubdirectories = True
+                        fsWatcher.Filter = "*.xml"
+                        If Directory.Exists(cardPath) Then
+                            RemoveHandler fsWatcher.Deleted, AddressOf FileDeleted
+                            Log.Info("plugin: iPiMPTranscodeToMP4 - stopped watching: {0}", cardPath)
                         End If
                     Catch ex As Exception
                         Log.Error("plugin: iPiMPTranscodeToMP4 - watcher setup failed: {0}", ex.Message)
@@ -333,12 +393,16 @@ Namespace TVEngine
             Dim timeToFirstExecution As Integer = CInt(HH.Subtract(DateTime.Now).TotalMilliseconds)
             Dim timeBetweenCalls As Integer = CInt(New System.TimeSpan(24, 0, 0).TotalMilliseconds)
             Dim methodToExecute As TimerCallback = (AddressOf RunScheduledTranscode)
-            Dim timer As New System.Threading.Timer(methodToExecute, Nothing, timeToFirstExecution, timeBetweenCalls)
+            timer = New System.Threading.Timer(methodToExecute, Nothing, timeToFirstExecution, timeBetweenCalls)
 
-            Log.Debug("plugin: iPiMPTranscodeToMP4 - timeToFirstExecution: {0}", timeToFirstExecution)
-            Log.Debug("plugin: iPiMPTranscodeToMP4 - timeBetweenCalls: {0}", timeBetweenCalls)
+            Log.Info("plugin: iPiMPTranscodeToMP4 - timeToFirstExecution: {0}", timeToFirstExecution)
+            Log.Info("plugin: iPiMPTranscodeToMP4 - timeBetweenCalls: {0}", timeBetweenCalls)
 
-            timerThread.Sleep(Timeout.Infinite)
+        End Sub
+
+        Private Sub StopScheduleTimer()
+
+            timer.Dispose()
 
         End Sub
 
@@ -348,13 +412,6 @@ Namespace TVEngine
             Dim tmpPath As String = _folderPath & "\transcode_working.txt"
             Dim recFile As String = String.Empty
             Dim sr As StreamReader
-            Dim finished As Boolean = False
-            Dim sleep As Integer = 10
-            Dim hh, mm As String
-            Dim xx() As String
-            xx = Split(_transcodeTime, ":")
-            hh = xx(0)
-            mm = xx(1)
 
             Try
                 If File.Exists(path) Then
@@ -377,7 +434,7 @@ Namespace TVEngine
                 Log.Error("plugin: iPiMPTranscodeToMP4 - scheduled transcode failed: {0}", ex.Message)
             End Try
 
-            Log.Debug("plugin: iPiMPTranscodeToMP4 - transcoding thread stopped.")
+            Log.Info("plugin: iPiMPTranscodeToMP4 - transcoding thread stopped.")
 
         End Sub
 
