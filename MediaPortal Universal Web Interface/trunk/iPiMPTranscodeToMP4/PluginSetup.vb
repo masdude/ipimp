@@ -1,6 +1,22 @@
-﻿Imports System
+﻿' 
+'   Copyright (C) 2008-2010 Martin van der Boon
+' 
+'  This program is free software: you can redistribute it and/or modify 
+'  it under the terms of the GNU General Public License as published by 
+'  the Free Software Foundation, either version 3 of the License, or 
+'  (at your option) any later version. 
+' 
+'   This program is distributed in the hope that it will be useful, 
+'   but WITHOUT ANY WARRANTY; without even the implied warranty of 
+'   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+'   GNU General Public License for more details. 
+' 
+'   You should have received a copy of the GNU General Public License 
+'   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+' 
+
+Imports System
 Imports System.ComponentModel
-'Imports System.Data
 Imports System.Diagnostics
 Imports System.Drawing
 Imports System.IO
@@ -68,6 +84,7 @@ Namespace SetupTv.Sections
         Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
         Friend WithEvents CheckedListBox1 As System.Windows.Forms.CheckedListBox
         Friend WithEvents RichTextBox5 As System.Windows.Forms.RichTextBox
+        Friend WithEvents RichTextBox6 As System.Windows.Forms.RichTextBox
 #End Region
 
         Public Sub New()
@@ -933,7 +950,6 @@ Namespace SetupTv.Sections
                 Starttime.Visible = True
             End If
         End Sub
-        Friend WithEvents RichTextBox6 As System.Windows.Forms.RichTextBox
 
     End Class
 
