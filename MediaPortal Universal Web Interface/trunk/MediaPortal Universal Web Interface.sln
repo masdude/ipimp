@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "iPiMPTranscodeToMP4", "iPiMPTranscodeToMP4\iPiMPTranscodeToMP4.vbproj", "{E968E988-28CA-44B8-AC7D-D228700EA87D}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "iPiMPTranscodeClient", "iPiMPTranscodeClient\iPiMPTranscodeClient.vbproj", "{F3F01412-C796-45B6-A3E3-0774D95CCE87}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "iPiMPConfigurePlugin", "iPiMPConfigurePlugin\iPiMPConfigurePlugin.vbproj", "{D17AF38F-4663-4842-A10E-01D80654F259}"
 EndProject
 Global
@@ -63,18 +61,6 @@ Global
 		{E968E988-28CA-44B8-AC7D-D228700EA87D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E968E988-28CA-44B8-AC7D-D228700EA87D}.Release|x86.ActiveCfg = Release|Any CPU
 		{E968E988-28CA-44B8-AC7D-D228700EA87D}.Release|x86.Build.0 = Release|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Debug|x86.Build.0 = Debug|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Release|x86.ActiveCfg = Release|Any CPU
-		{F3F01412-C796-45B6-A3E3-0774D95CCE87}.Release|x86.Build.0 = Release|Any CPU
 		{D17AF38F-4663-4842-A10E-01D80654F259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D17AF38F-4663-4842-A10E-01D80654F259}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D17AF38F-4663-4842-A10E-01D80654F259}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
