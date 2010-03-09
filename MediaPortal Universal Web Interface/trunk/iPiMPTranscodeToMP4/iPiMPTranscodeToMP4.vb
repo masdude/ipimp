@@ -1,3 +1,20 @@
+' 
+'   Copyright (C) 2008-2010 Martin van der Boon
+' 
+'  This program is free software: you can redistribute it and/or modify 
+'  it under the terms of the GNU General Public License as published by 
+'  the Free Software Foundation, either version 3 of the License, or 
+'  (at your option) any later version. 
+' 
+'   This program is distributed in the hope that it will be useful, 
+'   but WITHOUT ANY WARRANTY; without even the implied warranty of 
+'   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+'   GNU General Public License for more details. 
+' 
+'   You should have received a copy of the GNU General Public License 
+'   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+' 
+
 Imports System.Windows.Forms
 Imports System.Drawing
 Imports System.IO
@@ -52,6 +69,7 @@ Namespace TVEngine
 
         Private Shared appSettings As NameValueCollection = ConfigurationManager.AppSettings
 
+        Private period As Integer = 24
         Private timer As System.Threading.Timer
 
 #Region "ITVServer"
@@ -391,7 +409,7 @@ Namespace TVEngine
             End If
 
             Dim timeToFirstExecution As Integer = CInt(HH.Subtract(DateTime.Now).TotalMilliseconds)
-            Dim timeBetweenCalls As Integer = CInt(New System.TimeSpan(24, 0, 0).TotalMilliseconds)
+            Dim timeBetweenCalls As Integer = CInt(New System.TimeSpan(period, 0, 0).TotalMilliseconds)
             Dim methodToExecute As TimerCallback = (AddressOf RunScheduledTranscode)
             timer = New System.Threading.Timer(methodToExecute, Nothing, timeToFirstExecution, timeBetweenCalls)
 
