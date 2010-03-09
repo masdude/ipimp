@@ -1032,11 +1032,11 @@
       <DependentUpon>SearchTVGuideResults.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\TVGuide\WatchTVProgram.aspx.designer.vb">
-      <DependentUpon>WatchTVProgram.aspx</DependentUpon>
+    <Compile Include="iPhone\TVGuide\WatchTVChannel.aspx.designer.vb">
+      <DependentUpon>WatchTVChannel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iPhone\TVGuide\WatchTVProgram.aspx.vb">
-      <DependentUpon>WatchTVProgram.aspx</DependentUpon>
+    <Compile Include="iPhone\TVGuide\WatchTVChannel.aspx.vb">
+      <DependentUpon>WatchTVChannel.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="iPhone\TVServer\CardStatus.aspx.designer.vb">
@@ -1414,7 +1414,7 @@
     <Content Include="iPhone\TVGuide\TVProgram.aspx" />
     <Content Include="iPhone\TVGuide\SearchTVGuide.aspx" />
     <Content Include="iPhone\TVGuide\SearchTVGuideResults.aspx" />
-    <Content Include="iPhone\TVGuide\WatchTVProgram.aspx" />
+    <Content Include="iPhone\TVGuide\WatchTVChannel.aspx" />
     <Content Include="iPhone\TVServer\CardStatus.aspx" />
     <Content Include="iPhone\TVServer\CardStatusMenu.aspx" />
     <Content Include="iPhone\TVServer\CardActionConfirm.aspx" />

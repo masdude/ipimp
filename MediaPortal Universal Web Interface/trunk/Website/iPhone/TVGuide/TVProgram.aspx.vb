@@ -1,5 +1,5 @@
 ﻿' 
-'   Copyright (C) 2008-2009 Martin van der Boon
+'   Copyright (C) 2008-2010 Martin van der Boon
 ' 
 '  This program is free software: you can redistribute it and/or modify 
 '  it under the terms of the GNU General Public License as published by 
@@ -131,7 +131,6 @@ Partial Public Class TVProgram
                 Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
                 Dim channelName As String = channel.Name.ToLower
                 channelName = Replace(channelName, " ", "")
-                'markup += String.Format("<li><a href=""TVGuide/WatchTVProgram.aspx?program={0}&action=watch#_WatchProgram{0}"" rev=""async"">{1}</a></li>", programID, GetGlobalResourceObject("uWiMPStrings", "watch"))
                 markup += String.Format("<li><a href=""http://iphone.tvcatchup.com/?chan={0}"" >{1}</a></li>", channelTable(channelName), GetGlobalResourceObject("uWiMPStrings", "watch"))
             End If
         End If

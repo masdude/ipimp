@@ -1,5 +1,5 @@
 ﻿' 
-'   Copyright (C) 2008-2009 Martin van der Boon
+'   Copyright (C) 2008-2010 Martin van der Boon
 ' 
 '  This program is free software: you can redistribute it and/or modify 
 '  it under the terms of the GNU General Public License as published by 
@@ -254,7 +254,7 @@ Namespace uWiMP.TVServer
             '{2} = preset
             '{3} = video bitrate
             '{4} = audio bitrate
-            Dim _ffparams As String = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -vpre {2} -s 480x272 -bt {1}k -acodec libfaac -ab {4}k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _preset, _videoBitrate, _audioBitrate)
+            Dim _ffparams As String = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -vpre {2} -s 480x272 -bt {1}k -acodec libmp3lame -ab {4}k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _preset, _videoBitrate, _audioBitrate)
             Dim _hbparams As String = String.Format("""{2}"" -i ""{0}"" -o ""{1}""", _recFilename, _outfile, _preset)
             Dim _params As String = IIf(_transcoder.ToLower = "ffmpeg", _ffparams, _hbparams)
 

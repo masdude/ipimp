@@ -1,5 +1,5 @@
 ﻿' 
-'   Copyright (C) 2008-2009 Martin van der Boon
+'   Copyright (C) 2008-2010 Martin van der Boon
 ' 
 '  This program is free software: you can redistribute it and/or modify 
 '  it under the terms of the GNU General Public License as published by 
@@ -15,13 +15,15 @@
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
 
+Imports Jayrock.Json
+Imports Jayrock.Json.Conversion
 
 Imports System.IO
 Imports System.Xml
 Imports TvDatabase
 Imports TvControl
 
-Partial Public Class WatchTVProgram
+Partial Public Class WatchTVChannel
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -63,7 +65,7 @@ Partial Public Class WatchTVProgram
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(WatchChannel(channelID))
+        xw.WriteCData(WatchChannel("lounge", channelID))
         xw.WriteEndElement()
         'end data
 
@@ -76,22 +78,28 @@ Partial Public Class WatchTVProgram
 
     End Sub
 
-    Private Function WatchChannel(ByVal channelID As String) As String
+    Private Function WatchChannel(ByVal friendly As String, ByVal channelID As String) As String
 
-        
+        Dim mpRequest As New uWiMP.TVServer.MPClient.Request
+        mpRequest.Action = "startchannel"
+        mpRequest.Filter = channelID
+
+        Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+
         Dim markup As String = String.Empty
 
         markup += "<div class=""iMenu"">"
-        markup += "<ul class=""iArrow"">"
+        markup += String.Format("<h3>{0} - {1}</h3>", "lounge", GetGlobalResourceObject("uWiMPStrings", "watch"))
 
-        Dim result As TvResult = uWiMP.TVServer.Cards.StartTimeshifting(User.Identity.Name, channelID)
-        If result = TvResult.Succeeded Then
-            markup += "<li>Success</li>"
+        markup += "<ul>"
+        If success Then
+            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "save_playlist_success"))
         Else
-            markup += "<li>Fail</li>"
+            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "save_playlist_fail"))
         End If
-
-        markup += "</div>"
+        markup += "</ul>"
         markup += "</div>"
 
         Return markup
