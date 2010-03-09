@@ -1,5 +1,5 @@
 ﻿' 
-'   Copyright (C) 2008-2009 Martin van der Boon
+'   Copyright (C) 2008-2010 Martin van der Boon
 ' 
 '  This program is free software: you can redistribute it and/or modify 
 '  it under the terms of the GNU General Public License as published by 
@@ -245,11 +245,16 @@ Namespace MPClientController
                 Case "playtracks"
                     results = MyMusic.PlayTracks(request.Tracks, request.Shuffle, request.Enqueue)
                 Case "reorgmusic"
+
                     'MyMusic.UpdateMusicDB()
                 Case "getmusiccoverart"
                     results = MyMusic.GetCoverArt(request.Filter, request.Value)
                 Case "saveplaylist"
                     results = MyMusic.SaveCurrentPlaylist(request.Filter)
+
+                    'MyTV
+                Case "startchannel"
+                    results = MyTV.StartChannel(request.Filter)
 
                 Case "sendmessage"
                     Dim message As New MPClientController.Message
