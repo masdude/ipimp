@@ -13,5 +13,5 @@ Option Explicit On
 
 
 
-Partial Public Class WatchTVProgram
+Partial Public Class WatchTVChannel
 End Class

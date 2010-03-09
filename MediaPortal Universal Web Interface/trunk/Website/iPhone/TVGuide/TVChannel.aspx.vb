@@ -1,5 +1,5 @@
 ﻿' 
-'   Copyright (C) 2008-2009 Martin van der Boon
+'   Copyright (C) 2008-2010 Martin van der Boon
 ' 
 '  This program is free software: you can redistribute it and/or modify 
 '  it under the terms of the GNU General Public License as published by 
@@ -105,6 +105,7 @@ Partial Public Class TVChannel
 
         markup += "<ul class=""iArrow"">"
         markup += String.Format("<li><a href=""TVGuide/RecordManual.aspx?channel={0}#_RecordManual"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "manual_record"))
+        'markup += String.Format("<li><a href=""TVGuide/WatchTVChannel.aspx?channel={0}#_WatchTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "watch"))
         markup += "</ul>"
 
         markup += "<ul class=""iArrow"">"
