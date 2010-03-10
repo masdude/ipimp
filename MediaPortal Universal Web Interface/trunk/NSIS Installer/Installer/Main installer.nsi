@@ -81,7 +81,8 @@
 !include "InstallSections\MPClientPlugin.nsh"
 !include "InstallSections\AdditionalIcons.nsh"
 !include "InstallSections\PostInstall.nsh"
-
+!include "InstallSections\FFMpegDownload.nsh"
+!include "InstallSections\HandBrakeDownload.nsh"
 ;
 ;
 ; UnInstallation

@@ -25,6 +25,8 @@ var InstalliPiMPTVplugin
 var InstalliPiMPMPplugin
 var InstallNoTVServer
 var InstallNoMPClient
+var InstallHandbrake
+var InstallFFMpeg
 
 var Timeout
 var Pagesize

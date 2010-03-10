@@ -39,7 +39,6 @@ Section un.TVServerPlugin
   StrCmp $0 "0" +2
   MessageBox MB_OK|MB_ICONSTOP "$(STRING_TVSERVICEPLUGIN_LINE8)"
 
-  Delete "$INSTDIR\Utilities\ffmpeg.exe"
   Delete "$ServerPath\iPiMPConfigurePlugin.exe"
   Delete "$ServerPath\iPiMPTranscodeClient.exe"
   Delete "$ServerPath\plugins\iPiMPTranscodeToMP4.dll"
