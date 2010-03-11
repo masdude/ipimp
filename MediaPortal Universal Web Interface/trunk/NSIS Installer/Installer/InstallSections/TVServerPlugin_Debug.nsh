@@ -16,6 +16,10 @@ Section TVServerPlugin
   SetOutPath "$ServerPath\Plugins"
   File "..\..\iPiMPTranscodeToMP4\bin\Debug\iPiMPTranscodeToMP4.dll"
 
+  !include "InstallSections\InstallFFMpeg.nsh"
+  
+  !include "InstallSections\InstallHandbrake.nsh"
+
   DetailPrint "$(STRING_TVSERVICEPLUGIN_LINE2)"
   
   ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe add=iPiMPtest=iPiMPtest"

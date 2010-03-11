@@ -35,9 +35,9 @@ Module Module1
                 Try
                     setting = layer.GetSetting(args(1))
                     setting.Remove()
-                    Console.Write("Setting " & args(1) & " removal !!!SUCCESS!!!" & vbNewLine)
+                    Console.Write("Removing " & args(1) & " !!!SUCCESS!!!" & vbNewLine)
                 Catch ex As Exception
-                    Console.Write("Setting " & args(1) & " removal !!!FAILED!!!" & vbNewLine)
+                    Console.Write("Removing " & args(1) & " !!!FAILED!!!" & vbNewLine)
                     System.Environment.ExitCode = 1
                 End Try
             Case "get"
