@@ -34,6 +34,8 @@
   File "..\Include\Aspx\bin\TVDatabase.dll"
   File "..\Include\Aspx\bin\TvLibrary.Interfaces.dll"
   File "..\Include\Aspx\bin\uWiMPweb.dll"
+  File "..\Include\Aspx\bin\uWiMPweb.pdb"
+  File "..\Include\Aspx\bin\uWiMPweb.xml"
 
   SetOutPath "$INSTDIR\Aspx\Code"
 
@@ -247,7 +249,7 @@
   File "..\Include\Aspx\iPhone\TVGuide\TVChannel.aspx"
   File "..\Include\Aspx\iPhone\TVGuide\TVChannelDay.aspx"
   File "..\Include\Aspx\iPhone\TVGuide\TVProgram.aspx"
-  File "..\Include\Aspx\iPhone\TVGuide\WatchTVProgram.aspx"
+  File "..\Include\Aspx\iPhone\TVGuide\WatchTVChannel.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\TVServer"
   File "..\Include\Aspx\iPhone\TVServer\CardActionConfirm.aspx"
@@ -346,5 +348,3 @@
   File "..\Include\Aspx\iPhone\WebApp\Img\more.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\next.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\up.png"
-
-  SetOutPath "$INSTDIR\Aspx\My Project"
