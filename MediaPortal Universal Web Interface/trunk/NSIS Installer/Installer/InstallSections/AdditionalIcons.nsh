@@ -5,4 +5,5 @@ Section -AdditionalIcons
   CreateDirectory "$SMPROGRAMS\iPiMP"
   CreateShortCut "$SMPROGRAMS\iPiMP\Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
   CreateShortCut "$SMPROGRAMS\iPiMP\Uninstall.lnk" "$INSTDIR\uninst.exe"
+  CreateShortCut "$SMPROGRAMS\iPiMP\Handbrake.lnk" "$INSTDIR\Utilities\Handbrake\Handbrake.exe"
 SectionEnd
