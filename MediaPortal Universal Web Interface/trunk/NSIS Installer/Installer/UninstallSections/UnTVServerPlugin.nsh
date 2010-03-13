@@ -19,19 +19,17 @@ Section un.TVServerPlugin
 
   ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_SavePath=$MP4Path"
 
-  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_FFmpegPath=$INSTDIR\Utilities\ffmpeg.exe"
+  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_Delete=$Delete"
 
-  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_Delete=true"
-
-  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=pluginiPiMPTranscodeToMP4=false"
+  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=pluginiPiMPTranscodeToMP4=true"
 
   ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_TranscodeNow=$TranscodeNow"
 
   ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_TranscodeTime=$TranscodeTime"
 
-  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_VideoBitrate=$VideoBitrate"
+  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_Transcoder=$Transcoder"
 
-  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_AudioBitrate=$AudioBitrate"
+  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_Preset=$Preset"
 
   DetailPrint "$(STRING_TVSERVICEPLUGIN_LINE7)"
   ExecDos::exec /TIMEOUT=10000 /DETAILED "NET STOP TVSERVICE"
@@ -40,9 +38,7 @@ Section un.TVServerPlugin
   MessageBox MB_OK|MB_ICONSTOP "$(STRING_TVSERVICEPLUGIN_LINE8)"
 
   Delete "$ServerPath\iPiMPConfigurePlugin.exe"
-  Delete "$ServerPath\iPiMPTranscodeClient.exe"
   Delete "$ServerPath\plugins\iPiMPTranscodeToMP4.dll"
-  Delete "$SMPROGRAMS\iPiMP\iPiMPTranscodeClient.lnk"
 
   DetailPrint "$(STRING_TVSERVICEPLUGIN_LINE9)"
   ExecDos::exec /TIMEOUT=20000 /DETAILED "NET START TVSERVICE"

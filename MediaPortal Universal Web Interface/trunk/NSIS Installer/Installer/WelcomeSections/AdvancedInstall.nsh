@@ -225,8 +225,6 @@ Function AdvancedInstallValidate
 
         ${If} $p3Checkbox4_State == ${BST_CHECKED}
                 StrCpy $InstalliPiMPTVplugin "1"
-                StrCpy $InstallHandbrake "1"
-                StrCpy $InstallFFMpeg "1"
         ${EndIf}
 
         ${If} $p3Checkbox5_State == ${BST_CHECKED}
