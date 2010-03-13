@@ -76,9 +76,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TVDatabase.dll</HintPath>
     </Reference>
-    <Reference Include="TvPlugin, Version=1.0.1.40081, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="TvPlugin, Version=1.0.2.42502, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\Plugins\TvPlugin.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\Windows\TvPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Utils, Version=2.2.7.40018, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
