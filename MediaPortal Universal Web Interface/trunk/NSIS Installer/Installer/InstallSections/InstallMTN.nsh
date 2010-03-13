@@ -1,5 +1,5 @@
 
-  SetOutPath "$INSTDIR\mtn"
+  SetOutPath "$INSTDIR\Utilities\MTN"
   File "..\Include\Utilities\mtn\avcodec-51.dll"
   File "..\Include\Utilities\mtn\avdevice-52.dll"
   File "..\Include\Utilities\mtn\avformat-52.dll"
@@ -12,13 +12,13 @@
   File "..\Include\Utilities\mtn\swscale-0.dll"
   File "..\Include\Utilities\mtn\todo.txt"
 
-  SetOutPath "$INSTDIR\mtn\doc"
+  SetOutPath "$INSTDIR\Utilities\MTN\doc"
   File "..\Include\Utilities\mtn\doc\changelog.txt"
   File "..\Include\Utilities\mtn\doc\index.en.html"
   File "..\Include\Utilities\mtn\doc\todo.txt"
   File "..\Include\Utilities\mtn\doc\usage.en.html"
 
-  SetOutPath "$INSTDIR\mtn\doc\img"
+  SetOutPath "$INSTDIR\Utilities\MTN\doc\img"
   File "..\Include\Utilities\mtn\doc\img\10000_bc-tlr1_h480_D.jpg"
   File "..\Include\Utilities\mtn\doc\img\10000_bc-tlr1_h480_s.jpg"
   File "..\Include\Utilities\mtn\doc\img\10000_bc-tlr1_h480_V.jpg"
@@ -32,7 +32,7 @@
   File "..\Include\Utilities\mtn\doc\img\supremecommander_e32006_s.jpg"
   File "..\Include\Utilities\mtn\doc\img\unicode_filename.jpg"
 
-  SetOutPath "$INSTDIR\mtn\src"
+  SetOutPath "$INSTDIR\Utilities\MTN\src"
   File "..\Include\Utilities\mtn\src\fake_tchar.h"
   File "..\Include\Utilities\mtn\src\gpl-2.0.txt"
   File "..\Include\Utilities\mtn\src\Makefile"
