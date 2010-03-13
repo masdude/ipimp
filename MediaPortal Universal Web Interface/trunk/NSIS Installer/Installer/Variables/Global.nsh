@@ -39,8 +39,8 @@ var Listen
 var Delete
 var TranscodeNow
 var TranscodeTime
-var VideoBitrate
-var AudioBitrate
+var Transcoder
+var Preset
 var MP4Path
 
 var ApachPath

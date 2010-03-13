@@ -3,6 +3,10 @@
 ;
 
 ;
+; If this fails to compile and provides no warnings then it's likely there is a missing variable declaration
+;
+
+;
 ; Custom definitions
 ;
 !include "Definitions\Global.nsh"

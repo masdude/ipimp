@@ -118,68 +118,19 @@ Function TranscodeOptions
               ${NSD_CB_SelectString} $p5DropList2 $TranscodeTime
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 100u 150u 18u "$(STRING_TVPLUGININSTALL_LINE6)"
+        ${NSD_CreateLabel} 120u 100u 140u 18u "Select the transcoding utility"
 	Pop $p5Label3
 
-        ${NSD_CreateDropList} 280u 100u 40u 80u ""
+        ${NSD_CreateDropList} 270u 100u 50u 80u ""
         Pop $p5DropList3
 
-        ${NSD_CB_AddString} $p5DropList3 "64"
-        ${NSD_CB_AddString} $p5DropList3 "96"
-        ${NSD_CB_AddString} $p5DropList3 "128"
-        ${NSD_CB_AddString} $p5DropList3 "160"
-        ${NSD_CB_AddString} $p5DropList3 "192"
-        ${NSD_CB_AddString} $p5DropList3 "224"
-        ${NSD_CB_AddString} $p5DropList3 "256"
-        ${NSD_CB_AddString} $p5DropList3 "288"
-        ${NSD_CB_AddString} $p5DropList3 "320"
-        ${NSD_CB_AddString} $p5DropList3 "352"
-        ${NSD_CB_AddString} $p5DropList3 "384"
-        ${NSD_CB_AddString} $p5DropList3 "416"
-        ${NSD_CB_AddString} $p5DropList3 "448"
-        ${NSD_CB_AddString} $p5DropList3 "480"
-        ${NSD_CB_AddString} $p5DropList3 "512"
-        ${NSD_CB_AddString} $p5DropList3 "544"
-        ${NSD_CB_AddString} $p5DropList3 "576"
-        ${NSD_CB_AddString} $p5DropList3 "608"
-        ${NSD_CB_AddString} $p5DropList3 "640"
-        ${NSD_CB_AddString} $p5DropList3 "672"
-        ${NSD_CB_AddString} $p5DropList3 "704"
-        ${NSD_CB_AddString} $p5DropList3 "736"
-        ${NSD_CB_AddString} $p5DropList3 "768"
-        ${NSD_CB_AddString} $p5DropList3 "800"
-        ${NSD_CB_AddString} $p5DropList3 "832"
-        ${NSD_CB_AddString} $p5DropList3 "896"
-        ${NSD_CB_AddString} $p5DropList3 "928"
-        ${NSD_CB_AddString} $p5DropList3 "960"
-        ${NSD_CB_AddString} $p5DropList3 "992"
-        ${NSD_CB_AddString} $p5DropList3 "1024"
+        ${NSD_CB_AddString} $p5DropList3 "Handbrake"
+        ${NSD_CB_AddString} $p5DropList3 "FFmpeg"
 
-        ${If} $VideoBitrate == ""
-              ${NSD_CB_SelectString} $p5DropList3 "256"
+        ${If} $Transcoder == ""
+              ${NSD_CB_SelectString} $p5DropList3 "Handbrake"
         ${Else}
-              ${NSD_CB_SelectString} $p5DropList3 $VideoBitrate
-        ${EndIf}
-        
-        ${NSD_CreateLabel} 120u 120u 150u 18u "$(STRING_TVPLUGININSTALL_LINE7)"
-	Pop $p5Label4
-
-        ${NSD_CreateDropList} 280u 120u 40u 80u ""
-        Pop $p5DropList4
-
-        ${NSD_CB_AddString} $p5DropList4 "32"
-        ${NSD_CB_AddString} $p5DropList4 "64"
-        ${NSD_CB_AddString} $p5DropList4 "96"
-        ${NSD_CB_AddString} $p5DropList4 "128"
-        ${NSD_CB_AddString} $p5DropList4 "160"
-        ${NSD_CB_AddString} $p5DropList4 "192"
-        ${NSD_CB_AddString} $p5DropList4 "224"
-        ${NSD_CB_AddString} $p5DropList4 "256"
-
-        ${If} $AudioBitrate == ""
-              ${NSD_CB_SelectString} $p5DropList4 "128"
-        ${Else}
-              ${NSD_CB_SelectString} $p5DropList4 $AudioBitrate
+              ${NSD_CB_SelectString} $p5DropList3 $Transcoder
         ${EndIf}
 
         ${NSD_CreateLabel} 120u 140u 150u 18u "$(STRING_TVPLUGININSTALL_LINE8)"
@@ -205,9 +156,6 @@ Function TranscodeOptions
 
 	SetCtlColors $p5Label3 "" 0xffffff
 	SetCtlColors $p5DropList3 "" 0xffffff
-
-	SetCtlColors $p5Label4 "" 0xffffff
-	SetCtlColors $p5DropList4 "" 0xffffff
 
 	SetCtlColors $p5Label5 "" 0xffffff
 	SetCtlColors $p5Button1 "" 0xffffff
@@ -244,9 +192,8 @@ Function TranscodeOptionsValidate
        ${NSD_GetText} $p5DropList6 $Delete
        ${NSD_GetText} $p5DropList1 $TranscodeNow
        ${NSD_GetText} $p5DropList2 $TranscodeTime
-       ${NSD_GetText} $p5DropList3 $VideoBitrate
-       ${NSD_GetText} $p5DropList4 $AudioBitrate
-       
+       ${NSD_GetText} $p5DropList3 $Transcoder
+
        ${If} $Delete == "$(STRING_YES)"
          StrCpy $Delete "true"
        ${ElseIf} $Delete == "$(STRING_NO)"
@@ -259,6 +206,12 @@ Function TranscodeOptionsValidate
          StrCpy $TranscodeNow "false"
        ${EndIf}
 
+       ${If} $Transcoder == "Handbrake"
+         StrCpy $Preset "iPhone & iPod Touch"
+       ${ElseIf} $Transcoder == "FFmpeg)"
+         StrCpy $Preset "libx264-iPiMP"
+       ${EndIf}
+
        ${NSD_GetText} $p5Directory $MP4Path
        IfFileExists "$MP4Path\*.*" +3 0
        MessageBox MB_ICONINFORMATION|MB_OK "$(STRING_TVPLUGININSTALL_LINE10)"
@@ -268,13 +221,7 @@ Function TranscodeOptionsValidate
        MessageBox MB_ICONINFORMATION|MB_OK "$(STRING_TVPLUGININSTALL_LINE11)"
        Abort
 
-  ${If} ${IPIMPDEBUG} == "1"
-    MessageBox MB_OK|MB_ICONINFORMATION "Delete=$Delete"
-    MessageBox MB_OK|MB_ICONINFORMATION "TranscodeNow=$TranscodeNow"
-    MessageBox MB_OK|MB_ICONINFORMATION "TranscodeTime=$TranscodeTime"
-    MessageBox MB_OK|MB_ICONINFORMATION "VideoBitrate=$VideoBitrate"
-    MessageBox MB_OK|MB_ICONINFORMATION "AudioBitrate=$AudioBitrate"
-    MessageBox MB_OK|MB_ICONINFORMATION "MP4Path=$MP4Path"
-  ${EndIf}
-
+       MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Your TV service will be restarted to enable the transcode plugin.$\nDo you want to continue?" IDYES +2
+       Abort
+       
 FunctionEnd
