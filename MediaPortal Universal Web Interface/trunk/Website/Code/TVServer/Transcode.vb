@@ -107,8 +107,6 @@ Namespace uWiMP.TVServer
         Const DEFAULT_DELETE = True
         Const DEFAULT_TRANSCODE = True
         Const DEFAULT_STARTTIME = "01:00"
-        Const DEFAULT_VIDEO = "256"
-        Const DEFAULT_AUDIO = "128"
         Const DEFAULT_SAVEPATH = "C:\"
         Const DEFAULT_TRANSCODER = "handbrake"
         Const DEFAULT_IPIMPPATH = "C:\Program Files\iPiMP\Utilities"
@@ -120,8 +118,6 @@ Namespace uWiMP.TVServer
         Private Shared _deleteWithRecording As Boolean = DEFAULT_DELETE
         Private Shared _folderPath As String = DEFAULT_SAVEPATH
         Private Shared _transcoder As String = DEFAULT_TRANSCODER
-        Private Shared _videoBitrate As String = DEFAULT_VIDEO
-        Private Shared _audioBitrate As String = DEFAULT_AUDIO
         Private Shared _transcodeTime As String = DEFAULT_STARTTIME
         Private Shared _preset As String = String.Empty
         Private Shared _custom As String = String.Empty
@@ -146,8 +142,6 @@ Namespace uWiMP.TVServer
                 _folderPath = layer.GetSetting("iPiMPTranscodeToMP4_SavePath", DEFAULT_SAVEPATH.ToString).Value
                 _transcoder = layer.GetSetting("iPiMPTranscodeToMP4_Transcoder", DEFAULT_TRANSCODER).Value
                 _iPiMPPath = layer.GetSetting("iPiMPTranscodeToMP4_iPiMPPath", DEFAULT_IPIMPPATH).Value
-                _videoBitrate = layer.GetSetting("iPiMPTranscodeToMP4_VideoBitrate", DEFAULT_VIDEO).Value
-                _audioBitrate = layer.GetSetting("iPiMPTranscodeToMP4_AudioBitrate", DEFAULT_AUDIO).Value
                 _transcodeTime = layer.GetSetting("iPiMPTranscodeToMP4_TranscodeTime", DEFAULT_STARTTIME).Value
                 _preset = layer.GetSetting("iPiMPTranscodeToMP4_Preset", DEFAULT_PRESET).Value
                 _custom = layer.GetSetting("iPiMPTranscodeToMP4_Custom", DEFAULT_CUSTOM).Value
@@ -167,8 +161,6 @@ Namespace uWiMP.TVServer
                 _folderPath = DEFAULT_SAVEPATH
                 _transcoder = DEFAULT_TRANSCODER
                 _iPiMPPath = DEFAULT_IPIMPPATH
-                _videoBitrate = DEFAULT_VIDEO
-                _audioBitrate = DEFAULT_AUDIO
                 _transcodeTime = DEFAULT_STARTTIME
                 _preset = DEFAULT_PRESET
                 _custom = DEFAULT_CUSTOM
@@ -252,9 +244,7 @@ Namespace uWiMP.TVServer
             '{0} = input filename
             '{1} = output filename
             '{2} = preset
-            '{3} = video bitrate
-            '{4} = audio bitrate
-            Dim _ffparams As String = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -vpre {2} -s 480x272 -bt {1}k -acodec libmp3lame -ab {4}k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _preset, _videoBitrate, _audioBitrate)
+            Dim _ffparams As String = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -vpre {2} -s 480x272 -bt 256k -acodec libmp3lame -ab 128k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _preset)
             Dim _hbparams As String = String.Format("""{2}"" -i ""{0}"" -o ""{1}""", _recFilename, _outfile, _preset)
             Dim _params As String = IIf(_transcoder.ToLower = "ffmpeg", _ffparams, _hbparams)
 

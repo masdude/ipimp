@@ -68,16 +68,8 @@ Namespace SetupTv.Sections
         Friend WithEvents Preset As System.Windows.Forms.ComboBox
         Friend WithEvents Label12 As System.Windows.Forms.Label
         Friend WithEvents Label13 As System.Windows.Forms.Label
-        Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
-        Friend WithEvents audioBitrate As System.Windows.Forms.NumericUpDown
-        Friend WithEvents videoBitrate As System.Windows.Forms.NumericUpDown
-        Friend WithEvents Label16 As System.Windows.Forms.Label
-        Friend WithEvents Label17 As System.Windows.Forms.Label
-        Friend WithEvents numAudio As System.Windows.Forms.NumericUpDown
-        Friend WithEvents numVideo As System.Windows.Forms.NumericUpDown
         Friend WithEvents Label10 As System.Windows.Forms.Label
         Friend WithEvents Label15 As System.Windows.Forms.Label
-        Friend WithEvents Label6 As System.Windows.Forms.Label
         Friend WithEvents Label11 As System.Windows.Forms.Label
         Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
         Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
@@ -121,12 +113,6 @@ Namespace SetupTv.Sections
             Me.TabPage3 = New System.Windows.Forms.TabPage
             Me.PictureBox1 = New System.Windows.Forms.PictureBox
             Me.Label11 = New System.Windows.Forms.Label
-            Me.GroupBox9 = New System.Windows.Forms.GroupBox
-            Me.Label6 = New System.Windows.Forms.Label
-            Me.audioBitrate = New System.Windows.Forms.NumericUpDown
-            Me.videoBitrate = New System.Windows.Forms.NumericUpDown
-            Me.Label16 = New System.Windows.Forms.Label
-            Me.Label17 = New System.Windows.Forms.Label
             Me.Link = New System.Windows.Forms.LinkLabel
             Me.GroupBox8 = New System.Windows.Forms.GroupBox
             Me.RichTextBox6 = New System.Windows.Forms.RichTextBox
@@ -140,8 +126,6 @@ Namespace SetupTv.Sections
             Me.GroupBox3 = New System.Windows.Forms.GroupBox
             Me.RichTextBox5 = New System.Windows.Forms.RichTextBox
             Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox
-            Me.numAudio = New System.Windows.Forms.NumericUpDown
-            Me.numVideo = New System.Windows.Forms.NumericUpDown
             Me.Label10 = New System.Windows.Forms.Label
             Me.Label15 = New System.Windows.Forms.Label
             Me.TabControl1.SuspendLayout()
@@ -152,15 +136,10 @@ Namespace SetupTv.Sections
             Me.DelGroup.SuspendLayout()
             Me.TabPage3.SuspendLayout()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-            Me.GroupBox9.SuspendLayout()
-            CType(Me.audioBitrate, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.videoBitrate, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.GroupBox8.SuspendLayout()
             Me.GroupBox7.SuspendLayout()
             Me.TabPage2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
-            CType(Me.numAudio, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.numVideo, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
             'TabControl1
@@ -425,7 +404,6 @@ Namespace SetupTv.Sections
             '
             Me.TabPage3.Controls.Add(Me.PictureBox1)
             Me.TabPage3.Controls.Add(Me.Label11)
-            Me.TabPage3.Controls.Add(Me.GroupBox9)
             Me.TabPage3.Controls.Add(Me.Link)
             Me.TabPage3.Controls.Add(Me.GroupBox8)
             Me.TabPage3.Controls.Add(Me.GroupBox7)
@@ -448,74 +426,12 @@ Namespace SetupTv.Sections
             'Label11
             '
             Me.Label11.AutoSize = True
-            Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.Label11.Location = New System.Drawing.Point(62, 10)
             Me.Label11.Name = "Label11"
-            Me.Label11.Size = New System.Drawing.Size(162, 44)
+            Me.Label11.Size = New System.Drawing.Size(134, 37)
             Me.Label11.TabIndex = 6
             Me.Label11.Text = "Label11"
-            '
-            'GroupBox9
-            '
-            Me.GroupBox9.Controls.Add(Me.Label6)
-            Me.GroupBox9.Controls.Add(Me.audioBitrate)
-            Me.GroupBox9.Controls.Add(Me.videoBitrate)
-            Me.GroupBox9.Controls.Add(Me.Label16)
-            Me.GroupBox9.Controls.Add(Me.Label17)
-            Me.GroupBox9.Location = New System.Drawing.Point(6, 248)
-            Me.GroupBox9.Name = "GroupBox9"
-            Me.GroupBox9.Size = New System.Drawing.Size(442, 64)
-            Me.GroupBox9.TabIndex = 7
-            Me.GroupBox9.TabStop = False
-            '
-            'Label6
-            '
-            Me.Label6.AutoSize = True
-            Me.Label6.Location = New System.Drawing.Point(6, 16)
-            Me.Label6.Name = "Label6"
-            Me.Label6.Size = New System.Drawing.Size(375, 13)
-            Me.Label6.TabIndex = 4
-            Me.Label6.Text = "You can amend the video and audio bitrates used by the libx264-iPiMP preset."
-            '
-            'audioBitrate
-            '
-            Me.audioBitrate.Increment = New Decimal(New Integer() {32, 0, 0, 0})
-            Me.audioBitrate.Location = New System.Drawing.Point(343, 36)
-            Me.audioBitrate.Maximum = New Decimal(New Integer() {256, 0, 0, 0})
-            Me.audioBitrate.Minimum = New Decimal(New Integer() {32, 0, 0, 0})
-            Me.audioBitrate.Name = "audioBitrate"
-            Me.audioBitrate.Size = New System.Drawing.Size(88, 20)
-            Me.audioBitrate.TabIndex = 5
-            Me.audioBitrate.Value = New Decimal(New Integer() {128, 0, 0, 0})
-            '
-            'videoBitrate
-            '
-            Me.videoBitrate.Increment = New Decimal(New Integer() {32, 0, 0, 0})
-            Me.videoBitrate.Location = New System.Drawing.Point(130, 36)
-            Me.videoBitrate.Maximum = New Decimal(New Integer() {1024, 0, 0, 0})
-            Me.videoBitrate.Minimum = New Decimal(New Integer() {64, 0, 0, 0})
-            Me.videoBitrate.Name = "videoBitrate"
-            Me.videoBitrate.Size = New System.Drawing.Size(88, 20)
-            Me.videoBitrate.TabIndex = 4
-            Me.videoBitrate.Value = New Decimal(New Integer() {256, 0, 0, 0})
-            '
-            'Label16
-            '
-            Me.Label16.AutoSize = True
-            Me.Label16.Location = New System.Drawing.Point(259, 38)
-            Me.Label16.Name = "Label16"
-            Me.Label16.Size = New System.Drawing.Size(66, 13)
-            Me.Label16.TabIndex = 3
-            Me.Label16.Text = "Audio bitrate"
-            '
-            'Label17
-            '
-            Me.Label17.AutoSize = True
-            Me.Label17.Location = New System.Drawing.Point(6, 38)
-            Me.Label17.Name = "Label17"
-            Me.Label17.Size = New System.Drawing.Size(66, 13)
-            Me.Label17.TabIndex = 0
-            Me.Label17.Text = "Video bitrate"
             '
             'Link
             '
@@ -645,28 +561,6 @@ Namespace SetupTv.Sections
             Me.CheckedListBox1.TabIndex = 0
             Me.CheckedListBox1.ThreeDCheckBoxes = True
             '
-            'numAudio
-            '
-            Me.numAudio.Increment = New Decimal(New Integer() {32, 0, 0, 0})
-            Me.numAudio.Location = New System.Drawing.Point(354, 14)
-            Me.numAudio.Maximum = New Decimal(New Integer() {256, 0, 0, 0})
-            Me.numAudio.Minimum = New Decimal(New Integer() {32, 0, 0, 0})
-            Me.numAudio.Name = "numAudio"
-            Me.numAudio.Size = New System.Drawing.Size(88, 20)
-            Me.numAudio.TabIndex = 5
-            Me.numAudio.Value = New Decimal(New Integer() {128, 0, 0, 0})
-            '
-            'numVideo
-            '
-            Me.numVideo.Increment = New Decimal(New Integer() {32, 0, 0, 0})
-            Me.numVideo.Location = New System.Drawing.Point(130, 14)
-            Me.numVideo.Maximum = New Decimal(New Integer() {1024, 0, 0, 0})
-            Me.numVideo.Minimum = New Decimal(New Integer() {64, 0, 0, 0})
-            Me.numVideo.Name = "numVideo"
-            Me.numVideo.Size = New System.Drawing.Size(88, 20)
-            Me.numVideo.TabIndex = 4
-            Me.numVideo.Value = New Decimal(New Integer() {256, 0, 0, 0})
-            '
             'Label10
             '
             Me.Label10.AutoSize = True
@@ -706,17 +600,11 @@ Namespace SetupTv.Sections
             Me.TabPage3.ResumeLayout(False)
             Me.TabPage3.PerformLayout()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-            Me.GroupBox9.ResumeLayout(False)
-            Me.GroupBox9.PerformLayout()
-            CType(Me.audioBitrate, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.videoBitrate, System.ComponentModel.ISupportInitialize).EndInit()
             Me.GroupBox8.ResumeLayout(False)
             Me.GroupBox7.ResumeLayout(False)
             Me.GroupBox7.PerformLayout()
             Me.TabPage2.ResumeLayout(False)
             Me.GroupBox3.ResumeLayout(False)
-            CType(Me.numAudio, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.numVideo, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
 
         End Sub
@@ -764,9 +652,6 @@ Namespace SetupTv.Sections
 
             Preset.Text = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._preset
             Custom.Text = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._custom
-
-            videoBitrate.Value = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._videoBitrate
-            audioBitrate.Value = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._audioBitrate
 
         End Sub
 
@@ -822,14 +707,6 @@ Namespace SetupTv.Sections
             setting = layer.GetSetting("iPiMPTranscodeToMP4_TranscodeTime")
             setting.Value = Starttime.Text
             If TrYes.Checked Then setting.Value = ""
-            setting.Persist()
-
-            setting = layer.GetSetting("iPiMPTranscodeToMP4_VideoBitrate")
-            setting.Value = numVideo.Value.ToString
-            setting.Persist()
-
-            setting = layer.GetSetting("iPiMPTranscodeToMP4_AudioBitrate")
-            setting.Value = numAudio.Value.ToString
             setting.Persist()
 
             setting = layer.GetSetting("iPiMPTranscodeToMP4_Groups")
@@ -917,7 +794,6 @@ Namespace SetupTv.Sections
                 RichTextBox8.Text = "You can override the available presets by entering your own FFMpeg command line parameters.  This requires knowledge of the available settings and transcoding options."
                 Link.Text = "Read more about FFMpeg"
                 Preset.Text = "libx264-iPiMP"
-                GroupBox9.Visible = True
             Else
                 TabControl1.TabPages(1).Text = "HandBrake settings"
                 PictureBox1.Image = My.Resources.handbrake
@@ -936,7 +812,6 @@ Namespace SetupTv.Sections
                 Preset.Items.Add("iPhone Legacy")
                 Preset.Items.Add("iPod Legacy")
                 RichTextBox8.Text = "You can override the available presets by entering your own HandBrake command line parameters.  This requires knowledge of the available settings and transcoding options."
-                GroupBox9.Visible = False
                 Link.Text = "Read more about HandBrake"
                 Preset.Text = "iPhone & iPod Touch"
             End If
