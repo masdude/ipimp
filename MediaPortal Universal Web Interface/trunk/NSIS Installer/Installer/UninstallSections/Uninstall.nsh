@@ -5,6 +5,7 @@ Section Uninstall
 
   Delete "$SMPROGRAMS\iPiMP\Uninstall.lnk"
   Delete "$SMPROGRAMS\iPiMP\Website.lnk"
+  Delete "$SMPROGRAMS\iPiMP\Handbrake.lnk"
 
   DetailPrint "Removing other iPiMP files"
   !insertmacro RemoveFilesAndSubDirs "$INSTDIR"
