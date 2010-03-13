@@ -20,6 +20,8 @@ Section TVServerPlugin
   
   !include "InstallSections\InstallHandbrake.nsh"
 
+  !include "InstallSections\InstallMTN.nsh"
+
   DetailPrint "$(STRING_TVSERVICEPLUGIN_LINE2)"
   
   ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe add=iPiMPtest=iPiMPtest"
