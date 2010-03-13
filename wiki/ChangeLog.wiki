@@ -13,6 +13,7 @@ Next version updates include *not yet released*
  * TV transcode plugin - removed video & audio bitrate settings, use custom command line parameters if needed
  * Installer - added Handbrake / ffmpeg selection
  * Installer - Installing the transcoding plugin will now enable the plugin by default & restart TV server
+ * Installer - Installs Handbrake GUI instead of iPiMPTranscodeClient utility
 4.1.0 updates include
  * Web - added configurable main menu
  * Web - added configurable recordings menu
