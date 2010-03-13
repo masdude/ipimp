@@ -40,8 +40,6 @@ Namespace TVEngine
         Const DEFAULT_DELETE = True
         Const DEFAULT_TRANSCODE = True
         Const DEFAULT_STARTTIME = "01:00"
-        Const DEFAULT_VIDEO = "256"
-        Const DEFAULT_AUDIO = "128"
         Const DEFAULT_SAVEPATH = "C:\"
         Const DEFAULT_TRANSCODER = "handbrake"
         Const DEFAULT_IPIMPPATH = "C:\Program Files\iPiMP\Utilities"
@@ -53,8 +51,6 @@ Namespace TVEngine
         Friend Shared _deleteWithRecording As Boolean = DEFAULT_DELETE
         Friend Shared _folderPath As String = DEFAULT_SAVEPATH
         Friend Shared _transcoder As String = DEFAULT_TRANSCODER
-        Friend Shared _videoBitrate As String = DEFAULT_VIDEO
-        Friend Shared _audioBitrate As String = DEFAULT_AUDIO
         Friend Shared _transcodeTime As String = DEFAULT_STARTTIME
         Friend Shared _preset As String = String.Empty
         Friend Shared _custom As String = String.Empty
@@ -118,8 +114,6 @@ Namespace TVEngine
                 _folderPath = layer.GetSetting("iPiMPTranscodeToMP4_SavePath", DEFAULT_SAVEPATH.ToString).Value
                 _transcoder = layer.GetSetting("iPiMPTranscodeToMP4_Transcoder", DEFAULT_TRANSCODER).Value
                 _iPiMPPath = layer.GetSetting("iPiMPTranscodeToMP4_iPiMPPath", DEFAULT_IPIMPPATH).Value
-                _videoBitrate = layer.GetSetting("iPiMPTranscodeToMP4_VideoBitrate", DEFAULT_VIDEO).Value
-                _audioBitrate = layer.GetSetting("iPiMPTranscodeToMP4_AudioBitrate", DEFAULT_AUDIO).Value
                 _transcodeTime = layer.GetSetting("iPiMPTranscodeToMP4_TranscodeTime", DEFAULT_STARTTIME).Value
                 _preset = layer.GetSetting("iPiMPTranscodeToMP4_Preset", DEFAULT_PRESET).Value
                 _custom = layer.GetSetting("iPiMPTranscodeToMP4_Custom", DEFAULT_CUSTOM).Value
@@ -139,8 +133,6 @@ Namespace TVEngine
                 _folderPath = DEFAULT_SAVEPATH
                 _transcoder = DEFAULT_TRANSCODER
                 _iPiMPPath = DEFAULT_IPIMPPATH
-                _videoBitrate = DEFAULT_VIDEO
-                _audioBitrate = DEFAULT_AUDIO
                 _transcodeTime = DEFAULT_STARTTIME
                 _preset = DEFAULT_PRESET
                 _custom = DEFAULT_CUSTOM
@@ -249,13 +241,11 @@ Namespace TVEngine
             '{0} = input filename
             '{1} = output filename
             '{2} = preset
-            '{3} = video bitrate
-            '{4} = audio bitrate
             Dim params As String = String.Empty
             If _custom.Length > 0 Then
                 params = String.Format(_custom, _recFilename, _outfile)
             ElseIf _transcoder.ToLower = "ffmpeg" Then
-                params = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -fpre ""{2}\{3}.ffpreset"" -s 480x272 -bt {4}k -acodec libfaac -ab {5}k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _presetPath, _preset, _videoBitrate, _audioBitrate)
+                params = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -fpre ""{2}\{3}.ffpreset"" -s 480x272 -bt 256k -acodec libfaac -ab 128k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _presetPath, _preset)
             ElseIf _transcoder.ToLower = "handbrake" Then
                 params = String.Format("""{0}"" -i ""{1}"" -o ""{2}""", _preset, _recFilename, _outfile)
             Else
