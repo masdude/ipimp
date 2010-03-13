@@ -246,7 +246,7 @@ Namespace uWiMP.TVServer
                 With process.StartInfo
                     .FileName = _filename
                     .Arguments = _params
-                    .WorkingDirectory = _workingFolder
+                    '.WorkingDirectory = _workingFolder
                     .WindowStyle = ProcessWindowStyle.Hidden
                     .UseShellExecute = False
                     .RedirectStandardOutput = True
@@ -266,6 +266,7 @@ Namespace uWiMP.TVServer
             Catch ex As Exception
                 If reportSuccess Then _lastTaskSuccess = False
                 _exceptionOccured = ex
+                Log.Debug("uWiMP.Transcode: LaunchProcess exception: {0}", ex.ToString)
             Finally
                 _running = False
                 _lastFinishTime = DateTime.Now
