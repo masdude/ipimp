@@ -101,8 +101,6 @@ Namespace uWiMP.TVServer
             End Get
         End Property
 
-        Private WithEvents backgroundWorker As BackgroundWorker
-
 #Region "Transcoding settings"
         Const DEFAULT_DELETE = True
         Const DEFAULT_TRANSCODE = True
@@ -183,24 +181,22 @@ Namespace uWiMP.TVServer
 
         ' Start the task
         Public Sub RunTask()
-            backgroundWorker = New BackgroundWorker
-            backgroundWorker.WorkerReportsProgress = False
-            backgroundWorker.WorkerSupportsCancellation = False
 
-            ' Only one thread is allowed to enter here.
             SyncLock Me
                 If Not _running Then
                     _running = True
                     _lastStartTime = DateTime.Now
-                    backgroundWorker.RunWorkerAsync()
+                    Dim t As New Thread(New ThreadStart(AddressOf Me.DoWork))
+                    t.Start()
                 Else
                     Log.Debug("uWiMP.Transcode - The task is already running!")
                     Throw New InvalidOperationException("The task is already running!")
                 End If
             End SyncLock
+
         End Sub
 
-        Private Sub backgroundWorker_DoWork(ByVal sender As Object, ByVal e As DoWorkEventArgs) Handles backgroundWorker.DoWork
+        Public Sub DoWork()
 
             Log.Debug("uWiMP.Transcode: Transcoding started.")
 
@@ -218,23 +214,11 @@ Namespace uWiMP.TVServer
 
         End Sub
 
-        Public Sub DoWork()
-
-            LoadSettings()
-
-            Dim recording As Recording = uWiMP.TVServer.Recordings.GetRecordingById(CInt(_recid))
-            Dim recFile As String = recording.FileName
-
-            Screenshot(recFile)
-            Transcode(recFile)
-
-        End Sub
-
         Private Shared Sub Screenshot(ByVal _recFilename As String)
 
             Dim _params As String = String.Format("-B {0} -E {1} -w 88 -h 50 -c 1 -r 1 -i -t -P -z -O ""{2}"" -o .jpg ""{3}""", _preInterval * 60, _postInterval * 60, _folderPath, _recFilename)
 
-            LaunchProcess(String.Format("""{0}""", _mtnPath), _params, String.Format("""{0}""", _folderPath))
+            LaunchProcess(String.Format("""{0}""", _mtnPath), _params, String.Format("""{0}""", _folderPath), False)
 
         End Sub
 
@@ -248,13 +232,13 @@ Namespace uWiMP.TVServer
             Dim _hbparams As String = String.Format("""{2}"" -i ""{0}"" -o ""{1}""", _recFilename, _outfile, _preset)
             Dim _params As String = IIf(_transcoder.ToLower = "ffmpeg", _ffparams, _hbparams)
 
-            LaunchProcess(String.Format("""{0}""", _transcoderPath), _params, String.Format("""{0}""", _folderPath))
+            LaunchProcess(String.Format("""{0}""", _transcoderPath), _params, String.Format("""{0}""", _folderPath), True)
 
         End Sub
 
-        Private Shared Sub LaunchProcess(ByVal _filename As String, ByVal _params As String, ByVal _workingFolder As String)
+        Private Shared Sub LaunchProcess(ByVal _filename As String, ByVal _params As String, ByVal _workingFolder As String, ByVal reportSuccess As Boolean)
 
-            Log.Debug("uWiMP.Transcode: LaunchProcess {0} {1} {2}", _filename, _params, _workingFolder)
+            Log.Debug("uWiMP.Transcode: LaunchProcess start {0} {1} {2}", _filename, _params, _workingFolder)
 
             Try
                 Dim process As Process = New Process
@@ -264,41 +248,31 @@ Namespace uWiMP.TVServer
                     .Arguments = _params
                     .WorkingDirectory = _workingFolder
                     .WindowStyle = ProcessWindowStyle.Hidden
-                    '.UseShellExecute = False
-                    '.RedirectStandardError = True
-                    '.RedirectStandardOutput = True
+                    .UseShellExecute = False
+                    .RedirectStandardOutput = True
                 End With
 
                 process.Start()
+                process.WaitForExit()
 
-                Do Until process.HasExited
-                    System.Threading.Thread.Sleep(1000)
-                Loop
-
-                If process.ExitCode = 0 Then
-                    _lastTaskSuccess = True
-                Else
-                    _lastTaskSuccess = False
+                If reportSuccess Then
+                    If process.ExitCode = 0 Then
+                        _lastTaskSuccess = True
+                    Else
+                        _lastTaskSuccess = False
+                    End If
                 End If
 
             Catch ex As Exception
-                _lastTaskSuccess = False
+                If reportSuccess Then _lastTaskSuccess = False
                 _exceptionOccured = ex
-
             Finally
                 _running = False
                 _lastFinishTime = DateTime.Now
-                If Not _firstRunComplete Then
-                    _firstRunComplete = True
-                End If
-
+                If Not _firstRunComplete Then _firstRunComplete = True
             End Try
 
-        End Sub
-
-        Private Sub backgroundWorker_RunWorkerCompleted(ByVal sender As Object, ByVal e As RunWorkerCompletedEventArgs) Handles backgroundWorker.RunWorkerCompleted
-
-            Log.Debug("uWiMP.Transcode: Transcoding completed.")
+            Log.Debug("uWiMP.Transcode: LaunchProcess end")
 
         End Sub
 
