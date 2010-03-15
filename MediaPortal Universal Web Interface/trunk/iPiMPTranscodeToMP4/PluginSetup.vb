@@ -461,8 +461,8 @@ Namespace SetupTv.Sections
             Me.RichTextBox6.Name = "RichTextBox6"
             Me.RichTextBox6.Size = New System.Drawing.Size(151, 61)
             Me.RichTextBox6.TabIndex = 6
-            Me.RichTextBox6.Text = "Enter command line:" & Global.Microsoft.VisualBasic.ChrW(10) & "Use the following variables:" & Global.Microsoft.VisualBasic.ChrW(10) & "    """"{0}"""" = input filename" & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
-                " """"{1}"""" = output filename"
+            Me.RichTextBox6.Text = "Enter command line:" & Global.Microsoft.VisualBasic.ChrW(10) & "Use the following variables:" & Global.Microsoft.VisualBasic.ChrW(10) & "    ""{0}"" = input filename" & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
+                " ""{1}"" = output filename"
             '
             'Custom
             '
