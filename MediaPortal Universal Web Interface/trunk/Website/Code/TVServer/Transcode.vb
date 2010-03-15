@@ -264,13 +264,19 @@ Namespace uWiMP.TVServer
                 End If
 
             Catch ex As Exception
+
                 If reportSuccess Then _lastTaskSuccess = False
                 _exceptionOccured = ex
                 Log.Debug("uWiMP.Transcode: LaunchProcess exception: {0}", ex.ToString)
+
             Finally
-                _running = False
-                _lastFinishTime = DateTime.Now
-                If Not _firstRunComplete Then _firstRunComplete = True
+
+                If reportSuccess Then
+                    _running = False
+                    _lastFinishTime = DateTime.Now
+                    If Not _firstRunComplete Then _firstRunComplete = True
+                End If
+                
             End Try
 
             Log.Debug("uWiMP.Transcode: LaunchProcess end")
