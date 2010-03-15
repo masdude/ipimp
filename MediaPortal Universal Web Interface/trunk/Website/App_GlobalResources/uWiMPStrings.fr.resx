@@ -142,13 +142,13 @@
     <value>Se termine a</value>
   </data>
   <data name="grabbing" xml:space="preserve">
-    <value>Récupération</value>
+    <value>Récupération EPG</value>
   </data>
   <data name="home" xml:space="preserve">
     <value>Accueil</value>
   </data>
   <data name="idle" xml:space="preserve">
-    <value>Incatif</value>
+    <value>Inactif</value>
   </data>
   <data name="ipimp" xml:space="preserve">
     <value>iPiMP</value>
