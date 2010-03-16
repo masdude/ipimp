@@ -54,7 +54,7 @@
     </Reference>
     <Reference Include="Jayrock.Json, Version=0.9.10905.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Jayrock.Json.dll</HintPath>
+      <HintPath>..\bin\Jayrock.Json.dll</HintPath>
     </Reference>
     <Reference Include="MovingPictures, Version=1.0.1.1001, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
