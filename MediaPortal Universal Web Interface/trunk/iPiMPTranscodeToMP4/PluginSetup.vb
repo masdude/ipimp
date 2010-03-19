@@ -949,6 +949,7 @@ Namespace SetupTv.Sections
                 Label13.Text = "HandBrake has a number of preset transcoding settings."
                 Preset.Items.Clear()
                 Preset.Items.Add("iPhone & iPod Touch")
+                Preset.Items.Add("Nexus One")
                 Preset.Items.Add("Universal")
                 Preset.Items.Add("iPod")
                 Preset.Items.Add("AppleTV")
