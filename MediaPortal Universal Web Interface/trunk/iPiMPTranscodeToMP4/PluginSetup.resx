@@ -120,4 +120,10 @@
   <data name="RichTextBox1.Text" xml:space="preserve">
     <value>Transcoding can occur immediately a recording has finished or be queued and run on a schedule.  Transcoding is a resource intensive operation and may affect the normal running of your client especially if it is of lower specification.</value>
   </data>
+  <data name="RichTextBox9.Text" xml:space="preserve">
+    <value>Transcoding is a resource intensive operation and may affect the normal running of your client especially if it is of lower specification. To minimise this effect you can change priority of the transcoding process. Leave this as default unless you are having performance issues.</value>
+  </data>
+  <data name="RichTextBox7.Text" xml:space="preserve">
+    <value>Transcoding can occur immediately a recording has finished or be queued and run on a schedule.  Transcoding is a resource intensive operation and may affect the normal running of your client especially if it is of lower specification.</value>
+  </data>
 </root>

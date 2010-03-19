@@ -45,6 +45,7 @@ Namespace TVEngine
         Const DEFAULT_IPIMPPATH = "C:\Program Files\iPiMP\Utilities"
         Const DEFAULT_PRESET = "iPhone & iPod Touch"
         Const DEFAULT_CUSTOM = ""
+        Const DEFAULT_PRIORITY = "Normal"
         Const DEFAULT_GROUPS = ""
 
         Friend Shared _transcodeNow As Boolean = DEFAULT_TRANSCODE
@@ -54,6 +55,7 @@ Namespace TVEngine
         Friend Shared _transcodeTime As String = DEFAULT_STARTTIME
         Friend Shared _preset As String = String.Empty
         Friend Shared _custom As String = String.Empty
+        Friend Shared _priority As String = DEFAULT_PRIORITY
         Friend Shared _groups As New List(Of String)
 
         Private Shared _iPiMPPath As String = DEFAULT_IPIMPPATH
@@ -116,6 +118,7 @@ Namespace TVEngine
                 _iPiMPPath = layer.GetSetting("iPiMPTranscodeToMP4_iPiMPPath", DEFAULT_IPIMPPATH).Value
                 _transcodeTime = layer.GetSetting("iPiMPTranscodeToMP4_TranscodeTime", DEFAULT_STARTTIME).Value
                 _preset = layer.GetSetting("iPiMPTranscodeToMP4_Preset", DEFAULT_PRESET).Value
+                _priority = layer.GetSetting("iPiMPTranscodeToMP4_Priority", DEFAULT_PRIORITY).Value
                 _custom = layer.GetSetting("iPiMPTranscodeToMP4_Custom", DEFAULT_CUSTOM).Value
                 _preInterval = Int32.Parse(layer.GetSetting("preRecordInterval", "5").Value)
                 _postInterval = Int32.Parse(layer.GetSetting("postRecordInterval", "5").Value)
@@ -135,6 +138,7 @@ Namespace TVEngine
                 _iPiMPPath = DEFAULT_IPIMPPATH
                 _transcodeTime = DEFAULT_STARTTIME
                 _preset = DEFAULT_PRESET
+                _priority = DEFAULT_PRIORITY
                 _custom = DEFAULT_CUSTOM
                 _preInterval = 5
                 _postInterval = 5
@@ -264,6 +268,16 @@ Namespace TVEngine
                 process.StartInfo.Arguments = _params
                 process.StartInfo.WorkingDirectory = _workingFolder
                 process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
+                Select Case _priority.ToLower
+                    Case "normal"
+                        process.PriorityClass = ProcessPriorityClass.Normal
+                    Case "belownormal"
+                        process.PriorityClass = ProcessPriorityClass.BelowNormal
+                    Case "idle"
+                        process.PriorityClass = ProcessPriorityClass.Idle
+                    Case Else
+                        process.PriorityClass = ProcessPriorityClass.Normal
+                End Select
                 Log.Info("plugin: iPiMPTranscodeToMP4 - LaunchProcess: {0} {1}", _filename, _params)
                 process.Start()
                 Do Until process.HasExited

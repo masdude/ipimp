@@ -128,6 +128,17 @@ Namespace SetupTv.Sections
             Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox
             Me.Label10 = New System.Windows.Forms.Label
             Me.Label15 = New System.Windows.Forms.Label
+            Me.TabPage4 = New System.Windows.Forms.TabPage
+            Me.RichTextBox7 = New System.Windows.Forms.RichTextBox
+            Me.ComboBox1 = New System.Windows.Forms.ComboBox
+            Me.Label6 = New System.Windows.Forms.Label
+            Me.RadioButton1 = New System.Windows.Forms.RadioButton
+            Me.RadioButton2 = New System.Windows.Forms.RadioButton
+            Me.Label7 = New System.Windows.Forms.Label
+            Me.GroupBox4 = New System.Windows.Forms.GroupBox
+            Me.RichTextBox9 = New System.Windows.Forms.RichTextBox
+            Me.Priority = New System.Windows.Forms.ComboBox
+            Me.Label9 = New System.Windows.Forms.Label
             Me.TabControl1.SuspendLayout()
             Me.TabPage1.SuspendLayout()
             Me.GroupBox1.SuspendLayout()
@@ -140,11 +151,14 @@ Namespace SetupTv.Sections
             Me.GroupBox7.SuspendLayout()
             Me.TabPage2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
+            Me.TabPage4.SuspendLayout()
+            Me.GroupBox4.SuspendLayout()
             Me.SuspendLayout()
             '
             'TabControl1
             '
             Me.TabControl1.Controls.Add(Me.TabPage1)
+            Me.TabControl1.Controls.Add(Me.TabPage4)
             Me.TabControl1.Controls.Add(Me.TabPage3)
             Me.TabControl1.Controls.Add(Me.TabPage2)
             Me.TabControl1.Location = New System.Drawing.Point(12, 13)
@@ -461,8 +475,8 @@ Namespace SetupTv.Sections
             Me.RichTextBox6.Name = "RichTextBox6"
             Me.RichTextBox6.Size = New System.Drawing.Size(151, 61)
             Me.RichTextBox6.TabIndex = 6
-            Me.RichTextBox6.Text = "Enter command line:" & Global.Microsoft.VisualBasic.ChrW(10) & "Use the following variables:" & Global.Microsoft.VisualBasic.ChrW(10) & "    ""{0}"" = input filename" & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
-                " ""{1}"" = output filename"
+            Me.RichTextBox6.Text = "Enter command line:" & Global.Microsoft.VisualBasic.ChrW(10) & "Use the following variables:" & Global.Microsoft.VisualBasic.ChrW(10) & "    ""{0}"" = input filename" & Global.Microsoft.VisualBasic.ChrW(10) & "    """ & _
+                "{1}"" = output filename"
             '
             'Custom
             '
@@ -579,6 +593,115 @@ Namespace SetupTv.Sections
             Me.Label15.TabIndex = 0
             Me.Label15.Text = "Video bitrate"
             '
+            'TabPage4
+            '
+            Me.TabPage4.Controls.Add(Me.GroupBox4)
+            Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+            Me.TabPage4.Name = "TabPage4"
+            Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+            Me.TabPage4.Size = New System.Drawing.Size(454, 343)
+            Me.TabPage4.TabIndex = 4
+            Me.TabPage4.Text = "Transcode settings (2)"
+            Me.TabPage4.UseVisualStyleBackColor = True
+            '
+            'RichTextBox7
+            '
+            Me.RichTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
+            Me.RichTextBox7.Location = New System.Drawing.Point(6, 20)
+            Me.RichTextBox7.Name = "RichTextBox7"
+            Me.RichTextBox7.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+            Me.RichTextBox7.Size = New System.Drawing.Size(412, 44)
+            Me.RichTextBox7.TabIndex = 9
+            Me.RichTextBox7.Text = resources.GetString("RichTextBox7.Text")
+            '
+            'ComboBox1
+            '
+            Me.ComboBox1.FormattingEnabled = True
+            Me.ComboBox1.Items.AddRange(New Object() {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "never"})
+            Me.ComboBox1.Location = New System.Drawing.Point(362, 69)
+            Me.ComboBox1.Name = "ComboBox1"
+            Me.ComboBox1.Size = New System.Drawing.Size(71, 21)
+            Me.ComboBox1.TabIndex = 4
+            '
+            'Label6
+            '
+            Me.Label6.AutoSize = True
+            Me.Label6.Location = New System.Drawing.Point(279, 72)
+            Me.Label6.Name = "Label6"
+            Me.Label6.Size = New System.Drawing.Size(82, 13)
+            Me.Label6.TabIndex = 3
+            Me.Label6.Text = "Select start time"
+            '
+            'RadioButton1
+            '
+            Me.RadioButton1.AutoSize = True
+            Me.RadioButton1.Location = New System.Drawing.Point(200, 70)
+            Me.RadioButton1.Name = "RadioButton1"
+            Me.RadioButton1.Size = New System.Drawing.Size(39, 17)
+            Me.RadioButton1.TabIndex = 2
+            Me.RadioButton1.Text = "No"
+            Me.RadioButton1.UseVisualStyleBackColor = True
+            '
+            'RadioButton2
+            '
+            Me.RadioButton2.AutoSize = True
+            Me.RadioButton2.Checked = True
+            Me.RadioButton2.Location = New System.Drawing.Point(130, 70)
+            Me.RadioButton2.Name = "RadioButton2"
+            Me.RadioButton2.Size = New System.Drawing.Size(43, 17)
+            Me.RadioButton2.TabIndex = 1
+            Me.RadioButton2.TabStop = True
+            Me.RadioButton2.Text = "Yes"
+            Me.RadioButton2.UseVisualStyleBackColor = True
+            '
+            'Label7
+            '
+            Me.Label7.AutoSize = True
+            Me.Label7.Location = New System.Drawing.Point(6, 72)
+            Me.Label7.Name = "Label7"
+            Me.Label7.Size = New System.Drawing.Size(121, 13)
+            Me.Label7.TabIndex = 0
+            Me.Label7.Text = "Transcode immediately?"
+            '
+            'GroupBox4
+            '
+            Me.GroupBox4.Controls.Add(Me.RichTextBox9)
+            Me.GroupBox4.Controls.Add(Me.Priority)
+            Me.GroupBox4.Controls.Add(Me.Label9)
+            Me.GroupBox4.Location = New System.Drawing.Point(6, 5)
+            Me.GroupBox4.Name = "GroupBox4"
+            Me.GroupBox4.Size = New System.Drawing.Size(442, 118)
+            Me.GroupBox4.TabIndex = 7
+            Me.GroupBox4.TabStop = False
+            '
+            'RichTextBox9
+            '
+            Me.RichTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None
+            Me.RichTextBox9.Location = New System.Drawing.Point(9, 19)
+            Me.RichTextBox9.Name = "RichTextBox9"
+            Me.RichTextBox9.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+            Me.RichTextBox9.Size = New System.Drawing.Size(412, 59)
+            Me.RichTextBox9.TabIndex = 9
+            Me.RichTextBox9.Text = resources.GetString("RichTextBox9.Text")
+            '
+            'Priority
+            '
+            Me.Priority.FormattingEnabled = True
+            Me.Priority.Items.AddRange(New Object() {"Normal", "BelowNormal", "Idle"})
+            Me.Priority.Location = New System.Drawing.Point(291, 84)
+            Me.Priority.Name = "Priority"
+            Me.Priority.Size = New System.Drawing.Size(130, 21)
+            Me.Priority.TabIndex = 4
+            '
+            'Label9
+            '
+            Me.Label9.AutoSize = True
+            Me.Label9.Location = New System.Drawing.Point(6, 87)
+            Me.Label9.Name = "Label9"
+            Me.Label9.Size = New System.Drawing.Size(171, 13)
+            Me.Label9.TabIndex = 0
+            Me.Label9.Text = "Select transcoding process priority."
+            '
             'PluginSetup
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -605,6 +728,9 @@ Namespace SetupTv.Sections
             Me.GroupBox7.PerformLayout()
             Me.TabPage2.ResumeLayout(False)
             Me.GroupBox3.ResumeLayout(False)
+            Me.TabPage4.ResumeLayout(False)
+            Me.GroupBox4.ResumeLayout(False)
+            Me.GroupBox4.PerformLayout()
             Me.ResumeLayout(False)
 
         End Sub
@@ -652,6 +778,7 @@ Namespace SetupTv.Sections
 
             Preset.Text = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._preset
             Custom.Text = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._custom
+            Priority.Text = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._priority
 
         End Sub
 
@@ -707,6 +834,15 @@ Namespace SetupTv.Sections
             setting = layer.GetSetting("iPiMPTranscodeToMP4_TranscodeTime")
             setting.Value = Starttime.Text
             If TrYes.Checked Then setting.Value = ""
+            setting.Persist()
+
+            setting = layer.GetSetting("iPiMPTranscodeToMP4_Priority")
+            Select Case Custom.Text.ToLower
+                Case "normal", "belownormal", "idle"
+                    setting.Value = Custom.Text
+                Case Else
+                    setting.Value = "Normal"
+            End Select
             setting.Persist()
 
             setting = layer.GetSetting("iPiMPTranscodeToMP4_Groups")
@@ -843,6 +979,17 @@ Namespace SetupTv.Sections
                 Starttime.Visible = True
             End If
         End Sub
+        Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+        Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+        Friend WithEvents RichTextBox9 As System.Windows.Forms.RichTextBox
+        Friend WithEvents Priority As System.Windows.Forms.ComboBox
+        Friend WithEvents Label9 As System.Windows.Forms.Label
+        Friend WithEvents RichTextBox7 As System.Windows.Forms.RichTextBox
+        Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+        Friend WithEvents Label6 As System.Windows.Forms.Label
+        Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+        Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+        Friend WithEvents Label7 As System.Windows.Forms.Label
 
     End Class
 
