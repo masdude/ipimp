@@ -77,6 +77,17 @@ Namespace SetupTv.Sections
         Friend WithEvents CheckedListBox1 As System.Windows.Forms.CheckedListBox
         Friend WithEvents RichTextBox5 As System.Windows.Forms.RichTextBox
         Friend WithEvents RichTextBox6 As System.Windows.Forms.RichTextBox
+        Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+        Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+        Friend WithEvents RichTextBox9 As System.Windows.Forms.RichTextBox
+        Friend WithEvents Priority As System.Windows.Forms.ComboBox
+        Friend WithEvents Label9 As System.Windows.Forms.Label
+        Friend WithEvents RichTextBox7 As System.Windows.Forms.RichTextBox
+        Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+        Friend WithEvents Label6 As System.Windows.Forms.Label
+        Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+        Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+        Friend WithEvents Label7 As System.Windows.Forms.Label
 #End Region
 
         Public Sub New()
@@ -110,6 +121,11 @@ Namespace SetupTv.Sections
             Me.DelNo = New System.Windows.Forms.RadioButton
             Me.DelYes = New System.Windows.Forms.RadioButton
             Me.Label1 = New System.Windows.Forms.Label
+            Me.TabPage4 = New System.Windows.Forms.TabPage
+            Me.GroupBox4 = New System.Windows.Forms.GroupBox
+            Me.RichTextBox9 = New System.Windows.Forms.RichTextBox
+            Me.Priority = New System.Windows.Forms.ComboBox
+            Me.Label9 = New System.Windows.Forms.Label
             Me.TabPage3 = New System.Windows.Forms.TabPage
             Me.PictureBox1 = New System.Windows.Forms.PictureBox
             Me.Label11 = New System.Windows.Forms.Label
@@ -128,31 +144,26 @@ Namespace SetupTv.Sections
             Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox
             Me.Label10 = New System.Windows.Forms.Label
             Me.Label15 = New System.Windows.Forms.Label
-            Me.TabPage4 = New System.Windows.Forms.TabPage
             Me.RichTextBox7 = New System.Windows.Forms.RichTextBox
             Me.ComboBox1 = New System.Windows.Forms.ComboBox
             Me.Label6 = New System.Windows.Forms.Label
             Me.RadioButton1 = New System.Windows.Forms.RadioButton
             Me.RadioButton2 = New System.Windows.Forms.RadioButton
             Me.Label7 = New System.Windows.Forms.Label
-            Me.GroupBox4 = New System.Windows.Forms.GroupBox
-            Me.RichTextBox9 = New System.Windows.Forms.RichTextBox
-            Me.Priority = New System.Windows.Forms.ComboBox
-            Me.Label9 = New System.Windows.Forms.Label
             Me.TabControl1.SuspendLayout()
             Me.TabPage1.SuspendLayout()
             Me.GroupBox1.SuspendLayout()
             Me.GroupBox2.SuspendLayout()
             Me.MP4Group.SuspendLayout()
             Me.DelGroup.SuspendLayout()
+            Me.TabPage4.SuspendLayout()
+            Me.GroupBox4.SuspendLayout()
             Me.TabPage3.SuspendLayout()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.GroupBox8.SuspendLayout()
             Me.GroupBox7.SuspendLayout()
             Me.TabPage2.SuspendLayout()
             Me.GroupBox3.SuspendLayout()
-            Me.TabPage4.SuspendLayout()
-            Me.GroupBox4.SuspendLayout()
             Me.SuspendLayout()
             '
             'TabControl1
@@ -414,6 +425,56 @@ Namespace SetupTv.Sections
             Me.Label1.TabIndex = 0
             Me.Label1.Text = "Delete with recordings?"
             '
+            'TabPage4
+            '
+            Me.TabPage4.Controls.Add(Me.GroupBox4)
+            Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+            Me.TabPage4.Name = "TabPage4"
+            Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+            Me.TabPage4.Size = New System.Drawing.Size(454, 343)
+            Me.TabPage4.TabIndex = 4
+            Me.TabPage4.Text = "Transcode settings (2)"
+            Me.TabPage4.UseVisualStyleBackColor = True
+            '
+            'GroupBox4
+            '
+            Me.GroupBox4.Controls.Add(Me.RichTextBox9)
+            Me.GroupBox4.Controls.Add(Me.Priority)
+            Me.GroupBox4.Controls.Add(Me.Label9)
+            Me.GroupBox4.Location = New System.Drawing.Point(6, 5)
+            Me.GroupBox4.Name = "GroupBox4"
+            Me.GroupBox4.Size = New System.Drawing.Size(442, 118)
+            Me.GroupBox4.TabIndex = 7
+            Me.GroupBox4.TabStop = False
+            '
+            'RichTextBox9
+            '
+            Me.RichTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None
+            Me.RichTextBox9.Location = New System.Drawing.Point(9, 19)
+            Me.RichTextBox9.Name = "RichTextBox9"
+            Me.RichTextBox9.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+            Me.RichTextBox9.Size = New System.Drawing.Size(412, 59)
+            Me.RichTextBox9.TabIndex = 9
+            Me.RichTextBox9.Text = resources.GetString("RichTextBox9.Text")
+            '
+            'Priority
+            '
+            Me.Priority.FormattingEnabled = True
+            Me.Priority.Items.AddRange(New Object() {"Normal", "BelowNormal", "Idle"})
+            Me.Priority.Location = New System.Drawing.Point(291, 84)
+            Me.Priority.Name = "Priority"
+            Me.Priority.Size = New System.Drawing.Size(130, 21)
+            Me.Priority.TabIndex = 4
+            '
+            'Label9
+            '
+            Me.Label9.AutoSize = True
+            Me.Label9.Location = New System.Drawing.Point(6, 87)
+            Me.Label9.Name = "Label9"
+            Me.Label9.Size = New System.Drawing.Size(171, 13)
+            Me.Label9.TabIndex = 0
+            Me.Label9.Text = "Select transcoding process priority."
+            '
             'TabPage3
             '
             Me.TabPage3.Controls.Add(Me.PictureBox1)
@@ -593,17 +654,6 @@ Namespace SetupTv.Sections
             Me.Label15.TabIndex = 0
             Me.Label15.Text = "Video bitrate"
             '
-            'TabPage4
-            '
-            Me.TabPage4.Controls.Add(Me.GroupBox4)
-            Me.TabPage4.Location = New System.Drawing.Point(4, 22)
-            Me.TabPage4.Name = "TabPage4"
-            Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-            Me.TabPage4.Size = New System.Drawing.Size(454, 343)
-            Me.TabPage4.TabIndex = 4
-            Me.TabPage4.Text = "Transcode settings (2)"
-            Me.TabPage4.UseVisualStyleBackColor = True
-            '
             'RichTextBox7
             '
             Me.RichTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -663,45 +713,6 @@ Namespace SetupTv.Sections
             Me.Label7.TabIndex = 0
             Me.Label7.Text = "Transcode immediately?"
             '
-            'GroupBox4
-            '
-            Me.GroupBox4.Controls.Add(Me.RichTextBox9)
-            Me.GroupBox4.Controls.Add(Me.Priority)
-            Me.GroupBox4.Controls.Add(Me.Label9)
-            Me.GroupBox4.Location = New System.Drawing.Point(6, 5)
-            Me.GroupBox4.Name = "GroupBox4"
-            Me.GroupBox4.Size = New System.Drawing.Size(442, 118)
-            Me.GroupBox4.TabIndex = 7
-            Me.GroupBox4.TabStop = False
-            '
-            'RichTextBox9
-            '
-            Me.RichTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None
-            Me.RichTextBox9.Location = New System.Drawing.Point(9, 19)
-            Me.RichTextBox9.Name = "RichTextBox9"
-            Me.RichTextBox9.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-            Me.RichTextBox9.Size = New System.Drawing.Size(412, 59)
-            Me.RichTextBox9.TabIndex = 9
-            Me.RichTextBox9.Text = resources.GetString("RichTextBox9.Text")
-            '
-            'Priority
-            '
-            Me.Priority.FormattingEnabled = True
-            Me.Priority.Items.AddRange(New Object() {"Normal", "BelowNormal", "Idle"})
-            Me.Priority.Location = New System.Drawing.Point(291, 84)
-            Me.Priority.Name = "Priority"
-            Me.Priority.Size = New System.Drawing.Size(130, 21)
-            Me.Priority.TabIndex = 4
-            '
-            'Label9
-            '
-            Me.Label9.AutoSize = True
-            Me.Label9.Location = New System.Drawing.Point(6, 87)
-            Me.Label9.Name = "Label9"
-            Me.Label9.Size = New System.Drawing.Size(171, 13)
-            Me.Label9.TabIndex = 0
-            Me.Label9.Text = "Select transcoding process priority."
-            '
             'PluginSetup
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -720,6 +731,9 @@ Namespace SetupTv.Sections
             Me.MP4Group.PerformLayout()
             Me.DelGroup.ResumeLayout(False)
             Me.DelGroup.PerformLayout()
+            Me.TabPage4.ResumeLayout(False)
+            Me.GroupBox4.ResumeLayout(False)
+            Me.GroupBox4.PerformLayout()
             Me.TabPage3.ResumeLayout(False)
             Me.TabPage3.PerformLayout()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -728,9 +742,6 @@ Namespace SetupTv.Sections
             Me.GroupBox7.PerformLayout()
             Me.TabPage2.ResumeLayout(False)
             Me.GroupBox3.ResumeLayout(False)
-            Me.TabPage4.ResumeLayout(False)
-            Me.GroupBox4.ResumeLayout(False)
-            Me.GroupBox4.PerformLayout()
             Me.ResumeLayout(False)
 
         End Sub
@@ -837,9 +848,9 @@ Namespace SetupTv.Sections
             setting.Persist()
 
             setting = layer.GetSetting("iPiMPTranscodeToMP4_Priority")
-            Select Case Custom.Text.ToLower
+            Select Case Priority.Text.ToLower
                 Case "normal", "belownormal", "idle"
-                    setting.Value = Custom.Text
+                    setting.Value = Priority.Text
                 Case Else
                     setting.Value = "Normal"
             End Select
@@ -886,7 +897,7 @@ Namespace SetupTv.Sections
         Private Sub UpdateTranscoderSettingsTab()
 
             If FFMpeg.Checked Then
-                TabControl1.TabPages(1).Text = "FFMpeg settings"
+                TabControl1.TabPages(2).Text = "FFMpeg settings"
                 PictureBox1.Image = My.Resources.ffmpeg
                 Label11.Text = "FFMpeg settings"
                 Label11.ForeColor = Color.Green
@@ -931,7 +942,7 @@ Namespace SetupTv.Sections
                 Link.Text = "Read more about FFMpeg"
                 Preset.Text = "libx264-iPiMP"
             Else
-                TabControl1.TabPages(1).Text = "HandBrake settings"
+                TabControl1.TabPages(2).Text = "HandBrake settings"
                 PictureBox1.Image = My.Resources.handbrake
                 Label11.Text = "HandBrake settings"
                 Label11.ForeColor = Color.CornflowerBlue
@@ -979,17 +990,6 @@ Namespace SetupTv.Sections
                 Starttime.Visible = True
             End If
         End Sub
-        Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-        Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-        Friend WithEvents RichTextBox9 As System.Windows.Forms.RichTextBox
-        Friend WithEvents Priority As System.Windows.Forms.ComboBox
-        Friend WithEvents Label9 As System.Windows.Forms.Label
-        Friend WithEvents RichTextBox7 As System.Windows.Forms.RichTextBox
-        Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-        Friend WithEvents Label6 As System.Windows.Forms.Label
-        Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
-        Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
-        Friend WithEvents Label7 As System.Windows.Forms.Label
 
     End Class
 
