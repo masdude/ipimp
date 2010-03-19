@@ -102,6 +102,7 @@ Namespace uWiMP.TVServer
         End Property
 
 #Region "Transcoding settings"
+
         Const DEFAULT_DELETE = True
         Const DEFAULT_TRANSCODE = True
         Const DEFAULT_STARTTIME = "01:00"
@@ -110,6 +111,7 @@ Namespace uWiMP.TVServer
         Const DEFAULT_IPIMPPATH = "C:\Program Files\iPiMP\Utilities"
         Const DEFAULT_PRESET = "iPhone & iPod Touch"
         Const DEFAULT_CUSTOM = ""
+        Const DEFAULT_PRIORITY = "Normal"
         Const DEFAULT_GROUPS = ""
 
         Private Shared _transcodeNow As Boolean = DEFAULT_TRANSCODE
@@ -119,14 +121,17 @@ Namespace uWiMP.TVServer
         Private Shared _transcodeTime As String = DEFAULT_STARTTIME
         Private Shared _preset As String = String.Empty
         Private Shared _custom As String = String.Empty
+        Private Shared _priority As String = DEFAULT_PRIORITY
         Private Shared _groups As New List(Of String)
 
         Private Shared _iPiMPPath As String = DEFAULT_IPIMPPATH
         Private Shared _transcoderPath As String = String.Empty
+        Private Shared _presetPath As String = String.Empty
         Private Shared _mtnPath As String = String.Empty
-        Private Shared appSettings As NameValueCollection = ConfigurationManager.AppSettings
         Private Shared _preInterval As Integer = 0
         Private Shared _postInterval As Integer = 0
+
+        Private Shared appSettings As NameValueCollection = ConfigurationManager.AppSettings
 
         Private Sub LoadSettings()
 
@@ -142,6 +147,7 @@ Namespace uWiMP.TVServer
                 _iPiMPPath = layer.GetSetting("iPiMPTranscodeToMP4_iPiMPPath", DEFAULT_IPIMPPATH).Value
                 _transcodeTime = layer.GetSetting("iPiMPTranscodeToMP4_TranscodeTime", DEFAULT_STARTTIME).Value
                 _preset = layer.GetSetting("iPiMPTranscodeToMP4_Preset", DEFAULT_PRESET).Value
+                _priority = layer.GetSetting("iPiMPTranscodeToMP4_Priority", DEFAULT_PRIORITY).Value
                 _custom = layer.GetSetting("iPiMPTranscodeToMP4_Custom", DEFAULT_CUSTOM).Value
                 _preInterval = Int32.Parse(layer.GetSetting("preRecordInterval", "5").Value)
                 _postInterval = Int32.Parse(layer.GetSetting("postRecordInterval", "5").Value)
@@ -161,9 +167,12 @@ Namespace uWiMP.TVServer
                 _iPiMPPath = DEFAULT_IPIMPPATH
                 _transcodeTime = DEFAULT_STARTTIME
                 _preset = DEFAULT_PRESET
+                _priority = DEFAULT_PRIORITY
                 _custom = DEFAULT_CUSTOM
                 _preInterval = 5
                 _postInterval = 5
+
+                Log.Error("plugin: iPiMPTranscodeToMP4 - LoadSettings(): {0}", ex.Message)
 
             End Try
 
@@ -173,6 +182,7 @@ Namespace uWiMP.TVServer
                 _transcoderPath = String.Format("{0}\HandBrake\HandBrakeCLI.exe", _iPiMPPath)
             Else
                 _transcoderPath = String.Format("{0}\FFMpeg\FFMpeg.exe", _iPiMPPath)
+                _presetPath = String.Format("{0}\FFMpeg\FFPresets", _iPiMPPath)
             End If
 
         End Sub
@@ -228,11 +238,18 @@ Namespace uWiMP.TVServer
             '{0} = input filename
             '{1} = output filename
             '{2} = preset
-            Dim _ffparams As String = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -vpre {2} -s 480x272 -bt 256k -acodec libmp3lame -ab 128k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _preset)
-            Dim _hbparams As String = String.Format("""{2}"" -i ""{0}"" -o ""{1}""", _recFilename, _outfile, _preset)
-            Dim _params As String = IIf(_transcoder.ToLower = "ffmpeg", _ffparams, _hbparams)
+            Dim params As String = String.Empty
+            If _custom.Length > 0 Then
+                params = String.Format(_custom, _recFilename, _outfile)
+            ElseIf _transcoder.ToLower = "ffmpeg" Then
+                params = String.Format("-i ""{0}"" -threads 4 -re -vcodec libx264 -fpre ""{2}\{3}.ffpreset"" -s 480x272 -bt 256k -acodec libfaac -ab 128k -ar 48000 -ac 2 -async 2 ""{1}""", _recFilename, _outfile, _presetPath, _preset)
+            ElseIf _transcoder.ToLower = "handbrake" Then
+                params = String.Format("""{0}"" -i ""{1}"" -o ""{2}""", _preset, _recFilename, _outfile)
+            Else
+                Log.Info("plugin: iPiMPTranscodeToMP4 - could not determine transcoding options.")
+            End If
 
-            LaunchProcess(String.Format("""{0}""", _transcoderPath), _params, String.Format("""{0}""", _folderPath), True)
+            LaunchProcess(String.Format("""{0}""", _transcoderPath), params, String.Format("""{0}""", _folderPath), True)
 
         End Sub
 
@@ -251,6 +268,17 @@ Namespace uWiMP.TVServer
                     .UseShellExecute = False
                     .RedirectStandardOutput = True
                 End With
+
+                Select Case _priority.ToLower
+                    Case "normal"
+                        process.PriorityClass = ProcessPriorityClass.Normal
+                    Case "belownormal"
+                        process.PriorityClass = ProcessPriorityClass.BelowNormal
+                    Case "idle"
+                        process.PriorityClass = ProcessPriorityClass.Idle
+                    Case Else
+                        process.PriorityClass = ProcessPriorityClass.Normal
+                End Select
 
                 process.Start()
                 process.WaitForExit()
