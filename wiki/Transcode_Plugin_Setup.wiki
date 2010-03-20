@@ -1,18 +1,26 @@
 #sidebar TOC
-You need to enable the TV Server transcode plugin, to do this launch the !MediaPortal TV Server Configuration utility and select the plugins branch.<br><br>
+The TV Server transcode plugin is enabled by default now, the installer will restart your TV server to enable it.<br><br>
 
-http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-012.PNG<br><br>
+Select the iPiMPTranscodeToMP4 configuration branch to review the settings saved by the installer.<br><br>
 
-Enable the iPiMPTranscodeToMP4 plugin by ticking its checkbox, this will add the iPiMPTranscodeToMP4 configuration option to the Plugins branch.<br><br>
+You can select whether to use FFmpeg or Handbrake as the transcoder.<br><br>
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-014b.PNG<br><br>
 
-http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-013.PNG<br><br>
+You can change the priority of the transcoding process so that it doesn't hog your CPU cycles.<br><br>
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-014c.PNG<br><br>
 
-Select the iPiMPTransdoceToMP4 configuration branch to review the settings saved by the installer.<br><br>
+You can select from a predefined list of FFmpeg preset files for the x264 codec, alternatively you can enter a manual command line substituting "{0}" where the input filename should be and "{1}" where the outpput filename should be.<br><br>
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-014d.PNG<br><br>
 
-http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-014.PNG<br><br>
+Similarly you can select from a predefined list of Handbrake preset files, including one tested on the Nexus One smartphone. Again you can enter a manual command line substituting "{0}" where the input filename should be and "{1}" where the output filename should be.<br><br>
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-014e.PNG<br><br>
 
-You can edit the parameters passed to the ffmpeg process to generate the MP4 files, if you do change this you must use {0} for the video bitrate and {1} for the audio bitrate.  The Default button will reset the paramteres to the iPiMP default.<br><br>
-To startup the transcode plugin the !MediaPortal TV Server service should be restarted, this will interrupt any live TV viewing or recordings briefly.<br><br>
+
+Finally you can exclude specific channel groups from being encoded.<br><br>
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-014f.PNG<br><br>
+
+If you change any of the settings you should restart the !MediaPortal TV Server service, this will interrupt any live TV viewing or recordings briefly.<br><br>
+
 To restart the TV Server service, select Manual Control and click the button labeled ‘Stop Service’, once the service has stopped this button will say ‘Start Service’ so click it again to restart the TV Server service.<br><br>
 
 http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-015.PNG<br><br>
