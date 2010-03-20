@@ -5,8 +5,6 @@
   File "..\Include\Aspx\Global.asax"
   File "..\Include\Aspx\Web.config"
 
-  SetOutPath "$INSTDIR\Aspx\App_Data"
-
   SetOutPath "$INSTDIR\Aspx\App_GlobalResources"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.da.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.de.resx"
@@ -36,8 +34,6 @@
   File "..\Include\Aspx\bin\uWiMPweb.dll"
   File "..\Include\Aspx\bin\uWiMPweb.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.xml"
-
-  SetOutPath "$INSTDIR\Aspx\Code"
 
   SetOutPath "$INSTDIR\Aspx\Desktop"
   File "..\Include\Aspx\Desktop\Default.aspx"
