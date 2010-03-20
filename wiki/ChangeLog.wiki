@@ -11,6 +11,8 @@ Next version updates include *not yet released*
  * TV transcode plugin - refactored scheduling code
  * TV transcode plugin - added option to exclude channel groups from being transcoded
  * TV transcode plugin - removed video & audio bitrate settings, use custom command line parameters if needed
+ * TV transcode plugin - added ability to modify the transcode process priority
+ * TV transcode plugin - added Handbrake preset for the Nexus One (thanks CHli)
  * Installer - added Handbrake / ffmpeg selection
  * Installer - Installing the transcoding plugin will now enable the plugin by default & restart TV server
  * Installer - Installs Handbrake GUI instead of iPiMPTranscodeClient utility
