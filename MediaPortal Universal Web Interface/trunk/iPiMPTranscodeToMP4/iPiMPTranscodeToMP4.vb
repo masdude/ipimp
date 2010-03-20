@@ -272,6 +272,8 @@ Namespace TVEngine
                 process.StartInfo.Arguments = _params
                 process.StartInfo.WorkingDirectory = _workingFolder
                 process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
+                Log.Info("plugin: iPiMPTranscodeToMP4 - LaunchProcess: {0} {1}", _filename, _params)
+                process.Start()
                 Select Case _priority.ToLower
                     Case "normal"
                         process.PriorityClass = ProcessPriorityClass.Normal
@@ -282,8 +284,6 @@ Namespace TVEngine
                     Case Else
                         process.PriorityClass = ProcessPriorityClass.Normal
                 End Select
-                Log.Info("plugin: iPiMPTranscodeToMP4 - LaunchProcess: {0} {1}", _filename, _params)
-                process.Start()
                 Do Until process.HasExited
                     System.Threading.Thread.Sleep(1000)
                 Loop

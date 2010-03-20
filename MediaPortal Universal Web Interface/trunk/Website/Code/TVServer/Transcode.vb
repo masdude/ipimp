@@ -273,6 +273,8 @@ Namespace uWiMP.TVServer
                     .RedirectStandardOutput = True
                 End With
 
+                process.Start()
+
                 Select Case _priority.ToLower
                     Case "normal"
                         process.PriorityClass = ProcessPriorityClass.Normal
@@ -284,7 +286,6 @@ Namespace uWiMP.TVServer
                         process.PriorityClass = ProcessPriorityClass.Normal
                 End Select
 
-                process.Start()
                 process.WaitForExit()
 
                 If reportSuccess Then
