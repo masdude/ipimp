@@ -144,8 +144,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PreBuildEvent>"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "$(SolutionDir)iPiMPTranscodeToMP4" "$(ProjectDir)My Project\AssemblyInfo_temp.vb" "$(ProjectDir)My Project\AssemblyInfo.vb"
-
-COPY /Y "$(SolutionDir)NSIS Installer\Installer\InstallSections\TVServerPlugin_$(ConfigurationName).nsh" "$(SolutionDir)NSIS Installer\Installer\InstallSections\TVServerPlugin.nsh"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>
