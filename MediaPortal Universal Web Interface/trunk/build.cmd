@@ -75,10 +75,6 @@ REM Update assembly version with SVN revision
 "C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\Website" "%CD%\Website\My Project\AssemblyInfo_temp.vb" "%CD%\Website\My Project\AssemblyInfo.vb"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
-REM Update installer version with website SVN revision
-"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\Website" "%CD%\NSIS Installer\Installer\Definitions\ProductDetails_temp.nsh" "%CD%\NSIS Installer\Installer\Definitions\ProductDetails.nsh"
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-
 REM Build the website project
 PUSHD Website
 %WINDIR%\Microsoft.NET\Framework\v3.5\MSBuild.exe /p:Configuration=Release
@@ -100,6 +96,10 @@ IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 REM ==================
 REM Installer
 REM ==================
+
+REM Update installer version with website SVN revision
+"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\Website" "%CD%\NSIS Installer\Installer\Definitions\ProductDetails_temp.nsh" "%CD%\NSIS Installer\Installer\Definitions\ProductDetails.nsh"
+IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Build the installer
 "C:\Program Files (x86)\NSIS\makensis.exe" /V4 /NOTIFYHWND 1640592 "%CD%\NSIS Installer\Installer\Main installer.nsi"
