@@ -1,7 +1,7 @@
 #sidebar TOC
 The iPiMP install file can be downloaded from the iPiMP project home page on Google Code.
 
-The current version is 4.0.0 and requires !MediaPortal 1.0.1 or 1.0.2 to be installed.
+The current version is 4.2.0 and requires !MediaPortal 1.0.1 or 1.0.2 to be installed. There is also a released compiled with MediaPortal 1.1.0 RC1, however testing is not as rigorous for this.
 
 Running the installer brings up the Welcome to iPiMP window where you can select whether to perform an advanced installation.  This option will allow users to select individual components to install and is provided for those advanced users who already have their own web servers installed, for most users the standard install options will cover the most common !MediaPortal installation scenarios.
 
