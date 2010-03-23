@@ -8,7 +8,7 @@ You can also use iPiMP to interact with your !MediaPortal clients, you can use i
 To deliver all this iPiMP consists of a number of components:
  * Apache 2.2.14 web server with the mod_aspdotnet module
  * iPiMP web application
- * iPiMP TV server transcode plugin and ffmpeg
+ * iPiMP TV server transcode plugin, ffmpeg & Handbrake
  * iPiMP !MediaPortal client controller
 
 The iPiMP installer provides standard and advanced install options to hopefully cover everyone’s needs.
