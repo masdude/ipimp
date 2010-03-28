@@ -1,13 +1,5 @@
 #sidebar TOC
  
- === These are current known issues with iPiMP 4.0.1 ===
+ === These are current known issues with iPiMP 4.2.0 ===
 
- * *Cannot see !MediaPortal Clients menu item in the Administration menu*
- This issue occurs when you select 'Dedicated TV Server Installation' as the standard install type.  The idea was that some users may not want to use the !MediaPortal client functionality so there should be a way to hide these menu items.  This needs tidying up in the installer/application as it's not quite right ;-)
-
- The workaround is to set the 'USEMPCLIENT' setting in web.config to true.  
-
- * *TV Server crashes if you install the iPiMPTranscodeToMP4 plugin and select never*
- This issue occurs if you have a non-english PC and select 'never' as the answer to the 'Do you want to transcode immediately?' question in the installer.  The iPiMP web app was made multi lingual with 4.0.0, unfortunately the TV server plugin wasn't. :sorry:
-
- The workaround is to set the value to never in the iPiMPTranscodeToMP4 plugin setup form. 
+ * *None*
