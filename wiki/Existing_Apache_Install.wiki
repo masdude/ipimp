@@ -1,6 +1,6 @@
 #sidebar TOC
 
-Here are the steps required to get iPiMP running in an existing Apache installation.  It assumes you have selected the *Advanced Installation* option and have selected at least options 2 (Apache mod_aspdotnet) and 3 (iPiMP web files). 
+Here are the steps required to get iPiMP running in an existing Apache installation, you can skip this page if you used a *Simple Installation* option.  It assumes you have selected the *Advanced Installation* option and have selected at least options 2 (Apache mod_aspdotnet) and 3 (iPiMP web files). 
 
 http://www.vanderboon.co.uk/ipimp/ExistingApache-002.PNG
 
