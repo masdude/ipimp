@@ -4,7 +4,7 @@ Here are the steps required to get iPiMP running in an existing Apache installat
 
 http://www.vanderboon.co.uk/ipimp/ExistingApache-002.PNG
 
- # Download this include-iPiMP.conf file and save it as C:\Program Files\iPiMP\Apache\Conf\include-iPiMP.conf
+ # Download this [http://ipimp.googlecode.com/files/include-iPiMP.conf|include-iPiMP.conf] file and save it as C:\Program Files\iPiMP\Apache\Conf\include-iPiMP.conf
  # Edit this file as follows:
   * Change ##PORT## to a port of your choosing (Lines 1, 2 & 3)
   * If required, change the paths on lines 4, 8, 14, 15, 16, 17, 19, 26, 32, 38 & 39
