@@ -1,1 +1,19 @@
 #sidebar TOC
+
+Here are the steps required to get iPiMP running in an existing Apache installation.  It assumes you have selected the *Advanced Installation* option and have selected at least options 2 (Apache mod_aspdotnet) and 3 (iPiMP web files). 
+
+http://www.vanderboon.co.uk/ipimp/ExistingApache-002.PNG
+
+ # Download this include-iPiMP.conf file and save it as C:\Program Files\iPiMP\Apache\Conf\include-iPiMP.conf
+ # Edit this file as follows:
+  * Change ##PORT## to a port of your choosing (Lines 1, 2 & 3)
+  * If required, change the paths on lines 4, 8, 14, 15, 16, 17, 19, 26, 32, 38 & 39
+ # Open your C:\Program Files\iPiMP\Aspx\web.conf and add a valid value in the timeout attributes on lines 30 & 45.  These values are explained in the [TipsAndTricks] section.
+ # Add the following line to the end of your existing Apache httpd.conf file:
+{{{
+Include "C:/Program Files (x86)/iPiMP/apache/Conf/include-iPiMP.conf"
+}}}
+ # Restart your Apache daemon.
+
+
+These instructions are manual at the moment, this functionality will be added to the Advanced Install option in a future release.
