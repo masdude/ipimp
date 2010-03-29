@@ -12,7 +12,7 @@ http://www.vanderboon.co.uk/ipimp/ExistingApache-002.PNG
  # Add the following line to the end of your existing Apache httpd.conf file:
 {{{
 Include "C:/Program Files/iPiMP/apache/Conf/iPiMPinclude.conf"
-}}}<br><br>
+}}}
  # Restart your Apache daemon.<br><br>
 
 
