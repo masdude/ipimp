@@ -17,3 +17,5 @@ Include "C:/Program Files/iPiMP/apache/Conf/iPiMPinclude.conf"
 
 
 These instructions are manual at the moment, this functionality will be added to the Advanced Install option in a future release.
+
+[Usage Next]
