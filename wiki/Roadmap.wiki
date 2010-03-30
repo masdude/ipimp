@@ -22,10 +22,12 @@ This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  The
 
  * Add Last.FM to MP client plugin
 
- * Add Handbrake support 
+ * ~~Add Handbrake support~~  DONE 
 
  * Add PIN protection for Moving Pictures
 
  * Add My Radio
 
  * Expand customised menus
+
+ * Update installer for existing Apache installs
