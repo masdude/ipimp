@@ -23,7 +23,7 @@ Var p4DropList2
 
 Function ApacheOptions
 
-        StrCmp $InstallApache "1" +2
+        StrCmp $UpdateApacheConfig "1" +2
         Abort
 
 	nsDialogs::Create 1044
@@ -182,7 +182,7 @@ Function ApacheOptionsValidate
         StrCmp $TCPPort "" +1 +2
         StrCpy $TCPPort "80"
         StrCmp $IPAddress "" +1 +3
-        StrCpy $Listen "$TCPPort"
+        StrCpy $Listen "*:$TCPPort"
         Goto +2
         StrCpy $Listen "$IPAddress:$TCPPort"
 
