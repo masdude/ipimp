@@ -27,6 +27,8 @@ var InstallNoTVServer
 var InstallNoMPClient
 var InstallHandbrake
 var InstallFFMpeg
+var UpdateWebConfig
+var UpdateApacheConfig
 
 var Timeout
 var Pagesize

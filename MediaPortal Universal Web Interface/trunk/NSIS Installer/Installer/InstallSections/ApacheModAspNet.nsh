@@ -17,7 +17,10 @@ Section ApacheModAspNet
   File "..\Include\Utilities\mod_aspdotnet\gacutil.exe"
   File "..\Include\Utilities\mod_aspdotnet\gacutil.exe.config"
 
-  SetOutPath "$INSTDIR\apache\modules"
+  SetOutPath "$INSTDIR\Apache\conf"
+  File "..\Include\Apache\conf\iPiMPinclude.conf"
+
+  SetOutPath "$INSTDIR\Apache\modules"
   File "..\Include\Utilities\mod_aspdotnet\mod_aspdotnet.so"
 
   DetailPrint "Registering Apache ASP.NET module"

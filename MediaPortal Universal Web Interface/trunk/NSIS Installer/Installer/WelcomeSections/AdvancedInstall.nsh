@@ -210,17 +210,22 @@ Function AdvancedInstallValidate
        	StrCpy $InstalliPiMPWeb "0"
        	StrCpy $InstalliPiMPTVplugin "0"
        	StrCpy $InstalliPiMPMPplugin "0"
+        StrCpy $UpdateWebConfig "0"
+        StrCpy $UpdateApacheConfig "0"
 
         ${If} $p3Checkbox1_State == ${BST_CHECKED}
               	StrCpy $InstallApache "1"
+                StrCpy $UpdateApacheConfig "1"
         ${EndIf}
 
         ${If} $p3Checkbox2_State == ${BST_CHECKED}
                 StrCpy $InstallModAspNet "1"
+                StrCpy $UpdateApacheConfig "1"
         ${EndIf}
 
         ${If} $p3Checkbox3_State == ${BST_CHECKED}
                 StrCpy $InstalliPiMPWeb "1"
+                StrCpy $UpdateWebConfig "1"
         ${EndIf}
 
         ${If} $p3Checkbox4_State == ${BST_CHECKED}

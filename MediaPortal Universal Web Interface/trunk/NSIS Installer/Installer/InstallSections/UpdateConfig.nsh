@@ -1,7 +1,7 @@
 Section UpdateConfig
 
 
-  ${If} $InstalliPiMPWeb = "0"
+  ${If} $UpdateWebConfig = "0"
     ${If} ${IPIMPDEBUG} == "1"
       MessageBox MB_OK|MB_ICONINFORMATION "UpdateConfig skipped"
     ${EndIf}
@@ -30,13 +30,14 @@ Section UpdateConfig
     ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##MPCLIENT##" "false" "/S=1 /C=0 /AO=1" $0
   ${EndIf}
 
-  ${If} $InstallApache = "0"
+  ${If} $UpdateApacheConfig = "0"
     ${If} ${IPIMPDEBUG} == "1"
       MessageBox MB_OK|MB_ICONINFORMATION "UpdateConfig part 2 skipped"
     ${EndIf}
     Return
   ${EndIf}
   
+  DetailPrint "Patching iPiMP.conf and iPiMPinclude.conf"
   ${If} $InstalliPiMPTVplugin = "0"
     StrCpy $MP4Path "DummyDir"
   ${EndIf}
@@ -58,22 +59,32 @@ Section UpdateConfig
   Call StrSlash
   Pop $R0
   ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMP.conf" "$INSTDIR\Apache\conf\iPiMP.conf" "##DOCUMENTROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMPinclude.conf" "$INSTDIR\Apache\conf\iPiMPinclude.conf" "##DOCUMENTROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
 
   Push "$LogoPath"
   Push "\"
   Call StrSlash
   Pop $R0
   ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMP.conf" "$INSTDIR\Apache\conf\iPiMP.conf" "##TVIMAGEROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMPinclude.conf" "$INSTDIR\Apache\conf\iPiMPinclude.conf" "##TVIMAGEROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
 
   Push "$MP4Path"
   Push "\"
   Call StrSlash
   Pop $R0
   ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMP.conf" "$INSTDIR\Apache\conf\iPiMP.conf" "##MP4ROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMPinclude.conf" "$INSTDIR\Apache\conf\iPiMPinclude.conf" "##MP4ROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
 
   ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMP.conf" "$INSTDIR\Apache\conf\iPiMP.conf" "##PORT##" "$TCPPort" "/S=1 /C=0 /AO=1" $0
 
   ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMP.conf" "$INSTDIR\Apache\conf\iPiMP.conf" "##LISTEN##" "$Listen" "/S=1 /C=0 /AO=1" $0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMPinclude.conf" "$INSTDIR\Apache\conf\iPiMPinclude.conf" "##LISTEN##" "$Listen" "/S=1 /C=0 /AO=1" $0
+
+  Push "$INSTDIR"
+  Push "\"
+  Call StrSlash
+  Pop $R0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMPinclude.conf" "$INSTDIR\Apache\conf\iPiMPinclude.conf" "##INSTDIR##" "$R0" "/S=1 /C=0 /AO=1" $0
 
   ${textreplace::Unload}
 
