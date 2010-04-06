@@ -85,8 +85,9 @@ function tvsearch(group) {
     var doc = document.getElementById('jsTVSearchGenre');
     var o = doc.childNodes;
     var genre = o[0].firstChild.innerHTML;
-
-    WA.Request('TVGuide/SearchTVGuideResults.aspx?group=' + group + '&search=' + search + '&genre=' + genre + '#_SearchResults' + group, null, -1, true, null);
+    var desc = document.getElementById('jsSearchDesc').checked;
+    
+    WA.Request('TVGuide/SearchTVGuideResults.aspx?group=' + group + '&search=' + search + '&genre=' + genre + '&desc=' + desc + '#_SearchResults' + group, null, -1, true, null);
     return false;
 }
 

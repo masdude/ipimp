@@ -104,6 +104,7 @@ Partial Public Class SearchTVGuide
                 markup += String.Format("<label><input type=""radio"" name=""jsTVSearchGenre"" value=""{0}"" /> {1}</label>", safeGenre, genre)
             End If
         Next
+        markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsSearchDesc"" class=""iToggle"" title=""{1}"" /></li>", GetGlobalResourceObject("uWiMPStrings", "search_description"), GetGlobalResourceObject("uWiMPStrings", "yesno"))
 
         markup += "</li>"
         markup += "</ul>"
