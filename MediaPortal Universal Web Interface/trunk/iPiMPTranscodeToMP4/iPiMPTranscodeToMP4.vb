@@ -254,7 +254,7 @@ Namespace TVEngine
                 If _preset.ToLower = "nexus one" Then
                     params = String.Format("-i ""{0}"" -t 1 -c 1 -o ""{1}"" -f mp4 -I  -O  -X 800 -e x264 -b 1024 -a 1 -E faac -6 dpl2 -R 48 -B 128 -D 0.0 -x cabac=0:ref=1:me=umh:bframes=0:subq=6:8x8dct=0:trellis=0:weightb=0:mixed-refs=0:no-fast-pskip=1:analyse=all -v 1", _recFilename, _outfile)
                 Else
-                    params = String.Format("""{0}"" -i ""{1}"" -o ""{2}""", _preset, _recFilename, _outfile)
+                    params = String.Format("-Z ""{0}"" -i ""{1}"" -o ""{2}""", _preset, _recFilename, _outfile)
                 End If
             Else
                 Log.Info("plugin: iPiMPTranscodeToMP4 - could not determine transcoding options.")
