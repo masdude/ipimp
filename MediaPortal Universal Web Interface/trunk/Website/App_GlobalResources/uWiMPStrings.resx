@@ -1001,4 +1001,7 @@
   <data name="select_colour" xml:space="preserve">
     <value>Select colour</value>
   </data>
+  <data name="search_description" xml:space="preserve">
+    <value>Search description?</value>
+  </data>
 </root>

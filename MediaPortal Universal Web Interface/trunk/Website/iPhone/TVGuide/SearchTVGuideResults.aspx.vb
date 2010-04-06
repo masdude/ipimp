@@ -32,6 +32,7 @@ Partial Public Class SearchTVGuideResults
         Dim wa As String = "waSearchResults" & groupID
         Dim search As String = Request.QueryString("search")
         Dim genre As String = Request.QueryString("genre")
+        Dim desc As Boolean = CBool(Request.QueryString("desc"))
         If genre = "" Then genre = "all"
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
@@ -65,7 +66,7 @@ Partial Public Class SearchTVGuideResults
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplaySearchResults(wa, groupID, genre, search))
+        xw.WriteCData(DisplaySearchResults(wa, groupID, genre, search, desc))
         xw.WriteEndElement()
         'end data
 
@@ -78,17 +79,18 @@ Partial Public Class SearchTVGuideResults
 
     End Sub
 
-    Private Function DisplaySearchResults(ByVal wa As String, ByVal groupID As String, ByVal genre As String, ByVal search As String) As String
+    Private Function DisplaySearchResults(ByVal wa As String, ByVal groupID As String, ByVal genre As String, ByVal search As String, ByVal SearchDesc As Boolean) As String
 
         Dim group As ChannelGroup = uWiMP.TVServer.ChannelGroups.GetChannelGroupByGroupId(CInt(groupID))
         Dim channels As List(Of Channel) = uWiMP.TVServer.Channels.GetChannelsByGroupId(CInt(groupID))
         Dim channel As Channel
 
-        Dim markup As String = ""
+        Dim markup As String = String.Empty
         Dim regexPattern = "[\\\/:\*\?""'<>|] "
         Dim oRegEx As New Regex(regexPattern)
 
-        Dim title As String = ""
+        Dim title As String = String.Empty
+        Dim desc As String = String.Empty
         Dim programs As List(Of Program) = uWiMP.TVServer.Programs.GetProgramsByGroup(CInt(groupID))
         Dim program As Program
         Dim matchedPrograms As New List(Of Program)
@@ -103,6 +105,7 @@ Partial Public Class SearchTVGuideResults
 
         For Each program In programs
             If (genre.ToLower = program.Genre.ToLower) Or (genre.ToLower = "all") Then
+
                 title = oRegEx.Replace(program.Title, "")
                 If InStr(title.ToLower, search.ToLower) > 0 Then
                     channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
@@ -110,6 +113,17 @@ Partial Public Class SearchTVGuideResults
                         matchedPrograms.Add(program)
                     End If
                 End If
+
+                If SearchDesc Then
+                    desc = oRegEx.Replace(program.Description, "")
+                    If InStr(desc.ToLower, search.ToLower) > 0 Then
+                        channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
+                        If channel.IsTv Then
+                            If Not matchedPrograms.Contains(program) Then matchedPrograms.Add(program)
+                        End If
+                    End If
+                End If
+
             End If
         Next
 
