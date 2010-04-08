@@ -3,9 +3,17 @@
  * *Slider boxes*
  These aren't sliders, they just look like them, so tap - don't slide. :)
 
- * *Transcoding fails*
- Only report these issues if transcoding fails when using the DEFAULT iPiMP parameters.  There is a *Default* button on the iPiMPTranscodeToMP4 plugin which can be used to reset these parameters.  More often than not invalid FFMPEG parameters are the issue.
+ * *Update remote control !MyVideos button to launch Moving Pictures*
+ Edit C:\Program Files\Team !MediaPortal\!MediaPortal\!InputDeviceMappings\defaults\iPiMP.xml (backup your original).
 
+ line 179 change to read<br>
+
+ {{{<name="My Videos" code="999999">}}}<br>
+
+ line 213 change to read<br>
+
+ {{{<button name="MovingPictures" code="74">}}}<br>
+ 
  * *Streaming MP4's doesn't work*
 
  Ensure you do NOT have the Safari download plugin installed on your jailbroken device.<br>
