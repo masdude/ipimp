@@ -88,6 +88,17 @@ Namespace SetupTv.Sections
         Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
         Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
         Friend WithEvents Label7 As System.Windows.Forms.Label
+        Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
+        Friend WithEvents RichTextBox11 As System.Windows.Forms.RichTextBox
+        Friend WithEvents BrowseUtils As System.Windows.Forms.Button
+        Friend WithEvents Utilities As System.Windows.Forms.TextBox
+        Friend WithEvents Label14 As System.Windows.Forms.Label
+        Friend WithEvents RichTextBox10 As System.Windows.Forms.RichTextBox
+        Friend WithEvents Button1 As System.Windows.Forms.Button
+        Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+        Friend WithEvents Label8 As System.Windows.Forms.Label
+        Friend WithEvents FolderBrowser As System.Windows.Forms.FolderBrowserDialog
+
 #End Region
 
         Public Sub New()
@@ -122,6 +133,11 @@ Namespace SetupTv.Sections
             Me.DelYes = New System.Windows.Forms.RadioButton
             Me.Label1 = New System.Windows.Forms.Label
             Me.TabPage4 = New System.Windows.Forms.TabPage
+            Me.GroupBox5 = New System.Windows.Forms.GroupBox
+            Me.RichTextBox11 = New System.Windows.Forms.RichTextBox
+            Me.BrowseUtils = New System.Windows.Forms.Button
+            Me.Utilities = New System.Windows.Forms.TextBox
+            Me.Label14 = New System.Windows.Forms.Label
             Me.GroupBox4 = New System.Windows.Forms.GroupBox
             Me.RichTextBox9 = New System.Windows.Forms.RichTextBox
             Me.Priority = New System.Windows.Forms.ComboBox
@@ -150,6 +166,11 @@ Namespace SetupTv.Sections
             Me.RadioButton1 = New System.Windows.Forms.RadioButton
             Me.RadioButton2 = New System.Windows.Forms.RadioButton
             Me.Label7 = New System.Windows.Forms.Label
+            Me.RichTextBox10 = New System.Windows.Forms.RichTextBox
+            Me.Button1 = New System.Windows.Forms.Button
+            Me.TextBox1 = New System.Windows.Forms.TextBox
+            Me.Label8 = New System.Windows.Forms.Label
+            Me.FolderBrowser = New System.Windows.Forms.FolderBrowserDialog
             Me.TabControl1.SuspendLayout()
             Me.TabPage1.SuspendLayout()
             Me.GroupBox1.SuspendLayout()
@@ -157,6 +178,7 @@ Namespace SetupTv.Sections
             Me.MP4Group.SuspendLayout()
             Me.DelGroup.SuspendLayout()
             Me.TabPage4.SuspendLayout()
+            Me.GroupBox5.SuspendLayout()
             Me.GroupBox4.SuspendLayout()
             Me.TabPage3.SuspendLayout()
             CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -427,6 +449,7 @@ Namespace SetupTv.Sections
             '
             'TabPage4
             '
+            Me.TabPage4.Controls.Add(Me.GroupBox5)
             Me.TabPage4.Controls.Add(Me.GroupBox4)
             Me.TabPage4.Location = New System.Drawing.Point(4, 22)
             Me.TabPage4.Name = "TabPage4"
@@ -435,6 +458,54 @@ Namespace SetupTv.Sections
             Me.TabPage4.TabIndex = 4
             Me.TabPage4.Text = "Transcode settings (2)"
             Me.TabPage4.UseVisualStyleBackColor = True
+            '
+            'GroupBox5
+            '
+            Me.GroupBox5.Controls.Add(Me.RichTextBox11)
+            Me.GroupBox5.Controls.Add(Me.BrowseUtils)
+            Me.GroupBox5.Controls.Add(Me.Utilities)
+            Me.GroupBox5.Controls.Add(Me.Label14)
+            Me.GroupBox5.Location = New System.Drawing.Point(6, 131)
+            Me.GroupBox5.Name = "GroupBox5"
+            Me.GroupBox5.Size = New System.Drawing.Size(442, 80)
+            Me.GroupBox5.TabIndex = 8
+            Me.GroupBox5.TabStop = False
+            '
+            'RichTextBox11
+            '
+            Me.RichTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.None
+            Me.RichTextBox11.Location = New System.Drawing.Point(9, 19)
+            Me.RichTextBox11.Name = "RichTextBox11"
+            Me.RichTextBox11.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+            Me.RichTextBox11.Size = New System.Drawing.Size(409, 26)
+            Me.RichTextBox11.TabIndex = 11
+            Me.RichTextBox11.Text = "iPiMP installs the MTN, FFmpeg and Handbrake components in its Utilities folder. " & _
+                " If you move these utilities then the folder needs updating."
+            '
+            'BrowseUtils
+            '
+            Me.BrowseUtils.Location = New System.Drawing.Point(367, 49)
+            Me.BrowseUtils.Name = "BrowseUtils"
+            Me.BrowseUtils.Size = New System.Drawing.Size(66, 23)
+            Me.BrowseUtils.TabIndex = 2
+            Me.BrowseUtils.Text = "Browse"
+            Me.BrowseUtils.UseVisualStyleBackColor = True
+            '
+            'Utilities
+            '
+            Me.Utilities.Location = New System.Drawing.Point(130, 51)
+            Me.Utilities.Name = "Utilities"
+            Me.Utilities.Size = New System.Drawing.Size(231, 20)
+            Me.Utilities.TabIndex = 1
+            '
+            'Label14
+            '
+            Me.Label14.AutoSize = True
+            Me.Label14.Location = New System.Drawing.Point(6, 54)
+            Me.Label14.Name = "Label14"
+            Me.Label14.Size = New System.Drawing.Size(66, 13)
+            Me.Label14.TabIndex = 0
+            Me.Label14.Text = "Select folder"
             '
             'GroupBox4
             '
@@ -713,6 +784,46 @@ Namespace SetupTv.Sections
             Me.Label7.TabIndex = 0
             Me.Label7.Text = "Transcode immediately?"
             '
+            'RichTextBox10
+            '
+            Me.RichTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None
+            Me.RichTextBox10.Location = New System.Drawing.Point(9, 19)
+            Me.RichTextBox10.Name = "RichTextBox10"
+            Me.RichTextBox10.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+            Me.RichTextBox10.Size = New System.Drawing.Size(409, 26)
+            Me.RichTextBox10.TabIndex = 11
+            Me.RichTextBox10.Text = "Transcoded files are stored in a single folder to allow them to be streamed from " & _
+                "the iPiMP web application."
+            '
+            'Button1
+            '
+            Me.Button1.Location = New System.Drawing.Point(367, 49)
+            Me.Button1.Name = "Button1"
+            Me.Button1.Size = New System.Drawing.Size(66, 23)
+            Me.Button1.TabIndex = 2
+            Me.Button1.Text = "Browse"
+            Me.Button1.UseVisualStyleBackColor = True
+            '
+            'TextBox1
+            '
+            Me.TextBox1.Location = New System.Drawing.Point(130, 51)
+            Me.TextBox1.Name = "TextBox1"
+            Me.TextBox1.Size = New System.Drawing.Size(231, 20)
+            Me.TextBox1.TabIndex = 1
+            '
+            'Label8
+            '
+            Me.Label8.AutoSize = True
+            Me.Label8.Location = New System.Drawing.Point(6, 54)
+            Me.Label8.Name = "Label8"
+            Me.Label8.Size = New System.Drawing.Size(66, 13)
+            Me.Label8.TabIndex = 0
+            Me.Label8.Text = "Select folder"
+            '
+            'FolderBrowser
+            '
+            Me.FolderBrowser.RootFolder = System.Environment.SpecialFolder.MyComputer
+            '
             'PluginSetup
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -732,6 +843,8 @@ Namespace SetupTv.Sections
             Me.DelGroup.ResumeLayout(False)
             Me.DelGroup.PerformLayout()
             Me.TabPage4.ResumeLayout(False)
+            Me.GroupBox5.ResumeLayout(False)
+            Me.GroupBox5.PerformLayout()
             Me.GroupBox4.ResumeLayout(False)
             Me.GroupBox4.PerformLayout()
             Me.TabPage3.ResumeLayout(False)
@@ -764,6 +877,8 @@ Namespace SetupTv.Sections
             End If
 
             folder.Text = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._folderPath
+
+            Utilities.Text = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._iPiMPPath
 
             Starttime.Text = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._transcodeTime
 
@@ -824,6 +939,19 @@ Namespace SetupTv.Sections
             End If
             setting = layer.GetSetting("iPiMPTranscodeToMP4_SavePath")
             setting.Value = folder.Text
+            setting.Persist()
+
+            If Not Directory.Exists(Utilities.Text) Or _
+               Not Directory.Exists(String.Format("{0}\ffmpeg", Utilities.Text)) Or _
+               Not Directory.Exists(String.Format("{0}\mtn", Utilities.Text)) Or _
+               Not Directory.Exists(String.Format("{0}\handbrake", Utilities.Text)) Then
+                msg = "Invalid Utilities path."
+                Log.Error("iPiMPTranscodeToMP4 - OnSectionDeActivated: {0}", msg)
+                MessageBox.Show("Invalid Utilities path, retry.")
+                Exit Sub
+            End If
+            setting = layer.GetSetting("iPiMPTranscodeToMP4_iPiMPPath")
+            setting.Value = Utilities.Text
             setting.Persist()
 
             setting = layer.GetSetting("iPiMPTranscodeToMP4_Transcoder")
@@ -991,6 +1119,19 @@ Namespace SetupTv.Sections
                 Starttime.Visible = True
             End If
         End Sub
+        
+        Private Sub Browse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Browse.Click
+            FolderBrowser.SelectedPath = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._folderPath
+            FolderBrowser.ShowDialog()
+            folder.Text = FolderBrowser.SelectedPath
+        End Sub
+
+        Private Sub BrowseUtils_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BrowseUtils.Click
+            FolderBrowser.SelectedPath = iPiMPTranscodeToMP4.TVEngine.iPiMPTranscodeToMP4._iPiMPPath
+            FolderBrowser.ShowDialog()
+            Utilities.Text = FolderBrowser.SelectedPath
+        End Sub
+
 
     End Class
 
