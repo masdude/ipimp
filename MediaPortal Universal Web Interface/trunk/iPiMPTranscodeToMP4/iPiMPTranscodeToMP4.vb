@@ -57,8 +57,8 @@ Namespace TVEngine
         Friend Shared _custom As String = String.Empty
         Friend Shared _priority As String = DEFAULT_PRIORITY
         Friend Shared _groups As New List(Of String)
+        Friend Shared _iPiMPPath As String = DEFAULT_IPIMPPATH
 
-        Private Shared _iPiMPPath As String = DEFAULT_IPIMPPATH
         Private Shared _transcoderPath As String = String.Empty
         Private Shared _presetPath As String = String.Empty
         Private Shared _mtnPath As String = String.Empty
