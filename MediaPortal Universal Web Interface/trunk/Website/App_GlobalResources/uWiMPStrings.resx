@@ -1004,4 +1004,7 @@
   <data name="search_description" xml:space="preserve">
     <value>Search description?</value>
   </data>
+  <data name="radio_guide" xml:space="preserve">
+    <value>Radio Guide</value>
+  </data>
 </root>

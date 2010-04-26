@@ -57,6 +57,7 @@ Partial Public Class _Default
 
         If uWiMP.TVServer.Utilities.GetAppConfig("USETVSERVER").ToLower = "true" Then
             markup += "<li><a href=""TVGuide/MainMenu.aspx#_ChannelGroups"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "tv_guide") & "</a></li>"
+            markup += "<li><a href=""RadioGuide/MainMenu.aspx#_RadioChannelGroups"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "radio_guide") & "</a></li>"
             If uWiMP.TVServer.Utilities.GetAppConfig("RECSUBMENU").ToLower = "true" Then
                 markup += "<li><a href=""Recording/MainMenu.aspx#_Recordings"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "recorded_programs") & "</a></li>"
             Else
