@@ -160,6 +160,8 @@
     <Compile Include="Code\Misc\MPClientRemoting.vb" />
     <Compile Include="Code\Misc\SQLiteMembershipProvider.vb" />
     <Compile Include="Code\Misc\SQLiteRoleProvider.vb" />
+    <Compile Include="Code\TVServer\RadioChannels.vb" />
+    <Compile Include="Code\TVServer\RadioChannelGroups.vb" />
     <Compile Include="Code\TVServer\Streams.vb" />
     <Compile Include="Code\TVServer\Transcode.vb" />
     <Compile Include="Default.aspx.designer.vb">
@@ -739,6 +741,90 @@
       <DependentUpon>NowPlaying.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="iPhone\RadioGuide\ChannelGroups.aspx.designer.vb">
+      <DependentUpon>ChannelGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\ChannelGroups.aspx.vb">
+      <DependentUpon>ChannelGroups.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\MainMenu.aspx.designer.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\MainMenu.aspx.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\NowAndNext.aspx.designer.vb">
+      <DependentUpon>NowAndNext.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\NowAndNext.aspx.vb">
+      <DependentUpon>NowAndNext.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioRecordManual.aspx.designer.vb">
+      <DependentUpon>RadioRecordManual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioRecordManual.aspx.vb">
+      <DependentUpon>RadioRecordManual.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioRecordManualConfirm.aspx.designer.vb">
+      <DependentUpon>RadioRecordManualConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioRecordManualConfirm.aspx.vb">
+      <DependentUpon>RadioRecordManualConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RecordRadioProgram.aspx.designer.vb">
+      <DependentUpon>RecordRadioProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RecordRadioProgram.aspx.vb">
+      <DependentUpon>RecordRadioProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RecordRadioProgramConfirm.aspx.designer.vb">
+      <DependentUpon>RecordRadioProgramConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RecordRadioProgramConfirm.aspx.vb">
+      <DependentUpon>RecordRadioProgramConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\SearchRadioGuide.aspx.designer.vb">
+      <DependentUpon>SearchRadioGuide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\SearchRadioGuide.aspx.vb">
+      <DependentUpon>SearchRadioGuide.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\SearchRadioGuideResults.aspx.designer.vb">
+      <DependentUpon>SearchRadioGuideResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\SearchRadioGuideResults.aspx.vb">
+      <DependentUpon>SearchRadioGuideResults.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioProgram.aspx.designer.vb">
+      <DependentUpon>RadioProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioProgram.aspx.vb">
+      <DependentUpon>RadioProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioChannel.aspx.designer.vb">
+      <DependentUpon>RadioChannel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioChannel.aspx.vb">
+      <DependentUpon>RadioChannel.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioChannelDay.aspx.designer.vb">
+      <DependentUpon>RadioChannelDay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioChannelDay.aspx.vb">
+      <DependentUpon>RadioChannelDay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="iPhone\Recording\RecordingsMultiDeleteForDrive.aspx.designer.vb">
       <DependentUpon>RecordingsMultiDeleteForDrive.aspx</DependentUpon>
     </Compile>
@@ -1285,8 +1371,21 @@
     <Content Include="iPhone\MPClient\MovingPicturesMenu.aspx" />
     <Content Include="iPhone\MPClient\MovingPicturesDisplay.aspx" />
     <Content Include="iPhone\MPClient\MovingPicturesList.aspx" />
+    <Content Include="iPhone\RadioGuide\ChannelGroups.aspx" />
+    <Content Include="iPhone\RadioGuide\MainMenu.aspx" />
+    <Content Include="iPhone\RadioGuide\NowAndNext.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioRecordManual.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioRecordManualConfirm.aspx" />
+    <Content Include="iPhone\RadioGuide\RecordRadioProgram.aspx" />
+    <Content Include="iPhone\RadioGuide\RecordRadioProgramConfirm.aspx" />
+    <Content Include="iPhone\RadioGuide\SearchRadioGuide.aspx" />
+    <Content Include="iPhone\RadioGuide\SearchRadioGuideResults.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioProgram.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioChannel.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioChannelDay.aspx" />
     <Content Include="iPhone\Recording\RecordingTranscodeResult.aspx" />
     <Content Include="iPhone\Scripts\Adaptive.js" />
+    <Content Include="iPhone\Scripts\Events.js" />
     <Content Include="iPhone\Scripts\smbtnblue.png" />
     <Content Include="images\remote\stop.png" />
     <Content Include="images\remote\tv.png" />

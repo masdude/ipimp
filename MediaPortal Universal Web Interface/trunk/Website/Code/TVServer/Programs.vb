@@ -69,11 +69,16 @@ Namespace uWiMP.TVServer
 
         End Function
 
-        Public Shared Function GetProgramsByGroup(ByVal idGroup As Integer) As List(Of Program)
+        Public Shared Function GetProgramsByGroup(ByVal idGroup As Integer, Optional ByVal isTV As Boolean = True) As List(Of Program)
 
             Dim programs As New List(Of Program)
-            Dim allChannels As List(Of Channel) = Channels.GetChannelsByGroupId(idGroup)
-            Dim layer As New TvBusinessLayer
+            Dim allChannels As List(Of Channel)
+            If isTV Then
+                allChannels = Channels.GetChannelsByGroupId(idGroup)
+            Else
+                allChannels = RadioChannels.GetRadioChannelsByGroupId(idGroup)
+            End If
+
             For Each c As Channel In allChannels
                 For Each p As Program In GetProgramsByChannel(c.IdChannel)
                     programs.Add(p)

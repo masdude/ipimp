@@ -1,4 +1,5 @@
 ﻿//version 4.0.0
+
 function logout() {
     document.location = '#_Logout';
     var btn = document.getElementById('aspBtnLogout');
@@ -88,6 +89,20 @@ function tvsearch(group) {
     var desc = document.getElementById('jsSearchDesc').checked;
     
     WA.Request('TVGuide/SearchTVGuideResults.aspx?group=' + group + '&search=' + search + '&genre=' + genre + '&desc=' + desc + '#_SearchResults' + group, null, -1, true, null);
+    return false;
+}
+
+function radiosearch(group) {
+
+    document.getElementById('jsLoading').style.visibility = 'visible';
+
+    var search = document.getElementById('jsRadioSearchText').value;
+    var doc = document.getElementById('jsRadioSearchGenre');
+    var o = doc.childNodes;
+    var genre = o[0].firstChild.innerHTML;
+    var desc = document.getElementById('jsRadioSearchDesc').checked;
+
+    WA.Request('RadioGuide/SearchRadioGuideResults.aspx?group=' + group + '&search=' + search + '&genre=' + genre + '&desc=' + desc + '#_RadioSearchResults' + group, null, -1, true, null);
     return false;
 }
 
@@ -188,6 +203,18 @@ function manualrecord(channelID) {
     var duration = document.getElementById('jsDuration').value;
 
     WA.Request('TVGuide/RecordManualConfirm.aspx?channel=' + channelID + '&schedName=' + schedName + '&startdate=' + startDate + '&starttime=' + startTime + '&duration=' + duration + '#_RecordManualConfirm', null, -1, true, null);
+    return false;
+}
+
+function manualradiorecord(channelID) {
+    var doc = document.getElementById('jsRadioStartDate');
+    var o = doc.childNodes;
+    var startDate = o[0].firstChild.innerHTML;
+    var startTime = document.getElementById('jsRadioStartTime').value;
+    var schedName = document.getElementById('jsRadioSchedName').value;
+    var duration = document.getElementById('jsRadioDuration').value;
+
+    WA.Request('RadioGuide/RadioRecordManualConfirm.aspx?channel=' + channelID + '&schedName=' + schedName + '&startdate=' + startDate + '&starttime=' + startTime + '&duration=' + duration + '#_RadioRecordManualConfirm', null, -1, true, null);
     return false;
 }
 
