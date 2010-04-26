@@ -1,5 +1,13 @@
 #sidebar TOC
 ----
+Next version (NOT YET RELEASED) includes
+ * Web - Added Radio Guide functionality (same functions as TV Guide)
+ * Web - can now search program descriptions as well as titles
+ * Web - added -Z to correctly use Handbrake presets
+ * TV transcode plugin - added -Z to correctly use Handbrake presets
+ * TV transcode plugin - fixed browse buttons so can set MP4 path
+ * TV transcode plugin - added ability to set utilities location
+ * Installer - Updated for pre-existing Apache installs
 4.2.0 updates include
  * Web - Dirty hack to link UK channels to iphone.tvcatchup.com to get access to live TV streams TV Server channel names *MUST* match TVCatchup channel names - sorry only for UK channels only :(
  * Web - updated to [http://webapp-net.com/ WebApp.Net] 0.52
