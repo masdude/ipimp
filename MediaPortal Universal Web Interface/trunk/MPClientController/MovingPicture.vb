@@ -48,7 +48,9 @@ Namespace MPClientController
         Private Sub StartPlaying()
 
             _playlistPlayer = New PlayListPlayer
-            _playlistPlayer = playlistPlayer.SingletonPlayer
+            If _playlistPlayer.g_Player.Playing Then _playlistPlayer.g_Player.Stop()
+
+            _playlistPlayer = PlayListPlayer.SingletonPlayer
             _playlistPlayer.RepeatPlaylist = False
 
             _playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_VIDEO).Clear()
