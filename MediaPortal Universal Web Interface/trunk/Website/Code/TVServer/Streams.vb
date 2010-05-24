@@ -22,10 +22,13 @@ Imports TvLibrary
 
 Namespace uWiMP.TVServer
 
-    Public Class Streams
+    Public Class Streaming
+
+        Public Shared Sub Stream(ByVal idChannel As Integer)
 
 
 
+        End Sub
 
     End Class
 
