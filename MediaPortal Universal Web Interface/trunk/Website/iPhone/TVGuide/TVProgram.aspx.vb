@@ -23,39 +23,7 @@ Imports TvDatabase
 Partial Public Class TVProgram
     Inherits System.Web.UI.Page
 
-    Private Shared channelTable As New Hashtable
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-        channelTable("bbcone") = "1"
-        channelTable("bbctwo") = "2"
-        channelTable("itv1") = "3"
-        channelTable("channel4") = "4"
-        channelTable("five") = "5"
-        channelTable("itv2") = "6"
-        channelTable("fiveusa") = "7"
-        channelTable("e4") = "8"
-        channelTable("itv3") = "9"
-        channelTable("itv4") = "10"
-        channelTable("more4") = "11"
-        channelTable("bbcthree") = "12"
-        channelTable("bbcfour") = "13"
-        channelTable("fiver") = "15"
-        channelTable("film4") = "16"
-        channelTable("bbcnews") = "17"
-        channelTable("cbbc") = "18"
-        channelTable("citv") = "19"
-        channelTable("channel4+1") = "20"
-        channelTable("e4+1") = "21"
-        channelTable("itv2+1") = "23"
-        channelTable("cbeebies") = "24"
-        channelTable("4music") = "25"
-        channelTable("more4+1") = "27"
-        channelTable("itv3+1") = "28"
-        channelTable("itv4+1") = "29"
-        channelTable("film4+1") = "30"
-        channelTable("bbcparliament") = "31"
-        channelTable("menandmotors") = "47"
 
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
@@ -131,7 +99,7 @@ Partial Public Class TVProgram
                 Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
                 Dim channelName As String = channel.Name.ToLower
                 channelName = Replace(channelName, " ", "")
-                markup += String.Format("<li><a href=""http://iphone.tvcatchup.com/?chan={0}"" >{1}</a></li>", channelTable(channelName), GetGlobalResourceObject("uWiMPStrings", "watch"))
+                markup += String.Format("<li><a href=""TVGuide/WatchTVChannel.aspx?channel={0}#_WatchTVChannel{0}"" rev=""async"">{1}</a></li>", program.IdChannel, GetGlobalResourceObject("uWiMPStrings", "watch"))
             End If
         End If
 
@@ -144,18 +112,6 @@ Partial Public Class TVProgram
         markup += "</div>"
         markup += "</div>"
 
-        Return markup
-
-    End Function
-
-    Private Function AddWatchItem(ByVal channelName As String) As String
-
-        Dim markup As String = String.Empty
-
-        Select Case Replace(channelName.ToLower, " ", "")
-            Case "bbcone"
-
-        End Select
         Return markup
 
     End Function

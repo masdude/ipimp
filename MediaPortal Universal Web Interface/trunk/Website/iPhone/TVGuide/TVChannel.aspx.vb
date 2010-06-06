@@ -105,7 +105,7 @@ Partial Public Class TVChannel
 
         markup += "<ul class=""iArrow"">"
         markup += String.Format("<li><a href=""TVGuide/RecordManual.aspx?channel={0}#_RecordManual"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "manual_record"))
-        'markup += String.Format("<li><a href=""TVGuide/WatchTVChannel.aspx?channel={0}#_WatchTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "watch"))
+        markup += String.Format("<li><a href=""TVGuide/WatchTVChannel.aspx?channel={0}#_WatchTVChannel{0}"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "watch"))
         markup += "</ul>"
 
         markup += "<ul class=""iArrow"">"

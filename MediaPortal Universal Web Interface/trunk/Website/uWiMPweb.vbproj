@@ -114,6 +114,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\uWiMPStrings.es.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.es.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\uWiMPStrings.sv.designer.vb">
       <DependentUpon>uWiMPStrings.sv.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -166,7 +171,7 @@
     <Compile Include="Code\Misc\SQLiteRoleProvider.vb" />
     <Compile Include="Code\TVServer\RadioChannels.vb" />
     <Compile Include="Code\TVServer\RadioChannelGroups.vb" />
-    <Compile Include="Code\TVServer\Streams.vb" />
+    <Compile Include="Code\TVServer\Streamer.vb" />
     <Compile Include="Code\TVServer\Transcode.vb" />
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -1314,6 +1319,10 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.sv.designer.vb</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.es.designer.vb</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -1573,6 +1582,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MPWebServices\MPWebServices.csproj">
+      <Project>{24FC1495-49B6-4E50-A188-D3467C639F4B}</Project>
+      <Name>MPWebServices</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -1588,7 +1603,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56393</DevelopmentServerPort>
+          <DevelopmentServerPort>28063</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
