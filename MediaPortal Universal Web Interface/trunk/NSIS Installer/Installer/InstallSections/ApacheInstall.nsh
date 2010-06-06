@@ -12,6 +12,7 @@ Section ApacheInstallFiles
 
   DetailPrint "Installing Apache files"
   !include "InstallSections\Apache.2.2.14.files.nsh"
+  !include "InstallSections\ApacheModSmoothStreaming.nsh"
 
 SectionEnd
 
