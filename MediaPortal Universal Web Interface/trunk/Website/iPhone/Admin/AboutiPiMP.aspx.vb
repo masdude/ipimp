@@ -99,6 +99,8 @@ Partial Public Class AboutiPiMP
         markup += "Swedish translation by umlaut (and his girlfriend)."
         markup += "<br>"
         markup += "French translation by Cyberbabacool."
+        markup += "<br>"
+        markup += "Spanish translation by bodiroga."
         'markup += "<br>"
         'markup += "Italian translation by Nephilim."
         'markup += "<br>"
