@@ -1007,4 +1007,7 @@
   <data name="radio_guide" xml:space="preserve">
     <value>Radio Guide</value>
   </data>
+  <data name="listen" xml:space="preserve">
+    <value>Listen</value>
+  </data>
 </root>

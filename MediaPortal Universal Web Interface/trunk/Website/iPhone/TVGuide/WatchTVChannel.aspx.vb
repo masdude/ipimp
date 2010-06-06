@@ -32,7 +32,7 @@ Partial Public Class WatchTVChannel
         Response.ContentEncoding = Encoding.UTF8
 
         Dim channelID As String = Request.QueryString("channel")
-        Dim wa As String = "waWatchChannel" & channelID
+        Dim wa As String = "waWatchTVChannel" & channelID
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -80,13 +80,13 @@ Partial Public Class WatchTVChannel
 
     Private Function WatchChannel(ByVal friendly As String, ByVal channelID As String) As String
 
-        Dim mpRequest As New uWiMP.TVServer.MPClient.Request
-        mpRequest.Action = "startchannel"
-        mpRequest.Filter = channelID
+        Dim task As New uWiMP.TVServer.Streamer
+        task.Media = uWiMP.TVServer.Streamer.MediaType.Tv
+        task.ChannelID = channelID
 
-        Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
-        Dim success As Boolean = CType(jo("result"), Boolean)
+        Dim asyncTask As New PageAsyncTask(AddressOf task.OnBegin, AddressOf task.OnEnd, AddressOf task.OnTimeout, "Stream", True)
+        Page.RegisterAsyncTask(asyncTask)
+        Page.ExecuteRegisteredAsyncTasks()
 
         Dim markup As String = String.Empty
 
@@ -94,12 +94,13 @@ Partial Public Class WatchTVChannel
         markup += String.Format("<h3>{0} - {1}</h3>", "lounge", GetGlobalResourceObject("uWiMPStrings", "watch"))
 
         markup += "<ul>"
-        If success Then
-            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "save_playlist_success"))
-        Else
-            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "save_playlist_fail"))
-        End If
-        markup += "</ul>"
+        markup += String.Format("<li>{0}</li>", Replace(task.GetAsyncTaskProgress, vbCrLf, "<br>"))
+        'If success Then
+        '    markup += String.Format("<li>ZZ {0}</li>", GetGlobalResourceObject("uWiMPStrings", "loading"))
+        'Else
+        '    markup += String.Format("<li>ZZ {0}</li>", GetGlobalResourceObject("uWiMPStrings", "save_playlist_fail"))
+        'End If
+        'markup += "</ul>"
         markup += "</div>"
 
         Return markup

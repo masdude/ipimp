@@ -18,6 +18,7 @@
 
 Imports TvDatabase
 Imports TvControl
+Imports uWiMP.TVServer.MPWebServices.Classes
 
 Namespace uWiMP.TVServer
 
@@ -276,17 +277,58 @@ Namespace uWiMP.TVServer
         End Function
 
 
-        Public Shared Function StartTimeshifting(ByVal userName As String, ByVal idChannel As Integer) As TvResult
+        Public Shared Function StartTimeshifting(ByVal idChannel As Integer) As WebTvResult
 
             SetupConnection()
 
-            Dim user As New User
-            Dim vcard As VirtualCard = New VirtualCard(user)
-            Dim result As TvResult = RemoteControl.Instance.StartTimeShifting(user, idChannel, vcard)
+            Dim vcard As VirtualCard
+            Dim result As TvResult
+            Dim rtspURL As String = String.Empty
+            Dim timeshiftFilename As String = String.Empty
+            Dim userId As New TvControl.User(System.Guid.NewGuid().ToString("B"), False)
+            Dim uWiMPTVResult As New WebTvResult
+            Try
+                result = RemoteControl.Instance.StartTimeShifting(userId, idChannel, vcard)
+            Catch generatedExceptionName As Exception
+                Return New WebTvResult
+            End Try
 
-            Return result
+            Dim r As New WebTvResult
+
+            If result = TvResult.Succeeded Then
+                userId.IdChannel = idChannel
+                userId.CardId = vcard.Id
+                rtspURL = vcard.RTSPUrl
+                timeshiftFilename = vcard.TimeShiftFileName
+
+                Dim u As New WebTvServerUser
+                u.idCard = vcard.Id
+                u.idChannel = idChannel
+                u.name = userId.Name
+
+                r.result = CInt(result)
+                r.rtspURL = vcard.RTSPUrl
+                r.timeshiftFile = vcard.TimeShiftFileName
+                r.user = u
+
+                Return r
+            Else
+                Return r
+            End If
 
         End Function
+
+        Public Shared Sub SendHeartbeat(ByVal idChannel As Integer, ByVal idCard As Integer, ByVal userID As String)
+
+            SetupConnection()
+            Dim user As New User(userID, False, idCard)
+            user.IdChannel = idChannel
+            Try
+                RemoteControl.Instance.HeartBeat(user)
+            Catch generatedExceptionName As Exception
+            End Try
+
+        End Sub
 
     End Class
 
