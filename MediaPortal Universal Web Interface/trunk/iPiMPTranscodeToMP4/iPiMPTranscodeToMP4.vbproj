@@ -57,6 +57,18 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gentle.Common">
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\Gentle.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Gentle.Framework">
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\Gentle.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Gentle.Provider.MySQL">
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\Gentle.Provider.MySQL.dll</HintPath>
+    </Reference>
+    <Reference Include="Gentle.Provider.SQLServer">
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\Gentle.Provider.SQLServer.dll</HintPath>
+    </Reference>
     <Reference Include="PluginBase, Version=0.9.3.952, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\PluginBase.dll</HintPath>

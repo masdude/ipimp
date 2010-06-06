@@ -12,7 +12,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Build the iPiMPConfigurePlugin project
 PUSHD iPiMPConfigurePlugin
-%WINDIR%\Microsoft.NET\Framework\v3.5\MSBuild.exe /p:Configuration=Release
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 POPD
 
@@ -34,7 +34,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Build the iPiMPTranscodeToMP4 project
 PUSHD iPiMPTranscodeToMP4
-%WINDIR%\Microsoft.NET\Framework\v3.5\MSBuild.exe /p:Configuration=Release
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 POPD
 
@@ -55,7 +55,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Build the MPClientController project
 PUSHD MPClientController
-%WINDIR%\Microsoft.NET\Framework\v3.5\MSBuild.exe /p:Configuration=Release
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 POPD
 
@@ -77,7 +77,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Build the website project
 PUSHD Website
-%WINDIR%\Microsoft.NET\Framework\v3.5\MSBuild.exe /p:Configuration=Release
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Copy all reference DLLs
@@ -85,7 +85,7 @@ XCOPY bin\*.dll "..\NSIS Installer\Include\Aspx\bin" /Y /I
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Publish the website project
-%WINDIR%\Microsoft.NET\Framework\v3.5\MSBuild.exe /target:_CopyWebApplication /property:OutDir=..\NSISIn~1\Include\Aspx\;WebProjectOutputDir=..\NSISIn~1\Include\Aspx\ /p:Configuration=Release
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /target:_CopyWebApplication /property:OutDir=..\NSISIn~1\Include\Aspx\;WebProjectOutputDir=..\NSISIn~1\Include\Aspx\ /p:Configuration=Release
 POPD
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
