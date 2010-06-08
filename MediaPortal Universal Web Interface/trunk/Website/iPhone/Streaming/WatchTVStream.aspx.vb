@@ -15,12 +15,15 @@
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
 
+Imports Jayrock.Json
+Imports Jayrock.Json.Conversion
 
 Imports System.IO
 Imports System.Xml
 Imports TvDatabase
+Imports TvControl
 
-Partial Public Class TVProgram
+Partial Public Class WatchTVStream
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -28,8 +31,8 @@ Partial Public Class TVProgram
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim programID As String = Request.QueryString("program")
-        Dim wa As String = "waProgram" & programID
+        Dim channelID As String = Request.QueryString("channel")
+        Dim wa As String = "waWatchTVStream"
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -62,7 +65,7 @@ Partial Public Class TVProgram
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayProgram(wa, programID))
+        xw.WriteCData(DisplayStartStop())
         xw.WriteEndElement()
         'end data
 
@@ -73,43 +76,29 @@ Partial Public Class TVProgram
         xw.WriteEndDocument()
         xw.Close()
 
+
+
     End Sub
 
-    Private Function DisplayProgram(ByVal wa As String, ByVal programID As String) As String
-
-        Dim program As Program = uWiMP.TVServer.Programs.GetProgramByProgramId(CInt(programID))
+    Private Function DisplayStartStop() As String
 
         Dim markup As String = String.Empty
+        Dim imageURI As String = "../../images/remote/"
 
         markup += "<div class=""iMenu"">"
+        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "watch"))
+
         markup += "<div class=""iBlock"">"
-        markup += String.Format("<h3>{0}</h3>", program.Title)
-        markup += String.Format("<h3>{0}</h3>", program.StartTime)
-        markup += String.Format("<p>{0}</p>", program.Description)
+
+        markup += String.Format("<div><p>{0}</p>", GetGlobalResourceObject("uWiMPStrings", "stream_started"))
+        markup += "<table class=""center""><tr>"
+        markup += String.Format("<td class=""grid""><a href=""../../SmoothStream/live.m3u8""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
+        markup += String.Format("<td class=""grid""><a href=""Streaming/StopTVStream.aspx#_StopTVStream"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
+        markup += "</tr></table>"
         markup += "</div>"
 
-        markup += "<ul class=""iArrow"">"
-
-        If User.IsInRole("recorder") Then
-            markup += String.Format("<li><a href=""TVGuide/RecordTVProgram.aspx?program={0}#_RecordProgram{0}"" rev=""async"">{1}</a></li>", programID, GetGlobalResourceObject("uWiMPStrings", "record"))
-        End If
-
-        If program.IsRunningAt(Now) Then
-            If User.IsInRole("watcher") Then
-                Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
-                Dim channelName As String = channel.Name.ToLower
-                channelName = Replace(channelName, " ", "")
-                markup += String.Format("<li><a href=""Streaming/StreamTVChannel.aspx?channel={0}#_StreamTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "watch"))
-            End If
-        End If
-
-        Dim mailSubject As String = String.Format("{3} {0} at {1} - {2}", uWiMP.TVServer.Channels.GetChannelNameByChannelId(program.IdChannel), program.StartTime, program.Title, GetGlobalResourceObject("uWiMPStrings", "email_subject"))
-        Dim mailBody As String = program.Description
-
-        markup += String.Format("<li><a href=""mailto:?subject={0}&body={1}"">{2}</a></li>", mailSubject, mailBody, GetGlobalResourceObject("uWiMPStrings", "email"))
-        markup += "</ul>"
-
         markup += "</div>"
+
         markup += "</div>"
 
         Return markup

@@ -1,4 +1,4 @@
-﻿//version 4.0.0
+﻿//version 5.0.0
 
 function logout() {
     document.location = '#_Logout';
@@ -225,4 +225,17 @@ function changecolour() {
 
     WA.Request('Admin/AppearanceResult.aspx?colour=' + colour + '#_AppearanceResult', null, -1, true, null);
     return false;
+}
+
+function startCountdown(iCount) {
+    if (iCount > 1) {
+        iCount = iCount - 1;
+        document.getElementById('tvtimer').innerText = iCount;
+        setTimeout('startCountdown(' + iCount+ ')', 1000);
+    }
+    else 
+    {
+        WA.Request('Streaming/WatchTVStream.aspx#_WatchTVStream', null, -1, true, null);
+        return false;
+    }
 }
