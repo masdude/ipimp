@@ -1,5 +1,6 @@
 
   SetOutPath "$INSTDIR\Aspx"
+  File "..\Include\Aspx\config.xml"
   File "..\Include\Aspx\Default.aspx"
   File "..\Include\Aspx\DefaultLogin.aspx"
   File "..\Include\Aspx\Global.asax"
@@ -9,6 +10,7 @@
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.da.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.de.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.en-GB.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.es.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.fo.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.fr.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.it.resx"
@@ -248,6 +250,11 @@
   File "..\Include\Aspx\iPhone\Scripts\starbar.css"
   File "..\Include\Aspx\iPhone\Scripts\stars.gif"
 
+  SetOutPath "$INSTDIR\Aspx\iPhone\Streaming"
+  File "..\Include\Aspx\iPhone\Streaming\StopTVStream.aspx"
+  File "..\Include\Aspx\iPhone\Streaming\StreamTVChannel.aspx"
+  File "..\Include\Aspx\iPhone\Streaming\WatchTVStream.aspx"
+
   SetOutPath "$INSTDIR\Aspx\iPhone\TVGuide"
   File "..\Include\Aspx\iPhone\TVGuide\ChannelGroups.aspx"
   File "..\Include\Aspx\iPhone\TVGuide\MainMenu.aspx"
@@ -261,7 +268,6 @@
   File "..\Include\Aspx\iPhone\TVGuide\TVChannel.aspx"
   File "..\Include\Aspx\iPhone\TVGuide\TVChannelDay.aspx"
   File "..\Include\Aspx\iPhone\TVGuide\TVProgram.aspx"
-  File "..\Include\Aspx\iPhone\TVGuide\WatchTVChannel.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\TVServer"
   File "..\Include\Aspx\iPhone\TVServer\CardActionConfirm.aspx"

@@ -36,8 +36,18 @@ Section UpdateConfig
     ${EndIf}
     Return
   ${EndIf}
-  
-  DetailPrint "Patching iPiMP.conf and iPiMPinclude.conf"
+
+  DetailPrint "Patching config.xml"
+
+  Push "$INSTDIR\Utilities\ffmpeg_patch"
+  Push "\"
+  Call StrSlash
+  Pop $R0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\config.xml" "$INSTDIR\Aspx\config.xml" "##FFMPEGPATH##" "$R0" "/S=1 /C=0 /AO=1" $0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\config.xml" "$INSTDIR\Aspx\config.xml" "##LISTEN##" "$Listen" "/S=1 /C=0 /AO=1" $0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\config.xml" "$INSTDIR\Aspx\config.xml" "*:" "127.0.0.1:" "/S=1 /C=0 /AO=1" $0
+
+  DetailPrint "Patching iPiMP.conf, iPiMPinclude.conf"
   ${If} $InstalliPiMPTVplugin = "0"
     StrCpy $MP4Path "DummyDir"
   ${EndIf}
