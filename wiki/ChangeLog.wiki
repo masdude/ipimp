@@ -3,7 +3,7 @@
 Next version (NOT YET RELEASED) includes
  * Web - Added stream live TV - EXPERIMENTAL
  * Web - Removed dirty hack to link UK channels to iphone.tvcatchup.com
- * Web - Added Radio Guide functionality (same functions as TV Guide)
+ * Web - Added Radio Guide functionality (same functions as TV Guide - NO streaming yet)
  * Web - can now search program descriptions as well as titles
  * Web - added -Z to correctly use Handbrake presets
  * Web - added Spanish translations - thanks bodiroga
