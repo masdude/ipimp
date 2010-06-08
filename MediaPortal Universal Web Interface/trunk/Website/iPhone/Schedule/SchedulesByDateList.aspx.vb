@@ -28,8 +28,8 @@ Partial Public Class SchedulesByDateList
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim period As String = Request.QueryString("period")
-        Dim wa As String = String.Format("waSchedDate{0}", period)
+        Dim period As Integer = CInt(Request.QueryString("period"))
+        Dim wa As String = String.Format("waSchedDate{0}", period.ToString)
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -75,60 +75,59 @@ Partial Public Class SchedulesByDateList
 
     End Sub
 
-    Private Function DisplaySchedulesByDate(ByVal wa As String, ByVal period As String) As String
+    Private Function DisplaySchedulesByDate(ByVal wa As String, ByVal period As Integer) As String
 
         Dim schedules As List(Of Schedule) = uWiMP.TVServer.Schedules.GetSchedules
-        If schedules.Count > 1 Then schedules.Sort(New uWiMP.TVServer.ScheduleStartTimeComparerDesc)
+        Dim periodScheds As New List(Of Schedule)
+        For Each s As Schedule In schedules
+            periodScheds.AddRange(uWiMP.TVServer.Schedules.GetRecordingTimes(s, CInt(period)))
+        Next
+        If periodScheds.Count > 1 Then periodScheds.Sort(New uWiMP.TVServer.ScheduleStartTimeComparer)
 
         Dim schedule As Schedule
         Dim channel As Channel
         Dim markup As String = String.Empty
-
+        Dim iSchedules As Integer = 0
         markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
 
-        Select Case period.ToLower
-            Case "thisweek"
+        Select Case period
+            Case 7
                 markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "scheduled_this_week"))
                 markup += "<ul class=""iArrow"">"
-                For Each schedule In schedules
+                For Each schedule In periodScheds
                     If (schedule.StartTime > Now) And (schedule.StartTime < Now.AddDays(7)) Then
                         channel = uWiMP.TVServer.Channels.GetChannelByChannelId(schedule.IdChannel)
                         markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""http://{1}/TVLogos/{2}.png"" height=""40"" style=""vertical-align:middle""/><em>{3}<small><br/>{4}</small></em></a></li>", schedule.IdSchedule.ToString, Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
+                        iSchedules += 1
                     End If
                 Next
+                If iSchedules = 0 Then markup += String.Format("<li>{0}", GetGlobalResourceObject("uWiMPStrings", "scheduled_none"))
                 markup += "</ul>"
 
-            Case "thismonth"
-                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "scheduled_this_month"))
+            Case 14
+                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "scheduled_next_week"))
                 markup += "<ul class=""iArrow"">"
-                For Each schedule In schedules
-                    If (schedule.StartTime > Now.AddDays(7)) And (schedule.StartTime < Now.AddDays(31)) Then
+                For Each schedule In periodScheds
+                    If (schedule.StartTime > Now.AddDays(7)) And (schedule.StartTime < Now.AddDays(14)) Then
                         channel = uWiMP.TVServer.Channels.GetChannelByChannelId(schedule.IdChannel)
                         markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""http://{1}/TVLogos/{2}.png"" height=""40"" style=""vertical-align:middle""/><em>{3}<small><br/>{4}</small></em></a></li>", schedule.IdSchedule.ToString, Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
+                        iSchedules += 1
                     End If
                 Next
+                If iSchedules = 0 Then markup += String.Format("<li>{0}", GetGlobalResourceObject("uWiMPStrings", "scheduled_none"))
                 markup += "</ul>"
 
-            Case "lastmonth"
-                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "scheduled_last_month"))
+            Case 31
+                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "scheduled_rest_month"))
                 markup += "<ul class=""iArrow"">"
-                For Each schedule In schedules
-                    If (schedule.StartTime < Now) And (schedule.StartTime > Now.AddDays(-31)) Then
+                For Each schedule In periodScheds
+                    If (schedule.StartTime > Now.AddDays(14)) And (schedule.StartTime < Now.AddDays(31)) Then
                         channel = uWiMP.TVServer.Channels.GetChannelByChannelId(schedule.IdChannel)
                         markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""http://{1}/TVLogos/{2}.png"" height=""40"" style=""vertical-align:middle""/><em>{3}<small><br/>{4}</small></em></a></li>", schedule.IdSchedule.ToString, Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
+                        iSchedules += 1
                     End If
                 Next
-                markup += "</ul>"
-
-            Case "other"
-                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "scheduled_other"))
-                markup += "<ul class=""iArrow"">"
-                For Each schedule In schedules
-                    If (schedule.StartTime < Now.AddDays(-31)) Or (schedule.StartTime > Now.AddDays(31)) Then
-                        channel = uWiMP.TVServer.Channels.GetChannelByChannelId(schedule.IdChannel)
-                        markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""http://{1}/TVLogos/{2}.png"" height=""40"" style=""vertical-align:middle""/><em>{3}<small><br/>{4}</small></em></a></li>", schedule.IdSchedule.ToString, Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
-                    End If
-                Next
+                If iSchedules = 0 Then markup += String.Format("<li>{0}", GetGlobalResourceObject("uWiMPStrings", "scheduled_none"))
                 markup += "</ul>"
 
         End Select

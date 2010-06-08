@@ -76,36 +76,16 @@ Partial Public Class SchedulesByDate
 
     Private Function DisplayScheduleDatePeriods(ByVal wa As String) As String
 
-        Dim schedules As List(Of Schedule) = uWiMP.TVServer.Schedules.GetSchedules
-        If schedules.Count > 1 Then schedules.Sort(New uWiMP.TVServer.ScheduleStartTimeComparerDesc)
-
-        Dim schedule As Schedule
-        Dim thisWeek As Boolean = False
-        Dim thisMonth As Boolean = False
-        Dim lastMonth As Boolean = False
-        Dim other As Boolean = False
         Dim markup As String = String.Empty
 
         markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
         markup += String.Format("<h3>{0} ({1})</h3>", GetGlobalResourceObject("uWiMPStrings", "schedules"), GetGlobalResourceObject("uWiMPStrings", "date"))
         markup += "<ul class=""iArrow"">"
 
-        For Each schedule In schedules
-            If (schedule.StartTime > Now) And (schedule.StartTime < Now.AddDays(7)) And Not thisWeek Then
-                markup += String.Format("<li><a href=""Schedule/SchedulesByDateList.aspx?period=ThisWeek#_SchedDateThisWeek"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "this_week"))
-                thisWeek = True
-            ElseIf (schedule.StartTime > Now.AddDays(7)) And (schedule.StartTime < Now.AddDays(31)) And Not thisMonth Then
-                markup += String.Format("<li><a href=""Schedule/SchedulesByDateList.aspx?period=ThisMonth#_SchedDateThisMonth"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "this_month"))
-                thisMonth = True
-            ElseIf (schedule.StartTime < Now) And (schedule.StartTime > Now.AddDays(-31)) And Not lastMonth Then
-                markup += String.Format("<li><a href=""Schedule/SchedulesByDateList.aspx?period=LastMonth#_SchedDateLastMonth"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "last_month"))
-                lastMonth = True
-            ElseIf ((schedule.StartTime < Now.AddDays(-31)) And Not other) Or ((schedule.StartTime > Now.AddDays(31)) And Not other) Then
-                markup += String.Format("<li><a href=""Schedule/SchedulesByDateList.aspx?period=Other#_SchedDateOther"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "Other"))
-                other = True
-            End If
-        Next
-
+        markup += String.Format("<li><a href=""Schedule/SchedulesByDateList.aspx?period=7#_SchedDate7"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "this_week"))
+        markup += String.Format("<li><a href=""Schedule/SchedulesByDateList.aspx?period=14#_SchedDate14"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "next_week"))
+        markup += String.Format("<li><a href=""Schedule/SchedulesByDateList.aspx?period=31#_SchedDate31"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "rest_month"))
+        
         markup += "</ul>"
         markup += "</div>"
 

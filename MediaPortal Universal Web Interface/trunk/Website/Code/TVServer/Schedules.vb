@@ -102,6 +102,66 @@ Namespace uWiMP.TVServer
 
         End Function
 
+        Public Shared Function GetRecordingTimes(ByVal s As Schedule, ByVal days As Integer) As List(Of Schedule)
+
+            Dim list As List(Of Schedule) = New List(Of Schedule)
+            Dim programs As List(Of Program) = New List(Of Program)
+            Select Case s.ScheduleType
+                Case 0
+                    list.Add(s)
+                    Return list
+                Case 1
+                    programs = Program.RetrieveDaily(s.StartTime, s.EndTime, s.ReferencedChannel.IdChannel, days)
+                    Exit Select
+                Case 2
+                    programs = Program.RetrieveWeekly(s.StartTime, s.EndTime, s.ReferencedChannel.IdChannel, days)
+                    Exit Select
+                Case 3
+                    programs = Program.RetrieveEveryTimeOnThisChannel(s.ProgramName, s.ReferencedChannel.IdChannel, days)
+                    Exit Select
+                Case 4
+                    programs = Program.RetrieveEveryTimeOnEveryChannel(s.ProgramName, days)
+                    Exit Select
+                Case 5
+                    programs = Program.RetrieveWeekends(s.StartTime, s.EndTime, s.ReferencedChannel.IdChannel, days)
+                    Exit Select
+                Case 6
+                    programs = Program.RetrieveWorkingDays(s.StartTime, s.EndTime, s.ReferencedChannel.IdChannel, days)
+                    Exit Select
+            End Select
+
+            list = AddProgramsToSchedulesList(s, programs)
+
+            Return list
+
+        End Function
+
+        Private Shared Function AddProgramsToSchedulesList(ByVal s As Schedule, ByVal programs As List(Of Program)) As List(Of Schedule)
+
+            Dim list As List(Of Schedule) = New List(Of Schedule)
+
+            If ((Not programs Is Nothing) AndAlso (programs.Count > 0)) Then
+                Dim program As Program
+                For Each program In programs
+                    Dim item As Schedule = s.Clone
+                    item.ScheduleType = 0
+                    item.StartTime = program.StartTime
+                    item.EndTime = program.EndTime
+                    item.IdChannel = program.IdChannel
+                    item.Series = True
+                    item.ProgramName = program.Title
+                    If s.IsSerieIsCanceled(item.StartTime) Then
+                        item.Canceled = item.StartTime
+                    End If
+                    list.Add(item)
+                Next
+            End If
+
+            Return list
+
+        End Function
+
+
         Public Shared Function DeleteScheduleById(ByVal idSchedule As Integer) As Boolean
 
             Try
