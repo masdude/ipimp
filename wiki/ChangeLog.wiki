@@ -1,6 +1,6 @@
 #sidebar TOC
 ----
-Next version (NOT YET RELEASED) includes
+5.0.0 updates include (NOT YET RELEASED)
  * Web - Added stream live TV - EXPERIMENTAL
  * Web - Removed dirty hack to link UK channels to iphone.tvcatchup.com
  * Web - Added Radio Guide functionality (same functions as TV Guide - NO streaming yet)
