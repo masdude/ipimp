@@ -1022,4 +1022,19 @@
   <data name="stream_start_wait" xml:space="preserve">
     <value>Please wait while the stream is started.</value>
   </data>
+  <data name="next_week" xml:space="preserve">
+    <value>Next week</value>
+  </data>
+  <data name="rest_month" xml:space="preserve">
+    <value>Rest of the month</value>
+  </data>
+  <data name="scheduled_next_week" xml:space="preserve">
+    <value>Scheduled next week</value>
+  </data>
+  <data name="scheduled_none" xml:space="preserve">
+    <value>No schedules found</value>
+  </data>
+  <data name="scheduled_rest_month" xml:space="preserve">
+    <value>Scheduled rest of the month</value>
+  </data>
 </root>
