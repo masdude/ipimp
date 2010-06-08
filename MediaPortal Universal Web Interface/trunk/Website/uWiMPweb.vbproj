@@ -114,6 +114,7 @@
     <Content Include="iPhone\Default.aspx" />
     <Content Include="iPhone\Streaming\StopTVStream.aspx" />
     <Content Include="iPhone\Streaming\WatchTVStream.aspx" />
+    <Content Include="SmoothStream\blank.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1598,7 +1599,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="SmoothStream\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MPWebServices\MPWebServices.csproj">
