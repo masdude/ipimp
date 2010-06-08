@@ -52,7 +52,7 @@ Namespace uWiMP.TVServer
             End Set
         End Property
 
-        Private _mediaType As MediaType = MediaType.None
+        Private Shared _mediaType As MediaType = MediaType.None
         Public Property Media() As MediaType
             Get
                 Return _mediaType
@@ -97,6 +97,8 @@ Namespace uWiMP.TVServer
         End Sub
 
         Public Shared Function Stream(ByVal mediatype As MediaType, ByVal id As Integer) As Boolean
+
+            ClearStreamFiles()
 
             Dim bufferSize As Integer = &H80000
             Dim tvServerUsername As String = ""
@@ -149,21 +151,34 @@ Namespace uWiMP.TVServer
 
         End Function
 
-        Public Shared Function StopStream(ByVal mediatype As MediaType) As Boolean
-            If (Not _mediaStream Is Nothing) Then
-                _mediaStream.Close()
-            End If
-            If MediaType = Streamer.MediaType.Tv Then
-                uWiMP.TVServer.Cards.StopTimeshifting(uWiMP.TVServer.Cards.GetCard(_card))
-            End If
-            _encoder.StopProcess()
-        End Function
-
-        Private Function ClearLiveFiles() As Boolean
-
+        Public Shared Function StopStream() As Boolean
+            Try
+                If (Not _mediaStream Is Nothing) Then
+                    _mediaStream.Close()
+                End If
+                If _mediaType = Streamer.MediaType.Tv Or _mediaType = Streamer.MediaType.Radio Then
+                    uWiMP.TVServer.Cards.StopTimeshifting(uWiMP.TVServer.Cards.GetCard(_card))
+                End If
+                _encoder.StopProcess()
+            Catch ex As Exception
+                Return False
+            End Try
             Return True
-
         End Function
+
+        Private Shared Sub ClearStreamFiles()
+
+            Dim dir As DirectoryInfo = New DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory & "\\SmoothStream")
+            For Each file As FileInfo In dir.GetFiles
+                Try
+                    file.Delete()
+                Catch ex As Exception
+
+                End Try
+            Next
+
+        End Sub
+
     End Class
 
 End Namespace

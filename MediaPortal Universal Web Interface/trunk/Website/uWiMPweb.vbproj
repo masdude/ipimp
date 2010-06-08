@@ -110,7 +110,10 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config.xml" />
     <Content Include="iPhone\Default.aspx" />
+    <Content Include="iPhone\Streaming\StopTVStream.aspx" />
+    <Content Include="iPhone\Streaming\WatchTVStream.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1044,6 +1047,20 @@
       <DependentUpon>SchedulesByTitleList.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="iPhone\Streaming\StopTVStream.aspx.designer.vb">
+      <DependentUpon>StopTVStream.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Streaming\StopTVStream.aspx.vb">
+      <DependentUpon>StopTVStream.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Streaming\WatchTVStream.aspx.designer.vb">
+      <DependentUpon>WatchTVStream.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Streaming\WatchTVStream.aspx.vb">
+      <DependentUpon>WatchTVStream.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="iPhone\TVGuide\RecordManualConfirm.aspx.designer.vb">
       <DependentUpon>RecordManualConfirm.aspx</DependentUpon>
     </Compile>
@@ -1128,11 +1145,11 @@
       <DependentUpon>SearchTVGuideResults.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\TVGuide\WatchTVChannel.aspx.designer.vb">
-      <DependentUpon>WatchTVChannel.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\StreamTVChannel.aspx.designer.vb">
+      <DependentUpon>StreamTVChannel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iPhone\TVGuide\WatchTVChannel.aspx.vb">
-      <DependentUpon>WatchTVChannel.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\StreamTVChannel.aspx.vb">
+      <DependentUpon>StreamTVChannel.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="iPhone\TVServer\CardStatus.aspx.designer.vb">
@@ -1527,7 +1544,7 @@
     <Content Include="iPhone\TVGuide\TVProgram.aspx" />
     <Content Include="iPhone\TVGuide\SearchTVGuide.aspx" />
     <Content Include="iPhone\TVGuide\SearchTVGuideResults.aspx" />
-    <Content Include="iPhone\TVGuide\WatchTVChannel.aspx" />
+    <Content Include="iPhone\Streaming\StreamTVChannel.aspx" />
     <Content Include="iPhone\TVServer\CardStatus.aspx" />
     <Content Include="iPhone\TVServer\CardStatusMenu.aspx" />
     <Content Include="iPhone\TVServer\CardActionConfirm.aspx" />
@@ -1581,6 +1598,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="SmoothStream\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MPWebServices\MPWebServices.csproj">

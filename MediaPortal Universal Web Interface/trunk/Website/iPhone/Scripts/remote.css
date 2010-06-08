@@ -11,6 +11,11 @@ table {
 	border-spacing:0;
 }
 
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
 td {
 	padding:1;
 }
@@ -123,5 +128,11 @@ td.smallgrid
   color:#4c566c;
 }
 
+.visibleDIV {
+    display: block;
+}
 
+.invisibleDIV {
+    display: none;
+}
  
