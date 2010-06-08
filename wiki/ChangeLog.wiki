@@ -1,12 +1,13 @@
 #sidebar TOC
 ----
 Next version (NOT YET RELEASED) includes
- * Web - Added stream live TV - Yes! - stream live TV :-)
+ * Web - Added stream live TV - EXPERIMENTAL
  * Web - Removed dirty hack to link UK channels to iphone.tvcatchup.com
  * Web - Added Radio Guide functionality (same functions as TV Guide)
  * Web - can now search program descriptions as well as titles
  * Web - added -Z to correctly use Handbrake presets
  * Web - added Spanish translations - thanks bodiroga
+ * Web - updated view schedules by date to show up-coming schedules
  * TV transcode plugin - added -Z to correctly use Handbrake presets
  * TV transcode plugin - fixed browse buttons so can set MP4 path
  * TV transcode plugin - added ability to set utilities location
