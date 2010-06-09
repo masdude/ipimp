@@ -1001,4 +1001,40 @@
   <data name="select_colour" xml:space="preserve">
     <value>Farbe auswählen</value>
   </data>
+  <data name="search_description" xml:space="preserve">
+    <value>Suche Beschreibung?</value>
+  </data>
+  <data name="radio_guide" xml:space="preserve">
+    <value>Radioprogramme</value>
+  </data>
+  <data name="listen" xml:space="preserve">
+    <value>Hören</value>
+  </data>
+  <data name="stream_stopped" xml:space="preserve">
+    <value>Stream gestoppt.</value>
+  </data>
+  <data name="stream_stopped_failed" xml:space="preserve">
+    <value>Stream kann nicht gestoppt werden.</value>
+  </data>
+  <data name="stream_started" xml:space="preserve">
+    <value>Play drücken um den Stream zu sehen. Bitte beim Beenden &lt;b&gt;Stop drücken&lt;/b&gt; sonst blockiert der TV Server einen Tuner und wandelt weiterhin den Stream um.</value>
+  </data>
+  <data name="stream_start_wait" xml:space="preserve">
+    <value>Bitte warten bis der Stream startet.</value>
+  </data>
+  <data name="next_week" xml:space="preserve">
+    <value>Nächste Woche</value>
+  </data>
+  <data name="rest_month" xml:space="preserve">
+    <value>Rest des Monats</value>
+  </data>
+  <data name="scheduled_next_week" xml:space="preserve">
+    <value>Geplant für nächste Woche</value>
+  </data>
+  <data name="scheduled_none" xml:space="preserve">
+    <value>Keine  Termine gefunden</value>
+  </data>
+  <data name="scheduled_rest_month" xml:space="preserve">
+    <value>Geplant für den Rest des Monats</value>
+  </data>
 </root>

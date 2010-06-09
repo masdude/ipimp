@@ -902,4 +902,40 @@
   <data name="record" xml:space="preserve">
     <value>Ta opp</value>
   </data>
+  <data name="search_description" xml:space="preserve">
+    <value>Søkebeskrivelse?</value>
+  </data>
+  <data name="radio_guide" xml:space="preserve">
+    <value>Radio Guide</value>
+  </data>
+  <data name="listen" xml:space="preserve">
+    <value>Lytter</value>
+  </data>
+  <data name="stream_stopped" xml:space="preserve">
+    <value>Avspilling stoppet.</value>
+  </data>
+  <data name="stream_stopped_failed" xml:space="preserve">
+    <value>Avspilling ble ikke stoppet</value>
+  </data>
+  <data name="stream_started" xml:space="preserve">
+    <value>Trykk play for å se opptaket. Husk å  trykke &lt;B&gt;stop&lt;/B&gt; etterpå for å frigjøre kort/tuner.</value>
+  </data>
+  <data name="stream_start_wait" xml:space="preserve">
+    <value>Vent mens avspillingen starter.</value>
+  </data>
+  <data name="next_week" xml:space="preserve">
+    <value>Neste uke</value>
+  </data>
+  <data name="rest_month" xml:space="preserve">
+    <value>Resten av måneden</value>
+  </data>
+  <data name="scheduled_next_week" xml:space="preserve">
+    <value>Planlagte opptak neste uke</value>
+  </data>
+  <data name="scheduled_none" xml:space="preserve">
+    <value>Ingen planlagte opptak</value>
+  </data>
+  <data name="scheduled_rest_month" xml:space="preserve">
+    <value>Planlagte opptak resten av måneden</value>
+  </data>
 </root>

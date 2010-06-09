@@ -1001,4 +1001,40 @@
   <data name="select_colour" xml:space="preserve">
     <value>Välj färg</value>
   </data>
+  <data name="search_description" xml:space="preserve">
+    <value>Sökbeskrivning</value>
+  </data>
+  <data name="radio_guide" xml:space="preserve">
+    <value>Radioguide</value>
+  </data>
+  <data name="listen" xml:space="preserve">
+    <value>Lyssna</value>
+  </data>
+  <data name="stream_stopped" xml:space="preserve">
+    <value>Strömmen stoppad</value>
+  </data>
+  <data name="stream_stopped_failed" xml:space="preserve">
+    <value>Strömmen kunde inte stoppas</value>
+  </data>
+  <data name="stream_started" xml:space="preserve">
+    <value>Tryck spela för att titta på strömmen. När den är slut &lt;B&gt;tryck stopp&lt;/B&gt; annars fortsätter TV-Servern att låsa ett kort och forsätter att avkoda strömmen.</value>
+  </data>
+  <data name="stream_start_wait" xml:space="preserve">
+    <value>Var vänlig vänta medan strömmenstartas.</value>
+  </data>
+  <data name="next_week" xml:space="preserve">
+    <value>Nästa vecka</value>
+  </data>
+  <data name="rest_month" xml:space="preserve">
+    <value>Resten av månaden</value>
+  </data>
+  <data name="scheduled_next_week" xml:space="preserve">
+    <value>Schemalagt nästa vecka</value>
+  </data>
+  <data name="scheduled_none" xml:space="preserve">
+    <value>Inga schemaläggningar funna</value>
+  </data>
+  <data name="scheduled_rest_month" xml:space="preserve">
+    <value>Schemalagt resten av månaden</value>
+  </data>
 </root>
