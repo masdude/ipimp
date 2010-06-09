@@ -1,7 +1,7 @@
 #sidebar TOC
 
  * *Does iPiMP stream live TV*?
- Not yet, but a solution isn't too far away, using the great work done by Valk & GemX on their respective plugins, it won't be too much additional work to get on demand streaming into iPiMP.
+ Yes, iPiMP uses uses video streaming technology by [http://smoothstreaming.code-shop.com/ CodeShop] to bring live Smooth Streaming of your TV channels.
  * *What browsers does iPiMP support*?
  iPiMP uses [http://webapp-net.com/ WebApp.Net] which is a Micro framework developed for the iPhone/iPod touch. These devices use Apple's mobile safari which is a webkit based browser.  As such other webkit based browsers work very well with iPiMP. Check [http://en.wikipedia.org/wiki/List_of_web_browsers#WebKit-based_browsers Wikipedia] out for a list of webkit based browsers.
  * *What about desktop browsers (IE or Firefox)*?
