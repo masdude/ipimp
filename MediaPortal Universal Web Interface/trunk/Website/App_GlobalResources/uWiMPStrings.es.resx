@@ -1002,6 +1002,39 @@
     <value>Elegir color</value>
   </data>
   <data name="search_description" xml:space="preserve">
-    <value>¿Buscar descripción?</value>
+    <value>Buscar descripción?</value>
+  </data>
+  <data name="radio_guide" xml:space="preserve">
+    <value>Guía de Radio</value>
+  </data>
+  <data name="listen" xml:space="preserve">
+    <value>Escuchar</value>
+  </data>
+  <data name="stream_stopped" xml:space="preserve">
+    <value>Stream parado.</value>
+  </data>
+  <data name="stream_stopped_failed" xml:space="preserve">
+    <value>No se pudo parar el stream.</value>
+  </data>
+  <data name="stream_started" xml:space="preserve">
+    <value>Pulse play para ver el stream. Al acabar, &lt;B&gt;pulse stop &lt;/B&gt;, sino su TVServer seguirá usando la sintonizadora y continuará codificando el stream.</value>
+  </data>
+  <data name="stream_start_wait" xml:space="preserve">
+    <value>Por favor, espere hasta que el stream se inicie.</value>
+  </data>
+  <data name="next_week" xml:space="preserve">
+    <value>Próxima semana</value>
+  </data>
+  <data name="rest_month" xml:space="preserve">
+    <value>Resto del mes</value>
+  </data>
+  <data name="scheduled_next_week" xml:space="preserve">
+    <value>Programaciones de la próxima semana</value>
+  </data>
+  <data name="scheduled_none" xml:space="preserve">
+    <value>Programaciones no encontradas</value>
+  </data>
+  <data name="scheduled_rest_month" xml:space="preserve">
+    <value>Programaciones del resto del mes</value>
   </data>
 </root>
