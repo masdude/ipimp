@@ -8,8 +8,7 @@ http://www.vanderboon.co.uk/images/ipimp4.png
 
 iPiMP is a web interface for !MediaPortal specifically designed for the iPhone, but also works with any Smartphone or device that uses a webkit based browser. It uses !MediaPortal interfaces to communicate with both the TV Server and !MediaPortal clients.
 
-
-You can use iPiMP to interact with your !MediaPortal TV Server allowing you to view your TV guide, read program details, schedule programs to be recorded, email program details as well as view, manage & watch your existing recordings. Watching live TV though is not possible (yet!). There is a status facility allowing you to view the status of your services, disk capacity and tv card activity, you can also stop a card when timeshifting if you want to kick someone off.
+You can use iPiMP to interact with your !MediaPortal TV Server allowing you to view your TV or Radio guide, read program details, schedule programs to be recorded, email program details as well as view, manage & watch your existing recordings. Watching live TV is currently an experimental feature. There is a status facility allowing you to view the status of your services, disk capacity and tv card activity, you can also stop a card when timeshifting if you want to kick someone off.
 
 You can also use iPiMP to interact with your !MediaPortal clients, you can use it as a remote control, browse/play your video and music databases on your !MediaPortal clients, send messages to popup on your !MediaPortal clients, view now playing information and startup/shutdown/reboot/standby/hibernate your clients. The client functionality will be extended to provide additional features for other !MediaPortal plugins. 
 
@@ -20,7 +19,15 @@ You can also use iPiMP to interact with your !MediaPortal clients, you can use i
  * Search TV guides 
  * Now & Next 
  * Schedule programs 
- * Email program details 
+ * Email program details
+ * Stream live TV
+
+*Radio Programs*
+ * Browse Radio guides by day & channel 
+ * Search Radio guides 
+ * Now & Next 
+ * Schedule programs 
+ * Email program details
 
 *Recordings*
  * Browse recordings by date, channel & genre 
@@ -55,3 +62,5 @@ You can also use iPiMP to interact with your !MediaPortal clients, you can use i
  * Delete user 
  * Change password 
  * !MediaPortal clients (add, delete, edit) 
+
+iPiMP uses uses video streaming technology by [http://smoothstreaming.code-shop.com/ CodeShop]
