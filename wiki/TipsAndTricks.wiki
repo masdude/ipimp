@@ -20,16 +20,15 @@
  OR<br>
  Ensure you use VALID ffmpeg parameters in the transcode plugin, if in doubt use the Defaults button on the plugin configuration screen.
 
- * *Screen just shows background*
- Ensure you have Javascript enabled.
- Settings -> Safari -> JavaScript = On
-
  * *Can't see any music or movies* or *You get a !!FUBAR!! when entering !MyVideos or !MyMusic*
  iPiMP uses the !MediaPortal music and movie databases so if you haven't imported your media then you won't see it in iPiMP. 
 
  * *You are always returned to the login page, even when entering the correct username & password*
 
  Ensure you have enabled cookies. Settings -> Safari -> Accept Cookies -> 'From visited' or 'Always'
+
+ * *Your screen just shows the background*
+ Ensure you have Javascript enabled.  Settings -> Safari -> JavaScript -> 'On'
 
  * *Remember Me? doesn't work (You always have to login)*
 
