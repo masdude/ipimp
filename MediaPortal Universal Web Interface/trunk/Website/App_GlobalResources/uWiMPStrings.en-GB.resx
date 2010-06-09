@@ -1001,4 +1001,40 @@
   <data name="select_colour" xml:space="preserve">
     <value>Select colour</value>
   </data>
+  <data name="search_description" xml:space="preserve">
+    <value>Search description?</value>
+  </data>
+  <data name="radio_guide" xml:space="preserve">
+    <value>Radio Guide</value>
+  </data>
+  <data name="listen" xml:space="preserve">
+    <value>Listen</value>
+  </data>
+  <data name="stream_stopped" xml:space="preserve">
+    <value>Stream stopped.</value>
+  </data>
+  <data name="stream_stopped_failed" xml:space="preserve">
+    <value>Stream could not be stopped.</value>
+  </data>
+  <data name="stream_started" xml:space="preserve">
+    <value>Press play to watch the stream.  When finished &lt;B&gt;press stop&lt;/B&gt; otherwise your TV server will continue to lock a tuner and continue to transcode the stream.</value>
+  </data>
+  <data name="stream_start_wait" xml:space="preserve">
+    <value>Please wait while the stream is started.</value>
+  </data>
+  <data name="next_week" xml:space="preserve">
+    <value>Next week</value>
+  </data>
+  <data name="rest_month" xml:space="preserve">
+    <value>Rest of the month</value>
+  </data>
+  <data name="scheduled_next_week" xml:space="preserve">
+    <value>Scheduled next week</value>
+  </data>
+  <data name="scheduled_none" xml:space="preserve">
+    <value>No schedules found</value>
+  </data>
+  <data name="scheduled_rest_month" xml:space="preserve">
+    <value>Scheduled rest of the month</value>
+  </data>
 </root>
