@@ -114,6 +114,7 @@
     <Content Include="iPhone\Default.aspx" />
     <Content Include="iPhone\Streaming\StopTVStream.aspx" />
     <Content Include="iPhone\Streaming\WatchTVStream.aspx" />
+    <Content Include="iPhone\TVServer\StreamingStatus.aspx" />
     <Content Include="SmoothStream\blank.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1179,6 +1180,13 @@
     </Compile>
     <Compile Include="iPhone\TVServer\CardActionResult.aspx.vb">
       <DependentUpon>CardActionResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\StreamingStatus.aspx.designer.vb">
+      <DependentUpon>StreamingStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\StreamingStatus.aspx.vb">
+      <DependentUpon>StreamingStatus.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="iPhone\TVServer\TranscodeStatus.aspx.designer.vb">
