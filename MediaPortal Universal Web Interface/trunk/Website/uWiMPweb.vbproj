@@ -45,14 +45,23 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gentle.Common, Version=1.5.0.29111, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL" />
+    <Reference Include="Gentle.Common, Version=1.5.0.29053, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\Gentle.Common.dll</HintPath>
+    </Reference>
     <Reference Include="Gentle.Framework, Version=1.5.0.29053, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\Gentle.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Gentle.Provider.MySQL, Version=1.5.0.29111, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL" />
-    <Reference Include="Gentle.Provider.SQLServer, Version=1.5.0.29111, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL" />
+    <Reference Include="Gentle.Provider.MySQL, Version=1.5.0.29054, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\Gentle.Provider.MySQL.dll</HintPath>
+    </Reference>
+    <Reference Include="Gentle.Provider.SQLServer, Version=1.5.0.29053, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\Gentle.Provider.SQLServer.dll</HintPath>
+    </Reference>
     <Reference Include="Jayrock.Json, Version=0.9.10905.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Jayrock.Json.dll</HintPath>
@@ -86,7 +95,10 @@
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TVDatabase.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TvLibrary.Interfaces, Version=1.0.6.27734, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="TvLibrary.Interfaces, Version=1.0.8.15696, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TvLibrary.Interfaces.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
