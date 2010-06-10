@@ -36,13 +36,15 @@ Namespace uWiMP.TVServer
         End Enum
 
         Private _taskprogress As String
+        Private Shared _isStreaming As Boolean
         Private _delegate As AsyncTaskDelegate
 
         Private Shared _card As Integer
         Private Shared _mediaStream As Stream
         Private Shared _encoder As EncoderWrapper
+        Private Shared _userName As String
+        Private Shared _channelID As Integer = 0
 
-        Private _channelID As Integer = 0
         Public Property ChannelID() As String
             Get
                 Return _channelID
@@ -67,6 +69,10 @@ Namespace uWiMP.TVServer
 
         Public Function GetAsyncTaskProgress() As String
             Return _taskprogress
+        End Function
+
+        Public Function IsRunning() As Boolean
+            Return _isStreaming
         End Function
 
         Public Sub ExecuteAsyncTask()
@@ -96,25 +102,30 @@ Namespace uWiMP.TVServer
             _taskprogress += String.Format("Streaming timed out at: {0}", DateTime.Now.ToLongTimeString)
         End Sub
 
-        Public Shared Function Stream(ByVal mediatype As MediaType, ByVal id As Integer) As Boolean
+        Public Shared Sub Stream(ByVal mediatype As MediaType, ByVal id As Integer)
 
-            ClearStreamFiles()
-
+            
             Dim bufferSize As Integer = &H80000
-            Dim tvServerUsername As String = ""
+            'Dim tvServerUsername As String = ""
             Dim usedChannel As Integer = -1
             Dim filename As String = ""
+            Dim type As String = ""
 
             Dim cfg As EncoderConfig = Utils.LoadConfig.Item(0)
 
             Select Case mediatype
                 Case Streamer.MediaType.Tv, Streamer.MediaType.Radio
-                    If mediatype = Streamer.MediaType.Radio Then bufferSize = &HA00
+                    type = "tv"
+                    If mediatype = Streamer.MediaType.Radio Then
+                        bufferSize = &HA00
+                        type = "radio"
+                    End If
+
                     Dim res As WebTvResult = uWiMP.TVServer.Cards.StartTimeshifting(id)
-                    If res.result <> 0 Then Return False
+                    If res.result <> 0 Then Exit Sub
                     _card = res.user.idCard
                     usedChannel = res.user.idChannel
-                    tvServerUsername = res.user.name
+                    _userName = res.user.name
 
                     If (cfg.inputMethod = TransportMethod.Filename) Then
                         filename = res.rtspURL
@@ -122,34 +133,26 @@ Namespace uWiMP.TVServer
                         filename = res.timeshiftFile
                     End If
 
-                    'ElseIf (Not MyBase.Request.QueryString.Item("idRecording") Is Nothing) Then
-                    '    filename = server.GetRecording(Integer.Parse(MyBase.Request.QueryString.Item("idRecording"))).fileName
-                    'ElseIf (Not MyBase.Request.QueryString.Item("idMovie") Is Nothing) Then
-                    '    filename = server.GetMovie(Integer.Parse(MyBase.Request.QueryString.Item("idMovie"))).file
-                    'ElseIf (Not MyBase.Request.QueryString.Item("idMusicTrack") Is Nothing) Then
-                    '    filename = server.GetMusicTrack(Integer.Parse(MyBase.Request.QueryString.Item("idMusicTrack"))).file
-                    'ElseIf (Not MyBase.Request.QueryString.Item("idTvSeries") Is Nothing) Then
-                    '    filename = server.GetTvSeries(MyBase.Request.QueryString.Item("idTvSeries")).filename
-                    'ElseIf (Not MyBase.Request.QueryString.Item("idMovingPicture") Is Nothing) Then
-                    '    filename = server.GetMovingPicture(Integer.Parse(MyBase.Request.QueryString.Item("idMovingPicture"))).filename
-                    'End If
-
             End Select
 
-            If Not (File.Exists(filename) OrElse filename.StartsWith("rtsp://")) Then Return False
+            If Not (File.Exists(filename) OrElse filename.StartsWith("rtsp://")) Then Exit Sub
+
+            ClearStreamFiles(type, id)
 
             If (cfg.inputMethod <> TransportMethod.Filename) Then
-                If mediatype = Streamer.MediaType.Tv Then
+                If (mediatype = Streamer.MediaType.Tv) Or (mediatype = Streamer.MediaType.Radio) Then
                     _mediaStream = New TsBuffer(filename)
                 Else
                     _mediaStream = New FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
                 End If
                 _encoder = New EncoderWrapper(_mediaStream, cfg)
+                _isStreaming = True
             Else
                 _encoder = New EncoderWrapper(filename, cfg)
+                _isStreaming = True
             End If
 
-        End Function
+        End Sub
 
         Public Shared Function StopStream() As Boolean
             Try
@@ -157,25 +160,37 @@ Namespace uWiMP.TVServer
                     _mediaStream.Close()
                 End If
                 If _mediaType = Streamer.MediaType.Tv Or _mediaType = Streamer.MediaType.Radio Then
-                    uWiMP.TVServer.Cards.StopTimeshifting(uWiMP.TVServer.Cards.GetCard(_card))
+                    uWiMP.TVServer.Cards.StopTimeshifting(_channelID, _card, _userName)
                 End If
                 _encoder.StopProcess()
+                _isStreaming = False
+                Dim path As String = String.Format("{0}\SmoothStream\Channel.txt", AppDomain.CurrentDomain.BaseDirectory)
+                If File.Exists(path) Then File.Delete(path)
             Catch ex As Exception
                 Return False
             End Try
             Return True
         End Function
 
-        Private Shared Sub ClearStreamFiles()
+        Private Shared Sub ClearStreamFiles(ByVal type As String, ByVal channelID As Integer)
 
             Dim dir As DirectoryInfo = New DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory & "\\SmoothStream")
-            For Each file As FileInfo In dir.GetFiles
+            For Each f As FileInfo In dir.GetFiles
                 Try
-                    file.Delete()
+                    f.Delete()
                 Catch ex As Exception
-
                 End Try
             Next
+
+            Dim path As String = String.Format("{0}\SmoothStream\Channel.txt", AppDomain.CurrentDomain.BaseDirectory)
+            If File.Exists(path) = False Then
+                ' Create a file to write to.
+                Using sw As StreamWriter = File.CreateText(path)
+                    sw.WriteLine(type)
+                    sw.WriteLine(channelID.ToString)
+                    sw.Flush()
+                End Using
+            End If
 
         End Sub
 

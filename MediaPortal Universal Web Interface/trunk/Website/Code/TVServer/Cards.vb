@@ -276,6 +276,15 @@ Namespace uWiMP.TVServer
 
         End Function
 
+        Public Shared Function StopTimeshifting(ByVal idChannel As Integer, ByVal idCard As Integer, ByVal userName As String) As Boolean
+
+            SetupConnection()
+
+            Dim user As New User(userName, False, idCard)
+            user.IdChannel = idChannel
+            Return RemoteControl.Instance.StopTimeShifting((user))
+
+        End Function
 
         Public Shared Function StartTimeshifting(ByVal idChannel As Integer) As WebTvResult
 
