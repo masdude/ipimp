@@ -279,6 +279,7 @@
   File "..\Include\Aspx\iPhone\TVServer\ServiceActionConfirm.aspx"
   File "..\Include\Aspx\iPhone\TVServer\ServiceActionResult.aspx"
   File "..\Include\Aspx\iPhone\TVServer\ServiceStatus.aspx"
+  File "..\Include\Aspx\iPhone\TVServer\StreamingStatus.aspx"
   File "..\Include\Aspx\iPhone\TVServer\TranscodeStatus.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\WebApp"
@@ -366,3 +367,6 @@
   File "..\Include\Aspx\iPhone\WebApp\Img\more.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\next.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\up.png"
+
+  SetOutPath "$INSTDIR\Aspx\SmoothStream"
+  File "..\Include\Aspx\SmoothStream\blank.txt"
