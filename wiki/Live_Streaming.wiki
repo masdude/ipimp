@@ -7,3 +7,6 @@ The Smooth Streaming feature can generates a single adaptive bitrate stream whic
 The initial implementation will only have one video bitrate, this will be expanded in future versions.
 
 *Note* - This feature will launch a transcoding process on your PC which will consume a significant amount of CPU.
+
+*Usage*
+ * Ensure you stop the stream after you've finished otherwise you will lock a tuner and the transcode process will continue.  You can stop a stream either by pressing on the stop button on the stream launch page or via the Streaming status page in the TV Server status section.
