@@ -1,5 +1,6 @@
-#Fixes needed for 5.0.0
+#sidebar TOC
 
+Fixes needed for 5.0.0
 This is just a dump of issues to be fixed in the next version.
 
  * Update Danish language strings
