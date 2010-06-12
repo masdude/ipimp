@@ -123,6 +123,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.xml" />
+    <Content Include="Desktop\MediaPlayerTemplate.xap" />
+    <Content Include="Desktop\SmoothStream.htm" />
+    <Content Include="Desktop\SmoothStreaming.xap" />
+    <Content Include="Desktop\TimedTextLibrary.xap" />
+    <Content Include="images\remote\browser.png" />
     <Content Include="iPhone\Default.aspx" />
     <Content Include="iPhone\Streaming\StopTVStream.aspx" />
     <Content Include="iPhone\Streaming\WatchTVStream.aspx" />
@@ -1607,6 +1612,7 @@
     <Content Include="iPhone\WebApp\Design\Img\next.png" />
     <Content Include="iPhone\WebApp\Img\down.png" />
     <Content Include="iPhone\WebApp\Img\up.png" />
+    <None Include="Desktop\Settings.dat" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
