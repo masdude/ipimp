@@ -2,7 +2,7 @@
 
 This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  These are in no particular order.
 
- * Get live TV working
+ * ~~Get live TV working~~ DONE
 
  * Add TVSeries to MP client plugin
 
@@ -26,8 +26,8 @@ This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  The
 
  * Add PIN protection for Moving Pictures
 
- * Add My Radio
+ * ~~Add My Radio~~ DONE
 
  * Expand customised menus
 
- * Update installer for existing Apache installs
+ * ~~Update installer for existing Apache installs~~ DONE
