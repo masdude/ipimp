@@ -5,6 +5,7 @@
  * [Known_Issues_Workarounds Known Issues & workrounds]
  * [Troubleshooting]
  * [Roadmap]
+ * [FixesToDo]
  * [FAQ Frequently Asked Questions]
  * [Install_Introduction Installation]
   * [Install_overview Installation overview]
