@@ -127,7 +127,7 @@
     <Content Include="iPhone\Streaming\StopTVStream.aspx" />
     <Content Include="iPhone\Streaming\WatchTVStream.aspx" />
     <Content Include="iPhone\TVServer\StreamingStatus.aspx" />
-    <Content Include="SmoothStream\blank.txt" />
+    <Content Include="SmoothStream.isml\blank.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
