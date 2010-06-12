@@ -7,3 +7,4 @@ This is just a dump of issues to be fixed in the next version.
  * Update installer to do text replace in config.xml in Apache only installs
  * Update streaming status page to allow the existing stream to be rejoined
  * Update streaming folder with .isml to allow URL rewriting to work
+ * Make channel group sorting optional
