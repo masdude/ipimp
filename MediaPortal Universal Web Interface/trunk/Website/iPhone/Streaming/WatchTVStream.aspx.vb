@@ -92,7 +92,7 @@ Partial Public Class WatchTVStream
 
         markup += String.Format("<div><p>{0}</p>", GetGlobalResourceObject("uWiMPStrings", "stream_started"))
         markup += "<table class=""center""><tr>"
-        markup += String.Format("<td class=""grid""><a href=""../../SmoothStream/live.m3u8""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
+        markup += String.Format("<td class=""grid""><a href=""../../SmoothStream.isml/SmoothStream.m3u8""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
         markup += String.Format("<td class=""grid""><a href=""Streaming/StopTVStream.aspx#_StopTVStream"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
         markup += "</tr></table>"
         markup += "</div>"

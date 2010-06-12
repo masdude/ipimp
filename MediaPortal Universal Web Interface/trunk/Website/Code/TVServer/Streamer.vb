@@ -164,7 +164,7 @@ Namespace uWiMP.TVServer
                 End If
                 _encoder.StopProcess()
                 _isStreaming = False
-                Dim path As String = String.Format("{0}\SmoothStream\Channel.txt", AppDomain.CurrentDomain.BaseDirectory)
+                Dim path As String = String.Format("{0}\SmoothStream.isml\Channel.txt", AppDomain.CurrentDomain.BaseDirectory)
                 If File.Exists(path) Then File.Delete(path)
             Catch ex As Exception
                 Return False
@@ -174,7 +174,7 @@ Namespace uWiMP.TVServer
 
         Private Shared Sub ClearStreamFiles(ByVal type As String, ByVal channelID As Integer)
 
-            Dim dir As DirectoryInfo = New DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory & "\\SmoothStream")
+            Dim dir As DirectoryInfo = New DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory & "\\SmoothStream.isml")
             For Each f As FileInfo In dir.GetFiles
                 Try
                     f.Delete()
@@ -182,7 +182,7 @@ Namespace uWiMP.TVServer
                 End Try
             Next
 
-            Dim path As String = String.Format("{0}\SmoothStream\Channel.txt", AppDomain.CurrentDomain.BaseDirectory)
+            Dim path As String = String.Format("{0}\SmoothStream.isml\Channel.txt", AppDomain.CurrentDomain.BaseDirectory)
             If File.Exists(path) = False Then
                 ' Create a file to write to.
                 Using sw As StreamWriter = File.CreateText(path)
