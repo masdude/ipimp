@@ -1,0 +1,8 @@
+#Fixes needed for 5.0.0
+
+This is just a dump of issues to be fixed in the next version.
+
+ * Update Danish language strings
+ * Update installer to do text replace in config.xml
+ * Update streaming status page to allow the existing stream to be rejoined
+ * Update streaming folder with .isml to allow URL rewriting to work
