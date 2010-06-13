@@ -1,7 +1,7 @@
 #sidebar TOC
 ----
 5.0.1 updates include
- * Web - modified SmoothStreaming arguments for correct playback on other players
+ * Web - modified !SmoothStreaming arguments for correct playback on other players
  * Web - added Silverlight player for desktop browsers - Google Chrome is recommended
  * Web - updated Streaming Status page to allow existing stream to be rejoined
 5.0.0 updates include
