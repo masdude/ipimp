@@ -31,3 +31,5 @@ This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  The
  * Expand customised menus
 
  * ~~Update installer for existing Apache installs~~ DONE
+
+ * Add My Pictures
