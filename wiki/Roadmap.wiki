@@ -2,11 +2,7 @@
 
 This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  These are in no particular order.
 
- * ~~Get live TV working~~ DONE
-
  * Add TVSeries to MP client plugin
-
- * ~~Add [http://code.google.com/p/moving-pictures/ MovingPictures] to MP client plugin~~  DONE
 
  * Add a proper TV guide facility (view multiple channels at once)
 
@@ -22,16 +18,21 @@ This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  The
 
  * Add Last.FM to MP client plugin
 
- * ~~Add Handbrake support~~  DONE 
-
  * Add PIN protection for Moving Pictures
 
- * ~~Add My Radio~~ DONE
-
  * Expand customised menus
-
- * ~~Update installer for existing Apache installs~~ DONE
 
  * Add My Pictures
 
  * Allow TV Guide number of days to be configurable
+
+
+ * ~~Get live TV working~~ DONE
+
+ * ~~Add [http://code.google.com/p/moving-pictures/ MovingPictures] to MP client plugin~~  DONE
+
+ * ~~Add Handbrake support~~  DONE 
+
+ * ~~Add My Radio~~ DONE
+
+ * ~~Update installer for existing Apache installs~~ DONE
