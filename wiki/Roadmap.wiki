@@ -33,3 +33,5 @@ This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  The
  * ~~Update installer for existing Apache installs~~ DONE
 
  * Add My Pictures
+
+ * Allow TV Guide number of days to be configurable
