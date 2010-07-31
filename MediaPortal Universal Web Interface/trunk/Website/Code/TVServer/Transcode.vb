@@ -127,7 +127,6 @@ Namespace uWiMP.TVServer
         Private Shared _iPiMPPath As String = DEFAULT_IPIMPPATH
         Private Shared _transcoderPath As String = String.Empty
         Private Shared _presetPath As String = String.Empty
-        Private Shared _mtnPath As String = String.Empty
         Private Shared _preInterval As Integer = 0
         Private Shared _postInterval As Integer = 0
 
@@ -175,8 +174,6 @@ Namespace uWiMP.TVServer
                 Log.Error("plugin: iPiMPTranscodeToMP4 - LoadSettings(): {0}", ex.Message)
 
             End Try
-
-            _mtnPath = String.Format("{0}{1}", _iPiMPPath, "\MTN\mtn.exe")
 
             If _transcoder.ToLower = "handbrake" Then
                 _transcoderPath = String.Format("{0}\HandBrake\HandBrakeCLI.exe", _iPiMPPath)
@@ -226,9 +223,9 @@ Namespace uWiMP.TVServer
 
         Private Shared Sub Screenshot(ByVal _recFilename As String)
 
-            Dim _params As String = String.Format("-B {0} -E {1} -w 88 -h 50 -c 1 -r 1 -i -t -P -z -O ""{2}"" -o .jpg ""{3}""", _preInterval * 60, _postInterval * 60, _folderPath, _recFilename)
+            Dim params As String = String.Format("-i {0} -ss {1} -vcodec mjpeg -vframes 1 -an -f rawvideo -s 88x50 ""{2}\{3}.jpg""", _recFilename, (_preInterval * 60) + 10, _folderPath, Path.GetFileNameWithoutExtension(_recFilename))
 
-            LaunchProcess(String.Format("""{0}""", _mtnPath), _params, String.Format("""{0}""", _folderPath), False)
+            LaunchProcess(String.Format("{0}\FFMpeg\FFMpeg.exe", _iPiMPPath), params, String.Format("""{0}""", _folderPath), False)
 
         End Sub
 

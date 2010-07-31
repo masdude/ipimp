@@ -1,12 +1,7 @@
 
   SetOutPath "$INSTDIR\Utilities\ffmpeg"
-  File "..\Include\Utilities\ffmpeg\avcodec-52.dll"
-  File "..\Include\Utilities\ffmpeg\avdevice-52.dll"
-  File "..\Include\Utilities\ffmpeg\avformat-52.dll"
-  File "..\Include\Utilities\ffmpeg\avutil-50.dll"
   File "..\Include\Utilities\ffmpeg\ffmpeg.exe"
   File "..\Include\Utilities\ffmpeg\pthreadGC2.dll"
-  File "..\Include\Utilities\ffmpeg\swscale-0.dll"
 
   SetOutPath "$INSTDIR\Utilities\ffmpeg\ffpresets"
   File "..\Include\Utilities\ffmpeg\ffpresets\libx264-baseline.ffpreset"
@@ -38,6 +33,8 @@
   File "..\Include\Utilities\ffmpeg\ffpresets\libx264-slower_firstpass.ffpreset"
   File "..\Include\Utilities\ffmpeg\ffpresets\libx264-slowfirstpass.ffpreset"
   File "..\Include\Utilities\ffmpeg\ffpresets\libx264-slow_firstpass.ffpreset"
+  File "..\Include\Utilities\ffmpeg\ffpresets\libx264-superfast.ffpreset"
+  File "..\Include\Utilities\ffmpeg\ffpresets\libx264-superfast_firstpass.ffpreset"
   File "..\Include\Utilities\ffmpeg\ffpresets\libx264-ultrafast.ffpreset"
   File "..\Include\Utilities\ffmpeg\ffpresets\libx264-ultrafast_firstpass.ffpreset"
   File "..\Include\Utilities\ffmpeg\ffpresets\libx264-veryfast.ffpreset"

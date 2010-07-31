@@ -479,7 +479,7 @@ Namespace SetupTv.Sections
             Me.RichTextBox11.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
             Me.RichTextBox11.Size = New System.Drawing.Size(409, 26)
             Me.RichTextBox11.TabIndex = 11
-            Me.RichTextBox11.Text = "iPiMP installs the MTN, FFmpeg and Handbrake components in its Utilities folder. " & _
+            Me.RichTextBox11.Text = "iPiMP installs the FFmpeg and Handbrake components in its Utilities folder. " & _
                 " If you move these utilities then the folder needs updating."
             '
             'BrowseUtils
@@ -943,7 +943,6 @@ Namespace SetupTv.Sections
 
             If Not Directory.Exists(Utilities.Text) Or _
                Not Directory.Exists(String.Format("{0}\ffmpeg", Utilities.Text)) Or _
-               Not Directory.Exists(String.Format("{0}\mtn", Utilities.Text)) Or _
                Not Directory.Exists(String.Format("{0}\handbrake", Utilities.Text)) Then
                 msg = "Invalid Utilities path."
                 Log.Error("iPiMPTranscodeToMP4 - OnSectionDeActivated: {0}", msg)
