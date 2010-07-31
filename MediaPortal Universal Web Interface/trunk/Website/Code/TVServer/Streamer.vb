@@ -36,7 +36,6 @@ Namespace uWiMP.TVServer
         End Enum
 
         Private _taskprogress As String
-        Private Shared _isStreaming As Boolean
         Private _delegate As AsyncTaskDelegate
 
         Private Shared _card As Integer
@@ -69,10 +68,6 @@ Namespace uWiMP.TVServer
 
         Public Function GetAsyncTaskProgress() As String
             Return _taskprogress
-        End Function
-
-        Public Function IsRunning() As Boolean
-            Return _isStreaming
         End Function
 
         Public Sub ExecuteAsyncTask()
@@ -146,10 +141,8 @@ Namespace uWiMP.TVServer
                     _mediaStream = New FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
                 End If
                 _encoder = New EncoderWrapper(_mediaStream, cfg)
-                _isStreaming = True
             Else
                 _encoder = New EncoderWrapper(filename, cfg)
-                _isStreaming = True
             End If
 
         End Sub
@@ -163,7 +156,6 @@ Namespace uWiMP.TVServer
                     uWiMP.TVServer.Cards.StopTimeshifting(_channelID, _card, _userName)
                 End If
                 _encoder.StopProcess()
-                _isStreaming = False
                 Dim path As String = String.Format("{0}\SmoothStream.isml\Channel.txt", AppDomain.CurrentDomain.BaseDirectory)
                 If File.Exists(path) Then File.Delete(path)
             Catch ex As Exception
