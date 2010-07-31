@@ -1037,4 +1037,10 @@
   <data name="scheduled_rest_month" xml:space="preserve">
     <value>Scheduled rest of the month</value>
   </data>
+  <data name="restart" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="stream" xml:space="preserve">
+    <value>Stream</value>
+  </data>
 </root>
