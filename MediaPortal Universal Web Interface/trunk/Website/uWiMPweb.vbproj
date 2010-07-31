@@ -130,8 +130,6 @@
     <Content Include="Desktop\SmoothStreaming.xap" />
     <Content Include="Desktop\TimedTextLibrary.xap" />
     <Content Include="images\remote\browser.png" />
-    <Content Include="iPhone\Admin\RestartWebAppResult.aspx" />
-    <Content Include="iPhone\Admin\RestartWebApp.aspx" />
     <Content Include="iPhone\Default.aspx" />
     <Content Include="iPhone\Streaming\CheckTVStream.aspx" />
     <Content Include="iPhone\Streaming\StopTVStream.aspx" />
@@ -311,20 +309,6 @@
     <Compile Include="iPhone\Admin\AppearanceResult.aspx.vb">
       <DependentUpon>AppearanceResult.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="iPhone\Admin\RestartWebAppResult.aspx.designer.vb">
-      <DependentUpon>RestartWebAppResult.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="iPhone\Admin\RestartWebAppResult.aspx.vb">
-      <DependentUpon>RestartWebAppResult.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="iPhone\Admin\RestartWebApp.aspx.designer.vb">
-      <DependentUpon>RestartWebApp.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="iPhone\Admin\RestartWebApp.aspx.vb">
-      <DependentUpon>RestartWebApp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="iPhone\Admin\ManageSettings.aspx.designer.vb">
       <DependentUpon>ManageSettings.aspx</DependentUpon>
