@@ -39,7 +39,7 @@ Section UpdateConfig
 
   DetailPrint "Patching config.xml"
 
-  Push "$INSTDIR\Utilities\ffmpeg_patch"
+  Push "$INSTDIR\Utilities\ffmpeg"
   Push "\"
   Call StrSlash
   Pop $R0

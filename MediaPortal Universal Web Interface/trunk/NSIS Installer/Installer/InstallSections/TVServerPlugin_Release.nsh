@@ -17,11 +17,8 @@ Section TVServerPlugin
   File "..\..\iPiMPTranscodeToMP4\bin\Release\iPiMPTranscodeToMP4.dll"
 
   !include "InstallSections\InstallFFMpeg.nsh"
-  !include "InstallSections\InstallFFMpegPatched.nsh"
 
   !include "InstallSections\InstallHandbrake.nsh"
-
-  !include "InstallSections\InstallMTN.nsh"
 
   DetailPrint "$(STRING_TVSERVICEPLUGIN_LINE2)"
   
