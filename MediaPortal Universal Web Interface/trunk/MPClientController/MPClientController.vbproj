@@ -59,7 +59,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Core, Version=1.0.5.32056, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="Core, Version=1.0.2.42465, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\Core.dll</HintPath>
     </Reference>
@@ -119,7 +119,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\Windows\TvPlugin.dll</HintPath>
     </Reference>
-    <Reference Include="Utils, Version=2.2.7.40018, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="Utils, Version=2.2.7.18347, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\Utils.dll</HintPath>
     </Reference>
