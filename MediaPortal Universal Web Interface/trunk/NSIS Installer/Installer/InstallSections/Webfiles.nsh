@@ -41,6 +41,10 @@
   SetOutPath "$INSTDIR\Aspx\Desktop"
   File "..\Include\Aspx\Desktop\Default.aspx"
   File "..\Include\Aspx\Desktop\Desktop.Master"
+  File "..\Include\Aspx\Desktop\MediaPlayerTemplate.xap"
+  File "..\Include\Aspx\Desktop\SmoothStream.htm"
+  File "..\Include\Aspx\Desktop\SmoothStreaming.xap"
+  File "..\Include\Aspx\Desktop\TimedTextLibrary.xap"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\scripts"
   File "..\Include\Aspx\Desktop\scripts\wz_tooltip.js"
@@ -63,6 +67,7 @@
   File "..\Include\Aspx\images\remote\basichome.png"
   File "..\Include\Aspx\images\remote\blank.png"
   File "..\Include\Aspx\images\remote\blue.png"
+  File "..\Include\Aspx\images\remote\browser.png"
   File "..\Include\Aspx\images\remote\down.png"
   File "..\Include\Aspx\images\remote\dvd.png"
   File "..\Include\Aspx\images\remote\forward.png"
@@ -123,6 +128,8 @@
   File "..\Include\Aspx\iPhone\Admin\MainMenu.aspx"
   File "..\Include\Aspx\iPhone\Admin\ManageSettings.aspx"
   File "..\Include\Aspx\iPhone\Admin\ManageSettingsResult.aspx"
+  File "..\Include\Aspx\iPhone\Admin\RestartWebApp.aspx"
+  File "..\Include\Aspx\iPhone\Admin\RestartWebAppResult.aspx"
   File "..\Include\Aspx\iPhone\Admin\UserManagementAddUser.aspx"
   File "..\Include\Aspx\iPhone\Admin\UserManagementAddUserResult.aspx"
   File "..\Include\Aspx\iPhone\Admin\UserManagementChangePassword.aspx"
@@ -251,6 +258,7 @@
   File "..\Include\Aspx\iPhone\Scripts\stars.gif"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\Streaming"
+  File "..\Include\Aspx\iPhone\Streaming\CheckTVStream.aspx"
   File "..\Include\Aspx\iPhone\Streaming\StopTVStream.aspx"
   File "..\Include\Aspx\iPhone\Streaming\StreamTVChannel.aspx"
   File "..\Include\Aspx\iPhone\Streaming\WatchTVStream.aspx"
@@ -368,5 +376,5 @@
   File "..\Include\Aspx\iPhone\WebApp\Img\next.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\up.png"
 
-  SetOutPath "$INSTDIR\Aspx\SmoothStream"
-  File "..\Include\Aspx\SmoothStream\blank.txt"
+  SetOutPath "$INSTDIR\Aspx\SmoothStream.isml"
+  File "..\Include\Aspx\SmoothStream.isml\blank.txt"
