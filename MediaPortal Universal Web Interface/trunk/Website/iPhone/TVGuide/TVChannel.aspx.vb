@@ -62,7 +62,7 @@ Partial Public Class TVChannel
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayChannelMenu(wa, channelID))
+        xw.WriteCData(DisplayChannelMenu(channelID))
         xw.WriteEndElement()
         'end data
 
@@ -75,13 +75,13 @@ Partial Public Class TVChannel
 
     End Sub
 
-    Private Function DisplayChannelMenu(ByVal wa As String, ByVal channelID As String) As String
+    Private Function DisplayChannelMenu(ByVal channelID As String) As String
 
         Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(CInt(channelID))
         Dim markup As String = String.Empty
         Dim scheduled As String = String.Empty
 
-        markup += "<div class=""iMenu"" id=""" & wa & """>"
+        markup += "<div class=""iMenu"">"
         markup += String.Format("<h3>{0}</h3>", channel.Name)
 
         markup += "<ul class=""iArrow"">"
@@ -105,7 +105,7 @@ Partial Public Class TVChannel
 
         markup += "<ul class=""iArrow"">"
         If User.IsInRole("watcher") Then
-            markup += String.Format("<li><a href=""Streaming/StreamTVChannel.aspx?channel={0}#_StreamTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "watch"))
+            markup += String.Format("<li><a href=""Streaming/StreamTVChannel.aspx?channel={0}#_StreamTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
         End If
         If User.IsInRole("recorder") Then
             markup += String.Format("<li><a href=""TVGuide/RecordManual.aspx?channel={0}#_RecordManual"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "manual_record"))

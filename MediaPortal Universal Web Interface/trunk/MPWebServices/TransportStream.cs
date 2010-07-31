@@ -64,7 +64,7 @@ namespace uWiMP.TVServer.MPWebServices
                         }
                         catch (Exception exc)
                         {
-
+                            throw new Exception(string.Format("Error in copystream: {0}",exc.Message));
                         }
                     }, null);
                 }
@@ -75,7 +75,7 @@ namespace uWiMP.TVServer.MPWebServices
             }
             catch (Exception exc)
             {
-
+                throw new Exception(string.Format("Error in copystream: {0}", exc.Message));
             }
         }
 

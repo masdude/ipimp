@@ -88,7 +88,7 @@ Partial Public Class StreamTVChannel
     Private Function DoCountdown(ByVal channelID As String) As String
 
         Dim task As New uWiMP.TVServer.Streamer
-        If uWiMP.TVServer.Channels.GetChannelByChannelId(channelID).IsRadio Then
+        If uWiMP.TVServer.Channels.GetChannelByChannelId(CInt(channelID)).IsRadio Then
             task.Media = uWiMP.TVServer.Streamer.MediaType.Radio
         Else
             task.Media = uWiMP.TVServer.Streamer.MediaType.Tv
@@ -99,7 +99,7 @@ Partial Public Class StreamTVChannel
         Page.RegisterAsyncTask(asyncTask)
         Page.ExecuteRegisteredAsyncTasks()
 
-        Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(channelID)
+        Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(CInt(channelID))
         Dim markup As String = String.Empty
 
         markup += "<div class=""iMenu"">"

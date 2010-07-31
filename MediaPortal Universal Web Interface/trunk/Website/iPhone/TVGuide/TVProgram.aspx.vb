@@ -62,7 +62,7 @@ Partial Public Class TVProgram
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayProgram(wa, programID))
+        xw.WriteCData(DisplayProgram(programID))
         xw.WriteEndElement()
         'end data
 
@@ -75,7 +75,7 @@ Partial Public Class TVProgram
 
     End Sub
 
-    Private Function DisplayProgram(ByVal wa As String, ByVal programID As String) As String
+    Private Function DisplayProgram(ByVal programID As String) As String
 
         Dim program As Program = uWiMP.TVServer.Programs.GetProgramByProgramId(CInt(programID))
 
@@ -99,7 +99,7 @@ Partial Public Class TVProgram
                 Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
                 Dim channelName As String = channel.Name.ToLower
                 channelName = Replace(channelName, " ", "")
-                markup += String.Format("<li><a href=""Streaming/StreamTVChannel.aspx?channel={0}#_StreamTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "watch"))
+                markup += String.Format("<li><a href=""Streaming/StreamTVChannel.aspx?channel={0}#_StreamTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
             End If
         End If
 
