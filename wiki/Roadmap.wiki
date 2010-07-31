@@ -26,6 +26,7 @@ This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  The
 
  * Allow TV Guide number of days to be configurable
 
+ * Handle scheduled transcodings being interrupted
 
  * ~~Get live TV working~~ DONE
 
