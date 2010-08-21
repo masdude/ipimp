@@ -35,6 +35,7 @@ var Pagesize
 var TCPPort
 var IPAddress
 var LogoPath
+var RadioLogoPath
 var TVPath
 var Listen
 

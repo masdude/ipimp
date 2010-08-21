@@ -69,6 +69,9 @@
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE15 "$IPAddress is not a valid ip address."
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Cannot find $LogoPath"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "No TV logo path provided."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE18 "Locate your Radio logo folder."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Cannot find $RadioLogoPath"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "No Radio logo path provided."
 
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE1 "Transcode plugin settings"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE2 "Do you want to delete transcoded files when a recording is deleted in MP?"
