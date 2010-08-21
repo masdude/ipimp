@@ -301,7 +301,7 @@ Namespace uWiMP.TVServer
         ''' recording description file (xml)
         ''' recording native file (ts)
         ''' recording transcoded file (mp4)
-        ''' recording trascoded thumbnail file (png)
+        ''' recording trascoded thumbnail file (jpg)
         ''' </remarks>
         Public Shared Function DeleteRecordingById(ByVal idRecording As Integer) As Boolean
 
@@ -311,7 +311,7 @@ Namespace uWiMP.TVServer
                 Dim recFile As String = r.FileName
                 Dim xmlFile As String = Path.GetDirectoryName(recFile) & "\" & Path.GetFileNameWithoutExtension(recFile) & ".xml"
                 Dim mp4File As String = Utilities.GetAppConfig("MP4PATH") & "\" & Path.GetFileNameWithoutExtension(recFile) & ".mp4"
-                Dim pngFile As String = Utilities.GetAppConfig("MP4PATH") & "\" & Path.GetFileNameWithoutExtension(recFile) & ".png"
+                Dim jpgFile As String = Utilities.GetAppConfig("MP4PATH") & "\" & Path.GetFileNameWithoutExtension(recFile) & ".jpg"
 
                 If File.Exists(xmlFile) Then
                     File.Delete(xmlFile)
@@ -325,8 +325,8 @@ Namespace uWiMP.TVServer
                     File.Delete(mp4File)
                 End If
 
-                If File.Exists(pngFile) Then
-                    File.Delete(pngFile)
+                If File.Exists(jpgFile) Then
+                    File.Delete(jpgFile)
                 End If
 
                 r.Delete()

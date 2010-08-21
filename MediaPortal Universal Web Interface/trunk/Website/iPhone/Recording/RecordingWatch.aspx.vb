@@ -80,14 +80,14 @@ Partial Public Class RecordingWatch
         Dim MP4path As String = uWiMP.TVServer.Utilities.GetAppConfig("STREAMPATH")
         Dim recording As Recording = uWiMP.TVServer.Recordings.GetRecordingById(CInt(recordingID))
         Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(recording.IdChannel)
-        Dim imageFile As String = MP4path & "\" & Path.GetFileNameWithoutExtension(recording.FileName) & ".png"
+        Dim imageFile As String = MP4path & "\" & Path.GetFileNameWithoutExtension(recording.FileName) & ".jpg"
         Dim recFile As String = MP4path & "\" & Path.GetFileNameWithoutExtension(recording.FileName) & ".mp4"
 
         Dim markup As String = String.Empty
         Dim imageURI, recURI As String
         
         If uWiMP.TVServer.Utilities.DoesFileExist(imageFile) Then
-            imageURI = String.Format("http://{0}/MP4/{1}.png", Request.ServerVariables("HTTP_HOST"), Path.GetFileNameWithoutExtension(recording.FileName))
+            imageURI = String.Format("http://{0}/MP4/{1}.jpg", Request.ServerVariables("HTTP_HOST"), Path.GetFileNameWithoutExtension(recording.FileName))
         Else
             imageURI = String.Format("http://{0}/TVLogos/{1}.png", Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString)
         End If
