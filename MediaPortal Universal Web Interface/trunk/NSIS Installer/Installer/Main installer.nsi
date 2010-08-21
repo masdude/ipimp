@@ -68,6 +68,7 @@
 !include "WelcomeSections\SimpleInstall.nsh"
 !include "WelcomeSections\AdvancedInstall.nsh"
 !include "WelcomeSections\ApacheOptions.nsh"
+!include "WelcomeSections\ApacheOptions2.nsh"
 !include "WelcomeSections\TranscodeOptions.nsh"
 !include "WelcomeSections\InstallLocation.nsh"
 

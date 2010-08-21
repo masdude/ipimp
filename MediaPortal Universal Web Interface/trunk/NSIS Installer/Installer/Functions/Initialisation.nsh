@@ -19,6 +19,7 @@ Function .onInit
   ReadRegStr $DotNetDir HKLM "SOFTWARE\Microsoft\.NETFramework" "InstallRoot"
 
   StrCpy $LogoPath "$CommonApp\Team MediaPortal\MediaPortal\thumbs\tv\logos"
+  StrCpy $RadioLogoPath "$CommonApp\Team MediaPortal\MediaPortal\thumbs\radio"
   StrCpy $TVPath "$CommonApp\Team MediaPortal\MediaPortal TV Server"
   StrCpy $TVServerVer "$TVServerMaj.$TVServerMin.$TVServerRev"
   StrCpy $MPClientVer "$MPClientMaj.$MPClientMin.$MPClientRev"

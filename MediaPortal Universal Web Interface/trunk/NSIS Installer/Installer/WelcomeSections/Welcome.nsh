@@ -113,7 +113,7 @@ FunctionEnd
 Function onClickMyLink
   StrCpy $Wiki "1"
   Pop $0
-  ExecShell "open" "http://www.team-mediaportal.com/manual/Extensions-TV-Server-Plugins/iPiMP"
+  ExecShell "open" "http://code.google.com/p/ipimp/wiki/iPiMPWiki"
 FunctionEnd
 
 Function WelcomeValidate
