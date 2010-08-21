@@ -12,3 +12,4 @@ This is just a dump of issues to be fixed in the next version.
  * Revert to ffmpeg for thumbnail generation
  * Remove MTN
  * Remove one ffmpeg deployment
+ * Update SPanish language strings
