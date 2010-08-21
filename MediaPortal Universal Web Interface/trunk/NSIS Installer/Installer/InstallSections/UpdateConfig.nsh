@@ -78,6 +78,13 @@ Section UpdateConfig
   ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMP.conf" "$INSTDIR\Apache\conf\iPiMP.conf" "##TVIMAGEROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
   ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMPinclude.conf" "$INSTDIR\Apache\conf\iPiMPinclude.conf" "##TVIMAGEROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
 
+  Push "$RadioLogoPath"
+  Push "\"
+  Call StrSlash
+  Pop $R0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMP.conf" "$INSTDIR\Apache\conf\iPiMP.conf" "##RADIOIMAGEROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMPinclude.conf" "$INSTDIR\Apache\conf\iPiMPinclude.conf" "##RADIOIMAGEROOT##" "$R0" "/S=1 /C=0 /AO=1" $0
+
   Push "$MP4Path"
   Push "\"
   Call StrSlash
