@@ -184,7 +184,7 @@
     <value>escaneando</value>
   </data>
   <data name="scheduled_programs" xml:space="preserve">
-    <value>Eventos programados</value>
+    <value>Programaciones</value>
   </data>
   <data name="started_at" xml:space="preserve">
     <value>iniciado en</value>
@@ -196,7 +196,7 @@
     <value>Timeshifting</value>
   </data>
   <data name="tv_guide" xml:space="preserve">
-    <value>Guía TV</value>
+    <value>Guía de TV</value>
   </data>
   <data name="tv_server_status" xml:space="preserve">
     <value>Estado del servidor TV</value>
@@ -410,7 +410,7 @@
     <value>Grabado esta semana</value>
   </data>
   <data name="watch" xml:space="preserve">
-    <value>Visto</value>
+    <value>Ver</value>
   </data>
   <data name="are_you_sure" xml:space="preserve">
     <value>¿Está seguro?</value>
@@ -705,7 +705,7 @@
     <value>Listas de reproducción</value>
   </data>
   <data name="music_search" xml:space="preserve">
-    <value>Buscar canción</value>
+    <value>Buscar</value>
   </data>
   <data name="music_update" xml:space="preserve">
     <value>Actualizar la base de datos</value>
@@ -1002,7 +1002,7 @@
     <value>Elegir color</value>
   </data>
   <data name="search_description" xml:space="preserve">
-    <value>Buscar descripción?</value>
+    <value>¿Buscar descripción?</value>
   </data>
   <data name="radio_guide" xml:space="preserve">
     <value>Guía de Radio</value>

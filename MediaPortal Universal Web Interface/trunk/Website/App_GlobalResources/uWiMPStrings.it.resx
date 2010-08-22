@@ -1,4 +1,4 @@
-ï»¿<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,155 +121,155 @@
     <value>About iPiMP</value>
   </data>
   <data name="administration" xml:space="preserve">
-    <value>Administration</value>
+    <value>Amministrazione</value>
   </data>
   <data name="back" xml:space="preserve">
-    <value>Back</value>
+    <value>Indietro</value>
   </data>
   <data name="change_password" xml:space="preserve">
-    <value>Change password</value>
+    <value>Cambio password</value>
   </data>
   <data name="confirm_password" xml:space="preserve">
-    <value>Confirm password</value>
+    <value>Conferma password</value>
   </data>
   <data name="create_user" xml:space="preserve">
-    <value>Create user</value>
+    <value>Creazione utente</value>
   </data>
   <data name="delete_user" xml:space="preserve">
-    <value>Delete user</value>
+    <value>Cancellazione utente</value>
   </data>
   <data name="finishing_at" xml:space="preserve">
-    <value>finishing at</value>
+    <value>finirà alle</value>
   </data>
   <data name="grabbing" xml:space="preserve">
-    <value>Grabbing</value>
+    <value>Acquisizione EPG in corso</value>
   </data>
   <data name="home" xml:space="preserve">
     <value>Home</value>
   </data>
   <data name="idle" xml:space="preserve">
-    <value>Idle</value>
+    <value>Inattivo</value>
   </data>
   <data name="ipimp" xml:space="preserve">
     <value>iPiMP</value>
   </data>
   <data name="ipimp_admin" xml:space="preserve">
-    <value>iPiMP administration</value>
+    <value>amministrazione di iPiMP </value>
   </data>
   <data name="ipimp_settings" xml:space="preserve">
-    <value>iPiMP settings</value>
+    <value>impostazioni di iPiMP</value>
   </data>
   <data name="is" xml:space="preserve">
-    <value>is</value>
+    <value>è</value>
   </data>
   <data name="logout" xml:space="preserve">
     <value>Logout</value>
   </data>
   <data name="mediaportal_clients" xml:space="preserve">
-    <value>MediaPortal clients</value>
+    <value>clients di MediaPortal</value>
   </data>
   <data name="new_password" xml:space="preserve">
-    <value>New password</value>
+    <value>Nuova password</value>
   </data>
   <data name="old_password" xml:space="preserve">
-    <value>Old password</value>
+    <value>Vecchia password</value>
   </data>
   <data name="recorded_programs" xml:space="preserve">
-    <value>Recorded programs</value>
+    <value>Programmi registrati</value>
   </data>
   <data name="recording" xml:space="preserve">
-    <value>Recording</value>
+    <value>Registrazione in corso</value>
   </data>
   <data name="scanning" xml:space="preserve">
-    <value>scanning</value>
+    <value>scansione in corso</value>
   </data>
   <data name="scheduled_programs" xml:space="preserve">
-    <value>Scheduled programs</value>
+    <value>Programmi schedulati</value>
   </data>
   <data name="started_at" xml:space="preserve">
-    <value>started at</value>
+    <value>avviato alle</value>
   </data>
   <data name="submit" xml:space="preserve">
-    <value>Submit</value>
+    <value>Invia</value>
   </data>
   <data name="timeshifting" xml:space="preserve">
     <value>Timeshifting</value>
   </data>
   <data name="tv_guide" xml:space="preserve">
-    <value>TV Guide</value>
+    <value>Guida TV</value>
   </data>
   <data name="tv_server_status" xml:space="preserve">
-    <value>TV Server status</value>
+    <value>Stato del TV Server</value>
   </data>
   <data name="unknown" xml:space="preserve">
-    <value>unknown</value>
+    <value>sconosciuto</value>
   </data>
   <data name="username" xml:space="preserve">
-    <value>Username</value>
+    <value>Nome utente</value>
   </data>
   <data name="user_admin" xml:space="preserve">
-    <value>User administration</value>
+    <value>Amministrazione utente</value>
   </data>
   <data name="yesno" xml:space="preserve">
-    <value>Yes|No</value>
+    <value>Si|No</value>
     <comment>This is the text which appears on a toggle button.</comment>
   </data>
   <data name="administrator" xml:space="preserve">
-    <value>Administrator</value>
+    <value>Amministratore</value>
   </data>
   <data name="delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Cancella</value>
   </data>
   <data name="deleter" xml:space="preserve">
-    <value>Deleter</value>
+    <value>Chi cancella</value>
   </data>
   <data name="no_users" xml:space="preserve">
-    <value>There are no users defined</value>
+    <value>Non ci sono utenti definiti</value>
   </data>
   <data name="recorder" xml:space="preserve">
-    <value>Recorder</value>
+    <value>Registratore</value>
   </data>
   <data name="remoter" xml:space="preserve">
-    <value>Remoter</value>
+    <value>Chi telecomanda</value>
   </data>
   <data name="watcher" xml:space="preserve">
-    <value>Watcher</value>
+    <value>Chi guarda</value>
   </data>
   <data name="create_user_fail" xml:space="preserve">
-    <value>Create user failed</value>
+    <value>Creazione utente fallita</value>
   </data>
   <data name="create_user_success" xml:space="preserve">
-    <value>successfully created</value>
+    <value>creazione avvenuta con successo</value>
   </data>
   <data name="has_been_deleted" xml:space="preserve">
-    <value>has been deleted</value>
+    <value>è stato cancellato</value>
   </data>
   <data name="has_been_deleted_fail" xml:space="preserve">
-    <value>has not been deleted</value>
+    <value>non è stato cancellato</value>
   </data>
   <data name="pass_change_fail" xml:space="preserve">
-    <value>Password change failed</value>
+    <value>Cambio password fallito</value>
   </data>
   <data name="pass_change_success" xml:space="preserve">
-    <value>Password changed</value>
+    <value>Password modificata con successo</value>
   </data>
   <data name="pass_dont_match" xml:space="preserve">
-    <value>Passwords do not match</value>
+    <value>Le passwords non corrispondono</value>
   </data>
   <data name="role_add_fail" xml:space="preserve">
-    <value>User could not be added to {0} role.</value>
+    <value>L'utente non può essere aggiunto al ruolo {0}.</value>
   </data>
   <data name="username_blank" xml:space="preserve">
-    <value>Username cannot be blank</value>
+    <value>Il nome utente non può essere vuoto</value>
   </data>
   <data name="username_exists" xml:space="preserve">
-    <value>Username already exists</value>
+    <value>Il nome utente esiste già</value>
   </data>
   <data name="loading" xml:space="preserve">
-    <value>Loading, please wait...</value>
+    <value>Caricamento. Attendere prego...</value>
   </data>
   <data name="remember_me" xml:space="preserve">
-    <value>Remember me?</value>
+    <value>Ricordami?</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>Login</value>
@@ -278,628 +278,769 @@
     <value>Password</value>
   </data>
   <data name="all" xml:space="preserve">
-    <value>All</value>
+    <value>Tutti</value>
   </data>
   <data name="channel_groups" xml:space="preserve">
-    <value>Channel groups</value>
+    <value>Gruppi di canali</value>
   </data>
   <data name="genre" xml:space="preserve">
-    <value>Genre</value>
+    <value>Genere</value>
   </data>
   <data name="now_and_next" xml:space="preserve">
-    <value>Now &amp; Next</value>
+    <value>Corrente &amp; Successivo</value>
   </data>
   <data name="no_programs_found" xml:space="preserve">
-    <value>No programs found</value>
+    <value>Nessun programma trovato</value>
   </data>
   <data name="programs_found" xml:space="preserve">
-    <value>Programs found</value>
+    <value>Programmi trovati</value>
   </data>
   <data name="search" xml:space="preserve">
-    <value>Search</value>
+    <value>Cerca</value>
   </data>
   <data name="search_term" xml:space="preserve">
-    <value>Search term</value>
+    <value>Criterio di ricerca</value>
   </data>
   <data name="today" xml:space="preserve">
-    <value>Today</value>
+    <value>Oggi</value>
   </data>
   <data name="tomorrow" xml:space="preserve">
-    <value>Tomorrow</value>
+    <value>Domani</value>
   </data>
   <data name="next_day" xml:space="preserve">
-    <value>Next day</value>
+    <value>Dopodomani</value>
   </data>
   <data name="programs_on" xml:space="preserve">
     <value>Programs on</value>
   </data>
   <data name="at_this_time_at_weekends" xml:space="preserve">
-    <value>At this time at weekends</value>
+    <value>A quest'ora nei fine settimana</value>
   </data>
   <data name="at_this_time_every_day" xml:space="preserve">
-    <value>At this time every day</value>
+    <value>A quest'ora ogni giorno</value>
   </data>
   <data name="at_this_time_every_week" xml:space="preserve">
-    <value>At this time every week</value>
+    <value>A quest'ora ogni settimana</value>
   </data>
   <data name="at_this_time_on_weekdays" xml:space="preserve">
     <value>At this time on weekdays</value>
   </data>
   <data name="each_time_on_any_channel" xml:space="preserve">
-    <value>Each time on any channel</value>
+    <value>Ogni volta su qualsiasi canale</value>
   </data>
   <data name="each_time_on_this_channel" xml:space="preserve">
-    <value>Each time on this channel</value>
+    <value>Ogni volta su questo canale</value>
   </data>
   <data name="email" xml:space="preserve">
-    <value>Send email</value>
+    <value>Invia email</value>
   </data>
   <data name="email_subject" xml:space="preserve">
-    <value>You may be interested in this...</value>
+    <value>Potresti essere interessato a questo...</value>
   </data>
   <data name="once" xml:space="preserve">
-    <value>Once</value>
+    <value>Una volta</value>
   </data>
   <data name="recording_add_fail" xml:space="preserve">
-    <value>Recording could not be added</value>
+    <value>La registrazione non può essere aggiunta</value>
   </data>
   <data name="recording_add_success" xml:space="preserve">
-    <value>Recording added</value>
+    <value>Registrazione aggiunta</value>
   </data>
   <data name="searching" xml:space="preserve">
-    <value>Searching, please wait ...</value>
+    <value>Ricerca in corso, per favore attendere ...</value>
   </data>
   <data name="channel" xml:space="preserve">
-    <value>Channel</value>
+    <value>Canale</value>
   </data>
   <data name="date" xml:space="preserve">
-    <value>Date</value>
+    <value>Data</value>
   </data>
   <data name="last_month" xml:space="preserve">
-    <value>Last month</value>
+    <value>L'ultimo mese</value>
   </data>
   <data name="last_week" xml:space="preserve">
-    <value>Last week</value>
+    <value>L'ultima settimana</value>
   </data>
   <data name="last_year" xml:space="preserve">
-    <value>Last year</value>
+    <value>L'ultimo anno</value>
   </data>
   <data name="older" xml:space="preserve">
-    <value>Older</value>
+    <value>Più vecchi</value>
   </data>
   <data name="recordings" xml:space="preserve">
-    <value>Recordings</value>
+    <value>Registrazioni</value>
   </data>
   <data name="this_week" xml:space="preserve">
-    <value>This week</value>
+    <value>Questa settimana</value>
   </data>
   <data name="hour" xml:space="preserve">
-    <value>hour</value>
+    <value>ora</value>
   </data>
   <data name="hours" xml:space="preserve">
-    <value>hours</value>
+    <value>ore</value>
   </data>
   <data name="keep" xml:space="preserve">
-    <value>Keep</value>
+    <value>Tieni</value>
   </data>
   <data name="min" xml:space="preserve">
-    <value>min</value>
+    <value>minuto</value>
   </data>
   <data name="mins" xml:space="preserve">
-    <value>mins</value>
+    <value>minuti</value>
   </data>
   <data name="not_transcoded" xml:space="preserve">
-    <value>Not transcoded, convert?</value>
+    <value>Non trascodificato, convertire?</value>
   </data>
   <data name="quicktime" xml:space="preserve">
-    <value>Wait until the Quicktime arrow appears before playing.</value>
+    <value>Aspettare fino a quando compare la freccia di QuickTime prima di avviare.</value>
   </data>
   <data name="recorded_last_month" xml:space="preserve">
-    <value>Recorded last month</value>
+    <value>Registrati l'ultimo mese</value>
   </data>
   <data name="recorded_last_week" xml:space="preserve">
-    <value>Recorded last week</value>
+    <value>Registrati l'ultima settimana</value>
   </data>
   <data name="recorded_last_year" xml:space="preserve">
-    <value>Recorded last year</value>
+    <value>Registrati l'ultimo anno</value>
   </data>
   <data name="recorded_older" xml:space="preserve">
-    <value>Recorded previous years</value>
+    <value>Registrati gli anni precedenti</value>
   </data>
   <data name="recorded_this_week" xml:space="preserve">
-    <value>Recorded this week</value>
+    <value>Registrati questa settimana</value>
   </data>
   <data name="watch" xml:space="preserve">
-    <value>Watch</value>
+    <value>Guarda</value>
   </data>
   <data name="are_you_sure" xml:space="preserve">
-    <value>Are you sure?</value>
+    <value>Sei sicuro?</value>
   </data>
   <data name="delete_keep" xml:space="preserve">
-    <value>DEL|KEEP</value>
+    <value>Canc|Tieni</value>
   </data>
   <data name="display_more" xml:space="preserve">
-    <value>Display more ...</value>
+    <value>Mostra altri...</value>
   </data>
   <data name="keep_always" xml:space="preserve">
-    <value>Keep always</value>
+    <value>Tieni sempre</value>
   </data>
   <data name="keep_for_one_month" xml:space="preserve">
-    <value>Keep for one month</value>
+    <value>Tieni per un mese</value>
   </data>
   <data name="keep_for_one_week" xml:space="preserve">
-    <value>Keep for one week</value>
+    <value>Tieni per una settimana</value>
   </data>
   <data name="keep_for_one_year" xml:space="preserve">
-    <value>Keep for one year</value>
+    <value>Tieni per un anno</value>
   </data>
   <data name="keep_until_space_needed" xml:space="preserve">
-    <value>Keep until space needed</value>
+    <value>Tieni finchè c'è spazio</value>
   </data>
   <data name="keep_until_watched" xml:space="preserve">
-    <value>Keep until watched</value>
+    <value>Tieni finchè non vien visto</value>
   </data>
   <data name="no" xml:space="preserve">
     <value>No</value>
   </data>
   <data name="recordings_delete_fail" xml:space="preserve">
-    <value>recordings could not be deleted!</value>
+    <value>le non è stato possibile cancellare le registrazioni!</value>
   </data>
   <data name="recordings_delete_success" xml:space="preserve">
-    <value>recordings successfully deleted</value>
+    <value>le registrazioni sono state cancellate</value>
   </data>
   <data name="recordings_selected_delete" xml:space="preserve">
-    <value>recordings selected for deletion</value>
+    <value>registrazioni selezionate per la cancellazione</value>
   </data>
   <data name="recording_delete_fail" xml:space="preserve">
-    <value>Recording could not be deleted!</value>
+    <value>Registrazione NON cancellata !</value>
   </data>
   <data name="recording_delete_success" xml:space="preserve">
-    <value>Recording successfully deleted</value>
+    <value>Registrazione cancellata</value>
   </data>
   <data name="recording_keep_fail" xml:space="preserve">
-    <value>Recording could not be updated!</value>
+    <value>Registrazione non aggiornata!</value>
   </data>
   <data name="recording_keep_success" xml:space="preserve">
-    <value>Recording successfully updated</value>
+    <value>Registrazione aggiornata</value>
   </data>
   <data name="yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>Si</value>
   </data>
   <data name="other" xml:space="preserve">
-    <value>Other</value>
+    <value>Altro</value>
   </data>
   <data name="scheduled_last_month" xml:space="preserve">
-    <value>Scheduled last month</value>
+    <value>Schedulati il mese scorso</value>
   </data>
   <data name="scheduled_other" xml:space="preserve">
-    <value>Scheduled in other periods</value>
+    <value>Schedulati in altri periodi</value>
   </data>
   <data name="scheduled_this_month" xml:space="preserve">
-    <value>Scheduled this month</value>
+    <value>Schedulati questo mese</value>
   </data>
   <data name="scheduled_this_week" xml:space="preserve">
-    <value>Scheduled this week</value>
+    <value>Schedulati questa settimana</value>
   </data>
   <data name="schedules" xml:space="preserve">
-    <value>Schedules</value>
+    <value>Schedulazioni</value>
   </data>
   <data name="this_month" xml:space="preserve">
-    <value>This month</value>
+    <value>Questo mese</value>
   </data>
   <data name="description_not_found" xml:space="preserve">
-    <value>No program description</value>
+    <value>Nessuna descrizione per il programma</value>
   </data>
   <data name="program_not_found" xml:space="preserve">
-    <value>Program has been deleted from the EPG.</value>
+    <value>Il programma è stato cancellato dall'EPG.</value>
   </data>
   <data name="title" xml:space="preserve">
-    <value>Title</value>
+    <value>Titolo</value>
   </data>
   <data name="clean_up_schedules" xml:space="preserve">
-    <value>Clean up schedules</value>
+    <value>Annulla schedulazioni</value>
   </data>
   <data name="schedules_deleted_fail" xml:space="preserve">
-    <value>schedules could not be deleted!</value>
+    <value>Impossibile cancellare le schedulazioni!</value>
   </data>
   <data name="schedules_deleted_success" xml:space="preserve">
-    <value>schedules deleted</value>
+    <value>Schedulazioni cancellate</value>
   </data>
   <data name="schedule_delete_fail" xml:space="preserve">
-    <value>Schedule could not be deleted!</value>
+    <value>Impossibile cancellare la schedulazione!</value>
   </data>
   <data name="schedule_delete_success" xml:space="preserve">
-    <value>Schedule successfully deleted</value>
+    <value>Schedulazione cancellata</value>
   </data>
   <data name="error" xml:space="preserve">
-    <value>!! FUBAR !!</value>
+    <value>!! ERRORE !!</value>
   </data>
   <data name="card_status" xml:space="preserve">
-    <value>TV card status</value>
+    <value>Stato della scheda TV</value>
   </data>
   <data name="disk_status" xml:space="preserve">
-    <value>Disk status</value>
+    <value>Stato del disco</value>
   </data>
   <data name="service_status" xml:space="preserve">
-    <value>TV service status</value>
+    <value>Stato del TV service</value>
   </data>
   <data name="transcode_status" xml:space="preserve">
-    <value>Transcode status</value>
+    <value>Stato di trascodifica</value>
   </data>
   <data name="busy" xml:space="preserve">
-    <value>Busy</value>
+    <value>Occupato</value>
   </data>
   <data name="client_is" xml:space="preserve">
-    <value>MP client is</value>
+    <value>il MP client è</value>
   </data>
   <data name="donate" xml:space="preserve">
-    <value>Donate</value>
+    <value>Dona</value>
   </data>
   <data name="stop" xml:space="preserve">
-    <value>Stop</value>
+    <value>Ferma</value>
   </data>
   <data name="stop_recording" xml:space="preserve">
-    <value>Stop recording</value>
+    <value>Ferma registrazione</value>
   </data>
   <data name="stop_recording_fail" xml:space="preserve">
-    <value>Recording could not be stopped!</value>
+    <value>Impossibile fermare la registrazione!</value>
   </data>
   <data name="stop_recording_success" xml:space="preserve">
-    <value>Recording stopped successfully</value>
+    <value>Registrazione fermata</value>
   </data>
   <data name="stop_timeshifting" xml:space="preserve">
-    <value>Stop timeshifting</value>
+    <value>Ferma timeshifting</value>
   </data>
   <data name="stop_timeshifting_fail" xml:space="preserve">
-    <value>Timeshifting could not be stopped!</value>
+    <value>Il timeshifting non si può fermare!</value>
   </data>
   <data name="stop_timeshifting_success" xml:space="preserve">
-    <value>Timeshifting stopped successfully</value>
+    <value>Timeshifting fermato</value>
   </data>
   <data name="service_action_fail" xml:space="preserve">
-    <value>Service action failed!</value>
+    <value>Azione sul servizio fallita!</value>
   </data>
   <data name="service_action_success" xml:space="preserve">
-    <value>Service action completed successfully</value>
+    <value>Azione sul servizio completata</value>
   </data>
   <data name="start" xml:space="preserve">
-    <value>Start</value>
+    <value>Avvia</value>
   </data>
   <data name="gb_free" xml:space="preserve">
-    <value>Gb free</value>
+    <value>Gb liberi</value>
   </data>
   <data name="add" xml:space="preserve">
-    <value>Add</value>
+    <value>Aggiungi</value>
   </data>
   <data name="client_add" xml:space="preserve">
-    <value>Add client</value>
+    <value>Aggiungi client</value>
   </data>
   <data name="client_add_help1" xml:space="preserve">
-    <value>The friendly name will be used to try to connect to your MP client if the Hostname/IP address field is left blank.</value>
+    <value>Nome descrittivo utilizzato per connettesi al client di MP se il campo Nomehost/IP è lasciato bianco.</value>
   </data>
   <data name="client_add_help2" xml:space="preserve">
-    <value>TCP port will default to 55667 if left blank.</value>
+    <value>La porta TCP vale di default 55667 se il campo è lasciato vuoto.</value>
   </data>
   <data name="client_add_help3" xml:space="preserve">
-    <value>MAC address will be used to attempt a wake on lan if the client cannot be contacted.</value>
+    <value>Il MAC address viene usato per tentare un Wake On Lan se non si il client non è raggiungibile.</value>
   </data>
   <data name="client_del" xml:space="preserve">
-    <value>Delete client</value>
+    <value>Cancella client</value>
   </data>
   <data name="client_update" xml:space="preserve">
-    <value>Update client</value>
+    <value>Aggiorna client</value>
   </data>
   <data name="could_not_be_created" xml:space="preserve">
-    <value>could not be created.</value>
+    <value>non può essere creato.</value>
   </data>
   <data name="friendly" xml:space="preserve">
-    <value>Friendly name e.g. Lounge</value>
+    <value>Nome descrittivo e.g. Salotto</value>
   </data>
   <data name="has_been_created" xml:space="preserve">
-    <value>has been created.</value>
+    <value>è stato creato.</value>
   </data>
   <data name="hostname" xml:space="preserve">
-    <value>Hostname or IP address (optional)</value>
+    <value>Nomehost o indirizzo IP (opzionale)</value>
   </data>
   <data name="mac" xml:space="preserve">
-    <value>MAC Address (00-00-00-00-00-00) (optional)</value>
+    <value>MAC Address (00-00-00-00-00-00) (opzionale)</value>
   </data>
   <data name="no_clients_defined" xml:space="preserve">
-    <value>No clients defined.</value>
+    <value>Nessun client definito.</value>
   </data>
   <data name="port" xml:space="preserve">
-    <value>TCP port (optional)</value>
+    <value>Porta TCP (opzionale)</value>
   </data>
   <data name="select_client" xml:space="preserve">
-    <value>Select client</value>
+    <value>Scegli il client</value>
   </data>
   <data name="client_empty" xml:space="preserve">
-    <value>You need to supply a friendly name.</value>
+    <value>Devi fornire un nome descrittivo.</value>
   </data>
   <data name="client_not_selected" xml:space="preserve">
-    <value>You need to select a client.</value>
+    <value>Devi selezionare un client.</value>
   </data>
   <data name="could_not_be_updated" xml:space="preserve">
-    <value>could not be updated.</value>
+    <value>non si può aggiornare.</value>
   </data>
   <data name="has_been_updated" xml:space="preserve">
-    <value>has been updated.</value>
+    <value>è stato aggiornato.</value>
   </data>
   <data name="update" xml:space="preserve">
-    <value>Update</value>
+    <value>Aggiorna</value>
   </data>
   <data name="change" xml:space="preserve">
-    <value>Change</value>
+    <value>Modifica</value>
   </data>
   <data name="select_user" xml:space="preserve">
-    <value>Select user</value>
+    <value>Scegli utente</value>
   </data>
   <data name="user_not_selected" xml:space="preserve">
-    <value>You must select a user.</value>
+    <value>Devi scegliere un utente.</value>
   </data>
   <data name="my_videos" xml:space="preserve">
-    <value>My Videos</value>
+    <value>I miei Video</value>
   </data>
   <data name="unknown_error" xml:space="preserve">
-    <value>An unknown error has occurred.</value>
+    <value>Si è verificato un errore sconosciuto.</value>
   </data>
   <data name="videos_all" xml:space="preserve">
-    <value>All videos</value>
+    <value>Tutti i video</value>
   </data>
   <data name="videos_by_genre" xml:space="preserve">
-    <value>Videos by genre</value>
+    <value>Video per genere</value>
   </data>
   <data name="videos_by_year" xml:space="preserve">
-    <value>Videos by year</value>
+    <value>Video per anno</value>
   </data>
   <data name="could_not_connect" xml:space="preserve">
-    <value>Could not connect</value>
+    <value>Impossibile connettersi</value>
   </data>
   <data name="could_not_connect_wol" xml:space="preserve">
-    <value>Could not connect, send WOL.</value>
+    <value>Impossibile connettersi, invio WOL.</value>
   </data>
   <data name="wol_sent" xml:space="preserve">
-    <value>WOL packet sent, retry in 1 min...</value>
+    <value>WOL inviato, riprovo tra 1 min...</value>
   </data>
   <data name="multiple" xml:space="preserve">
-    <value>'s</value>
+    <value></value>
     <comment>Added to the end of a decade to indicate plural</comment>
   </data>
   <data name="more" xml:space="preserve">
-    <value>Load more ...</value>
+    <value>Carica ancora ...</value>
   </data>
   <data name="play" xml:space="preserve">
-    <value>Play</value>
+    <value>Riproduci</value>
   </data>
   <data name="imdb" xml:space="preserve">
     <value>IMDB</value>
   </data>
   <data name="could_not_start_video" xml:space="preserve">
-    <value>Could not start video.</value>
+    <value>Non posso avviare il video.</value>
   </data>
   <data name="now_playing" xml:space="preserve">
-    <value>Now playing</value>
+    <value>riproduzione in corso</value>
   </data>
   <data name="remote_control" xml:space="preserve">
-    <value>Remote control</value>
+    <value>Telecomando</value>
   </data>
   <data name="cover_art" xml:space="preserve">
-    <value>Cover Art</value>
+    <value>Copertina</value>
   </data>
   <data name="my_music" xml:space="preserve">
-    <value>My Music</value>
+    <value>La mia musica</value>
   </data>
   <data name="music_by_album" xml:space="preserve">
-    <value>Music by album</value>
+    <value>Musica per album</value>
   </data>
   <data name="music_by_artist" xml:space="preserve">
-    <value>Music by artist</value>
+    <value>Musica per artista</value>
   </data>
   <data name="music_by_genre" xml:space="preserve">
-    <value>Music by genre</value>
+    <value>Musica per genere</value>
   </data>
   <data name="music_by_year" xml:space="preserve">
-    <value>Music by year</value>
+    <value>Musica per anno</value>
   </data>
   <data name="music_playlists" xml:space="preserve">
-    <value>Music playlists</value>
+    <value>Playlists musicali</value>
   </data>
   <data name="music_search" xml:space="preserve">
-    <value>Track search</value>
+    <value>Ricerca brano</value>
   </data>
   <data name="music_update" xml:space="preserve">
-    <value>Update music database</value>
+    <value>Aggiorna database musica</value>
   </data>
   <data name="play_100_random" xml:space="preserve">
-    <value>Play 100 random tracks</value>
+    <value>Suona 100 tracce a caso</value>
   </data>
   <data name="enqueue" xml:space="preserve">
-    <value>Enqueue</value>
+    <value>Accoda</value>
   </data>
   <data name="shuffle" xml:space="preserve">
-    <value>Shuffle</value>
+    <value>Mescola</value>
   </data>
   <data name="select_tracks" xml:space="preserve">
-    <value>Select tracks</value>
+    <value>Scegli brani</value>
   </data>
   <data name="done" xml:space="preserve">
-    <value>Done</value>
+    <value>Fatto</value>
   </data>
   <data name="display_all_tracks" xml:space="preserve">
-    <value>Display all tracks</value>
+    <value>Mostra tutti i brani</value>
   </data>
   <data name="no_playlists_found" xml:space="preserve">
-    <value>No playlists found</value>
+    <value>Non esistono playlist</value>
   </data>
   <data name="play_random_playlist" xml:space="preserve">
-    <value>Play random playlist</value>
+    <value>Riproduci playlist a caso</value>
   </data>
   <data name="search_album" xml:space="preserve">
-    <value>Search album</value>
+    <value>Cerca album</value>
   </data>
   <data name="search_artist" xml:space="preserve">
-    <value>Search artist</value>
+    <value>Cerca artista</value>
   </data>
   <data name="search_genre" xml:space="preserve">
-    <value>Search genre</value>
+    <value>Cerca genere</value>
   </data>
   <data name="search_track" xml:space="preserve">
-    <value>Search track</value>
+    <value>Cerca brano</value>
   </data>
   <data name="music_update_request_fail" xml:space="preserve">
-    <value>Music update request failed.</value>
+    <value>Fallito aggiornamento brano.</value>
   </data>
   <data name="music_update_request_success" xml:space="preserve">
-    <value>Music update requested.</value>
+    <value>Aggiornameno brano riuscito.</value>
   </data>
   <data name="enter_filename" xml:space="preserve">
-    <value>Enter filename (no extension)</value>
+    <value>Immetti nomefile (senza estensione)</value>
   </data>
   <data name="save_playlist" xml:space="preserve">
-    <value>Save playlist</value>
+    <value>Salva playlist</value>
   </data>
   <data name="save_playlist_fail" xml:space="preserve">
-    <value>Playlist could not be saved</value>
+    <value>Impossibile salvare la playlist</value>
   </data>
   <data name="save_playlist_success" xml:space="preserve">
-    <value>Playlist saved</value>
+    <value>Playlist salvata</value>
   </data>
   <data name="send_message" xml:space="preserve">
-    <value>Send message</value>
+    <value>Invia messaggio</value>
   </data>
   <data name="enter_message" xml:space="preserve">
-    <value>Enter message</value>
+    <value>Immetti messaggio</value>
   </data>
   <data name="no_messages_sent" xml:space="preserve">
-    <value>No messages sent</value>
+    <value>Nessun messaggio inviato</value>
   </data>
   <data name="send_message_fail" xml:space="preserve">
-    <value>Message send failed</value>
+    <value>Invio messaggio fallito</value>
   </data>
   <data name="send_message_success" xml:space="preserve">
-    <value>Message sent</value>
+    <value>Messaggio inviato</value>
   </data>
   <data name="send_message_to" xml:space="preserve">
-    <value>Messages sent to</value>
+    <value>Messaggi inviati a</value>
   </data>
   <data name="message_from" xml:space="preserve">
-    <value>Message from</value>
+    <value>Messaggio da</value>
   </data>
   <data name="send_message_global" xml:space="preserve">
-    <value>Send global message</value>
+    <value>Invia messaggi globali</value>
   </data>
   <data name="power_hibernate" xml:space="preserve">
-    <value>Hibernate</value>
+    <value>Iberna</value>
   </data>
   <data name="power_logoff" xml:space="preserve">
     <value>Logoff</value>
   </data>
   <data name="power_options" xml:space="preserve">
-    <value>Power options</value>
+    <value>Opzioni spegnimento</value>
   </data>
   <data name="power_option_fail" xml:space="preserve">
-    <value>Power option failed</value>
+    <value>Operazione fallita</value>
   </data>
   <data name="power_option_not_selected" xml:space="preserve">
-    <value>You need to select one option</value>
+    <value>Devi scegliere un'opzione</value>
   </data>
   <data name="power_option_select" xml:space="preserve">
-    <value>Select power option</value>
+    <value>Scegli l'opzione di spegnimento</value>
   </data>
   <data name="power_option_success" xml:space="preserve">
-    <value>Power option successful</value>
+    <value>Operazione riuscita</value>
   </data>
   <data name="power_reboot" xml:space="preserve">
-    <value>Reboot</value>
+    <value>Riavvia</value>
   </data>
   <data name="power_shutdown" xml:space="preserve">
-    <value>Shutdown</value>
+    <value>Spegni</value>
   </data>
   <data name="power_suspend" xml:space="preserve">
-    <value>Suspend</value>
+    <value>Sospendi</value>
   </data>
   <data name="movie" xml:space="preserve">
-    <value>Movie</value>
+    <value>Filmato</value>
   </data>
   <data name="music" xml:space="preserve">
-    <value>Music</value>
+    <value>Musica</value>
   </data>
   <data name="now_playing_dvd" xml:space="preserve">
-    <value>Now playing a DVD</value>
+    <value>Riproduzione DVD in corso</value>
   </data>
   <data name="now_playing_nothing" xml:space="preserve">
-    <value>Nothing playing</value>
+    <value>Nessuna riproduzione in corso</value>
   </data>
   <data name="now_playing_unknown" xml:space="preserve">
-    <value>Could not determine Now Playing</value>
+    <value>Impossibile determinare tipo riproduzione</value>
   </data>
   <data name="refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Aggiorna</value>
   </data>
   <data name="show_album" xml:space="preserve">
-    <value>Show album</value>
+    <value>Mostra album</value>
   </data>
   <data name="show_artist" xml:space="preserve">
-    <value>Show artist</value>
+    <value>Mostra artista</value>
   </data>
   <data name="show_genre" xml:space="preserve">
-    <value>Show genre</value>
+    <value>Mostra genere</value>
   </data>
   <data name="show_program" xml:space="preserve">
-    <value>Show program</value>
+    <value>Mostra programma</value>
   </data>
   <data name="show_recording" xml:space="preserve">
-    <value>Show recording</value>
+    <value>Mostra registrazione</value>
   </data>
   <data name="show_video" xml:space="preserve">
-    <value>Show video</value>
+    <value>Mostra video</value>
   </data>
   <data name="tv" xml:space="preserve">
     <value>TV</value>
   </data>
   <data name="tvrecording" xml:space="preserve">
-    <value>TV Recording</value>
+    <value>Registrazione TV</value>
   </data>
   <data name="unknown_album" xml:space="preserve">
-    <value>Unknown album</value>
+    <value>Album sconosciuto</value>
   </data>
   <data name="unknown_recording" xml:space="preserve">
-    <value>Unknown recording</value>
+    <value>Registrazione sconosciuta</value>
   </data>
   <data name="unknown_tagline" xml:space="preserve">
-    <value>Unknown tagline</value>
+    <value>Trama sconosciuta</value>
   </data>
   <data name="unknown_title" xml:space="preserve">
-    <value>Unknown title</value>
+    <value>Titolo sconosciuto</value>
   </data>
   <data name="enter_keyboard_command" xml:space="preserve">
-    <value>Keyboard shortcuts</value>
+    <value>Scorciatoie tastiera</value>
   </data>
   <data name="select_list_size" xml:space="preserve">
-    <value>Select page size</value>
+    <value>Dimensione delle liste</value>
   </data>
   <data name="send" xml:space="preserve">
-    <value>Send</value>
+    <value>Invia</value>
   </data>
   <data name="power_close" xml:space="preserve">
-    <value>Close</value>
+    <value>Chiudi</value>
   </data>
   <data name="transcoding_running" xml:space="preserve">
-    <value>Transcoding is running</value>
+    <value>Trascodifica in esecuzione</value>
   </data>
   <data name="transcoding_started" xml:space="preserve">
-    <value>Transcoding has started</value>
+    <value>Trascodifica avviata</value>
   </data>
   <data name="no_access" xml:space="preserve">
-    <value>You have not been granted this role.</value>
+    <value>Non ti è stato assegnato questo ruolo.</value>
   </data>
   <data name="no_channel_groups" xml:space="preserve">
-    <value>No channel groups found.</value>
+    <value>Nessun gruppo canali trovato.</value>
   </data>
   <data name="main_menu" xml:space="preserve">
-    <value>Main menu</value>
+    <value>Menù principale</value>
   </data>
   <data name="record" xml:space="preserve">
-    <value>Record</value>
+    <value>Registra</value>
+  </data>
+  <data name="enable_client" xml:space="preserve">
+    <value>Menù client MP</value>
+  </data>
+  <data name="enable_server" xml:space="preserve">
+    <value>Menù TV Server</value>
+  </data>
+  <data name="select_default_rec_order" xml:space="preserve">
+    <value>Ordinamento registrazioni</value>
+  </data>
+  <data name="show_client_submenu" xml:space="preserve">
+    <value>Sottomenù clients</value>
+  </data>
+  <data name="show_recording_submenu" xml:space="preserve">
+    <value>Sottomenù registrazione</value>
+  </data>
+  <data name="moving_pictures" xml:space="preserve">
+    <value>Moving Pictures</value>
+  </data>
+  <data name="manual_record" xml:space="preserve">
+    <value>Registrazione manuale</value>
+  </data>
+  <data name="manual_record_duration" xml:space="preserve">
+    <value>Durata (min) (opzionale)</value>
+  </data>
+  <data name="manual_record_name" xml:space="preserve">
+    <value>Descrizione per la registrazione</value>
+  </data>
+  <data name="start_time" xml:space="preserve">
+    <value>Ora di inizio (OO:mm)</value>
+  </data>
+  <data name="movingpictures_all" xml:space="preserve">
+    <value>Tutti i film</value>
+  </data>
+  <data name="movingpictures_certification" xml:space="preserve">
+    <value>Film per certificazione</value>
+  </data>
+  <data name="movingpictures_genre" xml:space="preserve">
+    <value>Film per genere</value>
+  </data>
+  <data name="movingpictures_recent" xml:space="preserve">
+    <value>Film aggiunti da poco</value>
+  </data>
+  <data name="movingpictures_unwatched" xml:space="preserve">
+    <value>Film non visti</value>
+  </data>
+  <data name="movingpictures_year" xml:space="preserve">
+    <value>Film per anno</value>
+  </data>
+  <data name="one_month" xml:space="preserve">
+    <value>Un mese</value>
+  </data>
+  <data name="one_week" xml:space="preserve">
+    <value>Una settimana</value>
+  </data>
+  <data name="six_months" xml:space="preserve">
+    <value>Sei mesi</value>
+  </data>
+  <data name="two_weeks" xml:space="preserve">
+    <value>Due anni</value>
+  </data>
+  <data name="movingpictures_period" xml:space="preserve">
+    <value>Periodo per i film aggiunti di recente</value>
+  </data>
+  <data name="appearance" xml:space="preserve">
+    <value>Aspetto</value>
+  </data>
+  <data name="appearance_fail" xml:space="preserve">
+    <value>Fallito aggiornamento aspetto.</value>
+  </data>
+  <data name="appearance_success" xml:space="preserve">
+    <value>Aspetto aggiornato.</value>
+  </data>
+  <data name="black" xml:space="preserve">
+    <value>Nero</value>
+  </data>
+  <data name="blue" xml:space="preserve">
+    <value>Blu</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="green" xml:space="preserve">
+    <value>Verde</value>
+  </data>
+  <data name="orange" xml:space="preserve">
+    <value>Arancione</value>
+  </data>
+  <data name="pink" xml:space="preserve">
+    <value>Rosa</value>
+  </data>
+  <data name="purple" xml:space="preserve">
+    <value>Porpora</value>
+  </data>
+  <data name="red" xml:space="preserve">
+    <value>Rosso</value>
+  </data>
+  <data name="select_colour" xml:space="preserve">
+    <value>Scegli colore</value>
+  </data>
+  <data name="search_description" xml:space="preserve">
+    <value>Cerca descrizione?</value>
+  </data>
+  <data name="radio_guide" xml:space="preserve">
+    <value>Guida radio</value>
+  </data>
+  <data name="listen" xml:space="preserve">
+    <value>Ascolta</value>
+  </data>
+  <data name="stream_stopped" xml:space="preserve">
+    <value>Stream fermato.</value>
+  </data>
+  <data name="stream_stopped_failed" xml:space="preserve">
+    <value>Lo stream non si può fermare.</value>
+  </data>
+  <data name="stream_started" xml:space="preserve">
+    <value>Premi Avvia per guardare lo stream.  Quando finisci &lt;B&gt;premi Ferma&lt;/B&gt; altrimenti il tuo TV server continuerà a bloccare trascodificare e a bloccare la scheda TV.</value>
+  </data>
+  <data name="stream_start_wait" xml:space="preserve">
+    <value>Attendi l'avvio dello stream.</value>
+  </data>
+  <data name="next_week" xml:space="preserve">
+    <value>Prossima settimana</value>
+  </data>
+  <data name="rest_month" xml:space="preserve">
+    <value>Resto del mese</value>
+  </data>
+  <data name="scheduled_next_week" xml:space="preserve">
+    <value>Schedulati la prossima settimana</value>
+  </data>
+  <data name="scheduled_none" xml:space="preserve">
+    <value>Nessuna schedulazione trovata</value>
+  </data>
+  <data name="scheduled_rest_month" xml:space="preserve">
+    <value>Schedulati per il resto del mese</value>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>Riavvia</value>
+  </data>
+  <data name="stream" xml:space="preserve">
+    <value>Stream</value>
   </data>
 </root>
