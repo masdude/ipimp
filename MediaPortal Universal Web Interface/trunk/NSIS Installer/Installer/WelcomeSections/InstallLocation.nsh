@@ -23,7 +23,7 @@ Function InstallLocation
 
 	SendMessage $p6ImageControl ${STM_SETIMAGE} ${IMAGE_BITMAP} $p6Image
 
-	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -130u 20u "$(STRING_INSTALLLOCATION_LINE1)"
+	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -130u 30u "$(STRING_INSTALLLOCATION_LINE1)"
 	Pop $p6Headline
 
 	SendMessage $p6Headline ${WM_SETFONT} $Headline_font 0

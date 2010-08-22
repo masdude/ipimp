@@ -63,7 +63,7 @@ Function TranscodeOptions
               ${NSD_CB_SelectString} $p5DropList6 "$(STRING_YES)"
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 60u 150u 18u "$(STRING_TVPLUGININSTALL_LINE3)"
+        ${NSD_CreateLabel} 120u 60u 150u 30u "$(STRING_TVPLUGININSTALL_LINE3)"
 	Pop $p5Label1
 
         ${NSD_CreateDropList} 280u 60u 40u 80u ""
@@ -80,10 +80,10 @@ Function TranscodeOptions
               ${NSD_CB_SelectString} $p5DropList1 "$(STRING_NO)"
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 80u 150u 18u "$(STRING_TVPLUGININSTALL_LINE4)"
+        ${NSD_CreateLabel} 120u 90u 150u 30u "$(STRING_TVPLUGININSTALL_LINE4)"
 	Pop $p5Label2
 
-        ${NSD_CreateDropList} 280u 80u 40u 80u ""
+        ${NSD_CreateDropList} 280u 90u 40u 80u ""
         Pop $p5DropList2
 
         ${NSD_CB_AddString} $p5DropList2 "$(STRING_TVPLUGININSTALL_LINE5)"
@@ -118,10 +118,10 @@ Function TranscodeOptions
               ${NSD_CB_SelectString} $p5DropList2 $TranscodeTime
         ${EndIf}
 
-        ${NSD_CreateLabel} 120u 100u 140u 18u "Select the transcoding utility"
+        ${NSD_CreateLabel} 120u 120u 140u 18u "$(STRING_TVPLUGININSTALL_LINE12)"
 	Pop $p5Label3
 
-        ${NSD_CreateDropList} 270u 100u 50u 80u ""
+        ${NSD_CreateDropList} 270u 120u 50u 80u ""
         Pop $p5DropList3
 
         ${NSD_CB_AddString} $p5DropList3 "Handbrake"
@@ -221,7 +221,7 @@ Function TranscodeOptionsValidate
        MessageBox MB_ICONINFORMATION|MB_OK "$(STRING_TVPLUGININSTALL_LINE11)"
        Abort
 
-       MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Your TV service will be restarted to enable the transcode plugin.$\nDo you want to continue?" IDYES +2
+       MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "$(STRING_TVPLUGININSTALL_LINE13)" IDYES +2
        Abort
        
 FunctionEnd

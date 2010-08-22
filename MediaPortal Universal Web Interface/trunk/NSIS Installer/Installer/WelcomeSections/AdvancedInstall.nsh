@@ -50,7 +50,7 @@ Function AdvancedInstall
 	GetFunctionAddress $0 Onp3Checkbox1
 	nsDialogs::OnClick $p3Checkbox1 $0
 
-	${NSD_CreateCheckbox} 120u 50u 160u 8u "$(STRING_ADVANCEDINSTALL_LINE3)"
+	${NSD_CreateCheckbox} 120u 50u 200u 8u "$(STRING_ADVANCEDINSTALL_LINE3)"
 	Pop $p3Checkbox2
         ${If} $InstallModAspNet == "1"
               ${NSD_Check} $p3Checkbox2
@@ -58,7 +58,7 @@ Function AdvancedInstall
 	GetFunctionAddress $0 Onp3Checkbox2
 	nsDialogs::OnClick $p3Checkbox2 $0
 
-	${NSD_CreateCheckbox} 120u 60u 160u 8u "$(STRING_ADVANCEDINSTALL_LINE4)"
+	${NSD_CreateCheckbox} 120u 60u 200u 8u "$(STRING_ADVANCEDINSTALL_LINE4)"
 	Pop $p3Checkbox3
         ${If} $InstalliPiMPWeb == "1"
               ${NSD_Check} $p3Checkbox3
@@ -66,7 +66,7 @@ Function AdvancedInstall
 	GetFunctionAddress $0 Onp3Checkbox3
 	nsDialogs::OnClick $p3Checkbox3 $0
 
-	${NSD_CreateCheckbox} 120u 70u 160u 8u "$(STRING_ADVANCEDINSTALL_LINE5)"
+	${NSD_CreateCheckbox} 120u 70u 200u 8u "$(STRING_ADVANCEDINSTALL_LINE5)"
 	Pop $p3Checkbox4
         ${If} $InstalliPiMPTVplugin == "1"
               ${NSD_Check} $p3Checkbox4
@@ -74,7 +74,7 @@ Function AdvancedInstall
 	GetFunctionAddress $0 Onp3Checkbox4
 	nsDialogs::OnClick $p3Checkbox4 $0
 
-	${NSD_CreateCheckbox} 120u 80u 160u 8u "$(STRING_ADVANCEDINSTALL_LINE6)"
+	${NSD_CreateCheckbox} 120u 80u 200u 8u "$(STRING_ADVANCEDINSTALL_LINE6)"
 	Pop $p3Checkbox5
         ${If} $InstalliPiMPMPplugin == "1"
               ${NSD_Check} $p3Checkbox5
