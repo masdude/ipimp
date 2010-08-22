@@ -40,22 +40,22 @@ Function SimpleInstall
 
 	SendMessage $p2Headline ${WM_SETFONT} $Headline_font 0
 
-	${NSD_CreateCheckbox} 120u 40u 160u 8u "$(STRING_SIMPLEINSTALL_LINE2)"
+	${NSD_CreateCheckbox} 120u 40u 200u 8u "$(STRING_SIMPLEINSTALL_LINE2)"
 	Pop $p2Checkbox1
 	GetFunctionAddress $0 Onp2Checkbox1
 	nsDialogs::OnClick $p2Checkbox1 $0
 
-	${NSD_CreateCheckbox} 120u 50u 160u 8u "$(STRING_SIMPLEINSTALL_LINE3)"
+	${NSD_CreateCheckbox} 120u 50u 200u 8u "$(STRING_SIMPLEINSTALL_LINE3)"
 	Pop $p2Checkbox2
 	GetFunctionAddress $0 Onp2Checkbox2
 	nsDialogs::OnClick $p2Checkbox2 $0
 
-	${NSD_CreateCheckbox} 120u 70u 160u 8u "$(STRING_SIMPLEINSTALL_LINE4)"
+	${NSD_CreateCheckbox} 120u 70u 200u 8u "$(STRING_SIMPLEINSTALL_LINE4)"
 	Pop $p2Checkbox3
 	GetFunctionAddress $0 Onp2Checkbox3
 	nsDialogs::OnClick $p2Checkbox3 $0
 
-	${NSD_CreateCheckbox} 120u 60u 160u 8u "$(STRING_SIMPLEINSTALL_LINE5)"
+	${NSD_CreateCheckbox} 120u 60u 200u 8u "$(STRING_SIMPLEINSTALL_LINE5)"
 	Pop $p2Checkbox4
 	GetFunctionAddress $0 Onp2Checkbox4
 	nsDialogs::OnClick $p2Checkbox4 $0
