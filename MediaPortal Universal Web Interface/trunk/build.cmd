@@ -1,87 +1,43 @@
+@ECHO OFF
+
 REM ====================
 REM iPiMPConfigurePlugin
 REM ====================
-
-REM Clear down the bin folder
-DEL /Q iPiMPConfigurePlugin\bin\Release\*.*
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-
-REM Update assembly version with SVN revision
-"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\iPiMPConfigurePlugin" "%CD%\iPiMPConfigurePlugin\My Project\AssemblyInfo_temp.vb" "%CD%\iPiMPConfigurePlugin\My Project\AssemblyInfo.vb"
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-
-REM Build the iPiMPConfigurePlugin project
-PUSHD iPiMPConfigurePlugin
-%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-POPD
+CALL :BUILD iPiMPConfigurePlugin vb
 
 REM ====================
 REM iPiMPTranscodeToMP4
 REM ====================
-
-REM Clear down the bin folder
-DEL /Q iPiMPTranscodeToMP4\bin\Release\*.*
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-
-REM Update assembly version with SVN revision
-"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\iPiMPTranscodeToMP4" "%CD%\iPiMPTranscodeToMP4\My Project\AssemblyInfo_temp.vb" "%CD%\iPiMPTranscodeToMP4\My Project\AssemblyInfo.vb"
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-
+CALL :BUILD iPiMPTranscodeToMP4 vb
 REM Update the installer
 COPY /Y "%CD%\NSIS Installer\Installer\InstallSections\TVServerPlugin_Release.nsh" "%CD%\NSIS Installer\Installer\InstallSections\TVServerPlugin.nsh"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
-REM Build the iPiMPTranscodeToMP4 project
-PUSHD iPiMPTranscodeToMP4
-%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-POPD
-
 REM ====================
 REM MPClientController
 REM ====================
-
-REM Clear down the bin folder
-DEL /Q MPClientController\bin\Release\*.*
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-
-REM Update assembly version with SVN revision
-"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\MPClientController" "%CD%\MPClientController\My Project\AssemblyInfo_temp.vb" "%CD%\MPClientController\My Project\AssemblyInfo.vb"
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-
+CALL :BUILD MPClientController vb
+REM Update the installer
 COPY /Y "%CD%\NSIS Installer\Installer\InstallSections\MPClientPlugin_Release.nsh" "%CD%\NSIS Installer\Installer\InstallSections\MPClientPlugin.nsh"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
-REM Build the MPClientController project
-PUSHD MPClientController
-%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-POPD
-
+REM ====================
+REM MPWebServices
+REM ====================
+CALL :BUILD MPWebServices cs
+@ECHO ON
 REM ==================
 REM Website
 REM ==================
-
-REM Clear down the bin folder
-DEL /Q Website\bin\*.*
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
+CALL :BUILD Website vb
 
 REM Clear down the Include folder
+PUSHD Website
 RD /S /Q "NSIS Installer\Include\Aspx\"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
-REM Update assembly version with SVN revision
-"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\Website" "%CD%\Website\My Project\AssemblyInfo_temp.vb" "%CD%\Website\My Project\AssemblyInfo.vb"
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-
-REM Build the website project
-PUSHD Website
-%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
-IF %ERRORLEVEL% NEQ 0 GOTO ERROR
-
 REM Copy all reference DLLs
-XCOPY bin\*.dll "..\NSIS Installer\Include\Aspx\bin" /Y /I
+XCOPY bin\Release\*.dll "..\NSIS Installer\Include\Aspx\bin" /Y /I
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Publish the website project
@@ -105,11 +61,37 @@ REM Build the installer
 "C:\Program Files (x86)\NSIS\makensis.exe" /V4 /NOTIFYHWND 1640592 "%CD%\NSIS Installer\Installer\Main installer.nsi"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
-pause
+PAUSE
 GOTO :EOF
+
+:BUILD
+SET PROJECT=%1
+SET LANGUAGE=%2
+ECHO Compiling %PROJECT%
+
+REM Clear down the bin folder
+DEL /Q %PROJECT%\bin\Release\*.*
+IF %ERRORLEVEL% NEQ 0 GOTO ERROR
+
+REM Update assembly version with SVN revision
+IF /I %LANGUAGE% EQU VB "C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\%PROJECT%" "%CD%\%PROJECT%\My Project\AssemblyInfo_temp.vb" "%CD%\%PROJECT%\My Project\AssemblyInfo.vb"
+IF %ERRORLEVEL% NEQ 0 GOTO ERROR
+
+IF /I %LANGUAGE% EQU CS "C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\%PROJECT%" "%CD%\%PROJECT%\Properties\AssemblyInfo_temp.cs" "%CD%\%PROJECT%\Properties\AssemblyInfo.cs"
+IF %ERRORLEVEL% NEQ 0 GOTO ERROR
+
+REM Build the project
+PUSHD %PROJECT%
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
+IF %ERRORLEVEL% NEQ 0 GOTO ERROR
+POPD
+GOTO :EOF
+
 
 :ERROR
 ECHO ===================================
 ECHO ERROR: %ERRORLEVEL%
 ECHO ===================================
-pause
+PAUSE
+
+:EOF
