@@ -59,6 +59,8 @@
 !insertmacro LANG_LOAD "Dutch"
 !insertmacro LANG_LOAD "Swedish"
 !insertmacro LANG_LOAD "French"
+!insertmacro LANG_LOAD "Spanish"
+!insertmacro LANG_LOAD "Italian"
 
 ;
 ; Setup pages
