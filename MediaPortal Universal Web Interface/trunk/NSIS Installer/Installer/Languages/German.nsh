@@ -69,6 +69,9 @@
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE15 "$IPAddresse ist keine gültige IP Adresse."
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Kann $LogoPath nicht finden"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "Kein Pfad zu den TV Logos angegeben."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE18 "Locate your Radio logo folder."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Cannot find $RadioLogoPath"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "No Radio logo path provided."
 
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE1 "Einstellungen für das Umwandlungs Plugin"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE2 "Umgewandelte Dateien löschen, wenn eine Aufnahme in MP gelöscht wird?"
@@ -81,6 +84,8 @@
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE9 "Suchen..."
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE10 "Kann den $MP4Path nicht finden"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE11 "Keine Pfad zum Speichern der MP4 angegeben."
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE12 "Select the transcoding utility"
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE13 "Your TV service will be restarted to enable the transcode plugin.$\nDo you want to continue?"
 
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE1 "iPiMP Installationsordner"
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE2 "Wähle den Ordner aus, in den alle iPimP Dateien gespeichert werden inklusive dem Uninstaller."

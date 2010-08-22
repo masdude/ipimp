@@ -84,6 +84,8 @@
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE9 "Browse..."
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE10 "Cannot find $MP4Path"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE11 "No MP4 save path provided."
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE12 "Select the transcoding utility"
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE13 "Your TV service will be restarted to enable the transcode plugin.$\nDo you want to continue?"
 
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE1 "iPiMP installation folder"
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE2 "Select the folder in which to install any iPiMP files, this includes the uninstaller."

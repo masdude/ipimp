@@ -69,6 +69,9 @@
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE15 "$IPAddress är inte en giltig IP-adress."
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Kan inte hitta $LogoPath"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "Du har inte angett TV logo sökväg."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE18 "Locate your Radio logo folder."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Cannot find $RadioLogoPath"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "No Radio logo path provided."
 
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE1 "Konverterings-plugin inställningar"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE2 "Vill du ta bort konverterade filer när en inspelning tas bort i MP?"
@@ -81,6 +84,8 @@
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE9 "Sök..."
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE10 "Kan inte hitta $MP4Path"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE11 "Du har inte angett var MP4 ska sparas."
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE12 "Select the transcoding utility"
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE13 "Your TV service will be restarted to enable the transcode plugin.$\nDo you want to continue?"
 
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE1 "iPiMP installationsmapp"
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE2 "Välj den mapp där du vill installera iPiMP filerna, detta inkluderar avinstalleraren."

@@ -69,6 +69,9 @@
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE15 "$IPAddress n'est pas une adresse IP valide."
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Impossible de trouver $LogoPath"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "Pas de chemin pour les logos TV fourni."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE18 "Locate your Radio logo folder."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Cannot find $RadioLogoPath"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "No Radio logo path provided."
 
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE1 "Réglages du plugin d'encodage"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE2 "Voulez vous effacer un fichier réencodé quand un enregistrement est supprimé dans MP ?"
@@ -81,6 +84,8 @@
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE9 "Parcourir..."
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE10 "Impossible de trouver $MP4Path"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE11 "pas de chemin de sauvegarde fourni."
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE12 "Select the transcoding utility"
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE13 "Your TV service will be restarted to enable the transcode plugin.$\nDo you want to continue?"
 
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE1 "Dossier d'installation de iPiMP"
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE2 "Choisir le dossier ou installer les fichiers de iPiMP, ceci inclus le désinstalleur."

@@ -69,6 +69,9 @@
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE15 "$IPAddress is not a valid ip address."
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Cannot find $LogoPath"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "No TV logo path provided."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE18 "Locate your Radio logo folder."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Cannot find $RadioLogoPath"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "No Radio logo path provided."
 
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE1 "Transcode plugin settings"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE2 "Do you want to delete transcoded files when a recording is deleted in MP?"
@@ -81,6 +84,8 @@
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE9 "Browse..."
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE10 "Cannot find $MP4Path"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE11 "No MP4 save path provided."
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE12 "Select the transcoding utility"
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE13 "Your TV service will be restarted to enable the transcode plugin.$\nDo you want to continue?"
 
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE1 "iPiMP installation folder"
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE2 "Select the folder in which to install any iPiMP files, this includes the uninstaller."
