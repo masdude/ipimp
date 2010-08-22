@@ -34,7 +34,7 @@ Function ApacheOptions
 
 	SendMessage $p4ImageControl ${STM_SETIMAGE} ${IMAGE_BITMAP} $p4Image
 
-	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -40u 20u "$(STRING_APACHEINSTALL_LINE1)"
+	nsDialogs::CreateControl STATIC ${WS_VISIBLE}|${WS_CHILD}|${WS_CLIPSIBLINGS} 0 120u 10u -130u 30u "$(STRING_APACHEINSTALL_LINE1)"
 	Pop $p4Headline
 
 	SendMessage $p4Headline ${WM_SETFONT} $Headline_font 0
