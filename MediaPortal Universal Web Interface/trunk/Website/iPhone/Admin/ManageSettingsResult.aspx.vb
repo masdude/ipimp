@@ -37,6 +37,7 @@ Partial Public Class ManageSettingsResult
         Dim recent As String = Request.QueryString("recent")
         Dim myvideos As String = Request.QueryString("myvideos")
         Dim movpics As String = Request.QueryString("movpics")
+        Dim sortlists As String = Request.QueryString("sortlists")
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -69,7 +70,7 @@ Partial Public Class ManageSettingsResult
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(UpdateSettings(pagesize, order, server, client, submenu, recsubmenu, recent, myvideos, movpics))
+        xw.WriteCData(UpdateSettings(pagesize, order, server, client, submenu, recsubmenu, recent, myvideos, movpics, sortlists))
         xw.WriteEndElement()
         'end data
 
@@ -86,7 +87,7 @@ Partial Public Class ManageSettingsResult
                                     ByVal server As String, ByVal client As String, _
                                     ByVal submenu As String, ByVal recsubmenu As String, _
                                     ByVal recent As String, ByVal myvideos As String, _
-                                    ByVal movpics As String) As String
+                                    ByVal movpics As String, ByVal sortlists As String) As String
 
         Dim markup As String = String.Empty
         Dim success As Boolean = False
@@ -145,15 +146,21 @@ Partial Public Class ManageSettingsResult
             success = False
         End If
 
+        If uWiMP.TVServer.Utilities.SetAppConfig("SORTLISTSBYNAME", sortlists) = True Then
+            success = True
+        Else
+            success = False
+        End If
+
         markup += "<div class=""iMenu"" >"
 
         markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "ipimp_settings"))
         markup += "<ul>"
 
         If success Then
-            markup += String.Format("<li>Settings updated.</li>", GetGlobalResourceObject("uWiMPStrings", "ipimp_settings_success"))
+            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "ipimp_settings_success"))
         Else
-            markup += String.Format("<li style=""color:red"">Settings update failed.</li>", GetGlobalResourceObject("uWiMPStrings", "ipimp_settings_fail"))
+            markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "ipimp_settings_fail"))
         End If
 
         markup += "</li>"

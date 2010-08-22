@@ -188,8 +188,9 @@ function updatesettings() {
     var recsubmenu = document.getElementById('jsRecsSubmenu').checked;
     var myvideos = document.getElementById('jsMyVideos').checked;
     var movpics = document.getElementById('jsMovingPictures').checked;
-    
-    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '&recent=' + recent + '&myvideos=' + myvideos + '&movpics=' + movpics + '#_SettingsResult', null, -1, true, null);
+    var sortlists = document.getElementById('jsSortLists').checked;
+
+    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '&recent=' + recent + '&myvideos=' + myvideos + '&movpics=' + movpics + '&sortlists=' + sortlists + '#_SettingsResult', null, -1, true, null);
     
     return false;
 }

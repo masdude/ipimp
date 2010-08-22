@@ -1043,4 +1043,13 @@
   <data name="stream" xml:space="preserve">
     <value>Stream</value>
   </data>
+  <data name="sort_lists" xml:space="preserve">
+    <value>Sort lists by name</value>
+  </data>
+	<data name="ipimp_settings_success">
+		<value xml:space="preserve">Settings updated.</value>
+	</data>
+	<data name="ipimp_settings_fail">
+		<value xml:space="preserve">Settings update failed.</value>
+	</data>
 </root>

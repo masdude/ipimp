@@ -33,7 +33,7 @@ Namespace uWiMP.TVServer
             End Try
 
             If cg.Count > 1 Then
-                cg.Sort(New ChannelGroupsGroupNameComparer)
+                If CBool(uWiMP.TVServer.Utilities.GetAppConfig("SORTLISTSBYNAME")) = True Then cg.Sort(New ChannelGroupsGroupNameComparer)
             End If
 
             Return cg
