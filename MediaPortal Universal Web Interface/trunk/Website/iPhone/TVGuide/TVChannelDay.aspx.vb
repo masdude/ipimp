@@ -63,7 +63,7 @@ Partial Public Class TVChannelDay
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayChannelPrograms(wa, channelID, day))
+        xw.WriteCData(DisplayChannelPrograms(channelID, day))
         xw.WriteEndElement()
         'end data
 
@@ -76,7 +76,7 @@ Partial Public Class TVChannelDay
 
     End Sub
 
-    Private Function DisplayChannelPrograms(ByVal wa As String, ByVal channelID As String, ByVal day As String) As String
+    Private Function DisplayChannelPrograms(ByVal channelID As String, ByVal day As String) As String
 
         Dim channel As TvDatabase.Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(CInt(channelID))
 
@@ -93,7 +93,7 @@ Partial Public Class TVChannelDay
         End Select
 
         Dim markup As String = ""
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"">"
         markup += String.Format("<h3>{0} {1} for {2}</h3>", GetGlobalResourceObject("uWiMPStrings", "programs_on"), dayName, channel.Name)
         markup += "<ul class=""iArrow"">"
 
@@ -158,7 +158,7 @@ Partial Public Class TVChannelDay
 
             markup += "</ul>"
 
-            If CInt(day) < 6 Then
+            If CInt(day) < CInt(uWiMP.TVServer.Utilities.GetAppConfig("GUIDEDAYS")) - 1 Then
                 markup += "<ul class=""iArrow"">"
                 markup += String.Format("<li><a href=""TVGuide/TVChannelDay.aspx?channel={0}&day={2}#_Channel{0}Day{2}"" rev=""async"">{1}</a></li>", channelID, GetGlobalResourceObject("uWiMPStrings", "next_day"), (CInt(day) + 1).ToString)
                 markup += "</ul>"
