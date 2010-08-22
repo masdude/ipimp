@@ -2,10 +2,12 @@
 ----
 5.1.0 updates unclude *NOT RELEASED YET*
  * Installer - updated to support Radio logos
+ * Installer - included Italian (thanks g.sigalotti) and Spanish (thanks bodiroga) languages
  * TV transcode plugin - reverted to ffmpeg for thumbnail generation (reduced the number of utilities)
  * TV transcode plugin - consolidated ffmpeg versions
  * Web - tweaked live TV transcode parameters
  * Web - updated Apache conf for use in existing Apache installs
+ * Web - added Italian language (thanks g.sigalotti)
 5.0.1 updates include
  * Web - modified !SmoothStreaming arguments for correct playback on other players
  * Web - added Silverlight player for desktop browsers - Google Chrome is recommended
