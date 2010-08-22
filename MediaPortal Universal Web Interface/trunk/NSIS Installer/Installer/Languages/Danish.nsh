@@ -69,6 +69,9 @@
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE15 "$IPAddresse er ikke en rigtig IP adresse."
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Kan ikke finde $LogoPath"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "Der er ikke angivet en sti til hvor TV logoerne gemmes."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE18 "Locate your Radio logo folder."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Cannot find $RadioLogoPath"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "No Radio logo path provided."
 
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE1 "Transcode plugin indstillinger"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE2 "Ønsker du at slette de transcodede filer hvis en optagelse slettes i MP?"
@@ -81,6 +84,8 @@
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE9 "Vis..."
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE10 "Kan ikke finde $MP4Path"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE11 "Der ikke angivet en sti til hvor MP4 filerne gemmes."
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE12 "Select the transcoding utility"
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE13 "Your TV service will be restarted to enable the transcode plugin.$\nDo you want to continue?"
 
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE1 "iPiMP installations folder"
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE2 "Vælg folderen hvor alle iPiMP filerne installeres, dette inkludere afinstallationsprogrammet."

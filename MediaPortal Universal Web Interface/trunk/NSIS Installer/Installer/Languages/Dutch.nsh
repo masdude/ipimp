@@ -69,6 +69,9 @@
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE15 "$IPAddress is een verkeerd ip address."
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "kan het pad $LogoPath niet vinden"
 !insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "Er is geen pad voor de TV logo bestanden opgegeven."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE18 "Locate your Radio logo folder."
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE16 "Cannot find $RadioLogoPath"
+!insertmacro LANG_STRING STRING_APACHEINSTALL_LINE17 "No Radio logo path provided."
 
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE1 "Transcode plugin instellingen"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE2 "Wil je geconverteerde bestanden verwijderen al een opname in MP wordt verwijderd?"
@@ -81,6 +84,8 @@
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE9 "Verkennen..."
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE10 "Kan het pad $MP4Path niet vinden"
 !insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE11 "Er is geen pad voorMP4 bestanden opgegeven ."
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE12 "Select the transcoding utility"
+!insertmacro LANG_STRING STRING_TVPLUGININSTALL_LINE13 "Your TV service will be restarted to enable the transcode plugin.$\nDo you want to continue?"
 
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE1 "iPiMP installatie map"
 !insertmacro LANG_STRING STRING_INSTALLLOCATION_LINE2 "Selecteer de map waar de iPiMP bestanden geïnstalleerd moeten worden, dit omvat ook de uninstaller."
