@@ -1,11 +1,10 @@
 Section UpdateConfig
-
-
+  ;Aspx conf
   ${If} $UpdateWebConfig = "0"
     ${If} ${IPIMPDEBUG} == "1"
       MessageBox MB_OK|MB_ICONINFORMATION "UpdateConfig skipped"
     ${EndIf}
-    Return
+    Goto Update2
   ${EndIf}
 
   DetailPrint "Patching web.config"
@@ -30,13 +29,7 @@ Section UpdateConfig
     ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\web.config" "$INSTDIR\Aspx\web.config" "##MPCLIENT##" "false" "/S=1 /C=0 /AO=1" $0
   ${EndIf}
 
-  ${If} $UpdateApacheConfig = "0"
-    ${If} ${IPIMPDEBUG} == "1"
-      MessageBox MB_OK|MB_ICONINFORMATION "UpdateConfig part 2 skipped"
-    ${EndIf}
-    Return
-  ${EndIf}
-
+  ;Streaming conf
   DetailPrint "Patching config.xml"
 
   Push "$INSTDIR\Utilities\ffmpeg"
@@ -46,6 +39,15 @@ Section UpdateConfig
   ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\config.xml" "$INSTDIR\Aspx\config.xml" "##FFMPEGPATH##" "$R0" "/S=1 /C=0 /AO=1" $0
   ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\config.xml" "$INSTDIR\Aspx\config.xml" "##LISTEN##" "$Listen" "/S=1 /C=0 /AO=1" $0
   ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\config.xml" "$INSTDIR\Aspx\config.xml" "*:" "127.0.0.1:" "/S=1 /C=0 /AO=1" $0
+
+  Update2:
+  ;Apache conf
+  ${If} $UpdateApacheConfig = "0"
+    ${If} ${IPIMPDEBUG} == "1"
+      MessageBox MB_OK|MB_ICONINFORMATION "UpdateConfig part 2 skipped"
+    ${EndIf}
+    Return
+  ${EndIf}
 
   DetailPrint "Patching iPiMP.conf, iPiMPinclude.conf"
   ${If} $InstalliPiMPTVplugin = "0"
@@ -102,6 +104,16 @@ Section UpdateConfig
   Call StrSlash
   Pop $R0
   ${textreplace::ReplaceInFile} "$INSTDIR\Apache\conf\iPiMPinclude.conf" "$INSTDIR\Apache\conf\iPiMPinclude.conf" "##INSTDIR##" "$R0" "/S=1 /C=0 /AO=1" $0
+  ;Streaming conf
+  DetailPrint "Patching config.xml"
+
+  Push "$INSTDIR\Utilities\ffmpeg"
+  Push "\"
+  Call StrSlash
+  Pop $R0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\config.xml" "$INSTDIR\Aspx\config.xml" "##FFMPEGPATH##" "$R0" "/S=1 /C=0 /AO=1" $0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\config.xml" "$INSTDIR\Aspx\config.xml" "##LISTEN##" "$Listen" "/S=1 /C=0 /AO=1" $0
+  ${textreplace::ReplaceInFile} "$INSTDIR\Aspx\config.xml" "$INSTDIR\Aspx\config.xml" "*:" "127.0.0.1:" "/S=1 /C=0 /AO=1" $0
 
   ${textreplace::Unload}
 
