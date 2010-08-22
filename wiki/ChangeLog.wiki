@@ -9,6 +9,7 @@
  * Web - updated Apache conf for use in existing Apache installs
  * Web - added Italian translations (thanks g.sigalotti)
  * Web - updated Spanish translations (thanks bodiroga)
+ * Web - added list sorting option in settings - channel groups can now be returned in MediaPortal order
 5.0.1 updates include
  * Web - modified !SmoothStreaming arguments for correct playback on other players
  * Web - added Silverlight player for desktop browsers - Google Chrome is recommended
