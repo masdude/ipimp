@@ -38,6 +38,7 @@ Partial Public Class ManageSettingsResult
         Dim myvideos As String = Request.QueryString("myvideos")
         Dim movpics As String = Request.QueryString("movpics")
         Dim sortlists As String = Request.QueryString("sortlists")
+        Dim guidedays As String = Request.QueryString("guidedays")
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -70,7 +71,7 @@ Partial Public Class ManageSettingsResult
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(UpdateSettings(pagesize, order, server, client, submenu, recsubmenu, recent, myvideos, movpics, sortlists))
+        xw.WriteCData(UpdateSettings(pagesize, order, server, client, submenu, recsubmenu, recent, myvideos, movpics, sortlists, guidedays))
         xw.WriteEndElement()
         'end data
 
@@ -87,7 +88,8 @@ Partial Public Class ManageSettingsResult
                                     ByVal server As String, ByVal client As String, _
                                     ByVal submenu As String, ByVal recsubmenu As String, _
                                     ByVal recent As String, ByVal myvideos As String, _
-                                    ByVal movpics As String, ByVal sortlists As String) As String
+                                    ByVal movpics As String, ByVal sortlists As String, _
+                                    ByVal guidedays As String) As String
 
         Dim markup As String = String.Empty
         Dim success As Boolean = False
@@ -147,6 +149,12 @@ Partial Public Class ManageSettingsResult
         End If
 
         If uWiMP.TVServer.Utilities.SetAppConfig("SORTLISTSBYNAME", sortlists) = True Then
+            success = True
+        Else
+            success = False
+        End If
+
+        If uWiMP.TVServer.Utilities.SetAppConfig("GUIDEDAYS", guidedays) = True Then
             success = True
         Else
             success = False

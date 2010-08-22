@@ -115,7 +115,7 @@ Partial Public Class TVChannel
         markup += "<ul class=""iArrow"">"
         markup += String.Format("<li><a href=""TVGuide/TVChannelDay.aspx?channel={0}&day=0#_Channel{0}Day0"" rev=""async"">{1}</a></li>", channelID, GetGlobalResourceObject("uWiMPStrings", "today"))
         markup += String.Format("<li><a href=""TVGuide/TVChannelDay.aspx?channel={0}&day=1#_Channel{0}Day1"" rev=""async"">{1}</a></li>", channelID, GetGlobalResourceObject("uWiMPStrings", "tomorrow"))
-        For i As Integer = 2 To 6
+        For i As Integer = 2 To CInt(uWiMP.TVServer.Utilities.GetAppConfig("GUIDEDAYS")) - 1
             markup += String.Format("<li><a href=""TVGuide/TVChannelDay.aspx?channel={0}&day={1}#_Channel{0}Day{1}"" rev=""async"">{2}</a></li>", channelID, i.ToString, Now.AddDays(i).ToString("dddd"))
         Next
 

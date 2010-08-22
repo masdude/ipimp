@@ -1052,4 +1052,7 @@
 	<data name="ipimp_settings_fail">
 		<value xml:space="preserve">Settings update failed.</value>
 	</data>
+	<data name="guide_days">
+		<value xml:space="preserve">Days to show in TV guide</value>
+	</data>
 </root>

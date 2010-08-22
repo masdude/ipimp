@@ -158,7 +158,7 @@ Partial Public Class RadioChannelDay
 
             markup += "</ul>"
 
-            If CInt(day) < 6 Then
+            If CInt(day) < CInt(uWiMP.TVServer.Utilities.GetAppConfig("GUIDEDAYS")) - 1 Then
                 markup += "<ul class=""iArrow"">"
                 markup += String.Format("<li><a href=""RadioGuide/RadioChannelDay.aspx?channel={0}&day={2}#_RadioChannel{0}Day{2}"" rev=""async"">{1}</a></li>", channelID, GetGlobalResourceObject("uWiMPStrings", "next_day"), (CInt(day) + 1).ToString)
                 markup += "</ul>"

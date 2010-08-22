@@ -182,6 +182,10 @@ function updatesettings() {
     o = doc.childNodes;
     var recent = o[0].firstChild.innerHTML;
 
+    doc = document.getElementById('jsGuideDays');
+    o = doc.childNodes;
+    var guidedays = o[0].firstChild.innerHTML;
+
     var client = document.getElementById('jsMPClientEnable').checked;
     var server = document.getElementById('jsTVServerEnable').checked;
     var submenu = document.getElementById('jsMPClientSubmenu').checked;
@@ -189,8 +193,8 @@ function updatesettings() {
     var myvideos = document.getElementById('jsMyVideos').checked;
     var movpics = document.getElementById('jsMovingPictures').checked;
     var sortlists = document.getElementById('jsSortLists').checked;
-
-    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '&recent=' + recent + '&myvideos=' + myvideos + '&movpics=' + movpics + '&sortlists=' + sortlists + '#_SettingsResult', null, -1, true, null);
+    
+    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '&recent=' + recent + '&myvideos=' + myvideos + '&movpics=' + movpics + '&sortlists=' + sortlists + '&guidedays=' + guidedays + '#_SettingsResult', null, -1, true, null);
     
     return false;
 }
