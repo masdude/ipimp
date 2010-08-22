@@ -85,6 +85,7 @@ Partial Public Class ManageSettings
         Dim recentsize As Integer = uWiMP.TVServer.Utilities.GetAppConfig("RECENTSIZE")
         Dim myvideos As Boolean = uWiMP.TVServer.Utilities.GetAppConfig("MYVIDEOS")
         Dim movingpictures As Boolean = uWiMP.TVServer.Utilities.GetAppConfig("MOVINGPICTURES")
+        Dim sortlists As Boolean = uWiMP.TVServer.Utilities.GetAppConfig("SORTLISTSBYNAME")
 
         markup += "<div class=""iPanel"" >"
         markup += "<fieldset>"
@@ -96,6 +97,7 @@ Partial Public Class ManageSettings
         markup += String.Format("<label><input type=""radio"" name=""jsPageSize"" value=""20"" checked=""{0}""/> 20</label>", IIf(pagesize = 20, "checked", ""))
         markup += String.Format("<label><input type=""radio"" name=""jsPageSize"" value=""50"" checked=""{0}""/> 50</label>", IIf(pagesize = 50, "checked", ""))
         markup += "</li>"
+        markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsSortLists"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "sort_lists"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(sortlists = True, "checked=""""", ""))
         markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsRecsSubmenu"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "show_recording_submenu"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(recsubmenu = True, "checked=""""", ""))
         markup += String.Format("<li id=""jsRecOrder"" class=""iRadio"" value=""autoback"">{0}", GetGlobalResourceObject("uWiMPStrings", "select_default_rec_order"))
         markup += String.Format("<label><input type=""radio"" name=""jsRecOrder"" value=""date"" checked=""{0}""/> {1}</label>", IIf(recorder = "date", "checked", ""), GetGlobalResourceObject("uWiMPStrings", "date"))
