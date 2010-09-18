@@ -236,11 +236,11 @@ function startCountdown(iCount) {
     if (iCount > 1) {
         iCount = iCount - 1;
         document.getElementById('tvtimer').innerText = iCount;
-        setTimeout('startCountdown(' + iCount+ ')', 1000);
+        setTimeout('startCountdown(' + iCount + ')', 1000);
     }
     else 
     {
-        WA.Request('Streaming/WatchTVStream.aspx#_WatchTVStream', null, -1, true, null);
+        WA.Request('Streaming/WatchStream.aspx?_WatchStream', null, -1, true, null);
         return false;
     }
 }

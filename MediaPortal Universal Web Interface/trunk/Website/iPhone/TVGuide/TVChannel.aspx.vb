@@ -105,7 +105,7 @@ Partial Public Class TVChannel
 
         markup += "<ul class=""iArrow"">"
         If User.IsInRole("watcher") Then
-            markup += String.Format("<li><a href=""Streaming/StreamTVChannel.aspx?channel={0}#_StreamTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
+            markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=livetv&id={0}#StartStream"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
         End If
         If User.IsInRole("recorder") Then
             markup += String.Format("<li><a href=""TVGuide/RecordManual.aspx?channel={0}#_RecordManual"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "manual_record"))

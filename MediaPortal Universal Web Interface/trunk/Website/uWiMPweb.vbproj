@@ -27,18 +27,23 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>uWiMPweb.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <PublishDatabases>false</PublishDatabases>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>uWiMPweb.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <PlatformTarget>x86</PlatformTarget>
@@ -131,11 +136,10 @@
     <Content Include="Desktop\TimedTextLibrary.xap" />
     <Content Include="images\remote\browser.png" />
     <Content Include="iPhone\Default.aspx" />
-    <Content Include="iPhone\Streaming\CheckTVStream.aspx" />
-    <Content Include="iPhone\Streaming\StopTVStream.aspx" />
-    <Content Include="iPhone\Streaming\WatchTVStream.aspx" />
+    <Content Include="iPhone\Streaming\CheckStream.aspx" />
+    <Content Include="iPhone\Streaming\StopStream.aspx" />
+    <Content Include="iPhone\Streaming\WatchStream.aspx" />
     <Content Include="iPhone\TVServer\StreamingStatus.aspx" />
-    <Content Include="SmoothStream.isml\blank.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -985,13 +989,6 @@
       <DependentUpon>RecordingTranscodeResult.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\Recording\RecordingWatch.aspx.designer.vb">
-      <DependentUpon>RecordingWatch.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="iPhone\Recording\RecordingWatch.aspx.vb">
-      <DependentUpon>RecordingWatch.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="iPhone\Schedule\MainMenu.aspx.designer.vb">
       <DependentUpon>MainMenu.aspx</DependentUpon>
     </Compile>
@@ -1069,25 +1066,25 @@
       <DependentUpon>SchedulesByTitleList.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\Streaming\CheckTVStream.aspx.designer.vb">
-      <DependentUpon>CheckTVStream.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\CheckStream.aspx.designer.vb">
+      <DependentUpon>CheckStream.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iPhone\Streaming\CheckTVStream.aspx.vb">
-      <DependentUpon>CheckTVStream.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\CheckStream.aspx.vb">
+      <DependentUpon>CheckStream.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\Streaming\StopTVStream.aspx.designer.vb">
-      <DependentUpon>StopTVStream.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\StopStream.aspx.designer.vb">
+      <DependentUpon>StopStream.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iPhone\Streaming\StopTVStream.aspx.vb">
-      <DependentUpon>StopTVStream.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\StopStream.aspx.vb">
+      <DependentUpon>StopStream.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\Streaming\WatchTVStream.aspx.designer.vb">
-      <DependentUpon>WatchTVStream.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\WatchStream.aspx.designer.vb">
+      <DependentUpon>WatchStream.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iPhone\Streaming\WatchTVStream.aspx.vb">
-      <DependentUpon>WatchTVStream.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\WatchStream.aspx.vb">
+      <DependentUpon>WatchStream.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="iPhone\TVGuide\RecordManualConfirm.aspx.designer.vb">
@@ -1174,11 +1171,11 @@
       <DependentUpon>SearchTVGuideResults.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\Streaming\StreamTVChannel.aspx.designer.vb">
-      <DependentUpon>StreamTVChannel.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\StartStream.aspx.designer.vb">
+      <DependentUpon>StartStream.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iPhone\Streaming\StreamTVChannel.aspx.vb">
-      <DependentUpon>StreamTVChannel.aspx</DependentUpon>
+    <Compile Include="iPhone\Streaming\StartStream.aspx.vb">
+      <DependentUpon>StartStream.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="iPhone\TVServer\CardStatus.aspx.designer.vb">
@@ -1554,7 +1551,6 @@
     <Content Include="iPhone\Recording\RecordingsByGenreList.aspx" />
     <Content Include="iPhone\Recording\RecordingsMultiDelete.aspx" />
     <Content Include="iPhone\Recording\RecordingTranscode.aspx" />
-    <Content Include="iPhone\Recording\RecordingWatch.aspx" />
     <Content Include="iPhone\Schedule\MainMenu.aspx" />
     <Content Include="iPhone\Schedule\ScheduleClean.aspx" />
     <Content Include="iPhone\Schedule\ScheduleCleanResult.aspx" />
@@ -1582,7 +1578,7 @@
     <Content Include="iPhone\TVGuide\TVProgram.aspx" />
     <Content Include="iPhone\TVGuide\SearchTVGuide.aspx" />
     <Content Include="iPhone\TVGuide\SearchTVGuideResults.aspx" />
-    <Content Include="iPhone\Streaming\StreamTVChannel.aspx" />
+    <Content Include="iPhone\Streaming\StartStream.aspx" />
     <Content Include="iPhone\TVServer\CardStatus.aspx" />
     <Content Include="iPhone\TVServer\CardStatusMenu.aspx" />
     <Content Include="iPhone\TVServer\CardActionConfirm.aspx" />
