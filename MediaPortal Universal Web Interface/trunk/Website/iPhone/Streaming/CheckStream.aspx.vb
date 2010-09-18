@@ -23,7 +23,7 @@ Imports System.Xml
 Imports TvDatabase
 Imports TvControl
 
-Partial Public Class StreamTVChannel
+Partial Public Class CheckTVStream
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -32,7 +32,7 @@ Partial Public Class StreamTVChannel
         Response.ContentEncoding = Encoding.UTF8
 
         Dim channelID As String = Request.QueryString("channel")
-        Dim wa As String = "waStreamTVChannel"
+        Dim wa As String = "waCheckStream"
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -65,16 +65,9 @@ Partial Public Class StreamTVChannel
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DoCountdown(channelID))
+        xw.WriteCData(CheckTVStream(channelID))
         xw.WriteEndElement()
         'end data
-
-        'start script
-        xw.WriteStartElement("script")
-        xw.WriteCData("startCountdown(31)")
-        xw.WriteEndElement()
-        'end data
-
 
         'end root
         xw.WriteEndElement()
@@ -85,36 +78,30 @@ Partial Public Class StreamTVChannel
 
     End Sub
 
-    Private Function DoCountdown(ByVal channelID As String) As String
+    Private Function CheckTVStream(ByVal channelid As String) As String
 
-        Dim task As New uWiMP.TVServer.Streamer
-        If uWiMP.TVServer.Channels.GetChannelByChannelId(CInt(channelID)).IsRadio Then
-            task.Media = uWiMP.TVServer.Streamer.MediaType.Radio
-        Else
-            task.Media = uWiMP.TVServer.Streamer.MediaType.Tv
-        End If
-        task.ChannelID = channelID
-
-        Dim asyncTask As New PageAsyncTask(AddressOf task.OnBegin, AddressOf task.OnEnd, AddressOf task.OnTimeout, "Stream", True)
-        Page.RegisterAsyncTask(asyncTask)
-        Page.ExecuteRegisteredAsyncTasks()
-
-        Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(CInt(channelID))
         Dim markup As String = String.Empty
 
-        markup += "<div class=""iMenu"">"
-        markup += String.Format("<h3>{0} - {1}</h3>", GetGlobalResourceObject("uWiMPStrings", "watch"), channel.Name)
+        markup += String.Format("<div class=""iMenu"">")
+        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "watch"))
 
-        markup += "<div class=""iBlock"">"
+        Dim path As String = String.Format("{0}\SmoothStream.isml\Stream.txt", AppDomain.CurrentDomain.BaseDirectory)
+        If File.Exists(path) Then
+            Dim success As Boolean = uWiMP.TVServer.Streamer.StopStream
+            If Not success Then
+                markup += "<ul>"
 
-        markup += String.Format("<div><p>{0}</p>", GetGlobalResourceObject("uWiMPStrings", "stream_start_wait"))
-        markup += "<table class=""center""><tr>"
-        markup += "<td class=""grid"" id=""tvtimer"">-</td>"
-        markup += "</tr></table>"
-        markup += "</div>"
+                markup += "</ul>"
+            End If
+        Else
+            Response.Redirect("")
+        End If
 
-        markup += "</div>"
-
+        'If success Then
+        '    markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped"))
+        'Else
+        '    markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped_failed"))
+        'End If
         markup += "</div>"
 
         Return markup

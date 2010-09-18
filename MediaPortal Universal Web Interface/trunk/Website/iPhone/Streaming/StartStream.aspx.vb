@@ -23,7 +23,7 @@ Imports System.Xml
 Imports TvDatabase
 Imports TvControl
 
-Partial Public Class StopTVStream
+Partial Public Class StartStream
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -31,7 +31,9 @@ Partial Public Class StopTVStream
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim wa As String = "waStopTVStream"
+        Dim mediaType As String = Request.QueryString("type")
+        Dim mediaID As String = Request.QueryString("id")
+        Dim wa As String = "waStartStream"
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -64,9 +66,15 @@ Partial Public Class StopTVStream
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(StopTVStream())
+        xw.WriteCData(DoCountdown(mediaID, mediaType))
         xw.WriteEndElement()
         'end data
+
+        'start script
+        xw.WriteStartElement("script")
+        xw.WriteCData("startCountdown(31)")
+        xw.WriteEndElement()
+        'end script
 
         'end root
         xw.WriteEndElement()
@@ -77,22 +85,37 @@ Partial Public Class StopTVStream
 
     End Sub
 
-    Private Function StopTVStream() As String
+    Private Function DoCountdown(ByVal id As String, ByVal type As String) As String
 
-        Dim success As Boolean = uWiMP.TVServer.Streamer.StopStream
+        Dim task As New uWiMP.TVServer.Streamer
+
+        Select Case type.ToLower
+            Case "livetv"
+                task.Media = uWiMP.TVServer.Streamer.MediaType.Tv
+            Case "rec"
+                task.Media = uWiMP.TVServer.Streamer.MediaType.Recording
+        End Select
+        task.MediaID = id
+
+        Dim asyncTask As New PageAsyncTask(AddressOf task.OnBegin, AddressOf task.OnEnd, AddressOf task.OnTimeout, "Stream", True)
+        Page.RegisterAsyncTask(asyncTask)
+        Page.ExecuteRegisteredAsyncTasks()
 
         Dim markup As String = String.Empty
 
-        markup += String.Format("<div class=""iMenu"">")
-        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "watch"))
+        markup += "<div class=""iMenu"">"
+        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "stream"))
 
-        markup += "<ul>"
-        If success Then
-            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped"))
-        Else
-            markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped_failed"))
-        End If
-        markup += "</ul>"
+        markup += "<div class=""iBlock"">"
+
+        markup += String.Format("<div><p>{0}</p>", GetGlobalResourceObject("uWiMPStrings", "stream_start_wait"))
+        markup += "<table class=""center""><tr>"
+        markup += "<td class=""grid"" id=""tvtimer"">-</td>"
+        markup += "</tr></table>"
+        markup += "</div>"
+
+        markup += "</div>"
+
         markup += "</div>"
 
         Return markup

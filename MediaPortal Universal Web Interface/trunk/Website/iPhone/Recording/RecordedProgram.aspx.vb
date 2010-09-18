@@ -62,7 +62,7 @@ Partial Public Class RecordedProgram
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayRecording(wa, recordingID))
+        xw.WriteCData(DisplayRecording(recordingID))
         xw.WriteEndElement()
         'end data
 
@@ -75,7 +75,7 @@ Partial Public Class RecordedProgram
 
     End Sub
 
-    Private Function DisplayRecording(ByVal wa As String, ByVal recordingID As String) As String
+    Private Function DisplayRecording(ByVal recordingID As String) As String
 
         Dim markup As String = String.Empty
 
@@ -100,7 +100,7 @@ Partial Public Class RecordedProgram
         Dim MP4path As String = uWiMP.TVServer.Utilities.GetAppConfig("STREAMPATH")
         Dim recFile As String = String.Format("{0}\{1}.mp4", MP4path, Path.GetFileNameWithoutExtension(recording.FileName))
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"">"
         markup += "<div class=""iBlock"">"
         markup += String.Format("<h3>{0}</h3>", recording.Title)
         markup += String.Format("<h3>{0}</h3>", recording.StartTime)
@@ -114,8 +114,8 @@ Partial Public Class RecordedProgram
                 markup += String.Format("<li><a href=""http://{0}/MP4/{1}.mp4"">{2}</a></li>", Request.ServerVariables("HTTP_HOST"), Replace(Path.GetFileNameWithoutExtension(recording.FileName), " ", "%20"), GetGlobalResourceObject("uWiMPStrings", "watch"))
             Else
                 markup += String.Format("<li><a href=""Recording/RecordingTranscode.aspx?recid={0}#_Transcode{0}"" rev=""async"">{1}</a></li>", recordingID, GetGlobalResourceObject("uWiMPStrings", "not_transcoded"))
+                markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=rec&id={0}#_StartStream"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
             End If
-            'markup += String.Format("<li><a href=""Recording/RecordingWatch.aspx?id={0}#_WatchRec{0}"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "watch"))
         End If
         If User.IsInRole("deleter") Then
             markup += String.Format("<li><a href=""Recording/RecordingDelete.aspx?id={0}#_DeleteRec{0}"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "delete"))

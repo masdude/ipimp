@@ -23,7 +23,7 @@ Imports System.Xml
 Imports TvDatabase
 Imports TvControl
 
-Partial Public Class CheckTVStream
+Partial Public Class StopStream
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -31,8 +31,7 @@ Partial Public Class CheckTVStream
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim channelID As String = Request.QueryString("channel")
-        Dim wa As String = "waCheckTVStream"
+        Dim wa As String = "waStopStream"
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -65,7 +64,7 @@ Partial Public Class CheckTVStream
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(CheckTVStream(channelID))
+        xw.WriteCData(StopStream())
         xw.WriteEndElement()
         'end data
 
@@ -78,30 +77,22 @@ Partial Public Class CheckTVStream
 
     End Sub
 
-    Private Function CheckTVStream(ByVal channelid As String) As String
+    Private Function StopStream() As String
+
+        Dim success As Boolean = uWiMP.TVServer.Streamer.StopStream
 
         Dim markup As String = String.Empty
 
         markup += String.Format("<div class=""iMenu"">")
         markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "watch"))
 
-        Dim path As String = String.Format("{0}\SmoothStream.isml\Channel.txt", AppDomain.CurrentDomain.BaseDirectory)
-        If File.Exists(path) Then
-            Dim success As Boolean = uWiMP.TVServer.Streamer.StopStream
-            If Not success Then
-                markup += "<ul>"
-
-                markup += "</ul>"
-            End If
+        markup += "<ul>"
+        If success Then
+            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped"))
         Else
-            Response.Redirect("")
+            markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped_failed"))
         End If
-
-        'If success Then
-        '    markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped"))
-        'Else
-        '    markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped_failed"))
-        'End If
+        markup += "</ul>"
         markup += "</div>"
 
         Return markup

@@ -1055,4 +1055,13 @@
 	<data name="guide_days">
 		<value xml:space="preserve">Days to show in TV guide</value>
 	</data>
+	<data name="streaming_status">
+		<value xml:space="preserve">Streaming status</value>
+	</data>
+	<data name="streaming">
+		<value xml:space="preserve">Streaming</value>
+	</data>
+	<data name="Streaming_nothing">
+		<value xml:space="preserve">Streaming nothing</value>
+	</data>
 </root>

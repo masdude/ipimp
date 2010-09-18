@@ -11,5 +11,5 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class StreamTVChannel
+Partial Public Class StopStream
 End Class

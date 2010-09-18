@@ -99,7 +99,7 @@ Partial Public Class TVProgram
                 Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
                 Dim channelName As String = channel.Name.ToLower
                 channelName = Replace(channelName, " ", "")
-                markup += String.Format("<li><a href=""Streaming/StreamTVChannel.aspx?channel={0}#_StreamTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
+                markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=livetv&id={0}#StartStream"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
             End If
         End If
 

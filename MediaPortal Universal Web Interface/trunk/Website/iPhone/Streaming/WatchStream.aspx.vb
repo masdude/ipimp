@@ -23,7 +23,7 @@ Imports System.Xml
 Imports TvDatabase
 Imports TvControl
 
-Partial Public Class WatchTVStream
+Partial Public Class WatchStream
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -31,8 +31,7 @@ Partial Public Class WatchTVStream
         Response.ContentType = "text/xml"
         Response.ContentEncoding = Encoding.UTF8
 
-        Dim channelID As String = Request.QueryString("channel")
-        Dim wa As String = "waWatchTVStream"
+        Dim wa As String = "waWatchStream"
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
@@ -86,14 +85,14 @@ Partial Public Class WatchTVStream
         Dim imageURI As String = "../../images/remote/"
 
         markup += "<div class=""iMenu"">"
-        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "watch"))
+        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "stream"))
 
         markup += "<div class=""iBlock"">"
 
         markup += String.Format("<div><p>{0}</p>", GetGlobalResourceObject("uWiMPStrings", "stream_started"))
         markup += "<table class=""center""><tr>"
         markup += String.Format("<td class=""grid""><a href=""../../SmoothStream.isml/SmoothStream.m3u8""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
-        markup += String.Format("<td class=""grid""><a href=""Streaming/StopTVStream.aspx#_StopTVStream"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
+        markup += String.Format("<td class=""grid""><a href=""Streaming/StopStream.aspx#_StopStream"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
         markup += String.Format("<td class=""grid""><a href=""../../Desktop/SmoothStream.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "browser")
         markup += "</tr></table>"
         markup += "</div>"
