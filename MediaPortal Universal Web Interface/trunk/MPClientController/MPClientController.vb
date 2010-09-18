@@ -257,7 +257,7 @@ Namespace MPClientController
                     results = MyTV.StartChannel(request.Filter)
 
                 Case "sendmessage"
-                    Dim message As New MPClientController.Message
+                    Dim message As New Message
                     message.heading = request.Filter
                     message.message = request.Value
                     results = message.SendMessage()

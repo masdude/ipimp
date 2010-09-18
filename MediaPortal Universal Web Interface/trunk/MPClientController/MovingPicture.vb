@@ -14,18 +14,16 @@
 '   You should have received a copy of the GNU General Public License 
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
-
-
-Imports System.Threading
+Imports MediaPortal.Plugins.MovingPictures.MainUI
 Imports MediaPortal.Plugins.MovingPictures.Database
-
-Imports MediaPortal.GUI.Video
 Imports MediaPortal.Playlists
+Imports System.Threading
+Imports MediaPortal.Player
+Imports MediaPortal.Services
 
 Namespace MPClientController
 
     Public Class MovingPicture
-
         Private _movieInfo As DBMovieInfo
         Private _playlistPlayer As PlayListPlayer
 
@@ -45,32 +43,41 @@ Namespace MPClientController
             End SyncLock
         End Sub
 
+        Private Sub StartPlayingMovPic()
+            Dim g As New MovingPicturesGUI
+            Dim p As New MoviePlayer(g)
+            p.Play(_movieInfo)
+        End Sub
+
         Private Sub StartPlaying()
 
-            _playlistPlayer = New PlayListPlayer
-            If _playlistPlayer.g_Player.Playing Then _playlistPlayer.g_Player.Stop()
+            If g_Player.Playing Then g_Player.Stop()
 
-            _playlistPlayer = PlayListPlayer.SingletonPlayer
-            _playlistPlayer.RepeatPlaylist = False
+            If _movieInfo.LocalMedia(0).IsDVD Then
+                g_Player.Player.Play(_movieInfo.LocalMedia(0).FullPath)
+            Else
+                _playlistPlayer = New PlayListPlayer
+                _playlistPlayer = PlayListPlayer.SingletonPlayer
+                _playlistPlayer.RepeatPlaylist = False
 
-            _playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_VIDEO).Clear()
-            For Each mediaFile As DBLocalMedia In _movieInfo.LocalMedia
-                Dim item As New PlayListItem
-                item.FileName = mediaFile.FullPath
-                item.Description = _movieInfo.Title
-                item.Duration = mediaFile.Duration
-                item.Type = PlayListItem.PlayListItemType.Video
-                _playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_VIDEO).Add(item)
-            Next
+                _playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_VIDEO).Clear()
+                For Each mediaFile As DBLocalMedia In _movieInfo.LocalMedia
+                    Dim item As New PlayListItem
+                    item.FileName = mediaFile.FullPath
+                    item.Description = _movieInfo.Title
+                    item.Duration = mediaFile.Duration
+                    item.Type = PlayListItem.PlayListItemType.Video
+                    _playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_VIDEO).Add(item)
+                Next
 
-            If _playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_VIDEO).Count > 0 Then
-                _playlistPlayer.Reset()
-                _playlistPlayer.CurrentPlaylistType = PlayListType.PLAYLIST_VIDEO
-                _playlistPlayer.Play(0)
+                If _playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_VIDEO).Count > 0 Then
+                    _playlistPlayer.Reset()
+                    _playlistPlayer.CurrentPlaylistType = PlayListType.PLAYLIST_VIDEO
+                    _playlistPlayer.Play(0)
+                End If
+
             End If
 
         End Sub
-
     End Class
-
 End Namespace

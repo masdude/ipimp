@@ -34,6 +34,7 @@
   File "..\Include\Aspx\bin\TVDatabase.dll"
   File "..\Include\Aspx\bin\TvLibrary.Interfaces.dll"
   File "..\Include\Aspx\bin\uWiMPMPWebServices.dll"
+  File "..\Include\Aspx\bin\uWiMPMPWebServices.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.dll"
   File "..\Include\Aspx\bin\uWiMPweb.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.xml"
@@ -128,8 +129,6 @@
   File "..\Include\Aspx\iPhone\Admin\MainMenu.aspx"
   File "..\Include\Aspx\iPhone\Admin\ManageSettings.aspx"
   File "..\Include\Aspx\iPhone\Admin\ManageSettingsResult.aspx"
-  File "..\Include\Aspx\iPhone\Admin\RestartWebApp.aspx"
-  File "..\Include\Aspx\iPhone\Admin\RestartWebAppResult.aspx"
   File "..\Include\Aspx\iPhone\Admin\UserManagementAddUser.aspx"
   File "..\Include\Aspx\iPhone\Admin\UserManagementAddUserResult.aspx"
   File "..\Include\Aspx\iPhone\Admin\UserManagementChangePassword.aspx"
@@ -233,7 +232,6 @@
   File "..\Include\Aspx\iPhone\Recording\RecordingsMultiDeleteResult.aspx"
   File "..\Include\Aspx\iPhone\Recording\RecordingTranscode.aspx"
   File "..\Include\Aspx\iPhone\Recording\RecordingTranscodeResult.aspx"
-  File "..\Include\Aspx\iPhone\Recording\RecordingWatch.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\Schedule"
   File "..\Include\Aspx\iPhone\Schedule\MainMenu.aspx"
@@ -258,10 +256,10 @@
   File "..\Include\Aspx\iPhone\Scripts\stars.gif"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\Streaming"
-  File "..\Include\Aspx\iPhone\Streaming\CheckTVStream.aspx"
-  File "..\Include\Aspx\iPhone\Streaming\StopTVStream.aspx"
-  File "..\Include\Aspx\iPhone\Streaming\StreamTVChannel.aspx"
-  File "..\Include\Aspx\iPhone\Streaming\WatchTVStream.aspx"
+  File "..\Include\Aspx\iPhone\Streaming\CheckStream.aspx"
+  File "..\Include\Aspx\iPhone\Streaming\StartStream.aspx"
+  File "..\Include\Aspx\iPhone\Streaming\StopStream.aspx"
+  File "..\Include\Aspx\iPhone\Streaming\WatchStream.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\TVGuide"
   File "..\Include\Aspx\iPhone\TVGuide\ChannelGroups.aspx"
@@ -375,6 +373,3 @@
   File "..\Include\Aspx\iPhone\WebApp\Img\more.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\next.png"
   File "..\Include\Aspx\iPhone\WebApp\Img\up.png"
-
-  SetOutPath "$INSTDIR\Aspx\SmoothStream.isml"
-  File "..\Include\Aspx\SmoothStream.isml\blank.txt"
