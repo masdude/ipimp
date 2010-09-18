@@ -221,19 +221,19 @@
     <value>Borrar</value>
   </data>
   <data name="deleter" xml:space="preserve">
-    <value>Borrador</value>
+    <value>Borrar</value>
   </data>
   <data name="no_users" xml:space="preserve">
     <value>No hay usuarios definidos</value>
   </data>
   <data name="recorder" xml:space="preserve">
-    <value>Grabadora</value>
+    <value>Grabar</value>
   </data>
   <data name="remoter" xml:space="preserve">
     <value>Controlador remoto</value>
   </data>
   <data name="watcher" xml:space="preserve">
-    <value>Visor</value>
+    <value>Ver</value>
   </data>
   <data name="create_user_fail" xml:space="preserve">
     <value>No se pudo crear el usuario</value>
@@ -458,7 +458,7 @@
     <value>Grabación borrada satisfactoriamente</value>
   </data>
   <data name="recording_keep_fail" xml:space="preserve">
-    <value>La grabación no se pudo actualizar!</value>
+    <value>¡La grabación no se pudo actualizar!</value>
   </data>
   <data name="recording_keep_success" xml:space="preserve">
     <value>Grabación actualizada satisfactoriamente</value>
@@ -551,13 +551,13 @@
     <value>Parar timeshifting</value>
   </data>
   <data name="stop_timeshifting_fail" xml:space="preserve">
-    <value>Timeshifting no se ha podido parar!</value>
+    <value>¡Timeshifting no se ha podido parar!</value>
   </data>
   <data name="stop_timeshifting_success" xml:space="preserve">
     <value>Timeshifting parado satisfactoriamente</value>
   </data>
   <data name="service_action_fail" xml:space="preserve">
-    <value>Acción de servicio fallida!</value>
+    <value>¡Acción de servicio fallida!</value>
   </data>
   <data name="service_action_success" xml:space="preserve">
     <value>Acción de servicio completa exitosamente</value>
@@ -690,16 +690,16 @@
     <value>Música</value>
   </data>
   <data name="music_by_album" xml:space="preserve">
-    <value>Música por álbum</value>
+    <value>Por álbum</value>
   </data>
   <data name="music_by_artist" xml:space="preserve">
-    <value>Música por cantantes</value>
+    <value>Por cantantes</value>
   </data>
   <data name="music_by_genre" xml:space="preserve">
-    <value>Música por género</value>
+    <value>Por género</value>
   </data>
   <data name="music_by_year" xml:space="preserve">
-    <value>Música por año</value>
+    <value>Por año</value>
   </data>
   <data name="music_playlists" xml:space="preserve">
     <value>Listas de reproducción</value>
