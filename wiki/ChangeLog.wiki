@@ -11,6 +11,8 @@
  * Web - updated Spanish translations (thanks bodiroga)
  * Web - added list sorting option in settings - channel groups can now be returned in !MediaPortal order
  * Web - added new setting to allow number of days to show in TV & Radio guides (4,7,10,14)
+ * Web - added auto MP client register
+ * MP client plugin - added auto MP client register
 
 5.0.1 updates include (13th Jun 2010)
  * Web - modified !SmoothStreaming arguments for correct playback on other players
