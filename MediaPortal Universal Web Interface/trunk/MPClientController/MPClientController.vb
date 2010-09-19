@@ -17,6 +17,7 @@
 
 
 Imports System.Net
+Imports System.Net.NetworkInformation
 Imports System.Text
 Imports System.Threading
 Imports System.Windows.Forms
@@ -37,9 +38,10 @@ Namespace MPClientController
         Private listener As Sockets.TcpListener
         Private client As Sockets.TcpClient
         Private thread As Thread
+        Private broadcastThread As Thread
         Private remoteHandler As InputHandler
         Private keyboardHandler As MediaPortal.Hooks.KeyboardHook
-
+        Private broadcastAddresses As List(Of String) = Nothing
 
         Const DEFAULT_PORT As Integer = 55667
 
@@ -106,30 +108,30 @@ Namespace MPClientController
 #Region "Thread handling"
 
         Private Sub DoStart()
-            Log.Info("plugin: MPClientController4 - started listening on port {0}")
             Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
             Dim port As Integer = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
-            Log.Info("plugin: MPClientController5 - started listening on port {0}", port.ToString)
             listener = New System.Net.Sockets.TcpListener(System.Net.IPAddress.Any, port)
-            Log.Info("plugin: MPClientController6 - started listening on port {0}", port.ToString)
             listener.Start()
-            Log.Info("plugin: MPClientController7 - started listening on port {0}", port.ToString)
             thread = New System.Threading.Thread(AddressOf DoListen)
-            Log.Info("plugin: MPClientController8 - started listening on port {0}", port.ToString)
             thread.IsBackground = True
-            Log.Info("plugin: MPClientController9 - started listening on port {0}", port.ToString)
             thread.Start()
-
             Log.Info("plugin: MPClientController - started listening on port {0}", port.ToString)
+
+            broadcastThread = New System.Threading.Thread(AddressOf DoBroadcast)
+            broadcastThread.IsBackground = True
+            broadcastThread.Start()
+            Log.Info("plugin: MPClientController - started broadcasting on UDP")
 
         End Sub
 
         Private Sub DoStop()
 
-            thread.Abort()
             listener.Stop()
-
+            thread.Abort()
             Log.Info("plugin: MPClientController - stopped listening")
+
+            broadcastThread.Abort()
+            Log.Info("plugin: MPClientController - stopped broadcasting")
 
         End Sub
 
@@ -141,6 +143,90 @@ Namespace MPClientController
             Loop
 
         End Sub
+
+        Private Sub DoBroadcast()
+
+            Dim hostname As String = Dns.GetHostName
+            Dim MACAddress As String = String.Empty
+            Try
+                For Each nic As NetworkInformation.NetworkInterface In NetworkInformation.NetworkInterface.GetAllNetworkInterfaces
+                    MACAddress = nic.GetPhysicalAddress.ToString
+                    If MACAddress.Length = 12 Then MACAddress = String.Format("{0}-{1}-{2}-{3}-{4}-{5}", Left(MACAddress, 2), Mid(MACAddress, 3, 2), Mid(MACAddress, 5, 2), Mid(MACAddress, 7, 2), Mid(MACAddress, 9, 2), Right(MACAddress, 2))
+                    Exit For 'Just get the first MAC Address
+                Next
+            Catch ex As Exception
+            End Try
+            Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
+            Dim port As Integer = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
+
+            
+            Dim socket As New Sockets.Socket(Sockets.AddressFamily.InterNetwork, Sockets.SocketType.Dgram, Sockets.ProtocolType.Udp)
+            socket.EnableBroadcast = True
+            Dim broadcastAddress As IPAddress
+            Dim sendbuf As Byte() = Encoding.ASCII.GetBytes(String.Format("{0},{1},{2}", hostname, MACAddress, port))
+            
+            Do
+                broadcastAddresses = GetDirectBroadcastAddresses()
+                For Each address As String In broadcastAddresses
+                    broadcastAddress = IPAddress.Parse(address)
+                    Dim endpoint As New IPEndPoint(broadcastAddress, DEFAULT_PORT)
+                    socket.SendTo(sendbuf, endpoint)
+                    Log.Info("plugin: MPClientController - iPiMP ping on {0}", address)
+                Next
+                System.Threading.Thread.Sleep(1000 * 60) 'sleep for one minute
+            Loop
+
+        End Sub
+
+        Private Function GetDirectBroadcastAddresses() As List(Of String)
+
+            Dim broadcastAddresses As New List(Of String)
+            Dim IPAddress As String
+            Dim SubnetMask As String
+
+            For Each nic As NetworkInterface In NetworkInterface.GetAllNetworkInterfaces
+                If nic.Supports(NetworkInterfaceComponent.IPv4) Then
+                    Dim nicProperties As IPInterfaceProperties = nic.GetIPProperties
+                    Dim addresses As UnicastIPAddressInformationCollection = nicProperties.UnicastAddresses
+                    For Each address In addresses
+                        If (address.Address.AddressFamily = Net.Sockets.AddressFamily.InterNetwork) And
+                            (address.Address IsNot Nothing) And
+                            (address.IPv4Mask IsNot Nothing) Then
+                            IPAddress = address.Address.ToString
+                            SubnetMask = address.IPv4Mask.ToString
+                            broadcastAddresses.Add(DirectBroadcastAddress(IPAddress, SubnetMask))
+                        End If
+                    Next
+                End If
+            Next
+
+            Return broadcastAddresses
+
+        End Function
+
+        Private Function DirectBroadcastAddress(ByVal IPAddress As String, ByVal SubnetMask As String) As String
+
+            Dim temp() As String
+            Dim ip(0 To 3) As Integer
+            Dim nm(0 To 3) As Integer
+            Dim i As Integer
+
+            temp = Split(SubnetMask, ".", -1, vbTextCompare)
+            For i = 0 To 3
+                nm(i) = 255 - Val(temp(i))
+            Next i
+
+            temp = Split(IPAddress, ".", -1, vbTextCompare)
+            For i = 0 To 3
+                ip(i) = Val(temp(i))
+                ip(i) = ip(i) Or nm(i)
+            Next i
+            
+            Return ip(0) & "." & ip(1) & "." & ip(2) & "." & ip(3)
+
+        End Function
+
+
 
 #End Region
 

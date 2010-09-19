@@ -90,10 +90,12 @@ Partial Public Class clientManagementUpdateResult
 
         If client.Friendly = "" Then
             markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "client_empty"))
-        ElseIf uWiMP.TVServer.MPClientDatabase.ManageClient(client, "update") Then
-            markup += String.Format("<li>{0} {1}", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "has_been_updated"))
         Else
-            markup += String.Format("<li style=""color:red"">{0} {1}", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "could_not_be_updated"))
+            If uWiMP.TVServer.MPClientDatabase.ManageClient(client, "update") Then
+                markup += String.Format("<li>{0} {1}", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "has_been_updated"))
+            Else
+                markup += String.Format("<li style=""color:red"">{0} {1}", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "could_not_be_updated"))
+            End If
         End If
 
         markup += "</ul>"
