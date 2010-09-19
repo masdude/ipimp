@@ -13,7 +13,7 @@ By default two users are created ‘admin’ and ‘demo’, the passwords for t
 
 http://www.vanderboon.co.uk/ipimp/IMG_0325.PNG http://www.vanderboon.co.uk/ipimp/IMG_0326.PNG
 
-To use iPiMP to remotely control your !MediaPortal client you have to add it into the web application client database, so whilst logged on as admin you can add them in:
+To use iPiMP to remotely control your !MediaPortal client it has to be registered with iPimp, this should happen automatically when your !MediaPortal client starts up with the client plugin loaded. This will work on IPv4 networks only. If your client isn't shown then you have to add it into the web application client database manually, so whilst logged on as admin you can add them in:
 
 *Administration -> !MediaPortal clients -> Add*
 
