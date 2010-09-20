@@ -90,6 +90,32 @@ Partial Public Class MCERemoteControl
         'end part
         xw.WriteEndElement()
 
+        'part2 
+        xw.WriteStartElement("part")
+
+        'start title
+        xw.WriteStartElement("title")
+        xw.WriteAttributeString("set", "waRemote3")
+        xw.WriteEndElement()
+        'end title
+
+        'start dest
+        xw.WriteStartElement("destination")
+        xw.WriteAttributeString("mode", "replace")
+        xw.WriteAttributeString("zone", "waRemote3")
+        xw.WriteAttributeString("create", "true")
+        xw.WriteEndElement()
+        'end dest
+
+        'start data
+        xw.WriteStartElement("data")
+        xw.WriteCData(RemoteMCE3(friendly))
+        xw.WriteEndElement()
+        'end data
+
+        'end part
+        xw.WriteEndElement()
+
         'end root
         xw.WriteEndElement()
 
@@ -168,13 +194,13 @@ Partial Public Class MCERemoteControl
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tv")
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tvguide")
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tvrecs")
-        markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tvseries")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote1"" ><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "page1")
         markup += "</tr>"
         markup += "<tr>"
+        markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tvseries")
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "videos")
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "dvd")
-        markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "pictures")
-        markup += String.Format("<td class=""grid""><a href=""#_Remote1"" ><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "page1")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" ><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "page3")
         markup += "</tr>"
         markup += "</table>"
         markup += "<table>"
@@ -189,4 +215,47 @@ Partial Public Class MCERemoteControl
 
     End Function
 
+    Private Function RemoteMCE3(ByVal friendly As String) As String
+
+        Dim imageURI As String = "../../images/remote/"
+        Dim markup As String = String.Empty
+
+        markup += "<div class=""board-div"" id=""waRemote3"">"
+        markup += "<table>"
+        markup += "<tr>"
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "1")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "2")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "3")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "weather")
+        markup += "</tr>"
+        markup += "<tr>"
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "4")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "5")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "6")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "playlists")
+        markup += "</tr>"
+        markup += "<tr>"
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "7")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "8")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "9")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote1"" ><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "page1")
+        markup += "</tr>"
+        markup += "<tr>"
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "star")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "0")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "hash")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote1"" ><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "page2")
+        markup += "</tr>"
+        markup += "</table>"
+        markup += "<table>"
+        markup += "<tr>"
+        'markup += String.Format("<td><input maxlength=""12"" class=""textbox"" type=""text"" id=""jsKeyString"" placeholder=""{0}""/></li></td>", GetGlobalResourceObject("uWiMPStrings", "enter_keyboard_command"))
+        'markup += String.Format("<td><a class=""sendButton"" href=""#"" onclick=""return sendkeystring('{0}');"" >{1}</a>", friendly, GetGlobalResourceObject("uWiMPStrings", "send"))
+        markup += "</tr>"
+        markup += "</table>"
+        markup += "</div>"
+
+        Return markup
+
+    End Function
 End Class
