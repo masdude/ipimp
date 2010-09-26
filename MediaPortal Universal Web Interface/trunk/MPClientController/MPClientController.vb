@@ -257,7 +257,9 @@ Namespace MPClientController
 
             data = myCompleteMessage.ToString
 
+#If DEBUG Then
             iPiMPUtils.TextLog(data)
+#End If
 
             Dim request As MPClientRequest
             If data.Length > 0 Then
@@ -308,7 +310,7 @@ Namespace MPClientController
                         results = MyVideos.IsVideoIDPlaying(CInt(request.Filter))
                     End If
                 Case "getallmovies"
-                    results = MyVideos.GetAllMovies
+                    results = MyVideos.GetAllMovies()
 
 
                     'Moving Pictures
@@ -323,7 +325,7 @@ Namespace MPClientController
                         If (request.Filter <> String.Empty) And (request.Value <> String.Empty) Then
                             results = MovingPictures.GetMovies(request.Filter, request.Value, request.Start, request.PageSize)
                         Else
-                            results = MovingPictures.GetMovies
+                            results = MovingPictures.GetMovies()
                         End If
                     Else
                         results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
@@ -424,6 +426,9 @@ Namespace MPClientController
 
                 Case "getimage"
                     results = iPiMPUtils.GetImage(request.Value)
+
+                Case "getfile"
+                    results = iPiMPUtils.GetFile(request.Value, request.Filter)
 
                 Case Else
                     results = iPiMPUtils.SendError(4, "Unknown action")

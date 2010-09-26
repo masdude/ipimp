@@ -137,11 +137,11 @@ Namespace MPClientController
                 ElseIf (File.Exists(String.Format("{0}\{1}L{2}", Thumbs.Videos, crc.calc(files).ToString, MediaPortal.Util.Utils.GetThumbExtension()))) Then
                     jw.WriteString(String.Format("videothumb:{0}", crc.calc(files).ToString))
                 Else
-                    jw.WriteString("NONE")
+                    jw.WriteString("")
                 End If
 
                 jw.WriteMember("Fanart")
-                jw.WriteString("NONE")
+                jw.WriteString("")
                 jw.WriteMember("File")
                 jw.WriteString(files)
                 jw.WriteMember("Title")
