@@ -18,9 +18,9 @@
 Imports System.IO
 Imports System.Drawing
 Imports Jayrock.Json
-Imports MediaPortal.GUI.Library
+Imports MediaPortal.Configuration
 Imports MediaPortal.Player
-
+Imports MediaPortal.GUI.Library
 
 Namespace MPClientController
 
@@ -87,22 +87,13 @@ Namespace MPClientController
 
         End Sub
 
-        Public Shared Function LoadedPlugins() As String
+        Public Shared Function IsPluginLoaded(ByVal dll As String, Optional ByVal type As String = "windows") As Boolean
 
-            Dim allPlugins As ArrayList = PluginManager.GUIPlugins
-            Dim nonGUIPlugins As ArrayList = PluginManager.NonGUIPlugins
-            For Each plugin In nonGUIPlugins
-                allPlugins.Add(plugin)
-            Next
+            If File.Exists(String.Format("{0}\{1}\{2}", Config.Dir.Plugins, type, dll)) Then
+                If PluginManager.IsPlugInEnabled(dll) Then Return True
+            End If
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("Plugins")
-            jw.WriteStringArray(allPlugins)
-            jw.WriteEndObject()
-
-            Return jw.ToString
+            Return False
 
         End Function
 

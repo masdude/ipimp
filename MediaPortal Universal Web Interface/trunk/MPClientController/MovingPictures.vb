@@ -36,18 +36,6 @@ Namespace MPClientController
             End Function
         End Class
 
-        Public Shared Function CheckMovingPicturesPresent() As Boolean
-
-            Try
-                IsVideoIDPlaying(0)
-            Catch ex As Exception
-                Return False
-            End Try
-
-            Return True
-
-        End Function
-
         ''' <summary>
         ''' Gets a list of videos from the MovingPictures database.
         ''' </summary>
@@ -184,8 +172,7 @@ Namespace MPClientController
             Return jw.ToString
 
         End Function
-
-
+        
         ''' <summary>
         ''' Gets video information from the native MediaPortal MovingPictures database
         ''' </summary>
