@@ -17,10 +17,7 @@
 
 
 Imports Jayrock.Json
-Imports Jayrock.Json.Conversion
-
 Imports MediaPortal.Plugins.MovingPictures.Database
-Imports MediaPortal.Plugins.MovingPictures.MainUI
 Imports MediaPortal.Player
 
 Namespace MPClientController
@@ -39,6 +36,17 @@ Namespace MPClientController
             End Function
         End Class
 
+        Public Shared Function CheckMovingPicturesPresent() As Boolean
+
+            Try
+                IsVideoIDPlaying(0)
+            Catch ex As Exception
+                Return False
+            End Try
+
+            Return True
+
+        End Function
 
         ''' <summary>
         ''' Gets a list of videos from the MovingPictures database.
@@ -91,6 +99,10 @@ Namespace MPClientController
 
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("movingpictures")
             jw.WriteStartArray()
             If pagesize = 0 Then
                 For Each movieInfo As MPClientSmallMovieInfo In movies
@@ -112,6 +124,7 @@ Namespace MPClientController
                 Next
             End If
             jw.WriteEndArray()
+            jw.WriteEndObject()
 
             Return jw.ToString
 
@@ -162,6 +175,8 @@ Namespace MPClientController
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
             jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
             jw.WriteMember(filter.ToLower)
             jw.WriteStringArray(filterResults.ToArray)
             jw.WriteEndObject()
@@ -185,6 +200,8 @@ Namespace MPClientController
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
             jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
             jw.WriteMember("Title")
             jw.WriteString(movie.Title)
             jw.WriteMember("Tagline")
@@ -234,13 +251,7 @@ Namespace MPClientController
                 Threading.Thread.Sleep(1000)
             Loop
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(match)
-            jw.WriteEndObject()
-            Return jw.ToString
+            Return iPiMPUtils.SendBool(match)
 
         End Function
 
@@ -258,6 +269,8 @@ Namespace MPClientController
                             playingMovie = movieInfo
                             jw.PrettyPrint = True
                             jw.WriteStartObject()
+                            jw.WriteMember("result")
+                            jw.WriteBoolean(True)
                             jw.WriteMember("media")
                             jw.WriteString("movingpicture")
                             jw.WriteMember("title")
