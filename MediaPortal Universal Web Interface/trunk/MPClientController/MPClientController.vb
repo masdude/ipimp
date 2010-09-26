@@ -41,7 +41,7 @@ Namespace MPClientController
         Private remoteHandler As InputHandler
         Private keyboardHandler As MediaPortal.Hooks.KeyboardHook
         Private broadcastAddresses As List(Of String) = Nothing
-        Private isMovingPicturesPresent As Boolean = False
+        Private isMovingPicturesPresent As Boolean = Nothing
 
         Const DEFAULT_PORT As Integer = 55667
 
@@ -93,7 +93,6 @@ Namespace MPClientController
 
         Public Sub Start() Implements MediaPortal.GUI.Library.IPlugin.Start
 
-            isMovingPicturesPresent = MovingPictures.CheckMovingPicturesPresent
             remoteHandler = New InputHandler("iPiMP")
             DoStart()
 
@@ -245,6 +244,8 @@ Namespace MPClientController
             Dim data As String = String.Empty
             Dim stream As Sockets.NetworkStream = client.GetStream
             Dim myCompleteMessage As StringBuilder = New StringBuilder()
+
+            If isMovingPicturesPresent = Nothing Then isMovingPicturesPresent = iPiMPUtils.IsPluginLoaded("MovingPictures.dll")
 
             If stream.CanRead Then
                 Dim myReadBuffer(1024) As Byte
@@ -411,9 +412,6 @@ Namespace MPClientController
                                                        My.Application.Info.Version.Minor.ToString,
                                                        My.Application.Info.Version.Revision.ToString)
                     results = iPiMPUtils.SendString("version", ver)
-
-                Case "plugins"
-                    results = iPiMPUtils.LoadedPlugins()
 
                 Case "nowplaying"
                     results = NowPlaying.GetNowPlaying(isMovingPicturesPresent)
