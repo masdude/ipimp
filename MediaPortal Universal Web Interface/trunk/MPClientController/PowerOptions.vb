@@ -15,9 +15,6 @@
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
 
-
-Imports Jayrock.Json
-Imports Jayrock.Json.Conversion
 Imports MediaPortal.Util
 Imports MediaPortal.GUI.Library
 
@@ -43,14 +40,7 @@ Namespace MPClientController
                     GUIGraphicsContext.OnAction(action)
             End Select
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteEndObject()
-
-            Return jw.ToString
+            Return iPiMPUtils.SendBool(True)
 
         End Function
 

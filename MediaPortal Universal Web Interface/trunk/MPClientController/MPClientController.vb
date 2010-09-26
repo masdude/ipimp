@@ -15,7 +15,6 @@
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
 
-
 Imports System.Net
 Imports System.Net.NetworkInformation
 Imports System.Text
@@ -42,6 +41,7 @@ Namespace MPClientController
         Private remoteHandler As InputHandler
         Private keyboardHandler As MediaPortal.Hooks.KeyboardHook
         Private broadcastAddresses As List(Of String) = Nothing
+        Private isMovingPicturesPresent As Boolean = False
 
         Const DEFAULT_PORT As Integer = 55667
 
@@ -92,11 +92,11 @@ Namespace MPClientController
 #Region "IPlugin members"
 
         Public Sub Start() Implements MediaPortal.GUI.Library.IPlugin.Start
-            Log.Info("plugin: MPClientController1 - started listening on port {0}")
+
+            isMovingPicturesPresent = MovingPictures.CheckMovingPicturesPresent
             remoteHandler = New InputHandler("iPiMP")
-            Log.Info("plugin: MPClientController2 - started listening on port {0}")
             DoStart()
-            Log.Info("plugin: MPClientController3 - started listening on port {0}")
+
         End Sub
 
         Public Sub [Stop]() Implements MediaPortal.GUI.Library.IPlugin.Stop
@@ -135,6 +135,10 @@ Namespace MPClientController
 
         End Sub
 
+#End Region
+
+#Region "Listener"
+
         Private Sub DoListen()
 
             Do
@@ -143,6 +147,10 @@ Namespace MPClientController
             Loop
 
         End Sub
+
+#End Region
+
+#Region "Broadcast"
 
         Private Sub DoBroadcast()
 
@@ -159,12 +167,12 @@ Namespace MPClientController
             Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
             Dim port As Integer = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
 
-            
+
             Dim socket As New Sockets.Socket(Sockets.AddressFamily.InterNetwork, Sockets.SocketType.Dgram, Sockets.ProtocolType.Udp)
             socket.EnableBroadcast = True
             Dim broadcastAddress As IPAddress
             Dim sendbuf As Byte() = Encoding.ASCII.GetBytes(String.Format("{0},{1},{2}", hostname, MACAddress, port))
-            
+
             Do
                 broadcastAddresses = GetDirectBroadcastAddresses()
                 For Each address As String In broadcastAddresses
@@ -221,12 +229,10 @@ Namespace MPClientController
                 ip(i) = Val(temp(i))
                 ip(i) = ip(i) Or nm(i)
             Next i
-            
+
             Return ip(0) & "." & ip(1) & "." & ip(2) & "." & ip(3)
 
         End Function
-
-
 
 #End Region
 
@@ -234,22 +240,38 @@ Namespace MPClientController
 
             Log.Debug("plugin: iPiMPClient - InputReceived")
 
-            Const ERRORMESSAGE As String = "ERROR"
             Dim results As String = String.Empty
             Dim response As Byte() = Nothing
-            Dim bytes(1024) As Byte
             Dim data As String = String.Empty
-            Dim i As Integer = 0
             Dim stream As Sockets.NetworkStream = client.GetStream
-            i = stream.Read(bytes, 0, bytes.Length)
-            data = Encoding.UTF8.GetString(bytes, 0, i)
+            Dim myCompleteMessage As StringBuilder = New StringBuilder()
+
+            If stream.CanRead Then
+                Dim myReadBuffer(1024) As Byte
+                Dim numberOfBytesRead As Integer = 0
+                Do
+                    numberOfBytesRead = stream.Read(myReadBuffer, 0, myReadBuffer.Length)
+                    myCompleteMessage.AppendFormat("{0}", Encoding.UTF8.GetString(myReadBuffer, 0, numberOfBytesRead))
+                Loop While stream.DataAvailable
+            End If
+
+            data = myCompleteMessage.ToString
+
+            iPiMPUtils.TextLog(data)
 
             Dim request As MPClientRequest
             If data.Length > 0 Then
                 Log.Debug("plugin: iPiMPClient - Raw: {0}", data)
-                request = DirectCast(JsonConvert.Import(GetType(MPClientRequest), data), MPClientRequest)
+                Try
+                    request = DirectCast(JsonConvert.Import(GetType(MPClientRequest), data), MPClientRequest)
+                Catch ex As Exception
+                    response = System.Text.Encoding.UTF8.GetBytes(iPiMPUtils.SendError(1, "Bad data"))
+                    stream.Write(response, 0, response.Length)
+                    Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(response))
+                    Exit Sub
+                End Try
             Else
-                response = System.Text.Encoding.UTF8.GetBytes(ERRORMESSAGE)
+                response = System.Text.Encoding.UTF8.GetBytes(iPiMPUtils.SendError(2, "No data"))
                 stream.Write(response, 0, response.Length)
                 Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(response))
                 Exit Sub
@@ -285,25 +307,44 @@ Namespace MPClientController
                         video.PlayVideo()
                         results = MyVideos.IsVideoIDPlaying(CInt(request.Filter))
                     End If
+                Case "getallmovies"
+                    results = MyVideos.GetAllMovies
+
 
                     'Moving Pictures
                 Case "getmovingpicturefilter"
-                    results = MovingPictures.GetVideoFilters(request.Filter, request.Value)
-                Case "getmovingpictures"
-                    If (request.Filter <> String.Empty) And (request.Value <> String.Empty) Then
-                        results = MovingPictures.GetMovies(request.Filter, request.Value, request.Start, request.PageSize)
+                    If isMovingPicturesPresent Then
+                        results = MovingPictures.GetVideoFilters(request.Filter, request.Value)
                     Else
-                        results = MovingPictures.GetMovies
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
+                    End If
+                Case "getmovingpictures"
+                    If isMovingPicturesPresent Then
+                        If (request.Filter <> String.Empty) And (request.Value <> String.Empty) Then
+                            results = MovingPictures.GetMovies(request.Filter, request.Value, request.Start, request.PageSize)
+                        Else
+                            results = MovingPictures.GetMovies
+                        End If
+                    Else
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
                     End If
                 Case "getmovingpicture"
-                    If Not request.Filter = String.Empty Then results = MovingPictures.GetVideoInfo(request.Filter)
+                    If isMovingPicturesPresent Then
+                        If Not request.Filter = String.Empty Then results = MovingPictures.GetVideoInfo(request.Filter)
+                    Else
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
+                    End If
                 Case "playmovingpicture"
-                    If Not request.Filter = String.Empty Then
-                        MovingPictures.PlayMovie(CInt(request.Filter))
-                        results = MovingPictures.IsVideoIDPlaying(CInt(request.Filter))
+                    If isMovingPicturesPresent Then
+                        If Not request.Filter = String.Empty Then
+                            MovingPictures.PlayMovie(CInt(request.Filter))
+                            results = MovingPictures.IsVideoIDPlaying(CInt(request.Filter))
+                        End If
+                    Else
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
                     End If
 
-                'My Music
+                    'My Music
                 Case "getmusicfilter"
                     results = MyMusic.GetMusicFilters(request.Filter, request.Value)
                 Case "getalbums"
@@ -358,14 +399,44 @@ Namespace MPClientController
                         results = SendButton(request.Filter)
                     End If
 
+                Case "ping"
+                    results = iPiMPUtils.SendString("data", "pong")
+
+                Case "version"
+                    Dim ver As String = String.Format("{0}.{1}.{2}.{3}",
+                                                       My.Application.Info.Version.Build.ToString,
+                                                       My.Application.Info.Version.Major.ToString,
+                                                       My.Application.Info.Version.Minor.ToString,
+                                                       My.Application.Info.Version.Revision.ToString)
+                    results = iPiMPUtils.SendString("version", ver)
+
+                Case "plugins"
+                    results = iPiMPUtils.LoadedPlugins()
+
                 Case "nowplaying"
-                    results = NowPlaying.GetNowPlaying()
+                    results = NowPlaying.GetNowPlaying(isMovingPicturesPresent)
+
+                Case "volume"
+                    results = iPiMPUtils.SetVolume(request.Value)
+
+                Case "seekpercentage"
+                    results = iPiMPUtils.SeekPercentage(request.Value)
+
+                Case "getimage"
+                    results = iPiMPUtils.GetImage(request.Value)
+
+                Case Else
+                    results = iPiMPUtils.SendError(4, "Unknown action")
 
             End Select
 
-            If results = String.Empty Then results = ERRORMESSAGE
+            If results = String.Empty Then results = iPiMPUtils.SendError(3, "No result")
             response = System.Text.Encoding.UTF8.GetBytes(results)
+#If DEBUG Then
+            iPiMPUtils.TextLog(results)
+#End If
             stream.Write(response, 0, response.Length)
+            stream.Close()
 
             Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(response))
 

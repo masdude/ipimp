@@ -17,8 +17,6 @@
 
 
 Imports Jayrock.Json
-Imports Jayrock.Json.Conversion
-
 Imports MediaPortal.Music.Database
 Imports MediaPortal.Player
 Imports MediaPortal.Playlists
@@ -151,6 +149,8 @@ Namespace MPClientController
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
             jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
             jw.WriteMember(filter.ToLower)
             jw.WriteStringArray(filters.ToArray)
             jw.WriteEndObject()
@@ -217,6 +217,10 @@ Namespace MPClientController
 
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("albums")
             jw.WriteStartArray()
             If pagesize = 0 Then
                 For Each MPClientAlbumArtistInfo As MPClientAlbumArtistInfo In MPClientAlbumArtistInfos
@@ -238,6 +242,7 @@ Namespace MPClientController
                 Next
             End If
             jw.WriteEndArray()
+            jw.WriteEndObject()
 
             Return jw.ToString
 
@@ -318,6 +323,10 @@ Namespace MPClientController
 
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("tracks")
             jw.WriteStartArray()
             If pagesize = 0 Then
                 For Each MPClientTrackInfo As MPClientTrackInfo In MPClientTrackInfos
@@ -351,6 +360,7 @@ Namespace MPClientController
                 Next
             End If
             jw.WriteEndArray()
+            jw.WriteEndObject()
 
             Return jw.ToString
 
@@ -364,6 +374,10 @@ Namespace MPClientController
 
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("album")
             jw.WriteStartArray()
             For Each song As Song In songs
                 If (song.Album.ToLower = album.ToLower) And (song.Artist.ToLower = artist.ToLower) Then
@@ -378,6 +392,7 @@ Namespace MPClientController
                 End If
             Next
             jw.WriteEndArray()
+            jw.WriteEndObject()
 
             Return jw.ToString
 
@@ -418,10 +433,12 @@ Namespace MPClientController
             jw.PrettyPrint = True
             jw.WriteStartObject()
             jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("image")
             If Not image Is Nothing Then
                 jw.WriteString(Convert.ToBase64String(Stream.ToArray()))
             Else
-                jw.WriteString("noimage")
+                jw.WriteString("empty")
             End If
             jw.WriteEndObject()
 
@@ -456,6 +473,8 @@ Namespace MPClientController
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
             jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
             jw.WriteMember("Playlists")
             jw.WriteStringArray(playlists.ToArray)
             jw.WriteEndObject()
@@ -498,18 +517,11 @@ Namespace MPClientController
                 RefreshPlaylistWindow()
             End If
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
             If g_Player.Playing And g_Player.IsMusic Then
-                jw.WriteBoolean(True)
+                Return iPiMPUtils.SendBool(True)
             Else
-                jw.WriteBoolean(False)
+                Return iPiMPUtils.SendBool(False)
             End If
-            jw.WriteEndObject()
-
-            Return jw.ToString
 
         End Function
 
@@ -574,18 +586,11 @@ Namespace MPClientController
             StartPlayback()
             RefreshPlaylistWindow()
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
             If g_Player.Playing And g_Player.IsMusic Then
-                jw.WriteBoolean(True)
+                Return iPiMPUtils.SendBool(True)
             Else
-                jw.WriteBoolean(False)
+                Return iPiMPUtils.SendBool(False)
             End If
-            jw.WriteEndObject()
-
-            Return jw.ToString
 
         End Function
 
@@ -622,18 +627,11 @@ Namespace MPClientController
                 RefreshPlaylistWindow()
             End If
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
             If g_Player.Playing And g_Player.IsMusic Then
-                jw.WriteBoolean(True)
+                Return iPiMPUtils.SendBool(True)
             Else
-                jw.WriteBoolean(False)
+                Return iPiMPUtils.SendBool(False)
             End If
-            jw.WriteEndObject()
-
-            Return jw.ToString
 
         End Function
 
@@ -776,14 +774,7 @@ Namespace MPClientController
                 End Try
             End If
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(result)
-            jw.WriteEndObject()
-
-            Return jw.ToString
+            Return iPiMPUtils.SendBool(result)
 
         End Function
 

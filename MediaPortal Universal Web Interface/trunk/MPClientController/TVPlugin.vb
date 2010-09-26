@@ -16,10 +16,6 @@
 ' 
 
 
-Imports Jayrock.Json
-Imports Jayrock.Json.Conversion
-
-Imports MediaPortal.Player
 Imports TvDatabase
 Imports TvPlugin.TVHome
 Imports MediaPortal.GUI.Library
@@ -39,14 +35,7 @@ Namespace MPClientController
 
             End Try
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(success)
-            jw.WriteEndObject()
-
-            Return jw.ToString
+            Return iPiMPUtils.SendBool(success)
 
         End Function
 

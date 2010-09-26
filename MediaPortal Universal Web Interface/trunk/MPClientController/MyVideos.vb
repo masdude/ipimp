@@ -17,10 +17,10 @@
 
 
 Imports Jayrock.Json
-Imports Jayrock.Json.Conversion
-
 Imports MediaPortal.Video.Database
 Imports MediaPortal.Player
+Imports MediaPortal.Util
+Imports System.IO
 
 Namespace MPClientController
 
@@ -71,6 +71,10 @@ Namespace MPClientController
 
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("movies")
             jw.WriteStartArray()
             If pagesize = 0 Then
                 For Each movieInfo As MPClientSmallMovieInfo In movies
@@ -92,10 +96,93 @@ Namespace MPClientController
                 Next
             End If
             jw.WriteEndArray()
+            jw.WriteEndObject()
 
             Return jw.ToString
 
         End Function
+
+        ''' <summary>
+        ''' Gets a list of videos from the native MediaPortal MyVideos database.
+        ''' </summary>
+        ''' <returns>A JSON list of all movies with extended information.</returns>
+        ''' <remarks></remarks>
+        Public Shared Function GetAllMovies() As String
+
+            Dim allMovies As New ArrayList
+            VideoDatabase.GetMovies(allMovies)
+
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("movies")
+            jw.WriteStartArray()
+
+            For Each movie As IMDBMovie In allMovies
+
+                Dim fileList As New ArrayList
+                VideoDatabase.GetFiles(movie.ID, fileList)
+
+                Dim files As String = Join(fileList.ToArray, ";")
+                Dim crc As New CRCTool
+                crc.Init(CRCTool.CRCCode.CRC32)
+
+                jw.WriteStartObject()
+                jw.WriteMember("Thumb")
+
+                If (File.Exists(String.Format("{0}\{1}L{2}", Thumbs.MovieTitle, MediaPortal.Util.Utils.MakeFileName(movie.Title), MediaPortal.Util.Utils.GetThumbExtension()))) Then
+                    jw.WriteString(String.Format("videotitle:{0}", MediaPortal.Util.Utils.MakeFileName(movie.Title)))
+                ElseIf (File.Exists(String.Format("{0}\{1}L{2}", Thumbs.Videos, crc.calc(files).ToString, MediaPortal.Util.Utils.GetThumbExtension()))) Then
+                    jw.WriteString(String.Format("videothumb:{0}", crc.calc(files).ToString))
+                Else
+                    jw.WriteString("NONE")
+                End If
+
+                jw.WriteMember("Fanart")
+                jw.WriteString("NONE")
+                jw.WriteMember("File")
+                jw.WriteString(files)
+                jw.WriteMember("Title")
+                jw.WriteString(movie.Title)
+                jw.WriteMember("Id")
+                jw.WriteString(movie.ID)
+                jw.WriteMember("Year")
+                jw.WriteString(movie.Year)
+                jw.WriteMember("Tagline")
+                jw.WriteString(movie.TagLine)
+                jw.WriteMember("Plot")
+                jw.WriteString(movie.Plot)
+                jw.WriteMember("Runtime")
+                jw.WriteString(movie.RunTime)
+                jw.WriteMember("Rating")
+                jw.WriteString(movie.Rating)
+                jw.WriteMember("ThumbURL")
+                jw.WriteString(movie.ThumbURL)
+                jw.WriteMember("IMDBNumber")
+                jw.WriteString(movie.IMDBNumber)
+                jw.WriteMember("Path")
+                jw.WriteString(movie.Path)
+                jw.WriteMember("Director")
+                jw.WriteString(movie.Director)
+                jw.WriteMember("Genre")
+                jw.WriteString(movie.Genre)
+                jw.WriteMember("Mpaa")
+                jw.WriteString(movie.MPARating)
+                jw.WriteMember("Votes")
+                jw.WriteString(movie.Votes)
+                jw.WriteMember("Watched")
+                jw.WriteString(movie.Watched)
+                jw.WriteEndObject()
+            Next
+            jw.WriteEndArray()
+
+            jw.WriteEndObject()
+            Return jw.ToString
+
+        End Function
+
 
         ''' <summary>
         ''' Gets the values for a given filter.
@@ -139,6 +226,8 @@ Namespace MPClientController
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
             jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
             jw.WriteMember(filter.ToLower)
             jw.WriteStringArray(filters.ToArray)
             jw.WriteEndObject()
@@ -151,7 +240,7 @@ Namespace MPClientController
         ''' Gets video information from the native MediaPortal MyVideos database
         ''' </summary>
         ''' <param name="ID">The ID of the video required.</param>
-        ''' <returns>Video title, tagline, plot, runtime, rating, thumbURL and IMDB number.</returns>
+        ''' <returns>Video title, tagline, plot, runtime, rating, thumbURL, IMDB number, file and path.</returns>
         ''' <remarks></remarks>
         Public Shared Function GetVideoInfo(ByVal ID As Integer) As String
 
@@ -161,6 +250,8 @@ Namespace MPClientController
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
             jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
             jw.WriteMember("Title")
             jw.WriteString(video.Title)
             jw.WriteMember("Tagline")
@@ -175,6 +266,10 @@ Namespace MPClientController
             jw.WriteString(video.ThumbURL)
             jw.WriteMember("IMDBNumber")
             jw.WriteString(video.IMDBNumber)
+            jw.WriteMember("File")
+            jw.WriteString(video.File)
+            jw.WriteMember("Path")
+            jw.WriteString(video.Path)
             jw.WriteEndObject()
             Return jw.ToString
 
@@ -194,17 +289,29 @@ Namespace MPClientController
             Catch ex As Exception
             End Try
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
             If ID = playingID Then
-                jw.WriteBoolean(True)
+                Return iPiMPUtils.SendBool(True)
             Else
-                jw.WriteBoolean(False)
+                Return iPiMPUtils.SendBool(False)
             End If
-            jw.WriteEndObject()
-            Return jw.ToString
+
+        End Function
+
+        Public Shared Function GetVideoTitle(ByVal title As String, ByVal size As String) As String
+
+            Dim filename As String = Nothing
+            filename = String.Format("{0}\{1}{2}{3}", Thumbs.MovieTitle, title, IIf(size.ToLower = "large", "L", ""), Utils.GetThumbExtension())
+
+            Return iPiMPUtils.GetImage(filename)
+
+        End Function
+
+        Public Shared Function GetVideoThumb(ByVal title As String, ByVal size As String) As String
+
+            Dim filename As String = Nothing
+            filename = String.Format("{0}\{1}{2}{3}", Thumbs.Videos, title, IIf(size.ToLower = "large", "L", ""), Utils.GetThumbExtension())
+
+            Return iPiMPUtils.GetImage(filename)
 
         End Function
 
