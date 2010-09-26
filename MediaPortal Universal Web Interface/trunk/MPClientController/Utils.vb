@@ -112,7 +112,6 @@ Namespace MPClientController
             jw.PrettyPrint = True
             jw.WriteStartObject()
             jw.WriteMember("result")
-            jw.WriteBoolean(True)
 
             If (File.Exists(filename)) Then
 
@@ -135,6 +134,7 @@ Namespace MPClientController
                 End Select
                 image.Save(stream, format)
 
+                jw.WriteBoolean(True)
                 jw.WriteMember("filetype")
                 jw.WriteString(format.ToString)
                 jw.WriteMember("filename")
@@ -142,6 +142,7 @@ Namespace MPClientController
                 jw.WriteMember("data")
                 jw.WriteString(Convert.ToBase64String(stream.ToArray()))
             Else
+                jw.WriteBoolean(False)
                 jw.WriteMember("filetype")
                 jw.WriteString("nofile")
                 jw.WriteMember("filename")
@@ -155,7 +156,7 @@ Namespace MPClientController
 
         End Function
 
-        Private Function GetFile(ByVal url As String, ByVal size As String) As String
+        Public Shared Function GetFile(ByVal url As String, ByVal size As String) As String
 
             Dim req As String() = Split(url, ":")
 
@@ -171,6 +172,8 @@ Namespace MPClientController
                         Return MyVideos.GetVideoThumb(req(1), size)
                     Case "videotitle"
                         Return MyVideos.GetVideoTitle(req(1), size)
+                    Case Else
+                        Return SendError(5, "Unknown file url.")
                 End Select
             End If
 
