@@ -178,7 +178,7 @@ Namespace MPClientController
                     broadcastAddress = IPAddress.Parse(address)
                     Dim endpoint As New IPEndPoint(broadcastAddress, DEFAULT_PORT)
                     socket.SendTo(sendbuf, endpoint)
-                    Log.Info("plugin: MPClientController - iPiMP ping on {0}", address)
+                    Log.Debug("plugin: MPClientController - iPiMP ping on {0}", address)
                 Next
                 System.Threading.Thread.Sleep(1000 * 60) 'sleep for one minute
             Loop
@@ -655,14 +655,7 @@ Namespace MPClientController
             System.Threading.Thread.Sleep(100)
             Log.Debug("plugin: iPiMPClient - Pressed button {0}", btn.ToString)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteEndObject()
-
-            Return jw.ToString
+            Return iPiMPUtils.SendBool(True)
 
         End Function
 
@@ -821,16 +814,11 @@ Namespace MPClientController
             System.Threading.Thread.Sleep(100)
             Log.Debug("plugin: iPiMPClient - Sent keystring - modifier {0}, keychar {1}", modifier, keystring)
             Log.Debug("plugin: iPiMPClient - {0}", action.ToString)
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteEndObject()
 
-            Return jw.ToString
+            Return iPiMPUtils.SendBool(True)
 
         End Function
+
 #End Region
 
         Public Class MPClientRequest
