@@ -157,6 +157,7 @@ Namespace uWiMP.TVServer
             Return jw.ToString
 
         End Function
+
         Private Shared Function ConvertRequestToJson(ByVal request As uWiMP.TVServer.MPClient.Request) As String
 
             Dim jw As New JsonTextWriter
