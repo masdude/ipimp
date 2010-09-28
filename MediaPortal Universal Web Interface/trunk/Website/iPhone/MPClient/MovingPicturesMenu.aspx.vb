@@ -61,7 +61,7 @@ Partial Public Class MovingPicturesMenu
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMyVideosMenu(wa, friendly))
+        xw.WriteCData(DisplayMyVideosMenu(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -74,11 +74,11 @@ Partial Public Class MovingPicturesMenu
 
     End Sub
 
-    Private Function DisplayMyVideosMenu(ByVal wa As String, ByVal friendly As String) As String
+    Private Function DisplayMyVideosMenu(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"">"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "moving_pictures"))
         markup += "<ul class=""iArrow"">"
 

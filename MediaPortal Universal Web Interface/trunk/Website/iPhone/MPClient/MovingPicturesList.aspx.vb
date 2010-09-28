@@ -104,7 +104,13 @@ Partial Public Class MovingPicturesList
         mpRequest.Value = value
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-        Dim movies As uWiMP.TVServer.MPClient.SmallMovieInfo() = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.SmallMovieInfo()), response), uWiMP.TVServer.MPClient.SmallMovieInfo())
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+
+        Dim ja As JsonArray = CType(jo("movingpictures"), JsonArray)
+        Dim movies As uWiMP.TVServer.MPClient.SmallMovieInfo() = DirectCast(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.SmallMovieInfo()), ja.ToString), uWiMP.TVServer.MPClient.SmallMovieInfo())
 
         If start = 0 Then
             markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)

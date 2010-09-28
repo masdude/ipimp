@@ -84,8 +84,11 @@ Partial Public Class MovingPicturesListGenres
         mpRequest.Filter = "genre"
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+
         Dim ja As JsonArray = CType(jo("genre"), JsonArray)
         Dim filters As String() = CType(ja.ToArray(GetType(String)), String())
         Array.Sort(filters)
