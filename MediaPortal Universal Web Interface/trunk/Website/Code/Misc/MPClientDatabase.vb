@@ -109,7 +109,7 @@ Namespace uWiMP.TVServer
 
             Dim MPClient As New uWiMP.TVServer.MPClient.Client
 
-            Dim connStr As String = ConfigurationManager.ConnectionStrings("uWiMPConnString").ConnectionString
+            Dim connStr As String = "Data Source=|DataDirectory|uWiMP.db;" 'ConfigurationManager.ConnectionStrings("uWiMPConnString").ConnectionString
             Dim conn As SQLiteConnection = New SQLiteConnection(connStr)
             Dim reader As SQLiteDataReader
 
