@@ -16,6 +16,7 @@
 ' 
 
 Imports System.Threading
+Imports MediaPortal.Video.Database
 Imports MediaPortal.GUI.Video
 
 Namespace MPClientController
@@ -32,6 +33,17 @@ Namespace MPClientController
                 _movieid = value
             End Set
         End Property
+
+        Public Sub RemoveStopTime()
+
+            Dim fileList As New ArrayList
+            VideoDatabase.GetFiles(_movieid, fileList)
+
+            For Each file As String In fileList
+                Dim idFile As Integer = VideoDatabase.GetFileId(file)
+                VideoDatabase.DeleteMovieStopTime(idFile)
+            Next
+        End Sub
 
         Public Sub PlayVideo()
             SyncLock Me
