@@ -486,7 +486,7 @@ Namespace MPClientController
             jw.WriteStartObject()
             jw.WriteMember("result")
             jw.WriteBoolean(True)
-            jw.WriteMember("Playlists")
+            jw.WriteMember("playlists")
             jw.WriteStringArray(playlists.ToArray)
             jw.WriteEndObject()
 
