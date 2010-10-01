@@ -20,8 +20,8 @@ Imports System.Net.NetworkInformation
 Imports System.Text
 Imports System.Threading
 Imports System.Windows.Forms
+Imports System.IO
 
-Imports Jayrock.Json
 Imports Jayrock.Json.Conversion
 
 Imports MediaPortal.Configuration
@@ -34,16 +34,19 @@ Namespace MPClientController
         Implements ISetupForm
         Implements IPlugin
 
-        Private listener As Sockets.TcpListener
-        Private client As Sockets.TcpClient
-        Private thread As Thread
+        Private tcpListener As Sockets.TcpListener
+        Private tcpClient As Sockets.TcpClient
+        Private tcpThread As Thread
+        Private httpListener As HttpListener
+        Private httpContext As HttpListenerContext
+        Private httpThread As Thread
         Private broadcastThread As Thread
         Private remoteHandler As InputHandler
         Private keyboardHandler As MediaPortal.Hooks.KeyboardHook
-        Private broadcastAddresses As List(Of String) = Nothing
         Private isMovingPicturesPresent As Boolean = Nothing
 
         Const DEFAULT_PORT As Integer = 55667
+        Private port As Integer = DEFAULT_PORT
 
 #Region "ISetupForm members"
 
@@ -107,14 +110,21 @@ Namespace MPClientController
 #Region "Thread handling"
 
         Private Sub DoStart()
+
             Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
-            Dim port As Integer = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
-            listener = New System.Net.Sockets.TcpListener(System.Net.IPAddress.Any, port)
-            listener.Start()
-            thread = New System.Threading.Thread(AddressOf DoListen)
-            thread.IsBackground = True
-            thread.Start()
-            Log.Info("plugin: MPClientController - started listening on port {0}", port.ToString)
+            port = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
+
+            If isMovingPicturesPresent = Nothing Then isMovingPicturesPresent = iPiMPUtils.IsPluginLoaded("MovingPictures.dll")
+
+            tcpThread = New System.Threading.Thread(AddressOf DoTCPListen)
+            tcpThread.IsBackground = True
+            tcpThread.Start()
+            Log.Info("plugin: MPClientController - started TCP listening on port {0}", port.ToString)
+
+            httpThread = New System.Threading.Thread(AddressOf DoHTTPListen)
+            httpThread.IsBackground = True
+            httpThread.Start()
+            Log.Info("plugin: MPClientController - started HTTP listening on port {0}", (port + 1).ToString)
 
             broadcastThread = New System.Threading.Thread(AddressOf DoBroadcast)
             broadcastThread.IsBackground = True
@@ -125,9 +135,14 @@ Namespace MPClientController
 
         Private Sub DoStop()
 
-            listener.Stop()
-            thread.Abort()
-            Log.Info("plugin: MPClientController - stopped listening")
+            tcpListener.Stop()
+            tcpThread.Abort()
+            Log.Info("plugin: MPClientController - stopped TCP listening")
+
+            httpContext = Nothing
+            httpListener.Stop()
+            httpThread.Abort()
+            Log.Info("plugin: MPClientController - stopped HTTP listening")
 
             broadcastThread.Abort()
             Log.Info("plugin: MPClientController - stopped broadcasting")
@@ -136,13 +151,29 @@ Namespace MPClientController
 
 #End Region
 
-#Region "Listener"
+#Region "Listeners"
 
-        Private Sub DoListen()
+        Private Sub DoTCPListen()
+
+            tcpListener = New System.Net.Sockets.TcpListener(System.Net.IPAddress.Any, port)
+            tcpListener.Start()
 
             Do
-                client = listener.AcceptTcpClient
-                InputReceived()
+                tcpClient = tcpListener.AcceptTcpClient
+                TCPInputReceived()
+            Loop
+
+        End Sub
+
+        Private Sub DoHTTPListen()
+
+            httpListener = New HttpListener
+            httpListener.Prefixes.Add(String.Format("http://*:{0}/mpcc/", (port + 1).ToString))
+            httpListener.Start()
+
+            Do
+                httpContext = httpListener.GetContext
+                HTTPInputReceived()
             Loop
 
         End Sub
@@ -155,6 +186,7 @@ Namespace MPClientController
 
             Dim hostname As String = Dns.GetHostName
             Dim MACAddress As String = String.Empty
+            Dim broadcastAddresses As List(Of String) = Nothing
             Try
                 For Each nic As NetworkInformation.NetworkInterface In NetworkInformation.NetworkInterface.GetAllNetworkInterfaces
                     MACAddress = nic.GetPhysicalAddress.ToString
@@ -163,10 +195,7 @@ Namespace MPClientController
                 Next
             Catch ex As Exception
             End Try
-            Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
-            Dim port As Integer = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
-
-
+            
             Dim socket As New Sockets.Socket(Sockets.AddressFamily.InterNetwork, Sockets.SocketType.Dgram, Sockets.ProtocolType.Udp)
             socket.EnableBroadcast = True
             Dim broadcastAddress As IPAddress
@@ -235,17 +264,15 @@ Namespace MPClientController
 
 #End Region
 
-        Private Sub InputReceived()
+        Private Sub TCPInputReceived()
 
-            Log.Debug("plugin: iPiMPClient - InputReceived")
+            Log.Debug("plugin: iPiMPClient - TCPInputReceived")
 
             Dim results As String = String.Empty
             Dim response As Byte() = Nothing
             Dim data As String = String.Empty
-            Dim stream As Sockets.NetworkStream = client.GetStream
+            Dim stream As Sockets.NetworkStream = tcpClient.GetStream
             Dim myCompleteMessage As StringBuilder = New StringBuilder()
-
-            If isMovingPicturesPresent = Nothing Then isMovingPicturesPresent = iPiMPUtils.IsPluginLoaded("MovingPictures.dll")
 
             If stream.CanRead Then
                 Dim myReadBuffer(1024) As Byte
@@ -255,7 +282,6 @@ Namespace MPClientController
                     myCompleteMessage.AppendFormat("{0}", Encoding.UTF8.GetString(myReadBuffer, 0, numberOfBytesRead))
                 Loop While stream.DataAvailable
             End If
-
             data = myCompleteMessage.ToString
 
 #If DEBUG Then
@@ -279,6 +305,72 @@ Namespace MPClientController
                 Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(response))
                 Exit Sub
             End If
+
+            Select Case request.Action.ToLower
+                Case "unsupported"
+                    response = System.Text.Encoding.UTF8.GetBytes(iPiMPUtils.SendError(6, "HTTP only"))
+                    stream.Write(response, 0, response.Length)
+                    Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(response))
+                Case Else
+                    results = GetResults(request)
+            End Select
+
+            If results = String.Empty Then results = iPiMPUtils.SendError(3, "No result")
+            response = System.Text.Encoding.UTF8.GetBytes(results)
+
+            stream.Write(response, 0, response.Length)
+            stream.Close()
+
+#If DEBUG Then
+            iPiMPUtils.TextLog(results)
+#End If
+
+            Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(response))
+
+        End Sub
+
+        Private Sub HTTPInputReceived()
+
+            Log.Debug("plugin: iPiMPClient - HTTPInputReceived")
+
+            Dim httpRequest As HttpListenerRequest = httpContext.Request
+            Dim httpResponse As HttpListenerResponse = httpContext.Response
+            Dim inputText As String = String.Empty
+            Dim results As String = String.Empty
+
+            Dim request As MPClientRequest = Nothing
+            If httpRequest.QueryString.Count > 0 Then
+                inputText = System.Web.HttpUtility.UrlDecode(httpRequest.QueryString("json"))
+                Log.Debug("plugin: iPiMPClient - Raw: {0}", inputText)
+                Try
+                    request = DirectCast(JsonConvert.Import(GetType(MPClientRequest), inputText), MPClientRequest)
+                Catch ex As Exception
+                    results = iPiMPUtils.SendError(1, "Bad data")
+                End Try
+            Else
+                results = iPiMPUtils.SendError(2, "No data")
+            End If
+
+            If results = String.Empty Then results = GetResults(request)
+
+            Dim buffer As Byte() = System.Text.Encoding.UTF8.GetBytes(results)
+            httpResponse.ContentLength64 = buffer.Length
+
+            Dim outputStream As Stream = httpResponse.OutputStream
+            outputStream.Write(buffer, 0, buffer.Length)
+            outputStream.Close()
+
+#If DEBUG Then
+            iPiMPUtils.TextLog(results)
+#End If
+
+            Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(buffer))
+
+        End Sub
+
+        Private Function GetResults(ByVal request As MPClientRequest) As String
+
+            Dim results As String = String.Empty
 
             Log.Debug("plugin: iPiMPClient - Received: Action {0} Filter {1} Value {2} Start {3} PageSize {4} Shuffle {5} Enqueue {6} Tracks {7}", _
                                         request.Action, _
@@ -433,17 +525,10 @@ Namespace MPClientController
 
             End Select
 
-            If results = String.Empty Then results = iPiMPUtils.SendError(3, "No result")
-            response = System.Text.Encoding.UTF8.GetBytes(results)
-#If DEBUG Then
-            iPiMPUtils.TextLog(results)
-#End If
-            stream.Write(response, 0, response.Length)
-            stream.Close()
+            Return results
 
-            Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(response))
+        End Function
 
-        End Sub
 
 #Region "Remote Control"
 
