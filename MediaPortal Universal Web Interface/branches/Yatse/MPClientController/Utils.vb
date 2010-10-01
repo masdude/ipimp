@@ -163,6 +163,8 @@ Namespace MPClientController
                         Return MyVideos.GetVideoThumb(req(1), size)
                     Case "videotitle"
                         Return MyVideos.GetVideoTitle(req(1), size)
+                    Case "musicthumb"
+                        Return MyMusic.GetMusicThumb(req(1), req(2), size)
                     Case Else
                         Return SendError(5, "Unknown file url.")
                 End Select
