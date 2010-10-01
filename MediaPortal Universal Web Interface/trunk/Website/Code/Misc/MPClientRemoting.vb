@@ -17,9 +17,9 @@
 
 
 Imports System.Net
+Imports System.IO
 
 Imports Jayrock.Json
-Imports Jayrock.Json.Conversion
 
 Namespace uWiMP.TVServer
 
@@ -142,6 +142,54 @@ Namespace uWiMP.TVServer
             End Try
 
             Return ReturnBoolean(True)
+
+        End Function
+
+        Public Shared Function SendHTTPPostSyncMessage(ByVal friendly As String, ByVal mpRequest As uWiMP.TVServer.MPClient.Request) As String
+
+            Dim response As String = String.Empty
+            Dim mpclient As TVServer.MPClient.Client = uWiMP.TVServer.MPClientDatabase.GetClient(friendly)
+
+            If mpclient.Hostname = String.Empty Then
+                host = friendly
+            Else
+                host = mpclient.Hostname
+            End If
+
+            If mpclient.Port = String.Empty Then
+                port = DEFAULT_PORT
+            Else
+                port = CInt(mpclient.Port)
+            End If
+
+            Dim data As String = ConvertRequestToJson(mpRequest)
+
+            Try
+                Dim webRequest As WebRequest = webRequest.Create(String.Format("http://{0}:{1}/mpcc/", host, (port + 1).ToString))
+                webRequest.Method = "POST"
+                Dim byteArray As Byte() = Encoding.UTF8.GetBytes(data)
+                webRequest.ContentType = "application/x-www-form-urlencoded"
+                webRequest.ContentLength = byteArray.Length
+
+                Dim datastream As Stream = webRequest.GetRequestStream
+                datastream.Write(byteArray, 0, byteArray.Length)
+                datastream.Close()
+
+                Dim webResponse As WebResponse = webRequest.GetResponse()
+                datastream = webResponse.GetResponseStream
+
+                Dim reader As New StreamReader(datastream)
+                response = reader.ReadToEnd
+
+                reader.Close()
+                datastream.Close()
+                webResponse.Close()
+
+            Catch ex As Exception
+                Return "fail"
+            End Try
+
+            Return response
 
         End Function
 
