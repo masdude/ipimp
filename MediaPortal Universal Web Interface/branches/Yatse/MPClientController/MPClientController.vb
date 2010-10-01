@@ -329,45 +329,6 @@ Namespace MPClientController
 
         End Sub
 
-        Private Sub HTTPInputReceived()
-
-            Log.Debug("plugin: iPiMPClient - HTTPInputReceived")
-
-            Dim httpRequest As HttpListenerRequest = httpContext.Request
-            Dim httpResponse As HttpListenerResponse = httpContext.Response
-            Dim inputText As String = String.Empty
-            Dim results As String = String.Empty
-
-            Dim request As MPClientRequest = Nothing
-            If httpRequest.QueryString.Count > 0 Then
-                inputText = System.Web.HttpUtility.UrlDecode(httpRequest.QueryString("json"))
-                Log.Debug("plugin: iPiMPClient - Raw: {0}", inputText)
-                Try
-                    request = DirectCast(JsonConvert.Import(GetType(MPClientRequest), inputText), MPClientRequest)
-                Catch ex As Exception
-                    results = iPiMPUtils.SendError(1, "Bad data")
-                End Try
-            Else
-                results = iPiMPUtils.SendError(2, "No data")
-            End If
-
-            If results = String.Empty Then results = GetResults(request)
-
-            Dim buffer As Byte() = System.Text.Encoding.UTF8.GetBytes(results)
-            httpResponse.ContentLength64 = buffer.Length
-
-            Dim outputStream As Stream = httpResponse.OutputStream
-            outputStream.Write(buffer, 0, buffer.Length)
-            outputStream.Close()
-
-#If DEBUG Then
-            iPiMPUtils.TextLog(results)
-#End If
-
-            Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(buffer))
-
-        End Sub
-
         Private Sub HTTPPostInputReceived()
 
             Log.Debug("plugin: iPiMPClient - HTTPPostInputReceived")

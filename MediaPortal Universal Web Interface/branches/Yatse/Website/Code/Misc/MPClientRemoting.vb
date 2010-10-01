@@ -145,65 +145,6 @@ Namespace uWiMP.TVServer
 
         End Function
 
-        Public Shared Function SendHTTPSyncMessage(ByVal friendly As String, ByVal mpRequest As uWiMP.TVServer.MPClient.Request) As String
-
-            Dim response As String = String.Empty
-            Dim mpclient As TVServer.MPClient.Client = uWiMP.TVServer.MPClientDatabase.GetClient(friendly)
-
-            If mpclient.Hostname = String.Empty Then
-                host = friendly
-            Else
-                host = mpclient.Hostname
-            End If
-
-            If mpclient.Port = String.Empty Then
-                port = DEFAULT_PORT
-            Else
-                port = CInt(mpclient.Port)
-            End If
-
-            Try
-
-                Dim data As String = ConvertRequestToJson(mpRequest)
-                
-                Dim webResponse As WebResponse = Nothing
-                Dim remoteStream As Stream = Nothing
-                Dim sr As StreamReader = Nothing
-                Dim request As WebRequest
-                Try
-                    request = WebRequest.Create(String.Format("http://{0}:{1}/mpcc/?json={2}", host, (port + 1).ToString, System.Web.HttpUtility.UrlEncode(data)))
-
-                    If Not request Is Nothing Then
-                        webResponse = request.GetResponse()
-                        If Not webResponse Is Nothing Then
-                            remoteStream = webResponse.GetResponseStream()
-                            sr = New StreamReader(remoteStream)
-                            response = sr.ReadToEnd
-                            sr.Close()
-                            remoteStream.Close()
-                            webResponse.Close()
-                        End If
-                    End If
-                Catch ex As Exception
-
-                Finally
-                    If Not webResponse Is Nothing Then
-                        webResponse.Close()
-                    End If
-                    If Not remoteStream Is Nothing Then
-                        remoteStream.Close()
-                    End If
-                End Try
-
-            Catch ex As Exception
-                Return "fail"
-
-            End Try
-
-            Return response
-
-        End Function
-
         Public Shared Function SendHTTPPostSyncMessage(ByVal friendly As String, ByVal mpRequest As uWiMP.TVServer.MPClient.Request) As String
 
             Dim response As String = String.Empty
@@ -220,11 +161,8 @@ Namespace uWiMP.TVServer
             Else
                 port = CInt(mpclient.Port)
             End If
-            
-            Dim data As String = ConvertRequestToJson(mpRequest)
 
-            Dim remoteStream As Stream = Nothing
-            Dim sr As StreamReader = Nothing
+            Dim data As String = ConvertRequestToJson(mpRequest)
 
             Try
                 Dim webRequest As WebRequest = webRequest.Create(String.Format("http://{0}:{1}/mpcc/", host, (port + 1).ToString))
