@@ -173,7 +173,7 @@ Namespace MPClientController
 
             Do
                 httpContext = httpListener.GetContext
-                HTTPInputReceived()
+                HTTPPostInputReceived()
             Loop
 
         End Sub
@@ -347,6 +347,52 @@ Namespace MPClientController
                 Catch ex As Exception
                     results = iPiMPUtils.SendError(1, "Bad data")
                 End Try
+            Else
+                results = iPiMPUtils.SendError(2, "No data")
+            End If
+
+            If results = String.Empty Then results = GetResults(request)
+
+            Dim buffer As Byte() = System.Text.Encoding.UTF8.GetBytes(results)
+            httpResponse.ContentLength64 = buffer.Length
+
+            Dim outputStream As Stream = httpResponse.OutputStream
+            outputStream.Write(buffer, 0, buffer.Length)
+            outputStream.Close()
+
+#If DEBUG Then
+            iPiMPUtils.TextLog(results)
+#End If
+
+            Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(buffer))
+
+        End Sub
+
+        Private Sub HTTPPostInputReceived()
+
+            Log.Debug("plugin: iPiMPClient - HTTPPostInputReceived")
+
+            Dim httpRequest As HttpListenerRequest = httpContext.Request
+            Dim httpResponse As HttpListenerResponse = httpContext.Response
+            Dim inputText As String = String.Empty
+            Dim results As String = String.Empty
+
+            Dim request As MPClientRequest = Nothing
+
+            If httpRequest.ContentLength64 > 0 Then
+                If (httpRequest.ContentType = "application/x-www-form-urlencoded") Then
+                    Dim datastream As Stream = httpRequest.InputStream
+                    Dim reader As New StreamReader(datastream)
+                    inputText = reader.ReadToEnd
+                    Log.Debug("plugin: iPiMPClient - Raw: {0}", inputText)
+                    Try
+                        request = DirectCast(JsonConvert.Import(GetType(MPClientRequest), inputText), MPClientRequest)
+                    Catch ex As Exception
+                        results = iPiMPUtils.SendError(1, "Bad data")
+                    End Try
+                Else
+                    results = iPiMPUtils.SendError(8, "Unknown content type")
+                End If
             Else
                 results = iPiMPUtils.SendError(2, "No data")
             End If

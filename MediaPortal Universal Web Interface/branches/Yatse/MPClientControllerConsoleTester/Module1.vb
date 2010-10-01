@@ -28,13 +28,11 @@ Module Module1
     End Sub
 
     Private Sub SendReceiveMessage(ByVal transport As String, ByVal friendly As String, ByVal request As uWiMP.TVServer.MPClient.Request)
-        Console.WriteLine(String.Format("Start {0}", Now))
         If transport.ToLower = "tcp" Then
             Console.WriteLine(uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, request))
         Else
-            Console.WriteLine(uWiMP.TVServer.MPClientRemoting.SendHTTPSyncMessage(friendly, request))
+            Console.WriteLine(uWiMP.TVServer.MPClientRemoting.SendHTTPPostSyncMessage(friendly, request))
         End If
-        Console.WriteLine(String.Format("End {0}", Now))
     End Sub
 
 End Module
