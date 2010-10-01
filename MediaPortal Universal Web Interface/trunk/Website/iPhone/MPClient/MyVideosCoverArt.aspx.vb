@@ -66,7 +66,7 @@ Partial Public Class MPClientMyVideoCoverArt
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayCoverArt(wa, friendly, movieID))
+        xw.WriteCData(DisplayCoverArt(friendly, movieID))
         xw.WriteEndElement()
         'end data
 
@@ -79,7 +79,7 @@ Partial Public Class MPClientMyVideoCoverArt
 
     End Sub
 
-    Private Function DisplayCoverArt(ByVal wa As String, ByVal friendly As String, ByVal movieID As String) As String
+    Private Function DisplayCoverArt(ByVal friendly As String, ByVal movieID As String) As String
 
         Dim markup As String = String.Empty
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
@@ -87,6 +87,9 @@ Partial Public Class MPClientMyVideoCoverArt
         mpRequest.Filter = movieID
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
         Dim movie As uWiMP.TVServer.MPClient.BigMovieInfo = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.BigMovieInfo), response), uWiMP.TVServer.MPClient.BigMovieInfo)
 
         If Not Directory.Exists(Server.MapPath("~/images/imdb")) Then Directory.CreateDirectory(Server.MapPath("~/images/imdb"))
@@ -95,7 +98,7 @@ Partial Public Class MPClientMyVideoCoverArt
 
         saveImageByUrlToDisk(movie.ThumbURL, Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg"))
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0}</h3>", movie.Title)
         markup += "<div class=""iBlock"" >"
         markup += "<p>"

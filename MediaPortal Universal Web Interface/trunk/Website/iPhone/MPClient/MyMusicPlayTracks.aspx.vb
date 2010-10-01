@@ -68,7 +68,7 @@ Partial Public Class MyMusicPlayTracks
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(PlayMusic(wa, friendly, filter, shuffle, enqueue, tracks))
+        xw.WriteCData(PlayMusic(friendly, filter, shuffle, enqueue, tracks))
         xw.WriteEndElement()
         'end data
 
@@ -81,8 +81,7 @@ Partial Public Class MyMusicPlayTracks
 
     End Sub
 
-    Private Function PlayMusic(ByVal wa As String, _
-                               ByVal friendly As String, _
+    Private Function PlayMusic(ByVal friendly As String, _
                                ByVal filter As String, _
                                ByVal shuffle As Boolean, _
                                ByVal enqueue As Boolean, _
@@ -99,7 +98,7 @@ Partial Public Class MyMusicPlayTracks
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
         Dim success As Boolean = CType(jo("result"), Boolean)
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", GetGlobalResourceObject("uWiMPStrings", "now_playing"), filter)
         markup += "<ul class=""iArrow"">"
 

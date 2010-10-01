@@ -64,7 +64,7 @@ Partial Public Class MyMusicListYears
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMyMusicDecades(wa, friendly, decade))
+        xw.WriteCData(DisplayMyMusicDecades(friendly, decade))
         xw.WriteEndElement()
         'end data
 
@@ -77,7 +77,7 @@ Partial Public Class MyMusicListYears
 
     End Sub
 
-    Private Function DisplayMyMusicDecades(ByVal wa As String, ByVal friendly As String, ByVal decade As String) As String
+    Private Function DisplayMyMusicDecades(ByVal friendly As String, ByVal decade As String) As String
 
         Dim markup As String = String.Empty
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
@@ -86,12 +86,14 @@ Partial Public Class MyMusicListYears
         mpRequest.Value = decade
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+
         Dim ja As JsonArray = CType(jo("year"), JsonArray)
         Dim filters As String() = CType(ja.ToArray(GetType(String)), String())
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "music_by_year"))
         markup += "<ul class=""iArrow"">"
 

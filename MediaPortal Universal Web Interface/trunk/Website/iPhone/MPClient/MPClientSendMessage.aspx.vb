@@ -63,7 +63,7 @@ Partial Public Class MPClientSendMessage
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(SendMessage(wa, friendly))
+        xw.WriteCData(SendMessage(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -76,7 +76,7 @@ Partial Public Class MPClientSendMessage
 
     End Sub
 
-    Private Function SendMessage(ByVal wa As String, ByVal friendly As String) As String
+    Private Function SendMessage(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
 

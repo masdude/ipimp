@@ -62,7 +62,7 @@ Partial Public Class MPClientPowerOptionsConfirm
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DeleteClientMenuConfirm(wa, friendly, poweroption))
+        xw.WriteCData(DeleteClientMenuConfirm(friendly, poweroption))
         xw.WriteEndElement()
         'end data
 
@@ -75,11 +75,11 @@ Partial Public Class MPClientPowerOptionsConfirm
 
     End Sub
 
-    Private Function DeleteClientMenuConfirm(ByVal wa As String, ByVal friendly As String, ByVal poweroption As String) As String
+    Private Function DeleteClientMenuConfirm(ByVal friendly As String, ByVal poweroption As String) As String
 
         Dim markup As String = String.Empty
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_options"))
         markup += "<ul class=""iArrow"">"
         If poweroption = "" Then

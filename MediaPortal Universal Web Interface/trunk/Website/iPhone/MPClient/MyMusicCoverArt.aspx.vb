@@ -67,7 +67,7 @@ Partial Public Class MyMusicCoverArt
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayCoverArt(wa, friendly, artist, album))
+        xw.WriteCData(DisplayCoverArt(friendly, artist, album))
         xw.WriteEndElement()
         'end data
 
@@ -80,7 +80,7 @@ Partial Public Class MyMusicCoverArt
 
     End Sub
 
-    Private Function DisplayCoverArt(ByVal wa As String, ByVal friendly As String, ByVal artist As String, ByVal album As String) As String
+    Private Function DisplayCoverArt(ByVal friendly As String, ByVal artist As String, ByVal album As String) As String
 
         Dim markup As String = String.Empty
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
@@ -90,16 +90,18 @@ Partial Public Class MyMusicCoverArt
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
-        Dim imageString As String = CType(jo("result"), String)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+        Dim imageString As String = CType(jo("image"), String)
 
         Dim imagePath As String = String.Empty
-        If imageString.ToLower = "noimage" Then
+        If imageString.ToLower = "empty" Then
             imagePath = "../../images/music/blankmusic.png"
         Else
             imagePath = saveImageToDisk(artist, album, imageString)
         End If
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", artist, album)
         markup += "<div class=""iBlock"" >"
         markup += "<p>"

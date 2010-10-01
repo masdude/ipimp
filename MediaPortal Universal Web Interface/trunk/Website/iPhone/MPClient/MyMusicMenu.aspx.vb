@@ -61,7 +61,7 @@ Partial Public Class MyMusicMenu
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMyMusicMenu(wa, friendly))
+        xw.WriteCData(DisplayMyMusicMenu(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -74,11 +74,11 @@ Partial Public Class MyMusicMenu
 
     End Sub
 
-    Private Function DisplayMyMusicMenu(ByVal wa As String, ByVal friendly As String) As String
+    Private Function DisplayMyMusicMenu(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "my_music"))
         markup += "<ul class=""iArrow"">"
 
