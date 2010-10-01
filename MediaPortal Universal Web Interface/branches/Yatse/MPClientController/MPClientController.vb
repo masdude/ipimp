@@ -544,10 +544,19 @@ Namespace MPClientController
                     results = iPiMPUtils.SendString("data", "pong")
 
                 Case "version"
+                    Dim VersionInfo As Version = System.Reflection.Assembly.GetExecutingAssembly.GetName.Version
                     Dim ver As String = String.Format("{0}.{1}.{2}.{3}",
-                                                       My.Application.Info.Version.Build.ToString,
+                                                       VersionInfo.Major.ToString,
+                                                       VersionInfo.Minor.ToString,
+                                                       VersionInfo.Build.ToString,
+                                                       VersionInfo.Revision.ToString)
+                    results = iPiMPUtils.SendString("version", ver)
+
+                Case "mpversion"
+                    Dim ver As String = String.Format("{0}.{1}.{2}.{3}",
                                                        My.Application.Info.Version.Major.ToString,
                                                        My.Application.Info.Version.Minor.ToString,
+                                                       My.Application.Info.Version.Build.ToString,
                                                        My.Application.Info.Version.Revision.ToString)
                     results = iPiMPUtils.SendString("version", ver)
 
