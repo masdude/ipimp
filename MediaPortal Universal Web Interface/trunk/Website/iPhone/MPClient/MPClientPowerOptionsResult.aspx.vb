@@ -65,7 +65,7 @@ Partial Public Class MPClientPowerOptionsResult
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DoPowerOption(wa, friendly, poweroption))
+        xw.WriteCData(DoPowerOption(friendly, poweroption))
         xw.WriteEndElement()
         'end data
 
@@ -78,7 +78,7 @@ Partial Public Class MPClientPowerOptionsResult
 
     End Sub
 
-    Private Function DoPowerOption(ByVal wa As String, ByVal friendly As String, ByVal poweroption As String) As String
+    Private Function DoPowerOption(ByVal friendly As String, ByVal poweroption As String) As String
 
         Dim markup As String = String.Empty
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request

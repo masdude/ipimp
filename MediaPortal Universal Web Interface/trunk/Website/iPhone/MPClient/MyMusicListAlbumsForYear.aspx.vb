@@ -76,7 +76,7 @@ Partial Public Class MyMusicListAlbumsForYear
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayAlbumsForYears(wa, friendly, year, start, pagesize))
+        xw.WriteCData(DisplayAlbumsForYears(friendly, year, start, pagesize))
         xw.WriteEndElement()
         'end data
 
@@ -89,8 +89,7 @@ Partial Public Class MyMusicListAlbumsForYear
 
     End Sub
 
-    Private Function DisplayAlbumsForYears(ByVal wa As String, _
-                                       ByVal friendly As String, _
+    Private Function DisplayAlbumsForYears(ByVal friendly As String, _
                                        ByVal year As String, _
                                        ByVal start As Integer, _
                                        ByVal pagesize As Integer) As String
@@ -102,8 +101,13 @@ Partial Public Class MyMusicListAlbumsForYear
         mpRequest.Value = year
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-        Dim albums As uWiMP.TVServer.MPClient.SmallAlbumInfo() = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.SmallAlbumInfo()), response), uWiMP.TVServer.MPClient.SmallAlbumInfo())
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
 
+        Dim ja As JsonArray = CType(jo("albums"), JsonArray)
+        Dim albums As uWiMP.TVServer.MPClient.SmallAlbumInfo() = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.SmallAlbumInfo()), ja.ToString), uWiMP.TVServer.MPClient.SmallAlbumInfo())
+        
         If start = 0 Then
             markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
             markup += String.Format("<h3>{0} - {1}</h3>", friendly, year)

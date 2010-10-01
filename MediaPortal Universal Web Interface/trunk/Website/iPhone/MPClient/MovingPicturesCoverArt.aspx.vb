@@ -90,9 +90,7 @@ Partial Public Class MovingPicturesCoverArt
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
         Dim success As Boolean = CType(jo("result"), Boolean)
-
         If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
-
         Dim movie As uWiMP.TVServer.MPClient.BigMovieInfo = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.BigMovieInfo), response), uWiMP.TVServer.MPClient.BigMovieInfo)
 
         If Not Directory.Exists(Server.MapPath(imdbPath)) Then Directory.CreateDirectory(Server.MapPath(imdbPath))

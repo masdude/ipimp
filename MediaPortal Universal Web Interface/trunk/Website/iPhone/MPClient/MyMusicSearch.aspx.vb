@@ -61,7 +61,7 @@ Partial Public Class MyMusicSearch
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMusicSearchMenu(wa, friendly))
+        xw.WriteCData(DisplayMusicSearchMenu(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -74,7 +74,7 @@ Partial Public Class MyMusicSearch
 
     End Sub
 
-    Private Function DisplayMusicSearchMenu(ByVal wa As String, ByVal friendly As String) As String
+    Private Function DisplayMusicSearchMenu(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
 

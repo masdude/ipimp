@@ -61,7 +61,7 @@ Partial Public Class MPClientWOL
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(MPClientWOL(wa, friendly))
+        xw.WriteCData(MPClientWOL(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -74,14 +74,14 @@ Partial Public Class MPClientWOL
 
     End Sub
 
-    Private Function MPClientWOL(ByVal wa As String, ByVal friendly As String) As String
+    Private Function MPClientWOL(ByVal friendly As String) As String
 
         Dim client As uWiMP.TVServer.MPClient.Client
         client = uWiMP.TVServer.MPClientDatabase.GetClient(friendly)
 
         Dim markup As String = String.Empty
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0}</h3>", client.Friendly)
         markup += "<ul class=""iArrow"">"
 

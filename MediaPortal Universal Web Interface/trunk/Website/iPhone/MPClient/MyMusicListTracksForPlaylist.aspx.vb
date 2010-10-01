@@ -48,9 +48,9 @@ Partial Public Class MyMusicListTracksForPlaylist
         If start >= pagesize Then
         Else
             'go
-            'xw.WriteStartElement("go")
-            'xw.WriteAttributeString("to", wa)
-            'xw.WriteEndElement()
+            xw.WriteStartElement("go")
+            xw.WriteAttributeString("to", wa)
+            xw.WriteEndElement()
             'end go
 
             'start title
@@ -75,7 +75,7 @@ Partial Public Class MyMusicListTracksForPlaylist
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplaySongs(wa, friendly, playlist, start, pagesize))
+        xw.WriteCData(DisplaySongs(friendly, playlist, start, pagesize))
         xw.WriteEndElement()
         'end data
 
@@ -88,8 +88,7 @@ Partial Public Class MyMusicListTracksForPlaylist
 
     End Sub
 
-    Private Function DisplaySongs(ByVal wa As String, _
-                                   ByVal friendly As String, _
+    Private Function DisplaySongs(ByVal friendly As String, _
                                    ByVal playlist As String, _
                                    ByVal start As Integer, _
                                    ByVal pagesize As Integer) As String
@@ -104,7 +103,12 @@ Partial Public Class MyMusicListTracksForPlaylist
         mpRequest.PageSize = pagesize
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-        Dim tracks As uWiMP.TVServer.MPClient.AlbumTrack() = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.AlbumTrack()), response), uWiMP.TVServer.MPClient.AlbumTrack())
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+
+        Dim ja As JsonArray = CType(jo("tracks"), JsonArray)
+        Dim tracks As uWiMP.TVServer.MPClient.AlbumTrack() = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.AlbumTrack()), ja.ToString), uWiMP.TVServer.MPClient.AlbumTrack())
 
         If start = 0 Then
             markup += "<div class=""iMenu"">"
@@ -127,7 +131,12 @@ Partial Public Class MyMusicListTracksForPlaylist
 
         mpRequest.Start = start + pagesize
         response = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-        tracks = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.AlbumTrack()), response), uWiMP.TVServer.MPClient.AlbumTrack())
+        jo = CType(JsonConvert.Import(response), JsonObject)
+        success = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+        ja = CType(jo("tracks"), JsonArray)
+        tracks = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.AlbumTrack()), ja.ToString), uWiMP.TVServer.MPClient.AlbumTrack())
+
         If UBound(tracks) > 0 Then markup += String.Format("<li id=""moreplaylist"" class=""iMore""><a href=""MPClient/MyMusicListTracksForPlaylist.aspx?friendly={0}&playlist={1}&start={2}#_MyMusicListTracksForPlaylist"" rev=""async"" title=""{3}"">{4}</a></li>", friendly, playlist, (start + pagesize).ToString, GetGlobalResourceObject("uWiMPStrings", "loading"), GetGlobalResourceObject("uWiMPStrings", "more"))
 
         If start = 0 Then

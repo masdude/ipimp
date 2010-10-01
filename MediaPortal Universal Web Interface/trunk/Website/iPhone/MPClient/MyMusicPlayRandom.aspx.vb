@@ -65,7 +65,7 @@ Partial Public Class MyMusicPlayRandom
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(PlayRandom(wa, friendly, filter, value))
+        xw.WriteCData(PlayRandom(friendly, filter, value))
         xw.WriteEndElement()
         'end data
 
@@ -78,7 +78,7 @@ Partial Public Class MyMusicPlayRandom
 
     End Sub
 
-    Private Function PlayRandom(ByVal wa As String, ByVal friendly As String, ByVal filter As String, ByVal value As String) As String
+    Private Function PlayRandom(ByVal friendly As String, ByVal filter As String, ByVal value As String) As String
 
         Dim markup As String = String.Empty
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
@@ -90,7 +90,7 @@ Partial Public Class MyMusicPlayRandom
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
         Dim success As Boolean = CType(jo("result"), Boolean)
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", GetGlobalResourceObject("uWiMPStrings", "now_playing"), filter)
         markup += "<ul class=""iArrow"">"
 

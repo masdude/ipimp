@@ -45,9 +45,9 @@ Partial Public Class MyMusicListAlbum
         xw.WriteStartElement("root")
 
         'go
-        'xw.WriteStartElement("go")
-        'xw.WriteAttributeString("to", wa)
-        'xw.WriteEndElement()
+        xw.WriteStartElement("go")
+        xw.WriteAttributeString("to", wa)
+        xw.WriteEndElement()
         'end go
 
         'start title
@@ -87,8 +87,6 @@ Partial Public Class MyMusicListAlbum
         markup += String.Format("<h3>{0} - {1} - {2}</h3>", friendly, artist, album)
 
         markup += "<ul class=""iArrow"">"
-        'markup += String.Format("<li><a href=""#"" onclick=""return playmusic('{0}','{1}','{2}');"">{3}</a></li>", friendly, Replace(album, "'", "\'"), Replace(artist, "'", "\'"), GetGlobalResourceObject("uWiMPStrings", "play"))
-        'markup += String.Format("<li><a href=""#"" onclick=""return playtracks('{0}','{1}');"">{2}</a></li>", friendly, Replace(artist, "'", "\'"), GetGlobalResourceObject("uWiMPStrings", "play"))
         markup += String.Format("<li><a href=""#"" onclick=""return playtracks('{3}','{0}','{1}');"">{2}</a></li>", friendly, Replace(artist, "'", "\'"), GetGlobalResourceObject("uWiMPStrings", "play"), wa)
         markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsShuffleAlbum"" class=""iToggle"" title=""{1}"" /></li>", GetGlobalResourceObject("uWiMPStrings", "shuffle"), GetGlobalResourceObject("uWiMPStrings", "yesno"))
         markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsEnqueueAlbum"" class=""iToggle"" title=""{1}"" /></li>", GetGlobalResourceObject("uWiMPStrings", "enqueue"), GetGlobalResourceObject("uWiMPStrings", "yesno"))
@@ -100,8 +98,14 @@ Partial Public Class MyMusicListAlbum
         mpRequest.Action = "getalbum"
         mpRequest.Filter = album
         mpRequest.Value = artist
+
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-        Dim tracks As uWiMP.TVServer.MPClient.AlbumTrack() = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.AlbumTrack()), response), uWiMP.TVServer.MPClient.AlbumTrack())
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+
+        Dim ja As JsonArray = CType(jo("album"), JsonArray)
+        Dim tracks As uWiMP.TVServer.MPClient.AlbumTrack() = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.AlbumTrack()), ja.ToString), uWiMP.TVServer.MPClient.AlbumTrack())
 
         Dim i As Integer = 0
         For Each track As uWiMP.TVServer.MPClient.AlbumTrack In tracks

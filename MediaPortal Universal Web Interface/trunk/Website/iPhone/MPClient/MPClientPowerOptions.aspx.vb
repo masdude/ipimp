@@ -61,7 +61,7 @@ Partial Public Class MPClientPowerOptions
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayPowerOptions(wa, friendly))
+        xw.WriteCData(DisplayPowerOptions(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -74,11 +74,11 @@ Partial Public Class MPClientPowerOptions
 
     End Sub
 
-    Private Function DisplayPowerOptions(ByVal wa As String, ByVal friendly As String) As String
+    Private Function DisplayPowerOptions(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "power_options"))
         markup += "<ul class=""iArrow"">"
 

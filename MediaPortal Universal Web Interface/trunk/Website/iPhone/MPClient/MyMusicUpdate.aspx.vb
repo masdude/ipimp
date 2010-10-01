@@ -63,7 +63,7 @@ Partial Public Class MyMusicUpdate
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMusicUpdate(wa, friendly))
+        xw.WriteCData(DisplayMusicUpdate(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -76,7 +76,7 @@ Partial Public Class MyMusicUpdate
 
     End Sub
 
-    Private Function DisplayMusicUpdate(ByVal wa As String, ByVal friendly As String) As String
+    Private Function DisplayMusicUpdate(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
 
@@ -87,7 +87,7 @@ Partial Public Class MyMusicUpdate
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
         Dim success As Boolean = CType(jo("result"), Boolean)
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "music_update"))
 
         markup += "<ul>"

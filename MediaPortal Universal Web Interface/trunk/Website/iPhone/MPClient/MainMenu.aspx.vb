@@ -74,11 +74,11 @@ Partial Public Class MPClientMainMenu
 
     End Sub
 
-    Private Function DisplayMPClientsMenu(ByVal wa As String) As String
+    Private Function DisplayMPClientsMenu() As String
 
         Dim markup As String = String.Empty
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "mediaportal_clients"))
 
         Dim clients As List(Of Client) = uWiMP.TVServer.MPClientDatabase.GetClients

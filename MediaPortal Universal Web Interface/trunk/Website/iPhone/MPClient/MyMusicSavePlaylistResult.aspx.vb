@@ -64,7 +64,7 @@ Partial Public Class MyMusicSavePlaylistResult
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMusicSearchMenu(wa, friendly, filename))
+        xw.WriteCData(DisplaySavePlaylistResult(friendly, filename))
         xw.WriteEndElement()
         'end data
 
@@ -77,7 +77,7 @@ Partial Public Class MyMusicSavePlaylistResult
 
     End Sub
 
-    Private Function DisplayMusicSearchMenu(ByVal wa As String, ByVal friendly As String, ByVal filename As String) As String
+    Private Function DisplaySavePlaylistResult(ByVal friendly As String, ByVal filename As String) As String
 
         Dim markup As String = String.Empty
         Dim regexPattern = "[\\\/.:\*\?""'<>|] "
@@ -92,7 +92,7 @@ Partial Public Class MyMusicSavePlaylistResult
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
         Dim success As Boolean = CType(jo("result"), Boolean)
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "save_playlist"))
 
         markup += "<ul>"

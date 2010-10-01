@@ -61,7 +61,7 @@ Partial Public Class MyMusicSavePlaylist
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMusicSearchMenu(wa, friendly))
+        xw.WriteCData(DisplaySavePlaylist(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -74,11 +74,11 @@ Partial Public Class MyMusicSavePlaylist
 
     End Sub
 
-    Private Function DisplayMusicSearchMenu(ByVal wa As String, ByVal friendly As String) As String
+    Private Function DisplaySavePlaylist(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
 
-        markup += String.Format("<div class=""iPanel"" id=""{0}"">", wa)
+        markup += "<div class=""iPanel"" >"
         markup += "<fieldset>"
         markup += String.Format("<legend>{0} - {1}</legend>", friendly, GetGlobalResourceObject("uWiMPStrings", "save_playlist"))
 

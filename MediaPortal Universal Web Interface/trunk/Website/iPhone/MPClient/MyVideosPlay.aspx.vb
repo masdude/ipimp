@@ -65,7 +65,7 @@ Partial Public Class MyVideosPlay
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(PlayVideo(wa, friendly, movieID))
+        xw.WriteCData(PlayVideo(friendly, movieID))
         xw.WriteEndElement()
         'end data
 
@@ -78,7 +78,7 @@ Partial Public Class MyVideosPlay
 
     End Sub
 
-    Private Function PlayVideo(ByVal wa As String, ByVal friendly As String, ByVal movieID As String) As String
+    Private Function PlayVideo(ByVal friendly As String, ByVal movieID As String) As String
 
         Dim markup As String = String.Empty
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
@@ -86,14 +86,17 @@ Partial Public Class MyVideosPlay
         mpRequest.Filter = movieID
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
         Dim movie As uWiMP.TVServer.MPClient.BigMovieInfo = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.BigMovieInfo), response), uWiMP.TVServer.MPClient.BigMovieInfo)
 
         mpRequest.Action = "playmovie"
         response = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
-        Dim success As Boolean = CType(jo("result"), Boolean)
+        jo = CType(JsonConvert.Import(response), JsonObject)
+        success = CType(jo("result"), Boolean)
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"">"
         markup += String.Format("<h3>{0} {1}</h3>", GetGlobalResourceObject("uWiMPStrings", "now_playing"), movie.Title)
         markup += "<ul class=""iArrow"">"
 

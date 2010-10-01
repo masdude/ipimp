@@ -64,7 +64,7 @@ Partial Public Class MyMusicListPlaylists
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMyMusicGenres(wa, friendly))
+        xw.WriteCData(DisplayMyMusicPlaylists(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -77,19 +77,23 @@ Partial Public Class MyMusicListPlaylists
 
     End Sub
 
-    Private Function DisplayMyMusicGenres(ByVal wa As String, ByVal friendly As String) As String
+    Private Function DisplayMyMusicPlaylists(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
 
         mpRequest.Action = "getrandomplaylist"
+
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
-        Dim ja As JsonArray = CType(jo("Playlists"), JsonArray)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+
+        Dim ja As JsonArray = CType(jo("playlists"), JsonArray)
         Dim playlists As String() = CType(ja.ToArray(GetType(String)), String())
         Array.Sort(playlists)
 
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "music_playlists"))
 
         For Each playlist As String In playlists
@@ -103,7 +107,10 @@ Partial Public Class MyMusicListPlaylists
         mpRequest.Action = "getplaylists"
         response = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         jo = CType(JsonConvert.Import(response), JsonObject)
-        ja = CType(jo("Playlists"), JsonArray)
+        success = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+
+        ja = CType(jo("playlists"), JsonArray)
         playlists = CType(ja.ToArray(GetType(String)), String())
         Array.Sort(playlists)
 

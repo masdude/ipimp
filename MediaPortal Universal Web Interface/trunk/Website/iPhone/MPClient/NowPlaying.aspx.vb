@@ -67,7 +67,7 @@ Partial Public Class NowPlaying
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(GetNowPlaying(wa, friendly))
+        xw.WriteCData(GetNowPlaying(friendly))
         xw.WriteEndElement()
         'end data
 
@@ -80,13 +80,16 @@ Partial Public Class NowPlaying
 
     End Sub
 
-    Private Function GetNowPlaying(ByVal wa As String, ByVal friendly As String) As String
+    Private Function GetNowPlaying(ByVal friendly As String) As String
 
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
         mpRequest.Action = "nowplaying"
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+
         Dim media As String = CType(jo("media"), String)
 
         Select Case media.ToLower
@@ -515,7 +518,9 @@ Partial Public Class NowPlaying
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
-        Dim imageString As String = CType(jo("result"), String)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+        Dim imageString As String = CType(jo("image"), String)
 
         Dim imagePath As String = String.Empty
         If imageString.ToLower = "noimage" Then
@@ -536,6 +541,9 @@ Partial Public Class NowPlaying
         mpRequest.Filter = movieID
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
         Dim movie As uWiMP.TVServer.MPClient.BigMovieInfo = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.BigMovieInfo), response), uWiMP.TVServer.MPClient.BigMovieInfo)
 
         If Not Directory.Exists(Server.MapPath("~/images/imdb")) Then Directory.CreateDirectory(Server.MapPath("~/images/imdb"))

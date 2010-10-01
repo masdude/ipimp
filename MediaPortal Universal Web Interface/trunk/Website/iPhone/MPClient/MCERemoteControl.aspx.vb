@@ -90,31 +90,31 @@ Partial Public Class MCERemoteControl
         'end part
         xw.WriteEndElement()
 
-        'part2 
-        xw.WriteStartElement("part")
+        ''part3
+        'xw.WriteStartElement("part")
 
-        'start title
-        xw.WriteStartElement("title")
-        xw.WriteAttributeString("set", "waRemote3")
-        xw.WriteEndElement()
-        'end title
+        ''start title
+        'xw.WriteStartElement("title")
+        'xw.WriteAttributeString("set", "waRemote3")
+        'xw.WriteEndElement()
+        ''end title
 
-        'start dest
-        xw.WriteStartElement("destination")
-        xw.WriteAttributeString("mode", "replace")
-        xw.WriteAttributeString("zone", "waRemote3")
-        xw.WriteAttributeString("create", "true")
-        xw.WriteEndElement()
-        'end dest
+        ''start dest
+        'xw.WriteStartElement("destination")
+        'xw.WriteAttributeString("mode", "replace")
+        'xw.WriteAttributeString("zone", "waRemote3")
+        'xw.WriteAttributeString("create", "true")
+        'xw.WriteEndElement()
+        ''end dest
 
-        'start data
-        xw.WriteStartElement("data")
-        xw.WriteCData(RemoteMCE3(friendly))
-        xw.WriteEndElement()
-        'end data
+        ''start data
+        'xw.WriteStartElement("data")
+        'xw.WriteCData(RemoteMCE3(friendly))
+        'xw.WriteEndElement()
+        ''end data
 
-        'end part
-        xw.WriteEndElement()
+        ''end part
+        'xw.WriteEndElement()
 
         'end root
         xw.WriteEndElement()
@@ -194,13 +194,13 @@ Partial Public Class MCERemoteControl
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tv")
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tvguide")
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tvrecs")
-        markup += String.Format("<td class=""grid""><a href=""#_Remote1"" ><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "page1")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tvseries")
         markup += "</tr>"
         markup += "<tr>"
-        markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "tvseries")
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "videos")
         markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "dvd")
-        markup += String.Format("<td class=""grid""><a href=""#_Remote3"" ><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "page3")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote2"" onclick=""WA.Request('MPClient/MCERemoteControlButton.aspx?friendly={0}&button={2}#_MCEButton', null, -1, false, null);""><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "pictures")
+        markup += String.Format("<td class=""grid""><a href=""#_Remote1"" ><img src=""{1}{2}.png"" /></a></td>", friendly, imageURI, "page1")
         markup += "</tr>"
         markup += "</table>"
         markup += "<table>"
