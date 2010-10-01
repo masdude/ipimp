@@ -398,6 +398,17 @@ Namespace MPClientController
 
         End Function
 
+        Public Shared Function GetMusicThumb(ByVal artist As String, ByVal album As String, ByVal size As String) As String
+
+            Dim thumbNailFileName As String
+            thumbNailFileName = MediaPortal.Util.Utils.GetAlbumThumbName(artist, album)
+            thumbNailFileName = MediaPortal.Util.Utils.ConvertToLargeCoverArt(thumbNailFileName)
+
+            Return iPiMPUtils.GetImage(thumbNailFileName)
+
+        End Function
+
+
         Public Shared Function GetCoverArt(ByVal filter As String, ByVal value As String) As String
 
             Dim thumbNailFileName As String
