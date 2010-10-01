@@ -406,6 +406,9 @@ Namespace MPClientController
                     If Not request.Filter = String.Empty Then
                         Dim video As New MPClientController.Video
                         video.movieID = CInt(request.Filter)
+                        If request.Value.ToLower = "force" Then
+                            video.RemoveStopTime()
+                        End If
                         video.PlayVideo()
                         results = MyVideos.IsVideoIDPlaying(CInt(request.Filter))
                     End If
