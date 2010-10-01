@@ -1046,22 +1046,25 @@
   <data name="sort_lists" xml:space="preserve">
     <value>Sort lists by name</value>
   </data>
-	<data name="ipimp_settings_success">
-		<value xml:space="preserve">Settings updated.</value>
-	</data>
-	<data name="ipimp_settings_fail">
-		<value xml:space="preserve">Settings update failed.</value>
-	</data>
-	<data name="guide_days">
-		<value xml:space="preserve">Days to show in TV guide</value>
-	</data>
-	<data name="streaming_status">
-		<value xml:space="preserve">Streaming status</value>
-	</data>
-	<data name="streaming">
-		<value xml:space="preserve">Streaming</value>
-	</data>
-	<data name="Streaming_nothing">
-		<value xml:space="preserve">Streaming nothing</value>
-	</data>
+  <data name="ipimp_settings_success" xml:space="preserve">
+    <value>Settings updated.</value>
+  </data>
+  <data name="ipimp_settings_fail" xml:space="preserve">
+    <value>Settings update failed.</value>
+  </data>
+  <data name="guide_days" xml:space="preserve">
+    <value>Days to show in TV guide</value>
+  </data>
+  <data name="streaming_status" xml:space="preserve">
+    <value>Streaming status</value>
+  </data>
+  <data name="streaming" xml:space="preserve">
+    <value>Streaming</value>
+  </data>
+  <data name="Streaming_nothing" xml:space="preserve">
+    <value>Streaming nothing</value>
+  </data>
+  <data name="could_not_start_music" xml:space="preserve">
+    <value>Could not start music.</value>
+  </data>
 </root>
