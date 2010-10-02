@@ -13,7 +13,7 @@
  * Web - added new setting to allow number of days to show in TV & Radio guides (4,7,10,14)
  * Web - Refactored all pages which interact with !MediaPortal clients due to changes in MP client plugin
  * MP client plugin - MP clients will now auto register with iPiMP web app
- * MP client plugin - Lots & lots of changes to support [http://yatse.leetzone.org/redmine Yatse]
+ * MP client plugin - Lots & lots of changes to support [http://yatse.leetzone.org/redmine Yatse] (thanks to Tolriq for the help & patches)
  * MP client plugin - Added TV Series
 
 5.0.1 updates include (13th Jun 2010)
