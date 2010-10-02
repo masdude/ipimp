@@ -17,6 +17,7 @@
 
 
 Imports System.IO
+Imports MediaPortal.Plugins.MovingPictures.Database
 Imports MediaPortal.Player
 Imports MediaPortal.Music.Database
 Imports MediaPortal.Video.Database
@@ -68,8 +69,8 @@ Namespace MPClientController
                             Dim movie As New IMDBMovie
                             Dim movieID As Integer = 0
                             movieID = VideoDatabase.GetMovieId(g_Player.Player.CurrentFile)
-                            If movieID > 0 Then
-                                VideoDatabase.GetMovieInfoById(movieID, movie)
+                            VideoDatabase.GetMovieInfoById(movieID, movie)
+                            If movie.ID > 0 Then
                                 Dim fileList As New ArrayList
                                 VideoDatabase.GetFiles(movie.ID, fileList)
 
@@ -88,6 +89,8 @@ Namespace MPClientController
                                 Else
                                     jw.WriteString("")
                                 End If
+                                jw.WriteMember("fanart")
+                                jw.WriteString(movieID)
                                 jw.WriteMember("tagline")
                                 jw.WriteString(movie.TagLine)
                                 jw.WriteMember("id")
@@ -106,10 +109,43 @@ Namespace MPClientController
                                 jw.WriteString(movie.Rating)
                             Else
                                 If useMovingPictures Then
-                                    Dim s As String = MovingPictures.GetPlayingMovie
-                                    If InStr(s, "movingpicture") > 0 Then
-                                        Return s
-                                    End If
+                                    Dim allMovies As New List(Of DBMovieInfo)
+                                    allMovies = DBMovieInfo.GetAll
+                                    Dim Finded As Boolean = False
+                                    For Each movieInfo As DBMovieInfo In allMovies
+                                        For Each mediaFile As DBLocalMedia In movieInfo.LocalMedia
+                                            If mediaFile.FullPath.ToLower = g_Player.Player.CurrentFile.ToLower Then
+                                                jw.WriteString("movingpicture")
+                                                jw.WriteMember("title")
+                                                jw.WriteString(movieInfo.Title)
+                                                jw.WriteMember("fanart")
+                                                jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
+                                                jw.WriteMember("thumb")
+                                                jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
+                                                jw.WriteMember("tagline")
+                                                jw.WriteString(movieInfo.Tagline)
+                                                jw.WriteMember("id")
+                                                jw.WriteString(movieInfo.ID)
+                                                jw.WriteMember("genre")
+                                                jw.WriteString(Join(movieInfo.Genres.ToArray, " /"))
+                                                jw.WriteMember("filename")
+                                                jw.WriteString(MediaPortal.Util.Utils.SplitFilename(g_Player.Player.CurrentFile.ToString))
+                                                jw.WriteMember("plot")
+                                                jw.WriteString(movieInfo.Summary)
+                                                jw.WriteMember("director")
+                                                jw.WriteString(Join(movieInfo.Directors.ToArray(), " / "))
+                                                jw.WriteMember("year")
+                                                jw.WriteString(movieInfo.Year)
+                                                jw.WriteMember("rating")
+                                                jw.WriteString(movieInfo.Score)
+                                                Finded = True
+                                                Exit For
+                                            End If
+                                        Next
+                                        If Finded Then
+                                            Exit For
+                                        End If
+                                    Next
                                 End If
                             End If
                         End If
@@ -129,6 +165,8 @@ Namespace MPClientController
                         jw.WriteString(System.Net.Dns.GetHostName.ToString)
                     Else
                         jw.WriteString("unknown")
+                        jw.WriteMember("filename")
+                        jw.WriteString(g_Player.Player.CurrentFile)
                     End If
                     jw.WriteMember("duration")
                     jw.WriteString(g_Player.Player.Duration.ToString)

@@ -99,6 +99,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\Windows\MovingPictures.dll</HintPath>
     </Reference>
+    <Reference Include="MP-TVSeries, Version=2.6.1.1200, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\Windows\MP-TVSeries.dll</HintPath>
+    </Reference>
     <Reference Include="RemotePlugins, Version=1.0.1.40040, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\RemotePlugins.dll</HintPath>
@@ -169,6 +173,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TVPlugin.vb" />
+    <Compile Include="TVSeries.vb" />
     <Compile Include="Utils.vb" />
     <Compile Include="Video.vb" />
   </ItemGroup>

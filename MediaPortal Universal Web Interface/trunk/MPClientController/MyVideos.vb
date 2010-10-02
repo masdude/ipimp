@@ -160,7 +160,7 @@ Namespace MPClientController
                 jw.WriteString(movie.Rating)
                 jw.WriteMember("thumburl")
                 jw.WriteString(movie.ThumbURL)
-                jw.WriteMember("imdbNumber")
+                jw.WriteMember("imdbnumber")
                 jw.WriteString(movie.IMDBNumber)
                 jw.WriteMember("path")
                 jw.WriteString(movie.Path)

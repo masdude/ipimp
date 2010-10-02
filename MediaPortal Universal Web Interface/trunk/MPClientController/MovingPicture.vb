@@ -19,7 +19,6 @@ Imports MediaPortal.Plugins.MovingPictures.Database
 Imports MediaPortal.Playlists
 Imports System.Threading
 Imports MediaPortal.Player
-Imports MediaPortal.Services
 
 Namespace MPClientController
 

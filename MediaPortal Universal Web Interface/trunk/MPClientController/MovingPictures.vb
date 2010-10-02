@@ -19,6 +19,8 @@
 Imports Jayrock.Json
 Imports MediaPortal.Plugins.MovingPictures.Database
 Imports MediaPortal.Player
+Imports MediaPortal.Plugins.MovingPictures
+Imports System.IO
 
 Namespace MPClientController
 
@@ -95,18 +97,18 @@ Namespace MPClientController
             If pagesize = 0 Then
                 For Each movieInfo As MPClientSmallMovieInfo In movies
                     jw.WriteStartObject()
-                    jw.WriteMember("ID")
+                    jw.WriteMember("id")
                     jw.WriteString(movieInfo.ID)
-                    jw.WriteMember("Title")
+                    jw.WriteMember("title")
                     jw.WriteString(movieInfo.Title)
                     jw.WriteEndObject()
                 Next
             Else
                 For i As Integer = start To (start + (pagesize - 1))
                     jw.WriteStartObject()
-                    jw.WriteMember("ID")
+                    jw.WriteMember("id")
                     jw.WriteString(movies(i).ID)
-                    jw.WriteMember("Title")
+                    jw.WriteMember("title")
                     jw.WriteString(movies(i).Title)
                     jw.WriteEndObject()
                 Next
@@ -116,6 +118,71 @@ Namespace MPClientController
 
             Return jw.ToString
 
+        End Function
+
+
+        ''' <summary>
+        ''' Gets a list of videos from the Moving Pictures database.
+        ''' </summary>
+        ''' <returns>A JSON list of all movies with extended information.</returns>
+        ''' <remarks></remarks>
+        Public Shared Function GetAllMovies() As String
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("movies")
+            jw.WriteStartArray()
+            Dim allMovies As New List(Of DBMovieInfo)
+            allMovies = DBMovieInfo.GetAll
+
+            For Each movieInfo As DBMovieInfo In allMovies
+                Dim file As String = ""
+                For Each mediaFile As DBLocalMedia In movieInfo.LocalMedia
+                    file = file & mediaFile.FullPath & ";"
+                Next
+                jw.WriteStartObject()
+                jw.WriteMember("title")
+                jw.WriteString(movieInfo.Title)
+                jw.WriteMember("fanart")
+                jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
+                jw.WriteMember("thumb")
+                jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
+                jw.WriteMember("tagline")
+                jw.WriteString(movieInfo.Tagline)
+                jw.WriteMember("id")
+                jw.WriteString(movieInfo.ID)
+                jw.WriteMember("genre")
+                jw.WriteString(Join(movieInfo.Genres.ToArray, " /"))
+                jw.WriteMember("file")
+                jw.WriteString(file)
+                jw.WriteMember("path")
+                jw.WriteString(Path.GetDirectoryName(file))
+                jw.WriteMember("plot")
+                jw.WriteString(movieInfo.Summary)
+                jw.WriteMember("director")
+                jw.WriteString(Join(movieInfo.Directors.ToArray(), " / "))
+                jw.WriteMember("year")
+                jw.WriteString(movieInfo.Year)
+                jw.WriteMember("votes")
+                jw.WriteString(movieInfo.Popularity)
+                jw.WriteMember("rating")
+                jw.WriteString(movieInfo.Score)
+                jw.WriteMember("mpaa")
+                jw.WriteString("")
+                jw.WriteMember("imdbnumber")
+                jw.WriteString(movieInfo.ImdbID)
+                jw.WriteMember("runtime")
+                jw.WriteString(movieInfo.Runtime)
+                jw.WriteMember("watched")
+                jw.WriteString(movieInfo.WatchedHistory.Count)
+                jw.WriteEndObject()
+            Next
+
+            jw.WriteEndArray()
+            jw.WriteEndObject()
+            Return jw.ToString()
         End Function
 
         ''' <summary>
@@ -172,7 +239,7 @@ Namespace MPClientController
             Return jw.ToString
 
         End Function
-        
+
         ''' <summary>
         ''' Gets video information from the native MediaPortal MovingPictures database
         ''' </summary>
@@ -189,19 +256,19 @@ Namespace MPClientController
             jw.WriteStartObject()
             jw.WriteMember("result")
             jw.WriteBoolean(True)
-            jw.WriteMember("Title")
+            jw.WriteMember("title")
             jw.WriteString(movie.Title)
-            jw.WriteMember("Tagline")
-            jw.WriteString(movie.TagLine)
-            jw.WriteMember("Plot")
+            jw.WriteMember("tagline")
+            jw.WriteString(movie.Tagline)
+            jw.WriteMember("plot")
             jw.WriteString(movie.Summary)
-            jw.WriteMember("Runtime")
-            jw.WriteString(movie.RunTime)
+            jw.WriteMember("runtime")
+            jw.WriteString(movie.Runtime)
             jw.WriteMember("Rating")
             jw.WriteString(movie.Score)
-            jw.WriteMember("ThumbURL")
+            jw.WriteMember("thumburl")
             jw.WriteString(movie.CoverThumbFullPath)
-            jw.WriteMember("IMDBNumber")
+            jw.WriteMember("imdbnumber")
             jw.WriteString(movie.ImdbID)
             jw.WriteEndObject()
             Return jw.ToString
@@ -242,46 +309,15 @@ Namespace MPClientController
 
         End Function
 
-        Public Shared Function GetPlayingMovie() As String
+        Public Shared Function GetThumb(ByVal fileName As String) As String
 
-            Dim allMovies As New List(Of DBMovieInfo)
-            allMovies = DBMovieInfo.GetAll
-            Dim playingMovie As New DBMovieInfo
-            Dim jw As New JsonTextWriter
+            Return iPiMPUtils.GetImage(String.Format("{0}\{1}", MovingPicturesCore.Settings.CoverArtFolder, fileName))
 
-            For Each movieInfo As DBMovieInfo In allMovies
-                If (g_Player.Playing) And (g_Player.IsVideo) Then
-                    For Each mediaFile As DBLocalMedia In movieInfo.LocalMedia
-                        If mediaFile.FullPath.ToLower = g_Player.Player.CurrentFile.ToLower Then
-                            playingMovie = movieInfo
-                            jw.PrettyPrint = True
-                            jw.WriteStartObject()
-                            jw.WriteMember("result")
-                            jw.WriteBoolean(True)
-                            jw.WriteMember("media")
-                            jw.WriteString("movingpicture")
-                            jw.WriteMember("title")
-                            jw.WriteString(playingMovie.Title)
-                            jw.WriteMember("tagline")
-                            jw.WriteString(playingMovie.Tagline)
-                            jw.WriteMember("id")
-                            jw.WriteString(playingMovie.ID)
-                            jw.WriteMember("genre")
-                            jw.WriteString(playingMovie.Genres(0))
-                            jw.WriteMember("filename")
-                            jw.WriteString(MediaPortal.Util.Utils.SplitFilename(g_Player.Player.CurrentFile.ToString))
-                            jw.WriteMember("duration")
-                            jw.WriteString(g_Player.Player.Duration.ToString)
-                            jw.WriteMember("position")
-                            jw.WriteString(g_Player.Player.CurrentPosition.ToString)
-                            jw.WriteEndObject()
-                            Exit For
-                        End If
-                    Next
-                End If
-            Next
+        End Function
 
-            Return jw.ToString
+        Public Shared Function GetFanart(ByVal fileName As String) As String
+
+            Return iPiMPUtils.GetImage(String.Format("{0}\{1}", MovingPicturesCore.Settings.BackdropFolder, fileName))
 
         End Function
 

@@ -165,13 +165,14 @@ Namespace MPClientController
                         Return MyVideos.GetVideoTitle(req(1), size)
                     Case "musicthumb"
                         Return MyMusic.GetMusicThumb(req(1), req(2), size)
+                    Case "movingpicturethumb"
+                        Return MovingPictures.GetThumb(req(1))
+                    Case "movingpicturefanart"
+                        Return MovingPictures.GetFanart(req(1))
                     Case Else
                         Return SendError(5, "Unknown file url.")
                 End Select
             End If
-
-            Return String.Empty
-
         End Function
 
         Public Shared Function SeekPercentage(ByVal percent As Integer) As String
