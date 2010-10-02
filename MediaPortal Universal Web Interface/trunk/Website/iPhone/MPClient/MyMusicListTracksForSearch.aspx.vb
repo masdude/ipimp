@@ -75,7 +75,7 @@ Partial Public Class MyMusicListTracksForSearch
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplaySongs(friendly, search, start, pagesize))
+        xw.WriteCData(DisplaySongs(wa, friendly, search, start, pagesize))
         xw.WriteEndElement()
         'end data
 
@@ -88,7 +88,8 @@ Partial Public Class MyMusicListTracksForSearch
 
     End Sub
 
-    Private Function DisplaySongs(ByVal friendly As String, _
+    Private Function DisplaySongs(ByVal wa As String, _
+                                  ByVal friendly As String, _
                                    ByVal search As String, _
                                    ByVal start As Integer, _
                                    ByVal pagesize As Integer) As String

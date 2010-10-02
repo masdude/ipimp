@@ -109,7 +109,7 @@ Partial Public Class MyMusicListAlbumsForYear
         Dim albums As uWiMP.TVServer.MPClient.SmallAlbumInfo() = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.SmallAlbumInfo()), ja.ToString), uWiMP.TVServer.MPClient.SmallAlbumInfo())
         
         If start = 0 Then
-            markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+            markup += "<div class=""iMenu"" >"
             markup += String.Format("<h3>{0} - {1}</h3>", friendly, year)
             markup += "<ul class=""iArrow"">"
             markup += String.Format("<li><a href=""MPClient/MyMusicPlayRandom.aspx?friendly={0}&filter=year&value={1}#_MPClientPlayRandom"" rev=""async"">{2}</a></li>", friendly, year, GetGlobalResourceObject("uWiMPStrings", "play_100_random"))

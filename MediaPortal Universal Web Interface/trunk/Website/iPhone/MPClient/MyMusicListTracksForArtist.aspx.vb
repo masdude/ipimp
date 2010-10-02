@@ -75,7 +75,7 @@ Partial Public Class MyMusicListTracksForArtist
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplaySongs(friendly, artist, start, pagesize))
+        xw.WriteCData(DisplaySongs(wa, friendly, artist, start, pagesize))
         xw.WriteEndElement()
         'end data
 
@@ -88,7 +88,8 @@ Partial Public Class MyMusicListTracksForArtist
 
     End Sub
 
-    Private Function DisplaySongs(ByVal friendly As String, _
+    Private Function DisplaySongs(ByVal wa As String, _
+                                   ByVal friendly As String, _
                                    ByVal artist As String, _
                                    ByVal start As Integer, _
                                    ByVal pagesize As Integer) As String

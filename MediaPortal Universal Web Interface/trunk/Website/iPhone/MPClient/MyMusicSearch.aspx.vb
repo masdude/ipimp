@@ -78,7 +78,7 @@ Partial Public Class MyMusicSearch
 
         Dim markup As String = String.Empty
 
-        markup += String.Format("<div class=""iPanel"" id=""{0}"">", wa)
+        markup += "<div class=""iPanel"" >"
         markup += "<fieldset>"
         markup += String.Format("<legend>{0} - {1}</legend>", friendly, GetGlobalResourceObject("uWiMPStrings", "music_search"))
 
