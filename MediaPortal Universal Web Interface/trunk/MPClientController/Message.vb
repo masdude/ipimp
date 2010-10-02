@@ -17,7 +17,6 @@
 
 
 Imports Jayrock.Json
-Imports Jayrock.Json.Conversion
 Imports MediaPortal.GUI.Library
 Imports MediaPortal.Dialogs
 Imports System.Threading

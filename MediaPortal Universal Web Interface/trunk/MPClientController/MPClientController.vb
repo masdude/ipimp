@@ -412,11 +412,15 @@ Namespace MPClientController
                         video.PlayVideo()
                         results = MyVideos.IsVideoIDPlaying(CInt(request.Filter))
                     End If
+
                 Case "getallmovies"
                     results = MyVideos.GetAllMovies()
 
 
                     'Moving Pictures
+                Case "getallmovingpicture"
+                    results = MovingPictures.GetAllMovies()
+
                 Case "getmovingpicturefilter"
                     If isMovingPicturesPresent Then
                         results = MovingPictures.GetVideoFilters(request.Filter, request.Value)

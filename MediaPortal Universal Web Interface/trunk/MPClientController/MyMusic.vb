@@ -22,7 +22,6 @@ Imports MediaPortal.Player
 Imports MediaPortal.Playlists
 Imports MediaPortal.GUI.Library
 Imports MediaPortal.Configuration
-
 Imports System.IO
 Imports System.Drawing
 
@@ -225,18 +224,18 @@ Namespace MPClientController
             If pagesize = 0 Then
                 For Each MPClientAlbumArtistInfo As MPClientAlbumArtistInfo In MPClientAlbumArtistInfos
                     jw.WriteStartObject()
-                    jw.WriteMember("Album")
+                    jw.WriteMember("album")
                     jw.WriteString(MPClientAlbumArtistInfo.Album)
-                    jw.WriteMember("Artist")
+                    jw.WriteMember("artist")
                     jw.WriteString(MPClientAlbumArtistInfo.Artist)
                     jw.WriteEndObject()
                 Next
             Else
                 For i As Integer = start To (start + (pagesize - 1))
                     jw.WriteStartObject()
-                    jw.WriteMember("Album")
+                    jw.WriteMember("album")
                     jw.WriteString(MPClientAlbumArtistInfos(i).Album)
-                    jw.WriteMember("Artist")
+                    jw.WriteMember("artist")
                     jw.WriteString(MPClientAlbumArtistInfos(i).Artist)
                     jw.WriteEndObject()
                 Next
@@ -331,11 +330,11 @@ Namespace MPClientController
             If pagesize = 0 Then
                 For Each MPClientTrackInfo As MPClientTrackInfo In MPClientTrackInfos
                     jw.WriteStartObject()
-                    jw.WriteMember("Title")
+                    jw.WriteMember("title")
                     jw.WriteString(MPClientTrackInfo.Title)
-                    jw.WriteMember("Artist")
+                    jw.WriteMember("artist")
                     jw.WriteString(MPClientTrackInfo.Artist)
-                    jw.WriteMember("ID")
+                    jw.WriteMember("id")
                     jw.WriteString(MPClientTrackInfo.ID)
                     jw.WriteEndObject()
                 Next
@@ -349,11 +348,11 @@ Namespace MPClientController
                 For i As Integer = start To finish
                     If MPClientTrackInfos.Count >= i - 1 Then
                         jw.WriteStartObject()
-                        jw.WriteMember("Title")
+                        jw.WriteMember("title")
                         jw.WriteString(MPClientTrackInfos(i).Title)
-                        jw.WriteMember("Artist")
+                        jw.WriteMember("artist")
                         jw.WriteString(MPClientTrackInfos(i).Artist)
-                        jw.WriteMember("ID")
+                        jw.WriteMember("id")
                         jw.WriteString(MPClientTrackInfos(i).ID)
                         jw.WriteEndObject()
                     End If
@@ -382,11 +381,11 @@ Namespace MPClientController
             For Each song As Song In songs
                 If (song.Album.ToLower = album.ToLower) And (song.Artist.ToLower = artist.ToLower) Then
                     jw.WriteStartObject()
-                    jw.WriteMember("Title")
+                    jw.WriteMember("title")
                     jw.WriteString(song.Title)
-                    jw.WriteMember("ID")
+                    jw.WriteMember("id")
                     jw.WriteString(song.Id)
-                    jw.WriteMember("Filename")
+                    jw.WriteMember("filename")
                     jw.WriteString(song.FileName)
                     jw.WriteEndObject()
                 End If
