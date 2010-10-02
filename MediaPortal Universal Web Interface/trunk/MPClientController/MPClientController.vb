@@ -44,6 +44,7 @@ Namespace MPClientController
         Private remoteHandler As InputHandler
         Private keyboardHandler As MediaPortal.Hooks.KeyboardHook
         Private isMovingPicturesPresent As Boolean = Nothing
+        Private isTVSeriesPresent As Boolean = Nothing
 
         Const DEFAULT_PORT As Integer = 55667
         Private port As Integer = DEFAULT_PORT
@@ -115,6 +116,7 @@ Namespace MPClientController
             port = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
 
             If isMovingPicturesPresent = Nothing Then isMovingPicturesPresent = iPiMPUtils.IsPluginLoaded("MovingPictures.dll")
+            If isTVSeriesPresent = Nothing Then isTVSeriesPresent = iPiMPUtils.IsPluginLoaded("MP-TVSeries.dll")
 
             tcpThread = New System.Threading.Thread(AddressOf DoTCPListen)
             tcpThread.IsBackground = True
@@ -391,7 +393,43 @@ Namespace MPClientController
 
             Select Case request.Action.ToLower
 
-                'MyVideos
+                'TVSeries
+                Case "getserieslist"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetAllSeries()
+                    End If
+                Case "getseries"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetSeries(request.Value)
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                    End If
+                Case "getseasons"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetSeasons(request.Value)
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                    End If
+                Case "getseason"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetSeason(request.Value)
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                    End If
+                Case "getepisodes"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetEpisodes(request.Value)
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                    End If
+                Case "getepisode"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetEpisode(request.Value)
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                    End If
+
+                    'MyVideos
                 Case "getmoviefilter"
                     results = MyVideos.GetVideoFilters(request.Filter, request.Value)
                 Case "getmovies"
