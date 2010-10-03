@@ -18,6 +18,7 @@
 
 Imports Jayrock.Json
 Imports WindowPlugins.GUITVSeries
+Imports MediaPortal.Player
 
 
 Namespace MPClientController
@@ -201,6 +202,35 @@ Namespace MPClientController
 
         End Function
 
+        Public Shared Function IsEpisodeIDPlaying(ByVal compositeID As String) As String
+
+            Dim seriesID As Integer = Split(compositeID, "_")(0)
+            Dim seasonIndex As Integer = Split(Split(compositeID, "_")(1), "x")(0)
+            Dim episodeIndex As Integer = Split(Split(compositeID, "_")(1), "x")(1)
+
+            Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(seriesID, seasonIndex)
+
+            Dim episode As DBEpisode = Nothing
+            For Each episode In episodeList
+                If CInt(episode.Item(DBEpisode.cEpisodeIndex)) = episodeIndex Then
+                    Exit For
+                End If
+            Next
+
+            Try
+                For i = 1 To 15
+                    If (g_Player.Playing) And (g_Player.currentFileName.ToLower = episode.Item(DBEpisode.cFilename).ToString.ToLower) Then
+                        Return iPiMPUtils.SendBool(True)
+                    Else
+                        System.Threading.Thread.Sleep(1000)
+                    End If
+                Next
+            Catch ex As Exception
+            End Try
+
+            Return iPiMPUtils.SendBool(False)
+
+        End Function
 
     End Class
 

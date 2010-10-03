@@ -163,8 +163,10 @@ Namespace MPClientController
                         Return MyVideos.GetVideoThumb(req(1), size)
                     Case "videotitle"
                         Return MyVideos.GetVideoTitle(req(1), size)
-                    Case "musicthumb"
-                        Return MyMusic.GetMusicThumb(req(1), req(2), size)
+                    Case "musicalbum"
+                        Return MyMusic.GetAlbumThumb(req(1), req(2), size)
+                    Case "musicartist"
+                        Return MyMusic.GetArtistThumb(req(1), size)
                     Case "movingpicturethumb"
                         Return MovingPictures.GetThumb(req(1))
                     Case "movingpicturefanart"

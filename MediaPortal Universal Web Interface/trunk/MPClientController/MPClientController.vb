@@ -428,6 +428,16 @@ Namespace MPClientController
                     Else
                         results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
                     End If
+                Case "playepisode"
+                    If isTVSeriesPresent Then
+                        Dim episode As New TVEpisode
+                        episode.compositeID = request.Value
+                        episode.PlayEpisode()
+                        results = TVSeries.IsEpisodeIDPlaying(request.Value)
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                    End If
+
 
                     'MyVideos
                 Case "getmoviefilter"
@@ -450,15 +460,16 @@ Namespace MPClientController
                         video.PlayVideo()
                         results = MyVideos.IsVideoIDPlaying(CInt(request.Filter))
                     End If
-
                 Case "getallmovies"
                     results = MyVideos.GetAllMovies()
 
-
                     'Moving Pictures
                 Case "getallmovingpicture"
-                    results = MovingPictures.GetAllMovies()
-
+                    If isMovingPicturesPresent Then
+                        results = MovingPictures.GetAllMovies()
+                    Else
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
+                    End If
                 Case "getmovingpicturefilter"
                     If isMovingPicturesPresent Then
                         results = MovingPictures.GetVideoFilters(request.Filter, request.Value)
@@ -492,6 +503,14 @@ Namespace MPClientController
                     End If
 
                     'My Music
+                Case "getallmusicartists"
+                    results = MyMusic.GetAllArtists()
+                Case "getallmusicgenres"
+                    results = MyMusic.GetAllGenres()
+                Case "getallmusicalbums"
+                    results = MyMusic.GetAllAlbums()
+                Case "getallmusicsongs"
+                    results = MyMusic.GetAllSongs()
                 Case "getmusicfilter"
                     results = MyMusic.GetMusicFilters(request.Filter, request.Value)
                 Case "getalbums"
