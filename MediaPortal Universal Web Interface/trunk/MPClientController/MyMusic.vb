@@ -22,6 +22,7 @@ Imports MediaPortal.Player
 Imports MediaPortal.Playlists
 Imports MediaPortal.GUI.Library
 Imports MediaPortal.Configuration
+Imports MediaPortal.Util
 Imports System.IO
 Imports System.Drawing
 
@@ -55,6 +56,191 @@ Namespace MPClientController
                 Return x.Title.CompareTo(y.Title)
             End Function
         End Class
+
+        Public Shared Function GetAllSongs() As String
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("songs")
+            jw.WriteStartArray()
+
+            Dim musicDB As MusicDatabase = MusicDatabase.Instance
+            Dim songs As New List(Of Song)
+            musicDB.GetSongsByFilter("SELECT * FROM `tracks`", songs, "album")
+
+            For Each song In songs
+                jw.WriteStartObject()
+                jw.WriteMember("id")
+                jw.WriteString(song.Id)
+                jw.WriteMember("album")
+                jw.WriteString(song.Album)
+                jw.WriteMember("artist")
+                jw.WriteString(song.Artist)
+                jw.WriteMember("albumartist")
+                jw.WriteString(song.AlbumArtist)
+                jw.WriteMember("genre")
+                jw.WriteString(song.Genre)
+                jw.WriteMember("year")
+                jw.WriteString(song.Year)
+                jw.WriteMember("song")
+                jw.WriteString(song.Title)
+                jw.WriteMember("filename")
+                jw.WriteString(song.FileName)
+                jw.WriteMember("duration")
+                jw.WriteString(song.Duration)
+                jw.WriteMember("thumb")
+                Dim thumbNailFileName As String
+                thumbNailFileName = MediaPortal.Util.Utils.GetAlbumThumbName(song.Artist, song.Album)
+                thumbNailFileName = MediaPortal.Util.Utils.ConvertToLargeCoverArt(thumbNailFileName)
+                If (File.Exists(thumbNailFileName)) Then
+                    jw.WriteString(String.Format("{0}:{1}:{2}", "musicalbum", song.Artist, song.Album))
+                Else
+                    jw.WriteString("")
+                End If
+                jw.WriteMember("fanart")
+                jw.WriteString("")
+                jw.WriteMember("tracknumber")
+                jw.WriteString(song.Track)
+                jw.WriteEndObject()
+            Next
+
+            jw.WriteEndArray()
+            jw.WriteEndObject()
+            Return jw.ToString
+        End Function
+
+
+        Public Shared Function GetAllAlbums() As String
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("albums")
+            jw.WriteStartArray()
+
+            Dim musicDB As MusicDatabase = MusicDatabase.Instance
+            Dim songs As New List(Of Song)
+            musicDB.GetSongsByFilter("SELECT * FROM `tracks` GROUP BY `strAlbum`", songs, "album")
+
+            For Each song In songs
+                jw.WriteStartObject()
+                jw.WriteMember("id")
+                jw.WriteString(song.Id)
+                jw.WriteMember("name")
+                jw.WriteString(song.Album)
+                jw.WriteMember("artist")
+                jw.WriteString(song.Artist)
+                jw.WriteMember("albumartist")
+                jw.WriteString(song.AlbumArtist)
+                jw.WriteMember("genre")
+                jw.WriteString(song.Genre)
+                jw.WriteMember("year")
+                jw.WriteString(song.Year)
+                jw.WriteMember("thumb")
+                Dim thumbNailFileName As String
+                thumbNailFileName = MediaPortal.Util.Utils.GetAlbumThumbName(song.Artist, song.Album)
+                thumbNailFileName = MediaPortal.Util.Utils.ConvertToLargeCoverArt(thumbNailFileName)
+                If (File.Exists(thumbNailFileName)) Then
+                    jw.WriteString(String.Format("{0}:{1}:{2}", "musicalbum", song.Artist, song.Album))
+                Else
+                    jw.WriteString("")
+                End If
+                jw.WriteMember("fanart")
+                jw.WriteString("")
+
+                jw.WriteEndObject()
+
+            Next
+
+
+            jw.WriteEndArray()
+            jw.WriteEndObject()
+            Return jw.ToString
+
+        End Function
+
+        Public Shared Function GetAllGenres() As String
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("genres")
+            jw.WriteStartArray()
+
+            Dim filters As New ArrayList
+            Dim musicDB As MusicDatabase = MusicDatabase.Instance
+
+            Dim results As SQLite.NET.SQLiteResultSet
+
+            results = MusicDatabase.DirectExecute("SELECT `genre`.*, COUNT(DISTINCT(`strAlbum`)) FROM `genre` JOIN `tracks` ON (`tracks`.`strGenre` = ""| "" || `genre`.`strGenre` || "" |"") GROUP BY `strGenre`")
+
+            For Each line As SQLite.NET.SQLiteResultSet.Row In results.Rows
+                jw.WriteStartObject()
+                jw.WriteMember("id")
+                jw.WriteString(line.fields(0))
+                jw.WriteMember("genre")
+                jw.WriteString(line.fields(1))
+                jw.WriteMember("numalbums")
+                jw.WriteString(line.fields(2))
+                jw.WriteMember("thumb")
+                jw.WriteString("")
+                jw.WriteMember("fanart")
+                jw.WriteString("")
+                jw.WriteEndObject()
+            Next
+
+            jw.WriteEndArray()
+            jw.WriteEndObject()
+            Return jw.ToString
+
+        End Function
+
+        Public Shared Function GetAllArtists() As String
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("artists")
+            jw.WriteStartArray()
+
+            Dim filters As New ArrayList
+            Dim musicDB As MusicDatabase = MusicDatabase.Instance
+
+            Dim results As SQLite.NET.SQLiteResultSet
+
+            results = MusicDatabase.DirectExecute("SELECT `idArtist` , `artist`.`strArtist` , `strAMGBio` , `strImage` FROM `artist` LEFT JOIN `artistinfo` ON (`artist`.`strArtist` = `artistinfo`.`strArtist` )")
+
+            For Each line As SQLite.NET.SQLiteResultSet.Row In results.Rows
+                Dim artist As String = line.fields(1)
+                jw.WriteStartObject()
+                jw.WriteMember("name")
+                jw.WriteString(artist)
+                jw.WriteMember("id")
+                jw.WriteString(line.fields(0))
+                jw.WriteMember("biography")
+                jw.WriteString(line.fields(2))
+                jw.WriteMember("image")
+                jw.WriteString(line.fields(3))
+                jw.WriteMember("thumb")
+                If (File.Exists(String.Format("{0}\{1}L{2}", Thumbs.MusicArtists, MediaPortal.Util.Utils.MakeFileName(artist), MediaPortal.Util.Utils.GetThumbExtension()))) Then
+                    jw.WriteString(String.Format("musicartist:{0}", MediaPortal.Util.Utils.MakeFileName(artist)))
+                Else
+                    jw.WriteString("")
+                End If
+                jw.WriteMember("fanart")
+                jw.WriteString("")
+                jw.WriteEndObject()
+            Next
+            jw.WriteEndArray()
+            jw.WriteEndObject()
+            Return jw.ToString
+
+        End Function
 
         Public Shared Function GetMusicFilters(ByVal filter As String, Optional ByVal value As String = "") As String
 
@@ -397,7 +583,7 @@ Namespace MPClientController
 
         End Function
 
-        Public Shared Function GetMusicThumb(ByVal artist As String, ByVal album As String, ByVal size As String) As String
+        Public Shared Function GetAlbumThumb(ByVal artist As String, ByVal album As String, ByVal size As String) As String
 
             Dim thumbNailFileName As String
             thumbNailFileName = MediaPortal.Util.Utils.GetAlbumThumbName(artist, album)
@@ -407,6 +593,14 @@ Namespace MPClientController
 
         End Function
 
+        Public Shared Function GetArtistThumb(ByVal artist As String, ByVal size As String) As String
+
+            Dim filename As String = Nothing
+            filename = String.Format("{0}\{1}{2}{3}", Thumbs.MusicArtists, artist, IIf(size.ToLower = "large", "L", ""), Utils.GetThumbExtension())
+
+            Return iPiMPUtils.GetImage(filename)
+
+        End Function
 
         Public Shared Function GetCoverArt(ByVal filter As String, ByVal value As String) As String
 
@@ -446,7 +640,7 @@ Namespace MPClientController
             jw.WriteBoolean(True)
             jw.WriteMember("image")
             If Not image Is Nothing Then
-                jw.WriteString(Convert.ToBase64String(Stream.ToArray()))
+                jw.WriteString(Convert.ToBase64String(stream.ToArray()))
             Else
                 jw.WriteString("empty")
             End If
@@ -647,13 +841,16 @@ Namespace MPClientController
 
         Private Shared Sub StartPlayback()
 
-            If playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Count > 0 Then
-                playlistPlayer.Reset()
-                playlistPlayer.CurrentPlaylistType = PlayListType.PLAYLIST_MUSIC
-                playlistPlayer.Play(0)
-            End If
+            Try
+                If playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Count > 0 Then
+                    playlistPlayer.Reset()
+                    playlistPlayer.CurrentPlaylistType = PlayListType.PLAYLIST_MUSIC
+                    playlistPlayer.Play(0)
+                End If
+                RefreshPlaylistWindow()
+            Catch ex As Exception
 
-            RefreshPlaylistWindow()
+            End Try
 
         End Sub
 

@@ -146,9 +146,17 @@ Namespace MPClientController
                 jw.WriteMember("title")
                 jw.WriteString(movieInfo.Title)
                 jw.WriteMember("fanart")
-                jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
+                If (movieInfo.BackdropFullPath.Length < 2) Then
+                    jw.WriteString("")
+                Else
+                    jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
+                End If
                 jw.WriteMember("thumb")
-                jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
+                If (movieInfo.CoverFullPath.Length < 2) Then
+                    jw.WriteString("")
+                Else
+                    jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
+                End If
                 jw.WriteMember("tagline")
                 jw.WriteString(movieInfo.Tagline)
                 jw.WriteMember("id")

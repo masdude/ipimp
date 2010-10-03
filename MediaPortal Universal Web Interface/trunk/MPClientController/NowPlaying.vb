@@ -61,7 +61,14 @@ Namespace MPClientController
                         jw.WriteMember("year")
                         jw.WriteString(song.Year.ToString)
                         jw.WriteMember("thumb")
-                        jw.WriteString(String.Format("{0}:{1}:{2}", "musicthumb", song.Artist, song.Album))
+                        Dim thumbNailFileName As String
+                        thumbNailFileName = MediaPortal.Util.Utils.GetAlbumThumbName(song.Artist, song.Album)
+                        thumbNailFileName = MediaPortal.Util.Utils.ConvertToLargeCoverArt(thumbNailFileName)
+                        If (File.Exists(thumbNailFileName)) Then
+                            jw.WriteString(String.Format("{0}:{1}:{2}", "musicalbum", song.Artist, song.Album))
+                        Else
+                            jw.WriteString("")
+                        End If
                     ElseIf g_Player.IsVideo Then
                         If MediaPortal.Util.Utils.IsDVD(g_Player.Player.CurrentFile) Then
                             jw.WriteString("dvd")
@@ -90,7 +97,7 @@ Namespace MPClientController
                                     jw.WriteString("")
                                 End If
                                 jw.WriteMember("fanart")
-                                jw.WriteString(movieID)
+                                jw.WriteString("")
                                 jw.WriteMember("tagline")
                                 jw.WriteString(movie.TagLine)
                                 jw.WriteMember("id")
@@ -168,24 +175,24 @@ Namespace MPClientController
                         jw.WriteMember("filename")
                         jw.WriteString(g_Player.Player.CurrentFile)
                     End If
-                    jw.WriteMember("duration")
-                    jw.WriteString(g_Player.Player.Duration.ToString)
-                    jw.WriteMember("position")
-                    jw.WriteString(g_Player.Player.CurrentPosition.ToString)
-                    jw.WriteMember("volume")
-                    If VolumeHandler.Instance.IsMuted Then
-                        jw.WriteNumber(0)
-                    Else
-                        jw.WriteString(Math.Floor(100.0 * VolumeHandler.Instance.Volume / VolumeHandler.Instance.Maximum))
-                    End If
-                    jw.WriteMember("playstatus")
-                    If (g_Player.Player.Paused) Then
-                        jw.WriteString("paused")
-                    Else
-                        jw.WriteString("playing")
-                    End If
+                jw.WriteMember("duration")
+                jw.WriteString(g_Player.Player.Duration.ToString)
+                jw.WriteMember("position")
+                jw.WriteString(g_Player.Player.CurrentPosition.ToString)
+                jw.WriteMember("volume")
+                If VolumeHandler.Instance.IsMuted Then
+                    jw.WriteNumber(0)
                 Else
-                    jw.WriteString("nothing")
+                    jw.WriteString(Math.Floor(100.0 * VolumeHandler.Instance.Volume / VolumeHandler.Instance.Maximum))
+                End If
+                jw.WriteMember("playstatus")
+                If (g_Player.Player.Paused) Then
+                    jw.WriteString("paused")
+                Else
+                    jw.WriteString("playing")
+                End If
+                Else
+                jw.WriteString("nothing")
                 End If
 
                 jw.WriteEndObject()

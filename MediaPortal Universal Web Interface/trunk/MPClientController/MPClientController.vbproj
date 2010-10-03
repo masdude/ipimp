@@ -143,6 +143,7 @@
     <Import Include="System.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TVEpisode.vb" />
     <Compile Include="MovingPicture.vb" />
     <Compile Include="Message.vb" />
     <Compile Include="MovingPictures.vb" />
