@@ -16,6 +16,7 @@
 ' 
 
 
+Imports System.IO
 Imports Jayrock.Json
 Imports WindowPlugins.GUITVSeries
 Imports MediaPortal.Player
@@ -24,6 +25,237 @@ Imports MediaPortal.Player
 Namespace MPClientController
 
     Public Class TVSeries
+
+        Public Shared Function GetSeriesPoster(ByVal seriesID As Integer) As String
+
+            Dim series As DBSeries = DBSeries.Get(seriesID)
+            Dim filename As String = WindowPlugins.GUITVSeries.ImageAllocator.GetSeriesPosterAsFilename(series)
+
+            Return iPiMPUtils.GetImage(filename)
+
+        End Function
+
+        Public Shared Function GetSeriesFanart(ByVal seriesID As Integer) As String
+
+            Dim filename As String = Nothing
+            filename = Fanart.getFanart(seriesID).FanartFilename
+
+            Return iPiMPUtils.GetImage(filename)
+
+        End Function
+
+        Public Shared Function GetSeasonPoster(ByVal seriesID As Integer, ByVal index As Integer) As String
+
+            Dim season As DBSeason = DBSeason.getRaw(seriesID, index)
+            Dim filename As String = WindowPlugins.GUITVSeries.ImageAllocator.GetSeasonBannerAsFilename(season)
+
+            Return iPiMPUtils.GetImage(filename)
+
+        End Function
+
+        Public Shared Function GetSeasonFanart(ByVal seriesID As Integer, ByVal index As Integer) As String
+
+            Dim filename As String = Fanart.getFanart(seriesID, index).FanartFilename
+
+            Return iPiMPUtils.GetImage(filename)
+
+        End Function
+
+        Public Shared Function GetEpisodeThumb(ByVal episodeID As String) As String
+
+            Dim sqlCondition As New SQLCondition
+            sqlCondition.Add(New DBOnlineEpisode(), DBOnlineEpisode.cCompositeID, episodeID, SQLConditionType.Equal)
+
+            Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition)
+            Dim filename As String = Nothing
+
+            For Each episode As DBEpisode In episodeList
+                filename = episode.Image
+            Next
+
+            Return iPiMPUtils.GetImage(filename)
+
+        End Function
+
+        Public Shared Function GetAllEpisodes() As String
+
+            Dim sqlCondition As New SQLCondition
+            sqlCondition.Add(New DBOnlineSeries(), DBOnlineSeries.cViewTags, "", SQLConditionType.Like)
+
+            Dim seriesList As List(Of DBSeries) = DBSeries.Get(sqlCondition)
+
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("episodes")
+            jw.WriteStartArray()
+
+            For Each series As DBSeries In seriesList
+
+                Dim sqlCondition2 As New SQLCondition
+                sqlCondition2.Add(New DBOnlineEpisode(), DBOnlineEpisode.cSeriesID, series.Item("ID"), SQLConditionType.Equal)
+
+                Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition2)
+
+                For Each episode As DBEpisode In episodeList
+                    jw.WriteStartObject()
+                    jw.WriteMember("id")
+                    jw.WriteString(episode.Item(DBOnlineEpisode.cEpisodeIndex))
+                    jw.WriteMember("show")
+                    jw.WriteString(series.Item("Pretty_Name"))
+                    jw.WriteMember("idshow")
+                    jw.WriteString(series.Item("ID"))
+                    jw.WriteMember("path")
+                    jw.WriteString(episode.Item(DBEpisode.cCompositeID))
+                    jw.WriteMember("episode")
+                    jw.WriteString(episode.Item(DBEpisode.cEpisodeIndex))
+                    jw.WriteMember("season")
+                    jw.WriteString(episode.Item(DBEpisode.cSeasonIndex))
+                    jw.WriteMember("name")
+                    jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
+                    jw.WriteMember("plot")
+                    jw.WriteString(episode.Item(DBOnlineEpisode.cEpisodeSummary))
+                    jw.WriteMember("aired")
+                    jw.WriteString(episode.Item(DBOnlineEpisode.cFirstAired))
+                    jw.WriteMember("director")
+                    jw.WriteString(episode.Item(DBOnlineEpisode.cDirector))
+                    jw.WriteMember("rating")
+                    jw.WriteString(episode.Item(DBOnlineEpisode.cRating))
+                    jw.WriteMember("filename")
+                    jw.WriteString(episode.Item(DBEpisode.cFilename))
+                    jw.WriteMember("watched")
+                    jw.WriteString(episode.Item(DBOnlineEpisode.cWatched))
+                    jw.WriteMember("studio")
+                    jw.WriteString(series.Item("Network"))
+                    jw.WriteMember("thumb")
+                    If (File.Exists(episode.Image)) Then
+                        jw.WriteString(String.Format("{0}:{1}", "tvepisodethumb", episode.Item(DBOnlineEpisode.cCompositeID)))
+                    Else
+                        jw.WriteString("")
+                    End If
+                    jw.WriteMember("fanart")
+                    jw.WriteString("")
+                    jw.WriteEndObject()
+                Next
+            Next
+            jw.WriteEndArray()
+            jw.WriteEndObject()
+
+            Return jw.ToString
+
+        End Function
+
+        Public Shared Function GetAllSeasons() As String
+
+            Dim sqlCondition As New SQLCondition
+            sqlCondition.Add(New DBOnlineSeries(), DBOnlineSeries.cViewTags, "", SQLConditionType.Like)
+
+            Dim seriesList As List(Of DBSeries) = DBSeries.Get(sqlCondition)
+
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("seasons")
+            jw.WriteStartArray()
+            For Each series As DBSeries In seriesList
+
+                Dim seasonList As List(Of DBSeason) = DBSeason.Get(CInt(series.Item("ID")))
+
+                For Each season As DBSeason In seasonList
+                    jw.WriteStartObject()
+                    jw.WriteMember("id")
+                    jw.WriteString(season.Item(DBSeason.cID))
+                    jw.WriteMember("show")
+                    jw.WriteString(series.Item("Pretty_Name"))
+                    jw.WriteMember("seasonnumber")
+                    jw.WriteString(season.Item(DBSeason.cIndex))
+                    jw.WriteMember("episodecount")
+                    jw.WriteString(season.Item(DBSeason.cEpisodeCount))
+                    jw.WriteMember("thumb")
+                    If (File.Exists(WindowPlugins.GUITVSeries.ImageAllocator.GetSeasonBannerAsFilename(season))) Then
+                        jw.WriteString(String.Format("{0}:{1}:{2}", "tvseasonposter", series.Item("ID"), season.Item(DBSeason.cIndex)))
+                    Else
+                        jw.WriteString("")
+                    End If
+
+                    jw.WriteMember("fanart")
+                    If (File.Exists(Fanart.getFanart(series.Item("ID"), season.Item(DBSeason.cIndex)).FanartFilename)) Then
+                        jw.WriteString(String.Format("{0}:{1}:{2}", "tvseasonfanart", series.Item("ID"), season.Item(DBSeason.cIndex)))
+                    Else
+                        jw.WriteString("")
+                    End If
+                    jw.WriteEndObject()
+                Next
+            Next
+            jw.WriteEndArray()
+            jw.WriteEndObject()
+
+            Return jw.ToString
+
+        End Function
+
+
+        Public Shared Function GetAllSeriesDetails() As String
+
+            Dim sqlCondition As New SQLCondition
+            sqlCondition.Add(New DBOnlineSeries(), DBOnlineSeries.cViewTags, "", SQLConditionType.Like)
+
+            Dim seriesList As List(Of DBSeries) = DBSeries.Get(sqlCondition)
+
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("series")
+            jw.WriteStartArray()
+            For Each series As DBSeries In seriesList
+                jw.WriteStartObject()
+                jw.WriteMember("id")
+                jw.WriteString(series.Item("ID"))
+                jw.WriteMember("name")
+                jw.WriteString(series.Item("Pretty_Name"))
+                jw.WriteMember("genre")
+                jw.WriteString(series.Item("Genre"))
+                jw.WriteMember("plot")
+                jw.WriteString(series.Item("Summary"))
+                jw.WriteMember("episodecount")
+                jw.WriteString(series.Item("EpisodeCount"))
+                jw.WriteMember("firstaired")
+                jw.WriteString(series.Item("FirstAired"))
+                jw.WriteMember("mpaa")
+                jw.WriteString(series.Item("ContentRating"))
+                jw.WriteMember("studio")
+                jw.WriteString(series.Item("Network"))
+                jw.WriteMember("rating")
+                jw.WriteString(series.Item("Rating"))
+
+                jw.WriteMember("thumb")
+                If (File.Exists(WindowPlugins.GUITVSeries.ImageAllocator.GetSeriesPosterAsFilename(series))) Then
+                    jw.WriteString(String.Format("{0}:{1}", "tvseriesposter", series.Item("ID")))
+                Else
+                    jw.WriteString("")
+                End If
+
+                jw.WriteMember("fanart")
+                If (File.Exists(Fanart.getFanart(series.Item("ID")).FanartFilename)) Then
+                    jw.WriteString(String.Format("{0}:{1}", "tvseriesfanart", series.Item("ID")))
+                Else
+                    jw.WriteString("")
+                End If
+
+                jw.WriteEndObject()
+            Next
+            jw.WriteEndArray()
+            jw.WriteEndObject()
+
+            Return jw.ToString
+
+        End Function
 
         Public Shared Function GetAllSeries() As String
 

@@ -205,7 +205,7 @@ Namespace MPClientController
                 Next
             Catch ex As Exception
             End Try
-            
+
             Dim socket As New Sockets.Socket(Sockets.AddressFamily.InterNetwork, Sockets.SocketType.Dgram, Sockets.ProtocolType.Udp)
             socket.EnableBroadcast = True
             Dim broadcastAddress As IPAddress
@@ -295,10 +295,6 @@ Namespace MPClientController
             End If
             data = myCompleteMessage.ToString
 
-#If DEBUG Then
-            iPiMPUtils.TextLog(data)
-#End If
-
             Dim request As MPClientRequest
             If data.Length > 0 Then
                 Log.Debug("plugin: iPiMPClient - Raw: {0}", data)
@@ -331,10 +327,6 @@ Namespace MPClientController
 
             stream.Write(response, 0, response.Length)
             stream.Close()
-
-#If DEBUG Then
-            iPiMPUtils.TextLog(results)
-#End If
 
             Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(response))
 
@@ -378,10 +370,6 @@ Namespace MPClientController
             outputStream.Write(buffer, 0, buffer.Length)
             outputStream.Close()
 
-#If DEBUG Then
-            iPiMPUtils.TextLog(results)
-#End If
-
             Log.Debug("plugin: iPiMPClient - Sent: {0}", System.Text.Encoding.UTF8.GetString(buffer))
 
         End Sub
@@ -403,9 +391,29 @@ Namespace MPClientController
             Select Case request.Action.ToLower
 
                 'TVSeries
+                Case "getallseries"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetAllSeriesDetails()
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                    End If
+                Case "getallseasons"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetAllSeasons()
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                    End If
+                Case "getallepisodes"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetAllEpisodes()
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                    End If
                 Case "getserieslist"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetAllSeries()
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
                     End If
                 Case "getseries"
                     If isTVSeriesPresent Then
@@ -595,7 +603,7 @@ Namespace MPClientController
                     results = iPiMPUtils.SendString("version", ver)
 
                 Case "nowplaying"
-                    results = NowPlaying.GetNowPlaying(isMovingPicturesPresent)
+                    results = NowPlaying.GetNowPlaying(isMovingPicturesPresent, isTVSeriesPresent)
 
                 Case "volume"
                     results = iPiMPUtils.SetVolume(request.Value)
