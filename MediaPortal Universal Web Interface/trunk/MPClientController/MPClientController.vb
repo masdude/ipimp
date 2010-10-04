@@ -136,18 +136,26 @@ Namespace MPClientController
         End Sub
 
         Private Sub DoStop()
+            Try
+                tcpListener.Stop()
+                tcpThread.Abort()
+                Log.Info("plugin: MPClientController - stopped TCP listening")
+            Catch ex As Exception
+            End Try
 
-            tcpListener.Stop()
-            tcpThread.Abort()
-            Log.Info("plugin: MPClientController - stopped TCP listening")
+            Try
+                httpContext = Nothing
+                httpListener.Stop()
+                httpThread.Abort()
+                Log.Info("plugin: MPClientController - stopped HTTP listening")
+            Catch ex As Exception
+            End Try
 
-            httpContext = Nothing
-            httpListener.Stop()
-            httpThread.Abort()
-            Log.Info("plugin: MPClientController - stopped HTTP listening")
-
-            broadcastThread.Abort()
-            Log.Info("plugin: MPClientController - stopped broadcasting")
+            Try
+                broadcastThread.Abort()
+                Log.Info("plugin: MPClientController - stopped broadcasting")
+            Catch ex As Exception
+            End Try
 
         End Sub
 
@@ -201,7 +209,7 @@ Namespace MPClientController
             Dim socket As New Sockets.Socket(Sockets.AddressFamily.InterNetwork, Sockets.SocketType.Dgram, Sockets.ProtocolType.Udp)
             socket.EnableBroadcast = True
             Dim broadcastAddress As IPAddress
-            Dim sendbuf As Byte() = Encoding.ASCII.GetBytes(String.Format("{0},{1},{2}", hostname, MACAddress, port))
+            Dim sendbuf As Byte() = Encoding.ASCII.GetBytes(String.Format("{0},{1},{2},{3},{4}", hostname, MACAddress, port, isMovingPicturesPresent, isTVSeriesPresent))
 
             Do
                 broadcastAddresses = GetDirectBroadcastAddresses()
@@ -211,6 +219,7 @@ Namespace MPClientController
                     socket.SendTo(sendbuf, endpoint)
                     Log.Debug("plugin: MPClientController - iPiMP ping on {0}", address)
                 Next
+                Log.Debug("plugin: MPClientController - iPiMP ping data {0}", Encoding.ASCII.GetString(sendbuf))
                 System.Threading.Thread.Sleep(1000 * 60) 'sleep for one minute
             Loop
 

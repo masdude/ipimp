@@ -805,10 +805,15 @@ Namespace MPClientController
             Dim musicDB As MusicDatabase = MusicDatabase.Instance
             playlistPlayer = playlistPlayer.SingletonPlayer
 
+            Dim playList As PlayList = playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC)
+
             Dim trackIDs() As String
             trackIDs = Split(tracks, ",")
 
-            If Not enqueue Then playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Clear()
+            If Not enqueue Then
+                playList.Clear()
+                playlistPlayer.g_Player.Stop()
+            End If
 
             For Each trackID As String In trackIDs
                 Dim songs As New List(Of Song)
@@ -816,13 +821,13 @@ Namespace MPClientController
                     musicDB.GetSongsByFilter("select * from tracks where idTrack = " & trackID.ToString, songs, "album")
                     For Each Song As Song In songs
                         Dim item As New PlayListItem(Song.Title, Song.FileName)
-                        playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Add(item)
+                        playList.Add(item)
                     Next
                 End If
             Next
 
-            If (playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Count > 0) AndAlso shuffle Then
-                playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Shuffle()
+            If (playList.Count > 0) AndAlso shuffle Then
+                playList.Shuffle()
             End If
 
             If Not enqueue Then
@@ -845,7 +850,9 @@ Namespace MPClientController
                 If playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Count > 0 Then
                     playlistPlayer.Reset()
                     playlistPlayer.CurrentPlaylistType = PlayListType.PLAYLIST_MUSIC
-                    playlistPlayer.Play(0)
+                    If (Not playlistPlayer.g_Player.Playing) Then
+                        playlistPlayer.Play(0)
+                    End If
                 End If
                 RefreshPlaylistWindow()
             Catch ex As Exception
