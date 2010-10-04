@@ -35,9 +35,9 @@ Partial Class SetupForm
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(12, 57)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(155, 13)
+        Me.Label1.Size = New System.Drawing.Size(150, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Enter the start port for remoting."
+        Me.Label1.Text = "Enter the tcp port for remoting."
         '
         'Port
         '
@@ -63,9 +63,9 @@ Partial Class SetupForm
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(12, 26)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(161, 13)
+        Me.Label3.Size = New System.Drawing.Size(167, 13)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "communictions and one for http. "
+        Me.Label3.Text = "communications and one for http. "
         '
         'Label4
         '
@@ -74,7 +74,7 @@ Partial Class SetupForm
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(187, 13)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = "( The 2nd listener will use this port +1 )"
+        Me.Label4.Text = "( The http listener will use this port +1 )"
         '
         'SetupForm
         '

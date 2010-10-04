@@ -17,6 +17,7 @@
 
 
 Imports System.IO
+Imports WindowPlugins.GUITVSeries
 Imports MediaPortal.Plugins.MovingPictures.Database
 Imports MediaPortal.Player
 Imports MediaPortal.Music.Database
@@ -28,7 +29,7 @@ Namespace MPClientController
 
     Public Class NowPlaying
 
-        Public Shared Function GetNowPlaying(ByVal useMovingPictures As Boolean) As String
+        Public Shared Function GetNowPlaying(ByVal useMovingPictures As Boolean, ByVal isTVSeriesPresent As Boolean) As String
             Try
                 Dim result As String = String.Empty
 
@@ -115,10 +116,11 @@ Namespace MPClientController
                                 jw.WriteMember("rating")
                                 jw.WriteString(movie.Rating)
                             Else
+                                Dim Found As Boolean = False
                                 If useMovingPictures Then
                                     Dim allMovies As New List(Of DBMovieInfo)
                                     allMovies = DBMovieInfo.GetAll
-                                    Dim Finded As Boolean = False
+
                                     For Each movieInfo As DBMovieInfo In allMovies
                                         For Each mediaFile As DBLocalMedia In movieInfo.LocalMedia
                                             If mediaFile.FullPath.ToLower = g_Player.Player.CurrentFile.ToLower Then
@@ -145,15 +147,59 @@ Namespace MPClientController
                                                 jw.WriteString(movieInfo.Year)
                                                 jw.WriteMember("rating")
                                                 jw.WriteString(movieInfo.Score)
-                                                Finded = True
+                                                Found = True
                                                 Exit For
                                             End If
                                         Next
-                                        If Finded Then
+                                        If Found Then
                                             Exit For
                                         End If
                                     Next
                                 End If
+                                If (Not Found And isTVSeriesPresent) Then
+                                    Found = False
+
+                                    Dim sqlCondition As New SQLCondition
+                                    sqlCondition.Add(New DBEpisode(), DBEpisode.cFilename, g_Player.Player.CurrentFile.ToString, SQLConditionType.Equal)
+
+                                    Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition)
+                                    If (episodeList.Count > 0) Then
+                                        Found = True
+                                        jw.WriteString("tvepisode")
+                                        jw.WriteMember("episode")
+                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cEpisodeIndex))
+                                        jw.WriteMember("season")
+                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeasonIndex))
+                                        jw.WriteMember("plot")
+                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cEpisodeSummary))
+                                        jw.WriteMember("title")
+                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cEpisodeName))
+                                        jw.WriteMember("rating")
+                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cRating))
+                                        jw.WriteMember("firstaired")
+                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cFirstAired))
+                                        jw.WriteMember("filename")
+                                        jw.WriteString(g_Player.Player.CurrentFile)
+                                        jw.WriteMember("fanart")
+                                        If (File.Exists(Fanart.getFanart(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeriesID)).FanartFilename)) Then
+                                            jw.WriteString(String.Format("{0}:{1}", "tvseriesfanart", episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeriesID)))
+                                        Else
+                                            jw.WriteString("")
+                                        End If
+                                        jw.WriteMember("thumb")
+                                        If (File.Exists(episodeList(0).Image)) Then
+                                            jw.WriteString(String.Format("{0}:{1}", "tvepisodethumb", episodeList(0).Item(DBOnlineEpisode.cCompositeID)))
+                                        Else
+                                            jw.WriteString("")
+                                        End If
+                                    End If
+                                End If
+                                If (Not Found) Then
+                                    jw.WriteString("unknown")
+                                    jw.WriteMember("filename")
+                                    jw.WriteString(g_Player.Player.CurrentFile)
+                                End If
+
                             End If
                         End If
                     ElseIf g_Player.IsTVRecording Then
@@ -175,31 +221,31 @@ Namespace MPClientController
                         jw.WriteMember("filename")
                         jw.WriteString(g_Player.Player.CurrentFile)
                     End If
-                jw.WriteMember("duration")
-                jw.WriteString(g_Player.Player.Duration.ToString)
-                jw.WriteMember("position")
-                jw.WriteString(g_Player.Player.CurrentPosition.ToString)
-                jw.WriteMember("volume")
-                If VolumeHandler.Instance.IsMuted Then
-                    jw.WriteNumber(0)
+                    jw.WriteMember("duration")
+                    jw.WriteString(g_Player.Player.Duration.ToString)
+                    jw.WriteMember("position")
+                    jw.WriteString(g_Player.Player.CurrentPosition.ToString)
+                    jw.WriteMember("volume")
+                    If VolumeHandler.Instance.IsMuted Then
+                        jw.WriteNumber(0)
+                    Else
+                        jw.WriteString(Math.Floor(100.0 * VolumeHandler.Instance.Volume / VolumeHandler.Instance.Maximum))
+                    End If
+                    jw.WriteMember("playstatus")
+                    If (g_Player.Player.Paused) Then
+                        jw.WriteString("paused")
+                    Else
+                        jw.WriteString("playing")
+                    End If
                 Else
-                    jw.WriteString(Math.Floor(100.0 * VolumeHandler.Instance.Volume / VolumeHandler.Instance.Maximum))
-                End If
-                jw.WriteMember("playstatus")
-                If (g_Player.Player.Paused) Then
-                    jw.WriteString("paused")
-                Else
-                    jw.WriteString("playing")
-                End If
-                Else
-                jw.WriteString("nothing")
+                    jw.WriteString("nothing")
                 End If
 
                 jw.WriteEndObject()
 
                 Return jw.ToString
             Catch ex As Exception
-                Return iPiMPUtils.SendError(7, "Error processing request.")
+                Return iPiMPUtils.SendError(7, "Error processing request." & ex.Message)
             End Try
 
         End Function

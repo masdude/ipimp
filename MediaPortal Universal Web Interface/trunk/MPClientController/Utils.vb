@@ -71,22 +71,6 @@ Namespace MPClientController
 
         End Function
 
-        Public Shared Sub TextLog(ByVal text As String)
-
-            Dim filename As String = "C:\LogMPController.txt"
-
-            If System.IO.File.Exists(filename) = True Then
-                Dim objWriter As New System.IO.StreamWriter(filename, True)
-                objWriter.WriteLine(text)
-                objWriter.Close()
-            Else
-                Dim objWriter As New System.IO.StreamWriter(filename, False)
-                objWriter.WriteLine(text)
-                objWriter.Close()
-            End If
-
-        End Sub
-
         Public Shared Function IsPluginLoaded(ByVal dll As String, Optional ByVal type As String = "windows") As Boolean
 
             If File.Exists(String.Format("{0}\{1}\{2}", Config.Dir.Plugins, type, dll)) Then
@@ -106,32 +90,51 @@ Namespace MPClientController
 
             If (File.Exists(filename)) Then
 
-                Dim stream As MemoryStream = New MemoryStream()
-                Dim image As Image = Drawing.Image.FromFile(filename)
-                Dim format As Imaging.ImageFormat
-                Dim ext As String = Path.GetExtension(filename)
+                Try
+                    Dim stream As MemoryStream = New MemoryStream()
+                    Dim image As Image = Drawing.Image.FromFile(filename)
+                    Dim format As Imaging.ImageFormat
+                    Dim ext As String = Path.GetExtension(filename)
 
-                Select Case ext.ToLower
-                    Case ".jpg"
-                        format = Imaging.ImageFormat.Jpeg
-                    Case ".png"
-                        format = Imaging.ImageFormat.Png
-                    Case ".gif"
-                        format = Imaging.ImageFormat.Gif
-                    Case ".bmp"
-                        format = Imaging.ImageFormat.Bmp
-                    Case Else
-                        format = Nothing
-                End Select
-                image.Save(stream, format)
+                    Select Case ext.ToLower
+                        Case ".jpg"
+                            format = Imaging.ImageFormat.Jpeg
+                        Case ".png"
+                            format = Imaging.ImageFormat.Png
+                        Case ".gif"
+                            format = Imaging.ImageFormat.Gif
+                        Case ".bmp"
+                            format = Imaging.ImageFormat.Bmp
+                        Case Else
+                            format = Nothing
+                    End Select
+                    image.Save(stream, format)
+                    image.Dispose()
 
-                jw.WriteBoolean(True)
-                jw.WriteMember("filetype")
-                jw.WriteString(format.ToString)
-                jw.WriteMember("filename")
-                jw.WriteString(Path.GetFileName(filename))
-                jw.WriteMember("data")
-                jw.WriteString(Convert.ToBase64String(stream.ToArray()))
+                    jw.WriteBoolean(True)
+                    jw.WriteMember("filetype")
+                    jw.WriteString(format.ToString)
+                    jw.WriteMember("filename")
+                    jw.WriteString(Path.GetFileName(filename))
+                    jw.WriteMember("data")
+                    jw.WriteString(Convert.ToBase64String(stream.ToArray()))
+                    stream.Close()
+                    stream.Dispose()
+                Catch ex As Exception
+                    jw.Close()
+                    jw = New JsonTextWriter
+                    jw.PrettyPrint = True
+                    jw.WriteStartObject()
+                    jw.WriteMember("result")
+                    jw.WriteBoolean(False)
+                    jw.WriteMember("filetype")
+                    jw.WriteString("nofile")
+                    jw.WriteMember("filename")
+                    jw.WriteString("")
+                    jw.WriteMember("data")
+                    jw.WriteString("")
+                End Try
+                
             Else
                 jw.WriteBoolean(False)
                 jw.WriteMember("filetype")
@@ -159,6 +162,16 @@ Namespace MPClientController
                 Return String.Empty
             Else
                 Select Case req(0)
+                    Case "tvepisodethumb"
+                        Return TVSeries.GetEpisodeThumb(req(1))
+                    Case "tvseriesposter"
+                        Return TVSeries.GetSeriesPoster(req(1))
+                    Case "tvseriesfanart"
+                        Return TVSeries.GetSeriesFanart(req(1))
+                    Case "tvseasonposter"
+                        Return TVSeries.GetSeasonPoster(req(1), req(2))
+                    Case "tvseasonfanart"
+                        Return TVSeries.GetSeasonFanart(req(1), req(2))
                     Case "videothumb"
                         Return MyVideos.GetVideoThumb(req(1), size)
                     Case "videotitle"
