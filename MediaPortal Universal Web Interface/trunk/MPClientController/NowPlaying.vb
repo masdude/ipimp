@@ -17,8 +17,6 @@
 
 
 Imports System.IO
-Imports WindowPlugins.GUITVSeries
-Imports MediaPortal.Plugins.MovingPictures.Database
 Imports MediaPortal.Player
 Imports MediaPortal.Music.Database
 Imports MediaPortal.Video.Database
@@ -118,81 +116,10 @@ Namespace MPClientController
                             Else
                                 Dim Found As Boolean = False
                                 If useMovingPictures Then
-                                    Dim allMovies As New List(Of DBMovieInfo)
-                                    allMovies = DBMovieInfo.GetAll
-
-                                    For Each movieInfo As DBMovieInfo In allMovies
-                                        For Each mediaFile As DBLocalMedia In movieInfo.LocalMedia
-                                            If mediaFile.FullPath.ToLower = g_Player.Player.CurrentFile.ToLower Then
-                                                jw.WriteString("movingpicture")
-                                                jw.WriteMember("title")
-                                                jw.WriteString(movieInfo.Title)
-                                                jw.WriteMember("fanart")
-                                                jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
-                                                jw.WriteMember("thumb")
-                                                jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
-                                                jw.WriteMember("tagline")
-                                                jw.WriteString(movieInfo.Tagline)
-                                                jw.WriteMember("id")
-                                                jw.WriteString(movieInfo.ID)
-                                                jw.WriteMember("genre")
-                                                jw.WriteString(Join(movieInfo.Genres.ToArray, " /"))
-                                                jw.WriteMember("filename")
-                                                jw.WriteString(MediaPortal.Util.Utils.SplitFilename(g_Player.Player.CurrentFile.ToString))
-                                                jw.WriteMember("plot")
-                                                jw.WriteString(movieInfo.Summary)
-                                                jw.WriteMember("director")
-                                                jw.WriteString(Join(movieInfo.Directors.ToArray(), " / "))
-                                                jw.WriteMember("year")
-                                                jw.WriteString(movieInfo.Year)
-                                                jw.WriteMember("rating")
-                                                jw.WriteString(movieInfo.Score)
-                                                Found = True
-                                                Exit For
-                                            End If
-                                        Next
-                                        If Found Then
-                                            Exit For
-                                        End If
-                                    Next
+                                    Found = MovingPictures.FillNowPlaying(jw)
                                 End If
                                 If (Not Found And isTVSeriesPresent) Then
-                                    Found = False
-
-                                    Dim sqlCondition As New SQLCondition
-                                    sqlCondition.Add(New DBEpisode(), DBEpisode.cFilename, g_Player.Player.CurrentFile.ToString, SQLConditionType.Equal)
-
-                                    Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition)
-                                    If (episodeList.Count > 0) Then
-                                        Found = True
-                                        jw.WriteString("tvepisode")
-                                        jw.WriteMember("episode")
-                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cEpisodeIndex))
-                                        jw.WriteMember("season")
-                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeasonIndex))
-                                        jw.WriteMember("plot")
-                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cEpisodeSummary))
-                                        jw.WriteMember("title")
-                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cEpisodeName))
-                                        jw.WriteMember("rating")
-                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cRating))
-                                        jw.WriteMember("firstaired")
-                                        jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cFirstAired))
-                                        jw.WriteMember("filename")
-                                        jw.WriteString(g_Player.Player.CurrentFile)
-                                        jw.WriteMember("fanart")
-                                        If (File.Exists(Fanart.getFanart(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeriesID)).FanartFilename)) Then
-                                            jw.WriteString(String.Format("{0}:{1}", "tvseriesfanart", episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeriesID)))
-                                        Else
-                                            jw.WriteString("")
-                                        End If
-                                        jw.WriteMember("thumb")
-                                        If (File.Exists(episodeList(0).Image)) Then
-                                            jw.WriteString(String.Format("{0}:{1}", "tvepisodethumb", episodeList(0).Item(DBOnlineEpisode.cCompositeID)))
-                                        Else
-                                            jw.WriteString("")
-                                        End If
-                                    End If
+                                    Found = TVSeries.FillNowPlaying(jw)
                                 End If
                                 If (Not Found) Then
                                     jw.WriteString("unknown")

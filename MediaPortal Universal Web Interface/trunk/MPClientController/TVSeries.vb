@@ -20,11 +20,55 @@ Imports System.IO
 Imports Jayrock.Json
 Imports WindowPlugins.GUITVSeries
 Imports MediaPortal.Player
+Imports MediaPortal.GUI.Library
 
 
 Namespace MPClientController
 
     Public Class TVSeries
+
+        Public Shared Function FillNowPlaying(ByRef jw As JsonTextWriter) As Boolean
+
+            Dim Found As Boolean = False
+
+            Dim sqlCondition As New SQLCondition
+            sqlCondition.Add(New DBEpisode(), DBEpisode.cFilename, g_Player.Player.CurrentFile.ToString, SQLConditionType.Equal)
+
+            Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition)
+            If (episodeList.Count > 0) Then
+                Found = True
+                jw.WriteString("tvepisode")
+                jw.WriteMember("episode")
+                jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cEpisodeIndex))
+                jw.WriteMember("season")
+                jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeasonIndex))
+                jw.WriteMember("plot")
+                jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cEpisodeSummary))
+                jw.WriteMember("title")
+                jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cEpisodeName))
+                jw.WriteMember("rating")
+                jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cRating))
+                jw.WriteMember("firstaired")
+                jw.WriteString(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cFirstAired))
+                jw.WriteMember("filename")
+                jw.WriteString(g_Player.Player.CurrentFile)
+                jw.WriteMember("fanart")
+                If (File.Exists(Fanart.getFanart(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeriesID)).FanartFilename)) Then
+                    jw.WriteString(String.Format("{0}:{1}", "tvseriesfanart", episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeriesID)))
+                Else
+                    jw.WriteString("")
+                End If
+                jw.WriteMember("thumb")
+                If (File.Exists(episodeList(0).Image)) Then
+                    jw.WriteString(String.Format("{0}:{1}", "tvepisodethumb", episodeList(0).Item(DBOnlineEpisode.cCompositeID)))
+                Else
+                    jw.WriteString("")
+                End If
+            End If
+
+            Return Found
+        End Function
+
 
         Public Shared Function GetSeriesPoster(ByVal seriesID As Integer) As String
 
@@ -436,22 +480,21 @@ Namespace MPClientController
 
         Public Shared Function IsEpisodeIDPlaying(ByVal compositeID As String) As String
 
-            Dim seriesID As Integer = Split(compositeID, "_")(0)
-            Dim seasonIndex As Integer = Split(Split(compositeID, "_")(1), "x")(0)
-            Dim episodeIndex As Integer = Split(Split(compositeID, "_")(1), "x")(1)
+            Dim sqlCondition As New SQLCondition
+            sqlCondition.Add(New DBEpisode(), DBEpisode.cCompositeID, compositeID, SQLConditionType.Equal)
 
-            Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(seriesID, seasonIndex)
+            Dim epFileName As String = Nothing
 
-            Dim episode As DBEpisode = Nothing
-            For Each episode In episodeList
-                If CInt(episode.Item(DBEpisode.cEpisodeIndex)) = episodeIndex Then
-                    Exit For
-                End If
-            Next
+            Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition)
+            If (episodeList.Count > 0) Then
+                epFileName = episodeList(0).Item(DBEpisode.cFilename)
+            Else
+                Return iPiMPUtils.SendBool(False)
+            End If
 
             Try
                 For i = 1 To 15
-                    If (g_Player.Playing) And (g_Player.currentFileName.ToLower = episode.Item(DBEpisode.cFilename).ToString.ToLower) Then
+                    If (g_Player.Playing) And (g_Player.Player.CurrentFile.ToLower = epFileName.ToLower) Then
                         Return iPiMPUtils.SendBool(True)
                     Else
                         System.Threading.Thread.Sleep(1000)

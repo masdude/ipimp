@@ -82,14 +82,15 @@ Namespace MPClientController
                 Dim min As Integer = Split(minVersion, ".")(1)
                 Dim bld As Integer = Split(minVersion, ".")(2)
                 Dim rev As Integer = Split(minVersion, ".")(3)
-
+                Log.Info(String.Format("plugin: MPClientController - Plugin found : {0} ({1}.{2}.{3}.{4})", dll, fileVersionInfo.FileMajorPart, fileVersionInfo.FileMinorPart, fileVersionInfo.FileBuildPart, fileVersionInfo.FilePrivatePart))
                 If PluginManager.IsPlugInEnabled(dll) Then
-                    If (maj >= fileVersionInfo.FileMajorPart) And
-                        (min >= fileVersionInfo.FileMinorPart) And
-                        (bld >= fileVersionInfo.FileBuildPart) And
-                        (rev >= fileVersionInfo.FilePrivatePart) Then
-                        Return True
-                    End If
+                    If (fileVersionInfo.FileMajorPart > maj) Then Return True
+                    If (fileVersionInfo.FileMajorPart < maj) Then Return False
+                    If (fileVersionInfo.FileMinorPart > min) Then Return True
+                    If (fileVersionInfo.FileMinorPart < min) Then Return False
+                    If (fileVersionInfo.FileBuildPart > bld) Then Return True
+                    If (fileVersionInfo.FileBuildPart < bld) Then Return False
+                    If (fileVersionInfo.FilePrivatePart >= rev) Then Return True
                 End If
             End If
 
