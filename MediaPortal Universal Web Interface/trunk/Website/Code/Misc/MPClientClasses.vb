@@ -23,6 +23,8 @@ Namespace uWiMP.TVServer.MPClient
         Public Hostname As String
         Public MACAddress As String
         Public Port As String
+        Public usesMovingPictures As Boolean
+        Public usesTVSeries As Boolean
     End Class
 
     Public Class Request
@@ -60,6 +62,21 @@ Namespace uWiMP.TVServer.MPClient
         Public Rating As String
         Public ThumbURL As String
         Public IMDBNumber As String
+    End Class
+
+    Public Class SmallSeriesInfo
+        Public ID As Integer
+        Public Name As String
+    End Class
+
+    Public Class SmallSeasonInfo
+        Public ID As String
+    End Class
+
+    Public Class SmallEpisodeInfo
+        Public ID As String
+        Public Index As Integer
+        Public Name As String
     End Class
 
 End Namespace

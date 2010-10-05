@@ -51,6 +51,8 @@ Public Class Global_asax
         client.Hostname = clientInfo(0)
         client.MACAddress = clientInfo(1)
         client.Port = clientInfo(2)
+        client.usesMovingPictures = clientInfo(3)
+        client.usesTVSeries = clientInfo(4)
 
         If uWiMP.TVServer.MPClientDatabase.IsExistingClientByHostname(client.Hostname) Then
             Dim oldClient As uWiMP.TVServer.MPClient.Client = uWiMP.TVServer.MPClientDatabase.GetClientByHostname(client.Hostname)
