@@ -119,14 +119,14 @@ Namespace MPClientController
 
             If isMovingPicturesPresent = Nothing Then
                 isMovingPicturesPresent = iPiMPUtils.IsPluginLoaded("MovingPictures.dll", SUPPORTED_MOVING_PICTURES_MINVERSION)
-                Log.Debug("plugin: MPClientController - MovingPictures detected version, min version: {0} iPiMP supported: {1}", SUPPORTED_MOVING_PICTURES_MINVERSION, isMovingPicturesPresent)
+                Log.Info("plugin: MPClientController - MovingPictures detected version, min version: {0} iPiMP supported: {1}", SUPPORTED_MOVING_PICTURES_MINVERSION, isMovingPicturesPresent)
             End If
 
             If isTVSeriesPresent = Nothing Then
                 isTVSeriesPresent = iPiMPUtils.IsPluginLoaded("MP-TVSeries.dll", SUPPORTED_TV_SERIES_MINVERSION)
-                Log.Debug("plugin: MPClientController - TVSeries detected version, min version: {0} iPiMP supported: {1}", SUPPORTED_TV_SERIES_MINVERSION, isTVSeriesPresent.ToString)
+                Log.Info("plugin: MPClientController - TVSeries detected version, min version: {0} iPiMP supported: {1}", SUPPORTED_TV_SERIES_MINVERSION, isTVSeriesPresent.ToString)
             End If
-            
+
             tcpThread = New System.Threading.Thread(AddressOf DoTCPListen)
             tcpThread.IsBackground = True
             tcpThread.Start()
@@ -461,7 +461,7 @@ Namespace MPClientController
                         episode.PlayEpisode()
                         results = TVSeries.IsEpisodeIDPlaying(request.Value)
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
+                    results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
 
 
