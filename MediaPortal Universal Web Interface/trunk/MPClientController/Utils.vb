@@ -17,6 +17,7 @@
 
 Imports System.IO
 Imports System.Drawing
+Imports System.Diagnostics
 Imports Jayrock.Json
 Imports MediaPortal.Configuration
 Imports MediaPortal.Player
@@ -71,10 +72,25 @@ Namespace MPClientController
 
         End Function
 
-        Public Shared Function IsPluginLoaded(ByVal dll As String, Optional ByVal type As String = "windows") As Boolean
+        Public Shared Function IsPluginLoaded(ByVal dll As String, ByVal minVersion As String, Optional ByVal type As String = "windows") As Boolean
 
-            If File.Exists(String.Format("{0}\{1}\{2}", Config.Dir.Plugins, type, dll)) Then
-                If PluginManager.IsPlugInEnabled(dll) Then Return True
+            Dim filename As String = String.Format("{0}\{1}\{2}", Config.Dir.Plugins, type, dll)
+
+            If File.Exists(filename) Then
+                Dim fileVersionInfo As FileVersionInfo = fileVersionInfo.GetVersionInfo(filename)
+                Dim maj As Integer = Split(minVersion, ".")(0)
+                Dim min As Integer = Split(minVersion, ".")(1)
+                Dim bld As Integer = Split(minVersion, ".")(2)
+                Dim rev As Integer = Split(minVersion, ".")(3)
+
+                If PluginManager.IsPlugInEnabled(dll) Then
+                    If (maj >= fileVersionInfo.FileMajorPart) And
+                        (min >= fileVersionInfo.FileMinorPart) And
+                        (bld >= fileVersionInfo.FileBuildPart) And
+                        (rev >= fileVersionInfo.FilePrivatePart) Then
+                        Return True
+                    End If
+                End If
             End If
 
             Return False
@@ -134,7 +150,7 @@ Namespace MPClientController
                     jw.WriteMember("data")
                     jw.WriteString("")
                 End Try
-                
+
             Else
                 jw.WriteBoolean(False)
                 jw.WriteMember("filetype")

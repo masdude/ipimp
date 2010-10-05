@@ -47,6 +47,8 @@ Namespace MPClientController
         Private isTVSeriesPresent As Boolean = Nothing
 
         Const DEFAULT_PORT As Integer = 55667
+        Const SUPPORTED_MOVING_PICTURES_MINVERSION As String = "1.0.6.1116"
+        Const SUPPORTED_TV_SERIES_MINVERSION As String = "2.6.2.1231"
         Private port As Integer = DEFAULT_PORT
 
 #Region "ISetupForm members"
@@ -115,9 +117,16 @@ Namespace MPClientController
             Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
             port = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
 
-            If isMovingPicturesPresent = Nothing Then isMovingPicturesPresent = iPiMPUtils.IsPluginLoaded("MovingPictures.dll")
-            If isTVSeriesPresent = Nothing Then isTVSeriesPresent = iPiMPUtils.IsPluginLoaded("MP-TVSeries.dll")
+            If isMovingPicturesPresent = Nothing Then
+                isMovingPicturesPresent = iPiMPUtils.IsPluginLoaded("MovingPictures.dll", SUPPORTED_MOVING_PICTURES_MINVERSION)
+                Log.Debug("plugin: MPClientController - MovingPictures detected version, min version: {0} iPiMP supported: {1}", SUPPORTED_MOVING_PICTURES_MINVERSION, isMovingPicturesPresent)
+            End If
 
+            If isTVSeriesPresent = Nothing Then
+                isTVSeriesPresent = iPiMPUtils.IsPluginLoaded("MP-TVSeries.dll", SUPPORTED_TV_SERIES_MINVERSION)
+                Log.Debug("plugin: MPClientController - TVSeries detected version, min version: {0} iPiMP supported: {1}", SUPPORTED_TV_SERIES_MINVERSION, isTVSeriesPresent.ToString)
+            End If
+            
             tcpThread = New System.Threading.Thread(AddressOf DoTCPListen)
             tcpThread.IsBackground = True
             tcpThread.Start()
@@ -395,55 +404,55 @@ Namespace MPClientController
                     If isTVSeriesPresent Then
                         results = TVSeries.GetAllSeriesDetails()
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
                 Case "getallseasons"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetAllSeasons()
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
                 Case "getallepisodes"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetAllEpisodes()
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
                 Case "getserieslist"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetAllSeries()
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
                 Case "getseries"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetSeries(request.Value)
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
                 Case "getseasons"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetSeasons(request.Value)
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
                 Case "getseason"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetSeason(request.Value)
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
                 Case "getepisodes"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetEpisodes(request.Value)
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
                 Case "getepisode"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetEpisode(request.Value)
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
                 Case "playepisode"
                     If isTVSeriesPresent Then
@@ -452,7 +461,7 @@ Namespace MPClientController
                         episode.PlayEpisode()
                         results = TVSeries.IsEpisodeIDPlaying(request.Value)
                     Else
-                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
 
 
@@ -485,13 +494,13 @@ Namespace MPClientController
                     If isMovingPicturesPresent Then
                         results = MovingPictures.GetAllMovies()
                     Else
-                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded or wrong version")
                     End If
                 Case "getmovingpicturefilter"
                     If isMovingPicturesPresent Then
                         results = MovingPictures.GetVideoFilters(request.Filter, request.Value)
                     Else
-                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded or wrong version")
                     End If
                 Case "getmovingpictures"
                     If isMovingPicturesPresent Then
@@ -501,13 +510,13 @@ Namespace MPClientController
                             results = MovingPictures.GetMovies()
                         End If
                     Else
-                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded or wrong version")
                     End If
                 Case "getmovingpicture"
                     If isMovingPicturesPresent Then
                         If Not request.Filter = String.Empty Then results = MovingPictures.GetVideoInfo(request.Filter)
                     Else
-                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded or wrong version")
                     End If
                 Case "playmovingpicture"
                     If isMovingPicturesPresent Then
@@ -516,7 +525,7 @@ Namespace MPClientController
                             results = MovingPictures.IsVideoIDPlaying(CInt(request.Filter))
                         End If
                     Else
-                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded")
+                        results = iPiMPUtils.SendString("warning", "MovingPictures not loaded or wrong version")
                     End If
 
                     'My Music
