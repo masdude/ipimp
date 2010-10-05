@@ -61,7 +61,7 @@ Partial Public Class MPClientMainMenu
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayMPClientsMenu(wa))
+        xw.WriteCData(DisplayMPClientsMenu())
         xw.WriteEndElement()
         'end data
 

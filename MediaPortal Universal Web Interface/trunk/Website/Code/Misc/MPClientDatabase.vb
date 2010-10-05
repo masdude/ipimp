@@ -186,12 +186,12 @@ Namespace uWiMP.TVServer
                 Case "delete"
                     cmd.CommandText = "DELETE FROM `MPClients` WHERE Friendly = $Friendly"
                 Case "insert"
-                    cmd.CommandText = "INSERT INTO `MPClients` (Friendly, Hostname, Port, MACAddress) VALUES ($Friendly, $Hostname, $Port, $MACAddress)"
+                    cmd.CommandText = "INSERT INTO `MPClients` (Friendly, Hostname, Port, MACAddress, UsesMovingPictures, UsesTVSeries) VALUES ($Friendly, $Hostname, $Port, $MACAddress, $UsesMovingPictures, $UsesTVSeries)"
                 Case "update"
                     If IsExistingClient(client.Friendly) Then
-                        cmd.CommandText = "UPDATE `MPClients` SET Hostname = $Hostname, Port = $Port, MACAddress = $MACAddress WHERE Friendly = $Friendly"
+                        cmd.CommandText = "UPDATE `MPClients` SET Hostname = $Hostname, Port = $Port, MACAddress = $MACAddress, UsesMovingPictures = $UsesMovingPictures, UsesTVSeries = $UsesTVSeries WHERE Friendly = $Friendly"
                     Else
-                        cmd.CommandText = "UPDATE `MPClients` SET Friendly = $Friendly, Port = $Port, MACAddress = $MACAddress WHERE Hostname = $Hostname"
+                        cmd.CommandText = "UPDATE `MPClients` SET Friendly = $Friendly, Port = $Port, MACAddress = $MACAddress, UsesMovingPictures = $UsesMovingPictures, UsesTVSeries = $UsesTVSeries WHERE Hostname = $Hostname"
                     End If
             End Select
 
@@ -199,6 +199,8 @@ Namespace uWiMP.TVServer
                 cmd.Parameters.Add("$Hostname", DbType.String, 255).Value = client.Hostname.ToLower
                 cmd.Parameters.Add("$Port", DbType.String, 255).Value = client.Port.ToString
                 cmd.Parameters.Add("$MACAddress", DbType.String, 255).Value = client.MACAddress.ToString
+                cmd.Parameters.Add("$UsesMovingPictures", DbType.Boolean, 255).Value = client.usesMovingPictures
+                cmd.Parameters.Add("$UsesTVSeries", DbType.Boolean, 255).Value = client.usesTVSeries
             End If
 
             Dim rows As Integer = 0

@@ -191,10 +191,9 @@ function updatesettings() {
     var submenu = document.getElementById('jsMPClientSubmenu').checked;
     var recsubmenu = document.getElementById('jsRecsSubmenu').checked;
     var myvideos = document.getElementById('jsMyVideos').checked;
-    var movpics = document.getElementById('jsMovingPictures').checked;
     var sortlists = document.getElementById('jsSortLists').checked;
     
-    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '&recent=' + recent + '&myvideos=' + myvideos + '&movpics=' + movpics + '&sortlists=' + sortlists + '&guidedays=' + guidedays + '#_SettingsResult', null, -1, true, null);
+    WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '&recent=' + recent + '&myvideos=' + myvideos + '&sortlists=' + sortlists + '&guidedays=' + guidedays + '#_SettingsResult', null, -1, true, null);
     
     return false;
 }

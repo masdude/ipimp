@@ -87,16 +87,27 @@ Partial Public Class MPClientMenu
 
         If uWiMP.TVServer.MPClientRemoting.CanConnect(client.Friendly) Then
             markup += String.Format("<li><a href=""MPClient/MCERemoteControl.aspx?friendly={0}#_Remote1"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "remote_control"))
+
             If CBool(uWiMP.TVServer.Utilities.GetAppConfig("MYVIDEOS")) Then
                 markup += String.Format("<li><a href=""MPClient/MyVideosMenu.aspx?friendly={0}#_MyVideos"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "my_videos"))
             End If
+
             markup += String.Format("<li><a href=""MPClient/MyMusicMenu.aspx?friendly={0}#_MyMusic"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "my_music"))
-            If CBool(uWiMP.TVServer.Utilities.GetAppConfig("MOVINGPICTURES")) Then
+
+            If client.usesMovingPictures Then
                 markup += String.Format("<li><a href=""MPClient/MovingPicturesMenu.aspx?friendly={0}#_MovingPictures"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "moving_pictures"))
             End If
+
+            If client.usesTVSeries Then
+                markup += String.Format("<li><a href=""MPClient/TVSeriesMenu.aspx?friendly={0}#_TVSeries"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "tv_series"))
+            End If
+
             markup += String.Format("<li><a href=""MPClient/NowPlaying.aspx?friendly={0}#_MPClientNowPlaying"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "now_playing"))
+
             markup += String.Format("<li><a href=""MPClient/MPClientSendMessage.aspx?friendly={0}#_MPClientSendMessage"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "send_message"))
+
             markup += String.Format("<li><a href=""MPClient/MPClientPowerOptions.aspx?friendly={0}#_MPClientPowerOptions"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "power_options"))
+
         ElseIf client.MACAddress <> "" Then
             markup += String.Format("<li style=""color:red""><a href=""MPClient/MPClientWOL.aspx?friendly={0}#_MPClientWOL"" rev=""async"">{1}</a></li>", client.Friendly, GetGlobalResourceObject("uWiMPStrings", "could_not_connect_wol"))
         Else
