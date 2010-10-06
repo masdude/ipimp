@@ -20,9 +20,16 @@ Imports MediaPortal.GUI.Library
 
 Namespace MPClientController
 
-    Public Class PowerOptions
+    Public NotInheritable Class PowerOptions
+
+        Private Sub New()
+        End Sub
 
         Public Shared Function DoPowerOption(ByVal poweroption As String)
+
+            If (poweroption = Nothing) Then
+                Return iPiMPUtils.SendBool(False)
+            End If
 
             Select Case poweroption.ToLower
                 Case "0"

@@ -16,7 +16,6 @@
 ' 
 
 
-Imports Jayrock.Json
 Imports MediaPortal.GUI.Library
 Imports MediaPortal.Dialogs
 Imports System.Threading
@@ -65,14 +64,7 @@ Namespace MPClientController
                 thread.Start()
             End SyncLock
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteEndObject()
-
-            Return jw.ToString
+            Return iPiMPUtils.SendBool(True)
 
         End Function
 

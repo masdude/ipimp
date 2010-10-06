@@ -25,51 +25,54 @@ Imports MediaPortal.GUI.Library
 
 Namespace MPClientController
 
-    Public Class iPiMPUtils
+    Public NotInheritable Class iPiMPUtils
+
+        Private Sub New()
+        End Sub
 
         Public Shared Function SendString(ByVal str As String, ByVal val As String) As String
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember(str)
-            jw.WriteString(val)
-            jw.WriteEndObject()
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember(str)
+                jw.WriteString(val)
+                jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
         Public Shared Function SendBool(ByVal val As Boolean) As String
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(val)
-            jw.WriteEndObject()
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(val)
+                jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
         Public Shared Function SendError(ByVal errorCode As Integer, ByVal errorMessage As String) As String
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(False)
-            jw.WriteMember("error")
-            jw.WriteString(errorMessage)
-            jw.WriteMember("errorcode")
-            jw.WriteNumber(errorCode)
-            jw.WriteEndObject()
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(False)
+                jw.WriteMember("error")
+                jw.WriteString(errorMessage)
+                jw.WriteMember("errorcode")
+                jw.WriteNumber(errorCode)
+                jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
         Public Shared Function IsPluginLoaded(ByVal dll As String, ByVal minVersion As String, Optional ByVal type As String = "windows") As Boolean
@@ -98,51 +101,62 @@ Namespace MPClientController
 
         End Function
 
-        Public Shared Function GetImage(ByVal filename As String) As String
+        Public Shared Function GetImage(ByVal fileName As String) As String
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
 
-            If (File.Exists(filename)) Then
+                If (File.Exists(fileName)) Then
 
-                Try
-                    Dim stream As MemoryStream = New MemoryStream()
-                    Dim image As Image = Drawing.Image.FromFile(filename)
-                    Dim format As Imaging.ImageFormat
-                    Dim ext As String = Path.GetExtension(filename)
+                    Try
+                        Using stream As MemoryStream = New MemoryStream()
+                            Dim image As Image = Drawing.Image.FromFile(fileName)
+                            Dim format As Imaging.ImageFormat
+                            Dim ext As String = Path.GetExtension(fileName)
 
-                    Select Case ext.ToLower
-                        Case ".jpg"
-                            format = Imaging.ImageFormat.Jpeg
-                        Case ".png"
-                            format = Imaging.ImageFormat.Png
-                        Case ".gif"
-                            format = Imaging.ImageFormat.Gif
-                        Case ".bmp"
-                            format = Imaging.ImageFormat.Bmp
-                        Case Else
-                            format = Nothing
-                    End Select
-                    image.Save(stream, format)
-                    image.Dispose()
+                            Select Case ext.ToLower
+                                Case ".jpg"
+                                    format = Imaging.ImageFormat.Jpeg
+                                Case ".png"
+                                    format = Imaging.ImageFormat.Png
+                                Case ".gif"
+                                    format = Imaging.ImageFormat.Gif
+                                Case ".bmp"
+                                    format = Imaging.ImageFormat.Bmp
+                                Case Else
+                                    format = Nothing
+                            End Select
+                            image.Save(stream, format)
+                            image.Dispose()
 
-                    jw.WriteBoolean(True)
-                    jw.WriteMember("filetype")
-                    jw.WriteString(format.ToString)
-                    jw.WriteMember("filename")
-                    jw.WriteString(Path.GetFileName(filename))
-                    jw.WriteMember("data")
-                    jw.WriteString(Convert.ToBase64String(stream.ToArray()))
-                    stream.Close()
+                            jw.WriteBoolean(True)
+                            jw.WriteMember("filetype")
+                            jw.WriteString(format.ToString)
+                            jw.WriteMember("filename")
+                            jw.WriteString(Path.GetFileName(fileName))
+                            jw.WriteMember("data")
+                            jw.WriteString(Convert.ToBase64String(stream.ToArray()))
+                        End Using
 
-                Catch ex As Exception
-                    jw.Close()
-                    jw = New JsonTextWriter
-                    jw.PrettyPrint = True
-                    jw.WriteStartObject()
-                    jw.WriteMember("result")
+                    Catch ex As Exception
+                        Using jw2 = New JsonTextWriter
+                            jw2.PrettyPrint = True
+                            jw2.WriteStartObject()
+                            jw2.WriteMember("result")
+                            jw2.WriteBoolean(False)
+                            jw2.WriteMember("filetype")
+                            jw2.WriteString("nofile")
+                            jw2.WriteMember("filename")
+                            jw2.WriteString("")
+                            jw2.WriteMember("data")
+                            jw2.WriteString("")
+                            Return jw2.ToString()
+                        End Using
+                    End Try
+
+                Else
                     jw.WriteBoolean(False)
                     jw.WriteMember("filetype")
                     jw.WriteString("nofile")
@@ -150,26 +164,16 @@ Namespace MPClientController
                     jw.WriteString("")
                     jw.WriteMember("data")
                     jw.WriteString("")
-                End Try
+                End If
 
-            Else
-                jw.WriteBoolean(False)
-                jw.WriteMember("filetype")
-                jw.WriteString("nofile")
-                jw.WriteMember("filename")
-                jw.WriteString("")
-                jw.WriteMember("data")
-                jw.WriteString("")
-            End If
-
-            jw.WriteEndObject()
-            Return jw.ToString
-
+                jw.WriteEndObject()
+                Return jw.ToString
+            End Using
         End Function
 
-        Public Shared Function GetFile(ByVal url As String, ByVal size As String) As String
+        Public Shared Function GetFile(ByVal path As String, ByVal size As String) As String
 
-            Dim req As String() = Split(url, ":")
+            Dim req As String() = Split(path, ":")
 
             If (Not size.ToLower = "small") Then
                 size = "large"

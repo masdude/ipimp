@@ -14,7 +14,6 @@
 '   You should have received a copy of the GNU General Public License 
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
-Imports MediaPortal.Plugins.MovingPictures.MainUI
 Imports MediaPortal.Plugins.MovingPictures.Database
 Imports MediaPortal.Playlists
 Imports System.Threading
@@ -42,11 +41,12 @@ Namespace MPClientController
             End SyncLock
         End Sub
 
-        Private Sub StartPlayingMovPic()
-            Dim g As New MovingPicturesGUI
-            Dim p As New MoviePlayer(g)
-            p.Play(_movieInfo)
-        End Sub
+        'Private Sub StartPlayingMovPic()
+        '    Using g As New MovingPicturesGUI
+        'Dim p As New MoviePlayer(g)
+        '        p.Play(_movieInfo)
+        '   End Using
+        'End Sub
 
         Private Sub StartPlaying()
 
