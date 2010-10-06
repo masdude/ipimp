@@ -1067,4 +1067,28 @@
   <data name="could_not_start_music" xml:space="preserve">
     <value>Could not start music.</value>
   </data>
+  <data name="tv_series" xml:space="preserve">
+    <value>TV Series</value>
+  </data>
+	<data name="tvseries_series">
+		<value xml:space="preserve">Series</value>
+	</data>
+	<data name="tvseries_recent">
+		<value xml:space="preserve">Recent episodes</value>
+	</data>
+	<data name="tv_series_season">
+		<value xml:space="preserve">Season</value>
+	</data>
+	<data name="tvseries_episode_image">
+		<value xml:space="preserve">Episode image</value>
+	</data>
+	<data name="tvseries_start_fail">
+		<value xml:space="preserve">Episode start failed.</value>
+	</data>
+	<data name="unknown_plot">
+		<value xml:space="preserve">Unknown plot</value>
+	</data>
+	<data name="tvseries_episode">
+		<value xml:space="preserve">Episode</value>
+	</data>
 </root>

@@ -136,6 +136,13 @@
     <Content Include="Desktop\TimedTextLibrary.xap" />
     <Content Include="images\remote\browser.png" />
     <Content Include="iPhone\Default.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesRecentEpisodes.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesPlay.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesEpisode.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesSeasonList.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesList.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesMenu.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesSeasonsList.aspx" />
     <Content Include="iPhone\Streaming\CheckStream.aspx" />
     <Content Include="iPhone\Streaming\StopStream.aspx" />
     <Content Include="iPhone\Streaming\WatchStream.aspx" />
@@ -414,6 +421,48 @@
     <Compile Include="iPhone\Login.aspx.vb">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesRecentEpisodes.aspx.designer.vb">
+      <DependentUpon>TVSeriesRecentEpisodes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesRecentEpisodes.aspx.vb">
+      <DependentUpon>TVSeriesRecentEpisodes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesPlay.aspx.designer.vb">
+      <DependentUpon>TVSeriesPlay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesPlay.aspx.vb">
+      <DependentUpon>TVSeriesPlay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesEpisode.aspx.designer.vb">
+      <DependentUpon>TVSeriesEpisode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesEpisode.aspx.vb">
+      <DependentUpon>TVSeriesEpisode.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesSeasonList.aspx.designer.vb">
+      <DependentUpon>TVSeriesSeasonList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesSeasonList.aspx.vb">
+      <DependentUpon>TVSeriesSeasonList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesList.aspx.designer.vb">
+      <DependentUpon>TVSeriesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesList.aspx.vb">
+      <DependentUpon>TVSeriesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesMenu.aspx.designer.vb">
+      <DependentUpon>TVSeriesMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesMenu.aspx.vb">
+      <DependentUpon>TVSeriesMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="iPhone\MPClient\MovingPicturesListYears.aspx.designer.vb">
       <DependentUpon>MovingPicturesListYears.aspx</DependentUpon>
@@ -777,6 +826,13 @@
     </Compile>
     <Compile Include="iPhone\MPClient\NowPlaying.aspx.vb">
       <DependentUpon>NowPlaying.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesSeasonsList.aspx.designer.vb">
+      <DependentUpon>TVSeriesSeasonsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesSeasonsList.aspx.vb">
+      <DependentUpon>TVSeriesSeasonsList.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="iPhone\RadioGuide\ChannelGroups.aspx.designer.vb">
@@ -1350,6 +1406,7 @@
     <Content Include="App_GlobalResources\uWiMPStrings.it.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.it.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.nl.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>

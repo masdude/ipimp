@@ -79,4 +79,12 @@ Namespace uWiMP.TVServer.MPClient
         Public Name As String
     End Class
 
+    Public Class LargeEpisodeInfo
+        Public ID As String
+        Public Index As Integer
+        Public Name As String
+        Public SeriesID As Integer
+        Public SeasonIndex As Integer
+    End Class
+
 End Namespace

@@ -113,7 +113,7 @@ Namespace uWiMP.TVServer
             Dim conn As SQLiteConnection = New SQLiteConnection(connStr)
             Dim reader As SQLiteDataReader
 
-            Dim cmd As SQLiteCommand = New SQLiteCommand("SELECT Hostname, MACAddress, Port FROM `MPClients` WHERE Friendly = $Friendly", conn)
+            Dim cmd As SQLiteCommand = New SQLiteCommand("SELECT Hostname, MACAddress, Port, UsesMovingPictures, UsesTVSeries FROM `MPClients` WHERE Friendly = $Friendly", conn)
             cmd.Parameters.Add("$Friendly", DbType.String, 255).Value = friendly.ToLower
 
             Try
@@ -125,6 +125,18 @@ Namespace uWiMP.TVServer
                         MPClient.Hostname = reader.GetString(0)
                         MPClient.MACAddress = reader.GetString(1)
                         MPClient.Port = reader.GetString(2)
+                        Dim usesMovingPictures As Integer = reader.GetInt32(3)
+                        Dim usesTVSeries As Integer = reader.GetInt32(4)
+                        If reader.GetInt32(3) = 1 Then
+                            MPClient.usesMovingPictures = True
+                        Else
+                            MPClient.usesMovingPictures = False
+                        End If
+                        If reader.GetInt32(4) = 1 Then
+                            MPClient.usesTVSeries = True
+                        Else
+                            MPClient.usesTVSeries = False
+                        End If
                     End While
                 End If
                 reader.Close()
@@ -146,7 +158,7 @@ Namespace uWiMP.TVServer
             Dim conn As SQLiteConnection = New SQLiteConnection(connStr)
             Dim reader As SQLiteDataReader
 
-            Dim cmd As SQLiteCommand = New SQLiteCommand("SELECT Friendly, MACAddress, Port FROM `MPClients` WHERE Hostname = $Hostname", conn)
+            Dim cmd As SQLiteCommand = New SQLiteCommand("SELECT Friendly, MACAddress, Port, UsesMovingPictures, UsesTVSeries FROM `MPClients` WHERE Hostname = $Hostname", conn)
             cmd.Parameters.Add("$Hostname", DbType.String, 255).Value = hostname.ToLower
 
             Try
