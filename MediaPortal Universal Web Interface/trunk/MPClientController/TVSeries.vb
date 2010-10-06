@@ -105,10 +105,10 @@ Namespace MPClientController
 
         End Function
 
-        Public Shared Function GetEpisodeThumb(ByVal episodeID As String) As String
+        Public Shared Function GetEpisodeThumb(ByVal compositeID As String) As String
 
             Dim sqlCondition As New SQLCondition
-            sqlCondition.Add(New DBOnlineEpisode(), DBOnlineEpisode.cCompositeID, episodeID, SQLConditionType.Equal)
+            sqlCondition.Add(New DBOnlineEpisode(), DBOnlineEpisode.cCompositeID, compositeID, SQLConditionType.Equal)
 
             Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition)
             Dim filename As String = Nothing
@@ -494,8 +494,8 @@ Namespace MPClientController
 
             Try
                 For i = 1 To 15
-                    If (g_Player.Playing) And (g_Player.Player.CurrentFile.ToLower = epFileName.ToLower) Then
-                        Return iPiMPUtils.SendBool(True)
+                    If g_Player.Playing Then
+                        If g_Player.Player.CurrentFile.ToLower = epFileName.ToLower Then Return iPiMPUtils.SendBool(True)
                     Else
                         System.Threading.Thread.Sleep(1000)
                     End If
