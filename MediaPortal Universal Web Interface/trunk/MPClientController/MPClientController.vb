@@ -48,7 +48,7 @@ Namespace MPClientController
 
         Const DEFAULT_PORT As Integer = 55667
         Const SUPPORTED_MOVING_PICTURES_MINVERSION As String = "1.0.6.1116"
-        Const SUPPORTED_TV_SERIES_MINVERSION As String = "2.6.2.1231"
+        Const SUPPORTED_TV_SERIES_MINVERSION As String = "2.6.3.1242"
         Private port As Integer = DEFAULT_PORT
 
 #Region "ISetupForm members"
@@ -445,6 +445,12 @@ Namespace MPClientController
                 Case "getepisodes"
                     If isTVSeriesPresent Then
                         results = TVSeries.GetEpisodes(request.Value)
+                    Else
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
+                    End If
+                Case "getrecentepisodes"
+                    If isTVSeriesPresent Then
+                        results = TVSeries.GetRecentEpisodes(request.Value, request.Filter)
                     Else
                         results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If

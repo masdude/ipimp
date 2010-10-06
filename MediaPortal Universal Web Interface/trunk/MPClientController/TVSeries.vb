@@ -20,8 +20,6 @@ Imports System.IO
 Imports Jayrock.Json
 Imports WindowPlugins.GUITVSeries
 Imports MediaPortal.Player
-Imports MediaPortal.GUI.Library
-
 
 Namespace MPClientController
 
@@ -431,6 +429,38 @@ Namespace MPClientController
                 jw.WriteString(episode.Item(DBEpisode.cEpisodeIndex))
                 jw.WriteMember("name")
                 jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
+                jw.WriteEndObject()
+            Next
+            jw.WriteEndArray()
+            jw.WriteEndObject()
+
+            Return jw.ToString
+
+        End Function
+
+        Public Shared Function GetRecentEpisodes(ByVal days As Integer, ByVal limit As Integer) As String
+
+            Dim episodeList As List(Of DBEpisode) = DBEpisode.GetMostRecent(MostRecentType.Created, days, limit)
+
+            Dim jw As New JsonTextWriter
+            jw.PrettyPrint = True
+            jw.WriteStartObject()
+            jw.WriteMember("result")
+            jw.WriteBoolean(True)
+            jw.WriteMember("episodes")
+            jw.WriteStartArray()
+            For Each episode As DBEpisode In episodeList
+                jw.WriteStartObject()
+                jw.WriteMember("id")
+                jw.WriteString(episode.Item(DBEpisode.cCompositeID))
+                jw.WriteMember("index")
+                jw.WriteString(episode.Item(DBEpisode.cEpisodeIndex))
+                jw.WriteMember("name")
+                jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
+                jw.WriteMember("seriesid")
+                jw.WriteString(episode.Item(DBEpisode.cSeriesID))
+                jw.WriteMember("seasonindex")
+                jw.WriteString(episode.Item(DBEpisode.cSeasonIndex))
                 jw.WriteEndObject()
             Next
             jw.WriteEndArray()
