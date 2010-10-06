@@ -107,6 +107,8 @@ Partial Public Class NowPlaying
                 Return PlayingTV(friendly, jo)
             Case "recording"
                 Return PlayingRecording(friendly, jo)
+            Case "tvepisode"
+                Return PlayingTVEpisode(friendly, jo)
             Case "unknown"
                 Return PlayingUnknown(friendly)
             Case "nothing"
@@ -481,6 +483,66 @@ Partial Public Class NowPlaying
 
     End Function
 
+    Private Function PlayingTVEpisode(ByVal friendly As String, ByVal jo As JsonObject) As String
+
+        Dim episode As String = CType(jo("episode"), String)
+        Dim season As String = CType(jo("season"), String)
+        Dim plot As String = CType(jo("plot"), String)
+        Dim title As String = CType(jo("title"), String)
+        Dim thumb As String = CType(jo("thumb"), String)
+        Dim duration As String = CType(jo("duration"), String)
+        Dim position As String = CType(jo("position"), String)
+        Dim imagePath As String = GetEpisodeThumb(friendly, thumb)
+
+        Dim markup As String = String.Empty
+        
+        markup += "<div class=""iMenu"" >"
+        markup += String.Format("<h3>{0} - {1} - {2}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "now_playing"), GetGlobalResourceObject("uWiMPStrings", "tvseries_episode"))
+
+        markup += "<div class=""iBlock"">"
+        markup += "<table class=""imdbtable"">"
+        markup += "<tr>"
+        markup += String.Format("<td align=""center""><img src=""{0}"" width=""260"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", imagePath)
+        markup += "</tr>"
+        markup += "<tr>"
+        markup += "<td align=""center"">"
+
+        If title <> String.Empty Then
+            markup += String.Format("{0}<br>", title)
+        Else
+            markup += String.Format("{0}<br>", GetGlobalResourceObject("uWiMPStrings", "unknown_title"))
+        End If
+
+        If plot <> String.Empty Then
+            markup += String.Format("{0}<br>", plot)
+        Else
+            markup += String.Format("{0}<br>", GetGlobalResourceObject("uWiMPStrings", "unknown_plot"))
+        End If
+
+        If (duration <> String.Empty) And (position <> String.Empty) Then
+            Dim d, p As String
+            d = uWiMP.TVServer.Utilities.ConvertToHHMMSS(duration)
+            p = uWiMP.TVServer.Utilities.ConvertToHHMMSS(position)
+            markup += String.Format("<b>{0} / {1}</b><br>", p, d)
+        End If
+
+        markup += "</td>"
+        markup += "</tr>"
+        markup += "</table>"
+        markup += "</div>"
+
+        markup += "<ul class=""iArrow"">"
+        markup += String.Format("<li><a href=""MPClient/NowPlaying.aspx?friendly={0}#_MPClientNowPlaying"" rev=""async"">{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "refresh"))
+        markup += String.Format("<li><a href=""MPClient/MCERemoteControl.aspx?friendly={0}#_Remote1"" rev=""async"">{1}</a></li>", friendly, GetGlobalResourceObject("uWiMPStrings", "remote_control"))
+        markup += "</ul>"
+
+        markup += "</div>"
+
+        Return markup
+
+    End Function
+
+
     Private Function PlayingNothing(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
@@ -632,5 +694,65 @@ Partial Public Class NowPlaying
         Return True
 
     End Function
+
+    Function GetEpisodeThumb(ByVal friendly As String, ByVal request As String) As String
+
+        Dim mpRequest As New uWiMP.TVServer.MPClient.Request
+        mpRequest.Action = "getfile"
+        mpRequest.Value = request
+        mpRequest.Filter = "small"
+
+        Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+        Dim filetype As String = CType(jo("filetype"), String)
+        Dim filename As String = CType(jo("filename"), String)
+        Dim data As String = CType(jo("data"), String)
+
+        Dim relativePath As String = "../../images/tvseries"
+        Dim compositeID As String = Split(request, ":")(1)
+        Dim imagePath As String
+        Dim format As System.Drawing.Imaging.ImageFormat
+        Select Case filetype.ToLower
+            Case "jpeg"
+                format = System.Drawing.Imaging.ImageFormat.Jpeg
+                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "jpg")
+            Case "gif"
+                format = System.Drawing.Imaging.ImageFormat.Gif
+                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "gif")
+            Case "png"
+                format = System.Drawing.Imaging.ImageFormat.Png
+                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "png")
+            Case "bmp"
+                format = System.Drawing.Imaging.ImageFormat.Bmp
+                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "bmp")
+            Case Else
+                Return String.Format("{0}/tvepisodeblank.png", relativePath)
+        End Select
+
+        If Not File.Exists(Server.MapPath(imagePath)) Then
+
+            If Not Directory.Exists(relativePath) Then Directory.CreateDirectory(Server.MapPath(relativePath))
+
+            Dim newImage As System.Drawing.Image
+
+            Dim imageAsBytes() As Byte = System.Convert.FromBase64String(data)
+            Dim myStream As MemoryStream = New MemoryStream(imageAsBytes, 0, imageAsBytes.Length)
+            myStream.Write(imageAsBytes, 0, imageAsBytes.Length)
+            newImage = System.Drawing.Image.FromStream(myStream, True)
+
+            Try
+                newImage.Save(Server.MapPath(imagePath), format)
+            Catch ex As Exception
+                If File.Exists(Server.MapPath(imagePath)) Then File.Delete(Server.MapPath(imagePath))
+            End Try
+
+        End If
+
+        Return imagePath
+
+    End Function
+
 
 End Class

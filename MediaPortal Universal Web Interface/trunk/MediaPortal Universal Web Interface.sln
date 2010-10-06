@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPWebServices", "MPWebServi
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MPClientControllerConsoleTester", "MPClientControllerConsoleTester\MPClientControllerConsoleTester.vbproj", "{B1C20745-27ED-4BC8-8C5F-18CE408D8FE3}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "iPiMPInstaller", "iPiMPInstaller\iPiMPInstaller.vbproj", "{814FD5DA-6C56-4B37-8162-3019153C0A94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,16 @@ Global
 		{B1C20745-27ED-4BC8-8C5F-18CE408D8FE3}.Release|Mixed Platforms.Build.0 = Release|x86
 		{B1C20745-27ED-4BC8-8C5F-18CE408D8FE3}.Release|x86.ActiveCfg = Release|x86
 		{B1C20745-27ED-4BC8-8C5F-18CE408D8FE3}.Release|x86.Build.0 = Release|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Debug|x86.ActiveCfg = Debug|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Debug|x86.Build.0 = Debug|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Release|Any CPU.ActiveCfg = Release|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Release|Mixed Platforms.Build.0 = Release|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Release|x86.ActiveCfg = Release|x86
+		{814FD5DA-6C56-4B37-8162-3019153C0A94}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
