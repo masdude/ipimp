@@ -17,7 +17,7 @@
  * MP client plugin - MP clients will now auto register with iPiMP web app
  * MP client plugin - Lots & lots of changes to support [http://yatse.leetzone.org/redmine Yatse] (thanks to Tolriq for the help & patches)
  * MP client plugin - Added TV Series
- * MP client plugin - Added minimum TV Series version (2.6.3) and MovingPictures (1.0.6) checks
+ * MP client plugin - Added minimum TV Series version (2.6.3) and !MovingPictures (1.0.6) checks
 5.0.1 updates include (13th Jun 2010)
  * Web - modified !SmoothStreaming arguments for correct playback on other players
  * Web - added Silverlight player for desktop browsers - Google Chrome is recommended
