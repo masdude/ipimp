@@ -43,26 +43,33 @@ Public Class Global_asax
         End Try
 
     End Sub
+
     Private Sub UpdateOrAddMPClient(ByVal broadcastMessage As String)
 
         Dim clientInfo() As String = Split(broadcastMessage, ",")
+        If clientInfo.Length <> 5 Then Exit Sub
         Dim client As New uWiMP.TVServer.MPClient.Client
-        client.Friendly = clientInfo(0)
-        client.Hostname = clientInfo(0)
-        client.MACAddress = clientInfo(1)
-        client.Port = clientInfo(2)
-        client.usesMovingPictures = clientInfo(3)
-        client.usesTVSeries = clientInfo(4)
+        Try
+            client.Friendly = clientInfo(0)
+            client.Hostname = clientInfo(0)
+            client.MACAddress = clientInfo(1)
+            client.Port = clientInfo(2)
+            client.usesMovingPictures = clientInfo(3)
+            client.usesTVSeries = clientInfo(4)
 
-        If uWiMP.TVServer.MPClientDatabase.IsExistingClientByHostname(client.Hostname) Then
-            Dim oldClient As uWiMP.TVServer.MPClient.Client = uWiMP.TVServer.MPClientDatabase.GetClientByHostname(client.Hostname)
-            client.Friendly = oldClient.Friendly
-            Dim result As Boolean = uWiMP.TVServer.MPClientDatabase.ManageClient(client, "update")
-        Else
-            Dim result As Boolean = uWiMP.TVServer.MPClientDatabase.ManageClient(client, "insert")
-        End If
+            If uWiMP.TVServer.MPClientDatabase.IsExistingClientByHostname(client.Hostname) Then
+                Dim oldClient As uWiMP.TVServer.MPClient.Client = uWiMP.TVServer.MPClientDatabase.GetClientByHostname(client.Hostname)
+                client.Friendly = oldClient.Friendly
+                Dim result As Boolean = uWiMP.TVServer.MPClientDatabase.ManageClient(client, "update")
+            Else
+                Dim result As Boolean = uWiMP.TVServer.MPClientDatabase.ManageClient(client, "insert")
+            End If
 
-        End Sub
+        Catch ex As Exception
+            'Fubar somewhere - just ignore it
+        End Try
+
+    End Sub
 
     Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)
         ' Fires when the session is started
