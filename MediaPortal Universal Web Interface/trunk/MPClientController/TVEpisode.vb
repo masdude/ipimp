@@ -48,8 +48,6 @@ Namespace MPClientController
             Dim sqlCondition As New SQLCondition
             sqlCondition.Add(New DBEpisode(), DBEpisode.cCompositeID, _compositeID, SQLConditionType.Equal)
 
-            Dim epFileName As String = Nothing
-
             Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition)
             If (episodeList.Count > 0) Then
 

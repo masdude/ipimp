@@ -23,7 +23,10 @@ Imports MediaPortal.Player
 
 Namespace MPClientController
 
-    Public Class TVSeries
+    Public NotInheritable Class TVSeries
+
+        Private Sub New()
+        End Sub
 
         Public Shared Function FillNowPlaying(ByRef jw As JsonTextWriter) As Boolean
             Try
@@ -122,6 +125,7 @@ Namespace MPClientController
 
         End Function
 
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")>
         Public Shared Function GetAllEpisodes() As String
 
             Dim sqlCondition As New SQLCondition
@@ -129,69 +133,70 @@ Namespace MPClientController
 
             Dim seriesList As List(Of DBSeries) = DBSeries.Get(sqlCondition)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("episodes")
-            jw.WriteStartArray()
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("episodes")
+                jw.WriteStartArray()
 
-            For Each series As DBSeries In seriesList
+                For Each series As DBSeries In seriesList
 
-                Dim sqlCondition2 As New SQLCondition
-                sqlCondition2.Add(New DBOnlineEpisode(), DBOnlineEpisode.cSeriesID, series.Item("ID"), SQLConditionType.Equal)
+                    Dim sqlCondition2 As New SQLCondition
+                    sqlCondition2.Add(New DBOnlineEpisode(), DBOnlineEpisode.cSeriesID, series.Item("ID"), SQLConditionType.Equal)
 
-                Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition2)
+                    Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition2)
 
-                For Each episode As DBEpisode In episodeList
-                    jw.WriteStartObject()
-                    jw.WriteMember("id")
-                    jw.WriteString(episode.Item(DBOnlineEpisode.cEpisodeIndex))
-                    jw.WriteMember("show")
-                    jw.WriteString(series.Item("Pretty_Name"))
-                    jw.WriteMember("idshow")
-                    jw.WriteString(series.Item("ID"))
-                    jw.WriteMember("path")
-                    jw.WriteString(episode.Item(DBEpisode.cCompositeID))
-                    jw.WriteMember("episode")
-                    jw.WriteString(episode.Item(DBEpisode.cEpisodeIndex))
-                    jw.WriteMember("season")
-                    jw.WriteString(episode.Item(DBEpisode.cSeasonIndex))
-                    jw.WriteMember("name")
-                    jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
-                    jw.WriteMember("plot")
-                    jw.WriteString(episode.Item(DBOnlineEpisode.cEpisodeSummary))
-                    jw.WriteMember("aired")
-                    jw.WriteString(episode.Item(DBOnlineEpisode.cFirstAired))
-                    jw.WriteMember("director")
-                    jw.WriteString(episode.Item(DBOnlineEpisode.cDirector))
-                    jw.WriteMember("rating")
-                    jw.WriteString(episode.Item(DBOnlineEpisode.cRating))
-                    jw.WriteMember("filename")
-                    jw.WriteString(episode.Item(DBEpisode.cFilename))
-                    jw.WriteMember("watched")
-                    jw.WriteString(episode.Item(DBOnlineEpisode.cWatched))
-                    jw.WriteMember("studio")
-                    jw.WriteString(series.Item("Network"))
-                    jw.WriteMember("thumb")
-                    If (File.Exists(episode.Image)) Then
-                        jw.WriteString(String.Format("{0}:{1}", "tvepisodethumb", episode.Item(DBOnlineEpisode.cCompositeID)))
-                    Else
+                    For Each episode As DBEpisode In episodeList
+                        jw.WriteStartObject()
+                        jw.WriteMember("id")
+                        jw.WriteString(episode.Item(DBOnlineEpisode.cEpisodeIndex))
+                        jw.WriteMember("show")
+                        jw.WriteString(series.Item("Pretty_Name"))
+                        jw.WriteMember("idshow")
+                        jw.WriteString(series.Item("ID"))
+                        jw.WriteMember("path")
+                        jw.WriteString(episode.Item(DBEpisode.cCompositeID))
+                        jw.WriteMember("episode")
+                        jw.WriteString(episode.Item(DBEpisode.cEpisodeIndex))
+                        jw.WriteMember("season")
+                        jw.WriteString(episode.Item(DBEpisode.cSeasonIndex))
+                        jw.WriteMember("name")
+                        jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
+                        jw.WriteMember("plot")
+                        jw.WriteString(episode.Item(DBOnlineEpisode.cEpisodeSummary))
+                        jw.WriteMember("aired")
+                        jw.WriteString(episode.Item(DBOnlineEpisode.cFirstAired))
+                        jw.WriteMember("director")
+                        jw.WriteString(episode.Item(DBOnlineEpisode.cDirector))
+                        jw.WriteMember("rating")
+                        jw.WriteString(episode.Item(DBOnlineEpisode.cRating))
+                        jw.WriteMember("filename")
+                        jw.WriteString(episode.Item(DBEpisode.cFilename))
+                        jw.WriteMember("watched")
+                        jw.WriteString(episode.Item(DBOnlineEpisode.cWatched))
+                        jw.WriteMember("studio")
+                        jw.WriteString(series.Item("Network"))
+                        jw.WriteMember("thumb")
+                        If (File.Exists(episode.Image)) Then
+                            jw.WriteString(String.Format("{0}:{1}", "tvepisodethumb", episode.Item(DBOnlineEpisode.cCompositeID)))
+                        Else
+                            jw.WriteString("")
+                        End If
+                        jw.WriteMember("fanart")
                         jw.WriteString("")
-                    End If
-                    jw.WriteMember("fanart")
-                    jw.WriteString("")
-                    jw.WriteEndObject()
+                        jw.WriteEndObject()
+                    Next
                 Next
-            Next
-            jw.WriteEndArray()
-            jw.WriteEndObject()
+                jw.WriteEndArray()
+                jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")>
         Public Shared Function GetAllSeasons() As String
 
             Dim sqlCondition As New SQLCondition
@@ -199,51 +204,52 @@ Namespace MPClientController
 
             Dim seriesList As List(Of DBSeries) = DBSeries.Get(sqlCondition)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("seasons")
-            jw.WriteStartArray()
-            For Each series As DBSeries In seriesList
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("seasons")
+                jw.WriteStartArray()
+                For Each series As DBSeries In seriesList
 
-                Dim seasonList As List(Of DBSeason) = DBSeason.Get(CInt(series.Item("ID")))
+                    Dim seasonList As List(Of DBSeason) = DBSeason.Get(CInt(series.Item("ID")))
 
-                For Each season As DBSeason In seasonList
-                    jw.WriteStartObject()
-                    jw.WriteMember("id")
-                    jw.WriteString(season.Item(DBSeason.cID))
-                    jw.WriteMember("show")
-                    jw.WriteString(series.Item("Pretty_Name"))
-                    jw.WriteMember("seasonnumber")
-                    jw.WriteString(season.Item(DBSeason.cIndex))
-                    jw.WriteMember("episodecount")
-                    jw.WriteString(season.Item(DBSeason.cEpisodeCount))
-                    jw.WriteMember("thumb")
-                    If (File.Exists(WindowPlugins.GUITVSeries.ImageAllocator.GetSeasonBannerAsFilename(season))) Then
-                        jw.WriteString(String.Format("{0}:{1}:{2}", "tvseasonposter", series.Item("ID"), season.Item(DBSeason.cIndex)))
-                    Else
-                        jw.WriteString("")
-                    End If
+                    For Each season As DBSeason In seasonList
+                        jw.WriteStartObject()
+                        jw.WriteMember("id")
+                        jw.WriteString(season.Item(DBSeason.cID))
+                        jw.WriteMember("show")
+                        jw.WriteString(series.Item("Pretty_Name"))
+                        jw.WriteMember("seasonnumber")
+                        jw.WriteString(season.Item(DBSeason.cIndex))
+                        jw.WriteMember("episodecount")
+                        jw.WriteString(season.Item(DBSeason.cEpisodeCount))
+                        jw.WriteMember("thumb")
+                        If (File.Exists(WindowPlugins.GUITVSeries.ImageAllocator.GetSeasonBannerAsFilename(season))) Then
+                            jw.WriteString(String.Format("{0}:{1}:{2}", "tvseasonposter", series.Item("ID"), season.Item(DBSeason.cIndex)))
+                        Else
+                            jw.WriteString("")
+                        End If
 
-                    jw.WriteMember("fanart")
-                    If (File.Exists(Fanart.getFanart(series.Item("ID"), season.Item(DBSeason.cIndex)).FanartFilename)) Then
-                        jw.WriteString(String.Format("{0}:{1}:{2}", "tvseasonfanart", series.Item("ID"), season.Item(DBSeason.cIndex)))
-                    Else
-                        jw.WriteString("")
-                    End If
-                    jw.WriteEndObject()
+                        jw.WriteMember("fanart")
+                        If (File.Exists(Fanart.getFanart(series.Item("ID"), season.Item(DBSeason.cIndex)).FanartFilename)) Then
+                            jw.WriteString(String.Format("{0}:{1}:{2}", "tvseasonfanart", series.Item("ID"), season.Item(DBSeason.cIndex)))
+                        Else
+                            jw.WriteString("")
+                        End If
+                        jw.WriteEndObject()
+                    Next
                 Next
-            Next
-            jw.WriteEndArray()
-            jw.WriteEndObject()
+                jw.WriteEndArray()
+                jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
 
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")>
         Public Shared Function GetAllSeriesDetails() As String
 
             Dim sqlCondition As New SQLCondition
@@ -251,57 +257,58 @@ Namespace MPClientController
 
             Dim seriesList As List(Of DBSeries) = DBSeries.Get(sqlCondition)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("series")
-            jw.WriteStartArray()
-            For Each series As DBSeries In seriesList
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
                 jw.WriteStartObject()
-                jw.WriteMember("id")
-                jw.WriteString(series.Item("ID"))
-                jw.WriteMember("name")
-                jw.WriteString(series.Item("Pretty_Name"))
-                jw.WriteMember("genre")
-                jw.WriteString(series.Item("Genre"))
-                jw.WriteMember("plot")
-                jw.WriteString(series.Item("Summary"))
-                jw.WriteMember("episodecount")
-                jw.WriteString(series.Item("EpisodeCount"))
-                jw.WriteMember("firstaired")
-                jw.WriteString(series.Item("FirstAired"))
-                jw.WriteMember("mpaa")
-                jw.WriteString(series.Item("ContentRating"))
-                jw.WriteMember("studio")
-                jw.WriteString(series.Item("Network"))
-                jw.WriteMember("rating")
-                jw.WriteString(series.Item("Rating"))
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("series")
+                jw.WriteStartArray()
+                For Each series As DBSeries In seriesList
+                    jw.WriteStartObject()
+                    jw.WriteMember("id")
+                    jw.WriteString(series.Item("ID"))
+                    jw.WriteMember("name")
+                    jw.WriteString(series.Item("Pretty_Name"))
+                    jw.WriteMember("genre")
+                    jw.WriteString(series.Item("Genre"))
+                    jw.WriteMember("plot")
+                    jw.WriteString(series.Item("Summary"))
+                    jw.WriteMember("episodecount")
+                    jw.WriteString(series.Item("EpisodeCount"))
+                    jw.WriteMember("firstaired")
+                    jw.WriteString(series.Item("FirstAired"))
+                    jw.WriteMember("mpaa")
+                    jw.WriteString(series.Item("ContentRating"))
+                    jw.WriteMember("studio")
+                    jw.WriteString(series.Item("Network"))
+                    jw.WriteMember("rating")
+                    jw.WriteString(series.Item("Rating"))
 
-                jw.WriteMember("thumb")
-                If (File.Exists(WindowPlugins.GUITVSeries.ImageAllocator.GetSeriesPosterAsFilename(series))) Then
-                    jw.WriteString(String.Format("{0}:{1}", "tvseriesposter", series.Item("ID")))
-                Else
-                    jw.WriteString("")
-                End If
+                    jw.WriteMember("thumb")
+                    If (File.Exists(WindowPlugins.GUITVSeries.ImageAllocator.GetSeriesPosterAsFilename(series))) Then
+                        jw.WriteString(String.Format("{0}:{1}", "tvseriesposter", series.Item("ID")))
+                    Else
+                        jw.WriteString("")
+                    End If
 
-                jw.WriteMember("fanart")
-                If (File.Exists(Fanart.getFanart(series.Item("ID")).FanartFilename)) Then
-                    jw.WriteString(String.Format("{0}:{1}", "tvseriesfanart", series.Item("ID")))
-                Else
-                    jw.WriteString("")
-                End If
+                    jw.WriteMember("fanart")
+                    If (File.Exists(Fanart.getFanart(series.Item("ID")).FanartFilename)) Then
+                        jw.WriteString(String.Format("{0}:{1}", "tvseriesfanart", series.Item("ID")))
+                    Else
+                        jw.WriteString("")
+                    End If
 
+                    jw.WriteEndObject()
+                Next
+                jw.WriteEndArray()
                 jw.WriteEndObject()
-            Next
-            jw.WriteEndArray()
-            jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")>
         Public Shared Function GetAllSeries() As String
 
             Dim sqlCondition As New SQLCondition
@@ -310,25 +317,26 @@ Namespace MPClientController
 
             Dim seriesList As List(Of DBSeries) = DBSeries.Get(sqlCondition)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("series")
-            jw.WriteStartArray()
-            For Each series As DBSeries In seriesList
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
                 jw.WriteStartObject()
-                jw.WriteMember("id")
-                jw.WriteString(series.Item("ID"))
-                jw.WriteMember("name")
-                jw.WriteString(series.Item("Pretty_Name"))
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("series")
+                jw.WriteStartArray()
+                For Each series As DBSeries In seriesList
+                    jw.WriteStartObject()
+                    jw.WriteMember("id")
+                    jw.WriteString(series.Item("ID"))
+                    jw.WriteMember("name")
+                    jw.WriteString(series.Item("Pretty_Name"))
+                    jw.WriteEndObject()
+                Next
+                jw.WriteEndArray()
                 jw.WriteEndObject()
-            Next
-            jw.WriteEndArray()
-            jw.WriteEndObject()
 
-            Return jw.ToString
+                Return jw.ToString
+            End Using
 
         End Function
 
@@ -336,22 +344,23 @@ Namespace MPClientController
 
             Dim series As DBSeries = DBSeries.Get(CInt(seriesID))
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("name")
-            jw.WriteString(series.Item("Pretty_Name"))
-            jw.WriteMember("summary")
-            jw.WriteString(series.Item("Summary"))
-            jw.WriteMember("banner")
-            jw.WriteString(series.Banner)
-            jw.WriteMember("poster")
-            jw.WriteString(series.Poster)
-            jw.WriteEndObject()
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("name")
+                jw.WriteString(series.Item("Pretty_Name"))
+                jw.WriteMember("summary")
+                jw.WriteString(series.Item("Summary"))
+                jw.WriteMember("banner")
+                jw.WriteString(series.Banner)
+                jw.WriteMember("poster")
+                jw.WriteString(series.Poster)
+                jw.WriteEndObject()
 
-            Return jw.ToString
+                Return jw.ToString()
+            End Using
 
         End Function
 
@@ -360,23 +369,24 @@ Namespace MPClientController
 
             Dim seasonList As List(Of DBSeason) = DBSeason.Get(CInt(seriesID))
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("seasons")
-            jw.WriteStartArray()
-            For Each season As DBSeason In seasonList
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
                 jw.WriteStartObject()
-                jw.WriteMember("id")
-                jw.WriteString(season.Item(DBSeason.cID))
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("seasons")
+                jw.WriteStartArray()
+                For Each season As DBSeason In seasonList
+                    jw.WriteStartObject()
+                    jw.WriteMember("id")
+                    jw.WriteString(season.Item(DBSeason.cID))
+                    jw.WriteEndObject()
+                Next
+                jw.WriteEndArray()
                 jw.WriteEndObject()
-            Next
-            jw.WriteEndArray()
-            jw.WriteEndObject()
 
-            Return jw.ToString
+                Return jw.ToString
+            End Using
 
         End Function
 
@@ -393,21 +403,21 @@ Namespace MPClientController
                 End If
             Next
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("id")
-            jw.WriteString(season.Item(DBSeason.cID))
-            jw.WriteMember("index")
-            jw.WriteString(season.Item(DBSeason.cIndex))
-            jw.WriteMember("banner")
-            jw.WriteString(season.Item(DBSeason.cCurrentBannerFileName))
-            jw.WriteEndObject()
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("id")
+                jw.WriteString(season.Item(DBSeason.cID))
+                jw.WriteMember("index")
+                jw.WriteString(season.Item(DBSeason.cIndex))
+                jw.WriteMember("banner")
+                jw.WriteString(season.Item(DBSeason.cCurrentBannerFileName))
+                jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
         Public Shared Function GetEpisodes(ByVal compositeID As String) As String
@@ -417,60 +427,60 @@ Namespace MPClientController
 
             Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(seriesID, seasonIndex)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("episodes")
-            jw.WriteStartArray()
-            For Each episode As DBEpisode In episodeList
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
                 jw.WriteStartObject()
-                jw.WriteMember("id")
-                jw.WriteString(episode.Item(DBEpisode.cCompositeID))
-                jw.WriteMember("index")
-                jw.WriteString(episode.Item(DBEpisode.cEpisodeIndex))
-                jw.WriteMember("name")
-                jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("episodes")
+                jw.WriteStartArray()
+                For Each episode As DBEpisode In episodeList
+                    jw.WriteStartObject()
+                    jw.WriteMember("id")
+                    jw.WriteString(episode.Item(DBEpisode.cCompositeID))
+                    jw.WriteMember("index")
+                    jw.WriteString(episode.Item(DBEpisode.cEpisodeIndex))
+                    jw.WriteMember("name")
+                    jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
+                    jw.WriteEndObject()
+                Next
+                jw.WriteEndArray()
                 jw.WriteEndObject()
-            Next
-            jw.WriteEndArray()
-            jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
         Public Shared Function GetRecentEpisodes(ByVal days As Integer, ByVal limit As Integer) As String
 
             Dim episodeList As List(Of DBEpisode) = DBEpisode.GetMostRecent(MostRecentType.Created, days, limit)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("episodes")
-            jw.WriteStartArray()
-            For Each episode As DBEpisode In episodeList
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
                 jw.WriteStartObject()
-                jw.WriteMember("id")
-                jw.WriteString(episode.Item(DBEpisode.cCompositeID))
-                jw.WriteMember("index")
-                jw.WriteString(episode.Item(DBEpisode.cEpisodeIndex))
-                jw.WriteMember("name")
-                jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
-                jw.WriteMember("seriesid")
-                jw.WriteString(episode.Item(DBEpisode.cSeriesID))
-                jw.WriteMember("seasonindex")
-                jw.WriteString(episode.Item(DBEpisode.cSeasonIndex))
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("episodes")
+                jw.WriteStartArray()
+                For Each episode As DBEpisode In episodeList
+                    jw.WriteStartObject()
+                    jw.WriteMember("id")
+                    jw.WriteString(episode.Item(DBEpisode.cCompositeID))
+                    jw.WriteMember("index")
+                    jw.WriteString(episode.Item(DBEpisode.cEpisodeIndex))
+                    jw.WriteMember("name")
+                    jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
+                    jw.WriteMember("seriesid")
+                    jw.WriteString(episode.Item(DBEpisode.cSeriesID))
+                    jw.WriteMember("seasonindex")
+                    jw.WriteString(episode.Item(DBEpisode.cSeasonIndex))
+                    jw.WriteEndObject()
+                Next
+                jw.WriteEndArray()
                 jw.WriteEndObject()
-            Next
-            jw.WriteEndArray()
-            jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
         Public Shared Function GetEpisode(ByVal compositeID As String) As String
@@ -488,27 +498,27 @@ Namespace MPClientController
                 End If
             Next
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("compositeid")
-            jw.WriteString(episode.Item(DBEpisode.cCompositeID))
-            jw.WriteMember("name")
-            jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
-            jw.WriteMember("summary")
-            jw.WriteString(episode.Item("Summary"))
-            jw.WriteMember("watched")
-            jw.WriteString(episode.Item("Watched"))
-            jw.WriteMember("image")
-            jw.WriteString(episode.Image)
-            jw.WriteMember("filename")
-            jw.WriteString(episode(DBEpisode.cFilename))
-            jw.WriteEndObject()
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("compositeid")
+                jw.WriteString(episode.Item(DBEpisode.cCompositeID))
+                jw.WriteMember("name")
+                jw.WriteString(episode.Item(DBEpisode.cEpisodeName))
+                jw.WriteMember("summary")
+                jw.WriteString(episode.Item("Summary"))
+                jw.WriteMember("watched")
+                jw.WriteString(episode.Item("Watched"))
+                jw.WriteMember("image")
+                jw.WriteString(episode.Image)
+                jw.WriteMember("filename")
+                jw.WriteString(episode(DBEpisode.cFilename))
+                jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
         Public Shared Function IsEpisodeIDPlaying(ByVal compositeID As String) As String

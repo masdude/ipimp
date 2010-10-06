@@ -30,6 +30,17 @@ Imports MediaPortal.InputDevices
 
 Namespace MPClientController
 
+    Public Class MPClientRequest
+        Public Property Action As String
+        Public Property Filter As String
+        Public Property Value As String
+        Public Property Start As Integer
+        Public Property PageSize As Integer
+        Public Property Shuffle As Boolean
+        Public Property Enqueue As Boolean
+        Public Property Tracks As String
+    End Class
+
     Public Class ClientPlugin
         Implements ISetupForm
         Implements IPlugin
@@ -42,7 +53,7 @@ Namespace MPClientController
         Private httpThread As Thread
         Private broadcastThread As Thread
         Private remoteHandler As InputHandler
-        Private keyboardHandler As MediaPortal.Hooks.KeyboardHook
+        'Private keyboardHandler As MediaPortal.Hooks.KeyboardHook
         Private isMovingPicturesPresent As Boolean = Nothing
         Private isTVSeriesPresent As Boolean = Nothing
 
@@ -90,8 +101,9 @@ Namespace MPClientController
         End Function
 
         Public Sub ShowPlugin() Implements ISetupForm.ShowPlugin
-            Dim setupForm As Form = New SetupForm
-            setupForm.ShowDialog()
+            Using setupForm As Form = New SetupForm
+                setupForm.ShowDialog()
+            End Using
         End Sub
 #End Region
 
@@ -114,8 +126,9 @@ Namespace MPClientController
 
         Private Sub DoStart()
 
-            Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
-            port = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
+            Using xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
+                port = xmlReader.GetValueAsInt("MPClientController", "TCPPort", DEFAULT_PORT)
+            End Using
 
             If isMovingPicturesPresent = Nothing Then
                 isMovingPicturesPresent = iPiMPUtils.IsPluginLoaded("MovingPictures.dll", SUPPORTED_MOVING_PICTURES_MINVERSION)
@@ -215,26 +228,26 @@ Namespace MPClientController
             Catch ex As Exception
             End Try
 
-            Dim socket As New Sockets.Socket(Sockets.AddressFamily.InterNetwork, Sockets.SocketType.Dgram, Sockets.ProtocolType.Udp)
-            socket.EnableBroadcast = True
-            Dim broadcastAddress As IPAddress
-            Dim sendbuf As Byte() = Encoding.ASCII.GetBytes(String.Format("{0},{1},{2},{3},{4}", hostname, MACAddress, port, isMovingPicturesPresent, isTVSeriesPresent))
+            Using socket As New Sockets.Socket(Sockets.AddressFamily.InterNetwork, Sockets.SocketType.Dgram, Sockets.ProtocolType.Udp)
+                socket.EnableBroadcast = True
+                Dim broadcastAddress As IPAddress
+                Dim sendbuf As Byte() = Encoding.ASCII.GetBytes(String.Format("{0},{1},{2},{3},{4}", hostname, MACAddress, port, isMovingPicturesPresent, isTVSeriesPresent))
 
-            Do
-                broadcastAddresses = GetDirectBroadcastAddresses()
-                For Each address As String In broadcastAddresses
-                    broadcastAddress = IPAddress.Parse(address)
-                    Dim endpoint As New IPEndPoint(broadcastAddress, DEFAULT_PORT)
-                    socket.SendTo(sendbuf, endpoint)
-                    Log.Debug("plugin: MPClientController - iPiMP ping on {0}", address)
-                Next
-                Log.Debug("plugin: MPClientController - iPiMP ping data {0}", Encoding.ASCII.GetString(sendbuf))
-                System.Threading.Thread.Sleep(1000 * 60) 'sleep for one minute
-            Loop
-
+                Do
+                    broadcastAddresses = GetDirectBroadcastAddresses()
+                    For Each address As String In broadcastAddresses
+                        broadcastAddress = IPAddress.Parse(address)
+                        Dim endpoint As New IPEndPoint(broadcastAddress, DEFAULT_PORT)
+                        socket.SendTo(sendbuf, endpoint)
+                        Log.Debug("plugin: MPClientController - iPiMP ping on {0}", address)
+                    Next
+                    Log.Debug("plugin: MPClientController - iPiMP ping data {0}", Encoding.ASCII.GetString(sendbuf))
+                    System.Threading.Thread.Sleep(1000 * 60) 'sleep for one minute
+                Loop
+            End Using
         End Sub
 
-        Private Function GetDirectBroadcastAddresses() As List(Of String)
+        Private Shared Function GetDirectBroadcastAddresses() As List(Of String)
 
             Dim broadcastAddresses As New List(Of String)
             Dim IPAddress As String
@@ -260,7 +273,7 @@ Namespace MPClientController
 
         End Function
 
-        Private Function DirectBroadcastAddress(ByVal IPAddress As String, ByVal SubnetMask As String) As String
+        Private Shared Function DirectBroadcastAddress(ByVal IPAddress As String, ByVal SubnetMask As String) As String
 
             Dim temp() As String
             Dim ip(0 To 3) As Integer
@@ -469,7 +482,7 @@ Namespace MPClientController
                         episode.PlayEpisode()
                         results = TVSeries.IsEpisodeIDPlaying(request.Value)
                     Else
-                    results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
+                        results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
 
 
@@ -584,11 +597,11 @@ Namespace MPClientController
                     results = MyTV.StartChannel(request.Filter)
 
                 Case "sendmessage"
-                    Dim message As New Message
-                    message.heading = request.Filter
-                    message.message = request.Value
-                    results = message.SendMessage()
-
+                    Using message As New Message
+                        message.heading = request.Filter
+                        message.message = request.Value
+                        results = message.SendMessage()
+                    End Using
                 Case "poweroption"
                     results = PowerOptions.DoPowerOption(request.Filter)
 
@@ -858,7 +871,7 @@ Namespace MPClientController
 
         End Function
 
-        Private Function SendKeystring(ByVal request As String) As String
+        Private Shared Function SendKeystring(ByVal request As String) As String
 
             Dim keystring As Integer = 0
             Dim modifiers As Integer = 0
@@ -1019,17 +1032,6 @@ Namespace MPClientController
         End Function
 
 #End Region
-
-        Public Class MPClientRequest
-            Public Action As String
-            Public Filter As String
-            Public Value As String
-            Public Start As Integer
-            Public PageSize As Integer
-            Public Shuffle As Boolean
-            Public Enqueue As Boolean
-            Public Tracks As String
-        End Class
 
     End Class
 

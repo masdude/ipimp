@@ -29,13 +29,15 @@ Partial Public Class SetupForm
     End Sub
 
     Private Sub LoadSettings()
-        Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
-        Port.Value = xmlReader.GetValueAsInt("MPClientController", "TCPPort", 55667)
+        Using xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
+            Port.Value = xmlReader.GetValueAsInt("MPClientController", "TCPPort", 55667)
+        End Using
     End Sub
 
     Private Sub SaveSettings()
-        Dim xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
-        xmlReader.SetValue("MPClientController", "TCPPort", Port.Value.ToString)
+        Using xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
+            xmlReader.SetValue("MPClientController", "TCPPort", Port.Value.ToString)
+        End Using
     End Sub
 
 End Class

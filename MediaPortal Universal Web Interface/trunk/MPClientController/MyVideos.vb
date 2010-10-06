@@ -24,7 +24,10 @@ Imports System.IO
 
 Namespace MPClientController
 
-    Public Class MyVideos
+    Public NotInheritable Class MyVideos
+
+        Private Sub New()
+        End Sub
 
         Private Class MPClientSmallMovieInfo
             Public ID As String
@@ -69,37 +72,37 @@ Namespace MPClientController
             Next
             movies.Sort(New MPClientSmallMovieInfoComparer)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("movies")
-            jw.WriteStartArray()
-            If pagesize = 0 Then
-                For Each movieInfo As MPClientSmallMovieInfo In movies
-                    jw.WriteStartObject()
-                    jw.WriteMember("ID")
-                    jw.WriteString(movieInfo.ID)
-                    jw.WriteMember("Title")
-                    jw.WriteString(movieInfo.Title)
-                    jw.WriteEndObject()
-                Next
-            Else
-                For i As Integer = start To (start + (pagesize - 1))
-                    jw.WriteStartObject()
-                    jw.WriteMember("ID")
-                    jw.WriteString(movies(i).ID)
-                    jw.WriteMember("Title")
-                    jw.WriteString(movies(i).Title)
-                    jw.WriteEndObject()
-                Next
-            End If
-            jw.WriteEndArray()
-            jw.WriteEndObject()
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("movies")
+                jw.WriteStartArray()
+                If pagesize = 0 Then
+                    For Each movieInfo As MPClientSmallMovieInfo In movies
+                        jw.WriteStartObject()
+                        jw.WriteMember("ID")
+                        jw.WriteString(movieInfo.ID)
+                        jw.WriteMember("Title")
+                        jw.WriteString(movieInfo.Title)
+                        jw.WriteEndObject()
+                    Next
+                Else
+                    For i As Integer = start To (start + (pagesize - 1))
+                        jw.WriteStartObject()
+                        jw.WriteMember("ID")
+                        jw.WriteString(movies(i).ID)
+                        jw.WriteMember("Title")
+                        jw.WriteString(movies(i).Title)
+                        jw.WriteEndObject()
+                    Next
+                End If
+                jw.WriteEndArray()
+                jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
         ''' <summary>
@@ -107,80 +110,82 @@ Namespace MPClientController
         ''' </summary>
         ''' <returns>A JSON list of all movies with extended information.</returns>
         ''' <remarks></remarks>
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")>
         Public Shared Function GetAllMovies() As String
 
             Dim allMovies As New ArrayList
             VideoDatabase.GetMovies(allMovies)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("movies")
-            jw.WriteStartArray()
-
-            For Each movie As IMDBMovie In allMovies
-
-                Dim fileList As New ArrayList
-                VideoDatabase.GetFiles(movie.ID, fileList)
-
-                Dim files As String = Join(fileList.ToArray, ";")
-                Dim crc As New CRCTool
-                crc.Init(CRCTool.CRCCode.CRC32)
-
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
                 jw.WriteStartObject()
-                jw.WriteMember("thumb")
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("movies")
+                jw.WriteStartArray()
 
-                If (File.Exists(String.Format("{0}\{1}L{2}", Thumbs.MovieTitle, MediaPortal.Util.Utils.MakeFileName(movie.Title), MediaPortal.Util.Utils.GetThumbExtension()))) Then
-                    jw.WriteString(String.Format("videotitle:{0}", MediaPortal.Util.Utils.MakeFileName(movie.Title)))
-                ElseIf (File.Exists(String.Format("{0}\{1}L{2}", Thumbs.Videos, crc.calc(files).ToString, MediaPortal.Util.Utils.GetThumbExtension()))) Then
-                    jw.WriteString(String.Format("videothumb:{0}", crc.calc(files).ToString))
-                Else
-                    jw.WriteString("")
-                End If
+                For Each movie As IMDBMovie In allMovies
 
-                jw.WriteMember("fanart")
-                jw.WriteString("")
-                jw.WriteMember("file")
-                jw.WriteString(files)
-                jw.WriteMember("title")
-                jw.WriteString(movie.Title)
-                jw.WriteMember("id")
-                jw.WriteString(movie.ID)
-                jw.WriteMember("year")
-                jw.WriteString(movie.Year)
-                jw.WriteMember("tagline")
-                jw.WriteString(movie.TagLine)
-                jw.WriteMember("plot")
-                jw.WriteString(movie.Plot)
-                jw.WriteMember("runtime")
-                jw.WriteString(movie.RunTime)
-                jw.WriteMember("rating")
-                jw.WriteString(movie.Rating)
-                jw.WriteMember("thumburl")
-                jw.WriteString(movie.ThumbURL)
-                jw.WriteMember("imdbnumber")
-                jw.WriteString(movie.IMDBNumber)
-                jw.WriteMember("path")
-                jw.WriteString(movie.Path)
-                jw.WriteMember("director")
-                jw.WriteString(movie.Director)
-                jw.WriteMember("genre")
-                jw.WriteString(movie.Genre)
-                jw.WriteMember("mpaa")
-                jw.WriteString(movie.MPARating)
-                jw.WriteMember("votes")
-                jw.WriteString(movie.Votes)
-                jw.WriteMember("watched")
-                jw.WriteString(movie.Watched)
+                    Dim fileList As New ArrayList
+                    Dim files As String = Join(fileList.ToArray, ";")
+                    Dim crc As New CRCTool
+
+                    VideoDatabase.GetFiles(movie.ID, fileList)
+                    crc.Init(CRCTool.CRCCode.CRC32)
+
+                    jw.WriteStartObject()
+                    jw.WriteMember("thumb")
+
+                    If (File.Exists(String.Format("{0}\{1}L{2}", Thumbs.MovieTitle, MediaPortal.Util.Utils.MakeFileName(movie.Title), MediaPortal.Util.Utils.GetThumbExtension()))) Then
+                        jw.WriteString(String.Format("videotitle:{0}", MediaPortal.Util.Utils.MakeFileName(movie.Title)))
+                    ElseIf (File.Exists(String.Format("{0}\{1}L{2}", Thumbs.Videos, crc.calc(files).ToString, MediaPortal.Util.Utils.GetThumbExtension()))) Then
+                        jw.WriteString(String.Format("videothumb:{0}", crc.calc(files).ToString))
+                    Else
+                        jw.WriteString("")
+                        End If
+
+                        jw.WriteMember("fanart")
+                        jw.WriteString("")
+                        jw.WriteMember("file")
+                        jw.WriteString(files)
+                        jw.WriteMember("title")
+                        jw.WriteString(movie.Title)
+                        jw.WriteMember("id")
+                        jw.WriteString(movie.ID)
+                        jw.WriteMember("year")
+                        jw.WriteString(movie.Year)
+                        jw.WriteMember("tagline")
+                        jw.WriteString(movie.TagLine)
+                        jw.WriteMember("plot")
+                        jw.WriteString(movie.Plot)
+                        jw.WriteMember("runtime")
+                        jw.WriteString(movie.RunTime)
+                        jw.WriteMember("rating")
+                        jw.WriteString(movie.Rating)
+                        jw.WriteMember("thumburl")
+                        jw.WriteString(movie.ThumbURL)
+                        jw.WriteMember("imdbnumber")
+                        jw.WriteString(movie.IMDBNumber)
+                        jw.WriteMember("path")
+                        jw.WriteString(movie.Path)
+                        jw.WriteMember("director")
+                        jw.WriteString(movie.Director)
+                        jw.WriteMember("genre")
+                        jw.WriteString(movie.Genre)
+                        jw.WriteMember("mpaa")
+                        jw.WriteString(movie.MPARating)
+                        jw.WriteMember("votes")
+                        jw.WriteString(movie.Votes)
+                        jw.WriteMember("watched")
+                        jw.WriteString(movie.Watched)
+                        jw.WriteEndObject()
+                Next
+
+                jw.WriteEndArray()
                 jw.WriteEndObject()
-            Next
-            jw.WriteEndArray()
+                Return jw.ToString
 
-            jw.WriteEndObject()
-            Return jw.ToString
-
+            End Using
         End Function
 
 
@@ -223,17 +228,17 @@ Namespace MPClientController
                 Case Else
             End Select
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember(filter.ToLower)
-            jw.WriteStringArray(filters.ToArray)
-            jw.WriteEndObject()
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember(filter.ToLower)
+                jw.WriteStringArray(filters.ToArray)
+                jw.WriteEndObject()
 
-            Return jw.ToString
-
+                Return jw.ToString
+            End Using
         End Function
 
         ''' <summary>
@@ -247,32 +252,32 @@ Namespace MPClientController
             Dim video As New IMDBMovie
             VideoDatabase.GetMovieInfoById(ID, video)
 
-            Dim jw As New JsonTextWriter
-            jw.PrettyPrint = True
-            jw.WriteStartObject()
-            jw.WriteMember("result")
-            jw.WriteBoolean(True)
-            jw.WriteMember("Title")
-            jw.WriteString(video.Title)
-            jw.WriteMember("Tagline")
-            jw.WriteString(video.TagLine)
-            jw.WriteMember("Plot")
-            jw.WriteString(video.Plot)
-            jw.WriteMember("Runtime")
-            jw.WriteString(video.RunTime)
-            jw.WriteMember("Rating")
-            jw.WriteString(video.Rating)
-            jw.WriteMember("ThumbURL")
-            jw.WriteString(video.ThumbURL)
-            jw.WriteMember("IMDBNumber")
-            jw.WriteString(video.IMDBNumber)
-            jw.WriteMember("File")
-            jw.WriteString(video.File)
-            jw.WriteMember("Path")
-            jw.WriteString(video.Path)
-            jw.WriteEndObject()
-            Return jw.ToString
-
+            Using jw As New JsonTextWriter
+                jw.PrettyPrint = True
+                jw.WriteStartObject()
+                jw.WriteMember("result")
+                jw.WriteBoolean(True)
+                jw.WriteMember("Title")
+                jw.WriteString(video.Title)
+                jw.WriteMember("Tagline")
+                jw.WriteString(video.TagLine)
+                jw.WriteMember("Plot")
+                jw.WriteString(video.Plot)
+                jw.WriteMember("Runtime")
+                jw.WriteString(video.RunTime)
+                jw.WriteMember("Rating")
+                jw.WriteString(video.Rating)
+                jw.WriteMember("ThumbURL")
+                jw.WriteString(video.ThumbURL)
+                jw.WriteMember("IMDBNumber")
+                jw.WriteString(video.IMDBNumber)
+                jw.WriteMember("File")
+                jw.WriteString(video.File)
+                jw.WriteMember("Path")
+                jw.WriteString(video.Path)
+                jw.WriteEndObject()
+                Return jw.ToString
+            End Using
         End Function
 
         Public Shared Function IsVideoIDPlaying(ByVal ID As Integer) As String

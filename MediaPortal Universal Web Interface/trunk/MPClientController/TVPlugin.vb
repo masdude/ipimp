@@ -22,7 +22,10 @@ Imports MediaPortal.GUI.Library
 
 Namespace MPClientController
 
-    Public Class MyTV
+    Public NotInheritable Class MyTV
+
+        Private Sub New()
+        End Sub
 
         Public Shared Function StartChannel(ByVal idChannel As Integer) As Boolean
 
