@@ -12,14 +12,17 @@
  * Web - added list sorting option in settings - channel groups can now be returned in !MediaPortal order
  * Web - added new setting to allow number of days to show in TV & Radio guides (4,7,10,14)
  * Web - Refactored all pages which interact with !MediaPortal clients due to changes in MP client plugin
+ * Web - Added TV Series functionality - browse and play your TV Series episodes
+ * Web - Auto-registers MP clients and determines whether MovingPictures and TVSeries are used.
  * MP client plugin - MP clients will now auto register with iPiMP web app
  * MP client plugin - Lots & lots of changes to support [http://yatse.leetzone.org/redmine Yatse] (thanks to Tolriq for the help & patches)
  * MP client plugin - Added TV Series
-
+ * MP client plugin - Added minimum TV Series version (2.6.3) and MovingPictures (1.0.6) checks
 5.0.1 updates include (13th Jun 2010)
  * Web - modified !SmoothStreaming arguments for correct playback on other players
  * Web - added Silverlight player for desktop browsers - Google Chrome is recommended
  * Web - updated Streaming Status page to allow existing stream to be rejoined
+
 
 5.0.0 updates include (11th Jun 2010)
  * Web - Added stream live TV - EXPERIMENTAL
