@@ -98,6 +98,8 @@ Partial Public Class ClientManagementUpdate
             markup += String.Format("<li><input type=""text"" id=""jsHostname"" placeholder=""{0}"" value=""{1}"" /></li>", If(client.Hostname = "", GetGlobalResourceObject("uWiMPStrings", "hostname"), ""), If(client.Hostname = "", "", client.Hostname))
             markup += String.Format("<li><input type=""text"" id=""jsPort"" placeholder=""{0}"" value=""{1}"" /></li>", If(client.Port = "", GetGlobalResourceObject("uWiMPStrings", "port"), ""), If(client.Port = "", "", client.Port))
             markup += String.Format("<li><input type=""text"" id=""jsMAC"" placeholder=""{0}"" value=""{1}"" /></li>", If(client.MACAddress = "", GetGlobalResourceObject("uWiMPStrings", "mac"), ""), If(client.MACAddress = "", "", client.MACAddress))
+            markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsUseMovingPictures"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "moving_pictures"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(client.usesMovingPictures, "checked=""""", ""))
+            markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsUseTVSeries"" class=""iToggle"" title=""{1}"" {2}/></li>", GetGlobalResourceObject("uWiMPStrings", "tv_series"), GetGlobalResourceObject("uWiMPStrings", "yesno"), IIf(client.usesTVSeries, "checked=""""", ""))
             markup += "</ul>"
 
             markup += "<div class=""iBlock"">"

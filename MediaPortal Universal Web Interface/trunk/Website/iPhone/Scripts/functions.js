@@ -1,4 +1,4 @@
-﻿//version 5.0.0
+﻿//version 5.1.0
 
 function logout() {
     document.location = '#_Logout';
@@ -46,8 +46,10 @@ function addmpclient() {
     var hostname = document.getElementById('jsHostname').value;
     var port = document.getElementById('jsPort').value;
     var macaddress = document.getElementById('jsMAC').value;
+    var usemovpics = document.getElementById('jsUseMovingPictures').checked;
+    var usetvseries = document.getElementById('jsUseTVSeries').checked;
 
-    WA.Request('Admin/ClientManagementAddResult.aspx?friendly=' + friendly + '&hostname=' + hostname + '&port=' + port + '&macaddress=' + macaddress + '#_ClientAddResult', null, -1, true, null);
+    WA.Request('Admin/ClientManagementAddResult.aspx?friendly=' + friendly + '&hostname=' + hostname + '&port=' + port + '&macaddress=' + macaddress + '&usemovpics=' + usemovpics + '&usetvseries=' + usetvseries + '#_ClientAddResult', null, -1, true, null);
     return false;
 }
 
@@ -74,8 +76,10 @@ function updmpclient2() {
     var hostname = document.getElementById('jsHostname').value;
     var port = document.getElementById('jsPort').value;
     var macaddress = document.getElementById('jsMAC').value;
+    var usemovpics = document.getElementById('jsUseMovingPictures').checked;
+    var usetvseries = document.getElementById('jsUseTVSeries').checked;
 
-    WA.Request('Admin/ClientManagementUpdateResult.aspx?friendly=' + friendly + '&hostname=' + hostname + '&port=' + port + '&macaddress=' + macaddress + '#_ClientUpdateResult', null, -1, true, null);
+    WA.Request('Admin/ClientManagementUpdateResult.aspx?friendly=' + friendly + '&hostname=' + hostname + '&port=' + port + '&macaddress=' + macaddress + '&usemovpics=' + usemovpics + '&usetvseries=' + usetvseries + '#_ClientUpdateResult', null, -1, true, null);
     return false;
 }
 

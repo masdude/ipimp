@@ -34,6 +34,8 @@ Partial Public Class ClientManagementAddResult
         client.Hostname = Request.QueryString("hostname")
         client.Port = Request.QueryString("port")
         client.MACAddress = Request.QueryString("macaddress")
+        client.usesMovingPictures = CBool(Request.QueryString("usemovpics"))
+        client.usesTVSeries = CBool(Request.QueryString("usetvseries"))
 
         Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
         Dim xw As XmlWriter = New XmlTextWriter(tw)
