@@ -372,6 +372,8 @@ Namespace MPClientController
 
             If results = String.Empty Then results = GetResults(request)
 
+            If results = String.Empty Then results = iPiMPUtils.SendError(3, "No result")
+
             Dim buffer As Byte() = System.Text.Encoding.UTF8.GetBytes(results)
             httpResponse.ContentLength64 = buffer.Length
 

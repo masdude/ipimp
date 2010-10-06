@@ -45,38 +45,34 @@ Namespace MPClientController
 
         Private Sub StartPlayingEpisode()
 
-            Dim seriesID As Integer = Split(_compositeID, "_")(0)
-            Dim seasonIndex As Integer = Split(Split(_compositeID, "_")(1), "x")(0)
-            Dim episodeIndex As Integer = Split(Split(_compositeID, "_")(1), "x")(1)
+            Dim sqlCondition As New SQLCondition
+            sqlCondition.Add(New DBEpisode(), DBEpisode.cCompositeID, _compositeID, SQLConditionType.Equal)
 
-            Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(seriesID, seasonIndex)
+            Dim epFileName As String = Nothing
 
-            Dim episode As DBEpisode = Nothing
-            For Each episode In episodeList
-                If CInt(episode.Item(DBEpisode.cEpisodeIndex)) = episodeIndex Then
-                    Exit For
+            Dim episodeList As List(Of DBEpisode) = DBEpisode.Get(sqlCondition)
+            If (episodeList.Count > 0) Then
+
+                If g_Player.Playing Then g_Player.Stop()
+
+                _playListPlayer = New MediaPortal.Playlists.PlayListPlayer
+                _playListPlayer = MediaPortal.Playlists.PlayListPlayer.SingletonPlayer
+                _playListPlayer.RepeatPlaylist = False
+
+                _playListPlayer.GetPlaylist(MediaPortal.Playlists.PlayListType.PLAYLIST_VIDEO).Clear()
+                Dim item As New MediaPortal.Playlists.PlayListItem
+                item.FileName = episodeList(0).Item(DBEpisode.cFilename)
+                item.Type = MediaPortal.Playlists.PlayListItem.PlayListItemType.Video
+                _playListPlayer.GetPlaylist(MediaPortal.Playlists.PlayListType.PLAYLIST_VIDEO).Add(item)
+
+                If _playListPlayer.GetPlaylist(MediaPortal.Playlists.PlayListType.PLAYLIST_VIDEO).Count > 0 Then
+                    _playListPlayer.Reset()
+                    _playListPlayer.CurrentPlaylistType = MediaPortal.Playlists.PlayListType.PLAYLIST_VIDEO
+                    _playListPlayer.Play(0)
                 End If
-            Next
 
-
-            If g_Player.Playing Then g_Player.Stop()
-
-            _playListPlayer = New MediaPortal.Playlists.PlayListPlayer
-            _playListPlayer = MediaPortal.Playlists.PlayListPlayer.SingletonPlayer
-                _playlistPlayer.RepeatPlaylist = False
-
-            _playListPlayer.GetPlaylist(MediaPortal.Playlists.PlayListType.PLAYLIST_VIDEO).Clear()
-            Dim item As New MediaPortal.Playlists.PlayListItem
-            item.FileName = episode.Item(DBEpisode.cFilename)
-            item.Type = MediaPortal.Playlists.PlayListItem.PlayListItemType.Video
-            _playListPlayer.GetPlaylist(MediaPortal.Playlists.PlayListType.PLAYLIST_VIDEO).Add(item)
-
-            If _playListPlayer.GetPlaylist(MediaPortal.Playlists.PlayListType.PLAYLIST_VIDEO).Count > 0 Then
-                _playListPlayer.Reset()
-                _playListPlayer.CurrentPlaylistType = MediaPortal.Playlists.PlayListType.PLAYLIST_VIDEO
-                _playListPlayer.Play(0)
             End If
-            
+
         End Sub
 
     End Class

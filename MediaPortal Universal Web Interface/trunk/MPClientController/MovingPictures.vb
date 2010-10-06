@@ -39,46 +39,49 @@ Namespace MPClientController
         End Class
 
         Public Shared Function FillNowPlaying(ByRef jw As JsonTextWriter) As Boolean
-            Dim allMovies As New List(Of DBMovieInfo)
-            allMovies = DBMovieInfo.GetAll
+            Try
+                Dim allMovies As New List(Of DBMovieInfo)
+                allMovies = DBMovieInfo.GetAll
+                Dim Found As Boolean = False
 
-            Dim Found As Boolean = False
-
-            For Each movieInfo As DBMovieInfo In allMovies
-                For Each mediaFile As DBLocalMedia In movieInfo.LocalMedia
-                    If mediaFile.FullPath.ToLower = g_Player.Player.CurrentFile.ToLower Then
-                        jw.WriteString("movingpicture")
-                        jw.WriteMember("title")
-                        jw.WriteString(movieInfo.Title)
-                        jw.WriteMember("fanart")
-                        jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
-                        jw.WriteMember("thumb")
-                        jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
-                        jw.WriteMember("tagline")
-                        jw.WriteString(movieInfo.Tagline)
-                        jw.WriteMember("id")
-                        jw.WriteString(movieInfo.ID)
-                        jw.WriteMember("genre")
-                        jw.WriteString(Join(movieInfo.Genres.ToArray, " /"))
-                        jw.WriteMember("filename")
-                        jw.WriteString(MediaPortal.Util.Utils.SplitFilename(g_Player.Player.CurrentFile.ToString))
-                        jw.WriteMember("plot")
-                        jw.WriteString(movieInfo.Summary)
-                        jw.WriteMember("director")
-                        jw.WriteString(Join(movieInfo.Directors.ToArray(), " / "))
-                        jw.WriteMember("year")
-                        jw.WriteString(movieInfo.Year)
-                        jw.WriteMember("rating")
-                        jw.WriteString(movieInfo.Score)
-                        Found = True
+                For Each movieInfo As DBMovieInfo In allMovies
+                    For Each mediaFile As DBLocalMedia In movieInfo.LocalMedia
+                        If mediaFile.FullPath.ToLower = g_Player.Player.CurrentFile.ToLower Then
+                            jw.WriteString("movingpicture")
+                            jw.WriteMember("title")
+                            jw.WriteString(movieInfo.Title)
+                            jw.WriteMember("fanart")
+                            jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
+                            jw.WriteMember("thumb")
+                            jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
+                            jw.WriteMember("tagline")
+                            jw.WriteString(movieInfo.Tagline)
+                            jw.WriteMember("id")
+                            jw.WriteString(movieInfo.ID)
+                            jw.WriteMember("genre")
+                            jw.WriteString(Join(movieInfo.Genres.ToArray, " /"))
+                            jw.WriteMember("filename")
+                            jw.WriteString(g_Player.Player.CurrentFile)
+                            jw.WriteMember("plot")
+                            jw.WriteString(movieInfo.Summary)
+                            jw.WriteMember("director")
+                            jw.WriteString(Join(movieInfo.Directors.ToArray(), " / "))
+                            jw.WriteMember("year")
+                            jw.WriteString(movieInfo.Year)
+                            jw.WriteMember("rating")
+                            jw.WriteString(movieInfo.Score)
+                            Found = True
+                            Exit For
+                        End If
+                    Next
+                    If Found Then
                         Exit For
                     End If
                 Next
-                If Found Then
-                    Exit For
-                End If
-            Next
-            Return Found
+                Return Found
+            Catch ex As Exception
+                Return False
+            End Try
 
         End Function
 
