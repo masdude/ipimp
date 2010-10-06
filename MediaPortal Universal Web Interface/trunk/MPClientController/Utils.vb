@@ -136,7 +136,7 @@ Namespace MPClientController
                     jw.WriteMember("data")
                     jw.WriteString(Convert.ToBase64String(stream.ToArray()))
                     stream.Close()
-                    stream.Dispose()
+
                 Catch ex As Exception
                     jw.Close()
                     jw = New JsonTextWriter
