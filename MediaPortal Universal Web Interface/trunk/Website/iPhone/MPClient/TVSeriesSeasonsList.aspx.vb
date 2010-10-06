@@ -176,8 +176,8 @@ Partial Public Class TVSeriesSeasonsList
 
         End If
 
-        'Return imagePath
-        Return String.Format("{0}/tvepisodeblankbanner.png", relativePath)
+        Return imagePath
+
     End Function
 
 End Class

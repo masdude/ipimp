@@ -89,6 +89,8 @@ Partial Public Class ClientManagementAddMenu
         markup += String.Format("<li><input type=""text"" id=""jsHostname"" placeholder=""{0}"" /></li>", GetGlobalResourceObject("uWiMPStrings", "hostname"))
         markup += String.Format("<li><input type=""number"" id=""jsPort"" placeholder=""{0}"" /></li>", GetGlobalResourceObject("uWiMPStrings", "port"))
         markup += String.Format("<li><input type=""text"" id=""jsMAC"" placeholder=""{0}"" /></li>", GetGlobalResourceObject("uWiMPStrings", "mac"))
+        markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsUseMovingPictures"" class=""iToggle"" title=""{1}"" /></li>", GetGlobalResourceObject("uWiMPStrings", "moving_pictures"), GetGlobalResourceObject("uWiMPStrings", "yesno"))
+        markup += String.Format("<li><label>{0}</label><input type=""checkbox"" id=""jsUseTVSeries"" class=""iToggle"" title=""{1}"" /></li>", GetGlobalResourceObject("uWiMPStrings", "tv_series"), GetGlobalResourceObject("uWiMPStrings", "yesno"))
         markup += "</ul>"
 
         markup += "<div class=""iBlock"">"
