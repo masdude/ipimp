@@ -135,6 +135,8 @@
     <Content Include="Desktop\SmoothStreaming.xap" />
     <Content Include="Desktop\TimedTextLibrary.xap" />
     <Content Include="images\remote\browser.png" />
+    <Content Include="images\tvseries\tvepisodeblank.png" />
+    <Content Include="images\tvseries\tvepisodeblankbanner.png" />
     <Content Include="iPhone\Default.aspx" />
     <Content Include="iPhone\MPClient\TVSeriesRecentEpisodes.aspx" />
     <Content Include="iPhone\MPClient\TVSeriesPlay.aspx" />
