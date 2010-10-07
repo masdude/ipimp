@@ -480,7 +480,7 @@ Namespace MPClientController
                         Dim episode As New TVEpisode
                         episode.compositeID = request.Value
                         episode.PlayEpisode()
-                        results = TVSeries.IsEpisodeIDPlaying(request.Value)
+                        IIf(request.Tracks.ToLower = "no", results = iPiMPUtils.SendBool(True), results = TVSeries.IsEpisodeIDPlaying(request.Value))
                     Else
                         results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
@@ -505,7 +505,7 @@ Namespace MPClientController
                             video.RemoveStopTime()
                         End If
                         video.PlayVideo()
-                        results = MyVideos.IsVideoIDPlaying(CInt(request.Filter))
+                        IIf(request.Tracks.ToLower = "no", results = iPiMPUtils.SendBool(True), results = MyVideos.IsVideoIDPlaying(CInt(request.Filter)))
                     End If
                 Case "getallmovies"
                     results = MyVideos.GetAllMovies()
@@ -543,7 +543,7 @@ Namespace MPClientController
                     If isMovingPicturesPresent Then
                         If Not request.Filter = String.Empty Then
                             MovingPictures.PlayMovie(CInt(request.Filter))
-                            results = MovingPictures.IsVideoIDPlaying(CInt(request.Filter))
+                            IIf(request.Tracks.ToLower = "no", results = iPiMPUtils.SendBool(True), results = MovingPictures.IsVideoIDPlaying(CInt(request.Filter)))
                         End If
                     Else
                         results = iPiMPUtils.SendString("warning", "MovingPictures not loaded or wrong version")
