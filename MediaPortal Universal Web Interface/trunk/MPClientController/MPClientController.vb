@@ -191,8 +191,12 @@ Namespace MPClientController
             tcpListener.Start()
 
             Do
-                tcpClient = tcpListener.AcceptTcpClient
-                TCPInputReceived()
+                Try
+                    tcpClient = tcpListener.AcceptTcpClient
+                    TCPInputReceived()
+                Catch ex As Exception
+                    Log.Info("plugin: iPiMPClient - TCPListenerAcceptTcpClient error {0}", ex.Message)
+                End Try
             Loop
 
         End Sub
@@ -204,8 +208,12 @@ Namespace MPClientController
             httpListener.Start()
 
             Do
-                httpContext = httpListener.GetContext
-                HTTPPostInputReceived()
+                Try
+                    httpContext = httpListener.GetContext
+                    HTTPPostInputReceived()
+                Catch ex As HttpListenerException
+                    Log.Info("plugin: iPiMPClient - HTTPListenerGetContect error {0}", ex.Message)
+                End Try
             Loop
 
         End Sub
