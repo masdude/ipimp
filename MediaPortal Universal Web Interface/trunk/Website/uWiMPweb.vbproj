@@ -1691,7 +1691,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MPWebServices\MPWebServices.csproj">
       <Project>{24FC1495-49B6-4E50-A188-D3467C639F4B}</Project>
