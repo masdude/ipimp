@@ -290,21 +290,21 @@ Namespace uWiMP.TVServer
 
             SetupConnection()
 
-            Dim vcard As VirtualCard
-            Dim result As TvResult
-            Dim rtspURL As String = String.Empty
-            Dim timeshiftFilename As String = String.Empty
             Dim userId As New TvControl.User(System.Guid.NewGuid().ToString("B"), False)
-            Dim uWiMPTVResult As New WebTvResult
+            Dim tvResult As TvResult
+            Dim vcard As VirtualCard
+
             Try
-                result = RemoteControl.Instance.StartTimeShifting(userId, idChannel, vcard)
+                tvResult = RemoteControl.Instance.StartTimeShifting(userId, idChannel, vcard)
             Catch generatedExceptionName As Exception
                 Return New WebTvResult
             End Try
 
-            Dim r As New WebTvResult
+            Dim webTvResult As New WebTvResult
+            Dim rtspURL As String = String.Empty
+            Dim timeshiftFilename As String = String.Empty
 
-            If result = TvResult.Succeeded Then
+            If tvResult = TvResult.Succeeded Then
                 userId.IdChannel = idChannel
                 userId.CardId = vcard.Id
                 rtspURL = vcard.RTSPUrl
@@ -315,14 +315,14 @@ Namespace uWiMP.TVServer
                 u.idChannel = idChannel
                 u.name = userId.Name
 
-                r.result = CInt(result)
-                r.rtspURL = vcard.RTSPUrl
-                r.timeshiftFile = vcard.TimeShiftFileName
-                r.user = u
+                webTvResult.result = CInt(tvResult)
+                webTvResult.rtspURL = vcard.RTSPUrl
+                webTvResult.timeshiftFile = vcard.TimeShiftFileName
+                webTvResult.user = u
 
-                Return r
+                Return webTvResult
             Else
-                Return r
+                Return webTvResult
             End If
 
         End Function

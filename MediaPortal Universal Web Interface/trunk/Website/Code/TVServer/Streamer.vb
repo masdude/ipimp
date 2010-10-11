@@ -94,15 +94,17 @@ Namespace uWiMP.TVServer
         Public Sub OnEnd(ByVal ar As IAsyncResult)
             _taskprogress += String.Format("Streaming finished at: {0}", DateTime.Now.ToLongTimeString)
             _delegate.EndInvoke(ar)
+            If _running Then StopStreaming()
         End Sub
 
         Public Sub OnTimeout(ByVal ar As IAsyncResult)
             _taskprogress += String.Format("Streaming timed out at: {0}", DateTime.Now.ToLongTimeString)
+            If _running Then StopStreaming()
         End Sub
 
         Public Shared Sub Stream(ByVal mediatype As MediaType, ByVal id As Integer)
 
-            If _running Then StopStream()
+            If _running Then StopStreaming()
 
             If _mediaStream IsNot Nothing Then _mediaStream.Close()
 
@@ -110,16 +112,21 @@ Namespace uWiMP.TVServer
             Dim usedChannel As Integer = -1
             Dim filename As String = ""
 
-            Dim cfg As EncoderConfig = Utils.LoadConfig.Item(0)
+            Dim cfg As EncoderConfig = Nothing
 
             Select Case mediatype
                 Case Streamer.MediaType.Tv, Streamer.MediaType.Radio
-                    If mediatype = Streamer.MediaType.Radio Then
-                        bufferSize = &HA00
-                    End If
+
+                    UpdateStreamTracker(mediatype, id, _card, _userName)
+                    cfg = Utils.LoadConfig.Item(0)
+
+                    If mediatype = Streamer.MediaType.Radio Then bufferSize = &HA00
 
                     Dim res As WebTvResult = uWiMP.TVServer.Cards.StartTimeshifting(id)
-                    If res.result <> 0 Then Exit Sub
+                    If res.result <> 0 Then
+                        StopStreaming()
+                        Exit Sub
+                    End If
                     _card = res.user.idCard
                     usedChannel = res.user.idChannel
                     _userName = res.user.name
@@ -131,12 +138,19 @@ Namespace uWiMP.TVServer
                     End If
 
                 Case Streamer.MediaType.Recording
+
+                    UpdateStreamTracker(mediatype, id, "", "")
+                    cfg = Utils.LoadConfig.Item(1)
+
                     Dim recording As Recording = uWiMP.TVServer.Recordings.GetRecordingById(id)
                     filename = recording.FileName
 
             End Select
 
-            If Not (File.Exists(filename) OrElse filename.StartsWith("rtsp://")) Then Exit Sub
+            If Not (File.Exists(filename) OrElse filename.StartsWith("rtsp://")) Then
+                StopStreaming()
+                Exit Sub
+            End If
 
             ClearStreamFiles()
 
@@ -154,16 +168,9 @@ Namespace uWiMP.TVServer
                 End If
 
             Catch ex As Exception
-                StopStream()
+                StopStreaming()
                 Exit Sub
             End Try
-
-            Select Case mediatype
-                Case Streamer.MediaType.Tv, Streamer.MediaType.Radio
-                    UpdateStreamTracker(mediatype, id, _card, _userName)
-                Case Else
-                    UpdateStreamTracker(mediatype, id, "", "")
-            End Select
 
             _running = True
 
@@ -176,11 +183,14 @@ Namespace uWiMP.TVServer
             Try
                 _encoder.StopProcess()
             Catch ex As Exception
-                'do nothing
+                result = False
             End Try
 
-
-            If _mediaStream IsNot Nothing Then _mediaStream.Close()
+            Try
+                If _mediaStream IsNot Nothing Then _mediaStream.Close()
+            Catch ex As Exception
+                result = False
+            End Try
             
             Try
                 Dim mediaType As MediaType
@@ -209,6 +219,10 @@ Namespace uWiMP.TVServer
             Return result
 
         End Function
+
+        Private Shared Sub StopStreaming()
+            Dim results As Boolean = StopStream()
+        End Sub
 
         Private Shared Sub ClearStreamFiles()
 
