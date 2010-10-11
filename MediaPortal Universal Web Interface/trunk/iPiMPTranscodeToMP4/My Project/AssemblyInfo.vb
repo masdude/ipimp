@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Transcode MediaPortal TV recordings to iPhone MP4 format.")> 
 <Assembly: AssemblyCompany("CheezeySoft :-)")> 
 <Assembly: AssemblyProduct("iPiMPTranscodeToMP4")> 
-<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2009")> 
+<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2010")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("5.0.0.577")> 
-<Assembly: AssemblyFileVersion("5.0.0.577")> 
+<Assembly: AssemblyVersion("5.1.0.611")> 
+<Assembly: AssemblyFileVersion("5.1.0.611")> 

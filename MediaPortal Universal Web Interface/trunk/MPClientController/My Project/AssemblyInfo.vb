@@ -1,4 +1,5 @@
-﻿Imports System.Reflection
+﻿Imports System
+Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 ' General Information about an assembly is controlled through the following 
@@ -11,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Remoting interface to a MediaPortal client")> 
 <Assembly: AssemblyCompany("CheezeySoft :-)")> 
 <Assembly: AssemblyProduct("MPClientController")> 
-<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2009")> 
+<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2010")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -30,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("5.0.0.579")> 
-<Assembly: AssemblyFileVersion("5.0.0.579")> 
+<Assembly: AssemblyVersion("5.1.0.668")> 
+<Assembly: AssemblyFileVersion("5.1.0.668")> 
