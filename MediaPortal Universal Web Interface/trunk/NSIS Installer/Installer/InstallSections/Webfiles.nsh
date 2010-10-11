@@ -107,6 +107,10 @@
   File "..\Include\Aspx\images\remote\weather.png"
   File "..\Include\Aspx\images\remote\yellow.png"
 
+  SetOutPath "$INSTDIR\Aspx\images\tvseries"
+  File "..\Include\Aspx\images\tvseries\tvepisodeblank.png"
+  File "..\Include\Aspx\images\tvseries\tvepisodeblankbanner.png"
+
   SetOutPath "$INSTDIR\Aspx\iPhone"
   File "..\Include\Aspx\iPhone\Default.aspx"
   File "..\Include\Aspx\iPhone\Error.aspx"
@@ -198,6 +202,13 @@
   File "..\Include\Aspx\iPhone\MPClient\MyVideosMenu.aspx"
   File "..\Include\Aspx\iPhone\MPClient\MyVideosPlay.aspx"
   File "..\Include\Aspx\iPhone\MPClient\NowPlaying.aspx"
+  File "..\Include\Aspx\iPhone\MPClient\TVSeriesEpisode.aspx"
+  File "..\Include\Aspx\iPhone\MPClient\TVSeriesList.aspx"
+  File "..\Include\Aspx\iPhone\MPClient\TVSeriesMenu.aspx"
+  File "..\Include\Aspx\iPhone\MPClient\TVSeriesPlay.aspx"
+  File "..\Include\Aspx\iPhone\MPClient\TVSeriesRecentEpisodes.aspx"
+  File "..\Include\Aspx\iPhone\MPClient\TVSeriesSeasonList.aspx"
+  File "..\Include\Aspx\iPhone\MPClient\TVSeriesSeasonsList.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\RadioGuide"
   File "..\Include\Aspx\iPhone\RadioGuide\ChannelGroups.aspx"

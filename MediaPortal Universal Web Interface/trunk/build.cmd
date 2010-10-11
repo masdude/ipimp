@@ -1,4 +1,9 @@
 @ECHO OFF
+SET /P BUILDVER=Enter the build version (e.g. 5.1.0): 
+ECHO Build version is %BUILDVER%
+
+SET /P AGREE=Is this correct? 
+IF /I %AGREE% NEQ Y GOTO :EOF
 
 REM ====================
 REM iPiMPConfigurePlugin
@@ -53,8 +58,12 @@ REM ==================
 REM Installer
 REM ==================
 
-REM Update installer version with website SVN revision
-"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\Website" "%CD%\NSIS Installer\Installer\Definitions\ProductDetails_temp.nsh" "%CD%\NSIS Installer\Installer\Definitions\ProductDetails.nsh"
+REM Update installer version
+CSCRIPT //NOLogo "NSIS Installer\Include\UpdateBuildNumber.vbs" "%CD%\NSIS Installer\Installer\Definitions\ProductDetails_temp.nsh" %BUILDVER%
+IF %ERRORLEVEL% NEQ 0 GOTO ERROR
+
+REM Update installer revision with website SVN revision
+"C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\Website" "%CD%\NSIS Installer\Installer\Definitions\ProductDetails_temp2.nsh" "%CD%\NSIS Installer\Installer\Definitions\ProductDetails.nsh"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Build the installer
@@ -73,11 +82,21 @@ REM Clear down the bin folder
 DEL /Q %PROJECT%\bin\Release\*.*
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
-REM Update assembly version with SVN revision
-IF /I %LANGUAGE% EQU VB "C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\%PROJECT%" "%CD%\%PROJECT%\My Project\AssemblyInfo_temp.vb" "%CD%\%PROJECT%\My Project\AssemblyInfo.vb"
+
+
+
+REM Update assembly version
+IF /I %LANGUAGE% EQU VB CSCRIPT //NOLogo "NSIS Installer\Include\UpdateBuildNumber.vbs" "%CD%\%PROJECT%\My Project\AssemblyInfo_temp.vb" %BUILDVER%
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
-IF /I %LANGUAGE% EQU CS "C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\%PROJECT%" "%CD%\%PROJECT%\Properties\AssemblyInfo_temp.cs" "%CD%\%PROJECT%\Properties\AssemblyInfo.cs"
+IF /I %LANGUAGE% EQU CS CSCRIPT //NOLogo "NSIS Installer\Include\UpdateBuildNumber.vbs" "%CD%\%PROJECT%\Properties\AssemblyInfo_temp.cs" %BUILDVER%
+IF %ERRORLEVEL% NEQ 0 GOTO ERROR
+
+REM Update assembly revision with SVN revision
+IF /I %LANGUAGE% EQU VB "C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\%PROJECT%" "%CD%\%PROJECT%\My Project\AssemblyInfo_temp2.vb" "%CD%\%PROJECT%\My Project\AssemblyInfo.vb"
+IF %ERRORLEVEL% NEQ 0 GOTO ERROR
+
+IF /I %LANGUAGE% EQU CS "C:\Program Files\TortoiseSVN\bin\SubWCRev.exe" "%CD%\%PROJECT%" "%CD%\%PROJECT%\Properties\AssemblyInfo_temp2.cs" "%CD%\%PROJECT%\Properties\AssemblyInfo.cs"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Build the project
