@@ -1,0 +1,21 @@
+#Install instructions for the MPClientController plugin
+
+= Introduction =
+
+This is a process plugin for !MediaPortal which provides tcp/http remoting interfaces to !MediaPortal clients.  It is currently used by [http://code.google.com/p/ipimp/ iPiMP] and [http://yatse.leetzone.org/redmine/projects/yatse2 Yatse2]
+
+Installation is very straight forward, the install is provided as an MPEI (!MediaPortal Extension Installer).  You just download it, run, click next a few times and that's it. If you are installing iPiMP you will not need to do this as the iPiMP Installer does it for you.
+
+= Installation =
+
+Download the MPClientController._a.b.c.dddd_.MPEI from the featured downloads on the [http://code.google.com/p/ipimp/ iPiMP home page].
+
+Launch the file
+
+Click Next
+
+Click Next
+
+Click Finish
+
+:)
