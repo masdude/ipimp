@@ -27,4 +27,4 @@ http://www.vanderboon.co.uk/ipimp/Capture4.PNG
 
 Click Finish
 
-Simples :)
+Once installed, you can configure it following [http://code.google.com/p/ipimp/wiki/Client_Plugin_Setup these] instructions.
