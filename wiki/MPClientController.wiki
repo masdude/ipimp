@@ -11,15 +11,19 @@ Installation is very straight forward, the install is provided as an MPEI (!Medi
 Download the MPClientController._a.b.c.dddd_.MPEI from the featured downloads on the [http://code.google.com/p/ipimp/ iPiMP home page].
 
 Launch the file
+
 http://www.vanderboon.co.uk/ipimp/Capture1.PNG
 
 Click Next
+
 http://www.vanderboon.co.uk/ipimp/Capture2.PNG
 
 Click Next
+
 http://www.vanderboon.co.uk/ipimp/Capture3.PNG
 
 Click Finish
+
 http://www.vanderboon.co.uk/ipimp/Capture4.PNG
 
 :)
