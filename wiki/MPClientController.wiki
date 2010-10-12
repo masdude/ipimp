@@ -1,3 +1,4 @@
+#labels Featured
 = Introduction =
 
 This is a process plugin for !MediaPortal which provides tcp/http remoting interfaces to !MediaPortal clients.  It is currently used by [http://code.google.com/p/ipimp/ iPiMP] and [http://yatse.leetzone.org/redmine/projects/yatse2 Yatse2]
