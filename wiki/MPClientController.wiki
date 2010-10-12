@@ -14,7 +14,7 @@ Launch the file
 
 http://www.vanderboon.co.uk/ipimp/Capture1.PNG
 
-Click Next
+Click Yes
 
 http://www.vanderboon.co.uk/ipimp/Capture2.PNG
 
@@ -22,8 +22,10 @@ Click Next
 
 http://www.vanderboon.co.uk/ipimp/Capture3.PNG
 
-Click Finish
+Click Next
 
 http://www.vanderboon.co.uk/ipimp/Capture4.PNG
 
-:)
+Click Finish
+
+Simples :)
