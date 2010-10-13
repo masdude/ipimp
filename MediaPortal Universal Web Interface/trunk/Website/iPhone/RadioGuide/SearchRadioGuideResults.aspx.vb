@@ -134,9 +134,9 @@ Partial Public Class SearchRadioGuideResults
             For Each program In matchedPrograms
                 channel = uWiMP.TVServer.RadioChannels.GetRadioChannelByChannelId(program.IdChannel)
                 If uWiMP.TVServer.Schedules.IsProgramScheduled(program) Then
-                    markup += String.Format("<li><a style=""color: red;"" href=""RadioGuide/RadioProgram.aspx?program={0}#_RadioProgram{0}"" rev=""async""><img src=""http://" & Request.ServerVariables("HTTP_HOST") & "/RadioLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, channel.DisplayName.ToString, program.Title.ToString, program.StartTime)
+                    markup += String.Format("<li><a style=""color: red;"" href=""RadioGuide/RadioProgram.aspx?program={0}#_RadioProgram{0}"" rev=""async""><img src=""../../RadioLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, channel.DisplayName.ToString, program.Title.ToString, program.StartTime)
                 Else
-                    markup += String.Format("<li><a href=""RadioGuide/RadioProgram.aspx?program={0}#_RadioProgram{0}"" rev=""async""><img src=""http://" & Request.ServerVariables("HTTP_HOST") & "/RadioLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, channel.DisplayName.ToString, program.Title.ToString, program.StartTime)
+                    markup += String.Format("<li><a href=""RadioGuide/RadioProgram.aspx?program={0}#_RadioProgram{0}"" rev=""async""><img src=""../../RadioLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, channel.DisplayName.ToString, program.Title.ToString, program.StartTime)
                 End If
             Next
         End If

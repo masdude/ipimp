@@ -96,7 +96,7 @@ Partial Public Class NowAndNext
                 Else
                     scheduled = ""
                 End If
-                markup += String.Format("<li><a {3} href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async""><img src=""http://" & Request.ServerVariables("HTTP_HOST") & "/TVLogos/{4}.png"" height=""40""/><em>{1}<small><br/>{2}</small></em></a></li>", channel.CurrentProgram.IdProgram.ToString, channel.CurrentProgram.Title, channel.CurrentProgram.StartTime.ToShortTimeString, scheduled, channel.DisplayName)
+                markup += String.Format("<li><a {3} href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async""><img src=""../../TVLogos/{4}.png"" height=""40""/><em>{1}<small><br/>{2}</small></em></a></li>", channel.CurrentProgram.IdProgram.ToString, channel.CurrentProgram.Title, channel.CurrentProgram.StartTime.ToShortTimeString, scheduled, channel.DisplayName)
             End If
             If Not channel.NextProgram Is Nothing Then
                 If uWiMP.TVServer.Schedules.IsProgramScheduled(channel.NextProgram) Then
@@ -104,7 +104,7 @@ Partial Public Class NowAndNext
                 Else
                     scheduled = ""
                 End If
-                markup += String.Format("<li><a {3} href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async""><img src=""http://" & Request.ServerVariables("HTTP_HOST") & "/TVLogos/{4}.png"" height=""40""/><em>{1}<small><br/>{2}</small></em></a></li>", channel.NextProgram.IdProgram.ToString, channel.NextProgram.Title, channel.NextProgram.StartTime.ToShortTimeString, scheduled, channel.DisplayName)
+                markup += String.Format("<li><a {3} href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async""><img src=""../../TVLogos/{4}.png"" height=""40""/><em>{1}<small><br/>{2}</small></em></a></li>", channel.NextProgram.IdProgram.ToString, channel.NextProgram.Title, channel.NextProgram.StartTime.ToShortTimeString, scheduled, channel.DisplayName)
             End If
         Next
 
