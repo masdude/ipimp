@@ -99,7 +99,7 @@ Partial Public Class RecordingsByChannel
 
         If channels.Count > 1 Then channels.Sort(New uWiMP.TVServer.ChannelSortOrderComparer)
         For Each channel In channels
-            markup += String.Format("<li><a href=""Recording/RecordingsByChannelList.aspx?channel={0}#_RecChannel{0}"" rev=""async""><img src=""http://" & Request.ServerVariables("HTTP_HOST") & "/TVLogos/{1}.png"" style=""height:26px""/>{1}</a></li>", channel.IdChannel.ToString, channel.DisplayName.ToString)
+            markup += String.Format("<li><a href=""Recording/RecordingsByChannelList.aspx?channel={0}#_RecChannel{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" style=""height:26px""/>{1}</a></li>", channel.IdChannel.ToString, channel.DisplayName.ToString)
         Next
 
         markup += "</ul>"

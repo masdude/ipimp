@@ -94,7 +94,7 @@ Partial Public Class RadioChannelGroups
         markup += "<ul class=""iArrow"">"
         For Each channel In channels
             '3
-            markup += String.Format("<li><a href=""RadioGuide/RadioChannel.aspx?channel={0}#_Channel{0}"" rev=""async""><img src=""http://" & Request.ServerVariables("HTTP_HOST") & "/RadioLogos/{1}.png"" height=""28""/><em>{1}</em></a></li>", channel.IdChannel.ToString, channel.DisplayName)
+            markup += String.Format("<li><a href=""RadioGuide/RadioChannel.aspx?channel={0}#_Channel{0}"" rev=""async""><img src=""../../RadioLogos/{1}.png"" height=""28""/><em>{1}</em></a></li>", channel.IdChannel.ToString, channel.DisplayName)
         Next
         markup += "</ul>"
 

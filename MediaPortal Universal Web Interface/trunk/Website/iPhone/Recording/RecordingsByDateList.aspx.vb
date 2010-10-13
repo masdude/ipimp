@@ -151,7 +151,7 @@ Partial Public Class RecordingsByDateList
         If uWiMP.TVServer.Utilities.DoesFileExist(imageName) Then
             image = String.Format("http://" & Request.ServerVariables("HTTP_HOST") & "/MP4/{0}.jpg", Path.GetFileNameWithoutExtension(recording.FileName))
         Else
-            image = String.Format("http://" & Request.ServerVariables("HTTP_HOST") & "/TVLogos/{0}.png", channel.DisplayName)
+            image = String.Format("../../TVLogos/{0}.png", channel.DisplayName)
         End If
         markup += String.Format("<li><a href=""Recording/RecordedProgram.aspx?id={0}#_RecProgram{0}"" rev=""async""><img src=""{1}"" class=""iFull"" /><em>{2}</em><big>{3}<small>{4}</small></big></a></li>", recording.IdRecording.ToString, Image, Channel.DisplayName, recording.Title, recording.StartTime)
 
