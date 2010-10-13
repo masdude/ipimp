@@ -206,7 +206,7 @@ Namespace MPClientController
                             jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
                         End If
                     Catch ex As Exception
-                        Log.Info("plugin: iPiMPClient - movingpicturefanart exception getting {0}", movieInfo.BackdropFullPath)
+                        Log.Info("plugin: iPiMPClient - movingpicturefanart exception for {0}", movieInfo.Title)
                         jw.WriteString("")
                     End Try
                     jw.WriteMember("thumb")
@@ -217,7 +217,7 @@ Namespace MPClientController
                             jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
                         End If
                     Catch ex As Exception
-                        Log.Info("plugin: iPiMPClient - movingpicturethumb exception getting {0}", movieInfo.BackdropFullPath)
+                        Log.Info("plugin: iPiMPClient - movingpicturethumb exception for {0}", movieInfo.Title)
                         jw.WriteString("")
                     End Try
                     jw.WriteMember("tagline")
