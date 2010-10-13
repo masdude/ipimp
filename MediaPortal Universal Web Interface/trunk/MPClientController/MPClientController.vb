@@ -188,7 +188,13 @@ Namespace MPClientController
         Private Sub DoTCPListen()
 
             tcpListener = New System.Net.Sockets.TcpListener(System.Net.IPAddress.Any, port)
-            tcpListener.Start()
+
+            Try
+                tcpListener.Start()
+            Catch ex As Exception
+                Log.Info("plugin: iPiMPClient - TCPListener Start error {0}", ex.Message)
+                Log.Info("plugin: iPiMPClient - iPiMPClient is NOT listening on TCP port {0}", port.ToString)
+            End Try
 
             Do
                 Try
@@ -205,8 +211,15 @@ Namespace MPClientController
 
             httpListener = New HttpListener
             httpListener.Prefixes.Add(String.Format("http://*:{0}/mpcc/", (port + 1).ToString))
-            httpListener.Start()
 
+
+            Try
+                httpListener.Start()
+            Catch ex As Exception
+                Log.Info("plugin: iPiMPClient - HTTPListener Start error {0}", ex.Message)
+                Log.Info("plugin: iPiMPClient - iPiMPClient is NOT listening on HTTP port {0}", (port + 1).ToString))
+            End Try
+            
             Do
                 Try
                     httpContext = httpListener.GetContext
