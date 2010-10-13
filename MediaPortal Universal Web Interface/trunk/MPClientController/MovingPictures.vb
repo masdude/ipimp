@@ -20,6 +20,7 @@ Imports Jayrock.Json
 Imports MediaPortal.Plugins.MovingPictures.Database
 Imports MediaPortal.Player
 Imports MediaPortal.Plugins.MovingPictures
+Imports MediaPortal.GUI.Library
 Imports System.IO
 
 Namespace MPClientController
@@ -198,17 +199,27 @@ Namespace MPClientController
                     jw.WriteMember("title")
                     jw.WriteString(movieInfo.Title)
                     jw.WriteMember("fanart")
-                    If (movieInfo.BackdropFullPath.Length < 2) Then
+                    Try
+                        If (movieInfo.BackdropFullPath.Length < 2) Then
+                            jw.WriteString("")
+                        Else
+                            jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
+                        End If
+                    Catch ex As Exception
+                        Log.Info("plugin: iPiMPClient - movingpicturefanart exception getting {0}", movieInfo.BackdropFullPath)
                         jw.WriteString("")
-                    Else
-                        jw.WriteString(String.Format("movingpicturefanart:{0}", Path.GetFileName(movieInfo.BackdropFullPath)))
-                    End If
+                    End Try
                     jw.WriteMember("thumb")
-                    If (movieInfo.CoverFullPath.Length < 2) Then
+                    Try
+                        If (movieInfo.CoverFullPath.Length < 2) Then
+                            jw.WriteString("")
+                        Else
+                            jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
+                        End If
+                    Catch ex As Exception
+                        Log.Info("plugin: iPiMPClient - movingpicturethumb exception getting {0}", movieInfo.BackdropFullPath)
                         jw.WriteString("")
-                    Else
-                        jw.WriteString(String.Format("movingpicturethumb:{0}", Path.GetFileName(movieInfo.CoverFullPath)))
-                    End If
+                    End Try
                     jw.WriteMember("tagline")
                     jw.WriteString(movieInfo.Tagline)
                     jw.WriteMember("id")
