@@ -229,7 +229,12 @@ Namespace MPClientController
                     jw.WriteMember("file")
                     jw.WriteString(file)
                     jw.WriteMember("path")
-                    jw.WriteString(Path.GetDirectoryName(file))
+                    Try
+                        jw.WriteString(Path.GetDirectoryName(file))
+                    Catch ex As Exception
+                        Log.Info("plugin: iPiMPClient - GetAllMovies - path exception for {0}", movieInfo.Title)
+                        jw.WriteString("")
+                    End Try
                     jw.WriteMember("plot")
                     jw.WriteString(movieInfo.Summary)
                     jw.WriteMember("director")
