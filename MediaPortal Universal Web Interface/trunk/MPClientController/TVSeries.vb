@@ -293,11 +293,15 @@ Namespace MPClientController
                     End If
 
                     jw.WriteMember("fanart")
-                    If (File.Exists(Fanart.getFanart(series.Item("ID")).FanartFilename)) Then
-                        jw.WriteString(String.Format("{0}:{1}", "tvseriesfanart", series.Item("ID")))
-                    Else
+                    Try
+                        If (File.Exists(Fanart.getFanart(series.Item("ID")).FanartFilename)) Then
+                            jw.WriteString(String.Format("{0}:{1}", "tvseriesfanart", series.Item("ID")))
+                        Else
+                            jw.WriteString("")
+                        End If
+                    Catch ex As Exception
                         jw.WriteString("")
-                    End If
+                    End Try
 
                     jw.WriteEndObject()
                 Next
