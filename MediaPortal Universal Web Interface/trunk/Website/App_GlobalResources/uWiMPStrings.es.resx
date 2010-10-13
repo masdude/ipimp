@@ -1037,4 +1037,58 @@
   <data name="scheduled_rest_month" xml:space="preserve">
     <value>Programaciones del resto del mes</value>
   </data>
+  <data name="restart" xml:space="preserve">
+    <value>Reiniciar</value>
+  </data>
+  <data name="stream" xml:space="preserve">
+    <value>Stream</value>
+  </data>
+  <data name="sort_lists" xml:space="preserve">
+    <value>Ordenar listas por nombre</value>
+  </data>
+  <data name="ipimp_settings_success" xml:space="preserve">
+    <value>Configuración actualizada</value>
+  </data>
+  <data name="ipimp_settings_fail" xml:space="preserve">
+    <value>Error al actualizar configuración</value>
+  </data>
+  <data name="guide_days" xml:space="preserve">
+    <value>Días a mostrar en la guía de TV</value>
+  </data>
+  <data name="streaming_status" xml:space="preserve">
+    <value>Estado de streaming</value>
+  </data>
+  <data name="streaming" xml:space="preserve">
+    <value>Streaming</value>
+  </data>
+  <data name="Streaming_nothing" xml:space="preserve">
+    <value>Nada en streaming</value>
+  </data>
+  <data name="could_not_start_music" xml:space="preserve">
+    <value>Error al reproducir música</value>
+  </data>
+  <data name="tv_series" xml:space="preserve">
+    <value>TV Series</value>
+  </data>
+	<data name="tvseries_series">
+		<value xml:space="preserve">Series</value>
+	</data>
+	<data name="tvseries_recent">
+		<value xml:space="preserve">Últimos capítulos</value>
+	</data>
+	<data name="tv_series_season">
+		<value xml:space="preserve">Temporada</value>
+	</data>
+	<data name="tvseries_episode_image">
+		<value xml:space="preserve">Imagen de capítulo</value>
+	</data>
+	<data name="tvseries_start_fail">
+		<value xml:space="preserve">Error al reproducir capítulo</value>
+	</data>
+	<data name="unknown_plot">
+		<value xml:space="preserve">Sinopsis desconocida</value>
+	</data>
+	<data name="tvseries_episode">
+		<value xml:space="preserve">Capítulo</value>
+	</data>
 </root>

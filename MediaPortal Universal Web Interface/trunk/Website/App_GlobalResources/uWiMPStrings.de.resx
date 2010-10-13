@@ -1037,4 +1037,58 @@
   <data name="scheduled_rest_month" xml:space="preserve">
     <value>Geplant für den Rest des Monats</value>
   </data>
+  <data name="restart" xml:space="preserve">
+    <value>Neustart</value>
+  </data>
+  <data name="stream" xml:space="preserve">
+    <value>Stream</value>
+  </data>
+  <data name="sort_lists" xml:space="preserve">
+    <value>Liste nach Namen sortieren</value>
+  </data>
+  <data name="ipimp_settings_success" xml:space="preserve">
+    <value>Einstellungen aktualisiert</value>
+  </data>
+  <data name="ipimp_settings_fail" xml:space="preserve">
+    <value>Aktualisierung fehlgeschlagen</value>
+  </data>
+  <data name="guide_days" xml:space="preserve">
+    <value>Angezeigte Tage im TV Programm</value>
+  </data>
+  <data name="streaming_status" xml:space="preserve">
+    <value>Streaming status</value>
+  </data>
+  <data name="streaming" xml:space="preserve">
+    <value>Streaming</value>
+  </data>
+  <data name="Streaming_nothing" xml:space="preserve">
+    <value>Kein Streaming</value>
+  </data>
+  <data name="could_not_start_music" xml:space="preserve">
+    <value>Kann Musik nicht starten</value>
+  </data>
+  <data name="tv_series" xml:space="preserve">
+    <value>TV Serien</value>
+  </data>
+	<data name="tvseries_series">
+		<value xml:space="preserve">Serien</value>
+	</data>
+	<data name="tvseries_recent">
+		<value xml:space="preserve">Neue Episoden</value>
+	</data>
+	<data name="tv_series_season">
+		<value xml:space="preserve">Staffel</value>
+	</data>
+	<data name="tvseries_episode_image">
+		<value xml:space="preserve">Bild der Folge</value>
+	</data>
+	<data name="tvseries_start_fail">
+		<value xml:space="preserve">Start der Folge fehlgeschlagen</value>
+	</data>
+	<data name="unknown_plot">
+		<value xml:space="preserve">Unbekannte Handlung</value>
+	</data>
+	<data name="tvseries_episode">
+		<value xml:space="preserve">Folge</value>
+	</data>
 </root>

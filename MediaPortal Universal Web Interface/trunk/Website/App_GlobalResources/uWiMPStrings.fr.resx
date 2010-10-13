@@ -1037,4 +1037,58 @@
   <data name="scheduled_rest_month" xml:space="preserve">
     <value>Programmé pour la fin du mois</value>
   </data>
+  <data name="restart" xml:space="preserve">
+    <value>Redémarrer</value>
+  </data>
+  <data name="stream" xml:space="preserve">
+    <value>Flux</value>
+  </data>
+  <data name="sort_lists" xml:space="preserve">
+    <value>Trier par nom</value>
+  </data>
+  <data name="ipimp_settings_success" xml:space="preserve">
+    <value>Paramètres mis à jour</value>
+  </data>
+  <data name="ipimp_settings_fail" xml:space="preserve">
+    <value>Échec de la mise à jour des paramètres</value>
+  </data>
+  <data name="guide_days" xml:space="preserve">
+    <value>Nb. de jours à afficher dans le guide TV</value>
+  </data>
+  <data name="streaming_status" xml:space="preserve">
+    <value>Statut du streaming</value>
+  </data>
+  <data name="streaming" xml:space="preserve">
+    <value>Streaming</value>
+  </data>
+  <data name="Streaming_nothing" xml:space="preserve">
+    <value>Rien à streamer</value>
+  </data>
+  <data name="could_not_start_music" xml:space="preserve">
+    <value>Échec de démarrage de la musique</value>
+  </data>
+  <data name="tv_series" xml:space="preserve">
+    <value>Séries TV</value>
+  </data>
+	<data name="tvseries_series">
+		<value xml:space="preserve">Séries</value>
+	</data>
+	<data name="tvseries_recent">
+		<value xml:space="preserve">Épisodes récents</value>
+	</data>
+	<data name="tv_series_season">
+		<value xml:space="preserve">Saison</value>
+	</data>
+	<data name="tvseries_episode_image">
+		<value xml:space="preserve">Image de l'épisode</value>
+	</data>
+	<data name="tvseries_start_fail">
+		<value xml:space="preserve">Échec de démarrage de l'épisode</value>
+	</data>
+	<data name="unknown_plot">
+		<value xml:space="preserve">Pas de description</value>
+	</data>
+	<data name="tvseries_episode">
+		<value xml:space="preserve">Épisode</value>
+	</data>
 </root>
