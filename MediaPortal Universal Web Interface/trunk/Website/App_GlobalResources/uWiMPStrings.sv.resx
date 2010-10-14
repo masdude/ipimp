@@ -1037,4 +1037,58 @@
   <data name="scheduled_rest_month" xml:space="preserve">
     <value>Schemalagt resten av månaden</value>
   </data>
+  <data name="restart" xml:space="preserve">
+    <value>Starta om</value>
+  </data>
+  <data name="stream" xml:space="preserve">
+    <value>Strömma</value>
+  </data>
+  <data name="sort_lists" xml:space="preserve">
+    <value>Sortera lista efter namn</value>
+  </data>
+  <data name="ipimp_settings_success" xml:space="preserve">
+    <value>Inställningarna är uppdaterade</value>
+  </data>
+  <data name="ipimp_settings_fail" xml:space="preserve">
+    <value>Det gick inte att uppdatera inställningarna</value>
+  </data>
+  <data name="guide_days" xml:space="preserve">
+    <value>Antal dagar i tv-guide</value>
+  </data>
+  <data name="streaming_status" xml:space="preserve">
+    <value>Strömmande status</value>
+  </data>
+  <data name="streaming" xml:space="preserve">
+    <value>Strömmar</value>
+  </data>
+  <data name="Streaming_nothing" xml:space="preserve">
+    <value>Strömmar inget</value>
+  </data>
+  <data name="could_not_start_music" xml:space="preserve">
+    <value>Kunde inte starta musik</value>
+  </data>
+  <data name="tv_series" xml:space="preserve">
+    <value>Tv-serier</value>
+  </data>
+	<data name="tvseries_series">
+		<value xml:space="preserve">Serier</value>
+	</data>
+	<data name="tvseries_recent">
+		<value xml:space="preserve">Nya episoder</value>
+	</data>
+	<data name="tv_series_season">
+		<value xml:space="preserve">Säsong</value>
+	</data>
+	<data name="tvseries_episode_image">
+		<value xml:space="preserve">Episodbild</value>
+	</data>
+	<data name="tvseries_start_fail">
+		<value xml:space="preserve">Gick ej att starta episod</value>
+	</data>
+	<data name="unknown_plot">
+		<value xml:space="preserve">Okänd handling</value>
+	</data>
+	<data name="tvseries_episode">
+		<value xml:space="preserve">Episod</value>
+	</data>
 </root>
