@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+ï»¿<?xml version="1.0" encoding="iso-8859-1"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -902,8 +902,107 @@
   <data name="record" xml:space="preserve">
     <value>Ta opp</value>
   </data>
+  <data name="enable_client" xml:space="preserve">
+    <value>TV klient menyer</value>
+  </data>
+  <data name="enable_server" xml:space="preserve">
+    <value>TV server menyer</value>
+  </data>
+  <data name="select_default_rec_order" xml:space="preserve">
+    <value>Opptaksrekkefï¿½lge</value>
+  </data>
+  <data name="show_client_submenu" xml:space="preserve">
+    <value>Klientens undermeny</value>
+  </data>
+  <data name="show_recording_submenu" xml:space="preserve">
+    <value>Opptaksmeny</value>
+  </data>
+  <data name="moving_pictures" xml:space="preserve">
+    <value>Moving Pictures</value>
+  </data>
+  <data name="manual_record" xml:space="preserve">
+    <value>Manuelt opptak</value>
+  </data>
+  <data name="manual_record_duration" xml:space="preserve">
+    <value>Varighet (min) (valgfri)</value>
+  </data>
+  <data name="manual_record_name" xml:space="preserve">
+    <value>Gi opptaket et navn</value>
+  </data>
+  <data name="start_time" xml:space="preserve">
+    <value>Start tidspunkt (hh:mm)</value>
+  </data>
+  <data name="movingpictures_all" xml:space="preserve">
+    <value>Alle filmer</value>
+  </data>
+  <data name="movingpictures_certification" xml:space="preserve">
+    <value>Sortert pï¿½ klassifisering</value>
+  </data>
+  <data name="movingpictures_genre" xml:space="preserve">
+    <value>Sortert pï¿½ sjanger</value>
+  </data>
+  <data name="movingpictures_recent" xml:space="preserve">
+    <value>Nye filmer</value>
+  </data>
+  <data name="movingpictures_unwatched" xml:space="preserve">
+    <value>Usette filmer</value>
+  </data>
+  <data name="movingpictures_year" xml:space="preserve">
+    <value>Filmer per ï¿½r</value>
+  </data>
+  <data name="one_month" xml:space="preserve">
+    <value>En mï¿½ned</value>
+  </data>
+  <data name="one_week" xml:space="preserve">
+    <value>En uke</value>
+  </data>
+  <data name="six_months" xml:space="preserve">
+    <value>Seks mï¿½neder</value>
+  </data>
+  <data name="two_weeks" xml:space="preserve">
+    <value>To uker</value>
+  </data>
+  <data name="movingpictures_period" xml:space="preserve">
+    <value>Periode for siste filmer</value>
+  </data>
+  <data name="appearance" xml:space="preserve">
+    <value>Utseende</value>
+  </data>
+  <data name="appearance_fail" xml:space="preserve">
+    <value>Utseende oppdatering feilet.</value>
+  </data>
+  <data name="appearance_success" xml:space="preserve">
+    <value>Utseende oppdatert.</value>
+  </data>
+  <data name="black" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="blue" xml:space="preserve">
+    <value>Blï¿½</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="green" xml:space="preserve">
+    <value>Grï¿½nn</value>
+  </data>
+  <data name="orange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="pink" xml:space="preserve">
+    <value>Rosa</value>
+  </data>
+  <data name="purple" xml:space="preserve">
+    <value>Lilla</value>
+  </data>
+  <data name="red" xml:space="preserve">
+    <value>Rï¿½d</value>
+  </data>
+  <data name="select_colour" xml:space="preserve">
+    <value>Velg farge</value>
+  </data>
   <data name="search_description" xml:space="preserve">
-    <value>Søkebeskrivelse?</value>
+    <value>Sï¿½kebeskrivelse?</value>
   </data>
   <data name="radio_guide" xml:space="preserve">
     <value>Radio Guide</value>
@@ -918,7 +1017,7 @@
     <value>Avspilling ble ikke stoppet</value>
   </data>
   <data name="stream_started" xml:space="preserve">
-    <value>Trykk play for å se opptaket. Husk å  trykke &lt;B&gt;stop&lt;/B&gt; etterpå for å frigjøre kort/tuner.</value>
+    <value>Trykk play for ï¿½ se opptaket. Husk ï¿½  trykke &lt;B&gt;stop&lt;/B&gt; etterpï¿½ for ï¿½ frigjï¿½re kort/tuner.</value>
   </data>
   <data name="stream_start_wait" xml:space="preserve">
     <value>Vent mens avspillingen starter.</value>
@@ -927,7 +1026,7 @@
     <value>Neste uke</value>
   </data>
   <data name="rest_month" xml:space="preserve">
-    <value>Resten av måneden</value>
+    <value>Resten av mï¿½neden</value>
   </data>
   <data name="scheduled_next_week" xml:space="preserve">
     <value>Planlagte opptak neste uke</value>
@@ -936,6 +1035,60 @@
     <value>Ingen planlagte opptak</value>
   </data>
   <data name="scheduled_rest_month" xml:space="preserve">
-    <value>Planlagte opptak resten av måneden</value>
+    <value>Planlagte opptak resten av mï¿½neden</value>
   </data>
+  <data name="restart" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="stream" xml:space="preserve">
+    <value>Stream</value>
+  </data>
+  <data name="sort_lists" xml:space="preserve">
+    <value>Sortert pï¿½ navn</value>
+  </data>
+  <data name="ipimp_settings_success" xml:space="preserve">
+    <value>Innstillnger oppdatert</value>
+  </data>
+  <data name="ipimp_settings_fail" xml:space="preserve">
+    <value>Oppdatering feilet</value>
+  </data>
+  <data name="guide_days" xml:space="preserve">
+    <value>Antall dager I TV guide</value>
+  </data>
+  <data name="streaming_status" xml:space="preserve">
+    <value>Streaming status</value>
+  </data>
+  <data name="streaming" xml:space="preserve">
+    <value>Streaming</value>
+  </data>
+  <data name="Streaming_nothing" xml:space="preserve">
+    <value>Streaming nothing</value>
+  </data>
+  <data name="could_not_start_music" xml:space="preserve">
+    <value>Kunne ikke starte musikk.</value>
+  </data>
+  <data name="tv_series" xml:space="preserve">
+    <value>TV serier</value>
+  </data>
+	<data name="tvseries_series">
+		<value xml:space="preserve">Serier</value>
+	</data>
+	<data name="tvseries_recent">
+		<value xml:space="preserve">Nye episoder</value>
+	</data>
+	<data name="tv_series_season">
+		<value xml:space="preserve">Sesong</value>
+	</data>
+	<data name="tvseries_episode_image">
+		<value xml:space="preserve">Episodebilde</value>
+	</data>
+	<data name="tvseries_start_fail">
+		<value xml:space="preserve">Episode feilet.</value>
+	</data>
+	<data name="unknown_plot">
+		<value xml:space="preserve">Ukjent plot</value>
+	</data>
+	<data name="tvseries_episode">
+		<value xml:space="preserve">Episode</value>
+	</data>
 </root>
