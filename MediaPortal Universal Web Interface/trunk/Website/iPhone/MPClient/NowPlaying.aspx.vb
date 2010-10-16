@@ -308,13 +308,13 @@ Partial Public Class NowPlaying
         If programID = -1 Then
             imagePath = "<img src=""../../images/radio.png"" alt=""tv"" style=""height:200px;width:200px""/>"
         Else
-            imagePath = String.Format("<img src=""http://{0}/RadioLogos/{1}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString)
+            imagePath = String.Format("<img src=""../../RadioLogos/{0}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", channel.DisplayName.ToString)
         End If
 
         Dim markup As String = String.Empty
 
         markup += "<div class=""iMenu"">"
-        markup += String.Format("<h3>{0} - {1} - {2}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "now_playing"), GetGlobalResourceObject("uWiMPStrings", "tv"))
+        markup += String.Format("<h3>{0} - {1} - {2}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "now_playing"), GetGlobalResourceObject("uWiMPStrings", "radio"))
 
         markup += "<div class=""iBlock"">"
         markup += "<table class=""imdbtable"">"
@@ -369,7 +369,7 @@ Partial Public Class NowPlaying
         If programID = -1 Then
             imagePath = "<img src=""../../images/tv.png"" alt=""tv"" style=""height:200px;width:200px""/>"
         Else
-            imagePath = String.Format("<img src=""http://{0}/TVLogos/{1}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString)
+            imagePath = String.Format("<img src=""../../TVLogos/{0}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", channel.DisplayName.ToString)
         End If
 
         Dim markup As String = String.Empty
