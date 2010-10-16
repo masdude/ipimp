@@ -97,7 +97,7 @@ Partial Public Class SchedulesByDateList
                 For Each schedule In periodScheds
                     If (schedule.StartTime > Now) And (schedule.StartTime < Now.AddDays(7)) Then
                         channel = uWiMP.TVServer.Channels.GetChannelByChannelId(schedule.IdChannel)
-                        markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""http://{1}/TVLogos/{2}.png"" height=""40"" style=""vertical-align:middle""/><em>{3}<small><br/>{4}</small></em></a></li>", schedule.IdSchedule.ToString, Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
+                        markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40"" style=""vertical-align:middle""/><em>{2}<small><br/>{3}</small></em></a></li>", schedule.IdSchedule.ToString, channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
                         iSchedules += 1
                     End If
                 Next
@@ -110,7 +110,7 @@ Partial Public Class SchedulesByDateList
                 For Each schedule In periodScheds
                     If (schedule.StartTime > Now.AddDays(7)) And (schedule.StartTime < Now.AddDays(14)) Then
                         channel = uWiMP.TVServer.Channels.GetChannelByChannelId(schedule.IdChannel)
-                        markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""http://{1}/TVLogos/{2}.png"" height=""40"" style=""vertical-align:middle""/><em>{3}<small><br/>{4}</small></em></a></li>", schedule.IdSchedule.ToString, Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
+                        markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40"" style=""vertical-align:middle""/><em>{2}<small><br/>{3}</small></em></a></li>", schedule.IdSchedule.ToString, channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
                         iSchedules += 1
                     End If
                 Next
@@ -123,7 +123,7 @@ Partial Public Class SchedulesByDateList
                 For Each schedule In periodScheds
                     If (schedule.StartTime > Now.AddDays(14)) And (schedule.StartTime < Now.AddDays(31)) Then
                         channel = uWiMP.TVServer.Channels.GetChannelByChannelId(schedule.IdChannel)
-                        markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""http://{1}/TVLogos/{2}.png"" height=""40"" style=""vertical-align:middle""/><em>{3}<small><br/>{4}</small></em></a></li>", schedule.IdSchedule.ToString, Request.ServerVariables("HTTP_HOST"), channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
+                        markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40"" style=""vertical-align:middle""/><em>{2}<small><br/>{3}</small></em></a></li>", schedule.IdSchedule.ToString, channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
                         iSchedules += 1
                     End If
                 Next

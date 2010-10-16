@@ -111,7 +111,7 @@ Partial Public Class RecordedProgram
         markup += "<ul class=""iArrow"">"
         If User.IsInRole("watcher") Then
             If uWiMP.TVServer.Utilities.DoesFileExist(recFile) Then
-                markup += String.Format("<li><a href=""http://{0}/MP4/{1}.mp4"">{2}</a></li>", Request.ServerVariables("HTTP_HOST"), Replace(Path.GetFileNameWithoutExtension(recording.FileName), " ", "%20"), GetGlobalResourceObject("uWiMPStrings", "watch"))
+                markup += String.Format("<li><a href=""../../MP4/{0}.mp4"">{1}</a></li>", Replace(Path.GetFileNameWithoutExtension(recording.FileName), " ", "%20"), GetGlobalResourceObject("uWiMPStrings", "watch"))
             Else
                 markup += String.Format("<li><a href=""Recording/RecordingTranscode.aspx?recid={0}#_Transcode{0}"" rev=""async"">{1}</a></li>", recordingID, GetGlobalResourceObject("uWiMPStrings", "not_transcoded"))
                 markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=rec&id={0}#_StartStream"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
