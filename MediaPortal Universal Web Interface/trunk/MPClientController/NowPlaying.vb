@@ -151,14 +151,14 @@ Namespace MPClientController
                             jw.WriteString(g_Player.Player.CurrentFile)
                         End If
                         jw.WriteMember("duration")
-                        jw.WriteString(g_Player.Player.Duration.ToString)
+                        jw.WriteString(CInt(g_Player.Player.Duration).ToString)
                         jw.WriteMember("position")
-                        jw.WriteString(g_Player.Player.CurrentPosition.ToString)
+                        jw.WriteString(CInt(g_Player.Player.CurrentPosition).ToString)
                         jw.WriteMember("volume")
                         If VolumeHandler.Instance.IsMuted Then
                             jw.WriteNumber(0)
                         Else
-                            jw.WriteString(Math.Floor(100.0 * VolumeHandler.Instance.Volume / VolumeHandler.Instance.Maximum))
+                            jw.WriteString(CInt(Math.Floor(100.0 * VolumeHandler.Instance.Volume / VolumeHandler.Instance.Maximum)))
                         End If
                         jw.WriteMember("playstatus")
                         If (g_Player.Player.Paused) Then
