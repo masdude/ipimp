@@ -137,7 +137,6 @@ Namespace MPClientController
                                 Dim p As New Point(0, 0)
                                 g.DrawImage(image, p)
                                 g.Dispose()
-                                image.Dispose()
                                 newImage.Save(stream, format)
                                 newImage.Dispose()
                             End Try
