@@ -112,15 +112,7 @@ Namespace MPClientController
 
                     Try
                         Using stream As MemoryStream = New MemoryStream()
-                            'http://support.microsoft.com/?id=814675
-                            Dim image As Bitmap = Drawing.Image.FromFile(fileName)
-                            Dim newImage As Bitmap = New Bitmap(image.Width, image.Height)
-                            Dim g As Graphics = Graphics.FromImage(newImage)
-                            Dim p As New Point(0, 0)
-                            g.DrawImage(image, p)
-                            g.Dispose()
-                            image.Dispose()
-
+                            Dim image As Image = Drawing.Image.FromFile(fileName)
                             Dim format As Imaging.ImageFormat
                             Dim ext As String = Path.GetExtension(fileName)
                             Select Case ext.ToLower
@@ -135,9 +127,21 @@ Namespace MPClientController
                                 Case Else
                                     format = Nothing
                             End Select
-                            newImage.Save(stream, format)
-                            newImage.Dispose()
 
+                            Try
+                                image.Save(stream, format)
+                            Catch ex As Exception
+                                'http://support.microsoft.com/?id=814675
+                                Dim newImage As Bitmap = New Bitmap(image.Width, image.Height)
+                                Dim g As Graphics = Graphics.FromImage(newImage)
+                                Dim p As New Point(0, 0)
+                                g.DrawImage(image, p)
+                                g.Dispose()
+                                image.Dispose()
+                                newImage.Save(stream, format)
+                                newImage.Dispose()
+                            End Try
+                            image.Dispose()
                             jw.WriteBoolean(True)
                             jw.WriteMember("filetype")
                             jw.WriteString(format.ToString)
