@@ -115,7 +115,6 @@ Namespace MPClientController
                             Dim image As Image = Drawing.Image.FromFile(fileName)
                             Dim format As Imaging.ImageFormat
                             Dim ext As String = Path.GetExtension(fileName)
-
                             Select Case ext.ToLower
                                 Case ".jpg"
                                     format = Imaging.ImageFormat.Jpeg
@@ -152,6 +151,8 @@ Namespace MPClientController
                             jw2.WriteString("")
                             jw2.WriteMember("data")
                             jw2.WriteString("")
+                            Log.Info("plugin: iPiMPClient - Error converting image {0} - {1}", fileName, ex.Message)
+                            jw2.WriteEndObject()
                             Return jw2.ToString()
                         End Using
                     End Try
@@ -198,7 +199,7 @@ Namespace MPClientController
                     Case "videotitle"
                         Return MyVideos.GetVideoTitle(req(1), size)
                     Case "musicalbum"
-                        Return MyMusic.GetAlbumThumb(req(1), req(2), size)
+                        Return MyMusic.GetAlbumThumb(req(1), String.Join(":", req, 2, req.Length - 2), size)
                     Case "musicartist"
                         Return MyMusic.GetArtistThumb(req(1), size)
                     Case "movingpicturethumb"

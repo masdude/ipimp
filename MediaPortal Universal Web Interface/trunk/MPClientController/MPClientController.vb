@@ -218,8 +218,9 @@ Namespace MPClientController
             Catch ex As Exception
                 Log.Info("plugin: iPiMPClient - HTTPListener Start error {0}", ex.Message)
                 Log.Info("plugin: iPiMPClient - iPiMPClient is NOT listening on HTTP port {0}", (port + 1).ToString)
+                Return
             End Try
-            
+
             Do
                 Try
                     httpContext = httpListener.GetContext
