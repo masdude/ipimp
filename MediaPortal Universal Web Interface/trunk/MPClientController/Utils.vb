@@ -112,7 +112,15 @@ Namespace MPClientController
 
                     Try
                         Using stream As MemoryStream = New MemoryStream()
-                            Dim image As Image = Drawing.Image.FromFile(fileName)
+                            'http://support.microsoft.com/?id=814675
+                            Dim image As Bitmap = Drawing.Image.FromFile(fileName)
+                            Dim newImage As Bitmap = New Bitmap(image.Width, image.Height)
+                            Dim g As Graphics = Graphics.FromImage(newImage)
+                            Dim p As New Point(0, 0)
+                            g.DrawImage(image, p)
+                            g.Dispose()
+                            image.Dispose()
+
                             Dim format As Imaging.ImageFormat
                             Dim ext As String = Path.GetExtension(fileName)
                             Select Case ext.ToLower
@@ -127,8 +135,8 @@ Namespace MPClientController
                                 Case Else
                                     format = Nothing
                             End Select
-                            image.Save(stream, format)
-                            image.Dispose()
+                            newImage.Save(stream, format)
+                            newImage.Dispose()
 
                             jw.WriteBoolean(True)
                             jw.WriteMember("filetype")
