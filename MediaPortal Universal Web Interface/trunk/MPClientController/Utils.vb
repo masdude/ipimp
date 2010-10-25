@@ -184,7 +184,7 @@ Namespace MPClientController
             End Using
         End Function
 
-        Public Shared Function GetFile(ByVal path As String, ByVal size As String) As String
+        Public Shared Function GetFile(ByVal path As String, ByVal size As String, ByVal isMovingPicturesPresent As Boolean, ByVal isTVSeriesPresent As Boolean, ByVal isFanartHandlerPresent As Boolean) As String
 
             Dim req As String() = Split(path, ":")
 
@@ -214,10 +214,12 @@ Namespace MPClientController
                         Return MyMusic.GetAlbumThumb(req(1), String.Join(":", req, 2, req.Length - 2), size)
                     Case "musicartist"
                         Return MyMusic.GetArtistThumb(req(1), size)
+                    Case "musicfanart"
+                        Return MyMusic.GetArtistFanart(req(1), size, isFanartHandlerPresent)
                     Case "movingpicturethumb"
-                        Return MovingPictures.GetThumb(req(1))
+                        Return MovingPictures.GetThumb(req(1), isMovingPicturesPresent)
                     Case "movingpicturefanart"
-                        Return MovingPictures.GetFanart(req(1))
+                        Return MovingPictures.GetFanart(req(1), isMovingPicturesPresent)
                     Case Else
                         Return SendError(5, "Unknown file url.")
                 End Select

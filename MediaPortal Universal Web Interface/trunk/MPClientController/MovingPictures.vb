@@ -386,15 +386,19 @@ Namespace MPClientController
 
         End Function
 
-        Public Shared Function GetThumb(ByVal fileName As String) As String
-
-            Return iPiMPUtils.GetImage(String.Format("{0}\{1}", MovingPicturesCore.Settings.CoverArtFolder, fileName))
+        Public Shared Function GetThumb(ByVal fileName As String, ByVal isMovingPicturesPresent As Boolean) As String
+            If isMovingPicturesPresent Then
+                Return iPiMPUtils.GetImage(String.Format("{0}\{1}", MovingPicturesCore.Settings.CoverArtFolder, fileName))
+            End If
+            Return iPiMPUtils.GetImage(Nothing)
 
         End Function
 
-        Public Shared Function GetFanart(ByVal fileName As String) As String
-
-            Return iPiMPUtils.GetImage(String.Format("{0}\{1}", MovingPicturesCore.Settings.BackdropFolder, fileName))
+        Public Shared Function GetFanart(ByVal fileName As String, ByVal isMovingPicturesPresent As Boolean) As String
+            If isMovingPicturesPresent Then
+                Return iPiMPUtils.GetImage(String.Format("{0}\{1}", MovingPicturesCore.Settings.BackdropFolder, fileName))
+            End If
+            Return iPiMPUtils.GetImage(Nothing)
 
         End Function
 

@@ -16,6 +16,7 @@
 ' 
 
 
+Imports FanartHandler
 Imports Jayrock.Json
 Imports MediaPortal.Music.Database
 Imports MediaPortal.Player
@@ -207,7 +208,7 @@ Namespace MPClientController
         End Function
 
         <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")>
-        Public Shared Function GetAllArtists() As String
+        Public Shared Function GetAllArtists(ByVal isFanartHandlerPresent As Boolean) As String
             Using jw As New JsonTextWriter
                 jw.PrettyPrint = True
                 jw.WriteStartObject()
@@ -240,8 +241,27 @@ Namespace MPClientController
                     Else
                         jw.WriteString("")
                     End If
+
                     jw.WriteMember("fanart")
-                    jw.WriteString("")
+                    If isFanartHandlerPresent Then
+                        Dim Result As Hashtable = FanartHandler.Utils.GetDbm().GetFanart(artist.ToLowerInvariant(), "MusicFanart", 0)
+
+                        Dim Found As Boolean = False
+                        For Each DictionaryEntry As DictionaryEntry In Result
+                            If (DirectCast(DictionaryEntry.Value, DatabaseManager.FanartImage).type = "MusicFanart") Then
+                                Found = True
+                            End If
+                        Next
+
+                        If Found Then
+                            jw.WriteString(String.Format("{0}:{1}", "musicfanart", artist.ToLowerInvariant()))
+                        Else
+                            jw.WriteString("")
+                        End If
+                    Else
+                        jw.WriteString("")
+                    End If
+
                     jw.WriteEndObject()
                 Next
                 jw.WriteEndArray()
@@ -605,7 +625,26 @@ Namespace MPClientController
         Public Shared Function GetArtistThumb(ByVal artist As String, ByVal size As String) As String
 
             Dim filename As String = Nothing
-            filename = String.Format("{0}\{1}{2}{3}", Thumbs.MusicArtists, artist, IIf(size.ToLower = "large", "L", ""), Utils.GetThumbExtension())
+            filename = String.Format("{0}\{1}{2}{3}", Thumbs.MusicArtists, artist, IIf(size.ToLower = "large", "L", ""), MediaPortal.Util.Utils.GetThumbExtension())
+
+            Return iPiMPUtils.GetImage(filename)
+
+        End Function
+
+        Public Shared Function GetArtistFanart(ByVal artist As String, ByVal size As String, ByVal isFanartHandlerPresent As Boolean) As String
+
+            Dim filename As String = Nothing
+            If isFanartHandlerPresent Then
+                Dim Result As Hashtable = FanartHandler.Utils.GetDbm().GetFanart(artist.ToLowerInvariant(), "MusicFanart", 0)
+                If Result.Count > 0 Then
+                    For Each DictionaryEntry As DictionaryEntry In Result
+                        If (DirectCast(DictionaryEntry.Value, DatabaseManager.FanartImage).type = "MusicFanart") Then
+                            filename = DirectCast(DictionaryEntry.Value, DatabaseManager.FanartImage).disk_image
+                            Exit For
+                        End If
+                    Next
+                End If
+            End If
 
             Return iPiMPUtils.GetImage(filename)
 
