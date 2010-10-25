@@ -194,6 +194,7 @@ Namespace MPClientController
             Catch ex As Exception
                 Log.Info("plugin: iPiMPClient - TCPListener Start error {0}", ex.Message)
                 Log.Info("plugin: iPiMPClient - iPiMPClient is NOT listening on TCP port {0}", port.ToString)
+                Return
             End Try
 
             Do
