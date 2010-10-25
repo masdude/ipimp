@@ -17,6 +17,7 @@
 
 
 Imports System.IO
+Imports FanartHandler
 Imports MediaPortal.Player
 Imports MediaPortal.Music.Database
 Imports MediaPortal.Video.Database
@@ -30,7 +31,7 @@ Namespace MPClientController
         Private Sub New()
         End Sub
 
-        Public Shared Function GetNowPlaying(ByVal useMovingPictures As Boolean, ByVal isTVSeriesPresent As Boolean) As String
+        Public Shared Function GetNowPlaying(ByVal isMovingPicturesPresent As Boolean, ByVal isTVSeriesPresent As Boolean, ByVal isFanartHandlerPresent As Boolean) As String
 
             Using jw As New JsonTextWriter
                 Try
@@ -70,6 +71,27 @@ Namespace MPClientController
                             Else
                                 jw.WriteString("")
                             End If
+                            jw.WriteMember("fanart")
+                            If isFanartHandlerPresent Then
+                                Dim Result As Hashtable = FanartHandler.Utils.GetDbm().GetFanart(song.Artist.ToLowerInvariant(), "MusicFanart", 0)
+
+                                Dim Found As Boolean = False
+                                For Each DictionaryEntry As DictionaryEntry In Result
+                                    If (DirectCast(DictionaryEntry.Value, DatabaseManager.FanartImage).type = "MusicFanart") Then
+                                        Found = True
+                                    End If
+                                Next
+
+                                If Found Then
+                                    jw.WriteString(String.Format("{0}:{1}", "musicfanart", song.Artist.ToLowerInvariant()))
+                                Else
+                                    jw.WriteString("")
+                                End If
+                            Else
+                                jw.WriteString("")
+                            End If
+
+
                         ElseIf g_Player.IsVideo Then
                             If MediaPortal.Util.Utils.IsDVD(g_Player.Player.CurrentFile) Then
                                 jw.WriteString("dvd")
@@ -117,7 +139,7 @@ Namespace MPClientController
                                     jw.WriteString(movie.Rating)
                                 Else
                                     Dim Found As Boolean = False
-                                    If useMovingPictures Then
+                                    If isMovingPicturesPresent Then
                                         Found = MovingPictures.FillNowPlaying(jw)
                                     End If
                                     If (Not Found And isTVSeriesPresent) Then

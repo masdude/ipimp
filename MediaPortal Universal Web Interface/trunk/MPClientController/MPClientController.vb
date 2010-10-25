@@ -56,10 +56,12 @@ Namespace MPClientController
         'Private keyboardHandler As MediaPortal.Hooks.KeyboardHook
         Private isMovingPicturesPresent As Boolean = Nothing
         Private isTVSeriesPresent As Boolean = Nothing
+        Private isFanartHandlerPresent As Boolean = Nothing
 
         Const DEFAULT_PORT As Integer = 55667
         Const SUPPORTED_MOVING_PICTURES_MINVERSION As String = "1.0.6.1116"
         Const SUPPORTED_TV_SERIES_MINVERSION As String = "2.6.3.1242"
+        Const SUPPORTED_FANART_HANDLER_MINVERSION As String = "2.2.0.22763"
         Private port As Integer = DEFAULT_PORT
 
 #Region "ISetupForm members"
@@ -132,12 +134,17 @@ Namespace MPClientController
 
             If isMovingPicturesPresent = Nothing Then
                 isMovingPicturesPresent = iPiMPUtils.IsPluginLoaded("MovingPictures.dll", SUPPORTED_MOVING_PICTURES_MINVERSION)
-                Log.Info("plugin: MPClientController - MovingPictures detected version, min version: {0} iPiMP supported: {1}", SUPPORTED_MOVING_PICTURES_MINVERSION, isMovingPicturesPresent)
+                Log.Info("plugin: MPClientController - MovingPictures detected, min version: {0} iPiMP supported: {1}", SUPPORTED_MOVING_PICTURES_MINVERSION, isMovingPicturesPresent)
             End If
 
             If isTVSeriesPresent = Nothing Then
                 isTVSeriesPresent = iPiMPUtils.IsPluginLoaded("MP-TVSeries.dll", SUPPORTED_TV_SERIES_MINVERSION)
-                Log.Info("plugin: MPClientController - TVSeries detected version, min version: {0} iPiMP supported: {1}", SUPPORTED_TV_SERIES_MINVERSION, isTVSeriesPresent.ToString)
+                Log.Info("plugin: MPClientController - TVSeries detected,  min version: {0} iPiMP supported: {1}", SUPPORTED_TV_SERIES_MINVERSION, isTVSeriesPresent.ToString)
+            End If
+
+            If isFanartHandlerPresent = Nothing Then
+                isFanartHandlerPresent = iPiMPUtils.IsPluginLoaded("FanartHandler.dll", SUPPORTED_FANART_HANDLER_MINVERSION, "process")
+                Log.Info("plugin: MPClientController - FanartHandler detected, min version: {0} iPiMP supported: {1}", SUPPORTED_FANART_HANDLER_MINVERSION, isFanartHandlerPresent.ToString)
             End If
 
             tcpThread = New System.Threading.Thread(AddressOf DoTCPListen)
@@ -574,7 +581,7 @@ Namespace MPClientController
 
                     'My Music
                 Case "getallmusicartists"
-                    results = MyMusic.GetAllArtists()
+                    results = MyMusic.GetAllArtists(isFanartHandlerPresent)
                 Case "getallmusicgenres"
                     results = MyMusic.GetAllGenres()
                 Case "getallmusicalbums"
@@ -656,7 +663,7 @@ Namespace MPClientController
                     results = iPiMPUtils.SendString("version", ver)
 
                 Case "nowplaying"
-                    results = NowPlaying.GetNowPlaying(isMovingPicturesPresent, isTVSeriesPresent)
+                    results = NowPlaying.GetNowPlaying(isMovingPicturesPresent, isTVSeriesPresent, isFanartHandlerPresent)
 
                 Case "volume"
                     results = iPiMPUtils.SetVolume(request.Value)
@@ -668,7 +675,7 @@ Namespace MPClientController
                     results = iPiMPUtils.GetImage(request.Value)
 
                 Case "getfile"
-                    results = iPiMPUtils.GetFile(request.Value, request.Filter)
+                    results = iPiMPUtils.GetFile(request.Value, request.Filter, isMovingPicturesPresent, isTVSeriesPresent, isFanartHandlerPresent)
 
                 Case Else
                     results = iPiMPUtils.SendError(4, "Unknown action")
