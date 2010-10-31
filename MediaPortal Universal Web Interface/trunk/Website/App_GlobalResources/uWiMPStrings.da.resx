@@ -1001,4 +1001,94 @@
   <data name="select_colour" xml:space="preserve">
     <value>Vælg farve</value>
   </data>
+  <data name="search_description" xml:space="preserve">
+    <value>Beskrivelse af søgning?</value>
+  </data>
+  <data name="radio_guide" xml:space="preserve">
+    <value>Radio oversigt</value>
+  </data>
+  <data name="listen" xml:space="preserve">
+    <value>Aflyt</value>
+  </data>
+  <data name="stream_stopped" xml:space="preserve">
+    <value>Stream stopped</value>
+  </data>
+  <data name="stream_stopped_failed" xml:space="preserve">
+    <value>Stream kunne ikke stoppes</value>
+  </data>
+  <data name="stream_started" xml:space="preserve">
+    <value>Tryk på afspil for at afspille.  Når du er færdig &lt;B&gt;Tryk på stop &lt;/B&gt; Ellers vil TV-Server fortsat benytte en tuner og fortsætte med at transcode.</value>
+  </data>
+  <data name="stream_start_wait" xml:space="preserve">
+    <value>Afvent at streaming startes</value>
+  </data>
+  <data name="next_week" xml:space="preserve">
+    <value>Næste uge</value>
+  </data>
+  <data name="rest_month" xml:space="preserve">
+    <value>Resten af måneden</value>
+  </data>
+  <data name="scheduled_next_week" xml:space="preserve">
+    <value>Planlagt næste uge</value>
+  </data>
+  <data name="scheduled_none" xml:space="preserve">
+    <value>Ingen planlagte optagelser fundet</value>
+  </data>
+  <data name="scheduled_rest_month" xml:space="preserve">
+    <value>Planlagt resten af måneden</value>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>Genstart</value>
+  </data>
+  <data name="stream" xml:space="preserve">
+    <value>Stream</value>
+  </data>
+  <data name="sort_lists" xml:space="preserve">
+    <value>Sorter efter navn</value>
+  </data>
+  <data name="ipimp_settings_success" xml:space="preserve">
+    <value>Indstillinger opdateret</value>
+  </data>
+  <data name="ipimp_settings_fail" xml:space="preserve">
+    <value>Opdatering af indstillinger mislykkedes</value>
+  </data>
+  <data name="guide_days" xml:space="preserve">
+    <value>Antal dage der vises i TV guide</value>
+  </data>
+  <data name="streaming_status" xml:space="preserve">
+    <value>Streaming status</value>
+  </data>
+  <data name="streaming" xml:space="preserve">
+    <value>Streaming</value>
+  </data>
+  <data name="Streaming_nothing" xml:space="preserve">
+    <value>Intet streames</value>
+  </data>
+  <data name="could_not_start_music" xml:space="preserve">
+    <value>Kan ikke starte musik</value>
+  </data>
+  <data name="tv_series" xml:space="preserve">
+    <value>TV serier</value>
+  </data>
+	<data name="tvseries_series">
+		<value xml:space="preserve">Serier</value>
+	</data>
+	<data name="tvseries_recent">
+		<value xml:space="preserve">Nylige episoder</value>
+	</data>
+	<data name="tv_series_season">
+		<value xml:space="preserve">Sæson</value>
+	</data>
+	<data name="tvseries_episode_image">
+		<value xml:space="preserve">Episode billede</value>
+	</data>
+	<data name="tvseries_start_fail">
+		<value xml:space="preserve">Start af episode mislykkedes</value>
+	</data>
+	<data name="unknown_plot">
+		<value xml:space="preserve">Ukendt handling</value>
+	</data>
+	<data name="tvseries_episode">
+		<value xml:space="preserve">Episode</value>
+	</data>
 </root>
