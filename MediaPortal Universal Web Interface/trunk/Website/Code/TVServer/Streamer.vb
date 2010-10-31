@@ -19,6 +19,8 @@ Imports System.IO
 Imports uWiMP.TVServer.MPWebServices
 Imports uWiMP.TVServer.MPWebServices.Classes
 Imports TvDatabase
+Imports TvLibrary.Log
+Imports TvControl
 
 Namespace uWiMP.TVServer
 
@@ -38,12 +40,10 @@ Namespace uWiMP.TVServer
         Private _taskprogress As String
         Private _delegate As AsyncTaskDelegate
 
-        Private Shared _card As Integer
         Private Shared _mediaStream As Stream
         Private Shared _encoder As EncoderWrapper
-        Private Shared _userName As String
-        Private Shared _mediaID As Integer = 0
 
+        Private Shared _mediaID As String
         Public Property MediaID() As String
             Get
                 Return _mediaID
@@ -63,15 +63,15 @@ Namespace uWiMP.TVServer
             End Set
         End Property
 
-        Private Shared _running As Boolean = False
-        Private Property IsRunning() As Boolean
-            Get
-                Return _running
-            End Get
-            Set(ByVal value As Boolean)
-                _running = value
-            End Set
-        End Property
+        'Private Shared _running As Boolean = False
+        'Private Property IsRunning() As Boolean
+        '    Get
+        '        Return _running
+        '    End Get
+        '    Set(ByVal value As Boolean)
+        '        _running = value
+        '    End Set
+        'End Property
 
         Protected Delegate Sub AsyncTaskDelegate()
 
@@ -87,75 +87,81 @@ Namespace uWiMP.TVServer
             _taskprogress = String.Format("Streaming started at: {0}{1}", DateTime.Now.ToLongTimeString, vbCrLf)
             _delegate = New AsyncTaskDelegate(AddressOf ExecuteAsyncTask)
             Dim result As IAsyncResult = _delegate.BeginInvoke(cb, extraData)
-
             Return result
         End Function
 
         Public Sub OnEnd(ByVal ar As IAsyncResult)
             _taskprogress += String.Format("Streaming finished at: {0}", DateTime.Now.ToLongTimeString)
             _delegate.EndInvoke(ar)
-            If _running Then StopStreaming()
         End Sub
 
         Public Sub OnTimeout(ByVal ar As IAsyncResult)
             _taskprogress += String.Format("Streaming timed out at: {0}", DateTime.Now.ToLongTimeString)
-            If _running Then StopStreaming()
         End Sub
 
-        Public Shared Sub Stream(ByVal mediatype As MediaType, ByVal id As Integer)
+        Public Shared Sub Stream(ByVal mediatype As MediaType, ByVal id As String)
 
-            If _running Then StopStreaming()
-
-            If _mediaStream IsNot Nothing Then _mediaStream.Close()
+            StopStreaming()
 
             Dim bufferSize As Integer = &H80000
             Dim usedChannel As Integer = -1
             Dim filename As String = ""
-
+            Dim card As Integer = 0
+            Dim userName As String = String.Empty
             Dim cfg As EncoderConfig = Nothing
 
             Select Case mediatype
+
                 Case Streamer.MediaType.Tv, Streamer.MediaType.Radio
 
-                    UpdateStreamTracker(mediatype, id, _card, _userName)
                     cfg = Utils.LoadConfig.Item(0)
 
-                    If mediatype = Streamer.MediaType.Radio Then bufferSize = &HA00
-
-                    Dim res As WebTvResult = uWiMP.TVServer.Cards.StartTimeshifting(id)
-                    If res.result <> 0 Then
-                        StopStreaming()
-                        Exit Sub
+                    If mediatype = Streamer.MediaType.Radio Then
+                        Log.Info("iPiMPWeb - Radio stream requested")
+                        bufferSize = &HA00
+                    Else
+                        Log.Info("iPiMPWeb - TV stream requested")
                     End If
-                    _card = res.user.idCard
-                    usedChannel = res.user.idChannel
-                    _userName = res.user.name
 
-                    If (cfg.inputMethod = TransportMethod.Filename) Then
+                    Dim res As WebTvResult = uWiMP.TVServer.Cards.StartTimeshifting(CInt(id))
+                    Log.Info("iPiMPWeb - StartTimeshifting result is {0}", res.result.ToString)
+                    If res.result <> 0 Then Exit Sub
+
+                    card = res.user.idCard
+                    usedChannel = res.user.idChannel
+                    userName = res.user.name
+
+                    If cfg.inputMethod = TransportMethod.Filename Then
                         filename = res.rtspURL
                     Else
                         filename = res.timeshiftFile
                     End If
 
+                    UpdateStreamTracker(mediatype, id, card, userName)
+
                 Case Streamer.MediaType.Recording
-
-                    UpdateStreamTracker(mediatype, id, "", "")
                     cfg = Utils.LoadConfig.Item(1)
-
-                    Dim recording As Recording = uWiMP.TVServer.Recordings.GetRecordingById(id)
+                    Dim recording As Recording = uWiMP.TVServer.Recordings.GetRecordingById(CInt(id))
                     filename = recording.FileName
+                    UpdateStreamTracker(mediatype, id, "", "")
+
+                Case Streamer.MediaType.TvSeries
+                    cfg = Utils.LoadConfig.Item(2)
+                    filename = id
+                    UpdateStreamTracker(mediatype, id, "", "")
+
+                Case Else
+                    Exit Sub
 
             End Select
 
             If Not (File.Exists(filename) OrElse filename.StartsWith("rtsp://")) Then
+                Log.Info("iPiMPWeb - StartTimeshifting StopStreaming file does not exist or starts with rtsp {0}", filename)
                 StopStreaming()
                 Exit Sub
             End If
 
-            ClearStreamFiles()
-
             Try
-
                 If (cfg.inputMethod <> TransportMethod.Filename) Then
                     If (mediatype = Streamer.MediaType.Tv) Or (mediatype = Streamer.MediaType.Radio) Then
                         _mediaStream = New TsBuffer(filename)
@@ -168,53 +174,55 @@ Namespace uWiMP.TVServer
                 End If
 
             Catch ex As Exception
-                StopStreaming()
-                Exit Sub
+                Log.Info("iPiMPWeb - StartTimeshifting exception {0}", ex.Message)
             End Try
-
-            _running = True
 
         End Sub
 
         Public Shared Function StopStream() As Boolean
 
+            Log.Info("iPiMPWeb - StopStream start")
             Dim result As Boolean = True
 
             Try
-                _encoder.StopProcess()
+                If _encoder IsNot Nothing Then _encoder.StopProcess()
             Catch ex As Exception
+                Log.Info("iPiMPWeb - StopStream StopProcess exception {0}", ex.Message)
                 result = False
             End Try
 
             Try
                 If _mediaStream IsNot Nothing Then _mediaStream.Close()
             Catch ex As Exception
+                Log.Info("iPiMPWeb - StopStream mediaStream.Close exception {0}", ex.Message)
                 result = False
             End Try
             
             Try
-                Dim mediaType As MediaType
+                Dim type As MediaType = MediaType.None
                 Dim mediaID As Integer
                 Dim card As Integer
                 Dim userName As String
 
                 Dim path As String = String.Format("{0}\\SmoothStream.isml\\Stream.txt", AppDomain.CurrentDomain.BaseDirectory)
                 Using sr As StreamReader = File.OpenText(path)
-                    mediaType = sr.ReadLine
+                    type = sr.ReadLine
                     mediaID = CInt(sr.ReadLine)
                     card = CInt(sr.ReadLine)
                     userName = sr.ReadLine
                 End Using
 
-                If mediaType = Streamer.MediaType.Tv Or _mediaType = Streamer.MediaType.Radio Then uWiMP.TVServer.Cards.StopTimeshifting(mediaID, card, userName)
+                If (type = MediaType.Tv) Or (type = MediaType.Radio) Then
+                    Dim stopResult As Boolean = uWiMP.TVServer.Cards.StopTimeshifting(mediaID, card, userName)
+                    result = stopResult
+                    Log.Info("iPiMPWeb - StopStream StopTimeShifting result {0}", stopResult.ToString)
+                End If
 
             Catch ex As Exception
                 result = False
             Finally
                 ClearStreamFiles()
             End Try
-
-            _running = False
 
             Return result
 
@@ -234,6 +242,7 @@ Namespace uWiMP.TVServer
             For Each f As FileInfo In dir.GetFiles
                 Try
                     f.Delete()
+                    Log.Info("iPiMPWeb - ClearSTreamFiles deleted {0}", f.FullName)
                 Catch ex As Exception
                 End Try
             Next
@@ -242,9 +251,12 @@ Namespace uWiMP.TVServer
 
         Private Shared Sub UpdateStreamTracker(ByVal streamType As String, ByVal id As String, Optional ByVal cardID As String = "", Optional ByVal user As String = "")
 
-            Dim path As String = String.Format("{0}\\SmoothStream.isml\\Stream.txt", AppDomain.CurrentDomain.BaseDirectory)
-            If File.Exists(path) = False Then
-                Using sw As StreamWriter = File.CreateText(path)
+            Dim path As String = String.Format("{0}\\SmoothStream.isml", AppDomain.CurrentDomain.BaseDirectory)
+            If Not Directory.Exists(path) Then Directory.CreateDirectory(path)
+
+            Dim filePath As String = String.Format("{0}\\Stream.txt", path)
+            If File.Exists(filePath) = False Then
+                Using sw As StreamWriter = File.CreateText(filePath)
                     sw.WriteLine(streamType)
                     sw.WriteLine(id)
                     sw.WriteLine(cardID)

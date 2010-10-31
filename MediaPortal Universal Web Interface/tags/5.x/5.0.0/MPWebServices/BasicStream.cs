@@ -108,7 +108,7 @@ namespace uWiMP.TVServer.MPWebServices
 
     public override void Start(Boolean isClient)
     {
-        isReady=_stream==null ? true : false;
+        isReady = _stream==null ? true : false;
         
         //if (_stream == null)
         //{

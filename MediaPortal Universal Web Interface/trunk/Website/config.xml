@@ -2,5 +2,6 @@
   <transcoders>
     <transcoder name="LiveTV" usetranscoding="1" filename="&quot;##FFMPEGPATH##\ffmpeg.exe&quot;" args="-i - -threads 0 -re -vcodec libx264 -fpre &quot;##FFMPEGPATH##/ffpresets/libx264-iPiMP.ffpreset&quot; -b 256k -s 420x272 -acodec libfaac -ac 2 -ab 64k -ar 48000 -ac 2 -async 2 http://##LISTEN##/SmoothStream.isml/SmoothStream.ism?stream_id=SmoothStream-256-64k.ismv" inputmethod="2" outputmethod="4" />
     <transcoder name="Recording" usetranscoding="1" filename="&quot;##FFMPEGPATH##\ffmpeg.exe&quot;" args="-i - -threads 0 -re -vcodec libx264 -fpre &quot;##FFMPEGPATH##/ffpresets/libx264-iPiMP.ffpreset&quot; -b 256k -s 420x272 -acodec libfaac -ac 2 -ab 64k -ar 48000 -ac 2 -ss 300 -async 2 http://##LISTEN##/SmoothStream.isml/SmoothStream.ism?stream_id=SmoothStream-256-64k.ismv" inputmethod="2" outputmethod="4" />
+    <transcoder name="TVSeries" usetranscoding="1" filename="&quot;##FFMPEGPATH##\ffmpeg.exe&quot;" args="-i &quot;{0}&quot; -threads 0 -re -vcodec libx264 -fpre &quot;##FFMPEGPATH##/ffpresets/libx264-iPiMP.ffpreset&quot; -b 256k -s 420x272 -acodec libfaac -ac 2 -ab 64k -ar 48000 -ac 2 -async 2 http://##LISTEN##/SmoothStream.isml/SmoothStream.ism?stream_id=SmoothStream-256-64k.ismv" inputmethod="0" outputmethod="4" />
   </transcoders>
 </appconfig>
