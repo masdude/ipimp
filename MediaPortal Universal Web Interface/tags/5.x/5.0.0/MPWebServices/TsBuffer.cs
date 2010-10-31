@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using TvLibrary.Log;
 #endregion
 
 namespace uWiMP.TVServer.MPWebServices
@@ -196,7 +197,7 @@ namespace uWiMP.TVServer.MPWebServices
                 // Increment the current position.
                 tsReaderPosition += byteCount;
 #if RELEASE
-                                System.Diagnostics.Debug.WriteLine(String.Format("Tries: {0}", tries));
+                                Log.Info(String.Format("Tries: {0}", tries));
 #endif
 
                 return byteCount;
@@ -206,7 +207,7 @@ namespace uWiMP.TVServer.MPWebServices
 #if DEBUG
                     catch (Exception e)
                     {
-                        System.Diagnostics.Debug.WriteLine(String.Format("Read Exception: {0}", e));
+                        Log.Info(String.Format("Read Exception: {0}", e));
                     }
 #else
           catch (Exception)
@@ -353,11 +354,12 @@ namespace uWiMP.TVServer.MPWebServices
     /// </summary>
     private void RefreshTsBuffer()
     {
-      //System.Diagnostics.Debug.WriteLine("Refresh Triggered.");
-
+      //Log.Info("Refresh Triggered.");
+      Log.Info("iPiMPWeb - TsBuffer Refresh Triggered");
       if (tsBuffer == null)
       {
         state = State.InvalidFile;
+        Log.Info("iPiMPWeb - TsBuffer is null");
         return;
       }
 
@@ -406,14 +408,14 @@ namespace uWiMP.TVServer.MPWebServices
           #region Extra DEBUG Output
           // You won't get far with this on but it does help to understand the .tsBuffer file.
 #if EXTRA_DEBUG
-                    System.Diagnostics.Debug.WriteLine("------------------------");
-                    System.Diagnostics.Debug.WriteLine(String.Format(".TsBuffer File: pass {0}", tries));
-                    System.Diagnostics.Debug.WriteLine("------------------------");
+                    Log.Info("------------------------");
+                    Log.Info(String.Format(".TsBuffer File: pass {0}", tries));
+                    Log.Info("------------------------");
 
-                    System.Diagnostics.Debug.WriteLine(String.Format("Current Pos     : {0}", tsBuffer.ReadInt64()));
-                    System.Diagnostics.Debug.WriteLine(String.Format("Files Added     : {0}", tsBuffer.ReadInt32()));
-                    System.Diagnostics.Debug.WriteLine(String.Format("Files Removed   : {0}", tsBuffer.ReadInt32()));
-                    System.Diagnostics.Debug.WriteLine(String.Format("Remaining Length: {0}", tsBuffer.BaseStream.Length - sizeof(Int64) - sizeof(long) - sizeof(long) - sizeof(long) - sizeof(long)));
+                    Log.Info(String.Format("Current Pos     : {0}", tsBuffer.ReadInt64()));
+                    Log.Info(String.Format("Files Added     : {0}", tsBuffer.ReadInt32()));
+                    Log.Info(String.Format("Files Removed   : {0}", tsBuffer.ReadInt32()));
+                    Log.Info(String.Format("Remaining Length: {0}", tsBuffer.BaseStream.Length - sizeof(Int64) - sizeof(long) - sizeof(long) - sizeof(long) - sizeof(long)));
 
                     Int64 newRemainingLength = tsBuffer.BaseStream.Length - sizeof(Int64) - sizeof(Int32) - sizeof(Int32) - sizeof(Int32) - sizeof(Int32);
                     byte[] filesListed = new byte[newRemainingLength + 1];
@@ -430,21 +432,21 @@ namespace uWiMP.TVServer.MPWebServices
                     {
                         System.Diagnostics.Debug.Write(String.Format("{0} ", Convert.ToString(item)));
                     }
-                    System.Diagnostics.Debug.WriteLine("");
+                    Log.Info("");
                     System.Diagnostics.Debug.Write("Files Text      : ");
                     foreach (Byte item in fixedList)
                     {
                         System.Diagnostics.Debug.Write(String.Format("{0}", Convert.ToChar(item)));
                     }
-                    System.Diagnostics.Debug.WriteLine("");
+                    Log.Info("");
 
-                    System.Diagnostics.Debug.WriteLine(String.Format("Files Added 2   : {0}", tsBuffer.ReadInt32()));
-                    System.Diagnostics.Debug.WriteLine(String.Format("Files Removed 2 : {0}", tsBuffer.ReadInt32()));
+                    Log.Info(String.Format("Files Added 2   : {0}", tsBuffer.ReadInt32()));
+                    Log.Info(String.Format("Files Removed 2 : {0}", tsBuffer.ReadInt32()));
 
-                    System.Diagnostics.Debug.WriteLine("");
-                    System.Diagnostics.Debug.WriteLine("------------------------");
-                    System.Diagnostics.Debug.WriteLine("byte by byte.");
-                    System.Diagnostics.Debug.WriteLine("------------------------");
+                    Log.Info("");
+                    Log.Info("------------------------");
+                    Log.Info("byte by byte.");
+                    Log.Info("------------------------");
 
                     tsBuffer.BaseStream.Seek(0, SeekOrigin.Begin);
                     while (tsBuffer.BaseStream.Position < tsBuffer.BaseStream.Length)
@@ -452,7 +454,7 @@ namespace uWiMP.TVServer.MPWebServices
                         System.Diagnostics.Debug.Write(String.Format("{0} ", tsBuffer.BaseStream.ReadByte()));
                     }
 
-                    System.Diagnostics.Debug.WriteLine("");
+                    Log.Info("");
 
                     tsBuffer.BaseStream.Seek(0, SeekOrigin.Begin);
 #endif
@@ -535,14 +537,14 @@ namespace uWiMP.TVServer.MPWebServices
         Int64 filesToAdd = Convert.ToInt64(filesAdded) - tsBufferAdded;
         Int64 fileID = Convert.ToInt64(filesRemoved);
 #if DEBUG
-                System.Diagnostics.Debug.WriteLine(String.Format("Files Added {0}, Removed {1}", filesToAdd, filesToRemove));
+                Log.Info(String.Format("iPiMPWeb - TsBuffer - Files Added {0}, Removed {1}", filesToAdd, filesToRemove));
 #endif
 
         // Removed files that aren't present anymore.
         while ((filesToRemove > 0) && (tsFiles.Count > 0))
         {
 #if DEBUG
-                    System.Diagnostics.Debug.WriteLine(String.Format("Removing file {0}", tsFiles[0]));
+            Log.Info(String.Format("iPiMPWeb - TsBuffer - Removing file {0}", tsFiles[0]));
 #endif
           // Remove the last file.
           tsFiles.RemoveAt(0);
@@ -555,12 +557,12 @@ namespace uWiMP.TVServer.MPWebServices
 #if DEBUG
                 if (files.Count() > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine(String.Format("TsBuffer - FileListString: {0}", files[0]));
+                    Log.Info(String.Format("iPiMPWeb - TsBuffer - FileListString: {0}", files[0]));
                     for (int i = 1; i < files.Count(); i++)
                     {
-                        System.Diagnostics.Debug.WriteLine(String.Format("                           {0}", files[i]));
+                        Log.Info(String.Format("                           {0}", files[i]));
                     }
-                    System.Diagnostics.Debug.WriteLine("");
+                    Log.Info("");
                 }
 #endif
 

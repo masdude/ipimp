@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO.Pipes;
 
 using uWiMP.TVServer.MPWebServices;
+using TvLibrary.Log;
 
 namespace uWiMP.TVServer.MPWebServices
 {
@@ -20,33 +21,38 @@ namespace uWiMP.TVServer.MPWebServices
     private EncoderConfig encCfg;
 
     // Media
-    private string filename;
-    private Stream mediaStream = null;
+    private readonly string _filename;
+    private readonly Stream _mediaStream;
 
     public EncoderWrapper(string filename, EncoderConfig encCfg)
     {
-      this.filename = filename;
-      this.mediaStream = null;
+      _filename = filename;
+      _mediaStream = null;
       this.encCfg = encCfg;
       if (!encCfg.useTranscoding)
         return;
       SetupPipes();
+      Log.Info("iPiMPWeb - Pipes setup for filename");
       Start();
+      Log.Info("iPiMPWeb - Copy started for filename");
     }
 
     public EncoderWrapper(Stream mediaStream, EncoderConfig encCfg)
     {
-      this.filename = "";
-      this.mediaStream = mediaStream;
+      _filename = "";
+      _mediaStream = mediaStream;
       this.encCfg = encCfg;
       if (!encCfg.useTranscoding)
         return;
       SetupPipes();
+      Log.Info("iPiMPWeb - Pipes setup for mediaStream");
       Start();
+      Log.Info("iPiMPWeb - Copy started for mediaStream");
     }
 
     private void SetupPipes()
     {
+      Log.Info("iPiMPWeb - SetupPipes");
       switch (encCfg.inputMethod)
       {
         case TransportMethod.Filename:
@@ -59,7 +65,8 @@ namespace uWiMP.TVServer.MPWebServices
           encoderInput = new BasicStream();
           break;
         default:
-          throw new ArgumentException("Invalid option.");
+          Log.Info("iPiMPWeb - Invalid inputMethod");
+          break;
       }
 
       switch (encCfg.outputMethod)
@@ -73,12 +80,14 @@ namespace uWiMP.TVServer.MPWebServices
         case TransportMethod.None:
           break;
         default:
-          throw new ArgumentException("Invalid option.");
+          Log.Info("iPiMPWeb - Invalid outputMethod");
+          break;
       }
     }
 
     protected void Start()
     {
+      Log.Info("iPiMPWeb - Start");
       StartPipe();
     }
 
@@ -93,26 +102,44 @@ namespace uWiMP.TVServer.MPWebServices
       //}
       //else
       //  StartProcess(filename, encoderOutput.Url);
-        if (mediaStream != null)
+        Log.Info("iPiMPWeb - StartPipes");
+        if (_mediaStream != null)
         {
+            Log.Info("iPiMPWeb - mediaStream isNot Null"); 
             encoderInput.Start(false);
+            Log.Info("iPiMPWeb - encoderInput started");
             if (encCfg.outputMethod == TransportMethod.None)
             {
+                Log.Info("iPiMPWeb  - call StartProcess STREAM/NONE {0}", encoderInput.Url); 
                 StartProcess(encoderInput.Url);
-            }
+                }
             else
             {
+                Log.Info("iPiMPWeb  - call StartProcess STREAM/BOTH {0} {1}", encoderInput.Url, encoderOutput.Url); 
                 StartProcess(encoderInput.Url, encoderOutput.Url);
             }
-            encoderInput.CopyStream(mediaStream);
+            Log.Info("iPiMPWeb  - CopyStream"); 
+            encoderInput.CopyStream(_mediaStream);
+            
         }
         else
         {
-            StartProcess(filename, encoderOutput.Url);
+            if (encCfg.outputMethod == TransportMethod.None)
+            {
+                Log.Info("iPiMPWeb  - call StartProcess FILE/NONE {0}", _filename);
+                StartProcess(_filename);
+            }
+            else
+            {
+                Log.Info("iPiMPWeb  - call StartProcess FILE/BOTH {0} {1}", _filename, encoderOutput.Url);
+                StartProcess(_filename, encoderOutput.Url);
+            }
         }
         if (encCfg.outputMethod != TransportMethod.None)
         {
+            Log.Info("iPiMPWeb - outputMethod is Not None");
             encoderOutput.Start(false);
+            Log.Info("iPiMPWeb - encoderInput started");
             // Wait for the output encoder to connect.
             int tries = 10000;
 
@@ -187,42 +214,43 @@ namespace uWiMP.TVServer.MPWebServices
     {
       if (applicationThread != null)
         applicationThread.Kill();
-      string args = encCfg.args.Replace("{0}",input);
+      var args = encCfg.args.Replace("{0}",input);
       args=args.Replace("{1}",output);
       
-      applicationDetails = new ProcessStartInfo(encCfg.fileName, args);
-      applicationDetails.UseShellExecute = false;
-      applicationDetails.RedirectStandardInput = (encCfg.inputMethod == TransportMethod.StandardIn);
-      applicationDetails.RedirectStandardOutput = (encCfg.outputMethod == TransportMethod.StandardOut);
+      applicationDetails = new ProcessStartInfo(encCfg.fileName, args)
+                               {
+                                   UseShellExecute = false,
+                                   RedirectStandardInput = (encCfg.inputMethod == TransportMethod.StandardIn),
+                                   RedirectStandardOutput = (encCfg.outputMethod == TransportMethod.StandardOut)
+                               };
 
-      applicationThread = new Process();
-      applicationThread.StartInfo = applicationDetails;
-      if (applicationThread.Start())
-      {
+        applicationThread = new Process {StartInfo = applicationDetails};
+        if (!applicationThread.Start()) return;
+        Log.Info("iPiMPWeb - process pid started {0}", applicationThread.Id.ToString());
         if (encCfg.inputMethod == TransportMethod.StandardIn)
-          encoderInput.UnderlyingStreamObject = applicationThread.StandardInput.BaseStream;
+            encoderInput.UnderlyingStreamObject = applicationThread.StandardInput.BaseStream;
         if (encCfg.outputMethod == TransportMethod.StandardOut)
-          encoderOutput.UnderlyingStreamObject = applicationThread.StandardOutput.BaseStream;
-      }
+            encoderOutput.UnderlyingStreamObject = applicationThread.StandardOutput.BaseStream;
     }
 
     public void StartProcess(String input)
     {
+        Log.Info("iPiMPWeb - process input {0}", input);
         if (applicationThread != null)
             applicationThread.Kill();
-        string args = encCfg.args.Replace("{0}", input);
+        var args = encCfg.args.Replace("{0}", input);
+        Log.Info("iPiMPWeb - process args {0}", args);
+        applicationDetails = new ProcessStartInfo(encCfg.fileName, args)
+                                 {
+                                     UseShellExecute = false,
+                                     RedirectStandardInput = (encCfg.inputMethod == TransportMethod.StandardIn)
+                                 };
 
-        applicationDetails = new ProcessStartInfo(encCfg.fileName, args);
-        applicationDetails.UseShellExecute = false;
-        applicationDetails.RedirectStandardInput = (encCfg.inputMethod == TransportMethod.StandardIn);
-
-        applicationThread = new Process();
-        applicationThread.StartInfo = applicationDetails;
-        if (applicationThread.Start())
-        {
-            if (encCfg.inputMethod == TransportMethod.StandardIn)
-                encoderInput.UnderlyingStreamObject = applicationThread.StandardInput.BaseStream;
-        }
+        applicationThread = new Process {StartInfo = applicationDetails};
+        if (!applicationThread.Start()) return;
+        Log.Info("iPiMPWeb - process pid started {0}", applicationThread.Id.ToString());
+        if (encCfg.inputMethod == TransportMethod.StandardIn)
+            encoderInput.UnderlyingStreamObject = applicationThread.StandardInput.BaseStream;
     }
 
     public void StopProcess()

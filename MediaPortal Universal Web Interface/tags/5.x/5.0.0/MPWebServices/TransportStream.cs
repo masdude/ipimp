@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.ComponentModel;
-
+using TvLibrary.Log;
 
 namespace uWiMP.TVServer.MPWebServices
 {
@@ -32,11 +32,11 @@ namespace uWiMP.TVServer.MPWebServices
 
                 System.Threading.Thread.Sleep(1);
             } while (--tries != 0);
-
+            
             if (IsReady)
             {
                 buffer = new byte[0x1000];
-
+                //Log.Info("iPiMPWeb  - CopyStream isReady");
                 media.BeginRead(buffer, 0, buffer.Length, MediaReadAsyncCallback, media);
             }
             else
@@ -47,24 +47,30 @@ namespace uWiMP.TVServer.MPWebServices
 
         private void MediaReadAsyncCallback(IAsyncResult ar)
         {
+            //Log.Info("iPiMPWeb  - MediaReadAsyncCallback");
             try
             {
-                Stream media = ar.AsyncState as Stream;
-
-                int read = media.EndRead(ar);
+                var media = ar.AsyncState as Stream;
+                //Log.Info("iPiMPWeb  - CopyStream length {0}", media.Length.ToString());
+            
+                var read = media.EndRead(ar);
+                //Log.Info("iPiMPWeb  - MediaReadAsyncCallback {0}", read.ToString());
+                
                 if (read > 0)
                 {
-                    this.BeginWrite(buffer, 0, read, writeResult =>
+                    //Log.Info("iPiMPWeb  - MediaReadAsyncCallback Beginwrite");
+                    BeginWrite(buffer, 0, read, writeResult =>
                     {
                         try
                         {
-                            this.EndWrite(writeResult);
-                            media.BeginRead(
-                                buffer, 0, buffer.Length, MediaReadAsyncCallback, media);
+                            EndWrite(writeResult);
+                            //Log.Info("iPiMPWeb  - MediaReadAsyncCallback Endwrite");
+                            media.BeginRead(buffer, 0, buffer.Length, MediaReadAsyncCallback, media);
                         }
                         catch (Exception exc)
                         {
-
+                            Log.Info("iPiMPWeb  - EndWrite exception {0}", exc.Message);
+                            // var asyncResult = media.BeginRead(buffer, 0, buffer.Length, MediaReadAsyncCallback, media);
                         }
                     }, null);
                 }
@@ -75,7 +81,7 @@ namespace uWiMP.TVServer.MPWebServices
             }
             catch (Exception exc)
             {
-
+                Log.Info("iPiMPWeb  - Read exception {0}", exc.Message);
             }
         }
 

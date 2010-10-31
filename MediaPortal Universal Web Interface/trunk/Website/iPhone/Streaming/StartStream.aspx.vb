@@ -92,10 +92,14 @@ Partial Public Class StartStream
         Select Case type.ToLower
             Case "livetv"
                 task.Media = uWiMP.TVServer.Streamer.MediaType.Tv
+                task.MediaID = id
             Case "rec"
                 task.Media = uWiMP.TVServer.Streamer.MediaType.Recording
+                task.MediaID = id
+            Case "tvseries"
+                task.Media = uWiMP.TVServer.Streamer.MediaType.TvSeries
+                task.MediaID = HttpUtility.UrlDecode(id)
         End Select
-        task.MediaID = id
 
         Dim asyncTask As New PageAsyncTask(AddressOf task.OnBegin, AddressOf task.OnEnd, AddressOf task.OnTimeout, "Stream", True)
         Page.RegisterAsyncTask(asyncTask)
