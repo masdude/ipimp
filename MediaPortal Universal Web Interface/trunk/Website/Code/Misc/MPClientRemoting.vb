@@ -15,185 +15,46 @@
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
 
-
-Imports System.Net
-Imports System.IO
-
 Imports Jayrock.Json
 
 Namespace uWiMP.TVServer
 
     Public Class MPClientRemoting
 
+        Const useTCP As Boolean = False
 
-        Private Shared client As Sockets.TcpClient
-        Private Shared port As Integer
-        Private Shared host As String
-
-        Const BUFFER As Integer = 256
-        Const DEFAULT_PORT As Integer = 55667
-
-        Private Shared Function Connect(ByVal friendly As String) As Boolean
-
-            Try
-                client = New Sockets.TcpClient
-                Dim mpclient As TVServer.MPClient.Client = uWiMP.TVServer.MPClientDatabase.GetClient(friendly)
-
-                If mpclient.Hostname = String.Empty Then
-                    host = friendly
-                Else
-                    host = mpclient.Hostname
-                End If
-
-                If mpclient.Port = String.Empty Then
-                    port = DEFAULT_PORT
-                Else
-                    port = CInt(mpclient.Port)
-                End If
-
-                client.Connect(host, port)
-
-            Catch ex As Exception
-                Return False
-            End Try
-
-            Return True
-
-        End Function
-
-        Private Shared Sub Disconnect(ByVal friendly As String)
-            Try
-                client.Close()
-            Catch ex As Exception
-
-            End Try
-
-        End Sub
-
+        
         Public Shared Function CanConnect(ByVal friendly As String) As Boolean
 
-            Dim result As Boolean = False
-            Try
-                result = Connect(friendly)
-            Catch ex As Exception
-                result = False
-            Finally
-                Disconnect(friendly)
-            End Try
-
-            Return result
+            If useTCP Then
+                Return MPClientTCPRemoting.CanConnect(friendly)
+            Else
+                Return MPClientHTTPRemoting.CanConnect(friendly)
+            End If
 
         End Function
 
         Public Shared Function SendSyncMessage(ByVal friendly As String, ByVal mpRequest As uWiMP.TVServer.MPClient.Request) As String
 
-            Dim response As [String] = [String].Empty
-
-            Try
-                Dim data As [Byte]() = System.Text.Encoding.UTF8.GetBytes(ConvertRequestToJson(mpRequest))
-
-                Connect(friendly)
-
-                Dim stream As Sockets.NetworkStream = client.GetStream()
-
-                stream.Write(data, 0, data.Length)
-
-                Dim timeout As Integer = 0
-                Do Until stream.DataAvailable
-                    timeout += 100
-                    Threading.Thread.Sleep(100)
-                    If timeout >= 10000 Then Throw New Exception
-                Loop
-
-                data = New [Byte](BUFFER) {}
-                Dim bytes As Int32
-                While stream.DataAvailable
-                    bytes = stream.Read(data, 0, data.Length)
-                    response += System.Text.Encoding.UTF8.GetString(data, 0, bytes)
-                End While
-
-                stream.Close()
-
-            Catch ex As Exception
-                Return "fail"
-            Finally
-                Disconnect(friendly)
-            End Try
-
-            Return response
+            If useTCP Then
+                Return MPClientTCPRemoting.SendSyncMessage(friendly, mpRequest)
+            Else
+                Return MPClientHTTPRemoting.SendHTTPPostMessage(friendly, mpRequest)
+            End If
 
         End Function
 
         Public Shared Function SendAsyncMessage(ByVal friendly As String, ByVal mpRequest As uWiMP.TVServer.MPClient.Request) As String
 
-            Try
-                Connect(friendly)
-
-                Dim data As [Byte]() = System.Text.Encoding.UTF8.GetBytes(ConvertRequestToJson(mpRequest))
-                Dim stream As Sockets.NetworkStream = client.GetStream()
-
-                stream.Write(data, 0, data.Length)
-                stream.Close()
-
-            Catch ex As Exception
-                Return ReturnBoolean(False)
-            Finally
-                Disconnect(friendly)
-            End Try
-
-            Return ReturnBoolean(True)
+            If useTCP Then
+                Return MPClientTCPRemoting.SendSyncMessage(friendly, mpRequest)
+            Else
+                Return MPClientHTTPRemoting.SendHTTPPostMessage(friendly, mpRequest, False)
+            End If
 
         End Function
 
-        Public Shared Function SendHTTPPostSyncMessage(ByVal friendly As String, ByVal mpRequest As uWiMP.TVServer.MPClient.Request) As String
-
-            Dim response As String = String.Empty
-            Dim mpclient As TVServer.MPClient.Client = uWiMP.TVServer.MPClientDatabase.GetClient(friendly)
-
-            If mpclient.Hostname = String.Empty Then
-                host = friendly
-            Else
-                host = mpclient.Hostname
-            End If
-
-            If mpclient.Port = String.Empty Then
-                port = DEFAULT_PORT
-            Else
-                port = CInt(mpclient.Port)
-            End If
-
-            Dim data As String = ConvertRequestToJson(mpRequest)
-
-            Try
-                Dim webRequest As WebRequest = webRequest.Create(String.Format("http://{0}:{1}/mpcc/", host, (port + 1).ToString))
-                webRequest.Method = "POST"
-                Dim byteArray As Byte() = Encoding.UTF8.GetBytes(data)
-                webRequest.ContentType = "application/x-www-form-urlencoded"
-                webRequest.ContentLength = byteArray.Length
-
-                Dim datastream As Stream = webRequest.GetRequestStream
-                datastream.Write(byteArray, 0, byteArray.Length)
-                datastream.Close()
-
-                Dim webResponse As WebResponse = webRequest.GetResponse()
-                datastream = webResponse.GetResponseStream
-
-                Dim reader As New StreamReader(datastream)
-                response = reader.ReadToEnd
-
-                reader.Close()
-                datastream.Close()
-                webResponse.Close()
-
-            Catch ex As Exception
-                Return "fail"
-            End Try
-
-            Return response
-
-        End Function
-
-        Private Shared Function ReturnBoolean(ByVal value As Boolean) As String
+        Friend Shared Function ReturnBoolean(ByVal value As Boolean) As String
 
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
@@ -206,7 +67,7 @@ Namespace uWiMP.TVServer
 
         End Function
 
-        Private Shared Function ConvertRequestToJson(ByVal request As uWiMP.TVServer.MPClient.Request) As String
+        Friend Shared Function ConvertRequestToJson(ByVal request As uWiMP.TVServer.MPClient.Request) As String
 
             Dim jw As New JsonTextWriter
             jw.PrettyPrint = True
