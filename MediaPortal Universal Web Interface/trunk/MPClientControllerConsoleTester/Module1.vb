@@ -29,9 +29,9 @@ Module Module1
 
     Private Sub SendReceiveMessage(ByVal transport As String, ByVal friendly As String, ByVal request As uWiMP.TVServer.MPClient.Request)
         If transport.ToLower = "tcp" Then
-            Console.WriteLine(uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, request))
+            Console.WriteLine(uWiMP.TVServer.MPClientTCPRemoting.SendSyncMessage(friendly, request))
         Else
-            Console.WriteLine(uWiMP.TVServer.MPClientRemoting.SendHTTPPostSyncMessage(friendly, request))
+            Console.WriteLine(uWiMP.TVServer.MPClientHTTPRemoting.SendHTTPPostMessage(friendly, request, True))
         End If
     End Sub
 
