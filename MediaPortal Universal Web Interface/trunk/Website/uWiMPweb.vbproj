@@ -219,7 +219,9 @@
     </Compile>
     <Compile Include="Code\Misc\MPClientClasses.vb" />
     <Compile Include="Code\Misc\MPClientDatabase.vb" />
+    <Compile Include="Code\Misc\MPClientHTTPRemoting.vb" />
     <Compile Include="Code\Misc\MPClientRemoting.vb" />
+    <Compile Include="Code\Misc\MPClientTCPRemoting.vb" />
     <Compile Include="Code\Misc\SQLiteMembershipProvider.vb" />
     <Compile Include="Code\Misc\SQLiteRoleProvider.vb" />
     <Compile Include="Code\TVServer\RadioChannels.vb" />
