@@ -145,7 +145,6 @@
     <Content Include="iPhone\MPClient\TVSeriesList.aspx" />
     <Content Include="iPhone\MPClient\TVSeriesMenu.aspx" />
     <Content Include="iPhone\MPClient\TVSeriesSeasonsList.aspx" />
-    <Content Include="iPhone\Streaming\CheckStream.aspx" />
     <Content Include="iPhone\Streaming\StopStream.aspx" />
     <Content Include="iPhone\Streaming\WatchStream.aspx" />
     <Content Include="iPhone\TVServer\StreamingStatus.aspx" />
@@ -1117,13 +1116,6 @@
     </Compile>
     <Compile Include="iPhone\Schedule\SchedulesByTitleList.aspx.vb">
       <DependentUpon>SchedulesByTitleList.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="iPhone\Streaming\CheckStream.aspx.designer.vb">
-      <DependentUpon>CheckStream.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="iPhone\Streaming\CheckStream.aspx.vb">
-      <DependentUpon>CheckStream.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="iPhone\Streaming\StopStream.aspx.designer.vb">
