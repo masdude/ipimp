@@ -130,11 +130,32 @@
     <Content Include="config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Desktop\5.0.swf" />
+    <Content Include="Desktop\Flash.htm" />
     <Content Include="Desktop\MediaPlayerTemplate.xap" />
-    <Content Include="Desktop\SmoothStream.htm" />
+    <Content Include="Desktop\Silverlight.htm" />
     <Content Include="Desktop\SmoothStreaming.xap" />
+    <Content Include="Desktop\SmoothStreamingProvider.swf" />
+    <Content Include="Desktop\swfobject.js" />
     <Content Include="Desktop\TimedTextLibrary.xap" />
+    <Content Include="images\remote\flash.png" />
+    <Content Include="images\remote\0.png" />
+    <Content Include="images\remote\1.png" />
+    <Content Include="images\remote\2.png" />
+    <Content Include="images\remote\3.png" />
+    <Content Include="images\remote\4.png" />
+    <Content Include="images\remote\5.png" />
+    <Content Include="images\remote\6.png" />
+    <Content Include="images\remote\7.png" />
+    <Content Include="images\remote\8.png" />
+    <Content Include="images\remote\9.png" />
     <Content Include="images\remote\browser.png" />
+    <Content Include="images\remote\chdown.png" />
+    <Content Include="images\remote\chup.png" />
+    <Content Include="images\remote\hash.png" />
+    <Content Include="images\remote\page3.png" />
+    <Content Include="images\remote\star.png" />
+    <Content Include="images\remote\slight.png" />
     <Content Include="images\tvseries\tvepisodeblank.png" />
     <Content Include="images\tvseries\tvepisodeblankbanner.png" />
     <Content Include="iPhone\Default.aspx" />
