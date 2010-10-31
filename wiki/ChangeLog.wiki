@@ -14,6 +14,9 @@
  * Web - Refactored all pages which interact with !MediaPortal clients due to changes in MP client plugin
  * Web - Added TV Series functionality - browse, play and *stream* your TV Series episodes
  * Web - Auto-registers MP clients and determines whether !MovingPictures and TVSeries are used.
+ * Web - Updated MPWebServices component to allow live streaming of files
+ * Web - Added Flash player (alongside existing Silverlight player)
+ * Web - Added 3rd page to remote control - numeric & channel up/down
  * MP client plugin - MP clients will now auto register with iPiMP web app
  * MP client plugin - Lots & lots of changes to support [http://yatse.leetzone.org/redmine Yatse] (thanks to Tolriq for the help & patches)
  * MP client plugin - Added TV Series
