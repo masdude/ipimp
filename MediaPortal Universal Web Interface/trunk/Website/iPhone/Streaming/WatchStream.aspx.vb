@@ -93,7 +93,10 @@ Partial Public Class WatchStream
         markup += "<table class=""center""><tr>"
         markup += String.Format("<td class=""grid""><a href=""../../SmoothStream.isml/SmoothStream.m3u8""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
         markup += String.Format("<td class=""grid""><a href=""Streaming/StopStream.aspx#_StopStream"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
-        markup += String.Format("<td class=""grid""><a href=""../../Desktop/SmoothStream.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "browser")
+        markup += "</tr>"
+        markup += "<tr>"
+        markup += String.Format("<td class=""grid""><a href=""../../Desktop/Silverlight.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "slight")
+        markup += String.Format("<td class=""grid""><a href=""../../Desktop/Flash.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "flash")
         markup += "</tr></table>"
         markup += "</div>"
 
