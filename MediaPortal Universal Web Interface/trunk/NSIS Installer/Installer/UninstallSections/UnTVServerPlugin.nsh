@@ -30,6 +30,8 @@ Section un.TVServerPlugin
   ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_Transcoder=$Transcoder"
 
   ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_Preset=$Preset"
+  
+  ExecDos::exec /TIMEOUT=10000 /DETAILED "$ServerPath\iPiMPConfigurePlugin.exe del=iPiMPTranscodeToMP4_iPiMPPath=$INSTDIR\Utilities"
 
   DetailPrint "$(STRING_TVSERVICEPLUGIN_LINE7)"
   ExecDos::exec /TIMEOUT=10000 /DETAILED "NET STOP TVSERVICE"
