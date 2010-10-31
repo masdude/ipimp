@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<script type="text/javascript" src="swfobject.js"></script> 
+		<script type="text/javascript"> 
+		</script> 
+		<script type="text/javascript"> 
+    //<![CDATA[
+      function gup( name )
+      {
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp( regexS );
+        var results = regex.exec( window.location.href );
+        if( results == null )
+          return "";
+        else
+          return unescape(results[1]);
+      }
+    //]]>
+		</script> 
+ 
+    <style type="text/css"> 
+      html {
+        height: 100%;
+        overflow: hidden;
+      }
+      #flashcontent {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+      }
+    </style> 
+	</head> 
+	<body> 
+		<div id="flashcontent"> 
+      For the new HTTP Streaming in Flash you need <a href="http://labs.adobe.com/downloads/flashplayer10.html">version 10.1 or higher to be installed.</a> 
+    </div> 
+ 
+<script type="text/javascript"> 
+//<![CDATA[
+  var flashvars = {
+    'provider':  'SmoothStreamingProvider.swf',
+    'autostart': 'true'
+  };
+ 
+  //flashvars['file'] = gup("file");
+  flashvars['file'] = '../SmoothStream.isml/Manifest';
+  
+  var params = {
+     'allowfullscreen':    'true',
+     'allowscriptaccess':  'always',
+     'bgcolor':            '#ffffff'
+  };
+ 
+  var attributes = {
+     'id':                 'player1',
+     'name':               'player1'
+  };
+ 
+   swfobject.embedSWF('5.0.swf', 'flashcontent', '100%', '100%', '10.1.0', null, flashvars, params, attributes);
+//]]>
+</script> 
+ 
+	</body> 
+</html> 
+ 

@@ -1,45 +1,5 @@
-﻿
-
-<!--  -->
-
-
-
-<!--  -->
-<!--  -->
-<!--  -->
-<!--   -->
-<!--   -->
-<!--   -->
-
-
-<!--   -->
-
-<!--   -->
-<!--   -->
-<!--   -->
-<!--   -->
-<!--   -->
-<!--   -->
-<!--  -->
-
-
-
-
-<!--  -->
-
-
-<!--
-
-
- 
--->
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
-<!-- saved from url=(0014)about:internet -->
-
-
 <head>
     <style type="text/css">
     html, body {
@@ -110,28 +70,13 @@
 	{
 	    window.close();
 	}
-
-
-
-
     </script>
 </head>
 
-
-
 <body>
-    <!-- Runtime errors from Silverlight will be displayed here.
-    This will contain debugging information and should be removed or hidden when debugging is completed -->
     <div id='errorLocation' style="font-size: small;color: Gray;"></div>
-
     <div id="silverlightControlHost">
-        <object data="data:application/x-silverlight," type="application/x-silverlight"
-
-
-
-width="100%" height="100%"
-
-	    >
+    <object data="data:application/x-silverlight," type="application/x-silverlight" width="100%" height="100%" >
             <param name="source" value="MediaPlayerTemplate.xap"/>
             <param name="onerror" value="onSilverlightError" />
             <param name="autoUpgrade" value="true" />
@@ -169,22 +114,8 @@ width="100%" height="100%"
 									<AspectRatioWidth>16</AspectRatioWidth>
 									<AspectRatioHeight>9</AspectRatioHeight>
 								</PlaylistItem>
-			    </Items>
+							</Items>
                         </Playlist>'/>       
-            <!--  unused valid silverlight init parameters
-            <param name="enableFrameRateCounter" value="bool" />
-            <param name="enableRedrawRegions" value="bool" />
-            <param name="maxFrameRate" value="int" />
-            <param name="allowHtmlPopupWindow" value="bool"/>
-            <param name="background" value="colorValue"/>
-            <param name="splashScreenSource" value="uri"/>
-            <param name="fullScreen" value="bool"/>
-            <param name="onFullScreenChanged" value="functionname"/>
-            <param name="onResize" value="functionname"/>
-            <param name="onSourceDownloadComplete" value="functionname"/>
-            <param name="onSourceDownloadProgressChanged" value="functionname"/>
-            <param name="windowLess" value="bool"/>
-             --> 
 
              <div onmouseover="highlightDownloadArea(true)" onmouseout="highlightDownloadArea(false)">
                     <img src="" style="position:absolute;width:100%;height:100%;border-style:none;" onerror="this.style.display='none'"/>
@@ -199,14 +130,6 @@ width="100%" height="100%"
              </div>             
         </object>
         <iframe id='_sl_historyFrame' style='visibility:hidden;height:0;width:0;border:0px'></iframe>
-
-
-
 </div>
 </body> 
-
-
 </html>
-
-
-
