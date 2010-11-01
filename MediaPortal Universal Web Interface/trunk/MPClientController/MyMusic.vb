@@ -248,7 +248,7 @@ Namespace MPClientController
 
                         Dim Found As Boolean = False
                         For Each DictionaryEntry As DictionaryEntry In Result
-                            If (DirectCast(DictionaryEntry.Value, DatabaseManager.FanartImage).type = "MusicFanart") Then
+                            If (DirectCast(DictionaryEntry.Value, FanartImage).Type = "MusicFanart") Then
                                 Found = True
                             End If
                         Next
@@ -638,8 +638,8 @@ Namespace MPClientController
                 Dim Result As Hashtable = FanartHandler.Utils.GetDbm().GetFanart(artist.ToLowerInvariant(), "MusicFanart", 0)
                 If Result.Count > 0 Then
                     For Each DictionaryEntry As DictionaryEntry In Result
-                        If (DirectCast(DictionaryEntry.Value, DatabaseManager.FanartImage).type = "MusicFanart") Then
-                            filename = DirectCast(DictionaryEntry.Value, DatabaseManager.FanartImage).disk_image
+                        If (DirectCast(DictionaryEntry.Value, FanartImage).Type = "MusicFanart") Then
+                            filename = DirectCast(DictionaryEntry.Value, FanartImage).DiskImage
                             Exit For
                         End If
                     Next
