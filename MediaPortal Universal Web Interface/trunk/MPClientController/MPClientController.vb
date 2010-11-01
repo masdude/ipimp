@@ -61,7 +61,7 @@ Namespace MPClientController
         Const DEFAULT_PORT As Integer = 55667
         Const SUPPORTED_MOVING_PICTURES_MINVERSION As String = "1.0.6.1116"
         Const SUPPORTED_TV_SERIES_MINVERSION As String = "2.6.3.1242"
-        Const SUPPORTED_FANART_HANDLER_MINVERSION As String = "2.2.0.22763"
+        Const SUPPORTED_FANART_HANDLER_MINVERSION As String = "2.2.1.19191"
         Private port As Integer = DEFAULT_PORT
 
 #Region "ISetupForm members"

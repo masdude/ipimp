@@ -77,7 +77,7 @@ Namespace MPClientController
 
                                 Dim Found As Boolean = False
                                 For Each DictionaryEntry As DictionaryEntry In Result
-                                    If (DirectCast(DictionaryEntry.Value, DatabaseManager.FanartImage).type = "MusicFanart") Then
+                                    If (DirectCast(DictionaryEntry.Value, FanartImage).Type = "MusicFanart") Then
                                         Found = True
                                     End If
                                 Next
