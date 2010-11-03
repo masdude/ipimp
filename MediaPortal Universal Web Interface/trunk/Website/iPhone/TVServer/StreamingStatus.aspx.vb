@@ -84,7 +84,7 @@ Partial Public Class StreamingStatus
         markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "streaming_status"))
         markup += "<ul>"
 
-        Dim mediaType As String = String.Empty
+        Dim mediaType As uWiMP.TVServer.Streamer.MediaType
         Dim mediaID As Integer = -1
         Dim cardID As Integer = -1
         Dim userName As String = String.Empty
@@ -98,10 +98,10 @@ Partial Public Class StreamingStatus
                 userName = sr.ReadLine
             End Using
             Dim text As String = String.Empty
-            Select Case mediaType.ToLower
-                Case "tv", "radio"
-                    text = uWiMP.TVServer.Channels.GetChannelNameByChannelId(ID)
-                Case "rec"
+            Select Case mediaType
+                Case uWiMP.TVServer.Streamer.MediaType.Tv, uWiMP.TVServer.Streamer.MediaType.Radio
+                    text = uWiMP.TVServer.Channels.GetChannelNameByChannelId(mediaID)
+                Case uWiMP.TVServer.Streamer.MediaType.Recording
                     text = uWiMP.TVServer.Recordings.GetRecordingById(mediaID).Title
                 Case Else
                     text = GetGlobalResourceObject("uWiMPStrings", "unknown")
@@ -114,7 +114,10 @@ Partial Public Class StreamingStatus
             markup += "<table class=""center""><tr>"
             markup += String.Format("<td class=""grid""><a href=""../../SmoothStream.isml/SmoothStream.m3u8""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
             markup += String.Format("<td class=""grid""><a href=""Streaming/StopStream.aspx#_StopStream"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
-            markup += String.Format("<td class=""grid""><a href=""../../Desktop/SmoothStream.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "browser")
+            markup += "</tr>"
+            markup += "<tr>"
+            markup += String.Format("<td class=""grid""><a href=""../../Desktop/Silverlight.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "slight")
+            markup += String.Format("<td class=""grid""><a href=""../../Desktop/Flash.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "flash")
             markup += "</tr></table>"
             markup += "</div>"
             markup += "</div>"
