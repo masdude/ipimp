@@ -79,23 +79,29 @@ Partial Public Class StopStream
 
     Private Function StopStream() As String
 
+        Dim markup As String = String.Empty
         Dim success As Boolean = uWiMP.TVServer.Streamer.StopStream
 
-        Dim markup As String = String.Empty
-
-        markup += String.Format("<div class=""iMenu"">")
-        markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "watch"))
-
-        markup += "<ul>"
-        If success Then
-            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped"))
+        Dim basedir As String = String.Format("{0}\SmoothStream.isml", AppDomain.CurrentDomain.BaseDirectory)
+        Dim path As String = String.Format("{0}\Stream.txt", basedir)
+        If File.Exists(path) And Directory.GetFiles(basedir).GetLength(0) > 0 Then
+            Response.Redirect("StreamingStatus.aspx")
+            Return Nothing
         Else
-            markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped_failed"))
-        End If
-        markup += "</ul>"
-        markup += "</div>"
+            markup += String.Format("<div class=""iMenu"">")
+            markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "streaming_status"))
 
-        Return markup
+            markup += "<ul>"
+            If success Then
+                markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped"))
+            Else
+                markup += String.Format("<li style=""color:red"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "stream_stopped_failed"))
+            End If
+            markup += "</ul>"
+            markup += "</div>"
+
+            Return markup
+        End If
 
     End Function
 

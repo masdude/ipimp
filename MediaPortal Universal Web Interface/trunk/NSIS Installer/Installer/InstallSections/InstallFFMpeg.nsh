@@ -7,9 +7,11 @@
   File "..\Include\Utilities\ffmpeg\avformat-52.dll"
   File "..\Include\Utilities\ffmpeg\avutil-50.dll"
   File "..\Include\Utilities\ffmpeg\ffmpeg.exe"
+  File "..\Include\Utilities\ffmpeg\libexpat-1.dll"
   File "..\Include\Utilities\ffmpeg\libfmp4-0.dll"
   File "..\Include\Utilities\ffmpeg\libpcre-0.dll"
   File "..\Include\Utilities\ffmpeg\libpcrecpp-0.dll"
+  File "..\Include\Utilities\ffmpeg\libsqlite3-0.dll"  
   File "..\Include\Utilities\ffmpeg\pthreadGC2.dll"
   File "..\Include\Utilities\ffmpeg\swscale-0.dll"
   

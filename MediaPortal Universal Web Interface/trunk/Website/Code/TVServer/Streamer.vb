@@ -200,20 +200,20 @@ Namespace uWiMP.TVServer
             
             Try
                 Dim type As MediaType = MediaType.None
-                Dim mediaID As Integer
-                Dim card As Integer
+                Dim mediaID As String = String.Empty
+                Dim cardID As String = String.Empty
                 Dim userName As String
 
                 Dim path As String = String.Format("{0}\\SmoothStream.isml\\Stream.txt", AppDomain.CurrentDomain.BaseDirectory)
                 Using sr As StreamReader = File.OpenText(path)
                     type = sr.ReadLine
-                    mediaID = CInt(sr.ReadLine)
-                    card = CInt(sr.ReadLine)
+                    mediaID = sr.ReadLine
+                    cardID = sr.ReadLine
                     userName = sr.ReadLine
                 End Using
 
                 If (type = MediaType.Tv) Or (type = MediaType.Radio) Then
-                    Dim stopResult As Boolean = uWiMP.TVServer.Cards.StopTimeshifting(mediaID, card, userName)
+                    Dim stopResult As Boolean = uWiMP.TVServer.Cards.StopTimeshifting(CInt(mediaID), CInt(cardID), userName)
                     result = stopResult
                     Log.Info("iPiMPWeb - StopStream StopTimeShifting result {0}", stopResult.ToString)
                 End If
