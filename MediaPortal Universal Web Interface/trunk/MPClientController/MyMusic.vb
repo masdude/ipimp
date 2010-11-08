@@ -749,7 +749,16 @@ Namespace MPClientController
             Dim songs As New ArrayList
             musicDB.GetSongsByAlbum(album, songs)
 
-            If Not enqueue Then playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Clear()
+            Dim insertEnqueue As Boolean = False
+
+            If enqueue Then
+                Using xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
+                    insertEnqueue = xmlReader.GetValueAsString("musicmisc", "enqueuenext", "yes")
+                End Using
+            Else
+                playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Clear()
+            End If
+
 
             Dim playTracks() As String = Split(tracks, ",")
             Dim i As Integer = 0
@@ -757,7 +766,13 @@ Namespace MPClientController
                 If (Song.Album.ToLower = album.ToLower) And (Song.Artist.ToLower = artist.ToLower) Then
                     i += 1
                     Dim item As New PlayListItem(Song.Title, Song.FileName)
-                    If playTracks.Contains(i.ToString) Then playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Add(item)
+                    If playTracks.Contains(i.ToString) Then
+                        If insertEnqueue Then
+                            playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Insert(item, playlistPlayer.CurrentSong)
+                        Else
+                            playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Add(item)
+                        End If
+                    End If
                 End If
             Next
 
