@@ -85,24 +85,27 @@ Partial Public Class StreamingStatus
         markup += "<ul>"
 
         Dim mediaType As uWiMP.TVServer.Streamer.MediaType
-        Dim mediaID As Integer = -1
-        Dim cardID As Integer = -1
+        Dim mediaID As String = String.Empty
+        Dim cardID As String = String.Empty
         Dim userName As String = String.Empty
 
-        Dim path As String = String.Format("{0}\SmoothStream.isml\Stream.txt", AppDomain.CurrentDomain.BaseDirectory)
-        If File.Exists(path) Then
+        Dim basedir As String = String.Format("{0}\SmoothStream.isml", AppDomain.CurrentDomain.BaseDirectory)
+        Dim path As String = String.Format("{0}\Stream.txt", basedir)
+        If File.Exists(path) And Directory.GetFiles(basedir).GetLength(0) > 0 Then
             Using sr As StreamReader = File.OpenText(path)
                 mediaType = sr.ReadLine
-                mediaID = CInt(sr.ReadLine)
-                cardID = CInt(sr.ReadLine)
+                mediaID = sr.ReadLine
+                cardID = sr.ReadLine
                 userName = sr.ReadLine
             End Using
             Dim text As String = String.Empty
             Select Case mediaType
                 Case uWiMP.TVServer.Streamer.MediaType.Tv, uWiMP.TVServer.Streamer.MediaType.Radio
-                    text = uWiMP.TVServer.Channels.GetChannelNameByChannelId(mediaID)
+                    text = uWiMP.TVServer.Channels.GetChannelNameByChannelId(CInt(mediaID))
                 Case uWiMP.TVServer.Streamer.MediaType.Recording
-                    text = uWiMP.TVServer.Recordings.GetRecordingById(mediaID).Title
+                    text = uWiMP.TVServer.Recordings.GetRecordingById(CInt(mediaID)).Title
+                Case uWiMP.TVServer.Streamer.MediaType.TvSeries
+                    text = GetGlobalResourceObject("uWiMPStrings", "tv_series")
                 Case Else
                     text = GetGlobalResourceObject("uWiMPStrings", "unknown")
             End Select
@@ -113,7 +116,7 @@ Partial Public Class StreamingStatus
             markup += String.Format("<div><p>{0}</p>", GetGlobalResourceObject("uWiMPStrings", "stream_started"))
             markup += "<table class=""center""><tr>"
             markup += String.Format("<td class=""grid""><a href=""../../SmoothStream.isml/SmoothStream.m3u8""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
-            markup += String.Format("<td class=""grid""><a href=""Streaming/StopStream.aspx#_StopStream"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
+            markup += String.Format("<td class=""grid""><a href=""Streaming/StopStream.aspx"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
             markup += "</tr>"
             markup += "<tr>"
             markup += String.Format("<td class=""grid""><a href=""../../Desktop/Silverlight.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "slight")

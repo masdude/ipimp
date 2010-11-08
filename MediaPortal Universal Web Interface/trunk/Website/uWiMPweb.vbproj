@@ -134,10 +134,8 @@
     <Content Include="Desktop\Flash.htm" />
     <Content Include="Desktop\MediaPlayerTemplate.xap" />
     <Content Include="Desktop\Silverlight.htm" />
-    <Content Include="Desktop\SmoothStreaming.xap" />
     <Content Include="Desktop\SmoothStreamingProvider.swf" />
     <Content Include="Desktop\swfobject.js" />
-    <Content Include="Desktop\TimedTextLibrary.xap" />
     <Content Include="images\remote\flash.png" />
     <Content Include="images\remote\0.png" />
     <Content Include="images\remote\1.png" />
@@ -167,8 +165,7 @@
     <Content Include="iPhone\MPClient\TVSeriesMenu.aspx" />
     <Content Include="iPhone\MPClient\TVSeriesSeasonsList.aspx" />
     <Content Include="iPhone\Streaming\StopStream.aspx" />
-    <Content Include="iPhone\Streaming\WatchStream.aspx" />
-    <Content Include="iPhone\TVServer\StreamingStatus.aspx" />
+    <Content Include="iPhone\Streaming\StreamingStatus.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1148,13 +1145,6 @@
       <DependentUpon>StopStream.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\Streaming\WatchStream.aspx.designer.vb">
-      <DependentUpon>WatchStream.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="iPhone\Streaming\WatchStream.aspx.vb">
-      <DependentUpon>WatchStream.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="iPhone\TVGuide\RecordManualConfirm.aspx.designer.vb">
       <DependentUpon>RecordManualConfirm.aspx</DependentUpon>
     </Compile>
@@ -1274,10 +1264,10 @@
       <DependentUpon>CardActionResult.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\TVServer\StreamingStatus.aspx.designer.vb">
+    <Compile Include="iPhone\Streaming\StreamingStatus.aspx.designer.vb">
       <DependentUpon>StreamingStatus.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iPhone\TVServer\StreamingStatus.aspx.vb">
+    <Compile Include="iPhone\Streaming\StreamingStatus.aspx.vb">
       <DependentUpon>StreamingStatus.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -1686,7 +1676,6 @@
     <Content Include="iPhone\WebApp\Img\down.png" />
     <Content Include="iPhone\WebApp\Img\up.png" />
     <None Include="App_Data\uWiMP.db" />
-    <None Include="Desktop\Settings.dat" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

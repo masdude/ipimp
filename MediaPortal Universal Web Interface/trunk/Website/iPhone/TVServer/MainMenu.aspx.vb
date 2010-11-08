@@ -85,7 +85,7 @@ Partial Public Class TVServerMainMenu
         markup += String.Format("<li><a href=""TVServer/ServiceStatus.aspx#_ServiceStatus"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "service_status"))
         markup += String.Format("<li><a href=""TVServer/DiskStatus.aspx#_DiskStatus"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "disk_status"))
         markup += String.Format("<li><a href=""TVServer/TranscodeStatus.aspx#_TranscodeStatus"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "transcode_status"))
-        markup += String.Format("<li><a href=""TVServer/StreamingStatus.aspx#_StreamingStatus"" rev=""async"">{0}</a></li>", "Streaming status") 'GetGlobalResourceObject("uWiMPStrings", "transcode_status"))
+        markup += String.Format("<li><a href=""Streaming/StreamingStatus.aspx#_StreamingStatus"" rev=""async"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "streaming_status"))
         markup += "</ul>"
         markup += "</div>"
 

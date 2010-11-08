@@ -243,7 +243,7 @@ function startCountdown(iCount) {
     }
     else 
     {
-        WA.Request('Streaming/WatchStream.aspx?_WatchStream', null, -1, true, null);
+        WA.Request('Streaming/StreamingStatus.aspx', null, -1, true, null);
         return false;
     }
 }
