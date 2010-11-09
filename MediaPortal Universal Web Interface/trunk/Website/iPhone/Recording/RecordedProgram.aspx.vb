@@ -114,8 +114,8 @@ Partial Public Class RecordedProgram
                 markup += String.Format("<li><a href=""../../MP4/{0}.mp4"">{1}</a></li>", Replace(Path.GetFileNameWithoutExtension(recording.FileName), " ", "%20"), GetGlobalResourceObject("uWiMPStrings", "watch"))
             Else
                 markup += String.Format("<li><a href=""Recording/RecordingTranscode.aspx?recid={0}#_Transcode{0}"" rev=""async"">{1}</a></li>", recordingID, GetGlobalResourceObject("uWiMPStrings", "not_transcoded"))
-                markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=rec&id={0}#_StartStream"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
             End If
+            markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=rec&id={0}#_StartStream"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
         End If
         If User.IsInRole("deleter") Then
             markup += String.Format("<li><a href=""Recording/RecordingDelete.aspx?id={0}#_DeleteRec{0}"" rev=""async"">{1}</a></li>", recording.IdRecording.ToString, GetGlobalResourceObject("uWiMPStrings", "delete"))
