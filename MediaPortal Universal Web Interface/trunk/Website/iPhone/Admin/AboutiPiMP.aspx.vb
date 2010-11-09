@@ -81,7 +81,7 @@ Partial Public Class AboutiPiMP
         markup += "<center>"
         markup += "<img alt=""iPiMP"" src=""images/iPiMP logo.png"" />"
         markup += "<br>"
-        markup += "iPiMP is a web interface for <a target=""_blank"" href=""http://www.team-mediaportal.com"">MediaPortal</a> designed for the iPhone, use it to view your TV guide, manage recordings and schedules and remotely control MediaPortal clients. Future features are listed on the <a target=""_blank"" href=""http://www.team-mediaportal.com/manual/Extensions-TV-Server-Plugins/iPiMP"">iPiMP wiki</a>."
+        markup += "iPiMP is a web interface for <a target=""_blank"" href=""http://www.team-mediaportal.com"">MediaPortal</a> designed for the iPhone but works on any device with a webkit based browser, use it to view your TV guide, manage recordings and schedules, stream live TV to your iPhone and remotely control MediaPortal clients. Future features are listed on the <a target=""_blank"" href=""http://www.team-mediaportal.com/manual/Extensions-TV-Server-Plugins/iPiMP"">iPiMP wiki</a>."
         markup += "<br><br>"
         markup += "<a target=""_blank"" href=""http://forum.team-mediaportal.com/ipimp-518/"">Visit the iPiMP sub forum on the MP forums.</a>"
         markup += "<br><br>"
@@ -103,8 +103,6 @@ Partial Public Class AboutiPiMP
         markup += "Spanish translation by bodiroga."
         markup += "<br>"
         markup += "Italian translation by g.sigalotti."
-        'markup += "<br>"
-        'markup += "Faroese translation by uggabugga (who's probably the only Faroese user ;-)."
         markup += "<br><br>"
         markup += String.Format("You are running version <b>{0}</b>", uWiMP.TVServer.Utilities.GetAppConfig("VERSION"))
         markup += "<br>"
