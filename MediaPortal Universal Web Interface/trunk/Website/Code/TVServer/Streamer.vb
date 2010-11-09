@@ -112,17 +112,35 @@ Namespace uWiMP.TVServer
 
             Select Case mediatype
 
-                Case Streamer.MediaType.Tv, Streamer.MediaType.Radio
+                Case Streamer.MediaType.Tv
 
                     cfg = Utils.LoadConfig.Item(0)
 
-                    If mediatype = Streamer.MediaType.Radio Then
-                        Log.Info("iPiMPWeb - Radio stream requested")
-                        bufferSize = &HA00
+                    Log.Info("iPiMPWeb - TV stream requested")
+                    
+                    Dim res As WebTvResult = uWiMP.TVServer.Cards.StartTimeshifting(CInt(id))
+                    Log.Info("iPiMPWeb - StartTimeshifting result is {0}", res.result.ToString)
+                    If res.result <> 0 Then Exit Sub
+
+                    card = res.user.idCard
+                    usedChannel = res.user.idChannel
+                    userName = res.user.name
+
+                    If cfg.inputMethod = TransportMethod.Filename Then
+                        filename = res.rtspURL
                     Else
-                        Log.Info("iPiMPWeb - TV stream requested")
+                        filename = res.timeshiftFile
                     End If
 
+                    UpdateStreamTracker(mediatype, id, card, userName)
+
+                Case Streamer.MediaType.Radio
+
+                    cfg = Utils.LoadConfig.Item(3)
+
+                    Log.Info("iPiMPWeb - Radio stream requested")
+                    bufferSize = &HA00
+                    
                     Dim res As WebTvResult = uWiMP.TVServer.Cards.StartTimeshifting(CInt(id))
                     Log.Info("iPiMPWeb - StartTimeshifting result is {0}", res.result.ToString)
                     If res.result <> 0 Then Exit Sub

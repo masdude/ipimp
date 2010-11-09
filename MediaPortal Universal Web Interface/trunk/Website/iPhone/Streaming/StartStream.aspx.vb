@@ -72,7 +72,7 @@ Partial Public Class StartStream
 
         'start script
         xw.WriteStartElement("script")
-        xw.WriteCData("startCountdown(31)")
+        xw.WriteCData("startCountdown(21)")
         xw.WriteEndElement()
         'end script
 
@@ -92,6 +92,9 @@ Partial Public Class StartStream
         Select Case type.ToLower
             Case "livetv"
                 task.Media = uWiMP.TVServer.Streamer.MediaType.Tv
+                task.MediaID = id
+            Case "radio"
+                task.Media = uWiMP.TVServer.Streamer.MediaType.Radio
                 task.MediaID = id
             Case "rec"
                 task.Media = uWiMP.TVServer.Streamer.MediaType.Recording
