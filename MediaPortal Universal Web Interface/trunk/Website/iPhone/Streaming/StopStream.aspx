@@ -1,1 +1,1 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="StopStream.aspx.vb" Inherits="Website.StopStream" Async="true" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="StopStream.aspx.vb" Inherits="Website.StopStream" %>
