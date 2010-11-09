@@ -116,7 +116,7 @@ Partial Public Class StreamingStatus
             markup += String.Format("<div><p>{0}</p>", GetGlobalResourceObject("uWiMPStrings", "stream_started"))
             markup += "<table class=""center""><tr>"
             markup += String.Format("<td class=""grid""><a href=""../../SmoothStream.isml/SmoothStream.m3u8""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
-            markup += String.Format("<td class=""grid""><a href=""Streaming/StopStream.aspx"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
+            markup += String.Format("<td class=""grid""><a href=""Streaming/StopStream.aspx#_StopStream"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
             markup += "</tr>"
             markup += "<tr>"
             markup += String.Format("<td class=""grid""><a href=""../../Desktop/Silverlight.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "slight")
