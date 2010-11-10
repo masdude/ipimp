@@ -103,10 +103,9 @@ Namespace uWiMP.TVServer
 
             StopStreaming()
 
-            Dim usedChannel As Integer = -1
-            Dim filename As String = ""
-            Dim card As Integer = 0
+            Dim fileName As String = String.Empty
             Dim userName As String = String.Empty
+            Dim card As Integer = 0
             Dim cfg As EncoderConfig = Nothing
 
             Select Case mediatype
@@ -126,26 +125,20 @@ Namespace uWiMP.TVServer
                     If res.result <> 0 Then Exit Sub
 
                     card = res.user.idCard
-                    usedChannel = res.user.idChannel
                     userName = res.user.name
-
-                    If cfg.inputMethod = TransportMethod.Filename Then
-                        filename = res.rtspURL
-                    Else
-                        filename = res.timeshiftFile
-                    End If
+                    fileName = res.timeshiftFile
 
                     UpdateStreamTracker(mediatype, id, card, userName)
 
                 Case Streamer.MediaType.Recording
                     cfg = Utils.LoadConfig.Item(1)
                     Dim recording As Recording = uWiMP.TVServer.Recordings.GetRecordingById(CInt(id))
-                    filename = recording.FileName
+                    fileName = recording.FileName
                     UpdateStreamTracker(mediatype, id, "", "")
 
                 Case Streamer.MediaType.TvSeries
                     cfg = Utils.LoadConfig.Item(2)
-                    filename = id
+                    fileName = id
                     UpdateStreamTracker(mediatype, id, "", "")
 
                 Case Else
@@ -153,8 +146,8 @@ Namespace uWiMP.TVServer
 
             End Select
 
-            If Not (File.Exists(filename) OrElse filename.StartsWith("rtsp://")) Then
-                Log.Info("iPiMPWeb - StartTimeshifting StopStreaming file does not exist or starts with rtsp {0}", filename)
+            If Not (File.Exists(fileName) OrElse fileName.StartsWith("rtsp://")) Then
+                Log.Info("iPiMPWeb - StartTimeshifting StopStreaming file does not exist or starts with rtsp {0}", fileName)
                 StopStreaming()
                 Exit Sub
             End If
@@ -162,13 +155,13 @@ Namespace uWiMP.TVServer
             Try
                 If (cfg.inputMethod <> TransportMethod.Filename) Then
                     If (mediatype = Streamer.MediaType.Tv) Or (mediatype = Streamer.MediaType.Radio) Then
-                        _mediaStream = New TsBuffer(filename)
+                        _mediaStream = New TsBuffer(fileName)
                     Else
-                        _mediaStream = New FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+                        _mediaStream = New FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
                     End If
                     _encoder = New EncoderWrapper(_mediaStream, cfg)
                 Else
-                    _encoder = New EncoderWrapper(filename, cfg)
+                    _encoder = New EncoderWrapper(fileName, cfg)
                 End If
 
             Catch ex As Exception
@@ -183,14 +176,20 @@ Namespace uWiMP.TVServer
             Dim result As Boolean = True
 
             Try
-                If _encoder IsNot Nothing Then _encoder.StopProcess()
+                If _encoder IsNot Nothing Then
+                    _encoder.StopProcess()
+                    Log.Info("iPiMPWeb - StopStream stopped process")
+                End If
             Catch ex As Exception
                 Log.Info("iPiMPWeb - StopStream StopProcess exception {0}", ex.Message)
                 result = False
             End Try
 
             Try
-                If _mediaStream IsNot Nothing Then _mediaStream.Close()
+                If _mediaStream IsNot Nothing Then
+                    Log.Info("iPiMPWeb - StopStream mediaStream closed")
+                    _mediaStream.Close()
+                End If
             Catch ex As Exception
                 Log.Info("iPiMPWeb - StopStream mediaStream.Close exception {0}", ex.Message)
                 result = False

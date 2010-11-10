@@ -93,15 +93,6 @@ namespace uWiMP.TVServer.MPWebServices
 
     private void StartPipe()
     {
-      // Start the transcoder.
-      //if (mediaStream != null)
-      //{
-      //  encoderInput.Start(false);
-      //  StartProcess(encoderInput.Url, encoderOutput.Url);
-      //  encoderInput.CopyStream(mediaStream);
-      //}
-      //else
-      //  StartProcess(filename, encoderOutput.Url);
         Log.Info("iPiMPWeb - StartPipes");
         if (_mediaStream != null)
         {
@@ -120,7 +111,6 @@ namespace uWiMP.TVServer.MPWebServices
             }
             Log.Info("iPiMPWeb  - CopyStream"); 
             encoderInput.CopyStream(_mediaStream);
-            
         }
         else
         {

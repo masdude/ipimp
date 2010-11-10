@@ -355,11 +355,11 @@ namespace uWiMP.TVServer.MPWebServices
     private void RefreshTsBuffer()
     {
       //Log.Info("Refresh Triggered.");
-      Log.Info("iPiMPWeb - TsBuffer Refresh Triggered");
+      //Log.Info("iPiMPWeb - TsBuffer Refresh Triggered");
       if (tsBuffer == null)
       {
         state = State.InvalidFile;
-        Log.Info("iPiMPWeb - TsBuffer is null");
+        //Log.Info("iPiMPWeb - TsBuffer is null");
         return;
       }
 
