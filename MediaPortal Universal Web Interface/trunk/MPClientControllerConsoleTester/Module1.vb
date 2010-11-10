@@ -22,7 +22,7 @@ Module Module1
             If arg.ToLower.StartsWith("/tracks=") Then request.Tracks = arg.Remove(0, 8)
         Next
 
-        If transport.ToLower <> "http" Then transport = "tcp"
+        If transport.ToLower <> "http" Then transport = "http"
         SendReceiveMessage(transport, friendly, request)
 
     End Sub
