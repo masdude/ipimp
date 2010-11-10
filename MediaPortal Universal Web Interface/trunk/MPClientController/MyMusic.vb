@@ -750,15 +750,16 @@ Namespace MPClientController
             musicDB.GetSongsByAlbum(album, songs)
 
             Dim insertEnqueue As Boolean = False
+            Dim startPlaying As Boolean = True
 
             If enqueue Then
                 Using xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
-                    insertEnqueue = xmlReader.GetValueAsString("musicmisc", "enqueuenext", "yes")
+                    If xmlReader.GetValueAsString("musicmisc", "enqueuenext", "yes").ToLower = "yes" Then insertEnqueue = True
                 End Using
             Else
                 playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Clear()
+                playlistPlayer.g_Player.Stop()
             End If
-
 
             Dim playTracks() As String = Split(tracks, ",")
             Dim i As Integer = 0
@@ -767,8 +768,9 @@ Namespace MPClientController
                     i += 1
                     Dim item As New PlayListItem(Song.Title, Song.FileName)
                     If playTracks.Contains(i.ToString) Then
-                        If insertEnqueue Then
+                        If insertEnqueue And g_Player.Playing And g_Player.IsMusic And playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Count > 0 Then
                             playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Insert(item, playlistPlayer.CurrentSong)
+                            startPlaying = False
                         Else
                             playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Add(item)
                         End If
@@ -780,7 +782,7 @@ Namespace MPClientController
                 playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Shuffle()
             End If
 
-            If Not enqueue Then
+            If startPlaying Then
                 StartPlayback()
             Else
                 RefreshPlaylistWindow()
@@ -870,13 +872,18 @@ Namespace MPClientController
             Dim musicDB As MusicDatabase = MusicDatabase.Instance
             playlistPlayer = playlistPlayer.SingletonPlayer
 
-            Dim playList As PlayList = playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC)
-
             Dim trackIDs() As String
             trackIDs = Split(tracks, ",")
 
-            If Not enqueue Then
-                playList.Clear()
+            Dim insertEnqueue As Boolean = False
+            Dim startPlaying As Boolean = True
+
+            If enqueue Then
+                Using xmlReader As MediaPortal.Profile.Settings = New MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml"))
+                    If xmlReader.GetValueAsString("musicmisc", "enqueuenext", "yes").ToLower = "yes" Then insertEnqueue = True
+                End Using
+            Else
+                playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Clear()
                 playlistPlayer.g_Player.Stop()
             End If
 
@@ -886,16 +893,21 @@ Namespace MPClientController
                     musicDB.GetSongsByFilter("select * from tracks where idTrack = " & trackID.ToString, songs, "album")
                     For Each Song As Song In songs
                         Dim item As New PlayListItem(Song.Title, Song.FileName)
-                        playList.Add(item)
+                        If insertEnqueue And g_Player.Playing And g_Player.IsMusic And playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Count > 0 Then
+                            playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Insert(item, playlistPlayer.CurrentSong)
+                            startPlaying = False
+                        Else
+                            playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Add(item)
+                        End If
                     Next
                 End If
             Next
 
-            If (playList.Count > 0) AndAlso shuffle Then
-                playList.Shuffle()
+            If (playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Count > 0) AndAlso shuffle Then
+                playlistPlayer.GetPlaylist(PlayListType.PLAYLIST_MUSIC).Shuffle()
             End If
 
-            If Not enqueue Then
+            If startPlaying Then
                 StartPlayback()
             Else
                 RefreshPlaylistWindow()
