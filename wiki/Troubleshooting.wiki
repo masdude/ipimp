@@ -16,6 +16,7 @@
  %appdata%\Team !MediaPortal\!MediaPortal TV Server\Gentle.Config<br>
  C:\Program Files\iPiMP\apache\conf\iPiMP.conf<br>
  C:\Program Files\iPiMP\apache\logs\error.log<br>
+ C:\Program Files\iPiMP\apache\logs\access.log<br>
  C:\Program Files\iPiMP\aspx\web.config<br>
  C:\ipconfig.txt<br>
  C:\netstat.txt<br>
