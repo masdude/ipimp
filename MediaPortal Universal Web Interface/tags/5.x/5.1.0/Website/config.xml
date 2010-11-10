@@ -1,0 +1,8 @@
+<appconfig>
+  <transcoders>
+    <transcoder name="LiveTV" usetranscoding="1" filename="&quot;##FFMPEGPATH##\ffmpeg.exe&quot;" args="-i - -threads 0 -re -vcodec libx264 -fpre &quot;##FFMPEGPATH##/ffpresets/libx264-iPiMP.ffpreset&quot; -b 256k -s 480x272 -aspect 480:272 -acodec libfaac -ac 2 -ab 64k -ar 48000 -ac 2 -async 2 -f ism http://##LISTEN##/SmoothStream.isml/Streams(SmoothStream)?dvr_window_length=15" inputmethod="2" outputmethod="4" />
+    <transcoder name="Recording" usetranscoding="1" filename="&quot;##FFMPEGPATH##\ffmpeg.exe&quot;" args="-ss 420 -i - -threads 0 -re -vcodec libx264 -fpre &quot;##FFMPEGPATH##/ffpresets/libx264-iPiMP.ffpreset&quot; -b 256k -s 480x272 -aspect 480:272 -acodec libfaac -ac 2 -ab 64k -ar 48000 -ac 2-async 2 -f ism http://##LISTEN##/SmoothStream.isml/Streams(SmoothStream)?dvr_window_length=15" inputmethod="0" outputmethod="4" />
+    <transcoder name="TVSeries" usetranscoding="1" filename="&quot;##FFMPEGPATH##\ffmpeg.exe&quot;" args="-i &quot;{0}&quot; -threads 0 -re -vcodec libx264 -fpre &quot;##FFMPEGPATH##/ffpresets/libx264-iPiMP.ffpreset&quot; -b 256k -s 480x272 -aspect 480:272 -acodec libfaac -ac 2 -ab 64k -ar 48000 -ac 2 -async 2 -f ism http://##LISTEN##/SmoothStream.isml/Streams(SmoothStream)?dvr_window_length=15" inputmethod="0" outputmethod="4" />
+    <transcoder name="Radio" usetranscoding="1" filename="&quot;##FFMPEGPATH##\ffmpeg.exe&quot;" args="-i - -threads 0 -re -acodec libfaac -ac 2 -ab 64k -ar 48000 -ac 2 -async 2 -f ism http://##LISTEN##/SmoothStream.isml/Streams(SmoothStream)?dvr_window_length=15" inputmethod="2" outputmethod="4" />
+  </transcoders>
+</appconfig>

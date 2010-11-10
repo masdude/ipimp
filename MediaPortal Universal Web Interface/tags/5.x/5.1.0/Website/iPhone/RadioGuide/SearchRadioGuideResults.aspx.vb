@@ -1,0 +1,155 @@
+﻿' 
+'   Copyright (C) 2008-2010 Martin van der Boon
+' 
+'  This program is free software: you can redistribute it and/or modify 
+'  it under the terms of the GNU General Public License as published by 
+'  the Free Software Foundation, either version 3 of the License, or 
+'  (at your option) any later version. 
+' 
+'   This program is distributed in the hope that it will be useful, 
+'   but WITHOUT ANY WARRANTY; without even the implied warranty of 
+'   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+'   GNU General Public License for more details. 
+' 
+'   You should have received a copy of the GNU General Public License 
+'   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+' 
+
+
+Imports System.IO
+Imports System.Xml
+Imports TvDatabase
+
+Partial Public Class SearchRadioGuideResults
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        Response.ContentType = "text/xml"
+        Response.ContentEncoding = Encoding.UTF8
+
+        Dim groupID As String = Request.QueryString("group")
+        Dim wa As String = "waRadioSearchResults" & groupID
+        Dim search As String = Request.QueryString("search")
+        Dim genre As String = Request.QueryString("genre")
+        Dim desc As Boolean = CBool(Request.QueryString("desc"))
+        If genre = "" Then genre = "all"
+
+        Dim tw As TextWriter = New StreamWriter(Response.OutputStream, Encoding.UTF8)
+        Dim xw As XmlWriter = New XmlTextWriter(tw)
+
+        'start doc
+        xw.WriteStartDocument()
+
+        'start root
+        xw.WriteStartElement("root")
+
+        'go
+        xw.WriteStartElement("go")
+        xw.WriteAttributeString("to", wa)
+        xw.WriteEndElement()
+        'end go
+
+        'start title
+        xw.WriteStartElement("title")
+        xw.WriteAttributeString("set", wa)
+        xw.WriteEndElement()
+        'end title
+
+        'start dest
+        xw.WriteStartElement("destination")
+        xw.WriteAttributeString("mode", "replace")
+        xw.WriteAttributeString("zone", wa)
+        xw.WriteAttributeString("create", "true")
+        xw.WriteEndElement()
+        'end dest
+
+        'start data
+        xw.WriteStartElement("data")
+        xw.WriteCData(DisplaySearchResults(wa, groupID, genre, search, desc))
+        xw.WriteEndElement()
+        'end data
+
+        'end root
+        xw.WriteEndElement()
+
+        'end doc
+        xw.WriteEndDocument()
+        xw.Close()
+
+    End Sub
+
+    Private Function DisplaySearchResults(ByVal wa As String, ByVal groupID As String, ByVal genre As String, ByVal search As String, ByVal SearchDesc As Boolean) As String
+
+        Dim group As RadioChannelGroup = uWiMP.TVServer.RadioChannelGroups.GetRadioChannelGroupByGroupId(CInt(groupID))
+        Dim channels As List(Of Channel) = uWiMP.TVServer.RadioChannels.GetRadioChannelsByGroupId(CInt(groupID))
+        Dim channel As Channel
+
+        Dim markup As String = String.Empty
+        Dim regexPattern = "[\\\/:\*\?""'<>|] "
+        Dim oRegEx As New Regex(regexPattern)
+
+        Dim title As String = String.Empty
+        Dim desc As String = String.Empty
+        Dim programs As List(Of Program) = uWiMP.TVServer.Programs.GetProgramsByGroup(CInt(groupID), False)
+        Dim program As Program
+        Dim matchedPrograms As New List(Of Program)
+
+        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        If genre.ToLower = "all" Then
+            markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "programs_found"))
+        Else
+            markup += String.Format("<h3>{0} ({1})</h3>", GetGlobalResourceObject("uWiMPStrings", "programs_found"), genre)
+        End If
+        markup += "<ul class=""iArrow"">"
+
+        For Each program In programs
+            If (genre.ToLower = program.Genre.ToLower) Or (genre.ToLower = "all") Then
+
+                title = oRegEx.Replace(program.Title, "")
+                If InStr(title.ToLower, search.ToLower) > 0 Then
+                    channel = uWiMP.TVServer.RadioChannels.GetRadioChannelByChannelId(program.IdChannel)
+                    If channel.IsRadio Then
+                        matchedPrograms.Add(program)
+                    End If
+                End If
+
+                If SearchDesc Then
+                    desc = oRegEx.Replace(program.Description, "")
+                    If InStr(desc.ToLower, search.ToLower) > 0 Then
+                        channel = uWiMP.TVServer.RadioChannels.GetRadioChannelByChannelId(program.IdChannel)
+                        If channel.IsRadio Then
+                            If Not matchedPrograms.Contains(program) Then matchedPrograms.Add(program)
+                        End If
+                    End If
+                End If
+
+            End If
+        Next
+
+        If matchedPrograms.Count = 0 Then
+            markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "no_programs_found"))
+        Else
+            If matchedPrograms.Count > 1 Then matchedPrograms.Sort(New uWiMP.TVServer.ProgramStartTimeComparer)
+            For Each program In matchedPrograms
+                channel = uWiMP.TVServer.RadioChannels.GetRadioChannelByChannelId(program.IdChannel)
+                If uWiMP.TVServer.Schedules.IsProgramScheduled(program) Then
+                    markup += String.Format("<li><a style=""color: red;"" href=""RadioGuide/RadioProgram.aspx?program={0}#_RadioProgram{0}"" rev=""async""><img src=""../../RadioLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, channel.DisplayName.ToString, program.Title.ToString, program.StartTime)
+                Else
+                    markup += String.Format("<li><a href=""RadioGuide/RadioProgram.aspx?program={0}#_RadioProgram{0}"" rev=""async""><img src=""../../RadioLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, channel.DisplayName.ToString, program.Title.ToString, program.StartTime)
+                End If
+            Next
+        End If
+
+        markup += "</ul>"
+        markup += "</div>"
+
+        markup += "<div>"
+        markup += String.Format("<a href=""RadioGuide/SearchRadioGuide.aspx?group={0}#_RadioGuideSearch"" rev=""async"" rel=""Action"" class=""iButton iBAction"">{1}</a></li>", groupID, GetGlobalResourceObject("uWiMPStrings", "search"))
+        markup += "</div>"
+
+        Return markup
+
+    End Function
+
+End Class
