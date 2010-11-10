@@ -14,11 +14,19 @@
 
  {{{<button name="MovingPictures" code="74">}}}<br>
  
+ * *I've changed the MPCC plugin port from the default 55667*
+ 
+ The MPCC process plugin what iPiMP uses to communicate with your !MediaPortal clients. It listens on 2 ports, one for TCP communications and one for HTTP communications. By default the TCP port is set to 55667 and the HTTP port is 55668 (TCP port + 1). There is a requirement to reserve HTTP endpoints on some versions of windows, the iPiMP installer does this for you, reserving the MPCC url on the default HTTP port of 55668. So if you change the MPCC port you will also have to change this URL reservation.  To do that run the following commands:
+ 
+ {{{netsh http delete urlacl url=http://*:55668/mpcc}}}
+
+ {{{netsh http add urlacl url=http://*:<new port>/mpcc sddl=D:(A;;GX;;;WD)}}}
+
  * *Streaming MP4's doesn't work*
 
  Ensure you do NOT have the Safari download plugin installed on your jailbroken device.<br>
  OR<br>
- Ensure you use VALID ffmpeg parameters in the transcode plugin, if in doubt use the Defaults button on the plugin configuration screen.
+ Ensure you use VALID ffmpeg/handbrake parameters in the transcode plugin, if in doubt use the Defaults button on the plugin configuration screen.
 
  * *Can't see any music or movies* or *You get a !!FUBAR!! when entering !MyVideos or !MyMusic*
  iPiMP uses the !MediaPortal music and movie databases so if you haven't imported your media then you won't see it in iPiMP. 
@@ -28,7 +36,7 @@
  Ensure you have enabled cookies. Settings -> Safari -> Accept Cookies -> 'From visited' or 'Always'
 
  * *Your screen just shows the background*
- Ensure you have Javascript enabled.  Settings -> Safari -> JavaScript -> 'On'
+ Ensure you have !Javascript enabled.  Settings -> Safari -> !JavaScript -> 'On'
 
  * *Remember Me? doesn't work (You always have to login)*
 
