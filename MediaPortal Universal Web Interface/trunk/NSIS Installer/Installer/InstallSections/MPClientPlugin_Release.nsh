@@ -17,6 +17,13 @@ Section MPClientPlugin
   SetOutPath "$ClientPath\InputDeviceMappings\defaults"
   File "..\Include\Remote\iPiMP.xml"
 
+  DetailPrint "Adding URL reservation for http listener"
+  Sleep 100
+  ExecDos::exec /TIMEOUT=2000 /DETAILED "netsh http add urlacl url=http://*:55668/mpcc sddl=D:(A;;GX;;;WD)"
+  Pop $0 # return value
+  StrCmp $0 "0" +2
+  MessageBox MB_OK|MB_ICONSTOP "URL reservation failed"
+  
 SectionEnd
 
 

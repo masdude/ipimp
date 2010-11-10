@@ -18,6 +18,8 @@ Section CheckPrevious
     ShowWindow $4 ${SW_SHOW}
     ${If} $2 == "0"
       Goto Start
+    ${OrIf} $2 == "1223"
+      Goto Start
     ${Else}
       MessageBox MB_OK|MB_ICONSTOP "$(STRING_CHECKPREVIOUS_LINE2)"
       Goto Start
