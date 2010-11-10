@@ -89,12 +89,12 @@ Partial Public Class TVChannelDay
             Case 1
                 dayName = GetGlobalResourceObject("uWiMPStrings", "tomorrow")
             Case Else
-                dayName = Now.AddDays(CInt(day)).ToString("dddd")
+                dayName = StrConv(Now.AddDays(CInt(day)).ToString("dddd"), vbProperCase)
         End Select
 
         Dim markup As String = ""
         markup += "<div class=""iMenu"">"
-        markup += String.Format("<h3>{0} {1} for {2}</h3>", GetGlobalResourceObject("uWiMPStrings", "programs_on"), dayName, channel.Name)
+        markup += String.Format("<h3>{2}: {0} {1}</h3>", GetGlobalResourceObject("uWiMPStrings", "programs_on"), dayName, channel.Name)
         markup += "<ul class=""iArrow"">"
 
         Dim idLastProgram, idCurrentProgram As Integer
