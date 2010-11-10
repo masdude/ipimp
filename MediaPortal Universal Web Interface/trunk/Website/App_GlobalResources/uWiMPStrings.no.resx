@@ -281,13 +281,13 @@
     <value>Alle</value>
   </data>
   <data name="channel_groups" xml:space="preserve">
-    <value>Kanal grupper</value>
+    <value>Kanalgrupper </value>
   </data>
   <data name="genre" xml:space="preserve">
     <value>Sjanger</value>
   </data>
   <data name="now_and_next" xml:space="preserve">
-    <value>NÃ¥ &amp; Neste</value>
+    <value>Nå og neste</value>
   </data>
   <data name="no_programs_found" xml:space="preserve">
     <value>Ingen programmer funnet</value>
@@ -296,7 +296,7 @@
     <value>Funnet programmer</value>
   </data>
   <data name="search" xml:space="preserve">
-    <value>SÃ¸k</value>
+    <value>Søk</value>
   </data>
   <data name="search_term" xml:space="preserve">
     <value>SÃ¸keord</value>
