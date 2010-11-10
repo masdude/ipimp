@@ -293,14 +293,14 @@ Namespace uWiMP.TVServer
             Dim userId As New TvControl.User(System.Guid.NewGuid().ToString("B"), False)
             Dim tvResult As TvResult
             Dim vcard As VirtualCard
+            Dim webTvResult As New WebTvResult
 
             Try
                 tvResult = RemoteControl.Instance.StartTimeShifting(userId, idChannel, vcard)
             Catch generatedExceptionName As Exception
-                Return New WebTvResult
+                Return webTvResult
             End Try
 
-            Dim webTvResult As New WebTvResult
             Dim rtspURL As String = String.Empty
             Dim timeshiftFilename As String = String.Empty
 
@@ -319,11 +319,9 @@ Namespace uWiMP.TVServer
                 webTvResult.rtspURL = vcard.RTSPUrl
                 webTvResult.timeshiftFile = vcard.TimeShiftFileName
                 webTvResult.user = u
-
-                Return webTvResult
-            Else
-                Return webTvResult
             End If
+
+            Return webTvResult
 
         End Function
 
