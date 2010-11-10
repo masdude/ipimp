@@ -103,7 +103,6 @@ Namespace uWiMP.TVServer
 
             StopStreaming()
 
-            Dim bufferSize As Integer = &H80000
             Dim usedChannel As Integer = -1
             Dim filename As String = ""
             Dim card As Integer = 0
@@ -112,35 +111,16 @@ Namespace uWiMP.TVServer
 
             Select Case mediatype
 
-                Case Streamer.MediaType.Tv
+                Case Streamer.MediaType.Tv, Streamer.MediaType.Radio
 
-                    cfg = Utils.LoadConfig.Item(0)
-
-                    Log.Info("iPiMPWeb - TV stream requested")
-                    
-                    Dim res As WebTvResult = uWiMP.TVServer.Cards.StartTimeshifting(CInt(id))
-                    Log.Info("iPiMPWeb - StartTimeshifting result is {0}", res.result.ToString)
-                    If res.result <> 0 Then Exit Sub
-
-                    card = res.user.idCard
-                    usedChannel = res.user.idChannel
-                    userName = res.user.name
-
-                    If cfg.inputMethod = TransportMethod.Filename Then
-                        filename = res.rtspURL
+                    If mediatype = Streamer.MediaType.Tv Then
+                        Log.Info("iPiMPWeb - TV stream requested")
+                        cfg = Utils.LoadConfig.Item(0)
                     Else
-                        filename = res.timeshiftFile
+                        Log.Info("iPiMPWeb - Radio stream requested")
+                        cfg = Utils.LoadConfig.Item(3)
                     End If
 
-                    UpdateStreamTracker(mediatype, id, card, userName)
-
-                Case Streamer.MediaType.Radio
-
-                    cfg = Utils.LoadConfig.Item(3)
-
-                    Log.Info("iPiMPWeb - Radio stream requested")
-                    bufferSize = &HA00
-                    
                     Dim res As WebTvResult = uWiMP.TVServer.Cards.StartTimeshifting(CInt(id))
                     Log.Info("iPiMPWeb - StartTimeshifting result is {0}", res.result.ToString)
                     If res.result <> 0 Then Exit Sub
