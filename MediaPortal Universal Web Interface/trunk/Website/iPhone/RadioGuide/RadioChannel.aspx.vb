@@ -104,9 +104,9 @@ Partial Public Class RadioChannel
         markup += "</ul>"
 
         markup += "<ul class=""iArrow"">"
-        If User.IsInRole("watcher") Then
-            'markup += String.Format("<li><a href=""Streaming/StreamTVChannel.aspx?channel={0}#_StreamTVChannel"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "listen"))
-        End If
+        'If User.IsInRole("watcher") Then
+        '    markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=radio&id={0}#StartStream"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
+        'End If
         If User.IsInRole("recorder") Then
             markup += String.Format("<li><a href=""RadioGuide/RadioRecordManual.aspx?channel={0}#_RecordManual"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "manual_record"))
         End If
