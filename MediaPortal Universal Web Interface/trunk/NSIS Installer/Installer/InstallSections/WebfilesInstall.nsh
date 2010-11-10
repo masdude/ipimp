@@ -11,6 +11,10 @@ Section InstallWebFiles
 
   SetOverwrite TRY
 
+  !include "InstallSections\InstallFFMpeg.nsh"
+
+  !include "InstallSections\InstallHandbrake.nsh"
+
   !include "InstallSections\Webfiles.nsh"
   
   SetOutPath "$INSTDIR\Aspx"

@@ -11,7 +11,6 @@
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.de.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.en-GB.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.es.resx"
-  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.fo.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.fr.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.it.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.nl.resx"
@@ -34,7 +33,6 @@
   File "..\Include\Aspx\bin\TVDatabase.dll"
   File "..\Include\Aspx\bin\TvLibrary.Interfaces.dll"
   File "..\Include\Aspx\bin\uWiMPMPWebServices.dll"
-  File "..\Include\Aspx\bin\uWiMPMPWebServices.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.dll"
   File "..\Include\Aspx\bin\uWiMPweb.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.xml"
@@ -46,11 +44,8 @@
   File "..\Include\Aspx\Desktop\Flash.htm"
   File "..\Include\Aspx\Desktop\MediaPlayerTemplate.xap"
   File "..\Include\Aspx\Desktop\Silverlight.htm"
-  File "..\Include\Aspx\Desktop\SmoothStream.htm"
-  File "..\Include\Aspx\Desktop\SmoothStreaming.xap"
   File "..\Include\Aspx\Desktop\SmoothStreamingProvider.swf"
   File "..\Include\Aspx\Desktop\swfobject.js"
-  File "..\Include\Aspx\Desktop\TimedTextLibrary.xap"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\scripts"
   File "..\Include\Aspx\Desktop\scripts\wz_tooltip.js"
@@ -289,11 +284,9 @@
   File "..\Include\Aspx\iPhone\Scripts\stars.gif"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\Streaming"
-  File "..\Include\Aspx\iPhone\Streaming\CheckStream.aspx"
   File "..\Include\Aspx\iPhone\Streaming\StartStream.aspx"
   File "..\Include\Aspx\iPhone\Streaming\StopStream.aspx"
   File "..\Include\Aspx\iPhone\Streaming\StreamingStatus.aspx"
-  File "..\Include\Aspx\iPhone\Streaming\WatchStream.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\TVGuide"
   File "..\Include\Aspx\iPhone\TVGuide\ChannelGroups.aspx"
@@ -319,7 +312,6 @@
   File "..\Include\Aspx\iPhone\TVServer\ServiceActionConfirm.aspx"
   File "..\Include\Aspx\iPhone\TVServer\ServiceActionResult.aspx"
   File "..\Include\Aspx\iPhone\TVServer\ServiceStatus.aspx"
-  File "..\Include\Aspx\iPhone\TVServer\StreamingStatus.aspx"
   File "..\Include\Aspx\iPhone\TVServer\TranscodeStatus.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\WebApp"

@@ -37,6 +37,7 @@
 !include "FileFunc.nsh"
 !include "WinMessages.nsh"
 !include "nsDialogs.nsh"
+!include "UAC.nsh"
 
 ;
 ; Other functions
@@ -100,6 +101,7 @@
 !include "UninstallSections\UnApacheInstall.nsh"
 !include "UninstallSections\Uninstall.nsh"
 
+RequestExecutionLevel user
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "..\${PRODUCT_NAME} Setup ${PRODUCT_VERSION}.exe"
 InstallDir "$PROGRAMFILES\${PRODUCT_NAME}"
