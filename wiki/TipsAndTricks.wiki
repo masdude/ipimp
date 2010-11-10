@@ -20,7 +20,7 @@
  
  {{{netsh http delete urlacl url=http://*:55668/mpcc}}}
 
- {{{netsh http add urlacl url=http://*:<new port>/mpcc sddl=D:(A;;GX;;;WD)}}}
+ {{{netsh http add urlacl url=http://*:<new http port>/mpcc sddl=D:(A;;GX;;;WD)}}}
 
  * *Streaming MP4's doesn't work*
 
