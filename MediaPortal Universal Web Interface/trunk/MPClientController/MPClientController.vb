@@ -510,7 +510,11 @@ Namespace MPClientController
                         Dim episode As New TVEpisode
                         episode.compositeID = request.Value
                         episode.PlayEpisode()
-                        IIf(request.Tracks.ToLower = "no", results = iPiMPUtils.SendBool(True), results = TVSeries.IsEpisodeIDPlaying(request.Value))
+                        If String.Compare(request.Tracks, "no", True) Then
+                            results = iPiMPUtils.SendBool(True)
+                        Else
+                            results = TVSeries.IsEpisodeIDPlaying(request.Value)
+                        End If
                     Else
                         results = iPiMPUtils.SendString("warning", "TVSeries not loaded or wrong version")
                     End If
@@ -535,7 +539,12 @@ Namespace MPClientController
                             video.RemoveStopTime()
                         End If
                         video.PlayVideo()
-                        IIf(request.Tracks.ToLower = "no", results = iPiMPUtils.SendBool(True), results = MyVideos.IsVideoIDPlaying(CInt(request.Filter)))
+                        If String.Compare(request.Tracks, "no", True) Then
+                            results = iPiMPUtils.SendBool(True)
+                        Else
+                            results = MyVideos.IsVideoIDPlaying(CInt(request.Filter))
+                        End If
+
                     End If
                 Case "getallmovies"
                     results = MyVideos.GetAllMovies()
@@ -573,7 +582,11 @@ Namespace MPClientController
                     If isMovingPicturesPresent Then
                         If Not request.Filter = String.Empty Then
                             MovingPictures.PlayMovie(CInt(request.Filter))
-                            IIf(request.Tracks.ToLower = "no", results = iPiMPUtils.SendBool(True), results = MovingPictures.IsVideoIDPlaying(CInt(request.Filter)))
+                            If String.Compare(request.Tracks, "no", True) Then
+                                results = iPiMPUtils.SendBool(True)
+                            Else
+                                results = MovingPictures.IsVideoIDPlaying(CInt(request.Filter))
+                            End If
                         End If
                     Else
                         results = iPiMPUtils.SendString("warning", "MovingPictures not loaded or wrong version")
