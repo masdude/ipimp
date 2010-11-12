@@ -94,7 +94,7 @@ Partial Public Class TVSeriesEpisode
         Dim watched As String = CType(jo("watched"), String)
         Dim image As String = CType(jo("image"), String)
         Dim filename As String = CType(jo("filename"), String)
-        Dim imagePath As String = GetEpisodeThumb(friendly, compositeID)
+        Dim imagePath As String = GetThumb(friendly, compositeID)
 
         markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, name)
@@ -114,12 +114,12 @@ Partial Public Class TVSeriesEpisode
 
     End Function
 
-    Function GetEpisodeThumb(ByVal friendly As String, ByVal compositeID As String) As String
+    Function GetThumb(ByVal friendly As String, ByVal thumb As String) As String
 
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
         mpRequest.Action = "getfile"
-        mpRequest.Value = String.Format("tvepisodethumb:{0}", compositeID)
-        mpRequest.Filter = "small"
+        mpRequest.Value = thumb
+        mpRequest.Filter = "large"
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
@@ -129,24 +129,20 @@ Partial Public Class TVSeriesEpisode
         Dim filename As String = CType(jo("filename"), String)
         Dim data As String = CType(jo("data"), String)
 
-        Dim relativePath As String = "../../images/tvseries"
-        Dim imagePath As String
+        Dim relativePath As String = String.Format("../../images/{0}", Split(thumb, ":")(0))
+        Dim imagePath As String = String.Format("{0}/{1}", relativePath, filename)
         Dim format As System.Drawing.Imaging.ImageFormat
         Select Case filetype.ToLower
             Case "jpeg"
                 format = System.Drawing.Imaging.ImageFormat.Jpeg
-                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "jpg")
             Case "gif"
                 format = System.Drawing.Imaging.ImageFormat.Gif
-                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "gif")
             Case "png"
                 format = System.Drawing.Imaging.ImageFormat.Png
-                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "png")
             Case "bmp"
                 format = System.Drawing.Imaging.ImageFormat.Bmp
-                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "bmp")
             Case Else
-                Return String.Format("{0}/tvepisodeblank.png", relativePath)
+                Return String.Format("{0}/blank.png", relativePath)
         End Select
 
         If Not File.Exists(Server.MapPath(imagePath)) Then
@@ -169,7 +165,7 @@ Partial Public Class TVSeriesEpisode
         End If
 
         Return imagePath
-        
+
     End Function
 
 End Class

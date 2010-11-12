@@ -92,6 +92,7 @@ Partial Public Class MyVideosPlay
         Dim movie As uWiMP.TVServer.MPClient.BigMovieInfo = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.BigMovieInfo), response), uWiMP.TVServer.MPClient.BigMovieInfo)
 
         mpRequest.Action = "playmovie"
+        mpRequest.Value = "force"
         response = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         jo = CType(JsonConvert.Import(response), JsonObject)
         success = CType(jo("result"), Boolean)

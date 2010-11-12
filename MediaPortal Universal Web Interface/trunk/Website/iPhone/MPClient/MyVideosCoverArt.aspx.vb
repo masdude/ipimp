@@ -92,17 +92,11 @@ Partial Public Class MPClientMyVideoCoverArt
         If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
         Dim movie As uWiMP.TVServer.MPClient.BigMovieInfo = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.BigMovieInfo), response), uWiMP.TVServer.MPClient.BigMovieInfo)
 
-        If Not Directory.Exists(Server.MapPath("~/images/imdb")) Then Directory.CreateDirectory(Server.MapPath("~/images/imdb"))
-
-        If File.Exists(Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg")) Then File.Delete(Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg"))
-
-        saveImageByUrlToDisk(movie.ThumbURL, Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg"))
-
         markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0}</h3>", movie.Title)
         markup += "<div class=""iBlock"" >"
         markup += "<p>"
-        markup += String.Format("<img src=""../../images/imdb/{0}.jpg"" height=""300"" style=""display:block; margin-left:auto; margin-right:auto;""/>", movie.IMDBNumber)
+        markup += String.Format("<img src=""{0}"" height=""300"" style=""display:block; margin-left:auto; margin-right:auto;""/>", GetThumb(friendly, String.Format("videotitle:{0}", movie.Title)))
         markup += "</p>"
         markup += "</ul>"
         markup += "</div>"
@@ -112,45 +106,58 @@ Partial Public Class MPClientMyVideoCoverArt
 
     End Function
 
-    Public Shared Function saveImageByUrlToDisk(ByVal url As String, ByVal filename As String) As Boolean
+    Function GetThumb(ByVal friendly As String, ByVal thumb As String) As String
 
-        Dim response As WebResponse = Nothing
-        Dim remoteStream As Stream = Nothing
-        Dim readStream As StreamReader = Nothing
-        Try
-            Dim request As WebRequest = WebRequest.Create(url)
-            If Not request Is Nothing Then
-                response = request.GetResponse()
-                If Not response Is Nothing Then
-                    remoteStream = response.GetResponseStream()
+        Dim mpRequest As New uWiMP.TVServer.MPClient.Request
+        mpRequest.Action = "getfile"
+        mpRequest.Value = thumb
+        mpRequest.Filter = "large"
 
-                    readStream = New StreamReader(remoteStream)
+        Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
+        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
+        Dim success As Boolean = CType(jo("result"), Boolean)
+        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+        Dim filetype As String = CType(jo("filetype"), String)
+        Dim filename As String = CType(jo("filename"), String)
+        Dim data As String = CType(jo("data"), String)
 
-                    Dim fw As Stream = File.Open(filename, FileMode.Create)
+        Dim relativePath As String = String.Format("../../images/{0}", Split(thumb, ":")(0))
+        Dim imagePath As String = String.Format("{0}/{1}", relativePath, filename)
+        Dim format As System.Drawing.Imaging.ImageFormat
+        Select Case filetype.ToLower
+            Case "jpeg"
+                format = System.Drawing.Imaging.ImageFormat.Jpeg
+            Case "gif"
+                format = System.Drawing.Imaging.ImageFormat.Gif
+            Case "png"
+                format = System.Drawing.Imaging.ImageFormat.Png
+            Case "bmp"
+                format = System.Drawing.Imaging.ImageFormat.Bmp
+            Case Else
+                Return String.Format("{0}/blank.png", relativePath)
+        End Select
 
-                    Dim buf() As Byte = New Byte(256) {}
-                    Dim count As Integer = remoteStream.Read(buf, 0, 256)
-                    While count > 0
-                        fw.Write(buf, 0, count)
+        If Not File.Exists(Server.MapPath(imagePath)) Then
 
-                        count = remoteStream.Read(buf, 0, 256)
-                    End While
+            If Not Directory.Exists(relativePath) Then Directory.CreateDirectory(Server.MapPath(relativePath))
 
-                    fw.Close()
-                End If
-            End If
-        Finally
-            If Not response Is Nothing Then
-                response.Close()
-            End If
-            If Not remoteStream Is Nothing Then
-                remoteStream.Close()
-            End If
-        End Try
+            Dim newImage As System.Drawing.Image
 
-        Return True
+            Dim imageAsBytes() As Byte = System.Convert.FromBase64String(data)
+            Dim myStream As MemoryStream = New MemoryStream(imageAsBytes, 0, imageAsBytes.Length)
+            myStream.Write(imageAsBytes, 0, imageAsBytes.Length)
+            newImage = System.Drawing.Image.FromStream(myStream, True)
+
+            Try
+                newImage.Save(Server.MapPath(imagePath), format)
+            Catch ex As Exception
+                If File.Exists(Server.MapPath(imagePath)) Then File.Delete(Server.MapPath(imagePath))
+            End Try
+
+        End If
+
+        Return imagePath
 
     End Function
-
 
 End Class

@@ -136,6 +136,8 @@
     <Content Include="Desktop\Silverlight.htm" />
     <Content Include="Desktop\SmoothStreamingProvider.swf" />
     <Content Include="Desktop\swfobject.js" />
+    <Content Include="images\movingpicturethumb\blank.png" />
+    <Content Include="images\musicalbum\blank.png" />
     <Content Include="images\remote\flash.png" />
     <Content Include="images\remote\0.png" />
     <Content Include="images\remote\1.png" />
@@ -154,8 +156,9 @@
     <Content Include="images\remote\page3.png" />
     <Content Include="images\remote\star.png" />
     <Content Include="images\remote\slight.png" />
-    <Content Include="images\tvseries\tvepisodeblank.png" />
-    <Content Include="images\tvseries\tvepisodeblankbanner.png" />
+    <Content Include="images\tvseries\blank.png" />
+    <Content Include="images\tvseries\blankbanner.png" />
+    <Content Include="images\videotitle\blank.png" />
     <Content Include="iPhone\Default.aspx" />
     <Content Include="iPhone\MPClient\TVSeriesRecentEpisodes.aspx" />
     <Content Include="iPhone\MPClient\TVSeriesPlay.aspx" />
