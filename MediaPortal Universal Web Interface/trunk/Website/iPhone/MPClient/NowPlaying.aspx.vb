@@ -128,7 +128,7 @@ Partial Public Class NowPlaying
         Dim track As String = CType(jo("track"), String)
         Dim duration As String = CType(jo("duration"), String)
         Dim position As String = CType(jo("position"), String)
-
+        Dim thumb As String = CType(jo("thumb"), String)
         Dim markup As String = String.Empty
 
         markup += "<div class=""iMenu"">"
@@ -137,7 +137,7 @@ Partial Public Class NowPlaying
         markup += "<div class=""iBlock"">"
         markup += "<table class=""imdbtable"">"
         markup += "<tr>"
-        markup += String.Format("<td align=""center""><img src=""{0}"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", GetMusicCoverArt(friendly, artist, album))
+        markup += String.Format("<td align=""center""><img src=""{0}"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", GetThumb(friendly, thumb))
         markup += "</tr>"
         markup += "<tr>"
         markup += String.Format("<td align=""center""><b>{0}</b><br>", artist)
@@ -196,6 +196,7 @@ Partial Public Class NowPlaying
         Dim filename As String = CType(jo("filename"), String)
         Dim duration As String = CType(jo("duration"), String)
         Dim position As String = CType(jo("position"), String)
+        Dim thumb As String = CType(jo("thumb"), String)
 
         Dim markup As String = String.Empty
 
@@ -205,7 +206,7 @@ Partial Public Class NowPlaying
         markup += "<div class=""iBlock"">"
         markup += "<table class=""imdbtable"">"
         markup += "<tr>"
-        markup += String.Format("<td align=""center""><img src=""{0}"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", GetVideoCoverArt(friendly, id, type))
+        markup += String.Format("<td align=""center""><img src=""{0}"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", GetThumb(friendly, thumb))
         markup += "</tr>"
         markup += "<tr>"
         markup += "<td align=""center"">"
@@ -492,7 +493,6 @@ Partial Public Class NowPlaying
         Dim thumb As String = CType(jo("thumb"), String)
         Dim duration As String = CType(jo("duration"), String)
         Dim position As String = CType(jo("position"), String)
-        Dim imagePath As String = GetEpisodeThumb(friendly, thumb)
 
         Dim markup As String = String.Empty
         
@@ -502,7 +502,7 @@ Partial Public Class NowPlaying
         markup += "<div class=""iBlock"">"
         markup += "<table class=""imdbtable"">"
         markup += "<tr>"
-        markup += String.Format("<td align=""center""><img src=""{0}"" width=""260"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", imagePath)
+        markup += String.Format("<td align=""center""><img src=""{0}"" width=""260"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", GetThumb(friendly, thumb))
         markup += "</tr>"
         markup += "<tr>"
         markup += "<td align=""center"">"
@@ -541,8 +541,7 @@ Partial Public Class NowPlaying
         Return markup
 
     End Function
-
-
+    
     Private Function PlayingNothing(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty
@@ -571,136 +570,12 @@ Partial Public Class NowPlaying
 
     End Function
 
-    Private Function GetMusicCoverArt(ByVal friendly As String, ByVal artist As String, ByVal album As String) As String
-
-        Dim mpRequest As New uWiMP.TVServer.MPClient.Request
-        mpRequest.Action = "getmusiccoverart"
-        mpRequest.Filter = artist
-        mpRequest.Value = album
-
-        Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
-        Dim success As Boolean = CType(jo("result"), Boolean)
-        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
-        Dim imageString As String = CType(jo("image"), String)
-
-        Dim imagePath As String = String.Empty
-        If imageString.ToLower = "noimage" Then
-            imagePath = "../../images/music/blankmusic.png"
-        Else
-            imagePath = SaveMusicImageToDisk(artist, album, imageString)
-        End If
-
-        Return imagePath
-
-    End Function
-
-    Private Function GetVideoCoverArt(ByVal friendly As String, ByVal movieID As String, ByVal type As String) As String
-
-        Dim markup As String = String.Empty
-        Dim mpRequest As New uWiMP.TVServer.MPClient.Request
-        mpRequest.Action = String.Format("get{0}", type.ToLower)
-        mpRequest.Filter = movieID
-
-        Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
-        Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
-        Dim success As Boolean = CType(jo("result"), Boolean)
-        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
-        Dim movie As uWiMP.TVServer.MPClient.BigMovieInfo = CType(JsonConvert.Import(GetType(uWiMP.TVServer.MPClient.BigMovieInfo), response), uWiMP.TVServer.MPClient.BigMovieInfo)
-
-        If Not Directory.Exists(Server.MapPath("~/images/imdb")) Then Directory.CreateDirectory(Server.MapPath("~/images/imdb"))
-
-        If File.Exists(Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg")) Then File.Delete(Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg"))
-
-        If Not movie.ThumbURL = "" Then
-            SaveVideoImageByUrlToDisk(movie.ThumbURL, Server.MapPath("~/images/imdb/" & movie.IMDBNumber & ".jpg"))
-            Return String.Format("../../images/imdb/{0}.jpg", movie.IMDBNumber)
-        Else
-            Return "../../images/imdb/blankmovie.png"
-        End If
-
-    End Function
-
-    Private Function SaveMusicImageToDisk(ByVal artist As String, ByVal album As String, ByVal imageString As String) As String
-
-        Dim imagePath As String = String.Empty
-
-        Dim filename As String = String.Format("{0}_{1}.png", album, artist)
-        Dim regexPattern = "[\\\/:\*\?""'<>|] "
-        Dim objRegEx As New Regex(regexPattern)
-        Dim safeFilename As String = ""
-        safeFilename = objRegEx.Replace(filename, "").ToLower
-        safeFilename = String.Format("../../images/music/{0}", Replace(safeFilename, " ", ""))
-
-        If Not File.Exists(Server.MapPath(safeFilename)) Then
-
-            If Not Directory.Exists(Server.MapPath("../../images/music")) Then Directory.CreateDirectory(Server.MapPath("../../images/music"))
-
-            Dim newImage As System.Drawing.Image
-
-            Dim imageAsBytes() As Byte = System.Convert.FromBase64String(imageString)
-            Dim myStream As MemoryStream = New MemoryStream(imageAsBytes, 0, imageAsBytes.Length)
-            myStream.Write(imageAsBytes, 0, imageAsBytes.Length)
-            newImage = System.Drawing.Image.FromStream(myStream, True)
-
-            Try
-                newImage.Save(Server.MapPath(safeFilename), System.Drawing.Imaging.ImageFormat.Png)
-            Catch ex As Exception
-                If File.Exists(Server.MapPath(safeFilename)) Then File.Delete(Server.MapPath(safeFilename))
-            End Try
-
-        End If
-
-        Return safeFilename
-
-    End Function
-
-    Public Shared Function SaveVideoImageByUrlToDisk(ByVal url As String, ByVal filename As String) As Boolean
-
-        Dim response As WebResponse = Nothing
-        Dim remoteStream As Stream = Nothing
-        Dim readStream As StreamReader = Nothing
-        Try
-            Dim request As WebRequest = WebRequest.Create(url)
-            If Not request Is Nothing Then
-                response = request.GetResponse()
-                If Not response Is Nothing Then
-                    remoteStream = response.GetResponseStream()
-
-                    readStream = New StreamReader(remoteStream)
-
-                    Dim fw As Stream = File.Open(filename, FileMode.Create)
-
-                    Dim buf() As Byte = New Byte(256) {}
-                    Dim count As Integer = remoteStream.Read(buf, 0, 256)
-                    While count > 0
-                        fw.Write(buf, 0, count)
-
-                        count = remoteStream.Read(buf, 0, 256)
-                    End While
-
-                    fw.Close()
-                End If
-            End If
-        Finally
-            If Not response Is Nothing Then
-                response.Close()
-            End If
-            If Not remoteStream Is Nothing Then
-                remoteStream.Close()
-            End If
-        End Try
-
-        Return True
-
-    End Function
-
-    Function GetEpisodeThumb(ByVal friendly As String, ByVal request As String) As String
+    Function GetThumb(ByVal friendly As String, ByVal thumb As String) As String
 
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
         mpRequest.Action = "getfile"
-        mpRequest.Value = request
-        mpRequest.Filter = "small"
+        mpRequest.Value = thumb
+        mpRequest.Filter = "large"
 
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
@@ -710,25 +585,20 @@ Partial Public Class NowPlaying
         Dim filename As String = CType(jo("filename"), String)
         Dim data As String = CType(jo("data"), String)
 
-        Dim relativePath As String = "../../images/tvseries"
-        Dim compositeID As String = Split(request, ":")(1)
-        Dim imagePath As String
+        Dim relativePath As String = String.Format("../../images/{0}", Split(thumb, ":")(0))
+        Dim imagePath As String = String.Format("{0}/{1}", relativePath, filename)
         Dim format As System.Drawing.Imaging.ImageFormat
         Select Case filetype.ToLower
             Case "jpeg"
                 format = System.Drawing.Imaging.ImageFormat.Jpeg
-                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "jpg")
             Case "gif"
                 format = System.Drawing.Imaging.ImageFormat.Gif
-                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "gif")
             Case "png"
                 format = System.Drawing.Imaging.ImageFormat.Png
-                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "png")
             Case "bmp"
                 format = System.Drawing.Imaging.ImageFormat.Bmp
-                imagePath = String.Format("{0}/{1}.{2}", relativePath, compositeID, "bmp")
             Case Else
-                Return String.Format("{0}/tvepisodeblank.png", relativePath)
+                Return String.Format("{0}/blank.png", relativePath)
         End Select
 
         If Not File.Exists(Server.MapPath(imagePath)) Then
@@ -753,6 +623,5 @@ Partial Public Class NowPlaying
         Return imagePath
 
     End Function
-
 
 End Class

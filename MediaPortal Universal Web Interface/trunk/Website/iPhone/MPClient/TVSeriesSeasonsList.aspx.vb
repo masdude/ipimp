@@ -154,7 +154,7 @@ Partial Public Class TVSeriesSeasonsList
             Case "bmp"
                 format = System.Drawing.Imaging.ImageFormat.Bmp
             Case Else
-                Return String.Format("{0}/tvepisodeblankbanner.png", relativePath)
+                Return String.Format("{0}/blankbanner.png", relativePath)
         End Select
 
         If Not File.Exists(Server.MapPath(imagePath)) Then
