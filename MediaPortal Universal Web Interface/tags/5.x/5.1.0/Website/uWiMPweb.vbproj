@@ -1,0 +1,1740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6225B72-F553-46AB-88DC-C23A606292D6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Website</RootNamespace>
+    <AssemblyName>uWiMPweb</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>uWiMPweb.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>uWiMPweb.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Gentle.Common, Version=1.5.0.29053, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\Gentle.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Gentle.Framework, Version=1.5.0.29053, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\Gentle.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Gentle.Provider.MySQL, Version=1.5.0.29054, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\Gentle.Provider.MySQL.dll</HintPath>
+    </Reference>
+    <Reference Include="Gentle.Provider.SQLServer, Version=1.5.0.29053, Culture=neutral, PublicKeyToken=80b5de62e27be49b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal\Gentle.Provider.SQLServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Jayrock.Json, Version=0.9.10905.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Jayrock.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SQLite, Version=1.0.62.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\System.Data.SQLite.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="TvBusinessLayer, Version=1.0.1.40079, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TvBusinessLayer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TvControl, Version=1.0.1.40078, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TvControl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TVDatabase, Version=1.0.1.40079, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TVDatabase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TvLibrary.Interfaces, Version=1.0.8.15696, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TvLibrary.Interfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Desktop\5.0.swf" />
+    <Content Include="Desktop\Flash.htm" />
+    <Content Include="Desktop\MediaPlayerTemplate.xap" />
+    <Content Include="Desktop\Silverlight.htm" />
+    <Content Include="Desktop\SmoothStreamingProvider.swf" />
+    <Content Include="Desktop\swfobject.js" />
+    <Content Include="images\movingpicturethumb\blank.png" />
+    <Content Include="images\musicalbum\blank.png" />
+    <Content Include="images\remote\flash.png" />
+    <Content Include="images\remote\0.png" />
+    <Content Include="images\remote\1.png" />
+    <Content Include="images\remote\2.png" />
+    <Content Include="images\remote\3.png" />
+    <Content Include="images\remote\4.png" />
+    <Content Include="images\remote\5.png" />
+    <Content Include="images\remote\6.png" />
+    <Content Include="images\remote\7.png" />
+    <Content Include="images\remote\8.png" />
+    <Content Include="images\remote\9.png" />
+    <Content Include="images\remote\browser.png" />
+    <Content Include="images\remote\chdown.png" />
+    <Content Include="images\remote\chup.png" />
+    <Content Include="images\remote\hash.png" />
+    <Content Include="images\remote\page3.png" />
+    <Content Include="images\remote\star.png" />
+    <Content Include="images\remote\slight.png" />
+    <Content Include="images\tvseries\blank.png" />
+    <Content Include="images\tvseries\blankbanner.png" />
+    <Content Include="images\videotitle\blank.png" />
+    <Content Include="iPhone\Default.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesRecentEpisodes.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesPlay.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesEpisode.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesSeasonList.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesList.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesMenu.aspx" />
+    <Content Include="iPhone\MPClient\TVSeriesSeasonsList.aspx" />
+    <Content Include="iPhone\Streaming\StopStream.aspx" />
+    <Content Include="iPhone\Streaming\StreamingStatus.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\uWiMPStrings.es.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.sv.designer.vb">
+      <DependentUpon>uWiMPStrings.sv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.fr.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.da.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.da.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.de.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.en-GB.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.en-GB.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.it.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.it.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.nl.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.nl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.no.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.no.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Misc\MPClientClasses.vb" />
+    <Compile Include="Code\Misc\MPClientDatabase.vb" />
+    <Compile Include="Code\Misc\MPClientHTTPRemoting.vb" />
+    <Compile Include="Code\Misc\MPClientRemoting.vb" />
+    <Compile Include="Code\Misc\MPClientTCPRemoting.vb" />
+    <Compile Include="Code\Misc\SQLiteMembershipProvider.vb" />
+    <Compile Include="Code\Misc\SQLiteRoleProvider.vb" />
+    <Compile Include="Code\TVServer\RadioChannels.vb" />
+    <Compile Include="Code\TVServer\RadioChannelGroups.vb" />
+    <Compile Include="Code\TVServer\Streamer.vb" />
+    <Compile Include="Code\TVServer\Transcode.vb" />
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DefaultLogin.aspx.designer.vb">
+      <DependentUpon>DefaultLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultLogin.aspx.vb">
+      <DependentUpon>DefaultLogin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Desktop\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Desktop\Desktop.Master.designer.vb">
+      <DependentUpon>Desktop.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\Desktop.Master.vb">
+      <DependentUpon>Desktop.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\AboutiPiMP.aspx.designer.vb">
+      <DependentUpon>AboutiPiMP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\AboutiPiMP.aspx.vb">
+      <DependentUpon>AboutiPiMP.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementAddMenu.aspx.designer.vb">
+      <DependentUpon>ClientManagementAddMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementAddMenu.aspx.vb">
+      <DependentUpon>ClientManagementAddMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementAddResult.aspx.designer.vb">
+      <DependentUpon>ClientManagementAddResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementAddResult.aspx.vb">
+      <DependentUpon>ClientManagementAddResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementDeleteConfirm.aspx.designer.vb">
+      <DependentUpon>ClientManagementDeleteConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementDeleteConfirm.aspx.vb">
+      <DependentUpon>ClientManagementDeleteConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementDeleteMenu.aspx.designer.vb">
+      <DependentUpon>ClientManagementDeleteMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementDeleteMenu.aspx.vb">
+      <DependentUpon>ClientManagementDeleteMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementDeleteResult.aspx.designer.vb">
+      <DependentUpon>ClientManagementDeleteResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementDeleteResult.aspx.vb">
+      <DependentUpon>ClientManagementDeleteResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementMainMenu.aspx.designer.vb">
+      <DependentUpon>ClientManagementMainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementMainMenu.aspx.vb">
+      <DependentUpon>ClientManagementMainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementUpdate.aspx.designer.vb">
+      <DependentUpon>ClientManagementUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementUpdate.aspx.vb">
+      <DependentUpon>ClientManagementUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementUpdateMenu.aspx.designer.vb">
+      <DependentUpon>ClientManagementUpdateMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementUpdateMenu.aspx.vb">
+      <DependentUpon>ClientManagementUpdateMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementUpdateResult.aspx.designer.vb">
+      <DependentUpon>ClientManagementUpdateResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ClientManagementUpdateResult.aspx.vb">
+      <DependentUpon>ClientManagementUpdateResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\AppearanceSelect.aspx.designer.vb">
+      <DependentUpon>AppearanceSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\AppearanceSelect.aspx.vb">
+      <DependentUpon>AppearanceSelect.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\AppearanceResult.aspx.designer.vb">
+      <DependentUpon>AppearanceResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\AppearanceResult.aspx.vb">
+      <DependentUpon>AppearanceResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ManageSettings.aspx.designer.vb">
+      <DependentUpon>ManageSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ManageSettings.aspx.vb">
+      <DependentUpon>ManageSettings.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\ManageSettingsResult.aspx.designer.vb">
+      <DependentUpon>ManageSettingsResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\ManageSettingsResult.aspx.vb">
+      <DependentUpon>ManageSettingsResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementDeleteResult.aspx.designer.vb">
+      <DependentUpon>UserManagementDeleteResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementDeleteResult.aspx.vb">
+      <DependentUpon>UserManagementDeleteResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementDeleteConfirm.aspx.designer.vb">
+      <DependentUpon>UserManagementDeleteConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementDeleteConfirm.aspx.vb">
+      <DependentUpon>UserManagementDeleteConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementDeleteUser.aspx.designer.vb">
+      <DependentUpon>UserManagementDeleteUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementDeleteUser.aspx.vb">
+      <DependentUpon>UserManagementDeleteUser.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementAddUserResult.aspx.designer.vb">
+      <DependentUpon>UserManagementAddUserResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementAddUserResult.aspx.vb">
+      <DependentUpon>UserManagementAddUserResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementAddUser.aspx.designer.vb">
+      <DependentUpon>UserManagementAddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementAddUser.aspx.vb">
+      <DependentUpon>UserManagementAddUser.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementChangePasswordResult.aspx.designer.vb">
+      <DependentUpon>UserManagementChangePasswordResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementChangePasswordResult.aspx.vb">
+      <DependentUpon>UserManagementChangePasswordResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementChangePassword.aspx.designer.vb">
+      <DependentUpon>UserManagementChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementChangePassword.aspx.vb">
+      <DependentUpon>UserManagementChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\MainMenu.aspx.designer.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\MainMenu.aspx.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementMenu.aspx.designer.vb">
+      <DependentUpon>UserManagementMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Admin\UserManagementMenu.aspx.vb">
+      <DependentUpon>UserManagementMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Default.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Error.aspx.designer.vb">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Error.aspx.vb">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesRecentEpisodes.aspx.designer.vb">
+      <DependentUpon>TVSeriesRecentEpisodes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesRecentEpisodes.aspx.vb">
+      <DependentUpon>TVSeriesRecentEpisodes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesPlay.aspx.designer.vb">
+      <DependentUpon>TVSeriesPlay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesPlay.aspx.vb">
+      <DependentUpon>TVSeriesPlay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesEpisode.aspx.designer.vb">
+      <DependentUpon>TVSeriesEpisode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesEpisode.aspx.vb">
+      <DependentUpon>TVSeriesEpisode.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesSeasonList.aspx.designer.vb">
+      <DependentUpon>TVSeriesSeasonList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesSeasonList.aspx.vb">
+      <DependentUpon>TVSeriesSeasonList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesList.aspx.designer.vb">
+      <DependentUpon>TVSeriesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesList.aspx.vb">
+      <DependentUpon>TVSeriesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesMenu.aspx.designer.vb">
+      <DependentUpon>TVSeriesMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesMenu.aspx.vb">
+      <DependentUpon>TVSeriesMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListYears.aspx.designer.vb">
+      <DependentUpon>MovingPicturesListYears.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListYears.aspx.vb">
+      <DependentUpon>MovingPicturesListYears.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListDecades.aspx.designer.vb">
+      <DependentUpon>MovingPicturesListDecades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListDecades.aspx.vb">
+      <DependentUpon>MovingPicturesListDecades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListCertifications.aspx.designer.vb">
+      <DependentUpon>MovingPicturesListCertifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListCertifications.aspx.vb">
+      <DependentUpon>MovingPicturesListCertifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListGenres.aspx.designer.vb">
+      <DependentUpon>MovingPicturesListGenres.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesListGenres.aspx.vb">
+      <DependentUpon>MovingPicturesListGenres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesPlay.aspx.designer.vb">
+      <DependentUpon>MovingPicturesPlay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesPlay.aspx.vb">
+      <DependentUpon>MovingPicturesPlay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesCoverArt.aspx.designer.vb">
+      <DependentUpon>MovingPicturesCoverArt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesCoverArt.aspx.vb">
+      <DependentUpon>MovingPicturesCoverArt.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesMenu.aspx.designer.vb">
+      <DependentUpon>MovingPicturesMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesMenu.aspx.vb">
+      <DependentUpon>MovingPicturesMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesDisplay.aspx.designer.vb">
+      <DependentUpon>MovingPicturesDisplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesDisplay.aspx.vb">
+      <DependentUpon>MovingPicturesDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesList.aspx.designer.vb">
+      <DependentUpon>MovingPicturesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MovingPicturesList.aspx.vb">
+      <DependentUpon>MovingPicturesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MCERemoteControlButton.aspx.designer.vb">
+      <DependentUpon>MCERemoteControlButton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MCERemoteControlButton.aspx.vb">
+      <DependentUpon>MCERemoteControlButton.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientPowerOptionsResult.aspx.designer.vb">
+      <DependentUpon>MPClientPowerOptionsResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientPowerOptionsResult.aspx.vb">
+      <DependentUpon>MPClientPowerOptionsResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientPowerOptionsConfirm.aspx.designer.vb">
+      <DependentUpon>MPClientPowerOptionsConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientPowerOptionsConfirm.aspx.vb">
+      <DependentUpon>MPClientPowerOptionsConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientPowerOptions.aspx.designer.vb">
+      <DependentUpon>MPClientPowerOptions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientPowerOptions.aspx.vb">
+      <DependentUpon>MPClientPowerOptions.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientSendMessageResult.aspx.designer.vb">
+      <DependentUpon>MPClientSendMessageResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientSendMessageResult.aspx.vb">
+      <DependentUpon>MPClientSendMessageResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosCoverArt.aspx.designer.vb">
+      <DependentUpon>MyVideosCoverArt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosCoverArt.aspx.vb">
+      <DependentUpon>MyVideosCoverArt.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosDisplay.aspx.designer.vb">
+      <DependentUpon>MyVideosDisplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosDisplay.aspx.vb">
+      <DependentUpon>MyVideosDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosPlay.aspx.designer.vb">
+      <DependentUpon>MyVideosPlay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosPlay.aspx.vb">
+      <DependentUpon>MyVideosPlay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MainMenu.aspx.designer.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MainMenu.aspx.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientMenu.aspx.designer.vb">
+      <DependentUpon>MPClientMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientMenu.aspx.vb">
+      <DependentUpon>MPClientMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientSendMessage.aspx.designer.vb">
+      <DependentUpon>MPClientSendMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientSendMessage.aspx.vb">
+      <DependentUpon>MPClientSendMessage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientWOL.aspx.designer.vb">
+      <DependentUpon>MPClientWOL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MPClientWOL.aspx.vb">
+      <DependentUpon>MPClientWOL.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicCoverArt.aspx.designer.vb">
+      <DependentUpon>MyMusicCoverArt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicCoverArt.aspx.vb">
+      <DependentUpon>MyMusicCoverArt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbum.aspx.designer.vb">
+      <DependentUpon>MyMusicListAlbum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbum.aspx.vb">
+      <DependentUpon>MyMusicListAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbumLetters.aspx.designer.vb">
+      <DependentUpon>MyMusicListAlbumLetters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbumLetters.aspx.vb">
+      <DependentUpon>MyMusicListAlbumLetters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbums.aspx.designer.vb">
+      <DependentUpon>MyMusicListAlbums.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbums.aspx.vb">
+      <DependentUpon>MyMusicListAlbums.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbumsForArtist.aspx.designer.vb">
+      <DependentUpon>MyMusicListAlbumsForArtist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbumsForArtist.aspx.vb">
+      <DependentUpon>MyMusicListAlbumsForArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbumsForGenre.aspx.designer.vb">
+      <DependentUpon>MyMusicListAlbumsForGenre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbumsForGenre.aspx.vb">
+      <DependentUpon>MyMusicListAlbumsForGenre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbumsForYear.aspx.designer.vb">
+      <DependentUpon>MyMusicListAlbumsForYear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListAlbumsForYear.aspx.vb">
+      <DependentUpon>MyMusicListAlbumsForYear.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListArtistLetters.aspx.designer.vb">
+      <DependentUpon>MyMusicListArtistLetters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListArtistLetters.aspx.vb">
+      <DependentUpon>MyMusicListArtistLetters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListArtists.aspx.designer.vb">
+      <DependentUpon>MyMusicListArtists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListArtists.aspx.vb">
+      <DependentUpon>MyMusicListArtists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListDecades.aspx.designer.vb">
+      <DependentUpon>MyMusicListDecades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListDecades.aspx.vb">
+      <DependentUpon>MyMusicListDecades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListGenres.aspx.designer.vb">
+      <DependentUpon>MyMusicListGenres.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListGenres.aspx.vb">
+      <DependentUpon>MyMusicListGenres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListPlaylists.aspx.designer.vb">
+      <DependentUpon>MyMusicListPlaylists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListPlaylists.aspx.vb">
+      <DependentUpon>MyMusicListPlaylists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListTracksForArtist.aspx.designer.vb">
+      <DependentUpon>MyMusicListTracksForArtist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListTracksForArtist.aspx.vb">
+      <DependentUpon>MyMusicListTracksForArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListTracksForPlaylist.aspx.designer.vb">
+      <DependentUpon>MyMusicListTracksForPlaylist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListTracksForPlaylist.aspx.vb">
+      <DependentUpon>MyMusicListTracksForPlaylist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListTracksForSearch.aspx.designer.vb">
+      <DependentUpon>MyMusicListTracksForSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListTracksForSearch.aspx.vb">
+      <DependentUpon>MyMusicListTracksForSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListYears.aspx.designer.vb">
+      <DependentUpon>MyMusicListYears.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicListYears.aspx.vb">
+      <DependentUpon>MyMusicListYears.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicMenu.aspx.designer.vb">
+      <DependentUpon>MyMusicMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicMenu.aspx.vb">
+      <DependentUpon>MyMusicMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicPlayMusic.aspx.designer.vb">
+      <DependentUpon>MyMusicPlayMusic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicPlayMusic.aspx.vb">
+      <DependentUpon>MyMusicPlayMusic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicPlayRandom.aspx.designer.vb">
+      <DependentUpon>MyMusicPlayRandom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicPlayRandom.aspx.vb">
+      <DependentUpon>MyMusicPlayRandom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicPlayTracks.aspx.designer.vb">
+      <DependentUpon>MyMusicPlayTracks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicPlayTracks.aspx.vb">
+      <DependentUpon>MyMusicPlayTracks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicSavePlaylist.aspx.designer.vb">
+      <DependentUpon>MyMusicSavePlaylist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicSavePlaylist.aspx.vb">
+      <DependentUpon>MyMusicSavePlaylist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicSavePlaylistResult.aspx.designer.vb">
+      <DependentUpon>MyMusicSavePlaylistResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicSavePlaylistResult.aspx.vb">
+      <DependentUpon>MyMusicSavePlaylistResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicSearch.aspx.designer.vb">
+      <DependentUpon>MyMusicSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicSearch.aspx.vb">
+      <DependentUpon>MyMusicSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicUpdate.aspx.designer.vb">
+      <DependentUpon>MyMusicUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyMusicUpdate.aspx.vb">
+      <DependentUpon>MyMusicUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosList.aspx.designer.vb">
+      <DependentUpon>MyVideosList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosList.aspx.vb">
+      <DependentUpon>MyVideosList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosListDecades.aspx.designer.vb">
+      <DependentUpon>MyVideosListDecades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosListDecades.aspx.vb">
+      <DependentUpon>MyVideosListDecades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosListGenres.aspx.designer.vb">
+      <DependentUpon>MyVideosListGenres.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosListGenres.aspx.vb">
+      <DependentUpon>MyVideosListGenres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosListYears.aspx.designer.vb">
+      <DependentUpon>MyVideosListYears.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosListYears.aspx.vb">
+      <DependentUpon>MyVideosListYears.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosMenu.aspx.designer.vb">
+      <DependentUpon>MyVideosMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MyVideosMenu.aspx.vb">
+      <DependentUpon>MyVideosMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MCERemoteControl.aspx.designer.vb">
+      <DependentUpon>MCERemoteControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\MCERemoteControl.aspx.vb">
+      <DependentUpon>MCERemoteControl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\NowPlaying.aspx.designer.vb">
+      <DependentUpon>NowPlaying.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\NowPlaying.aspx.vb">
+      <DependentUpon>NowPlaying.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesSeasonsList.aspx.designer.vb">
+      <DependentUpon>TVSeriesSeasonsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\MPClient\TVSeriesSeasonsList.aspx.vb">
+      <DependentUpon>TVSeriesSeasonsList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\ChannelGroups.aspx.designer.vb">
+      <DependentUpon>ChannelGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\ChannelGroups.aspx.vb">
+      <DependentUpon>ChannelGroups.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\MainMenu.aspx.designer.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\MainMenu.aspx.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\NowAndNext.aspx.designer.vb">
+      <DependentUpon>NowAndNext.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\NowAndNext.aspx.vb">
+      <DependentUpon>NowAndNext.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioRecordManual.aspx.designer.vb">
+      <DependentUpon>RadioRecordManual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioRecordManual.aspx.vb">
+      <DependentUpon>RadioRecordManual.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioRecordManualConfirm.aspx.designer.vb">
+      <DependentUpon>RadioRecordManualConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioRecordManualConfirm.aspx.vb">
+      <DependentUpon>RadioRecordManualConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RecordRadioProgram.aspx.designer.vb">
+      <DependentUpon>RecordRadioProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RecordRadioProgram.aspx.vb">
+      <DependentUpon>RecordRadioProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RecordRadioProgramConfirm.aspx.designer.vb">
+      <DependentUpon>RecordRadioProgramConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RecordRadioProgramConfirm.aspx.vb">
+      <DependentUpon>RecordRadioProgramConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\SearchRadioGuide.aspx.designer.vb">
+      <DependentUpon>SearchRadioGuide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\SearchRadioGuide.aspx.vb">
+      <DependentUpon>SearchRadioGuide.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\SearchRadioGuideResults.aspx.designer.vb">
+      <DependentUpon>SearchRadioGuideResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\SearchRadioGuideResults.aspx.vb">
+      <DependentUpon>SearchRadioGuideResults.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioProgram.aspx.designer.vb">
+      <DependentUpon>RadioProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioProgram.aspx.vb">
+      <DependentUpon>RadioProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioChannel.aspx.designer.vb">
+      <DependentUpon>RadioChannel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioChannel.aspx.vb">
+      <DependentUpon>RadioChannel.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioChannelDay.aspx.designer.vb">
+      <DependentUpon>RadioChannelDay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\RadioGuide\RadioChannelDay.aspx.vb">
+      <DependentUpon>RadioChannelDay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsMultiDeleteForDrive.aspx.designer.vb">
+      <DependentUpon>RecordingsMultiDeleteForDrive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsMultiDeleteForDrive.aspx.vb">
+      <DependentUpon>RecordingsMultiDeleteForDrive.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\MainMenu.aspx.designer.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\MainMenu.aspx.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordedProgram.aspx.designer.vb">
+      <DependentUpon>RecordedProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordedProgram.aspx.vb">
+      <DependentUpon>RecordedProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingDelete.aspx.designer.vb">
+      <DependentUpon>RecordingDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingDelete.aspx.vb">
+      <DependentUpon>RecordingDelete.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingDeleteResult.aspx.designer.vb">
+      <DependentUpon>RecordingDeleteResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingDeleteResult.aspx.vb">
+      <DependentUpon>RecordingDeleteResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingKeep.aspx.designer.vb">
+      <DependentUpon>RecordingKeep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingKeep.aspx.vb">
+      <DependentUpon>RecordingKeep.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingKeepResult.aspx.designer.vb">
+      <DependentUpon>RecordingKeepResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingKeepResult.aspx.vb">
+      <DependentUpon>RecordingKeepResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsMultiDeleteConfirm.aspx.designer.vb">
+      <DependentUpon>RecordingsMultiDeleteConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsMultiDeleteConfirm.aspx.vb">
+      <DependentUpon>RecordingsMultiDeleteConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsMultiDeleteResult.aspx.designer.vb">
+      <DependentUpon>RecordingsMultiDeleteResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsMultiDeleteResult.aspx.vb">
+      <DependentUpon>RecordingsMultiDeleteResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByChannel.aspx.designer.vb">
+      <DependentUpon>RecordingsByChannel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByChannel.aspx.vb">
+      <DependentUpon>RecordingsByChannel.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByChannelList.aspx.designer.vb">
+      <DependentUpon>RecordingsByChannelList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByChannelList.aspx.vb">
+      <DependentUpon>RecordingsByChannelList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByDate.aspx.designer.vb">
+      <DependentUpon>RecordingsByDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByDate.aspx.vb">
+      <DependentUpon>RecordingsByDate.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByDateList.aspx.designer.vb">
+      <DependentUpon>RecordingsByDateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByDateList.aspx.vb">
+      <DependentUpon>RecordingsByDateList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByGenre.aspx.designer.vb">
+      <DependentUpon>RecordingsByGenre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByGenre.aspx.vb">
+      <DependentUpon>RecordingsByGenre.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByGenreList.aspx.designer.vb">
+      <DependentUpon>RecordingsByGenreList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsByGenreList.aspx.vb">
+      <DependentUpon>RecordingsByGenreList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsMultiDelete.aspx.designer.vb">
+      <DependentUpon>RecordingsMultiDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingsMultiDelete.aspx.vb">
+      <DependentUpon>RecordingsMultiDelete.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingTranscode.aspx.designer.vb">
+      <DependentUpon>RecordingTranscode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingTranscode.aspx.vb">
+      <DependentUpon>RecordingTranscode.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingTranscodeResult.aspx.designer.vb">
+      <DependentUpon>RecordingTranscodeResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Recording\RecordingTranscodeResult.aspx.vb">
+      <DependentUpon>RecordingTranscodeResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\MainMenu.aspx.designer.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\MainMenu.aspx.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduleClean.aspx.designer.vb">
+      <DependentUpon>ScheduleClean.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduleClean.aspx.vb">
+      <DependentUpon>ScheduleClean.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduleCleanResult.aspx.designer.vb">
+      <DependentUpon>ScheduleCleanResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduleCleanResult.aspx.vb">
+      <DependentUpon>ScheduleCleanResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduleDelete.aspx.designer.vb">
+      <DependentUpon>ScheduleDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduleDelete.aspx.vb">
+      <DependentUpon>ScheduleDelete.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduleDeleteResult.aspx.designer.vb">
+      <DependentUpon>ScheduleDeleteResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduleDeleteResult.aspx.vb">
+      <DependentUpon>ScheduleDeleteResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduledProgram.aspx.designer.vb">
+      <DependentUpon>ScheduledProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\ScheduledProgram.aspx.vb">
+      <DependentUpon>ScheduledProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByChannel.aspx.designer.vb">
+      <DependentUpon>SchedulesByChannel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByChannel.aspx.vb">
+      <DependentUpon>SchedulesByChannel.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByChannelList.aspx.designer.vb">
+      <DependentUpon>SchedulesByChannelList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByChannelList.aspx.vb">
+      <DependentUpon>SchedulesByChannelList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByDate.aspx.designer.vb">
+      <DependentUpon>SchedulesByDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByDate.aspx.vb">
+      <DependentUpon>SchedulesByDate.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByDateList.aspx.designer.vb">
+      <DependentUpon>SchedulesByDateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByDateList.aspx.vb">
+      <DependentUpon>SchedulesByDateList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByTitleList.aspx.designer.vb">
+      <DependentUpon>SchedulesByTitleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Schedule\SchedulesByTitleList.aspx.vb">
+      <DependentUpon>SchedulesByTitleList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Streaming\StopStream.aspx.designer.vb">
+      <DependentUpon>StopStream.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Streaming\StopStream.aspx.vb">
+      <DependentUpon>StopStream.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordManualConfirm.aspx.designer.vb">
+      <DependentUpon>RecordManualConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordManualConfirm.aspx.vb">
+      <DependentUpon>RecordManualConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordManual.aspx.designer.vb">
+      <DependentUpon>RecordManual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordManual.aspx.vb">
+      <DependentUpon>RecordManual.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\NowAndNext.aspx.designer.vb">
+      <DependentUpon>NowAndNext.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\NowAndNext.aspx.vb">
+      <DependentUpon>NowAndNext.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordTVProgram.aspx.designer.vb">
+      <DependentUpon>RecordTVProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordTVProgram.aspx.vb">
+      <DependentUpon>RecordTVProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordTVProgramConfirm.aspx.designer.vb">
+      <DependentUpon>RecordTVProgramConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\RecordTVProgramConfirm.aspx.vb">
+      <DependentUpon>RecordTVProgramConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\TVChannel.aspx.designer.vb">
+      <DependentUpon>TVChannel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\TVChannel.aspx.vb">
+      <DependentUpon>TVChannel.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\ChannelGroups.aspx.designer.vb">
+      <DependentUpon>ChannelGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\ChannelGroups.aspx.vb">
+      <DependentUpon>ChannelGroups.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\MainMenu.aspx.designer.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\MainMenu.aspx.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\TVChannelDay.aspx.designer.vb">
+      <DependentUpon>TVChannelDay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\TVChannelDay.aspx.vb">
+      <DependentUpon>TVChannelDay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\TVProgram.aspx.designer.vb">
+      <DependentUpon>TVProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\TVProgram.aspx.vb">
+      <DependentUpon>TVProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\SearchTVGuide.aspx.designer.vb">
+      <DependentUpon>SearchTVGuide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\SearchTVGuide.aspx.vb">
+      <DependentUpon>SearchTVGuide.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\SearchTVGuideResults.aspx.designer.vb">
+      <DependentUpon>SearchTVGuideResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVGuide\SearchTVGuideResults.aspx.vb">
+      <DependentUpon>SearchTVGuideResults.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Streaming\StartStream.aspx.designer.vb">
+      <DependentUpon>StartStream.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Streaming\StartStream.aspx.vb">
+      <DependentUpon>StartStream.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\CardStatus.aspx.designer.vb">
+      <DependentUpon>CardStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\CardStatus.aspx.vb">
+      <DependentUpon>CardStatus.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\CardStatusMenu.aspx.designer.vb">
+      <DependentUpon>CardStatusMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\CardStatusMenu.aspx.vb">
+      <DependentUpon>CardStatusMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\CardActionConfirm.aspx.designer.vb">
+      <DependentUpon>CardActionConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\CardActionConfirm.aspx.vb">
+      <DependentUpon>CardActionConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\CardActionResult.aspx.designer.vb">
+      <DependentUpon>CardActionResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\CardActionResult.aspx.vb">
+      <DependentUpon>CardActionResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\Streaming\StreamingStatus.aspx.designer.vb">
+      <DependentUpon>StreamingStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\Streaming\StreamingStatus.aspx.vb">
+      <DependentUpon>StreamingStatus.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\TranscodeStatus.aspx.designer.vb">
+      <DependentUpon>TranscodeStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\TranscodeStatus.aspx.vb">
+      <DependentUpon>TranscodeStatus.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\DiskStatus.aspx.designer.vb">
+      <DependentUpon>DiskStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\DiskStatus.aspx.vb">
+      <DependentUpon>DiskStatus.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\MainMenu.aspx.designer.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\MainMenu.aspx.vb">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\ServiceActionConfirm.aspx.designer.vb">
+      <DependentUpon>ServiceActionConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\ServiceActionConfirm.aspx.vb">
+      <DependentUpon>ServiceActionConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\ServiceActionResult.aspx.designer.vb">
+      <DependentUpon>ServiceActionResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\ServiceActionResult.aspx.vb">
+      <DependentUpon>ServiceActionResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="iPhone\TVServer\ServiceStatus.aspx.designer.vb">
+      <DependentUpon>ServiceStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iPhone\TVServer\ServiceStatus.aspx.vb">
+      <DependentUpon>ServiceStatus.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Code\TVServer\Cards.vb" />
+    <Compile Include="Code\TVServer\ChannelGroups.vb" />
+    <Compile Include="Code\TVServer\Channels.vb" />
+    <Compile Include="Code\Misc\External.vb" />
+    <Compile Include="Code\TVServer\Genres.vb" />
+    <Compile Include="Code\TVServer\Programs.vb" />
+    <Compile Include="Code\TVServer\Recordings.vb" />
+    <Compile Include="Code\TVServer\Schedules.vb" />
+    <Compile Include="Code\Misc\Utilities.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\uWiMPStrings.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Default.aspx" />
+    <Content Include="iPhone\WebApp\Action\Logic.js" />
+    <Content Include="iPhone\WebApp\Design\Firefox.css" />
+    <Content Include="iPhone\WebApp\Design\Img\bg-head.png" />
+    <Content Include="iPhone\WebApp\Design\Img\bg-shop.png" />
+    <Content Include="iPhone\WebApp\Design\Img\bg-switch-thumb.png" />
+    <Content Include="iPhone\WebApp\Design\Img\bg-switch.png" />
+    <Content Include="iPhone\WebApp\Design\Img\bg-tab-sel.png" />
+    <Content Include="iPhone\WebApp\Design\Img\bg-tab-touch.png" />
+    <Content Include="iPhone\WebApp\Design\Img\bg-tab.png" />
+    <Content Include="iPhone\WebApp\Design\Img\bg-title.png" />
+    <Content Include="iPhone\WebApp\Design\Img\bg.png" />
+    <Content Include="iPhone\WebApp\Design\Img\big-button-grey.png" />
+    <Content Include="iPhone\WebApp\Design\Img\big-button-red.png" />
+    <Content Include="iPhone\WebApp\Design\Img\big-button-select.png" />
+    <Content Include="iPhone\WebApp\Design\Img\big-button-white.png" />
+    <Content Include="iPhone\WebApp\Design\Img\bullet-media.png" />
+    <Content Include="iPhone\WebApp\Design\Img\button-back-touch.png" />
+    <Content Include="iPhone\WebApp\Design\Img\button-back.png" />
+    <Content Include="iPhone\WebApp\Design\Img\button-bg.png" />
+    <Content Include="iPhone\WebApp\Design\Img\button-blue.png" />
+    <Content Include="iPhone\WebApp\Design\Img\button-light.png" />
+    <Content Include="iPhone\WebApp\Design\Img\button-red.png" />
+    <Content Include="iPhone\WebApp\Design\Img\button-simple-touch.png" />
+    <Content Include="iPhone\WebApp\Design\Img\button-simple.png" />
+    <Content Include="iPhone\WebApp\Design\Img\check-dis.png" />
+    <Content Include="iPhone\WebApp\Design\Img\check-sel.png" />
+    <Content Include="iPhone\WebApp\Design\Img\check.png" />
+    <Content Include="iPhone\WebApp\Design\Img\chevron-select.png" />
+    <Content Include="iPhone\WebApp\Design\Img\chevron.png" />
+    <Content Include="iPhone\WebApp\Design\Img\form-check-text.png" />
+    <Content Include="iPhone\WebApp\Design\Img\form-check-texton.png" />
+    <Content Include="iPhone\WebApp\Design\Img\rtl-bullet-media.png" />
+    <Content Include="iPhone\WebApp\Design\Img\rtl-button-back-touch.png" />
+    <Content Include="iPhone\WebApp\Design\Img\rtl-button-back.png" />
+    <Content Include="iPhone\WebApp\Design\Img\rtl-chevron-select.png" />
+    <Content Include="iPhone\WebApp\Design\Img\rtl-chevron.png" />
+    <Content Include="iPhone\WebApp\Design\Img\select.png" />
+    <Content Include="iPhone\WebApp\Design\Img\tab-bg-select.png" />
+    <Content Include="iPhone\WebApp\Design\Render.css" />
+    <Content Include="iPhone\WebApp\Design\RenderRTL.css" />
+    <Content Include="iPhone\WebApp\Design\Theme.css" />
+    <Content Include="iPhone\WebApp\Img\less.png" />
+    <Content Include="iPhone\WebApp\Img\mas.png" />
+    <Content Include="iPhone\WebApp\Img\menos.png" />
+    <Content Include="iPhone\WebApp\Img\more.png" />
+    <Content Include="iPhone\WebApp\Img\next.png" />
+    <Content Include="App_GlobalResources\uWiMPStrings.de.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.de.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.en-GB.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.en-GB.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.it.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.it.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.nl.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.nl.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.da.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.da.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.no.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.no.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.fr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.fr.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.sv.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.sv.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.es.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DefaultLogin.aspx" />
+    <Content Include="Desktop\Default.aspx" />
+    <Content Include="Desktop\Desktop.Master" />
+    <Content Include="Desktop\scripts\wz_tooltip.js" />
+    <Content Include="images\dvd.png" />
+    <Content Include="images\imdb\blankmovie.png" />
+    <Content Include="images\MP-logo.png" />
+    <Content Include="images\music\blankmusic.png" />
+    <Content Include="images\radio.png" />
+    <Content Include="images\rec.png" />
+    <Content Include="images\remote\back.png" />
+    <Content Include="images\remote\basichome.png" />
+    <Content Include="images\remote\blank.png" />
+    <Content Include="images\remote\blue.png" />
+    <Content Include="images\remote\down.png" />
+    <Content Include="images\remote\dvd.png" />
+    <Content Include="images\remote\forward.png" />
+    <Content Include="images\remote\green.png" />
+    <Content Include="images\remote\home.png" />
+    <Content Include="images\remote\info.png" />
+    <Content Include="images\remote\left.png" />
+    <Content Include="images\remote\music.png" />
+    <Content Include="images\remote\nowplaying.png" />
+    <Content Include="images\remote\ok.png" />
+    <Content Include="images\remote\page1.png" />
+    <Content Include="images\remote\page2.png" />
+    <Content Include="images\remote\pause.png" />
+    <Content Include="images\remote\pictures.png" />
+    <Content Include="images\remote\play.png" />
+    <Content Include="images\remote\playlists.png" />
+    <Content Include="images\remote\plugins.png" />
+    <Content Include="images\remote\radio.png" />
+    <Content Include="images\remote\rec.png" />
+    <Content Include="images\remote\red.png" />
+    <Content Include="images\remote\refresh.png" />
+    <Content Include="images\remote\replay.png" />
+    <Content Include="images\remote\rewind.png" />
+    <Content Include="images\remote\right.png" />
+    <Content Include="images\remote\skip.png" />
+    <Content Include="iPhone\Admin\AppearanceSelect.aspx" />
+    <Content Include="iPhone\Admin\AppearanceResult.aspx" />
+    <Content Include="iPhone\Admin\ManageSettingsResult.aspx" />
+    <Content Include="iPhone\images\apple-touch-icon.png" />
+    <Content Include="iPhone\images\apple-touch-startup.png" />
+    <Content Include="iPhone\MPClient\MovingPicturesListYears.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesListDecades.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesListCertifications.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesListGenres.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesPlay.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesCoverArt.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesMenu.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesDisplay.aspx" />
+    <Content Include="iPhone\MPClient\MovingPicturesList.aspx" />
+    <Content Include="iPhone\RadioGuide\ChannelGroups.aspx" />
+    <Content Include="iPhone\RadioGuide\MainMenu.aspx" />
+    <Content Include="iPhone\RadioGuide\NowAndNext.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioRecordManual.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioRecordManualConfirm.aspx" />
+    <Content Include="iPhone\RadioGuide\RecordRadioProgram.aspx" />
+    <Content Include="iPhone\RadioGuide\RecordRadioProgramConfirm.aspx" />
+    <Content Include="iPhone\RadioGuide\SearchRadioGuide.aspx" />
+    <Content Include="iPhone\RadioGuide\SearchRadioGuideResults.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioProgram.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioChannel.aspx" />
+    <Content Include="iPhone\RadioGuide\RadioChannelDay.aspx" />
+    <Content Include="iPhone\Recording\RecordingTranscodeResult.aspx" />
+    <Content Include="iPhone\Scripts\Adaptive.js" />
+    <Content Include="iPhone\Scripts\Events.js" />
+    <Content Include="iPhone\Scripts\smbtnblue.png" />
+    <Content Include="images\remote\stop.png" />
+    <Content Include="images\remote\tv.png" />
+    <Content Include="images\remote\tvguide.png" />
+    <Content Include="images\remote\tvrecs.png" />
+    <Content Include="images\remote\tvseries.png" />
+    <Content Include="images\remote\up.png" />
+    <Content Include="images\remote\videos.png" />
+    <Content Include="images\remote\voldown.png" />
+    <Content Include="images\remote\volmute.png" />
+    <Content Include="images\remote\volup.png" />
+    <Content Include="images\remote\weather.png" />
+    <Content Include="images\remote\yellow.png" />
+    <Content Include="images\tv.png" />
+    <Content Include="iPhone\Admin\AboutiPiMP.aspx" />
+    <Content Include="iPhone\Admin\ClientManagementAddMenu.aspx" />
+    <Content Include="iPhone\Admin\ClientManagementAddResult.aspx" />
+    <Content Include="iPhone\Admin\ClientManagementDeleteConfirm.aspx" />
+    <Content Include="iPhone\Admin\ClientManagementDeleteMenu.aspx" />
+    <Content Include="iPhone\Admin\ClientManagementDeleteResult.aspx" />
+    <Content Include="iPhone\Admin\ClientManagementMainMenu.aspx" />
+    <Content Include="iPhone\Admin\ClientManagementUpdate.aspx" />
+    <Content Include="iPhone\Admin\ClientManagementUpdateMenu.aspx" />
+    <Content Include="iPhone\Admin\ClientManagementUpdateResult.aspx" />
+    <Content Include="iPhone\Admin\ManageSettings.aspx" />
+    <Content Include="iPhone\Admin\UserManagementDeleteResult.aspx" />
+    <Content Include="iPhone\Admin\UserManagementDeleteConfirm.aspx" />
+    <Content Include="iPhone\Admin\UserManagementDeleteUser.aspx" />
+    <Content Include="iPhone\Admin\UserManagementAddUserResult.aspx" />
+    <Content Include="iPhone\Admin\UserManagementAddUser.aspx" />
+    <Content Include="iPhone\Admin\UserManagementChangePasswordResult.aspx" />
+    <Content Include="iPhone\Admin\UserManagementChangePassword.aspx" />
+    <Content Include="iPhone\Admin\MainMenu.aspx" />
+    <Content Include="iPhone\Admin\UserManagementMenu.aspx" />
+    <Content Include="iPhone\Error.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="iPhone\images\iPiMP logo.png" />
+    <Content Include="iPhone\images\iPiMP.gif" />
+    <Content Include="iPhone\images\loader.gif" />
+    <Content Include="iPhone\Login.aspx" />
+    <Content Include="iPhone\MPClient\MCERemoteControlButton.aspx" />
+    <Content Include="iPhone\MPClient\MPClientPowerOptionsResult.aspx" />
+    <Content Include="iPhone\MPClient\MPClientPowerOptionsConfirm.aspx" />
+    <Content Include="iPhone\MPClient\MPClientPowerOptions.aspx" />
+    <Content Include="iPhone\MPClient\MPClientSendMessageResult.aspx" />
+    <Content Include="iPhone\MPClient\MyVideosCoverArt.aspx" />
+    <Content Include="iPhone\MPClient\MyVideosDisplay.aspx" />
+    <Content Include="iPhone\MPClient\MyVideosPlay.aspx" />
+    <Content Include="iPhone\MPClient\MainMenu.aspx" />
+    <Content Include="iPhone\MPClient\MPClientMenu.aspx" />
+    <Content Include="iPhone\MPClient\MPClientSendMessage.aspx" />
+    <Content Include="iPhone\MPClient\MPClientWOL.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicCoverArt.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListAlbum.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListAlbumLetters.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListAlbums.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListAlbumsForArtist.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListAlbumsForGenre.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListAlbumsForYear.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListArtistLetters.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListArtists.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListDecades.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListGenres.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListPlaylists.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListTracksForArtist.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListTracksForPlaylist.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListTracksForSearch.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicListYears.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicMenu.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicPlayMusic.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicPlayRandom.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicPlayTracks.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicSavePlaylist.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicSavePlaylistResult.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicSearch.aspx" />
+    <Content Include="iPhone\MPClient\MyMusicUpdate.aspx" />
+    <Content Include="iPhone\MPClient\MyVideosList.aspx" />
+    <Content Include="iPhone\MPClient\MyVideosListDecades.aspx" />
+    <Content Include="iPhone\MPClient\MyVideosListGenres.aspx" />
+    <Content Include="iPhone\MPClient\MyVideosListYears.aspx" />
+    <Content Include="iPhone\MPClient\MyVideosMenu.aspx" />
+    <Content Include="iPhone\MPClient\MCERemoteControl.aspx" />
+    <Content Include="iPhone\MPClient\NowPlaying.aspx" />
+    <Content Include="iPhone\Recording\RecordingsMultiDeleteForDrive.aspx" />
+    <Content Include="iPhone\Recording\MainMenu.aspx" />
+    <Content Include="iPhone\Recording\RecordedProgram.aspx" />
+    <Content Include="iPhone\Recording\RecordingDelete.aspx" />
+    <Content Include="iPhone\Recording\RecordingDeleteResult.aspx" />
+    <Content Include="iPhone\Recording\RecordingKeep.aspx" />
+    <Content Include="iPhone\Recording\RecordingKeepResult.aspx" />
+    <Content Include="iPhone\Recording\RecordingsMultiDeleteConfirm.aspx" />
+    <Content Include="iPhone\Recording\RecordingsMultiDeleteResult.aspx" />
+    <Content Include="iPhone\Recording\RecordingsByChannel.aspx" />
+    <Content Include="iPhone\Recording\RecordingsByChannelList.aspx" />
+    <Content Include="iPhone\Recording\RecordingsByDate.aspx" />
+    <Content Include="iPhone\Recording\RecordingsByDateList.aspx" />
+    <Content Include="iPhone\Recording\RecordingsByGenre.aspx" />
+    <Content Include="iPhone\Recording\RecordingsByGenreList.aspx" />
+    <Content Include="iPhone\Recording\RecordingsMultiDelete.aspx" />
+    <Content Include="iPhone\Recording\RecordingTranscode.aspx" />
+    <Content Include="iPhone\Schedule\MainMenu.aspx" />
+    <Content Include="iPhone\Schedule\ScheduleClean.aspx" />
+    <Content Include="iPhone\Schedule\ScheduleCleanResult.aspx" />
+    <Content Include="iPhone\Schedule\ScheduleDelete.aspx" />
+    <Content Include="iPhone\Schedule\ScheduleDeleteResult.aspx" />
+    <Content Include="iPhone\Schedule\ScheduledProgram.aspx" />
+    <Content Include="iPhone\Schedule\SchedulesByChannel.aspx" />
+    <Content Include="iPhone\Schedule\SchedulesByChannelList.aspx" />
+    <Content Include="iPhone\Schedule\SchedulesByDate.aspx" />
+    <Content Include="iPhone\Schedule\SchedulesByDateList.aspx" />
+    <Content Include="iPhone\Schedule\SchedulesByTitleList.aspx" />
+    <Content Include="iPhone\Scripts\functions.js" />
+    <Content Include="iPhone\Scripts\remote.css" />
+    <Content Include="iPhone\Scripts\starbar.css" />
+    <Content Include="iPhone\Scripts\stars.gif" />
+    <Content Include="iPhone\TVGuide\RecordManualConfirm.aspx" />
+    <Content Include="iPhone\TVGuide\RecordManual.aspx" />
+    <Content Include="iPhone\TVGuide\NowAndNext.aspx" />
+    <Content Include="iPhone\TVGuide\RecordTVProgram.aspx" />
+    <Content Include="iPhone\TVGuide\RecordTVProgramConfirm.aspx" />
+    <Content Include="iPhone\TVGuide\TVChannel.aspx" />
+    <Content Include="iPhone\TVGuide\ChannelGroups.aspx" />
+    <Content Include="iPhone\TVGuide\MainMenu.aspx" />
+    <Content Include="iPhone\TVGuide\TVChannelDay.aspx" />
+    <Content Include="iPhone\TVGuide\TVProgram.aspx" />
+    <Content Include="iPhone\TVGuide\SearchTVGuide.aspx" />
+    <Content Include="iPhone\TVGuide\SearchTVGuideResults.aspx" />
+    <Content Include="iPhone\Streaming\StartStream.aspx" />
+    <Content Include="iPhone\TVServer\CardStatus.aspx" />
+    <Content Include="iPhone\TVServer\CardStatusMenu.aspx" />
+    <Content Include="iPhone\TVServer\CardActionConfirm.aspx" />
+    <Content Include="iPhone\TVServer\CardActionResult.aspx" />
+    <Content Include="iPhone\TVServer\TranscodeStatus.aspx" />
+    <Content Include="iPhone\TVServer\DiskStatus.aspx" />
+    <Content Include="iPhone\TVServer\MainMenu.aspx" />
+    <Content Include="iPhone\TVServer\ServiceActionConfirm.aspx" />
+    <Content Include="iPhone\TVServer\ServiceActionResult.aspx" />
+    <Content Include="iPhone\TVServer\ServiceStatus.aspx" />
+    <Content Include="iPhone\Web.config" />
+    <Content Include="iPhone\WebApp\Design\Img\big-button-red-touch.png" />
+    <Content Include="iPhone\WebApp\Design\Img\button-orange.png" />
+    <Content Include="iPhone\WebApp\Design\Img\form-head.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x1.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x10.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x11.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x12.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x2.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x3.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x4.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x5.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x6.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x7.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x8.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-gray-100x12x9.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x1.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x10.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x11.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x12.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x2.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x3.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x4.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x5.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x6.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x7.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x8.png" />
+    <Content Include="iPhone\WebApp\Design\Img\loader-white-100x12x9.png" />
+    <Content Include="iPhone\WebApp\Design\Img\next.png" />
+    <Content Include="iPhone\WebApp\Img\down.png" />
+    <Content Include="iPhone\WebApp\Img\up.png" />
+    <None Include="App_Data\uWiMP.db" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MPWebServices\MPWebServices.csproj">
+      <Project>{24FC1495-49B6-4E50-A188-D3467C639F4B}</Project>
+      <Name>MPWebServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>28063</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
