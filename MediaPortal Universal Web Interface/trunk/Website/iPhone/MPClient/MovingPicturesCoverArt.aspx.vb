@@ -81,7 +81,6 @@ Partial Public Class MovingPicturesCoverArt
 
     Private Function DisplayCoverArt(ByVal friendly As String, ByVal movieID As String) As String
 
-        'Dim imdbPath As String = "/iPhone/images/imdb"
         Dim markup As String = String.Empty
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
         mpRequest.Action = "getmovingpicture"

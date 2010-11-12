@@ -45,7 +45,6 @@ Namespace uWiMP.TVServer
                 For Each s In seriesScheds
                     If (s.IdChannel = p.IdChannel) And (s.ProgramName.ToLower = p.Title.ToLower) Then
                         Return True
-                        Exit Function
                     End If
                 Next
             End If
@@ -54,7 +53,6 @@ Namespace uWiMP.TVServer
                 For Each s In onceScheds
                     If (s.IdChannel = p.IdChannel) And (s.ProgramName.ToLower = p.Title.ToLower) And (s.StartTime = p.StartTime) Then
                         Return True
-                        Exit Function
                     End If
                 Next
             End If

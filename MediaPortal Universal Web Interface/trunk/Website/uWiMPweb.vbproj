@@ -1399,10 +1399,12 @@
     <Content Include="App_GlobalResources\uWiMPStrings.de.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.de.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.en-GB.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.en-GB.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.it.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
@@ -1412,26 +1414,32 @@
     <Content Include="App_GlobalResources\uWiMPStrings.nl.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.nl.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.da.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.da.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.no.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.no.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.fr.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.fr.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.sv.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.sv.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\uWiMPStrings.es.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.es.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
