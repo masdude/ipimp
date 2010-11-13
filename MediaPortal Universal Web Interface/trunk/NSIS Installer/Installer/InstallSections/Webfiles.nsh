@@ -60,8 +60,14 @@
   SetOutPath "$INSTDIR\Aspx\images\imdb"
   File "..\Include\Aspx\images\imdb\blankmovie.png"
 
+  SetOutPath "$INSTDIR\Aspx\images\movingpicturethumb"
+  File "..\Include\Aspx\images\movingpicturethumb\blank.png"
+
   SetOutPath "$INSTDIR\Aspx\images\music"
   File "..\Include\Aspx\images\music\blankmusic.png"
+
+  SetOutPath "$INSTDIR\Aspx\images\musicalbum"
+  File "..\Include\Aspx\images\musicalbum\blank.png"
 
   SetOutPath "$INSTDIR\Aspx\images\remote"
   File "..\Include\Aspx\images\remote\0.png"
@@ -125,8 +131,13 @@
   File "..\Include\Aspx\images\remote\yellow.png"
 
   SetOutPath "$INSTDIR\Aspx\images\tvseries"
+  File "..\Include\Aspx\images\tvseries\blank.png"
+  File "..\Include\Aspx\images\tvseries\blankbanner.png"
   File "..\Include\Aspx\images\tvseries\tvepisodeblank.png"
   File "..\Include\Aspx\images\tvseries\tvepisodeblankbanner.png"
+
+  SetOutPath "$INSTDIR\Aspx\images\videotitle"
+  File "..\Include\Aspx\images\videotitle\blank.png"
 
   SetOutPath "$INSTDIR\Aspx\iPhone"
   File "..\Include\Aspx\iPhone\Default.aspx"
