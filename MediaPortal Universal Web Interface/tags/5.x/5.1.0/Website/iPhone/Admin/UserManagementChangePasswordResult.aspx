@@ -1,1 +1,0 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="UserManagementChangePasswordResult.aspx.vb" Inherits="Website.UserManagementChangePasswordResult" %>
