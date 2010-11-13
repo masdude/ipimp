@@ -94,7 +94,7 @@ Partial Public Class TVSeriesEpisode
         Dim watched As String = CType(jo("watched"), String)
         Dim image As String = CType(jo("image"), String)
         Dim filename As String = CType(jo("filename"), String)
-        Dim imagePath As String = GetThumb(friendly, compositeID)
+        Dim imagePath As String = GetThumb(friendly, String.Format("tvepisodethumb:{0}", compositeID))
 
         markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, name)
