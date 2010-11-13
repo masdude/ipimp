@@ -1,6 +1,6 @@
 #sidebar TOC
 ----
-5.1.0 updates unclude *NOT RELEASED YET*
+5.1.0 updates unclude (13 November 2010)
  * Installer - updated to support Radio logos
  * Installer - included Italian (thanks g.sigalotti) and Spanish (thanks bodiroga) translations
  * TV transcode plugin - reverted to ffmpeg for thumbnail generation (reduced the number of utilities)
@@ -17,12 +17,14 @@
  * Web - Updated MPWebServices component to allow live streaming of files
  * Web - Added Flash player (alongside existing Silverlight player)
  * Web - Added 3rd page to remote control - numeric & channel up/down
- * Web - Updated to !SmoothStreaming 1.4.6
+ * Web - Updated to !SmoothStreaming 1.4.8
  * MP client plugin - MP clients will now auto register with iPiMP web app
  * MP client plugin - Lots & lots of changes to support [http://yatse.leetzone.org/redmine Yatse] (thanks to Tolriq for the help & patches)
  * MP client plugin - Added TV Series
- * MP client plugin - Added minimum version checks for TV Series (2.6.3), !MovingPictures (1.0.6) and !FanArt handler (2.2.0) 
+ * MP client plugin - Added minimum version checks for TV Series (2.6.3), !MovingPictures (1.0.6) and !FanArt handler (2.2.1) 
  * MP client plugin - Now returns Now Playing infor for TV Series
+ * MP client plugin - Fixed incorrect status when starting a movie or tv series
+ * MP client plugin - Now honours !MediaPortal enqueue next setting
 
 5.0.1 updates include (13th Jun 2010)
  * Web - modified !SmoothStreaming arguments for correct playback on other players
