@@ -18,6 +18,7 @@
  * Web - Added Flash player (alongside existing Silverlight player)
  * Web - Added 3rd page to remote control - numeric & channel up/down
  * Web - Updated to !SmoothStreaming 1.4.8
+ * Web - Recordings can now be streamed from source, no need to transcode first
  * MP client plugin - MP clients will now auto register with iPiMP web app
  * MP client plugin - Lots & lots of changes to support [http://yatse.leetzone.org/redmine Yatse] (thanks to Tolriq for the help & patches)
  * MP client plugin - Added TV Series
