@@ -1091,4 +1091,10 @@
 	<data name="tvseries_episode">
 		<value xml:space="preserve">Episode</value>
 	</data>
+	<data name="radio">
+		<value xml:space="preserve">Radio</value>
+	</data>
+	<data name="unknown_program">
+		<value xml:space="preserve">Unknown program</value>
+	</data>
 </root>
