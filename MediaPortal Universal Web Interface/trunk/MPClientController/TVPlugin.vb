@@ -17,8 +17,8 @@
 
 
 Imports TvDatabase
-Imports TvPlugin.TVHome
-Imports MediaPortal.GUI.Library
+Imports MediaPortal.Player
+Imports TvPlugin
 
 Namespace MPClientController
 
@@ -27,18 +27,49 @@ Namespace MPClientController
         Private Sub New()
         End Sub
 
-        Public Shared Function StartChannel(ByVal idChannel As Integer) As Boolean
+        Public Shared Function StartChannel(ByVal idChannel As Integer) As String
 
             Dim success As Boolean = False
             Try
-                GUIWindowManager.ReplaceWindow(500)
                 Dim channel As Channel = channel.Retrieve(idChannel)
-                success = ViewChannelAndCheck(channel)
+
+                If g_Player.Playing Then
+                    If Not g_Player.IsTimeShifting OrElse (g_Player.IsTimeShifting AndAlso channel.IsWebstream()) Then
+                        g_Player.Stop()
+                    End If
+                End If
+
+                If channel.IsWebstream() Then
+                    g_Player.PlayAudioStream(GetPlayPath(channel))
+                Else
+                    TVHome.ViewChannel(channel)
+
+                    If TVHome.Navigator.CurrentChannel = channel.Name AndAlso g_Player.IsRadio AndAlso g_Player.Playing Then
+                        success = True
+                    Else
+                        success = False
+                    End If
+
+                End If
+
             Catch ex As Exception
 
             End Try
 
             Return iPiMPUtils.SendBool(success)
+
+        End Function
+
+        Private Shared Function GetPlayPath(ByVal channel As Channel) As String
+
+            Dim details As IList(Of TuningDetail) = channel.ReferringTuningDetail()
+            Dim detail As TuningDetail = details(0)
+
+            If channel.IsWebstream() Then
+                Return detail.Url
+            Else
+                Return String.Format("{0}.radio", detail.Frequency)
+            End If
 
         End Function
 
