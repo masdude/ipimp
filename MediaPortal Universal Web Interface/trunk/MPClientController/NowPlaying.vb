@@ -17,12 +17,12 @@
 
 
 Imports System.IO
-Imports FanartHandler
 Imports MediaPortal.Player
 Imports MediaPortal.Music.Database
 Imports MediaPortal.Video.Database
 Imports Jayrock.Json
 Imports MediaPortal.Util
+Imports MediaPortal.GUI.Library
 
 Namespace MPClientController
 
@@ -73,20 +73,7 @@ Namespace MPClientController
                             End If
                             jw.WriteMember("fanart")
                             If isFanartHandlerPresent Then
-                                Dim Result As Hashtable = FanartHandler.Utils.GetDbm().GetFanart(song.Artist.ToLowerInvariant(), "MusicFanart", 0)
-
-                                Dim Found As Boolean = False
-                                For Each DictionaryEntry As DictionaryEntry In Result
-                                    If (DirectCast(DictionaryEntry.Value, FanartImage).Type = "MusicFanart") Then
-                                        Found = True
-                                    End If
-                                Next
-
-                                If Found Then
-                                    jw.WriteString(String.Format("{0}:{1}", "musicfanart", song.Artist.ToLowerInvariant()))
-                                Else
-                                    jw.WriteString("")
-                                End If
+                                jw.WriteString(MPCCFanArt.GetFanArtForSong(song))
                             Else
                                 jw.WriteString("")
                             End If

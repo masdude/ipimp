@@ -53,7 +53,7 @@ Namespace MPClientController
                     jw.WriteMember("filename")
                     jw.WriteString(g_Player.Player.CurrentFile)
                     jw.WriteMember("fanart")
-                    If (File.Exists(Fanart.getFanart(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeriesID)).FanartFilename)) Then
+                    If (File.Exists(FanArt.getFanart(episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeriesID)).FanartFilename)) Then
                         jw.WriteString(String.Format("{0}:{1}", "tvseriesfanart", episodeList(0).onlineEpisode.Item(DBOnlineEpisode.cSeriesID)))
                     Else
                         jw.WriteString("")
