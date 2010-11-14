@@ -105,8 +105,12 @@ Partial Public Class TVSeriesEpisode
         markup += "<ul class=""iArrow"">"
 
         markup += String.Format("<li><a href=""MPClient/TVSeriesPlay.aspx?friendly={0}&compositeID={1}#_TVSeriesPlayVideo"" rev=""async"">{2}</a></li>", friendly, compositeID, GetGlobalResourceObject("uWiMPStrings", "play"))
-        If File.Exists(filename) then markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=tvseries&id={0}#_StartStream"" rev=""async"">{1}</a></li>", HttpUtility.UrlEncode(filename), GetGlobalResourceObject("uWiMPStrings", "stream"))
-
+        If User.IsInRole("watcher") Then
+            If File.Exists(filename) Then
+                markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=tvseries&id={0}#_StartStream"" rev=""async"">{1}</a></li>", HttpUtility.UrlEncode(filename), GetGlobalResourceObject("uWiMPStrings", "stream"))
+            End If
+        End If
+        
         markup += "</ul>"
         markup += "</div>"
 
