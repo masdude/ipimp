@@ -301,15 +301,16 @@ Partial Public Class NowPlaying
     Private Function PlayingRadio(ByVal friendly As String, ByVal jo As JsonObject) As String
 
         Dim hostname As String = CType(jo("hostname"), String)
+        Dim channelName As String = CType(jo("channel"), String)
         Dim programID As Integer = uWiMP.TVServer.Cards.GetProgramIDForClient(hostname)
-        Dim program As Program = uWiMP.TVServer.Programs.GetProgramByProgramId(programID)
-        Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
-
+        Dim program As Program = Nothing
+        If programID <> -1 Then program = uWiMP.TVServer.Programs.GetProgramByProgramId(programID)
+        
         Dim imagePath As String = String.Empty
-        If programID = -1 Then
+        If channelName = "" Then
             imagePath = "<img src=""../../images/radio.png"" alt=""tv"" style=""height:200px;width:200px""/>"
         Else
-            imagePath = String.Format("<img src=""../../RadioLogos/{0}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", channel.DisplayName.ToString)
+            imagePath = String.Format("<img src=""../../RadioLogos/{0}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", channelName)
         End If
 
         Dim markup As String = String.Empty
@@ -324,12 +325,12 @@ Partial Public Class NowPlaying
         markup += "</tr>"
         markup += "<tr>"
         markup += "<td align=""center"">"
+        markup += String.Format("<b>{0}</b><br>", channelName)
 
         If programID = -1 Then
             markup += String.Format("<b>{0}</b><br>", GetGlobalResourceObject("uWiMPStrings", "unknown_program"))
         Else
             markup += String.Format("<b>{0}</b><br>", program.Title)
-            markup += String.Format("<b>{0}</b><br>", channel.Name)
             markup += String.Format("<b>{0} - {1}</b><br>", program.StartTime.ToShortTimeString, program.EndTime.ToShortTimeString)
         End If
 
@@ -345,7 +346,7 @@ Partial Public Class NowPlaying
         Else
             scheduled = ""
         End If
-        markup += String.Format("<li><a {0} href=""TVGuide/TVProgram.aspx?program={1}#_Program{1}"" rev=""async"">{2}</a></li>", scheduled, programID.ToString, GetGlobalResourceObject("uWiMPStrings", "show_program"))
+        If programID <> -1 Then markup += String.Format("<li><a {0} href=""TVGuide/TVProgram.aspx?program={1}#_Program{1}"" rev=""async"">{2}</a></li>", scheduled, programID.ToString, GetGlobalResourceObject("uWiMPStrings", "show_program"))
         markup += "</ul>"
 
         markup += "<ul class=""iArrow"">"
@@ -495,7 +496,7 @@ Partial Public Class NowPlaying
         Dim position As String = CType(jo("position"), String)
 
         Dim markup As String = String.Empty
-        
+
         markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1} - {2}</h3>", friendly, GetGlobalResourceObject("uWiMPStrings", "now_playing"), GetGlobalResourceObject("uWiMPStrings", "tvseries_episode"))
 
@@ -541,7 +542,7 @@ Partial Public Class NowPlaying
         Return markup
 
     End Function
-    
+
     Private Function PlayingNothing(ByVal friendly As String) As String
 
         Dim markup As String = String.Empty

@@ -150,6 +150,8 @@ Namespace MPClientController
                             jw.WriteString("radio")
                             jw.WriteMember("hostname")
                             jw.WriteString(System.Net.Dns.GetHostName.ToString)
+                            jw.WriteMember("channel")
+                            jw.WriteString(GUIPropertyManager.GetProperty("#Play.Current.Title"))
                         ElseIf g_Player.IsTV Or (g_Player.IsTimeShifting) Then
                             jw.WriteString("tv")
                             jw.WriteMember("hostname")
