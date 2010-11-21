@@ -130,12 +130,17 @@
     <Content Include="config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Desktop\5.0.swf" />
-    <Content Include="Desktop\Flash.htm" />
-    <Content Include="Desktop\MediaPlayerTemplate.xap" />
-    <Content Include="Desktop\Silverlight.htm" />
-    <Content Include="Desktop\SmoothStreamingProvider.swf" />
-    <Content Include="Desktop\swfobject.js" />
+    <Content Include="Desktop\Login.aspx" />
+    <Content Include="Desktop\Players\Flash\5.0.swf" />
+    <Content Include="Desktop\ProgramDetails.aspx" />
+    <Content Include="Desktop\css\desktop.css" />
+    <Content Include="Desktop\Players\Flash\Flash.htm" />
+    <Content Include="Desktop\Players\Silverlight\MediaPlayerTemplate.xap" />
+    <Content Include="Desktop\Players\Silverlight\Silverlight.htm" />
+    <Content Include="Desktop\Players\Flash\SmoothStreamingProvider.swf" />
+    <Content Include="Desktop\Players\Flash\swfobject.js" />
+    <Content Include="Desktop\TVGuide.aspx" />
+    <Content Include="images\iPiMP logo.png" />
     <Content Include="images\movingpicturethumb\blank.png" />
     <Content Include="images\musicalbum\blank.png" />
     <Content Include="images\remote\flash.png" />
@@ -242,19 +247,26 @@
       <DependentUpon>DefaultLogin.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Desktop\Default.aspx.designer.vb">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Desktop\Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Desktop\Default.aspx.vb">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Desktop\Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Desktop\Desktop.Master.designer.vb">
-      <DependentUpon>Desktop.Master</DependentUpon>
+    <Compile Include="Desktop\ProgramDetails.aspx.designer.vb">
+      <DependentUpon>ProgramDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Desktop\Desktop.Master.vb">
-      <DependentUpon>Desktop.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Desktop\ProgramDetails.aspx.vb">
+      <DependentUpon>ProgramDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Desktop\TVGuide.aspx.designer.vb">
+      <DependentUpon>TVGuide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\TVGuide.aspx.vb">
+      <DependentUpon>TVGuide.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="iPhone\Admin\AboutiPiMP.aspx.designer.vb">
       <DependentUpon>AboutiPiMP.aspx</DependentUpon>
@@ -1450,8 +1462,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DefaultLogin.aspx" />
-    <Content Include="Desktop\Default.aspx" />
-    <Content Include="Desktop\Desktop.Master" />
     <Content Include="Desktop\scripts\wz_tooltip.js" />
     <Content Include="images\dvd.png" />
     <Content Include="images\imdb\blankmovie.png" />

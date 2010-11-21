@@ -23,8 +23,8 @@ Public Partial Class DefaultLogin
 
         Dim UA As String = Request.UserAgent
 
-        If UA.ToLower.Contains("webkit") Then
-            Response.Redirect("/iPhone/Login.aspx")
+        If UA.ToLower.Contains("msie") Then
+            Response.Redirect("/Desktop/Login.aspx")
         Else
             Response.Redirect("/iPhone/Login.aspx")
         End If

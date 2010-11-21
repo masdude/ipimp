@@ -15,16 +15,28 @@
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
 
-
-Imports TvDatabase
-
-Partial Public Class Desktop
-    Inherits System.Web.UI.MasterPage
+Public Class DesktopLogin
+    Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        Page.Title = "Universal Web Interface for MediaPortal"
-
     End Sub
 
+    Protected Sub LoginButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
+        Dim MembershipProvider As uWiMP.TVServer.SQLiteMembershipProvider = DirectCast(Membership.Providers("SQLiteMembershipProvider"), uWiMP.TVServer.SQLiteMembershipProvider)
+        Dim validuser As Boolean = Membership.ValidateUser(Username.Text, Password.Text)
+        Label4.Text = "TEST"
+        If validuser Then
+            FormsAuthentication.SetAuthCookie(Username.Text, CheckBox1.Checked)
+            Response.Redirect("TVGuide.aspx")
+        Else
+            Label4.Text = "Login failed! Retry"
+            Label4.ForeColor = Drawing.Color.Red
+        End If
+    End Sub
+
+
+    Protected Sub UserName_TextChanged(ByVal sender As Object, ByVal e As EventArgs)
+
+    End Sub
 End Class
