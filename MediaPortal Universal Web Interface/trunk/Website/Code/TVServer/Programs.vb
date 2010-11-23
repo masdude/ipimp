@@ -69,6 +69,16 @@ Namespace uWiMP.TVServer
 
         End Function
 
+        Public Shared Function GetProgramsByChannel(ByVal idChannel As Integer, ByVal start As DateTime, ByVal hours As Integer) As List(Of Program)
+
+            Dim layer As New TvBusinessLayer
+            Dim c As Channel = Channels.GetChannelByChannelId(idChannel)
+            Dim programs As List(Of Program) = layer.GetPrograms(c, start, start.AddHours(hours))
+
+            Return programs
+
+        End Function
+
         Public Shared Function GetProgramsByGroup(ByVal idGroup As Integer, Optional ByVal isTV As Boolean = True) As List(Of Program)
 
             Dim programs As New List(Of Program)

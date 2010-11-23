@@ -11,9 +11,24 @@
     <script type="text/javascript" src="scripts/wz_tooltip.js"></script>
     <form id="form1" runat="server">
         <div>
-            <asp:Hyperlink ID="link" runat="server" />
-            <asp:DropDownList ID="ddlChannels" runat="server" AutoPostBack="true" />
-            <asp:DropDownList ID="ddlHours" runat="server" AutoPostBack="true" />
+            <asp:Table ID="table1" runat="server" Width="100%">
+                <asp:TableRow ID="row1" runat="server">
+                    <asp:TableCell ID="TableCell1" runat="server" Width="10%" VerticalAlign="middle">
+                        <asp:Hyperlink ID="link" runat="server" />
+                    </asp:TableCell>
+                    <asp:TableCell ID="TableCell2" runat="server" Width="20%" VerticalAlign="middle">
+                        <asp:Literal ID="litChannelGroups" runat="server" />
+                    </asp:TableCell>
+                    <asp:TableCell ID="TableCell4" runat="server" Width="40%" HorizontalAlign="center">
+                        <asp:Button ID="Button1" runat="server" Text="<<" CssClass="button" />&nbsp;
+                        <asp:Button ID="Button2" runat="server" Text="<" CssClass="button" />&nbsp;
+                        <asp:Label ID="Label3" runat="server" />&nbsp;
+                        <asp:Button ID="Button3" runat="server" Text=">" CssClass="button" />&nbsp;
+                        <asp:Button ID="Button4" runat="server" Text=">>" CssClass="button" />
+                    </asp:TableCell>
+                    <asp:TableCell ID="TableCell5" runat="server" Width="30%"></asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
         </div>
         <div>
             <asp:PlaceHolder ID="ph1" runat="server"></asp:PlaceHolder>

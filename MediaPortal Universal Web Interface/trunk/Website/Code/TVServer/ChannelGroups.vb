@@ -46,6 +46,15 @@ Namespace uWiMP.TVServer
 
         End Function
 
+        Public Shared Function GetFirstChannelGroupName() As String
+
+            Dim cg As New List(Of ChannelGroup)
+            cg = ChannelGroup.ListAll
+
+            Return cg(0).GroupName
+
+        End Function
+
     End Class
 
     Public Class ChannelGroupsGroupNameComparer

@@ -4,8 +4,32 @@ Public Class TVGuide
     Inherits System.Web.UI.Page
 
     Const MAXMINUTES As Integer = 900
+    Dim startTime As DateTime
+    Private _channelGroup As String
+    Private _period As Integer
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        For Each item In Request.QueryString.AllKeys
+            If item.ToLower = "cg" Then _channelGroup = Request.QueryString("cg")
+            If item.ToLower = "hr" Then _channelGroup = Request.QueryString("hr")
+        Next
+
+        If Session("starttime") IsNot Nothing Then
+            startTime = CDate(Session("starttime"))
+        End If
+
+        If Session("cg") IsNot Nothing Then
+            _channelGroup = CStr(Session("cg"))
+        Else
+            _channelGroup = uWiMP.TVServer.ChannelGroups.GetFirstChannelGroupName
+        End If
+
+        If Session("hr") IsNot Nothing Then
+            _period = CInt(Session("hr"))
+        Else
+            _period = 3
+        End If
 
         If Not Page.IsPostBack Then
 
@@ -16,50 +40,88 @@ Public Class TVGuide
 
             link.ImageUrl = "https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif"
             link.NavigateUrl = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6722080"
+
+            startTime = Now
+
             LoadDropDownLists()
             LoadTVGuide()
 
         End If
+
+        Session("starttime") = startTime
+        Session("cg") = _channelGroup
+        Session("hr") = _period
 
     End Sub
 
     Private Sub LoadDropDownLists()
 
         Dim channelGroups As List(Of ChannelGroup) = uWiMP.TVServer.ChannelGroups.GetChannelGroups
+        Dim menu1 As String = String.Empty
+        menu1 += "<ul id=""nav"">"
 
+        menu1 += String.Format("<li><a href=""#"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "channel_groups"))
+        menu1 += "<ul>"
         If Not channelGroups Is Nothing Then
             For Each cg As ChannelGroup In channelGroups
-                Dim item As New ListItem
-                item.Text = cg.GroupName
-                item.Value = cg.IdGroup
-                ddlChannels.Items.Add(item)
+                menu1 += String.Format("<li><a href=""TVGuide.aspx?cg={0}"">{1}</a></li> ", cg.IdGroup, cg.GroupName)
             Next
-            ddlChannels.SelectedIndex = 0
         Else
-            ddlChannels.Items.Add("Error")
+            menu1 += String.Format("<li><a href=""#"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "no_channel_groups"))
         End If
+        menu1 += "</ul>"
+        menu1 += "</li>"
 
+        menu1 += String.Format("<li><a href=""#"">{0}</a>", GetGlobalResourceObject("uWiMPStrings", "hours"))
+        menu1 += "<ul>"
         For i As Integer = 3 To 6
-            Dim item As New ListItem
-            item.Text = i.ToString & "hours"
-            item.Value = i.ToString
-            ddlHours.Items.Add(item)
+            menu1 += String.Format("<li><a href=""TVGuide.aspx?hr={0}"">{1} {2}</a></li>", i.ToString, i.ToString, GetGlobalResourceObject("uWiMPStrings", "hours"))
         Next
-        ddlHours.SelectedIndex = 0
+        menu1 += "</ul>"
+        menu1 += "</li>"
 
+        menu1 += "</ul>"
+
+        litChannelGroups.Text = menu1
     End Sub
+
+    'Private Sub LoadDropDownLists2()
+
+    'Dim channelGroups As List(Of ChannelGroup) = uWiMP.TVServer.ChannelGroups.GetChannelGroups
+
+    '    If Not channelGroups Is Nothing Then
+    '        For Each cg As ChannelGroup In channelGroups
+    'Dim item As New ListItem
+    '            item.Text = cg.GroupName
+    '            item.Value = cg.IdGroup
+    '            ddlChannels.Items.Add(item)
+    '        Next
+    '        ddlChannels.SelectedIndex = 0
+    '    Else
+    '        ddlChannels.Items.Add("Error")
+    '    End If
+
+    '    For i As Integer = 3 To 6
+    'Dim item As New ListItem
+    '        item.Text = i.ToString & "hours"
+    '        item.Value = i.ToString
+    '        ddlHours.Items.Add(item)
+    '    Next
+    '    ddlHours.SelectedIndex = 0
+
+    'End Sub
 
     Private Sub LoadTVGuide()
 
         Dim idGroup As Integer
 
-        If (ddlChannels.SelectedValue = "") Or (ddlChannels.SelectedValue.ToLower = "error") Then
-            Exit Sub
-        Else
-            idGroup = CInt(ddlChannels.SelectedValue)
-        End If
+            For Each Group As ChannelGroup In uWiMP.TVServer.ChannelGroups.GetChannelGroups
+                If Group.GroupName.ToLower = _channelGroup.ToLower Then
+                    idGroup = Group.IdGroup
+                    Exit For
+                End If
+            Next
 
-        Dim channelGroup As ChannelGroup = uWiMP.TVServer.ChannelGroups.GetChannelGroupByGroupId(idGroup)
         Dim channels As List(Of Channel) = uWiMP.TVServer.Channels.GetChannelsByGroupId(idGroup)
 
         InsertTimeRow()
@@ -87,8 +149,7 @@ Public Class TVGuide
             cell.Controls.Add(channelImage)
             row.Cells.Add(cell)
 
-            Dim programs As List(Of Program) = uWiMP.TVServer.Programs.GetProgramsByChannel(channel.IdChannel, CInt(ddlHours.SelectedValue))
-            Dim width As Integer = MAXMINUTES / CInt(ddlHours.SelectedValue)
+            Dim programs As List(Of Program) = uWiMP.TVServer.Programs.GetProgramsByChannel(channel.IdChannel, startTime, _period)
             Dim mins As Integer
             Dim minsleft As Integer = MAXMINUTES
 
@@ -104,21 +165,21 @@ Public Class TVGuide
                         pc.CssClass = cssClass
                     End If
 
-                    If (p.StartTime > Now.AddMinutes(ddlHours.SelectedValue * 60)) Then
+                    If (p.StartTime > startTime.AddMinutes(_period * 60)) Then
                         Exit For
-                    ElseIf (p.StartTime < Now) And (p.EndTime > Now.AddMinutes(ddlHours.SelectedValue * 60)) Then
+                    ElseIf (p.StartTime < startTime) And (p.EndTime > startTime.AddMinutes(_period * 60)) Then
                         mins = minsleft
-                    ElseIf (p.StartTime < Now) And (p.EndTime < Now.AddMinutes(ddlHours.SelectedValue * 60)) Then
-                        mins = (p.EndTime - Now).TotalMinutes
-                    ElseIf (p.StartTime > Now) And (p.EndTime < Now.AddMinutes(ddlHours.SelectedValue * 60)) Then
+                    ElseIf (p.StartTime < startTime) And (p.EndTime < startTime.AddMinutes(_period * 60)) Then
+                        mins = (p.EndTime - startTime).TotalMinutes
+                    ElseIf (p.StartTime > startTime) And (p.EndTime < startTime.AddMinutes(_period * 60)) Then
                         mins = (p.EndTime - p.StartTime).TotalMinutes
-                    ElseIf (p.StartTime > Now) And (p.EndTime > Now.AddMinutes(ddlHours.SelectedValue * 60)) Then
-                        mins = (Now.AddMinutes(ddlHours.SelectedValue * 60) - p.StartTime).TotalMinutes
+                    ElseIf (p.StartTime > startTime) And (p.EndTime > startTime.AddMinutes(_period * 60)) Then
+                        mins = (startTime.AddMinutes(_period * 60) - p.StartTime).TotalMinutes
                     End If
 
                     minsleft -= mins
 
-                    pc.Width = Unit.Percentage((mins / (ddlHours.SelectedValue * 60)) * 100)
+                    pc.Width = Unit.Percentage((mins / (_period * 60)) * 100)
                     pc.Height = Unit.Pixel(40)
 
                     row.Cells.Add(pc)
@@ -143,6 +204,8 @@ Public Class TVGuide
 
         Next
 
+        Label3.Text = String.Format("{0} - {1}-{2}", startTime.ToShortDateString, startTime.ToShortTimeString, (startTime.AddHours(_period)).ToShortTimeString)
+
     End Sub
 
     Private Sub InsertTimeRow()
@@ -156,15 +219,15 @@ Public Class TVGuide
         row.Cells.Add(cell1)
 
         Dim cellWidth As Integer
-        Dim width As Integer = MAXMINUTES / CInt(ddlHours.SelectedValue)
+        Dim width As Integer = MAXMINUTES / _period
 
-        For i As Integer = 0 To CInt(ddlHours.SelectedValue)
+        For i As Integer = 0 To _period
 
             Dim cell As New TableCell
             Dim hh, mm As Integer
 
-            hh = Now.Hour
-            mm = Now.Minute
+            hh = startTime.Hour
+            mm = startTime.Minute
             Dim text As String
             If hh + i = 12 Then
                 text = String.Format("{0}pm", hh + i)
@@ -180,12 +243,12 @@ Public Class TVGuide
 
             If i = 0 Then
                 cellWidth = CInt(width - (width * (mm / 60)))
-            ElseIf i = CInt(ddlHours.SelectedValue) Then
+            ElseIf i = CInt(_period) Then
                 cellWidth = CInt(width * (mm / 60))
             Else
                 cellWidth = CInt(width)
             End If
-            cell.Width = Unit.Percentage((cellWidth / width) * (100 / ddlHours.SelectedValue))
+            cell.Width = Unit.Percentage((cellWidth / width) * (100 / _period))
             cell.CssClass = "rounded-corners darkgrey largerwhite"
             row.Cells.Add(cell)
         Next
@@ -219,11 +282,37 @@ Public Class TVGuide
 
     End Function
 
-    Private Sub cgListChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ddlChannels.SelectedIndexChanged
+    'Private Sub cgListChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ddlChannels.SelectedIndexChanged
+    '    Session("starttime") = startTime
+    '    LoadTVGuide()
+    'End Sub
+
+    'Private Sub hListChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ddlHours.SelectedIndexChanged
+    '    Session("starttime") = startTime
+    '    LoadTVGuide()
+    'End Sub
+
+    Private Sub PreviousDay(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
+        startTime = startTime.AddDays(-1)
+        Session("starttime") = startTime
         LoadTVGuide()
     End Sub
 
-    Private Sub hListChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ddlHours.SelectedIndexChanged
+    Private Sub PreviousPeriod(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
+        startTime = startTime.AddHours(_period)
+        Session("starttime") = startTime
+        LoadTVGuide()
+    End Sub
+
+    Private Sub NextPeriod(ByVal sender As Object, ByVal e As EventArgs) Handles Button3.Click
+        startTime = startTime.AddHours(_period)
+        Session("starttime") = startTime
+        LoadTVGuide()
+    End Sub
+
+    Private Sub NextDay(ByVal sender As Object, ByVal e As EventArgs) Handles Button4.Click
+        startTime = startTime.AddDays(1)
+        Session("starttime") = startTime
         LoadTVGuide()
     End Sub
 
