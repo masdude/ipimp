@@ -8,7 +8,7 @@
  %comspec% /c netstat -abnop TCP > c:\netstat.txt<br>
  %comspec% /c dir "%programfiles%\ipimp" /o:n /s > c:\ipimpfiles.txt<br>
 
- Once complete collect the following files, then zip & [http://forum.team-mediaportal.com/community-plugins-294/v2-0-1-iphone-interface-mediaportal-ipimp-46556/index999.html post] them:
+ Once complete collect the following files, then zip & [http://forum.team-mediaportal.com/ipimp-518/ post] them:
 
  %appdata%\Team !MediaPortal\!MediaPortal\log\error.log<br>
  %appdata%\Team !MediaPortal\!MediaPortal\log\!MediaPortal.log<br>
