@@ -1,7 +1,8 @@
+#labels Featured
 #sidebar TOC
  * *Log gathering*
 
- To help with troubleshooting stop !MediaPortal, start !MediaPortal, retry what you were attempting in !MediaPortal, then run the following commands...
+ To help with troubleshooting stop !MediaPortal, set your logging level to Debug, start !MediaPortal, retry what you were attempting in !MediaPortal, then run the following commands...
 
  %comspec% /c ipconfig /all > c:\ipconfig.txt<br>
  %comspec% /c netstat -abnop TCP > c:\netstat.txt<br>
