@@ -2,13 +2,18 @@
 #sidebar TOC
  * *Log gathering*
 
- To help with troubleshooting stop !MediaPortal, set your logging level to Debug, start !MediaPortal, retry what you were attempting in !MediaPortal, then run the following commands...
+To help with troubleshooting you need to recreate the issue with debug logging enabled...
+ # Stop !MediaPortal
+ # Set your logging level to Debug
+ # Start !MediaPortal
+ # Retry what you were attempting in !MediaPortal
+ # Then run the following commands...
 
  %comspec% /c ipconfig /all > c:\ipconfig.txt<br>
  %comspec% /c netstat -abnop TCP > c:\netstat.txt<br>
  %comspec% /c dir "%programfiles%\ipimp" /o:n /s > c:\ipimpfiles.txt<br>
 
- Once complete collect the following files, then zip & [http://forum.team-mediaportal.com/ipimp-518/ post] them:
+Once complete collect the following files, then zip & [http://forum.team-mediaportal.com/ipimp-518/ post] them:
 
  %appdata%\Team !MediaPortal\!MediaPortal\log\error.log<br>
  %appdata%\Team !MediaPortal\!MediaPortal\log\!MediaPortal.log<br>
