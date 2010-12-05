@@ -24,6 +24,7 @@ Once complete collect the following files, then zip & [http://forum.team-mediapo
  C:\Program Files\iPiMP\apache\logs\error.log<br>
  C:\Program Files\iPiMP\apache\logs\access.log<br>
  C:\Program Files\iPiMP\aspx\web.config<br>
+ C:\Program Files\iPiMP\aspx\App_Data\uWiMP.db<br>
  C:\ipconfig.txt<br>
  C:\netstat.txt<br>
  C:\ipimpfiles.txt<br>
