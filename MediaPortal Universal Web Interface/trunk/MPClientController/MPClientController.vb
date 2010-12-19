@@ -268,7 +268,11 @@ Namespace MPClientController
                     For Each address As String In broadcastAddresses
                         broadcastAddress = IPAddress.Parse(address)
                         Dim endpoint As New IPEndPoint(broadcastAddress, DEFAULT_PORT)
-                        socket.SendTo(sendbuf, endpoint)
+                        Try
+                            socket.SendTo(sendbuf, endpoint)
+                        Catch ex As Exception
+                            Log.Debug("plugin: MPClientController - exception sending iPiMP ping: {0}", ex.Message)
+                        End Try
                         Log.Debug("plugin: MPClientController - iPiMP ping on {0}", address)
                     Next
                     Log.Debug("plugin: MPClientController - iPiMP ping data {0}", Encoding.ASCII.GetString(sendbuf))
