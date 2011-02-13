@@ -137,7 +137,7 @@ Partial Public Class NowPlaying
         markup += "<div class=""iBlock"">"
         markup += "<table class=""imdbtable"">"
         markup += "<tr>"
-        markup += String.Format("<td align=""center""><img src=""{0}"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", GetThumb(friendly, thumb))
+        If thumb.Length > 0 Then markup += String.Format("<td align=""center""><img src=""{0}"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/></td>", GetThumb(friendly, thumb))
         markup += "</tr>"
         markup += "<tr>"
         markup += String.Format("<td align=""center""><b>{0}</b><br>", artist)
