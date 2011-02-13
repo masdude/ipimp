@@ -21,6 +21,7 @@ Imports System.Net
 Imports System.Math
 Imports System.Web.Configuration
 Imports System.ServiceProcess
+Imports TvLibrary.Log
 
 Namespace uWiMP.TVServer
 
@@ -168,6 +169,16 @@ Namespace uWiMP.TVServer
             End Select
 
         End Function
+
+        Public Shared Sub TVLog(ByVal logMessage As String)
+
+            Try
+                TvLibrary.Log.Log.Info(logMessage)
+            Catch ex As Exception
+
+            End Try
+
+        End Sub
 
     End Class
 
