@@ -108,6 +108,8 @@ Partial Public Class TVSeriesEpisode
         If User.IsInRole("watcher") Then
             If File.Exists(filename) Then
                 markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=tvseries&id={0}#_StartStream"" rev=""async"">{1}</a></li>", HttpUtility.UrlEncode(filename), GetGlobalResourceObject("uWiMPStrings", "stream"))
+            Else
+                uWiMP.TVServer.Utilities.TVLog(String.Format("Could not find file {0}", filename))
             End If
         End If
         
