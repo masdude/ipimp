@@ -15,7 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Default.aspx.vb" Inherits="Website._Default" %>
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Default.aspx.vb" Inherits="Website._iPhoneDefault" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -25,6 +25,7 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="stylesheet" href="WebApp/Design/Render.css" />
+	<link rel="stylesheet" href="WebApp/Design/Firefox.css" />
     <link rel="Stylesheet" href="Scripts/remote.css" />
     <link rel="Stylesheet" href="Scripts/starbar.css" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
