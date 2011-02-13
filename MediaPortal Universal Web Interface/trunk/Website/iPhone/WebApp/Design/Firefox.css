@@ -120,6 +120,7 @@ b.iToggle b {
 *:not(.iPush).iBWarn 	{ -moz-border-image: url(Img/button-red.png) 0 10 0 10; }
 *:not(.iPush).iBClassic	{ -moz-border-image: url(Img/button-simple.png) 0 10 0 10; }
 *:not(.iPush).iBAction	{ -moz-border-image: url(Img/button-blue.png) 0 10 0 10; }
+*:not(.iPush).iBOrange   {-moz-border-image: url(Img/button-orange.png) 0 10 0 10}
 
 .iPush:active	{ -moz-border-image:url(Img/big-button-select.png) 0 12 0 12 !important }
 .iPush.iBWarn 	{ -moz-border-image:url(Img/big-button-red.png) 0 12 0 12 }
