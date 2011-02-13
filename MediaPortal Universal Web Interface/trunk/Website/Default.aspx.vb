@@ -16,7 +16,7 @@
 ' 
 
 
-Public Partial Class _Default1
+Partial Public Class _MainDefault
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -24,7 +24,7 @@ Public Partial Class _Default1
         Dim UA As String = Request.UserAgent
 
         If UA.ToLower.Contains("msie") Then
-            Response.Redirect("/Desktop/TVGuide.aspx")
+            Response.Redirect("/Desktop/Default.aspx")
         Else
             Response.Redirect("/iPhone/Default.aspx")
         End If

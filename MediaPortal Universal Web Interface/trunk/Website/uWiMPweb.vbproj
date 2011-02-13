@@ -130,6 +130,10 @@
     <Content Include="config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Desktop\css\ajax-loader.gif" />
+    <Content Include="Desktop\Logout.aspx" />
+    <Content Include="Desktop\RecordProgram.aspx" />
+    <Content Include="Desktop\Default.aspx" />
     <Content Include="Desktop\Login.aspx" />
     <Content Include="Desktop\Players\Flash\5.0.swf" />
     <Content Include="Desktop\ProgramDetails.aspx" />
@@ -139,7 +143,8 @@
     <Content Include="Desktop\Players\Silverlight\Silverlight.htm" />
     <Content Include="Desktop\Players\Flash\SmoothStreamingProvider.swf" />
     <Content Include="Desktop\Players\Flash\swfobject.js" />
-    <Content Include="Desktop\TVGuide.aspx" />
+    <Content Include="Desktop\scripts\jquery.tools.min.js" />
+    <Content Include="Desktop\SearchTVGuide.aspx" />
     <Content Include="images\iPiMP logo.png" />
     <Content Include="images\movingpicturethumb\blank.png" />
     <Content Include="images\musicalbum\blank.png" />
@@ -247,6 +252,27 @@
       <DependentUpon>DefaultLogin.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Desktop\Logout.aspx.designer.vb">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\Logout.aspx.vb">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Desktop\RecordProgram.aspx.designer.vb">
+      <DependentUpon>RecordProgram.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\RecordProgram.aspx.vb">
+      <DependentUpon>RecordProgram.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Desktop\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Desktop\Login.aspx.designer.vb">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
@@ -261,11 +287,11 @@
       <DependentUpon>ProgramDetails.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Desktop\TVGuide.aspx.designer.vb">
-      <DependentUpon>TVGuide.aspx</DependentUpon>
+    <Compile Include="Desktop\SearchTVGuide.aspx.designer.vb">
+      <DependentUpon>SearchTVGuide.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Desktop\TVGuide.aspx.vb">
-      <DependentUpon>TVGuide.aspx</DependentUpon>
+    <Compile Include="Desktop\SearchTVGuide.aspx.vb">
+      <DependentUpon>SearchTVGuide.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="iPhone\Admin\AboutiPiMP.aspx.designer.vb">
@@ -1462,7 +1488,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DefaultLogin.aspx" />
-    <Content Include="Desktop\scripts\wz_tooltip.js" />
     <Content Include="images\dvd.png" />
     <Content Include="images\imdb\blankmovie.png" />
     <Content Include="images\MP-logo.png" />
@@ -1697,6 +1722,7 @@
     <Content Include="iPhone\WebApp\Img\down.png" />
     <Content Include="iPhone\WebApp\Img\up.png" />
     <None Include="App_Data\uWiMP.db" />
+    <Content Include="Desktop\Web.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

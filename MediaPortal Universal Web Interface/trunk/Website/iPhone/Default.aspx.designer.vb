@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class _Default
+Partial Public Class _iPhoneDefault
 
     '''<summary>
     '''litTitle control.

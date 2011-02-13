@@ -68,29 +68,11 @@ Partial Public Class ProgramDetails
     Protected WithEvents Cell1 As Global.System.Web.UI.WebControls.TableCell
 
     '''<summary>
-    '''rbl control.
+    '''ddl control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rbl As Global.System.Web.UI.WebControls.RadioButtonList
-
-    '''<summary>
-    '''Cell2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Cell2 As Global.System.Web.UI.WebControls.TableCell
-
-    '''<summary>
-    '''Btn1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Btn1 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents ddl As Global.System.Web.UI.WebControls.DropDownList
 End Class
