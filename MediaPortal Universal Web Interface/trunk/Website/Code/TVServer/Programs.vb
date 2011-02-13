@@ -99,6 +99,58 @@ Namespace uWiMP.TVServer
 
         End Function
 
+        Public Shared Function SearchPrograms(ByVal groupID As String, ByVal genre As String, ByVal search As String, ByVal searchDesc As Boolean, ByVal TVOrRadio As String) As List(Of Program)
+
+            Dim programs As List(Of Program) = Nothing
+            If groupID = -1 Then
+                programs = Program.ListAll
+            Else
+                programs = GetProgramsByGroup(CInt(groupID))
+            End If
+
+            Dim channel As Channel = Nothing
+            Dim p As Program = Nothing
+            Dim matchedPrograms As New List(Of Program)
+
+            Dim regexPattern = "[\\\/:\*\?""'<>|] "
+            Dim oRegEx As New Regex(regexPattern)
+            Dim title As String = String.Empty
+            Dim desc As String = String.Empty
+
+            For Each p In programs
+                If (genre.ToLower = p.Genre.ToLower) Or (genre.ToLower = "all") Then
+
+                    title = oRegEx.Replace(p.Title, "")
+                    If InStr(title.ToLower, search.ToLower) > 0 Then
+                        channel = uWiMP.TVServer.Channels.GetChannelByChannelId(p.IdChannel)
+                        If TVOrRadio.ToLower = "tv" And channel.IsTv Then
+                            matchedPrograms.Add(p)
+                        ElseIf TVOrRadio.ToLower = "radio" And channel.IsRadio Then
+                            matchedPrograms.Add(p)
+                        End If
+                    End If
+
+                    If searchDesc Then
+                        desc = oRegEx.Replace(p.Description, "")
+                        If InStr(desc.ToLower, search.ToLower) > 0 Then
+                            channel = uWiMP.TVServer.Channels.GetChannelByChannelId(p.IdChannel)
+                            If TVOrRadio.ToLower = "tv" And channel.IsTv Then
+                                If Not matchedPrograms.Contains(p) Then matchedPrograms.Add(p)
+                            ElseIf TVOrRadio.ToLower = "radio" And channel.IsRadio Then
+                                If Not matchedPrograms.Contains(p) Then matchedPrograms.Add(p)
+                            End If
+                        End If
+                    End If
+
+                End If
+            Next
+
+            If matchedPrograms.Count > 1 Then matchedPrograms.Sort(New ProgramStartTimeComparer)
+
+            Return matchedPrograms
+
+        End Function
+
     End Class
 
     Public Class ProgramStartTimeComparer
