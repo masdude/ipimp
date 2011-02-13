@@ -51,7 +51,7 @@ Namespace uWiMP.TVServer
             Dim cg As New List(Of ChannelGroup)
             cg = ChannelGroup.ListAll
 
-            Return cg(0).GroupName
+            Return cg(0).IdGroup
 
         End Function
 

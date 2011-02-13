@@ -85,16 +85,16 @@ Public Class Global_asax
 
     Sub Application_Error(ByVal sender As Object, ByVal e As EventArgs)
         ' Fires when an error occurs
-        Dim ex As Exception = Server.GetLastError.GetBaseException()
-        Application("fubar") = ex
-        Server.ClearError()
-        Dim UA As String = Request.UserAgent
+        'Dim ex As Exception = Server.GetLastError.GetBaseException()
+        'Application("fubar") = ex
+        'Server.ClearError()
+        'Dim UA As String = Request.UserAgent
 
-        If UA.ToLower.Contains("webkit") Then
-            Server.Transfer("~/iPhone/Error.aspx")
-        Else
-            Server.Transfer("~/iPhone/Error.aspx")
-        End If
+        'If UA.ToLower.Contains("webkit") Then
+        '    Server.Transfer("~/iPhone/Error.aspx")
+        'Else
+        '    Server.Transfer("~/iPhone/Error.aspx")
+        'End If
 
     End Sub
 

@@ -15,44 +15,36 @@
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
 
-Imports TvDatabase
 Imports Jayrock.Json
 
-Public Class ProgramDetails
+Public Class RecordProgram
     Inherits System.Web.UI.Page
-
-
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Response.ContentType = "application/json"
 
         Dim programID As String = Request.QueryString("programID")
-        Dim program As Program = uWiMP.TVServer.Programs.GetProgramByProgramId(CInt(programID))
-        Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
+        Dim recordOption As String = Request.QueryString("option")
+        Dim success As Boolean
 
-        Dim timetext As String = String.Format("<b>{0}-{1}</b><br>", program.StartTime.ToShortTimeString, program.EndTime.ToShortTimeString)
-        Dim title As String = IIf(program.Title = "", GetGlobalResourceObject("uWiMPStrings", "unknown_title"), program.Title)
-        Dim episodeName As String = IIf(program.EpisodeName = "", timetext, timetext & "<b>" & program.EpisodeName & "</b><br>")
-        Dim description As String = IIf(program.Description = "", GetGlobalResourceObject("uWiMPStrings", "description_not_found"), episodeName & program.Description)
-
+        If User.IsInRole("recorder") Then
+            success = uWiMP.TVServer.Recordings.RecordProgramById(CInt(programID), CInt(recordOption))
+        Else
+            success = False
+        End If
+        
         Using jw As New JsonTextWriter()
 
             jw.PrettyPrint = True
             jw.WriteStartObject()
-            jw.WriteMember("title")
-            jw.WriteString(title)
-            jw.WriteMember("description")
-            jw.WriteString(description)
-            jw.WriteMember("channel")
-            jw.WriteString(channel.Name)
-            jw.WriteMember("running")
-            jw.WriteBoolean(program.IsRunningAt(Now))
+            jw.WriteMember("result")
+            jw.WriteBoolean(success)
             jw.WriteEndObject()
 
             Response.Write(jw.ToString)
         End Using
-        
+
     End Sub
 
 End Class

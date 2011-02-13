@@ -1097,4 +1097,10 @@
 	<data name="unknown_program">
 		<value xml:space="preserve">Unknown program</value>
 	</data>
+	<data name="desktop">
+		<value xml:space="preserve">Desktop site</value>
+	</data>
+	<data name="close">
+		<value xml:space="preserve">Close</value>
+	</data>
 </root>

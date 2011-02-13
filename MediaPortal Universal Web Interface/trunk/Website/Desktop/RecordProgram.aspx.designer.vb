@@ -11,14 +11,5 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class _MainDefault
-
-    '''<summary>
-    '''form1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+Partial Public Class RecordProgram
 End Class

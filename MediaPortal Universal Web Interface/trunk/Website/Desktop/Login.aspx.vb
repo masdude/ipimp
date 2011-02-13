@@ -25,18 +25,14 @@ Public Class DesktopLogin
     Protected Sub LoginButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         Dim MembershipProvider As uWiMP.TVServer.SQLiteMembershipProvider = DirectCast(Membership.Providers("SQLiteMembershipProvider"), uWiMP.TVServer.SQLiteMembershipProvider)
         Dim validuser As Boolean = Membership.ValidateUser(Username.Text, Password.Text)
-        Label4.Text = "TEST"
+
         If validuser Then
             FormsAuthentication.SetAuthCookie(Username.Text, CheckBox1.Checked)
-            Response.Redirect("TVGuide.aspx")
+            Response.Redirect("Default.aspx")
         Else
             Label4.Text = "Login failed! Retry"
             Label4.ForeColor = Drawing.Color.Red
         End If
     End Sub
 
-
-    Protected Sub UserName_TextChanged(ByVal sender As Object, ByVal e As EventArgs)
-
-    End Sub
 End Class

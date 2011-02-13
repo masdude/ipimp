@@ -1,6 +1,11 @@
-﻿table
+﻿body
 {
     font-family: Tahoma;
+    background-color:#C0C0C0;
+}
+
+table
+{
     font-weight: bold;
     border-spacing: 4;
     table-layout: fixed;
@@ -18,6 +23,11 @@ div.programtitle
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.hidden
+{
+    display: none;
 }
 
 .rounded-corners 
@@ -102,14 +112,15 @@ div.programtitle
 
 .button 
 {
-	font-size:20px;
-	font-weight: bolder;
-	color:#000;
+	font-size:inherit;
+	font-weight: bold;
+	color:#fff;
 	text-decoration:none;
-	width:30px;
-	border:1px solid #DDD;
 	text-align:center;
+    background:#404040;
     padding: 3px;
+    margin-top: 5px;
+    border-style:hidden;
     
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -117,18 +128,38 @@ div.programtitle
 	border-radius:5px;
 }
 
+.smallbutton
+{
+    width:35px;
+}
+
+.orangebutton
+{
+    background: #FF8C00;
+}
+
+.redbutton
+{
+    background: #C00000;
+}
+
 .button:hover 
 {
-	color:#3278BE;
-	border-color:#3278BE;
+	background:#6b0c36;
+	background:rgba(107,12,54,0.75);
+	text-decoration:underline;
+	-moz-transform:scale(1.05);
+	-webkit-transform:scale(1.05);
 }
 
 #nav{
+    font-family: Tahoma;
 	float:left;
 	width:100%;
 	list-style:none;
 	font-weight:bold;
 	margin-bottom:10px;
+	margin-left:2px;
 }
 #nav li{
 	float:left;
@@ -140,13 +171,13 @@ div.programtitle
 	display:block;
 	padding:5px;
 	color:#fff;
-	background:#333;
+	background:#404040;
 	text-decoration:none;
 
-	text-shadow:1px 1px 1px rgba(0,0,0,0.75); /* Text shadow to lift it a little */
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
-	border-radius:2px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+    -khtml-border-radius: 5px;
+	border-radius:5px;
 }
 #nav li a:hover{
 	color:#fff;
@@ -166,6 +197,17 @@ div.programtitle
 #nav ul li{
 	padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
 	float:none;
+}
+#nav li.datetime
+{
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+    -khtml-border-radius: 5px;
+	border-radius:5px;
+	padding: 5px;
+	color:#fff;
+	background:#6b0c36;
+	text-decoration:none;
 }
 #nav ul a{
 	white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
@@ -191,4 +233,180 @@ div.programtitle
 	-moz-transform:scale(1.05);
 	-webkit-transform:scale(1.05);
 }
+
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+	display:none;
+    font-family: Tahoma;
+    font-weight: bold;
+    
+    width: 20%;
+	background:#6b0c36;
+	padding:5px;
+	color:#fff;	
+ 
+     border-color:#000;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+}
+ 
+.modal 
+{
+    font-family: Tahoma;
+    background-color:#fff;
+	display:none;
+	width:450px;
+	padding:15px;
+	text-align:justify;
+	font-size:large;
+	border:2px solid #333;
+	
+	opacity:0.8;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-box-shadow: 0 0 50px #ccc;
+	-webkit-box-shadow: 0 0 50px #ccc;
+}
+	
+.modal h2 
+{
+	margin:0px;
+	padding:10px 0 10px 45px;
+	border-bottom:1px solid #333;
+	font-size:larger;
+	text-align:center;
+}
+
+.modal select
+{
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #404040;
+    border-color: #000000;
+	color: #FFFFFF;
+    font-size: large;
+	font-weight: bold;
+}
+
+
+#menu
+{
+    font-family:Tahoma;
+	float:left;
+	width:100%;
+	list-style:none;
+	font-weight:bold;
+	margin-bottom:10px;
+	margin-left:2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#menu li
+{
+	float:left;
+	margin-right:10px;
+	position:relative;
+	display:block;
+}
+
+#menu li a
+{
+	display:block;
+	padding:5px;
+	color:#fff;
+	background:#404040;
+	text-decoration:none;
+
+	text-shadow:1px 1px 1px rgba(0,0,0,0.75);
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
+#menu li a:hover
+{
+	color:#fff;
+	background:#6b0c36;
+	background:rgba(107,12,54,0.75);
+	text-decoration:underline;
+}
+
+
+
+
+/* root element for tabs  */
+ul.css-tabs {  
+	margin:0 !important; 
+	padding:0;
+	height:30px;
+	border-bottom:1px solid #666;	 	
+}
+
+/* single tab */
+ul.css-tabs li {  
+	float:left;	 
+	padding:0; 
+	margin:0;  
+	list-style-type:none;	
+}
+
+/* link inside the tab. uses a background image */
+ul.css-tabs a { 
+    font-family: Tahoma;
+    font-weight: bold;
+	color: #fff;
+    font-size: large;
+	float:left;
+	display:block;
+	padding:5px 30px;	
+	text-decoration:none;
+	border:1px solid #666;	
+	border-bottom:0px;
+	height:18px;
+	background-color:#404040;
+	margin-right:2px;
+	position:relative;
+	top:1px;	
+	outline:0;
+	-moz-border-radius:4px 4px 0 0;	
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -khtml-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+ul.css-tabs a:hover {
+	color:#fff;
+	background:#6b0c36;
+	background:rgba(107,12,54,0.75);
+	text-decoration:underline;
+}
+	
+/* selected tab */
+ul.css-tabs a.current {
+	background-color:#fff;
+	border-bottom:1px solid #fff;	
+	color:#000;	
+	cursor:default;
+}
+
+	
+/* tab pane */
+.css-panes > div {
+	display:none;
+	border:1px solid #666;
+	border-width:0 1px 1px 1px;
+	min-height:150px;
+	height:auto;
+	padding:5px 5px;
+	background-color:#fff;	
+}
+
+
 

@@ -17,7 +17,7 @@
 
 Imports Website.uWiMP.TVServer.MPClient
 
-Partial Public Class _Default
+Partial Public Class _iPhoneDefault
     Inherits System.Web.UI.Page
 
     Private Shared resource As System.Resources.ResourceManager
@@ -45,7 +45,7 @@ Partial Public Class _Default
             litLogout.Text = GetGlobalResourceObject("uWiMPStrings", "logout")
             litDonate.Text = GetGlobalResourceObject("uWiMPStrings", "donate")
             litColour.Text = uWiMP.TVServer.Utilities.GetAppConfig("COLOUR").ToLower
-            
+
         End If
 
     End Sub
@@ -107,6 +107,7 @@ Partial Public Class _Default
 
         markup += "<li><a href=""Admin/MainMenu.aspx#_Admin"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "administration") & "</a></li>"
         markup += "<li><a href=""Admin/AboutiPiMP.aspx#_About"" rev=""async"">" & GetGlobalResourceObject("uWiMPStrings", "about_ipimp") & "</a></li>"
+        markup += "<li><a href=""../Desktop/Default.aspx"" _target=""blank"" >" & GetGlobalResourceObject("uWiMPStrings", "desktop") & "</a></li>"
 
         litAdminMenu.Visible = True
         Dim li As New LiteralControl
