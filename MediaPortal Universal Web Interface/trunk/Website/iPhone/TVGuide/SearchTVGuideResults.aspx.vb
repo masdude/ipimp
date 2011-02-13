@@ -66,7 +66,7 @@ Partial Public Class SearchTVGuideResults
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplaySearchResults(wa, groupID, genre, search, desc))
+        xw.WriteCData(DisplaySearchResults(groupID, genre, search, desc))
         xw.WriteEndElement()
         'end data
 
@@ -79,60 +79,25 @@ Partial Public Class SearchTVGuideResults
 
     End Sub
 
-    Private Function DisplaySearchResults(ByVal wa As String, ByVal groupID As String, ByVal genre As String, ByVal search As String, ByVal SearchDesc As Boolean) As String
+    Private Function DisplaySearchResults(ByVal groupID As String, ByVal genre As String, ByVal search As String, ByVal SearchDesc As Boolean) As String
 
-        Dim group As ChannelGroup = uWiMP.TVServer.ChannelGroups.GetChannelGroupByGroupId(CInt(groupID))
-        Dim channels As List(Of Channel) = uWiMP.TVServer.Channels.GetChannelsByGroupId(CInt(groupID))
-        Dim channel As Channel
 
         Dim markup As String = String.Empty
-        Dim regexPattern = "[\\\/:\*\?""'<>|] "
-        Dim oRegEx As New Regex(regexPattern)
+        Dim matchedPrograms As List(Of Program) = uWiMP.TVServer.Programs.SearchPrograms(groupID, genre, search, SearchDesc, "tv")
 
-        Dim title As String = String.Empty
-        Dim desc As String = String.Empty
-        Dim programs As List(Of Program) = uWiMP.TVServer.Programs.GetProgramsByGroup(CInt(groupID))
-        Dim program As Program
-        Dim matchedPrograms As New List(Of Program)
-
-        markup += String.Format("<div class=""iMenu"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"">"
         If genre.ToLower = "all" Then
             markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "programs_found"))
         Else
             markup += String.Format("<h3>{0} ({1})</h3>", GetGlobalResourceObject("uWiMPStrings", "programs_found"), genre)
         End If
         markup += "<ul class=""iArrow"">"
-
-        For Each program In programs
-            If (genre.ToLower = program.Genre.ToLower) Or (genre.ToLower = "all") Then
-
-                title = oRegEx.Replace(program.Title, "")
-                If InStr(title.ToLower, search.ToLower) > 0 Then
-                    channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
-                    If channel.IsTv Then
-                        matchedPrograms.Add(program)
-                    End If
-                End If
-
-                If SearchDesc Then
-                    desc = oRegEx.Replace(program.Description, "")
-                    If InStr(desc.ToLower, search.ToLower) > 0 Then
-                        channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
-                        If channel.IsTv Then
-                            If Not matchedPrograms.Contains(program) Then matchedPrograms.Add(program)
-                        End If
-                    End If
-                End If
-
-            End If
-        Next
-
+        
         If matchedPrograms.Count = 0 Then
             markup += String.Format("<li>{0}</li>", GetGlobalResourceObject("uWiMPStrings", "no_programs_found"))
         Else
-            If matchedPrograms.Count > 1 Then matchedPrograms.Sort(New uWiMP.TVServer.ProgramStartTimeComparer)
             For Each program In matchedPrograms
-                channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
+                Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
                 If uWiMP.TVServer.Schedules.IsProgramScheduled(program) Then
                     markup += String.Format("<li><a style=""color: red;"" href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, channel.DisplayName.ToString, program.Title.ToString, program.StartTime)
                 Else
