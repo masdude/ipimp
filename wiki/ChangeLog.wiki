@@ -1,11 +1,12 @@
 #sidebar TOC
 ----
 5.2.0 updates unclude (not yet released)
- * Updated to 1.4.16 RC3 smooth streaming technology (more stable)
- * Streaming radio
- * Russian translation - thanks to 
- * Added an EPG page for desktop browsers - browse EPG and schedule programs
- * Fixed buttons showing in Firefox
+ * Web - Updated to 1.4.16 RC3 smooth streaming technology (more stable)
+ * Web - Streaming radio
+ * Web - Russian translation - thanks to 
+ * Web - Added an EPG page for desktop browsers - browse EPG and schedule programs
+ * Web - Fixed buttons showing in Firefox
+ * Web - Small bug fixes
 5.1.0 updates unclude (13 Nov 2010)
  * Installer - updated to support Radio logos
  * Installer - included Italian (thanks g.sigalotti) and Spanish (thanks bodiroga) translations
