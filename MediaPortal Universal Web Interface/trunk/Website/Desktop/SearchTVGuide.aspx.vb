@@ -35,32 +35,43 @@ Public Class SearchTVGuide1
             Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(p.IdChannel)
             Dim table As New Table With {.Width = Unit.Percentage(100)}
             Dim row As New TableRow
-            Dim cell As New TableCell With {.Width = 40}
+            Dim cell As New TableCell With {.Width = 80}
 
-            If alternate Then
-                cssClass = "rounded-corners midgrey largeblack record2"
-            Else
-                cssClass = "rounded-corners lightgrey largeblack record2"
-            End If
-
-            Dim channelImage As New Image With {.AlternateText = channel.Name, .ImageUrl = String.Format("../../TVLogos/{0}.png", channel.Name), .Width = 40}
+            Dim channelImage As New Image With {.AlternateText = channel.Name, .ImageUrl = String.Format("../../TVLogos/{0}.png", channel.Name), .Width = 80}
             cell.Controls.Add(channelImage)
             row.Cells.Add(cell)
 
-            Dim pc As TableCell = CreateProgramCell(p, channel)
-
+            Dim pc As TableCell = CreateProgramCell(p, channel, "title")
+            If alternate Then
+                cssClass = "left-rounded-corners midgrey largeblack record2"
+            Else
+                cssClass = "left-rounded-corners lightgrey largeblack record2"
+            End If
             If uWiMP.TVServer.Schedules.IsProgramScheduled(p) Then
-                pc.CssClass = "rounded-corners red largewhite record2"
+                pc.CssClass = "leftrounded-corners red largewhite record2"
             Else
                 pc.CssClass = cssClass
             End If
-
-            pc.Width = Unit.Percentage(40)
-            pc.Height = Unit.Pixel(40)
-
+            pc.Width = Unit.Percentage(35)
+            pc.Height = Unit.Pixel(80)
             row.Cells.Add(pc)
 
+            Dim pc2 As TableCell = CreateProgramCell(p, channel, "desc")
+            If alternate Then
+                cssClass = "right-rounded-corners midgrey black record2"
+            Else
+                cssClass = "right-rounded-corners lightgrey black record2"
+            End If
+            If uWiMP.TVServer.Schedules.IsProgramScheduled(p) Then
+                pc2.CssClass = "right-rounded-corners red white record2"
+            Else
+                pc2.CssClass = cssClass
+            End If
+            pc2.Width = Unit.Percentage(65)
+            pc2.Height = Unit.Pixel(80)
+            row.Cells.Add(pc2)
             table.Rows.Add(row)
+
             SearchResults.Controls.Add(table)
 
             If alternate Then
@@ -73,23 +84,31 @@ Public Class SearchTVGuide1
 
     End Sub
 
-    Private Function CreateProgramCell(ByVal p As Program, ByVal ch As Channel) As TableCell
+    Private Function CreateProgramCell(ByVal p As Program, ByVal ch As Channel, ByVal celltype As String) As TableCell
 
         Dim c As New TableCell
-
-        c.Text = String.Format("<div class=""programtitle"">{0}</div>", p.Title)
-
+        
         Dim title As String = p.Title
         Dim description As String = p.Description
-        Dim timetext As String = p.StartTime.ToShortTimeString & " - " & p.EndTime.ToShortTimeString
+        Dim timetext As String = String.Format("{0} {1} @ {2} - {3}", StrConv(p.StartTime.ToString("dddd"), vbProperCase), p.StartTime.ToShortDateString, p.StartTime.ToShortTimeString, p.EndTime.ToShortTimeString)
 
         If title Is Nothing Then title = GetGlobalResourceObject("uWiMPStrings", "unknown_title")
         If description Is Nothing Then description = GetGlobalResourceObject("uWiMPStrings", "description_not_found")
 
-        c.Attributes("title") = String.Format("{0}<br>{1}", timetext, title)
-        c.Attributes("pid") = p.IdProgram
-        c.Attributes("rel") = "#record2"
-        c.ID = p.IdProgram
+        If celltype.ToLower = "title" Then
+            c.Text = String.Format("<div class=""programtitle2"">{0}<br>{1}</div>", timetext, title)
+            c.Attributes("title") = String.Format("{0}<br>{1}", timetext, title)
+            c.Attributes("pid") = p.IdProgram
+            c.Attributes("rel") = "#record2"
+            c.ID = p.IdProgram
+        Else
+            c.Text = String.Format("<div class=""programtitle2"">{0}</div>", description)
+            c.Attributes("title") = String.Format("{0}<br>{1}", timetext, title)
+            c.Attributes("pid") = p.IdProgram
+            c.Attributes("rel") = "#record2"
+            c.ID = p.IdProgram
+        End If
+
         Return (c)
 
     End Function

@@ -13,7 +13,7 @@
             <asp:PlaceHolder ID="SearchResults" runat="server" />
             <script type="text/javascript">
                 $("td[title]").tooltip({ effect: "fade", predelay: 500, position: 'bottom center', offset: [-10, 0] });
-
+                var pid;
                 var overlayObject = $('#record2').overlay({
                     api: true,
                     mask: { color: '#404040', loadSpeed: 100, opacity: 0.9 },
@@ -37,11 +37,26 @@
                 // set-up a live() event to bind click to all future triggers 
                 $('.record2').live('click', function (e) {
                     overlayUrl = "ProgramDetails.aspx?programID=" + $(this).attr("id");
+                    pid = $(this).attr("id");
                     e.preventDefault();
                     // load the overlay 
                     overlayObject.load();
                     return false;
                 });
+
+                var buttons = $("#record2 button").click(function (e) {
+                    var recoption = document.getElementById('recoption2').options[document.getElementById('recoption2').selectedIndex].value;
+                    var dorecord = buttons.index(this) === 0;
+                    if (dorecord) {
+                        $.get("RecordProgram.aspx?programID=" + pid + "&option=" + recoption, function (data) {
+                            if (data.result) {
+                                var programdiv = document.getElementById(pid);
+                                programdiv.className = "rounded-corners red largewhite record";
+                            }
+                        });
+                    }
+                });
+
             </script>
         </div>
     </form>

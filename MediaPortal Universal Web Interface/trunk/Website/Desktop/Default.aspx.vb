@@ -81,8 +81,8 @@ Public Class _DesktopDefault
 
         markup += String.Format("<li><a href=""#"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "tv_guide"))
         markup += String.Format("<li><a href=""#"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "search"))
-        markup += String.Format("<li><a href=""#"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "scheduled_programs"))
-        markup += String.Format("<li><a href=""#"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "recorded_programs"))
+        'markup += String.Format("<li><a href=""#"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "scheduled_programs"))
+        'markup += String.Format("<li><a href=""#"">{0}</a></li>", GetGlobalResourceObject("uWiMPStrings", "recorded_programs"))
         markup += "</ul>"
 
         Dim lit As New Literal With {.Text = markup}

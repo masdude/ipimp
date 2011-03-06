@@ -1,4 +1,5 @@
-﻿body
+﻿
+body
 {
     font-family: Tahoma;
     background-color:#C0C0C0;
@@ -25,6 +26,16 @@ div.programtitle
     text-overflow: ellipsis;
 }
 
+div.programtitle2 
+{
+    margin-left: 2px;
+    width: 90%;
+    text-wrap: suppress;
+    height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .hidden
 {
     display: none;
@@ -36,6 +47,22 @@ div.programtitle
     -webkit-border-radius: 4px;
     -khtml-border-radius: 4px;
     border-radius: 4px;
+}
+
+.left-rounded-corners
+{
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -khtml-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+.right-rounded-corners
+{
+    -moz-border-radius: 0 4px 4px 0;
+    -webkit-border-radius: 0 4px 4px 0;
+    -khtml-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
 }
 
 .lightgrey
@@ -62,8 +89,13 @@ div.programtitle
     border-color: #000000;
 }
 
+.white
+{
+	color: #FFFFFF;
+}
+
 .largewhite
- {
+{
 	color: #FFFFFF;
     font-size: large;
 }
@@ -74,8 +106,13 @@ div.programtitle
     font-size: larger;
 }
 
+.black
+{
+	color: #000000;
+}
+
 .largeblack
- {
+{
 	color: #000000;
     font-size: large;
 }
@@ -152,7 +189,7 @@ div.programtitle
 	-webkit-transform:scale(1.05);
 }
 
-#nav{
+.nav{
     font-family: Tahoma;
 	float:left;
 	width:100%;
@@ -161,13 +198,13 @@ div.programtitle
 	margin-bottom:10px;
 	margin-left:2px;
 }
-#nav li{
+.nav li{
 	float:left;
 	margin-right:10px;
 	position:relative;
 	display:block;
 }
-#nav li a{
+.nav li a{
 	display:block;
 	padding:5px;
 	color:#fff;
@@ -179,7 +216,7 @@ div.programtitle
     -khtml-border-radius: 5px;
 	border-radius:5px;
 }
-#nav li a:hover{
+.nav li a:hover{
 	color:#fff;
 	background:#6b0c36; /* Solid colour fall-back */
 	background:rgba(107,12,54,0.75); /* It'll look nice semi-transparent */
@@ -187,18 +224,18 @@ div.programtitle
 }
 
 /*--- DROPDOWN ---*/
-#nav ul{
+.nav ul{
 	list-style:none;
 	position:absolute;
 	left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
 	opacity:0; /* Set initial state to transparent */
 	-webkit-transition:0.25s linear opacity; /* Make the dropdown fade-in in Webkit */
 }
-#nav ul li{
+.nav ul li{
 	padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
 	float:none;
 }
-#nav li.datetime
+.nav li.datetime
 {
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -209,24 +246,24 @@ div.programtitle
 	background:#6b0c36;
 	text-decoration:none;
 }
-#nav ul a{
+.nav ul a{
 	white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
 	display:block;
 }
-#nav li:hover ul{ /* Display the dropdown on hover */
+.nav li:hover ul{ /* Display the dropdown on hover */
 	left:0; /* Bring back on-screen when needed */
 	opacity:1; /* Fade to opaque */
 }
-#nav li:hover a{ /* Set styles for top level when dropdown is hovered */
+.nav li:hover a{ /* Set styles for top level when dropdown is hovered */
 	background:#6b0c36; /* Solid colour fall-back */
 	background:rgba(107,12,54,0.75); /* It'll look nice semi-transparent */
 	text-decoration:underline;
 }
-#nav li:hover ul a{ /* Override some top level styles when dropdown is hovered */
+.nav li:hover ul a{ /* Override some top level styles when dropdown is hovered */
 	text-decoration:none;
 	-webkit-transition:-webkit-transform 0.075s linear;
 }
-#nav li:hover ul li a:hover{ /* Set styles for dropdown when items are hovered */
+.nav li:hover ul li a:hover{ /* Set styles for dropdown when items are hovered */
 	background:#333; /* Solid colour fall-back */
 	background:rgba(51,51,51,0.75); /* It'll look nice semi-transparent */
 	text-decoration:underline;
@@ -370,7 +407,6 @@ ul.css-tabs a {
 	border-bottom:0px;
 	height:18px;
 	background-color:#404040;
-	margin-right:2px;
 	position:relative;
 	top:1px;	
 	outline:0;
@@ -408,5 +444,50 @@ ul.css-tabs a.current {
 	background-color:#fff;	
 }
 
+.right-tabs{  
+	float:right;
+	margin:0 !important; 
+	padding:0;
+	height:30px;
+	border-bottom:1px solid #fff;
+}
 
+.right-tabs li{
+	float:left;	 
+	padding:0; 
+	margin:0;  
+	list-style-type:none;	
+}
 
+.right-tabs a { 
+    font-family: Tahoma;
+    font-weight: bold;
+	color: #fff;
+    font-size: large;
+	float:left;
+	display:block;
+	padding:5px 5px;	
+	text-decoration:none;
+	border:1px solid #666;	
+	height:18px;
+	background-color:#404040;
+	position:relative;
+	top:1px;	
+	outline:0;
+	-moz-border-radius:4px 4px 0 0;	
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -khtml-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.right-tabs a:hover {
+	color:#fff;
+	background:#6b0c36;
+	background:rgba(107,12,54,0.75);
+	text-decoration:underline;
+}
+
+.orange-tabs a { 
+	background-color:#FF8C00;
+}
