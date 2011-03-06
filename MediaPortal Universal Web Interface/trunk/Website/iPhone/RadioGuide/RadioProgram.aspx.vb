@@ -95,14 +95,14 @@ Partial Public Class RadioProgram
             markup += String.Format("<li><a href=""RadioGuide/RecordRadioProgram.aspx?program={0}#_RecordRadioProgram{0}"" rev=""async"">{1}</a></li>", programID, GetGlobalResourceObject("uWiMPStrings", "record"))
         End If
 
-        'If program.IsRunningAt(Now) Then
-        '    If User.IsInRole("watcher") Then
-        '        Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
-        '        Dim channelName As String = channel.Name.ToLower
-        '        channelName = Replace(channelName, " ", "")
-        '        markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=radio&id={0}#StartStream"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
-        '    End If
-        'End If
+        If program.IsRunningAt(Now) Then
+            If User.IsInRole("watcher") Then
+                Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
+                Dim channelName As String = channel.Name.ToLower
+                channelName = Replace(channelName, " ", "")
+                markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=radio&id={0}#StartStream"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
+            End If
+        End If
 
         Dim mailSubject As String = String.Format("{3} {0} at {1} - {2}", uWiMP.TVServer.RadioChannels.GetRadioChannelNameByChannelId(program.IdChannel), program.StartTime, program.Title, GetGlobalResourceObject("uWiMPStrings", "email_subject"))
         Dim mailBody As String = program.Description
