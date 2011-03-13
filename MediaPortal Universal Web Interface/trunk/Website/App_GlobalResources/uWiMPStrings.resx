@@ -1070,37 +1070,49 @@
   <data name="tv_series" xml:space="preserve">
     <value>TV Series</value>
   </data>
-	<data name="tvseries_series">
-		<value xml:space="preserve">Series</value>
-	</data>
-	<data name="tvseries_recent">
-		<value xml:space="preserve">Recent episodes</value>
-	</data>
-	<data name="tv_series_season">
-		<value xml:space="preserve">Season</value>
-	</data>
-	<data name="tvseries_episode_image">
-		<value xml:space="preserve">Episode image</value>
-	</data>
-	<data name="tvseries_start_fail">
-		<value xml:space="preserve">Episode start failed.</value>
-	</data>
-	<data name="unknown_plot">
-		<value xml:space="preserve">Unknown plot</value>
-	</data>
-	<data name="tvseries_episode">
-		<value xml:space="preserve">Episode</value>
-	</data>
-	<data name="radio">
-		<value xml:space="preserve">Radio</value>
-	</data>
-	<data name="unknown_program">
-		<value xml:space="preserve">Unknown program</value>
-	</data>
-	<data name="desktop">
-		<value xml:space="preserve">Desktop site</value>
-	</data>
-	<data name="close">
-		<value xml:space="preserve">Close</value>
+  <data name="tvseries_series" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="tvseries_recent" xml:space="preserve">
+    <value>Recent episodes</value>
+  </data>
+  <data name="tv_series_season" xml:space="preserve">
+    <value>Season</value>
+  </data>
+  <data name="tvseries_episode_image" xml:space="preserve">
+    <value>Episode image</value>
+  </data>
+  <data name="tvseries_start_fail" xml:space="preserve">
+    <value>Episode start failed.</value>
+  </data>
+  <data name="unknown_plot" xml:space="preserve">
+    <value>Unknown plot</value>
+  </data>
+  <data name="tvseries_episode" xml:space="preserve">
+    <value>Episode</value>
+  </data>
+  <data name="radio" xml:space="preserve">
+    <value>Radio</value>
+  </data>
+  <data name="unknown_program" xml:space="preserve">
+    <value>Unknown program</value>
+  </data>
+  <data name="desktop" xml:space="preserve">
+    <value>Desktop site</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="this_program">
+    <value xml:space="preserve">This program</value>
+  </data>
+  <data name="entire_schedule">
+    <value xml:space="preserve">Entire schedule</value>
+  </data>
+	<data name="now">
+		<value xml:space="preserve">Now</value>
 	</data>
 </root>

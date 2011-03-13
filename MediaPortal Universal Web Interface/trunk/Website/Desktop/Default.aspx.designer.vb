@@ -203,6 +203,33 @@ Partial Public Class _DesktopDefault
     Protected WithEvents Literal9 As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
+    '''Literal22 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Literal22 As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''Literal24 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Literal24 As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''Literal25 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Literal25 As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
     '''Literal2 control.
     '''</summary>
     '''<remarks>
@@ -291,4 +318,13 @@ Partial Public Class _DesktopDefault
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Literal21 As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''Literal23 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Literal23 As Global.System.Web.UI.WebControls.Literal
 End Class

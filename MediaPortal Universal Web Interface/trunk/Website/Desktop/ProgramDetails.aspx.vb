@@ -48,9 +48,12 @@ Public Class ProgramDetails
             jw.WriteString(channel.Name)
             jw.WriteMember("running")
             jw.WriteBoolean(program.IsRunningAt(Now))
+            jw.WriteMember("scheduled")
+            jw.WriteBoolean(uWiMP.TVServer.Schedules.IsProgramScheduled(program))
             jw.WriteEndObject()
 
             Response.Write(jw.ToString)
+
         End Using
         
     End Sub

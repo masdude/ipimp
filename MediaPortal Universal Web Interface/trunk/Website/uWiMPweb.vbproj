@@ -187,6 +187,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>uWiMPStrings.es.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\uWiMPStrings.ru.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uWiMPStrings.ru.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\uWiMPStrings.sv.designer.vb">
       <DependentUpon>uWiMPStrings.sv.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1478,6 +1483,10 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>uWiMPStrings.es.designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\uWiMPStrings.ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>uWiMPStrings.ru.designer.vb</LastGenOutput>
     </Content>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

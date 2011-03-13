@@ -51,6 +51,8 @@ Public Class _DesktopDefault
                         _startTime = _startTime.AddHours(_period)
                     Case "nd"
                         _startTime = _startTime.AddDays(1)
+                    Case "now"
+                        _startTime = Now
                 End Select
             End If
         Next
@@ -123,7 +125,7 @@ Public Class _DesktopDefault
         markup += String.Format("<li class=""datetime"">{0} {1} {2} : {3}-{4}</li>", _startTime.ToString("dddd"), _startTime.ToString("dd"), _startTime.ToString("MMM"), _startTime.ToShortTimeString, (_startTime.AddHours(_period)).ToShortTimeString)
         markup += "<li><a href=""Default.aspx?nav=nh"">&gt;</a></li>"
         markup += "<li><a href=""Default.aspx?nav=nd"">&gt;&gt;</a></li>"
-
+        markup += String.Format("<li><a href=""Default.aspx?nav=now"">{0}</li>", GetGlobalResourceObject("uWiMPStrings", "now"))
         markup += "</ul>"
 
         litChannelGroups.Text = markup
