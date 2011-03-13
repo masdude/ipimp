@@ -33,41 +33,56 @@
                 <script type="text/javascript">
                     $("td[title]").tooltip({ effect: "fade", predelay: 500, position: 'bottom center', offset: [-10, 0] });
 					var pid;
-                    $(document).ready(function () {
-                        $(".record").overlay({
-                            mask: { color: '#404040', loadSpeed: 100, opacity: 0.9 },
-                            closeOnClick: true,
-                            fixed: false,
-                            onBeforeLoad: function () {
-								pid = this.getTrigger().attr('pid');
-                                $.get("ProgramDetails.aspx?programID=" + this.getTrigger().attr('ID'), function (data) {
-                                    document.getElementById('modalimage').innerHTML = '<img src="../TVLogos/' + data.channel + '.png" height="40px" style="float:left" />';
-                                    document.getElementById('modaltitle').innerHTML = '<h2>' + data.title + '</h2>';
-                                    document.getElementById('modaldesc').innerHTML = '<p>' + data.description + '</p>';
-                                    if (data.running) { document.getElementById('streambutton').style.display = 'inline-block'; }
-                                });
-                            },
-                            onClose: function () {
-                                document.getElementById('modalimage').innerHTML = '';
-                                document.getElementById('modaltitle').innerHTML = '';
-                                document.getElementById('modaldesc').innerHTML = '';
-                                document.getElementById('streambutton').style.display = 'none';
-                            }
-                        });
+					$(document).ready(function () {
+					    $(".record").overlay({
+					        mask: { color: '#404040', loadSpeed: 100, opacity: 0.9 },
+					        closeOnClick: true,
+					        fixed: false,
+					        onBeforeLoad: function () {
+					            pid = this.getTrigger().attr('pid');
+					            $.get("ProgramDetails.aspx?programID=" + this.getTrigger().attr('ID'), function (data) {
+					                document.getElementById('modalimage').innerHTML = '<img src="../TVLogos/' + data.channel + '.png" height="40px" style="float:left" />';
+					                document.getElementById('modaltitle').innerHTML = '<h2>' + data.title + '</h2>';
+					                document.getElementById('modaldesc').innerHTML = '<p>' + data.description + '</p>';
+					                if (data.scheduled) {
+					                    document.getElementById('cancelbutton').style.display = 'inline-block';
+					                    document.getElementById('canceloptions').style.display = 'inline-block';
+					                    document.getElementById('recordbutton').style.display = 'none';
+					                    document.getElementById('recoption').style.display = 'none';
+					                } else {
+					                    document.getElementById('recordbutton').style.display = 'inline-block';
+					                    document.getElementById('recoption').style.display = 'inline-block';
+					                    document.getElementById('cancelbutton').style.display = 'none';
+					                    document.getElementById('canceloptions').style.display = 'none';
+					                }
+					                if (data.running) {
+					                    document.getElementById('streambutton').style.display = 'inline-block';
+					                } else {
+					                    document.getElementById('streambutton').style.display = 'none';
+					                }
+					            });
+					        },
+					        onClose: function () {
+					            document.getElementById('modalimage').innerHTML = '';
+					            document.getElementById('modaltitle').innerHTML = '';
+					            document.getElementById('modaldesc').innerHTML = '';
+					            document.getElementById('streambutton').style.display = 'none';
+					        }
+					    });
 
-                        var buttons = $("#record button").click(function (e) {
-                            var recoption = document.getElementById('recoption').options[document.getElementById('recoption').selectedIndex].value;
-                            var dorecord = buttons.index(this) === 0;
-                            if (dorecord) {
-                                $.get("RecordProgram.aspx?programID=" + pid + "&option=" + recoption, function (data) {
-                                    if (data.result) {
-                                        var programdiv = document.getElementById(pid);
-                                        programdiv.className = "rounded-corners red largewhite record";
-                                    }
-                                });
-                            }
-                        });
-                    });
+					    var buttons = $("#record button").click(function (e) {
+					        var recoption = document.getElementById('recoption').options[document.getElementById('recoption').selectedIndex].value;
+					        var dorecord = buttons.index(this) === 0;
+					        if (dorecord) {
+					            $.get("RecordProgram.aspx?programID=" + pid + "&option=" + recoption, function (data) {
+					                if (data.result) {
+					                    var programdiv = document.getElementById(pid);
+					                    programdiv.className = "rounded-corners red largewhite record";
+					                }
+					            });
+					        }
+					    });
+					});
                 </script>
             </div>
             <!--TV Guide Search -->
@@ -96,8 +111,8 @@
             <div id="modaltitle"></div>
         	<div id="modaldesc"></div>
             <form>
-                <button type="button" class="button redbutton close"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:uWiMPStrings, record %>" /></button>
-                <select id="recoption">
+                <button type="button" class="button redbutton close" id="recordbutton" style="display:none;"><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:uWiMPStrings, record %>" /></button>
+                <select id="recoption" style="display:none;">
                     <option value=0><asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:uWiMPStrings, once %>" /></option>
                     <option value=1><asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:uWiMPStrings, at_this_time_every_day %>" /></option>
                     <option value=2><asp:Literal ID="Literal5" runat="server" Text="<%$ Resources:uWiMPStrings, at_this_time_every_week %>" /></option>
@@ -106,7 +121,12 @@
                     <option value=5><asp:Literal ID="Literal8" runat="server" Text="<%$ Resources:uWiMPStrings, at_this_time_at_weekends %>" /></option>
                     <option value=6><asp:Literal ID="Literal9" runat="server" Text="<%$ Resources:uWiMPStrings, at_this_time_on_weekdays %>" /></option>
                 </select>
-                <button type="button" class="button close" id="streambutton" style="display:none;"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:uWiMPStrings, stream %>" /></button>
+                <button type="button" class="button redbutton close" id="cancelbutton" style="display:none;"><asp:Literal ID="Literal22" runat="server" Text="<%$ Resources:uWiMPStrings, cancel %>" /></button>
+                <select id="canceloptions" style="display:none;">
+                    <option value=0><asp:Literal ID="Literal24" runat="server" Text="<%$ Resources:uWiMPStrings, this_program %>" /></option>
+                    <option value=1><asp:Literal ID="Literal25" runat="server" Text="<%$ Resources:uWiMPStrings, entire_schedule%>" /></option>
+                </select>
+                <button type="button" class="button redbutton close" id="streambutton" style="display:none;"><asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:uWiMPStrings, stream %>" /></button>
             </form>
         </div>
         <div class="modal" id="record2"> 
@@ -124,7 +144,8 @@
                     <option value=5><asp:Literal ID="Literal19" runat="server" Text="<%$ Resources:uWiMPStrings, at_this_time_at_weekends %>" /></option>
                     <option value=6><asp:Literal ID="Literal20" runat="server" Text="<%$ Resources:uWiMPStrings, at_this_time_on_weekdays %>" /></option>
                 </select>
-                <button type="button" class="button close" id="streambutton2" style="display:none;"><asp:Literal ID="Literal21" runat="server" Text="<%$ Resources:uWiMPStrings, stream %>" /></button>
+                <button type="button" class="button redbutton close" id="streambutton2" style="display:none;"><asp:Literal ID="Literal21" runat="server" Text="<%$ Resources:uWiMPStrings, stream %>" /></button>
+                <button type="button" class="button redbutton close" id="cancelbutton2" style="display:none;"><asp:Literal ID="Literal23" runat="server" Text="<%$ Resources:uWiMPStrings, cancel %>" /></button>
             </form>
         </div>
     </form>

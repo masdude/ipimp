@@ -42,16 +42,35 @@
   File "..\Include\Aspx\Desktop\Default.aspx"
   File "..\Include\Aspx\Desktop\Desktop.Master"
   File "..\Include\Aspx\Desktop\Flash.htm"
+  File "..\Include\Aspx\Desktop\Login.aspx"
   File "..\Include\Aspx\Desktop\MediaPlayerTemplate.xap"
+  File "..\Include\Aspx\Desktop\ProgramDetails.aspx"
   File "..\Include\Aspx\Desktop\Silverlight.htm"
   File "..\Include\Aspx\Desktop\SmoothStreamingProvider.swf"
   File "..\Include\Aspx\Desktop\swfobject.js"
+  File "..\Include\Aspx\Desktop\TVGuide.aspx"
+
+  SetOutPath "$INSTDIR\Aspx\Desktop\css"
+  File "..\Include\Aspx\Desktop\css\desktop.css"
+
+  SetOutPath "$INSTDIR\Aspx\Desktop\Players"
+
+  SetOutPath "$INSTDIR\Aspx\Desktop\Players\Flash"
+  File "..\Include\Aspx\Desktop\Players\Flash\5.0.swf"
+  File "..\Include\Aspx\Desktop\Players\Flash\Flash.htm"
+  File "..\Include\Aspx\Desktop\Players\Flash\SmoothStreamingProvider.swf"
+  File "..\Include\Aspx\Desktop\Players\Flash\swfobject.js"
+
+  SetOutPath "$INSTDIR\Aspx\Desktop\Players\Silverlight"
+  File "..\Include\Aspx\Desktop\Players\Silverlight\MediaPlayerTemplate.xap"
+  File "..\Include\Aspx\Desktop\Players\Silverlight\Silverlight.htm"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\scripts"
   File "..\Include\Aspx\Desktop\scripts\wz_tooltip.js"
 
   SetOutPath "$INSTDIR\Aspx\images"
   File "..\Include\Aspx\images\dvd.png"
+  File "..\Include\Aspx\images\iPiMP logo.png"
   File "..\Include\Aspx\images\MP-logo.png"
   File "..\Include\Aspx\images\radio.png"
   File "..\Include\Aspx\images\rec.png"

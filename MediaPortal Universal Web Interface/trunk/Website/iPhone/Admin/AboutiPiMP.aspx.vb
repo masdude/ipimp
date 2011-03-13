@@ -103,6 +103,8 @@ Partial Public Class AboutiPiMP
         markup += "Spanish translation by bodiroga."
         markup += "<br>"
         markup += "Italian translation by g.sigalotti."
+        markup += "<br>"
+        markup += "Russian translation by Fasterpast."
         markup += "<br><br>"
         markup += String.Format("You are running version <b>{0}</b>", uWiMP.TVServer.Utilities.GetAppConfig("VERSION"))
         markup += "<br>"
