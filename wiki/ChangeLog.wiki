@@ -9,7 +9,7 @@
  * Web - Small bug fixes
  * Web - Fix for issue [http://code.google.com/p/ipimp/issues/detail?id=38&can=1 38]
  * Web - Fix for issue [http://code.google.com/p/ipimp/issues/detail?id=43&can=1 43]
- * Web - Watching recordings will only be available via SmoothStreaming. iPiMP web app no longer uses iPiMPTranscodeToMP4 files.
+ * Web - Watching recordings will only be available via !SmoothStreaming. iPiMP web app no longer uses iPiMPTranscodeToMP4 files.
 5.1.0 updates unclude (13 Nov 2010)
  * Installer - updated to support Radio logos
  * Installer - included Italian (thanks g.sigalotti) and Spanish (thanks bodiroga) translations
