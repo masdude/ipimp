@@ -30,10 +30,6 @@ Imports TvLibrary
 Imports TvLibrary.Log
 Imports TvLibrary.Interfaces
 Imports TvDatabase
-Imports MediaPortal.Common.Utils
-
-<Assembly: CompatibleVersion("1.1.6.20000")> 
-
 
 Namespace TVEngine
 
