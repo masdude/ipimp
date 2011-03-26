@@ -33,7 +33,7 @@ Partial Public Class UserManagementAddUserResult
         Dim confpass As String = Request.QueryString("confpass")
         Dim username As String = Request.QueryString("user")
         Dim recorder As String = CBool(Request.QueryString("recorder"))
-        Dim watcher As String = CBool(Request.QueryString("recorder"))
+        Dim watcher As String = CBool(Request.QueryString("watcher"))
         Dim deleter As String = CBool(Request.QueryString("deleter"))
         Dim remoter As String = CBool(Request.QueryString("remoter"))
         Dim admin As String = CBool(Request.QueryString("admin"))
