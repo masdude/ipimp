@@ -1,1 +1,0 @@
-cscript "d:\Dev\vs2008\MediaPortal Universal Web Interface\NSIS Installer\Include\ListFiles.vbs" "d:\devvs2008\MediaPortal Universal Web Interface\Aspx" >"D:\dev\vs2008\MediaPortal Universal Web Interface\NSIS Installer\Installer\InstallSections\InstallWebfiles.nsh"
