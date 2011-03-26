@@ -21,6 +21,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
     <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1093,20 +1094,6 @@
       <DependentUpon>RecordingsMultiDelete.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="iPhone\Recording\RecordingTranscode.aspx.designer.vb">
-      <DependentUpon>RecordingTranscode.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="iPhone\Recording\RecordingTranscode.aspx.vb">
-      <DependentUpon>RecordingTranscode.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="iPhone\Recording\RecordingTranscodeResult.aspx.designer.vb">
-      <DependentUpon>RecordingTranscodeResult.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="iPhone\Recording\RecordingTranscodeResult.aspx.vb">
-      <DependentUpon>RecordingTranscodeResult.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="iPhone\Schedule\MainMenu.aspx.designer.vb">
       <DependentUpon>MainMenu.aspx</DependentUpon>
     </Compile>
@@ -1558,7 +1545,6 @@
     <Content Include="iPhone\RadioGuide\RadioProgram.aspx" />
     <Content Include="iPhone\RadioGuide\RadioChannel.aspx" />
     <Content Include="iPhone\RadioGuide\RadioChannelDay.aspx" />
-    <Content Include="iPhone\Recording\RecordingTranscodeResult.aspx" />
     <Content Include="iPhone\Scripts\Adaptive.js" />
     <Content Include="iPhone\Scripts\Events.js" />
     <Content Include="iPhone\Scripts\smbtnblue.png" />
@@ -1660,7 +1646,6 @@
     <Content Include="iPhone\Recording\RecordingsByGenre.aspx" />
     <Content Include="iPhone\Recording\RecordingsByGenreList.aspx" />
     <Content Include="iPhone\Recording\RecordingsMultiDelete.aspx" />
-    <Content Include="iPhone\Recording\RecordingTranscode.aspx" />
     <Content Include="iPhone\Schedule\MainMenu.aspx" />
     <Content Include="iPhone\Schedule\ScheduleClean.aspx" />
     <Content Include="iPhone\Schedule\ScheduleCleanResult.aspx" />

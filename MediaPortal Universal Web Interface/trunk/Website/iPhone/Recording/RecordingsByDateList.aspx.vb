@@ -62,7 +62,7 @@ Partial Public Class RecordingsByDateList
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayRecordingsByDate(wa, period))
+        xw.WriteCData(DisplayRecordingsByDate(period))
         xw.WriteEndElement()
         'end data
 
@@ -75,19 +75,19 @@ Partial Public Class RecordingsByDateList
 
     End Sub
 
-    Private Function DisplayRecordingsByDate(ByVal wa As String, ByVal period As String) As String
+    Private Function DisplayRecordingsByDate(ByVal period As String) As String
 
         Dim recordings As List(Of Recording) = uWiMP.TVServer.Recordings.GetAllRecordings
         If recordings.Count > 1 Then recordings.Sort(New uWiMP.TVServer.RecordingStartTimeComparerDesc)
         Dim recording As Recording
 
         Dim markup As String = String.Empty
-        markup += String.Format("<div class=""iList"" id=""{0}"">", wa)
+        markup += "<div class=""iMenu"" >"
 
         Select Case period.ToLower
             Case "thisweek"
-                markup += String.Format("<h2>{0}</h2>", GetGlobalResourceObject("uWiMPStrings", "recorded_this_week"))
-                markup += "<ul class=""iArrow iShop"">"
+                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "recorded_this_week"))
+                markup += "<ul class=""iArrow"">"
                 For Each recording In recordings
                     If recording.StartTime > Now.AddDays(-7) Then
                         markup += RecordingMarkup(recording)
@@ -96,8 +96,8 @@ Partial Public Class RecordingsByDateList
                 markup += "</ul>"
 
             Case "lastweek"
-                markup += String.Format("<h2>{0}</h2>", GetGlobalResourceObject("uWiMPStrings", "recorded_last_week"))
-                markup += "<ul class=""iArrow iShop"">"
+                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "recorded_last_week"))
+                markup += "<ul class=""iArrow"">"
                 For Each recording In recordings
                     If (recording.StartTime > Now.AddDays(-14)) And (recording.StartTime < Now.AddDays(-7)) Then
                         markup += RecordingMarkup(recording)
@@ -105,8 +105,8 @@ Partial Public Class RecordingsByDateList
                 Next
                 markup += "</ul>"
             Case "lastmonth"
-                markup += String.Format("<h2>{0}</h2>", GetGlobalResourceObject("uWiMPStrings", "recorded_last_month"))
-                markup += "<ul class=""iArrow iShop"">"
+                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "recorded_last_month"))
+                markup += "<ul class=""iArrow"">"
                 For Each recording In recordings
                     If (recording.StartTime > Now.AddDays(-31)) And (recording.StartTime < Now.AddDays(-14)) Then
                         markup += RecordingMarkup(recording)
@@ -114,8 +114,8 @@ Partial Public Class RecordingsByDateList
                 Next
                 markup += "</ul>"
             Case "lastyear"
-                markup += String.Format("<h2>{0}</h2>", GetGlobalResourceObject("uWiMPStrings", "recorded_last_year"))
-                markup += "<ul class=""iArrow iShop"">"
+                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "recorded_last_year"))
+                markup += "<ul class=""iArrow"">"
                 For Each recording In recordings
                     If (recording.StartTime > Now.AddDays(-365)) And (recording.StartTime < Now.AddDays(-31)) Then
                         markup += RecordingMarkup(recording)
@@ -123,8 +123,8 @@ Partial Public Class RecordingsByDateList
                 Next
                 markup += "</ul>"
             Case "older"
-                markup += String.Format("<h2>{0}</h2>", GetGlobalResourceObject("uWiMPStrings", "recorded_older"))
-                markup += "<ul class=""iArrow iShop"">"
+                markup += String.Format("<h3>{0}</h3>", GetGlobalResourceObject("uWiMPStrings", "recorded_older"))
+                markup += "<ul class=""iArrow"">"
                 For Each recording In recordings
                     If recording.StartTime < Now.AddDays(-365) Then
                         markup += RecordingMarkup(recording)
@@ -141,20 +141,11 @@ Partial Public Class RecordingsByDateList
 
     Private Function RecordingMarkup(ByVal recording As Recording) As String
 
-        Dim image, imageName As String
-        Dim MP4path As String = uWiMP.TVServer.Utilities.GetAppConfig("STREAMPATH")
         Dim markup As String = String.Empty
         Dim channel As Channel
         channel = uWiMP.TVServer.Channels.GetChannelByChannelId(recording.IdChannel)
 
-        imageName = MP4path & "\" & Path.GetFileNameWithoutExtension(recording.FileName) & ".jpg"
-        If uWiMP.TVServer.Utilities.DoesFileExist(imageName) Then
-            image = String.Format("../../MP4/{0}.jpg", Path.GetFileNameWithoutExtension(recording.FileName))
-        Else
-            image = String.Format("../../TVLogos/{0}.png", uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName))
-        End If
-        markup += String.Format("<li><a href=""Recording/RecordedProgram.aspx?id={0}#_RecProgram{0}"" rev=""async""><img src=""{1}"" class=""iFull"" /><em>{2}</em><big>{3}<small>{4}</small></big></a></li>", recording.IdRecording.ToString, Image, Channel.DisplayName, recording.Title, recording.StartTime)
-
+        markup += String.Format("<li><a href=""Recording/RecordedProgram.aspx?id={0}#_RecProgram{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40"" style=""vertical-align:middle""/><em>{2}<small><br/>{3}</small></em></a></li>", recording.IdRecording.ToString, uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName), recording.Title, recording.StartTime)
         Return markup
 
     End Function

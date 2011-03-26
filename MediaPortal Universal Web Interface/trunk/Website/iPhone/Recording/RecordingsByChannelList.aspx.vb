@@ -62,7 +62,7 @@ Partial Public Class RecordingsByChannelList
 
         'start data
         xw.WriteStartElement("data")
-        xw.WriteCData(DisplayRecordingsByChannel(wa, channelID))
+        xw.WriteCData(DisplayRecordingsByChannel(channelID))
         xw.WriteEndElement()
         'end data
 
@@ -75,29 +75,21 @@ Partial Public Class RecordingsByChannelList
 
     End Sub
 
-    Private Function DisplayRecordingsByChannel(ByVal wa As String, ByVal channelID As String) As String
+    Private Function DisplayRecordingsByChannel(ByVal channelID As String) As String
 
         Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(CInt(channelID))
 
         Dim markup As String = String.Empty
-        markup += String.Format("<div class=""iList"" id=""{0}"">", wa)
-        markup += String.Format("<h2>{0} {1}</h2>", GetGlobalResourceObject("uWiMPStrings", "recordings"), channel.DisplayName)
-        markup += "<ul class=""iArrow iShop"">"
+        markup += "<div class=""iMenu"" >"
+        markup += String.Format("<h3>{0} {1}</h3>", GetGlobalResourceObject("uWiMPStrings", "recordings"), channel.DisplayName)
+        markup += "<ul class=""iArrow"">"
 
         Dim recordings As List(Of Recording) = uWiMP.TVServer.Recordings.GetRecordingsForChannel(CInt(channelID))
         If recordings.Count > 1 Then recordings.Sort(New uWiMP.TVServer.RecordingTitleComparer)
         Dim recording As Recording
-        Dim image, imageName As String
-        Dim MP4path As String = uWiMP.TVServer.Utilities.GetAppConfig("STREAMPATH")
 
         For Each recording In recordings
-            imageName = MP4path & "\" & Path.GetFileNameWithoutExtension(recording.FileName) & ".jpg"
-            If uWiMP.TVServer.Utilities.DoesFileExist(imageName) Then
-                image = String.Format("../../MP4/{0}.jpg", Path.GetFileNameWithoutExtension(recording.FileName))
-            Else
-                image = String.Format("../../TVLogos/{0}.png", uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName))
-            End If
-            markup += String.Format("<li><a href=""Recording/RecordedProgram.aspx?id={0}#_RecProgram{0}"" rev=""async""><img src=""{1}"" class=""iFull"" /><em>{2}</em><big>{3}<small>{4}</small></big></a></li>", recording.IdRecording.ToString, image, channel.DisplayName, recording.Title, recording.StartTime)
+            markup += String.Format("<li><a href=""Recording/RecordedProgram.aspx?id={0}#_RecProgram{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40"" style=""vertical-align:middle""/><em>{2}<small><br/>{3}</small></em></a></li>", recording.IdRecording.ToString, uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName), recording.Title, recording.StartTime)
         Next
 
         markup += "</ul>"
