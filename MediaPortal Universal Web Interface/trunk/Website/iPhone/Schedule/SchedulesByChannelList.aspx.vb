@@ -89,7 +89,7 @@ Partial Public Class SchedulesByChannelList
         markup += "<ul class=""iArrow"">"
 
         For Each schedule In schedules
-            markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40"" style=""vertical-align:middle""/><em>{2}<small><br/>{3}</small></em></a></li>", schedule.IdSchedule.ToString, channel.DisplayName.ToString, schedule.ProgramName, schedule.StartTime)
+            markup += String.Format("<li><a href=""Schedule/ScheduledProgram.aspx?id={0}#_SchedProgram{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40"" style=""vertical-align:middle""/><em>{2}<small><br/>{3}</small></em></a></li>", schedule.IdSchedule.ToString, uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName), schedule.ProgramName, schedule.StartTime)
         Next
 
         markup += "</ul>"

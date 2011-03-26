@@ -180,6 +180,22 @@ Namespace uWiMP.TVServer
 
         End Sub
 
+        Public Shared Function GetMPSafeFilename(ByVal sFilename) As String
+
+            Dim sFName As String = sFilename.Replace(":"c, "_"c)
+            sFName = sFName.Replace("/"c, "_"c)
+            sFName = sFName.Replace("\"c, "_"c)
+            sFName = sFName.Replace("*"c, "_"c)
+            sFName = sFName.Replace("?"c, "_"c)
+            sFName = sFName.Replace(""""c, "_"c)
+            sFName = sFName.Replace("<"c, "_"c)
+            sFName = sFName.Replace(">"c, "_"c)
+            sFName = sFName.Replace("|"c, "_"c)
+
+            Return sFilename
+
+        End Function
+
     End Class
 
 End Namespace

@@ -99,9 +99,9 @@ Partial Public Class SearchTVGuideResults
             For Each program In matchedPrograms
                 Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
                 If uWiMP.TVServer.Schedules.IsProgramScheduled(program) Then
-                    markup += String.Format("<li><a style=""color: red;"" href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, channel.DisplayName.ToString, program.Title.ToString, program.StartTime)
+                    markup += String.Format("<li><a style=""color: red;"" href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName), program.Title.ToString, program.StartTime)
                 Else
-                    markup += String.Format("<li><a href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, channel.DisplayName.ToString, program.Title.ToString, program.StartTime)
+                    markup += String.Format("<li><a href=""TVGuide/TVProgram.aspx?program={0}#_Program{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""40""/><em>{2}<small><br/>{3}</small></em></a></li>", program.IdProgram.ToString, uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName), program.Title.ToString, program.StartTime)
                 End If
             Next
         End If
