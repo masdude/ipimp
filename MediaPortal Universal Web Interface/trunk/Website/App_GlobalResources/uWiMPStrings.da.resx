@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about_ipimp" xml:space="preserve">
+    <value>Om iPiMP</value>
+  </data>
+  <data name="administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Tilbage</value>
+  </data>
+  <data name="change_password" xml:space="preserve">
+    <value>Skift password</value>
+  </data>
+  <data name="confirm_password" xml:space="preserve">
+    <value>Bekræft password</value>
+  </data>
+  <data name="create_user" xml:space="preserve">
+    <value>Opret bruger</value>
+  </data>
+  <data name="delete_user" xml:space="preserve">
+    <value>Slet bruger</value>
+  </data>
+  <data name="finishing_at" xml:space="preserve">
+    <value>Slutter ved</value>
+  </data>
+  <data name="grabbing" xml:space="preserve">
+    <value>Henter</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Hjem</value>
+  </data>
+  <data name="idle" xml:space="preserve">
+    <value>Inaktiv</value>
+  </data>
+  <data name="ipimp" xml:space="preserve">
+    <value>iPiMP</value>
+  </data>
+  <data name="ipimp_admin" xml:space="preserve">
+    <value>iPiMP administration</value>
+  </data>
+  <data name="ipimp_settings" xml:space="preserve">
+    <value>iPiMP indstillinger</value>
+  </data>
+  <data name="is" xml:space="preserve">
+    <value>er</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Log af</value>
+  </data>
+  <data name="mediaportal_clients" xml:space="preserve">
+    <value>MediaPortal klienter</value>
+  </data>
+  <data name="new_password" xml:space="preserve">
+    <value>Nyt kodeord</value>
+  </data>
+  <data name="old_password" xml:space="preserve">
+    <value>Gammelt kodeord</value>
+  </data>
+  <data name="recorded_programs" xml:space="preserve">
+    <value>Optagelser</value>
+  </data>
+  <data name="recording" xml:space="preserve">
+    <value>Optager</value>
+  </data>
+  <data name="scanning" xml:space="preserve">
+    <value>skanner</value>
+  </data>
+  <data name="scheduled_programs" xml:space="preserve">
+    <value>Planlagte optagelser</value>
+  </data>
+  <data name="started_at" xml:space="preserve">
+    <value>startede kl</value>
+  </data>
+  <data name="submit" xml:space="preserve">
+    <value>Indsend</value>
+  </data>
+  <data name="timeshifting" xml:space="preserve">
+    <value>Timeshifting</value>
+  </data>
+  <data name="tv_guide" xml:space="preserve">
+    <value>TV Oversigt</value>
+  </data>
+  <data name="tv_server_status" xml:space="preserve">
+    <value>TV Server status</value>
+  </data>
+  <data name="unknown" xml:space="preserve">
+    <value>ukendt</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Brugernavn</value>
+  </data>
+  <data name="user_admin" xml:space="preserve">
+    <value>Bruger administration</value>
+  </data>
+  <data name="yesno" xml:space="preserve">
+    <value>ja|Nej</value>
+    <comment>This is the text which appears on a toggle button.</comment>
+  </data>
+  <data name="administrator" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="deleter" xml:space="preserve">
+    <value>Sletter</value>
+  </data>
+  <data name="no_users" xml:space="preserve">
+    <value>Ingen brugere er defineret</value>
+  </data>
+  <data name="recorder" xml:space="preserve">
+    <value>Bruger må optage</value>
+  </data>
+  <data name="remoter" xml:space="preserve">
+    <value>Bruger må ændre</value>
+  </data>
+  <data name="watcher" xml:space="preserve">
+    <value>Bruger må se</value>
+  </data>
+  <data name="create_user_fail" xml:space="preserve">
+    <value>Oprettelse af bruger mislykket</value>
+  </data>
+  <data name="create_user_success" xml:space="preserve">
+    <value>Oprettelse gennemført</value>
+  </data>
+  <data name="has_been_deleted" xml:space="preserve">
+    <value>er slettet</value>
+  </data>
+  <data name="has_been_deleted_fail" xml:space="preserve">
+    <value>er ikke slettet</value>
+  </data>
+  <data name="pass_change_fail" xml:space="preserve">
+    <value>Ændring af kodeord mislykkedes</value>
+  </data>
+  <data name="pass_change_success" xml:space="preserve">
+    <value>Ændring af kodeord gennemført</value>
+  </data>
+  <data name="pass_dont_match" xml:space="preserve">
+    <value>Kodeord er ikke korrekt</value>
+  </data>
+  <data name="role_add_fail" xml:space="preserve">
+    <value>Bruger kunne tilknyttes til {0} rolle.</value>
+  </data>
+  <data name="username_blank" xml:space="preserve">
+    <value>Brugenavn kan ikke være tomt</value>
+  </data>
+  <data name="username_exists" xml:space="preserve">
+    <value>Brugernavn benyttes allerede</value>
+  </data>
+  <data name="loading" xml:space="preserve">
+    <value>Starter, vent venligst...</value>
+  </data>
+  <data name="remember_me" xml:space="preserve">
+    <value>Husk mig?</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Kodeord</value>
+  </data>
+  <data name="all" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="channel_groups" xml:space="preserve">
+    <value>Kanal gruppe</value>
+  </data>
+  <data name="genre" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="now_and_next" xml:space="preserve">
+    <value>Nu &amp; næste</value>
+  </data>
+  <data name="no_programs_found" xml:space="preserve">
+    <value>Ingen programmer fundet</value>
+  </data>
+  <data name="programs_found" xml:space="preserve">
+    <value>Fundne programmer</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="search_term" xml:space="preserve">
+    <value>Søg efter:</value>
+  </data>
+  <data name="today" xml:space="preserve">
+    <value>I dag</value>
+  </data>
+  <data name="tomorrow" xml:space="preserve">
+    <value>I morgen</value>
+  </data>
+  <data name="next_day" xml:space="preserve">
+    <value>Efterfølgende dag</value>
+  </data>
+  <data name="programs_on" xml:space="preserve">
+    <value>Programmer på</value>
+  </data>
+  <data name="at_this_time_at_weekends" xml:space="preserve">
+    <value>På dette tidspunkt i weekenden</value>
+  </data>
+  <data name="at_this_time_every_day" xml:space="preserve">
+    <value>På dette tidspunkt dagligt</value>
+  </data>
+  <data name="at_this_time_every_week" xml:space="preserve">
+    <value>På dette tidspunkt hver uge</value>
+  </data>
+  <data name="at_this_time_on_weekdays" xml:space="preserve">
+    <value>På dette tidspunkt på hverdage</value>
+  </data>
+  <data name="each_time_on_any_channel" xml:space="preserve">
+    <value>Hver gang på en hvilken som helst kanal</value>
+  </data>
+  <data name="each_time_on_this_channel" xml:space="preserve">
+    <value>Hver gang på denne kanal</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Send email</value>
+  </data>
+  <data name="email_subject" xml:space="preserve">
+    <value>Måske du er interesseret i dette...</value>
+  </data>
+  <data name="once" xml:space="preserve">
+    <value>En gang</value>
+  </data>
+  <data name="recording_add_fail" xml:space="preserve">
+    <value>Optagelse kunne ikke tilføjes</value>
+  </data>
+  <data name="recording_add_success" xml:space="preserve">
+    <value>Optagelse tilføjet</value>
+  </data>
+  <data name="searching" xml:space="preserve">
+    <value>Søger, vent venligst...</value>
+  </data>
+  <data name="channel" xml:space="preserve">
+    <value>Kanal</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>Dato</value>
+  </data>
+  <data name="last_month" xml:space="preserve">
+    <value>Sidste måned</value>
+  </data>
+  <data name="last_week" xml:space="preserve">
+    <value>Sidste uge</value>
+  </data>
+  <data name="last_year" xml:space="preserve">
+    <value>Sidste år</value>
+  </data>
+  <data name="older" xml:space="preserve">
+    <value>Ældre</value>
+  </data>
+  <data name="recordings" xml:space="preserve">
+    <value>Optagelser</value>
+  </data>
+  <data name="this_week" xml:space="preserve">
+    <value>Denne uge</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>time</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>timer</value>
+  </data>
+  <data name="keep" xml:space="preserve">
+    <value>Behold</value>
+  </data>
+  <data name="min" xml:space="preserve">
+    <value>minut</value>
+  </data>
+  <data name="mins" xml:space="preserve">
+    <value>minutter</value>
+  </data>
+  <data name="not_transcoded" xml:space="preserve">
+    <value>Er ikke transcodet, omdannes?</value>
+  </data>
+  <data name="quicktime" xml:space="preserve">
+    <value>Vent indtil Quicktime pilen vises, før afspilning.</value>
+  </data>
+  <data name="recorded_last_month" xml:space="preserve">
+    <value>Optaget sidste måned</value>
+  </data>
+  <data name="recorded_last_week" xml:space="preserve">
+    <value>Optaget sidste uge</value>
+  </data>
+  <data name="recorded_last_year" xml:space="preserve">
+    <value>Optaget sidste år</value>
+  </data>
+  <data name="recorded_older" xml:space="preserve">
+    <value>Optaget forgående år</value>
+  </data>
+  <data name="recorded_this_week" xml:space="preserve">
+    <value>Optag denne uge</value>
+  </data>
+  <data name="watch" xml:space="preserve">
+    <value>Vis</value>
+  </data>
+  <data name="are_you_sure" xml:space="preserve">
+    <value>Er du sikker?</value>
+  </data>
+  <data name="delete_keep" xml:space="preserve">
+    <value>Slet|Gem</value>
+  </data>
+  <data name="display_more" xml:space="preserve">
+    <value>Vis mere...</value>
+  </data>
+  <data name="keep_always" xml:space="preserve">
+    <value>Gem altid</value>
+  </data>
+  <data name="keep_for_one_month" xml:space="preserve">
+    <value>Gemmes i én måned</value>
+  </data>
+  <data name="keep_for_one_week" xml:space="preserve">
+    <value>Gemmes i én uge</value>
+  </data>
+  <data name="keep_for_one_year" xml:space="preserve">
+    <value>Gemmes i ét år</value>
+  </data>
+  <data name="keep_until_space_needed" xml:space="preserve">
+    <value>Gemmes indtil der er brug for plads</value>
+  </data>
+  <data name="keep_until_watched" xml:space="preserve">
+    <value>Gemmes indtil det er set</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="recordings_delete_fail" xml:space="preserve">
+    <value>Optagelser kunne ikke slettes!</value>
+  </data>
+  <data name="recordings_delete_success" xml:space="preserve">
+    <value>Optagelserne er slettet</value>
+  </data>
+  <data name="recordings_selected_delete" xml:space="preserve">
+    <value>De valgte optagelser vil blive slettet</value>
+  </data>
+  <data name="recording_delete_fail" xml:space="preserve">
+    <value>Optagelse kunne ikke slettes!</value>
+  </data>
+  <data name="recording_delete_success" xml:space="preserve">
+    <value>Optagelse er slettet</value>
+  </data>
+  <data name="recording_keep_fail" xml:space="preserve">
+    <value>Optagelse kunne ikke opdateres!</value>
+  </data>
+  <data name="recording_keep_success" xml:space="preserve">
+    <value>Optagelse er opdateret</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="other" xml:space="preserve">
+    <value>Andre</value>
+  </data>
+  <data name="scheduled_last_month" xml:space="preserve">
+    <value>Planlagte optagelser sidste måned</value>
+  </data>
+  <data name="scheduled_other" xml:space="preserve">
+    <value>Planlagte optagelser i andre perioder</value>
+  </data>
+  <data name="scheduled_this_month" xml:space="preserve">
+    <value>Planlagte optagelser i denne måned</value>
+  </data>
+  <data name="scheduled_this_week" xml:space="preserve">
+    <value>Planlagte optagelser i denne uge</value>
+  </data>
+  <data name="schedules" xml:space="preserve">
+    <value>Planlagte optagelser</value>
+  </data>
+  <data name="this_month" xml:space="preserve">
+    <value>Denne måned</value>
+  </data>
+  <data name="description_not_found" xml:space="preserve">
+    <value>Programbeskrivelse findes ikke</value>
+  </data>
+  <data name="program_not_found" xml:space="preserve">
+    <value>Program er slettet fra EPG.</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="clean_up_schedules" xml:space="preserve">
+    <value>Ryd op i planlagte optagelser</value>
+  </data>
+  <data name="schedules_deleted_fail" xml:space="preserve">
+    <value>Planlagte optagelser kan ikke slettes!</value>
+  </data>
+  <data name="schedules_deleted_success" xml:space="preserve">
+    <value>Planlagte optagelser slettet</value>
+  </data>
+  <data name="schedule_delete_fail" xml:space="preserve">
+    <value>Planlagt optagelse kunne ikke slettes!</value>
+  </data>
+  <data name="schedule_delete_success" xml:space="preserve">
+    <value>Planlagt optagelse slettet</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>!! FEJL !!</value>
+  </data>
+  <data name="card_status" xml:space="preserve">
+    <value>TV kort status</value>
+  </data>
+  <data name="disk_status" xml:space="preserve">
+    <value>Disk status</value>
+  </data>
+  <data name="service_status" xml:space="preserve">
+    <value>TV service status</value>
+  </data>
+  <data name="transcode_status" xml:space="preserve">
+    <value>Transcode status</value>
+  </data>
+  <data name="busy" xml:space="preserve">
+    <value>Optaget</value>
+  </data>
+  <data name="client_is" xml:space="preserve">
+    <value>MP klient er</value>
+  </data>
+  <data name="donate" xml:space="preserve">
+    <value>Giv en donation</value>
+  </data>
+  <data name="stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="stop_recording" xml:space="preserve">
+    <value>Stop optagelse</value>
+  </data>
+  <data name="stop_recording_fail" xml:space="preserve">
+    <value>Optagelse kan ikke stoppes!</value>
+  </data>
+  <data name="stop_recording_success" xml:space="preserve">
+    <value>Optagelse er stoppet</value>
+  </data>
+  <data name="stop_timeshifting" xml:space="preserve">
+    <value>Stop timeshifting</value>
+  </data>
+  <data name="stop_timeshifting_fail" xml:space="preserve">
+    <value>Timeshifting kan ikke stoppes!</value>
+  </data>
+  <data name="stop_timeshifting_success" xml:space="preserve">
+    <value>Timeshifting er stoppet</value>
+  </data>
+  <data name="service_action_fail" xml:space="preserve">
+    <value>Genstart af TV-Service mislykkedes!</value>
+  </data>
+  <data name="service_action_success" xml:space="preserve">
+    <value>TV-Service er genstartet</value>
+  </data>
+  <data name="start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="gb_free" xml:space="preserve">
+    <value>Gb ledig</value>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>Tilføj</value>
+  </data>
+  <data name="client_add" xml:space="preserve">
+    <value>Tilføj klient</value>
+  </data>
+  <data name="client_add_help1" xml:space="preserve">
+    <value>Navnet vil blive brugt til at forsøge at skabe forbindelse til din MP-klient, hvis Hostname/IP addresse feltet er tomt.</value>
+  </data>
+  <data name="client_add_help2" xml:space="preserve">
+    <value>TCP porten vil benytte 55667, hvis feltet er tomt.</value>
+  </data>
+  <data name="client_add_help3" xml:space="preserve">
+    <value>MAC addressen vil blive forsøgt benyttet til wake on lan (WOL), hvis klienten ikke kan kontaktes.</value>
+  </data>
+  <data name="client_del" xml:space="preserve">
+    <value>Slet klienten</value>
+  </data>
+  <data name="client_update" xml:space="preserve">
+    <value>Opdater klienter</value>
+  </data>
+  <data name="could_not_be_created" xml:space="preserve">
+    <value>Kan ikke oprettes.</value>
+  </data>
+  <data name="friendly" xml:space="preserve">
+    <value>Navn. Feks Stue eller Soveværelse osv. </value>
+  </data>
+  <data name="has_been_created" xml:space="preserve">
+    <value>Er oprettet.</value>
+  </data>
+  <data name="hostname" xml:space="preserve">
+    <value>Værtsnavn eller IP addresse (valgfrit)</value>
+  </data>
+  <data name="mac" xml:space="preserve">
+    <value>MAC Addresse (00-00-00-00-00-00) (valgfrit)</value>
+  </data>
+  <data name="no_clients_defined" xml:space="preserve">
+    <value>Ingen klienter er defineret.</value>
+  </data>
+  <data name="port" xml:space="preserve">
+    <value>TCP port (valgfrit)</value>
+  </data>
+  <data name="select_client" xml:space="preserve">
+    <value>Vælg klient</value>
+  </data>
+  <data name="client_empty" xml:space="preserve">
+    <value>Du skal angive et navn.</value>
+  </data>
+  <data name="client_not_selected" xml:space="preserve">
+    <value>Du skal vælge en klient.</value>
+  </data>
+  <data name="could_not_be_updated" xml:space="preserve">
+    <value>Kan ikke opdatere.</value>
+  </data>
+  <data name="has_been_updated" xml:space="preserve">
+    <value>Er opdateret.</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>Opdaterer</value>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>Skift</value>
+  </data>
+  <data name="select_user" xml:space="preserve">
+    <value>Vælg bruger</value>
+  </data>
+  <data name="user_not_selected" xml:space="preserve">
+    <value>Du skal vælge en bruger.</value>
+  </data>
+  <data name="my_videos" xml:space="preserve">
+    <value>Mine videoer</value>
+  </data>
+  <data name="unknown_error" xml:space="preserve">
+    <value>En ukendt fejl er opstået.</value>
+  </data>
+  <data name="videos_all" xml:space="preserve">
+    <value>Alle videoer</value>
+  </data>
+  <data name="videos_by_genre" xml:space="preserve">
+    <value>Video sorteret efter genre</value>
+  </data>
+  <data name="videos_by_year" xml:space="preserve">
+    <value>Videos sorteret efter årstal</value>
+  </data>
+  <data name="could_not_connect" xml:space="preserve">
+    <value>Kan ikke forbinde</value>
+  </data>
+  <data name="could_not_connect_wol" xml:space="preserve">
+    <value>Kan ikke forbinde, send WOL.</value>
+  </data>
+  <data name="wol_sent" xml:space="preserve">
+    <value>WOL pakke sendt, forsøg igen om 1 min...</value>
+  </data>
+  <data name="multiple" xml:space="preserve">
+    <value></value>
+    <comment>Added to the end of a decade to indicate plural</comment>
+  </data>
+  <data name="more" xml:space="preserve">
+    <value>Hent mere ...</value>
+  </data>
+  <data name="play" xml:space="preserve">
+    <value>Afspil</value>
+  </data>
+  <data name="imdb" xml:space="preserve">
+    <value>IMDB</value>
+  </data>
+  <data name="could_not_start_video" xml:space="preserve">
+    <value>Kan ikke starte video.</value>
+  </data>
+  <data name="now_playing" xml:space="preserve">
+    <value>Afspiller nu</value>
+  </data>
+  <data name="remote_control" xml:space="preserve">
+    <value>Fjernkontrol</value>
+  </data>
+  <data name="cover_art" xml:space="preserve">
+    <value>Cover Art</value>
+  </data>
+  <data name="my_music" xml:space="preserve">
+    <value>Min Musik</value>
+  </data>
+  <data name="music_by_album" xml:space="preserve">
+    <value>Musik sorteret efter album</value>
+  </data>
+  <data name="music_by_artist" xml:space="preserve">
+    <value>Musik sorteret efter artist</value>
+  </data>
+  <data name="music_by_genre" xml:space="preserve">
+    <value>Musik sorteret efter genre</value>
+  </data>
+  <data name="music_by_year" xml:space="preserve">
+    <value>Musik sorteret efter årstal</value>
+  </data>
+  <data name="music_playlists" xml:space="preserve">
+    <value>Musik afspilningslister</value>
+  </data>
+  <data name="music_search" xml:space="preserve">
+    <value>Søg efter titel (Track)</value>
+  </data>
+  <data name="music_update" xml:space="preserve">
+    <value>Opdater musik database</value>
+  </data>
+  <data name="play_100_random" xml:space="preserve">
+    <value>Afspil 100 tilfældige numre</value>
+  </data>
+  <data name="enqueue" xml:space="preserve">
+    <value>Sæt i kø</value>
+  </data>
+  <data name="shuffle" xml:space="preserve">
+    <value>Miks tilfældig</value>
+  </data>
+  <data name="select_tracks" xml:space="preserve">
+    <value>Vælg numre (tracks)</value>
+  </data>
+  <data name="done" xml:space="preserve">
+    <value>Færdig</value>
+  </data>
+  <data name="display_all_tracks" xml:space="preserve">
+    <value>Vis alle titler (tracks)</value>
+  </data>
+  <data name="no_playlists_found" xml:space="preserve">
+    <value>Afspilningsliste er ikke fundet</value>
+  </data>
+  <data name="play_random_playlist" xml:space="preserve">
+    <value>Afspil tilfældige afspilningslister</value>
+  </data>
+  <data name="search_album" xml:space="preserve">
+    <value>Søg efter album</value>
+  </data>
+  <data name="search_artist" xml:space="preserve">
+    <value>Søg artist</value>
+  </data>
+  <data name="search_genre" xml:space="preserve">
+    <value>Søg genre</value>
+  </data>
+  <data name="search_track" xml:space="preserve">
+    <value>Søg nummer (track)</value>
+  </data>
+  <data name="music_update_request_fail" xml:space="preserve">
+    <value>Musik opdatering mislykkedes.</value>
+  </data>
+  <data name="music_update_request_success" xml:space="preserve">
+    <value>Musik opdatering er valgt.</value>
+  </data>
+  <data name="enter_filename" xml:space="preserve">
+    <value>Skriv filnavn (uden filtype)</value>
+  </data>
+  <data name="save_playlist" xml:space="preserve">
+    <value>Gem afspilningsliste</value>
+  </data>
+  <data name="save_playlist_fail" xml:space="preserve">
+    <value>Afspilningsliste kunne ikke gemmes</value>
+  </data>
+  <data name="save_playlist_success" xml:space="preserve">
+    <value>Afspilningsliste er gemt</value>
+  </data>
+  <data name="send_message" xml:space="preserve">
+    <value>Send besked</value>
+  </data>
+  <data name="enter_message" xml:space="preserve">
+    <value>Skriv besked</value>
+  </data>
+  <data name="no_messages_sent" xml:space="preserve">
+    <value>Ingen besked afsendt</value>
+  </data>
+  <data name="send_message_fail" xml:space="preserve">
+    <value>Afsendelse af besked mislykket</value>
+  </data>
+  <data name="send_message_success" xml:space="preserve">
+    <value>Besked afsendt</value>
+  </data>
+  <data name="send_message_to" xml:space="preserve">
+    <value>Besked afsendt til</value>
+  </data>
+  <data name="message_from" xml:space="preserve">
+    <value>Besked fra</value>
+  </data>
+  <data name="send_message_global" xml:space="preserve">
+    <value>Send global besked</value>
+  </data>
+  <data name="power_hibernate" xml:space="preserve">
+    <value>Dvale (Hibernate)</value>
+  </data>
+  <data name="power_logoff" xml:space="preserve">
+    <value>Log af</value>
+  </data>
+  <data name="power_options" xml:space="preserve">
+    <value>Stømstyrings muligheder</value>
+  </data>
+  <data name="power_option_fail" xml:space="preserve">
+    <value>Strømstyring mislykkedes</value>
+  </data>
+  <data name="power_option_not_selected" xml:space="preserve">
+    <value>Du skal vælge en strømstyrings mulighed</value>
+  </data>
+  <data name="power_option_select" xml:space="preserve">
+    <value>Vælg strømstyrings mulighed</value>
+  </data>
+  <data name="power_option_success" xml:space="preserve">
+    <value>Strømstyringsmulighed OK</value>
+  </data>
+  <data name="power_reboot" xml:space="preserve">
+    <value>Genstart</value>
+  </data>
+  <data name="power_shutdown" xml:space="preserve">
+    <value>Luk</value>
+  </data>
+  <data name="power_suspend" xml:space="preserve">
+    <value>Standby</value>
+  </data>
+  <data name="movie" xml:space="preserve">
+    <value>Film</value>
+  </data>
+  <data name="music" xml:space="preserve">
+    <value>Musik</value>
+  </data>
+  <data name="now_playing_dvd" xml:space="preserve">
+    <value>Afspiller DVD</value>
+  </data>
+  <data name="now_playing_nothing" xml:space="preserve">
+    <value>Afspiller ingenting</value>
+  </data>
+  <data name="now_playing_unknown" xml:space="preserve">
+    <value>Kan ikke afgøre hvad der afspilles</value>
+  </data>
+  <data name="refresh" xml:space="preserve">
+    <value>Opdater</value>
+  </data>
+  <data name="show_album" xml:space="preserve">
+    <value>Vis album</value>
+  </data>
+  <data name="show_artist" xml:space="preserve">
+    <value>Vis artist</value>
+  </data>
+  <data name="show_genre" xml:space="preserve">
+    <value>Vis genre</value>
+  </data>
+  <data name="show_program" xml:space="preserve">
+    <value>Vis program</value>
+  </data>
+  <data name="show_recording" xml:space="preserve">
+    <value>Vis optagelser</value>
+  </data>
+  <data name="show_video" xml:space="preserve">
+    <value>Vis video</value>
+  </data>
+  <data name="tv" xml:space="preserve">
+    <value>TV</value>
+  </data>
+  <data name="tvrecording" xml:space="preserve">
+    <value>TV optagelser</value>
+  </data>
+  <data name="unknown_album" xml:space="preserve">
+    <value>Ukendt album</value>
+  </data>
+  <data name="unknown_recording" xml:space="preserve">
+    <value>Ukendt optagelse</value>
+  </data>
+  <data name="unknown_tagline" xml:space="preserve">
+    <value>Ukendt indeks ord (tagline)</value>
+  </data>
+  <data name="unknown_title" xml:space="preserve">
+    <value>Unkendt titel</value>
+  </data>
+  <data name="enter_keyboard_command" xml:space="preserve">
+    <value>Tastatur genveje</value>
+  </data>
+  <data name="select_list_size" xml:space="preserve">
+    <value>Vælg sidestørrelse</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="power_close" xml:space="preserve">
+    <value>Luk</value>
+  </data>
+  <data name="transcoding_running" xml:space="preserve">
+    <value>Transcoding er igang</value>
+  </data>
+  <data name="transcoding_started" xml:space="preserve">
+    <value>Transcoding er startet</value>
+  </data>
+  <data name="no_access" xml:space="preserve">
+    <value>Du har ikke tilladelse til dette.</value>
+  </data>
+  <data name="no_channel_groups" xml:space="preserve">
+    <value>Ingen kanal grupper fundet.</value>
+  </data>
+  <data name="main_menu" xml:space="preserve">
+    <value>Hovedmenu</value>
+  </data>
+  <data name="record" xml:space="preserve">
+    <value>Optag</value>
+  </data>
+  <data name="enable_client" xml:space="preserve">
+    <value>MP Klient menu</value>
+  </data>
+  <data name="enable_server" xml:space="preserve">
+    <value>TV Server menu</value>
+  </data>
+  <data name="select_default_rec_order" xml:space="preserve">
+    <value>Sortering af optagelser</value>
+  </data>
+  <data name="show_client_submenu" xml:space="preserve">
+    <value>Klient undermenu</value>
+  </data>
+  <data name="show_recording_submenu" xml:space="preserve">
+    <value>Optagelser undermenu</value>
+  </data>
+  <data name="moving_pictures" xml:space="preserve">
+    <value>Moving Pictures</value>
+  </data>
+  <data name="manual_record" xml:space="preserve">
+    <value>Manual optagelse</value>
+  </data>
+  <data name="manual_record_duration" xml:space="preserve">
+    <value>Varighed (minutter) (valgfri)</value>
+  </data>
+  <data name="manual_record_name" xml:space="preserve">
+    <value>Skriv et navn for optagelsen</value>
+  </data>
+  <data name="start_time" xml:space="preserve">
+    <value>Starter kl (tt:mm)</value>
+  </data>
+  <data name="movingpictures_all" xml:space="preserve">
+    <value>Alle film</value>
+  </data>
+  <data name="movingpictures_certification" xml:space="preserve">
+    <value>Film efter certificering</value>
+  </data>
+  <data name="movingpictures_genre" xml:space="preserve">
+    <value>Film efter genre</value>
+  </data>
+  <data name="movingpictures_recent" xml:space="preserve">
+    <value>Film der er tilføjet for nylig</value>
+  </data>
+  <data name="movingpictures_unwatched" xml:space="preserve">
+    <value>Film der ikke er set </value>
+  </data>
+  <data name="movingpictures_year" xml:space="preserve">
+    <value>Film efter årstal</value>
+  </data>
+  <data name="one_month" xml:space="preserve">
+    <value>En måned</value>
+  </data>
+  <data name="one_week" xml:space="preserve">
+    <value>En uge</value>
+  </data>
+  <data name="six_months" xml:space="preserve">
+    <value>Seks måneder</value>
+  </data>
+  <data name="two_weeks" xml:space="preserve">
+    <value>To uger</value>
+  </data>
+  <data name="movingpictures_period" xml:space="preserve">
+    <value>Periode for nylige film</value>
+  </data>
+  <data name="appearance" xml:space="preserve">
+    <value>Udseende</value>
+  </data>
+  <data name="appearance_fail" xml:space="preserve">
+    <value>Opdatering af udseende mislykkedes</value>
+  </data>
+  <data name="appearance_success" xml:space="preserve">
+    <value>Udseende er opdateret</value>
+  </data>
+  <data name="black" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="blue" xml:space="preserve">
+    <value>Blå</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>Standardindstilling</value>
+  </data>
+  <data name="green" xml:space="preserve">
+    <value>Grøn</value>
+  </data>
+  <data name="orange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="pink" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="purple" xml:space="preserve">
+    <value>Lilla</value>
+  </data>
+  <data name="red" xml:space="preserve">
+    <value>Rød</value>
+  </data>
+  <data name="select_colour" xml:space="preserve">
+    <value>Vælg farve</value>
+  </data>
+  <data name="search_description" xml:space="preserve">
+    <value>Beskrivelse af søgning?</value>
+  </data>
+  <data name="radio_guide" xml:space="preserve">
+    <value>Radio oversigt</value>
+  </data>
+  <data name="listen" xml:space="preserve">
+    <value>Aflyt</value>
+  </data>
+  <data name="stream_stopped" xml:space="preserve">
+    <value>Stream stopped</value>
+  </data>
+  <data name="stream_stopped_failed" xml:space="preserve">
+    <value>Stream kunne ikke stoppes</value>
+  </data>
+  <data name="stream_started" xml:space="preserve">
+    <value>Tryk på afspil for at afspille.  Når du er færdig &lt;B&gt;Tryk på stop &lt;/B&gt; Ellers vil TV-Server fortsat benytte en tuner og fortsætte med at transcode.</value>
+  </data>
+  <data name="stream_start_wait" xml:space="preserve">
+    <value>Afvent at streaming startes</value>
+  </data>
+  <data name="next_week" xml:space="preserve">
+    <value>Næste uge</value>
+  </data>
+  <data name="rest_month" xml:space="preserve">
+    <value>Resten af måneden</value>
+  </data>
+  <data name="scheduled_next_week" xml:space="preserve">
+    <value>Planlagt næste uge</value>
+  </data>
+  <data name="scheduled_none" xml:space="preserve">
+    <value>Ingen planlagte optagelser fundet</value>
+  </data>
+  <data name="scheduled_rest_month" xml:space="preserve">
+    <value>Planlagt resten af måneden</value>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>Genstart</value>
+  </data>
+  <data name="stream" xml:space="preserve">
+    <value>Stream</value>
+  </data>
+  <data name="sort_lists" xml:space="preserve">
+    <value>Sorter efter navn</value>
+  </data>
+  <data name="ipimp_settings_success" xml:space="preserve">
+    <value>Indstillinger opdateret</value>
+  </data>
+  <data name="ipimp_settings_fail" xml:space="preserve">
+    <value>Opdatering af indstillinger mislykkedes</value>
+  </data>
+  <data name="guide_days" xml:space="preserve">
+    <value>Antal dage der vises i TV guide</value>
+  </data>
+  <data name="streaming_status" xml:space="preserve">
+    <value>Streaming status</value>
+  </data>
+  <data name="streaming" xml:space="preserve">
+    <value>Streaming</value>
+  </data>
+  <data name="Streaming_nothing" xml:space="preserve">
+    <value>Intet streames</value>
+  </data>
+  <data name="could_not_start_music" xml:space="preserve">
+    <value>Kan ikke starte musik</value>
+  </data>
+  <data name="tv_series" xml:space="preserve">
+    <value>TV serier</value>
+  </data>
+	<data name="tvseries_series">
+		<value xml:space="preserve">Serier</value>
+	</data>
+	<data name="tvseries_recent">
+		<value xml:space="preserve">Nylige episoder</value>
+	</data>
+	<data name="tv_series_season">
+		<value xml:space="preserve">Sæson</value>
+	</data>
+	<data name="tvseries_episode_image">
+		<value xml:space="preserve">Episode billede</value>
+	</data>
+	<data name="tvseries_start_fail">
+		<value xml:space="preserve">Start af episode mislykkedes</value>
+	</data>
+	<data name="unknown_plot">
+		<value xml:space="preserve">Ukendt handling</value>
+	</data>
+	<data name="tvseries_episode">
+		<value xml:space="preserve">Episode</value>
+	</data>
+</root>
