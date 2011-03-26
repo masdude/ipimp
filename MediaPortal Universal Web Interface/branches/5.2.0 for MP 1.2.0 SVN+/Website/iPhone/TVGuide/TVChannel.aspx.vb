@@ -82,7 +82,7 @@ Partial Public Class TVChannel
         Dim scheduled As String = String.Empty
 
         markup += "<div class=""iMenu"">"
-        markup += String.Format("<h3>{0}</h3>", channel.Name)
+        markup += String.Format("<h3>{0}</h3>", channel.DisplayName)
 
         markup += "<ul class=""iArrow"">"
         If Not channel.CurrentProgram Is Nothing Then

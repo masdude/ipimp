@@ -391,7 +391,7 @@ Partial Public Class NowPlaying
             markup += String.Format("<b>{0}</b><br>", GetGlobalResourceObject("uWiMPStrings", "unknown_program"))
         Else
             markup += String.Format("<b>{0}</b><br>", program.Title)
-            markup += String.Format("<b>{0}</b><br>", channel.Name)
+            markup += String.Format("<b>{0}</b><br>", channel.DisplayName)
             markup += String.Format("<b>{0} - {1}</b><br>", program.StartTime.ToShortTimeString, program.EndTime.ToShortTimeString)
         End If
 

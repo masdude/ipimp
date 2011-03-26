@@ -97,7 +97,7 @@ Partial Public Class TVProgram
         If program.IsRunningAt(Now) Then
             If User.IsInRole("watcher") Then
                 Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(program.IdChannel)
-                Dim channelName As String = channel.Name.ToLower
+                Dim channelName As String = channel.DisplayName.ToLower
                 channelName = Replace(channelName, " ", "")
                 markup += String.Format("<li><a href=""Streaming/StartStream.aspx?type=livetv&id={0}#StartStream"" rev=""async"">{1}</a></li>", channel.IdChannel.ToString, GetGlobalResourceObject("uWiMPStrings", "stream"))
             End If

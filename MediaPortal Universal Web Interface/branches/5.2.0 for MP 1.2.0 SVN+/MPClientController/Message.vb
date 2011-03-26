@@ -74,7 +74,7 @@ Namespace MPClientController
             dialog.Reset()
             dialog.SetHeading(_heading)
             dialog.SetText(_message)
-            dialog.FontSize = 24
+            'dialog.FontSize = 24
             dialog.DoModal(GUIWindowManager.ActiveWindow())
         End Sub
 

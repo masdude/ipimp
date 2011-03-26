@@ -37,7 +37,7 @@ Public Class SearchTVGuide1
             Dim row As New TableRow
             Dim cell As New TableCell With {.Width = 80}
 
-            Dim channelImage As New Image With {.AlternateText = channel.Name, .ImageUrl = String.Format("../../TVLogos/{0}.png", channel.Name), .Width = 80}
+            Dim channelImage As New Image With {.AlternateText = channel.DisplayName, .ImageUrl = String.Format("../../TVLogos/{0}.png", channel.DisplayName), .Width = 80}
             cell.Controls.Add(channelImage)
             row.Cells.Add(cell)
 
