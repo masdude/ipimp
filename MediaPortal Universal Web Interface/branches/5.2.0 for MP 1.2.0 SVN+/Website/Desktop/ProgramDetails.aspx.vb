@@ -45,7 +45,7 @@ Public Class ProgramDetails
             jw.WriteMember("description")
             jw.WriteString(description)
             jw.WriteMember("channel")
-            jw.WriteString(channel.Name)
+            jw.WriteString(channel.DisplayName)
             jw.WriteMember("running")
             jw.WriteBoolean(program.IsRunningAt(Now))
             jw.WriteMember("scheduled")

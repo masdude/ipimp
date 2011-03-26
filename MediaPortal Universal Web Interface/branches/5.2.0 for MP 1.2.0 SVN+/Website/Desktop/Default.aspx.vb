@@ -166,7 +166,7 @@ Public Class _DesktopDefault
                 cssClass = "rounded-corners lightgrey largeblack record"
             End If
 
-            Dim channelImage As New Image With {.AlternateText = channel.Name, .ImageUrl = String.Format("../../TVLogos/{0}.png", channel.Name), .Width = 40}
+            Dim channelImage As New Image With {.AlternateText = channel.DisplayName, .ImageUrl = String.Format("../../TVLogos/{0}.png", channel.DisplayName), .Width = 40}
             cell.Controls.Add(channelImage)
             row.Cells.Add(cell)
 
@@ -323,7 +323,7 @@ Public Class _DesktopDefault
                 cssClass = "rounded-corners lightgrey largeblack record"
             End If
 
-            Dim channelImage As New Image With {.AlternateText = channel.Name, .ImageUrl = String.Format("../../TVLogos/{0}.png", channel.Name), .Width = 40}
+            Dim channelImage As New Image With {.AlternateText = channel.DisplayName, .ImageUrl = String.Format("../../TVLogos/{0}.png", channel.DisplayName), .Width = 40}
             cell.Controls.Add(channelImage)
             row.Cells.Add(cell)
 

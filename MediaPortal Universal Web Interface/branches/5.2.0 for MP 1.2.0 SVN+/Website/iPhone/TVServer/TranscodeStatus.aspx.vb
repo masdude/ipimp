@@ -93,7 +93,7 @@ Partial Public Class TranscodeStatus
             Dim recording As Recording = uWiMP.TVServer.Recordings.GetRecordingById(task.RecordingID)
             markup2 += "Transcoding is running."
             markup2 += String.Format("<br>Currently transcoding {0}", recording.Title)
-            markup2 += String.Format("<br>Shown on {0} at {1}", uWiMP.TVServer.Channels.GetChannelByChannelId(recording.IdChannel).Name, recording.StartTime)
+            markup2 += String.Format("<br>Shown on {0} at {1}", uWiMP.TVServer.Channels.GetChannelByChannelId(recording.IdChannel).DisplayName, recording.StartTime)
             markup2 += String.Format("<br>Transcoding started at {0}", startTime.ToString)
             markup2 += String.Format("<br>Current time is ", Now.ToString)
         ElseIf uWiMP.TVServer.Transcode.IsTaskRunning Then

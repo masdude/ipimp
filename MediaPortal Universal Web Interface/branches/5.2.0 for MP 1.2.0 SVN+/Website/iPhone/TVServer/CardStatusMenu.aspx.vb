@@ -102,7 +102,7 @@ Partial Public Class CardStatusMenu
             result = GetGlobalResourceObject("uWiMPStrings", "timeshifting")
             result += "<br>"
             result += String.Format("{0}<br>", username)
-            result += String.Format("{0}<br>", channel.Name)
+            result += String.Format("{0}<br>", channel.DisplayName)
             result += String.Format("{0}<br>", channel.CurrentProgram.Title)
             result += String.Format("{0} - {1}<br>", channel.CurrentProgram.StartTime.ToShortTimeString, channel.CurrentProgram.EndTime.ToShortTimeString)
         End If
@@ -112,7 +112,7 @@ Partial Public Class CardStatusMenu
             Dim schedule As Schedule = uWiMP.TVServer.Schedules.GetScheduleById(usageid)
             Dim channel As Channel = uWiMP.TVServer.Channels.GetChannelByChannelId(schedule.IdChannel)
             result += "<br>"
-            result += String.Format("{0}<br>", channel.Name)
+            result += String.Format("{0}<br>", channel.DisplayName)
             If schedule.ProgramName.ToLower = channel.CurrentProgram.Title.ToLower Then
                 result += String.Format("{0}<br>", channel.CurrentProgram.Title)
                 result += String.Format("{0} - {1}<br>", channel.CurrentProgram.StartTime.ToShortTimeString, channel.CurrentProgram.EndTime.ToShortTimeString)

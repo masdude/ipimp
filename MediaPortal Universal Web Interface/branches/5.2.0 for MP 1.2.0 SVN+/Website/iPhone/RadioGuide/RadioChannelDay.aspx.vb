@@ -94,7 +94,7 @@ Partial Public Class RadioChannelDay
 
         Dim markup As String = ""
         markup += "<div class=""iMenu"""
-        markup += String.Format("<h3>{0} {1} for {2}</h3>", GetGlobalResourceObject("uWiMPStrings", "programs_on"), dayName, channel.Name)
+        markup += String.Format("<h3>{0} {1} for {2}</h3>", GetGlobalResourceObject("uWiMPStrings", "programs_on"), dayName, channel.DisplayName)
         markup += "<ul class=""iArrow"">"
 
         Dim idLastProgram, idCurrentProgram As Integer

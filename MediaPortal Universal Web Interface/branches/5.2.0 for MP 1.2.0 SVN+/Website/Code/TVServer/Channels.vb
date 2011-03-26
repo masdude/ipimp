@@ -39,7 +39,7 @@ Namespace uWiMP.TVServer
         Public Shared Function GetChannelNameByChannelId(ByVal idChannel As Integer) As String
 
             Dim layer As New TvBusinessLayer()
-            Return layer.GetChannel(idChannel).Name
+            Return layer.GetChannel(idChannel).DisplayName
 
         End Function
 
@@ -48,7 +48,7 @@ Namespace uWiMP.TVServer
     Public Class ChannelNameComparer
         Implements IComparer(Of Channel)
         Public Overridable Overloads Function Compare(ByVal x As Channel, ByVal y As Channel) As Integer Implements IComparer(Of Channel).Compare
-            Return x.Name.ToLower.CompareTo(y.Name.ToLower)
+            Return x.DisplayName.ToLower.CompareTo(y.DisplayName.ToLower)
         End Function
     End Class
 
