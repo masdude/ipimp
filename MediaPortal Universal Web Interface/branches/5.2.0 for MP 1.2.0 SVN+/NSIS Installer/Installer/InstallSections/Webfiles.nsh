@@ -16,6 +16,7 @@
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.nl.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.no.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.resx"
+  File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.ru.resx"
   File "..\Include\Aspx\App_GlobalResources\uWiMPStrings.sv.resx"
 
   SetOutPath "$INSTDIR\Aspx\bin"
@@ -33,24 +34,24 @@
   File "..\Include\Aspx\bin\TVDatabase.dll"
   File "..\Include\Aspx\bin\TvLibrary.Interfaces.dll"
   File "..\Include\Aspx\bin\uWiMPMPWebServices.dll"
+  File "..\Include\Aspx\bin\uWiMPMPWebServices.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.dll"
   File "..\Include\Aspx\bin\uWiMPweb.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.xml"
 
   SetOutPath "$INSTDIR\Aspx\Desktop"
-  File "..\Include\Aspx\Desktop\5.0.swf"
   File "..\Include\Aspx\Desktop\Default.aspx"
   File "..\Include\Aspx\Desktop\Desktop.Master"
-  File "..\Include\Aspx\Desktop\Flash.htm"
   File "..\Include\Aspx\Desktop\Login.aspx"
-  File "..\Include\Aspx\Desktop\MediaPlayerTemplate.xap"
+  File "..\Include\Aspx\Desktop\Logout.aspx"
   File "..\Include\Aspx\Desktop\ProgramDetails.aspx"
-  File "..\Include\Aspx\Desktop\Silverlight.htm"
-  File "..\Include\Aspx\Desktop\SmoothStreamingProvider.swf"
-  File "..\Include\Aspx\Desktop\swfobject.js"
+  File "..\Include\Aspx\Desktop\RecordProgram.aspx"
+  File "..\Include\Aspx\Desktop\SearchTVGuide.aspx"
   File "..\Include\Aspx\Desktop\TVGuide.aspx"
+  File "..\Include\Aspx\Desktop\Web.config"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\css"
+  File "..\Include\Aspx\Desktop\css\ajax-loader.gif"
   File "..\Include\Aspx\Desktop\css\desktop.css"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\Players"
@@ -66,7 +67,7 @@
   File "..\Include\Aspx\Desktop\Players\Silverlight\Silverlight.htm"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\scripts"
-  File "..\Include\Aspx\Desktop\scripts\wz_tooltip.js"
+  File "..\Include\Aspx\Desktop\scripts\jquery.tools.min.js"
 
   SetOutPath "$INSTDIR\Aspx\images"
   File "..\Include\Aspx\images\dvd.png"
@@ -152,8 +153,6 @@
   SetOutPath "$INSTDIR\Aspx\images\tvseries"
   File "..\Include\Aspx\images\tvseries\blank.png"
   File "..\Include\Aspx\images\tvseries\blankbanner.png"
-  File "..\Include\Aspx\images\tvseries\tvepisodeblank.png"
-  File "..\Include\Aspx\images\tvseries\tvepisodeblankbanner.png"
 
   SetOutPath "$INSTDIR\Aspx\images\videotitle"
   File "..\Include\Aspx\images\videotitle\blank.png"
