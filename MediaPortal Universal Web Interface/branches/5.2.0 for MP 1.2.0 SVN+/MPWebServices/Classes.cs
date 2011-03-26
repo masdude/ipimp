@@ -45,8 +45,8 @@ namespace uWiMP.TVServer.MPWebServices.Classes
     {
       this.idChannel = ch.IdChannel;
       this.displayName = ch.DisplayName;
-      this.name = ch.Name;
-      this.freeToAir = ch.FreeToAir;
+      this.name = ch.DisplayName;
+      this.freeToAir = true;
       this.grabEPG = ch.GrabEpg;
       this.isRadio = ch.IsRadio;
       this.isTv = ch.IsTv;
