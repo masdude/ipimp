@@ -30,6 +30,9 @@ Imports TvLibrary
 Imports TvLibrary.Log
 Imports TvLibrary.Interfaces
 Imports TvDatabase
+Imports MediaPortal.Common.Utils
+
+<Assembly: CompatibleVersion("1.1.6.20000")> 
 
 
 Namespace TVEngine
@@ -231,7 +234,7 @@ Namespace TVEngine
         Private Shared Sub Screenshot(ByVal _recFilename As String)
 
             Dim params As String = String.Format("-i {0} -ss {1} -vcodec mjpeg -vframes 1 -an -f rawvideo -s 88x50 ""{2}\{3}.jpg""", _recFilename, (_preInterval * 60) + 10, _folderPath, Path.GetFileNameWithoutExtension(_recFilename))
-            
+
             LaunchProcess(String.Format("{0}\FFMpeg\FFMpeg.exe", _iPiMPPath), params, String.Format("""{0}""", _folderPath))
 
         End Sub
