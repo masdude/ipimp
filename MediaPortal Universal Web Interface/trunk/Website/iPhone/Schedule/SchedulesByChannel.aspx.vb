@@ -99,7 +99,7 @@ Partial Public Class SchedulesByChannel
 
         If channels.Count > 1 Then channels.Sort(New uWiMP.TVServer.ChannelSortOrderComparer)
         For Each channel In channels
-            markup += String.Format("<li><a href=""Schedule/SchedulesByChannelList.aspx?id={0}#_SchedChannel{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" style=""height:26px""/>{1}</a></li>", channel.IdChannel.ToString, channel.DisplayName.ToString)
+            markup += String.Format("<li><a href=""Schedule/SchedulesByChannelList.aspx?id={0}#_SchedChannel{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" style=""height:26px""/>{1}</a></li>", channel.IdChannel.ToString, uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName))
         Next
 
                markup += "</ul>"

@@ -93,7 +93,7 @@ Partial Public Class ChannelGroups
 
         markup += "<ul class=""iArrow"">"
         For Each channel In channels
-            markup += String.Format("<li><a href=""TVGuide/TVChannel.aspx?channel={0}#_Channel{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""28""/><em>{1}</em></a></li>", channel.IdChannel.ToString, channel.DisplayName)
+            markup += String.Format("<li><a href=""TVGuide/TVChannel.aspx?channel={0}#_Channel{0}"" rev=""async""><img src=""../../TVLogos/{1}.png"" height=""28""/><em>{1}</em></a></li>", channel.IdChannel.ToString, uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName))
         Next
         markup += "</ul>"
 

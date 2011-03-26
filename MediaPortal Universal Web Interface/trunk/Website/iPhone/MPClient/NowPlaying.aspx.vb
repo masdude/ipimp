@@ -310,7 +310,7 @@ Partial Public Class NowPlaying
         If channelName = "" Then
             imagePath = "<img src=""../../images/radio.png"" alt=""tv"" style=""height:200px;width:200px""/>"
         Else
-            imagePath = String.Format("<img src=""../../RadioLogos/{0}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", channelName)
+            imagePath = String.Format("<img src=""../../RadioLogos/{0}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", uWiMP.TVServer.Utilities.GetMPSafeFilename(channelName))
         End If
 
         Dim markup As String = String.Empty
@@ -346,7 +346,7 @@ Partial Public Class NowPlaying
         Else
             scheduled = ""
         End If
-        If programID <> -1 Then markup += String.Format("<li><a {0} href=""TVGuide/TVProgram.aspx?program={1}#_Program{1}"" rev=""async"">{2}</a></li>", scheduled, programID.ToString, GetGlobalResourceObject("uWiMPStrings", "show_program"))
+        If programID <> -1 Then markup += String.Format("<li><a {0} href=""RadioGuide/RadioProgram.aspx?program={1}#_Program{1}"" rev=""async"">{2}</a></li>", scheduled, programID.ToString, GetGlobalResourceObject("uWiMPStrings", "show_program"))
         markup += "</ul>"
 
         markup += "<ul class=""iArrow"">"
@@ -371,7 +371,7 @@ Partial Public Class NowPlaying
         If programID = -1 Then
             imagePath = "<img src=""../../images/tv.png"" alt=""tv"" style=""height:200px;width:200px""/>"
         Else
-            imagePath = String.Format("<img src=""../../TVLogos/{0}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", channel.DisplayName.ToString)
+            imagePath = String.Format("<img src=""../../TVLogos/{0}.png"" height=""200"" style=""display:block; margin-left:auto; margin-right:auto;""/>", uWiMP.TVServer.Utilities.GetMPSafeFilename(channel.DisplayName))
         End If
 
         Dim markup As String = String.Empty
