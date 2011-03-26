@@ -1,5 +1,5 @@
 ﻿' 
-'   Copyright (C) 2008-2010 Martin van der Boon
+'   Copyright (C) 2008-2011 Martin van der Boon
 ' 
 '  This program is free software: you can redistribute it and/or modify 
 '  it under the terms of the GNU General Public License as published by 
@@ -28,8 +28,6 @@ Imports MediaPortal.Configuration
 Imports MediaPortal.GUI.Library
 Imports MediaPortal.InputDevices
 Imports MediaPortal.Common.Utils
-
-<Assembly: CompatibleVersion("1.1.6.20000")> 
 
 Namespace MPClientController
 

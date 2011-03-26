@@ -1,6 +1,7 @@
 ﻿Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
+Imports MediaPortal.Common.Utils
 
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
@@ -14,8 +15,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyProduct("MPClientController")> 
 <Assembly: AssemblyCopyright("Copyright © CheezeySoft 2010")> 
 <Assembly: AssemblyTrademark("")> 
-
-<Assembly: ComVisible(False)>
+<Assembly: CompatibleVersion("1.1.6.27644")> 
+<Assembly: ComVisible(False)> 
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("e2935ac2-a520-471a-9a95-d7a49ff3aa84")> 
@@ -31,5 +32,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("5.2.0.797")> 
-<Assembly: AssemblyFileVersion("5.2.0.797")> 
+<Assembly: AssemblyVersion("5.2.0.800")> 
+<Assembly: AssemblyFileVersion("5.2.0.800")> 
