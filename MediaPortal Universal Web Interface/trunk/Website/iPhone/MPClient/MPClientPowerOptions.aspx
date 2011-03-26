@@ -1,1 +1,0 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="MPClientPowerOptions.aspx.vb" Inherits="Website.MPClientPowerOptions" %>
