@@ -133,16 +133,16 @@
     </Content>
     <Content Include="Desktop\css\ajax-loader.gif" />
     <Content Include="Desktop\Logout.aspx" />
+    <Content Include="Desktop\Players\Flash\5.3.swf" />
+    <Content Include="Desktop\Players\Flash\SmoothStreamingProvider-1.4.17.swf" />
     <Content Include="Desktop\RecordProgram.aspx" />
     <Content Include="Desktop\Default.aspx" />
     <Content Include="Desktop\Login.aspx" />
-    <Content Include="Desktop\Players\Flash\5.0.swf" />
     <Content Include="Desktop\ProgramDetails.aspx" />
     <Content Include="Desktop\css\desktop.css" />
     <Content Include="Desktop\Players\Flash\Flash.htm" />
     <Content Include="Desktop\Players\Silverlight\MediaPlayerTemplate.xap" />
     <Content Include="Desktop\Players\Silverlight\Silverlight.htm" />
-    <Content Include="Desktop\Players\Flash\SmoothStreamingProvider.swf" />
     <Content Include="Desktop\Players\Flash\swfobject.js" />
     <Content Include="Desktop\scripts\jquery.tools.min.js" />
     <Content Include="Desktop\SearchTVGuide.aspx" />

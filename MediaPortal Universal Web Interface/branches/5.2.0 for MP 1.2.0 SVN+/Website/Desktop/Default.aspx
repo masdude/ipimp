@@ -13,6 +13,7 @@
         <div style="float:right;">
         <ul class="right-tabs">
             <li><a href="Logout.aspx"><asp:Literal ID="Literal12" runat="server" Text="<%$ Resources:uWiMPStrings, logout %>" /></a></li>
+			<li><a href="../iPhone/Default.aspx"><asp:Literal ID="Literal133" runat="server" Text="<%$ Resources:uWiMPStrings, mobile %>" /></a></li>
             <li class="orange-tabs"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6722080" target="_blank"><asp:Literal ID="Literal13" runat="server" Text="<%$ Resources:uWiMPStrings, donate %>" /></a></li>
         </ul>
         </div>

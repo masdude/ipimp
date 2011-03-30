@@ -82,9 +82,6 @@ REM Clear down the bin folder
 DEL /Q %PROJECT%\bin\Release\*.*
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
-
-
-
 REM Update assembly version
 IF /I %LANGUAGE% EQU VB CSCRIPT //NOLogo "NSIS Installer\Include\UpdateBuildNumber.vbs" "%CD%\%PROJECT%\My Project\AssemblyInfo_temp.vb" %BUILDVER%
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR

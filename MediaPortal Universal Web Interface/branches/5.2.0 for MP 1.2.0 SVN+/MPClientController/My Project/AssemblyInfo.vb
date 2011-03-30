@@ -13,10 +13,11 @@ Imports MediaPortal.Common.Utils
 <Assembly: AssemblyDescription("Remoting interface to a MediaPortal client")> 
 <Assembly: AssemblyCompany("CheezeySoft :-)")> 
 <Assembly: AssemblyProduct("MPClientController")> 
-<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2010")> 
+<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2011")> 
 <Assembly: AssemblyTrademark("")> 
 <Assembly: CompatibleVersion("1.1.6.27644")> 
-<Assembly: ComVisible(False)> 
+
+<Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("e2935ac2-a520-471a-9a95-d7a49ff3aa84")> 
@@ -32,5 +33,5 @@ Imports MediaPortal.Common.Utils
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("5.2.0.800")> 
-<Assembly: AssemblyFileVersion("5.2.0.800")> 
+<Assembly: AssemblyVersion("5.2.0.801")> 
+<Assembly: AssemblyFileVersion("5.2.0.801")> 
