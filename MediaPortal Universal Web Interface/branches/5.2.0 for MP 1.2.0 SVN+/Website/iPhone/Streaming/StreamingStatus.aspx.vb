@@ -121,7 +121,7 @@ Partial Public Class StreamingStatus
             markup += "</tr>"
             markup += "<tr>"
             markup += String.Format("<td class=""grid""><a href=""../../Desktop/Players/Silverlight/Silverlight.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "slight")
-            markup += String.Format("<td class=""grid""><a href=""../../Desktop/Players/Flash/player.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "flash")
+            markup += String.Format("<td class=""grid""><a href=""../../Desktop/Players/Flash/Flash.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "flash")
             markup += "</tr></table>"
             markup += "</div>"
             markup += "</div>"
