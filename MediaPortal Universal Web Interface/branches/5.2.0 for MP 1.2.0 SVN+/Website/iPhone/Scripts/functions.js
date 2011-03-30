@@ -1,4 +1,4 @@
-﻿//version 5.1.0
+﻿//version 5.2.0
 
 function logout() {
     document.location = '#_Logout';
@@ -7,7 +7,7 @@ function logout() {
         alert('Button not found!');
     else
         btn.click();
-} 
+}
 
 function createuser() {
     var username = document.getElementById('jsUsername').value;
@@ -85,13 +85,13 @@ function updmpclient2() {
 
 function tvsearch(group) {
     document.getElementById('jsLoading').style.visibility = 'visible';
-    
+
     var search = document.getElementById('jsTVSearchText').value;
     var doc = document.getElementById('jsTVSearchGenre');
     var o = doc.childNodes;
     var genre = o[0].firstChild.innerHTML;
     var desc = document.getElementById('jsSearchDesc').checked;
-    
+
     WA.Request('TVGuide/SearchTVGuideResults.aspx?group=' + group + '&search=' + search + '&genre=' + genre + '&desc=' + desc + '#_SearchResults' + group, null, -1, true, null);
     return false;
 }
@@ -135,13 +135,13 @@ function playtracks(wadiv, friendly, filter) {
             if (inputs[i].checked == true) { tracks += inputs[i].value + '+'; }
         }
     }
-    
+
     if (tracks == '') {
         for (j = 0; j < inputs.length; j++) {
             if (inputs[j].id.substring(0, 10) == 'MusicTrack') { tracks += inputs[j].value + '+'; }
         }
     }
-    
+
     WA.Request('MPClient/MyMusicPlayTracks.aspx?friendly=' + friendly + '&filter=' + filter + '&shuffle=' + shuffle + '&enqueue=' + enqueue + '&tracks=' + tracks + '#_MPClientPlayTracks', null, -1, true, null);
     return false;
 }
@@ -196,9 +196,9 @@ function updatesettings() {
     var recsubmenu = document.getElementById('jsRecsSubmenu').checked;
     var myvideos = document.getElementById('jsMyVideos').checked;
     var sortlists = document.getElementById('jsSortLists').checked;
-    
+
     WA.Request('Admin/ManageSettingsResult.aspx?pagesize=' + pagesize + '&order=' + order + '&client=' + client + '&server=' + server + '&submenu=' + submenu + '&recsubmenu=' + recsubmenu + '&recent=' + recent + '&myvideos=' + myvideos + '&sortlists=' + sortlists + '&guidedays=' + guidedays + '#_SettingsResult', null, -1, true, null);
-    
+
     return false;
 }
 
@@ -235,15 +235,33 @@ function changecolour() {
     return false;
 }
 
+function isStreamReady() {
+    var pcol = window.location.protocol;
+    var host = window.location.hostname;
+    var port = window.location.port;
+    var url = pcol + '//' + host + ':' + port + '/SmoothStream.isml/SmoothStream.ismv';
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status != 404;
+}
+
 function startCountdown(iCount) {
+    var isReady = false;
     if (iCount > 1) {
         iCount = iCount - 1;
         document.getElementById('tvtimer').innerText = iCount;
-        setTimeout('startCountdown(' + iCount + ')', 1000);
+        isReady = isStreamReady();
+        if (isReady) {
+            WA.Request('Streaming/StreamingStatus.aspx#_StreamingStatus', null, -1, true, null);
+        }
+        else {
+            setTimeout('startCountdown(' + iCount + ')', 1000);
+        }
     }
-    else 
-    {
+    else {
         WA.Request('Streaming/StreamingStatus.aspx#_StreamingStatus', null, -1, true, null);
         return false;
     }
 }
+
