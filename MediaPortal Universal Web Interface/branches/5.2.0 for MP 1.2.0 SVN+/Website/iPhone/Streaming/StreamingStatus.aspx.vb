@@ -115,13 +115,13 @@ Partial Public Class StreamingStatus
             markup += "<div class=""iBlock"">"
             markup += String.Format("<div><p>{0}</p>", GetGlobalResourceObject("uWiMPStrings", "stream_started"))
             markup += "<table class=""center""><tr>"
-            markup += String.Format("<td class=""grid""><a href=""../../SmoothStream.isml/SmoothStream.m3u8""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
+            markup += String.Format("<td class=""grid""><a href=""../../SmoothStream.isml/SmoothStream.m3u8"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "play")
             markup += String.Format("<td class=""grid""><a href=""Streaming/StopStream.aspx#_StopStream"" rev=""async""><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
             'markup += String.Format("<td class=""grid""><a href=""#_StopStream"" onclick=""WA.Request('Streaming/StopStream.aspx#_StopStream', null, -1);"" ><img src=""{0}{1}.png"" /></a></td>", imageURI, "stop")
             markup += "</tr>"
             markup += "<tr>"
-            markup += String.Format("<td class=""grid""><a href=""../../Desktop/Silverlight.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "slight")
-            markup += String.Format("<td class=""grid""><a href=""../../Desktop/Flash.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "flash")
+            markup += String.Format("<td class=""grid""><a href=""../../Desktop/Players/Silverlight/Silverlight.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "slight")
+            markup += String.Format("<td class=""grid""><a href=""../../Desktop/Players/Flash/player.htm"" target=""_blank""><img src=""{0}{1}.png"" /></a></td>", imageURI, "flash")
             markup += "</tr></table>"
             markup += "</div>"
             markup += "</div>"
