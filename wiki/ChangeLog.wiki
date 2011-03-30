@@ -3,7 +3,7 @@
 5.2.0 updates unclude (not yet released)
  * Web - Updated to 1.4.19 RC6 smooth streaming technology (more stable)
  * Web - Streaming radio
- * Web - SmoothStreaming detection - stream can be launched when ready
+ * Web - !SmoothStreaming detection - stream can be launched when ready
  * Web - Russian translation - thanks to Fasterpast
  * Web - Added an EPG page for desktop browsers - browse EPG and schedule programs
  * Web - Fixed buttons showing in Firefox
