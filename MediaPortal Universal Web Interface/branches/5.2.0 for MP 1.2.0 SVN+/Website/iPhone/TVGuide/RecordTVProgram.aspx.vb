@@ -100,6 +100,7 @@ Partial Public Class RecordTVProgram
         markup += String.Format("<li><a href=""TVGuide/RecordTVProgramConfirm.aspx?program={0}&rectype={1}#_RecordConfirm{0}"" rev=""async"">{2}</a></li>", programID, CInt(uWiMP.TVServer.Recordings.RecordingType.EachTimeOnAnyChannel), GetGlobalResourceObject("uWiMPStrings", "each_time_on_any_channel"))
         markup += String.Format("<li><a href=""TVGuide/RecordTVProgramConfirm.aspx?program={0}&rectype={1}#_RecordConfirm{0}"" rev=""async"">{2}</a></li>", programID, CInt(uWiMP.TVServer.Recordings.RecordingType.AtThisTimeAtWeekends), GetGlobalResourceObject("uWiMPStrings", "at_this_time_at_weekends"))
         markup += String.Format("<li><a href=""TVGuide/RecordTVProgramConfirm.aspx?program={0}&rectype={1}#_RecordConfirm{0}"" rev=""async"">{2}</a></li>", programID, CInt(uWiMP.TVServer.Recordings.RecordingType.AtThisTimeOnWeekdays), GetGlobalResourceObject("uWiMPStrings", "at_this_time_on_weekdays"))
+        markup += String.Format("<li><a href=""TVGuide/RecordTVProgramConfirm.aspx?program={0}&rectype={1}#_RecordConfirm{0}"" rev=""async"">{2}</a></li>", programID, CInt(uWiMP.TVServer.Recordings.RecordingType.WeeklyEveryTimeOnThisChannel), GetGlobalResourceObject("uWiMPStrings", "weekly_every_time_on_this_channel"))
         markup += "</ul>"
 
         markup += "</div>"

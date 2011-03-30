@@ -1118,4 +1118,7 @@
 		<data name="mobile">
 		<value xml:space="preserve">Mobile</value>
 	</data>
+	<data name="weekly_every_time_on_this_channel">
+		<value xml:space="preserve">weekly_every_time_on_this_channel</value>
+	</data>
 </root>

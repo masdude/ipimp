@@ -36,6 +36,7 @@ Namespace uWiMP.TVServer
             EachTimeOnAnyChannel = 4
             AtThisTimeAtWeekends = 5
             AtThisTimeOnWeekdays = 6
+            WeeklyEveryTimeOnThisChannel = 7
         End Enum
 
         ''' <summary>
