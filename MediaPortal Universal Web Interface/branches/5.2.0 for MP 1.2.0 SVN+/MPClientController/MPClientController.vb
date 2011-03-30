@@ -27,7 +27,6 @@ Imports Jayrock.Json.Conversion
 Imports MediaPortal.Configuration
 Imports MediaPortal.GUI.Library
 Imports MediaPortal.InputDevices
-Imports MediaPortal.Common.Utils
 
 Namespace MPClientController
 

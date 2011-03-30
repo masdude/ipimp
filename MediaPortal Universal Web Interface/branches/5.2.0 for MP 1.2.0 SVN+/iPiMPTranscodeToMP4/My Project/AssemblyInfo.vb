@@ -1,6 +1,7 @@
 ﻿Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
+Imports MediaPortal.Common.Utils
 
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
@@ -12,8 +13,9 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Transcode MediaPortal TV recordings to iPhone MP4 format.")> 
 <Assembly: AssemblyCompany("CheezeySoft :-)")> 
 <Assembly: AssemblyProduct("iPiMPTranscodeToMP4")> 
-<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2010")> 
+<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2011")> 
 <Assembly: AssemblyTrademark("")> 
+<Assembly: CompatibleVersion("1.1.6.27644")> 
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +33,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("5.2.0.800")> 
-<Assembly: AssemblyFileVersion("5.2.0.800")> 
+<Assembly: AssemblyVersion("5.2.0.801")> 
+<Assembly: AssemblyFileVersion("5.2.0.801")> 

@@ -15,8 +15,6 @@
 '   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ' 
 
-Imports System.Windows.Forms
-Imports System.Drawing
 Imports System.IO
 Imports System.Threading
 Imports System.Collections.Specialized
@@ -25,8 +23,6 @@ Imports System.Configuration
 Imports TvControl
 Imports TvEngine
 Imports TvEngine.Events
-Imports TvEngine.Interfaces
-Imports TvLibrary
 Imports TvLibrary.Log
 Imports TvLibrary.Interfaces
 Imports TvDatabase
@@ -69,6 +65,12 @@ Namespace TVEngine
         Private timer As System.Threading.Timer
 
 #Region "ITVServer"
+        Dim VersionInfo As System.Version = System.Reflection.Assembly.GetExecutingAssembly.GetName.Version
+        Dim ver As String = String.Format("{0}.{1}.{2}.{3}",
+                                                       VersionInfo.Major.ToString,
+                                                       VersionInfo.Minor.ToString,
+                                                       VersionInfo.Build.ToString,
+                                                       VersionInfo.Revision.ToString)
 
         Public ReadOnly Property Name() As String Implements ITvServerPlugin.Name
             Get
@@ -78,7 +80,7 @@ Namespace TVEngine
 
         Public ReadOnly Property Version() As String Implements ITvServerPlugin.Version
             Get
-                Return "5.1.0"
+                Return ver
             End Get
         End Property
 
