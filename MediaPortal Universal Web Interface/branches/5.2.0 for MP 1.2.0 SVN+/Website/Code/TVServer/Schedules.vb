@@ -21,43 +21,12 @@ Imports TvDatabase
 Namespace uWiMP.TVServer
 
     Public Class Schedules
-
+        
         Public Shared Function IsProgramScheduled(ByVal p As Program) As Boolean
 
-            Dim schedules As List(Of Schedule) = Schedule.ListAll
-            Dim onceScheds As List(Of Schedule) = Schedule.ListAll
-            Dim seriesScheds As List(Of Schedule) = Schedule.ListAll
+            Dim result As Boolean = p.IsRecordingSeries OrElse p.IsRecordingSeriesPending OrElse p.IsPartialRecordingSeriesPending OrElse p.IsRecording OrElse p.IsRecordingOncePending
 
-            onceScheds.Clear()
-            seriesScheds.Clear()
-
-            Dim s As Schedule
-
-            For Each s In schedules
-                If s.ScheduleType > 0 Then
-                    seriesScheds.Add(s)
-                Else
-                    onceScheds.Add(s)
-                End If
-            Next
-
-            If (seriesScheds.Count > 0) And (Not p Is Nothing) Then
-                For Each s In seriesScheds
-                    If (s.IdChannel = p.IdChannel) And (s.ProgramName.ToLower = p.Title.ToLower) Then
-                        Return True
-                    End If
-                Next
-            End If
-
-            If (onceScheds.Count > 0) And (Not p Is Nothing) Then
-                For Each s In onceScheds
-                    If (s.IdChannel = p.IdChannel) And (s.ProgramName.ToLower = p.Title.ToLower) And (s.StartTime = p.StartTime) Then
-                        Return True
-                    End If
-                Next
-            End If
-
-            Return False
+            Return result
 
         End Function
 
