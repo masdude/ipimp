@@ -135,6 +135,7 @@
     <Content Include="Desktop\Logout.aspx" />
     <Content Include="Desktop\Players\Flash\5.3.swf" />
     <Content Include="Desktop\Players\Flash\SmoothStreamingProvider-1.4.17.swf" />
+    <Content Include="Desktop\Players\Silverlight\SmoothStreaming.xap" />
     <Content Include="Desktop\RecordProgram.aspx" />
     <Content Include="Desktop\Default.aspx" />
     <Content Include="Desktop\Login.aspx" />
