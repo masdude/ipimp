@@ -57,7 +57,7 @@
 					                    document.getElementById('canceloptions').style.display = 'none';
 					                }
 					                if (data.running) {
-					                    document.getElementById('streambutton').style.display = 'inline-block';
+					                    document.getElementById('streambutton').style.display = 'none';
 					                } else {
 					                    document.getElementById('streambutton').style.display = 'none';
 					                }
