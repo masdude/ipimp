@@ -9,7 +9,6 @@ using System.Text;
 using System.IO;
 using System.ComponentModel;
 
-
 namespace uWiMP.TVServer.MPWebServices
 {
     public abstract class TransportStream : Stream
@@ -41,7 +40,7 @@ namespace uWiMP.TVServer.MPWebServices
             }
             else
             {
-                throw new Exception("Pipe Stream isn't ready.");
+                Utils.Log("Pipe Stream isn't ready.");
             }
         }
 
@@ -64,7 +63,7 @@ namespace uWiMP.TVServer.MPWebServices
                         }
                         catch (Exception exc)
                         {
-                            throw new Exception(string.Format("Error in copystream-endwrite: {0}",exc.Message));
+                            Utils.Log(string.Format("Error in copystream-endwrite: {0}",exc.Message));
                         }
                     }, null);
                 }
@@ -75,7 +74,7 @@ namespace uWiMP.TVServer.MPWebServices
             }
             catch (Exception exc)
             {
-                throw new Exception(string.Format("Error in copystream: {0}", exc.Message));
+                Utils.Log(string.Format("Error in copystream: {0}", exc.Message));
             }
         }
 
