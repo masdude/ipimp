@@ -41,6 +41,15 @@ Partial Public Class _DesktopDefault
     Protected WithEvents Literal12 As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
+    '''Literal133 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Literal133 As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
     '''Literal13 control.
     '''</summary>
     '''<remarks>
