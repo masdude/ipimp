@@ -194,7 +194,9 @@ Namespace uWiMP.TVServer
                 Log.Info("iPiMPWeb - StopStream mediaStream.Close exception {0}", ex.Message)
                 result = False
             End Try
-            
+
+            Threading.Thread.Sleep(500)
+
             Try
                 Dim type As MediaType = MediaType.None
                 Dim mediaID As String = String.Empty

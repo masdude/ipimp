@@ -104,7 +104,7 @@ Namespace uWiMP.TVServer
             Dim user As User = New User()
             Dim vcard As VirtualCard
             user.CardId = card.IdCard
-            Dim usersForCard As User() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
+            Dim usersForCard As IUser() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
             Dim status As Status = Cards.Status.idle
 
             If usersForCard.Length = 0 Then
@@ -151,7 +151,7 @@ Namespace uWiMP.TVServer
             Dim user As User = New User()
             Dim vcard As VirtualCard
             user.CardId = card.IdCard
-            Dim usersForCard As User() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
+            Dim usersForCard As IUser() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
             Dim id As Integer = 0
             Dim username As String = "unknown"
 
@@ -197,7 +197,7 @@ Namespace uWiMP.TVServer
             For Each card As Card In GetCards()
 
                 user.CardId = card.IdCard
-                Dim usersForCard As User() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
+                Dim usersForCard As IUser() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
                 If Not usersForCard Is Nothing Then
                     If usersForCard.Length > 0 Then
                         For i As Integer = 0 To usersForCard.Length - 1
@@ -230,7 +230,7 @@ Namespace uWiMP.TVServer
 
             Dim user As User
             Dim vcard As VirtualCard
-            Dim usersForCard As User() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
+            Dim usersForCard As IUser() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
 
             For Each user In usersForCard
                 vcard = New VirtualCard(user, RemoteControl.HostName)
@@ -260,7 +260,7 @@ Namespace uWiMP.TVServer
 
             Dim user As User
             Dim vcard As VirtualCard
-            Dim usersForCard As User() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
+            Dim usersForCard As IUser() = RemoteControl.Instance.GetUsersForCard(card.IdCard)
 
             For Each user In usersForCard
                 vcard = New VirtualCard(user, RemoteControl.HostName)
