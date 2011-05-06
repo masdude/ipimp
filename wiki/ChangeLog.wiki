@@ -1,7 +1,7 @@
 #sidebar TOC
 ----
 5.2.0 updates unclude (not yet released)
- * Web - Updated to 1.4.19 RC6 smooth streaming technology (more stable)
+ * Web - Updated to 1.4.19 RC19 smooth streaming technology (more stable)
  * Web - Streaming radio
  * Web - !SmoothStreaming detection - stream can be launched when ready
  * Web - Russian translation - thanks to Fasterpast
@@ -12,6 +12,7 @@
  * Web - Fix for issue [http://code.google.com/p/ipimp/issues/detail?id=43&can=1 43]
  * Web - Watching recordings is only be available via !SmoothStreaming. iPiMP web app no longer uses iPiMPTranscodeToMP4 files.
  * TV Transcode plugin - support !MediaPortal plugin version compatibility checks.
+ * TV Transcode plugin - updated Handbrake to v0.9.5
  * MP client plugin - support !MediaPortal plugin version compatibility checks.
 5.1.0 updates unclude (13 Nov 2010)
  * Installer - updated to support Radio logos
