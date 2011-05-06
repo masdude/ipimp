@@ -10,6 +10,8 @@
  * Web - Small bug fixes
  * Web - Fix for issue [http://code.google.com/p/ipimp/issues/detail?id=38&can=1 38]
  * Web - Fix for issue [http://code.google.com/p/ipimp/issues/detail?id=43&can=1 43]
+ * Web - Fix for issue [http://code.google.com/p/ipimp/issues/detail?id=46&can=1 46]
+ * Web - Fix for issue [http://code.google.com/p/ipimp/issues/detail?id=47&can=1 47]
  * Web - Watching recordings is only be available via !SmoothStreaming. iPiMP web app no longer uses iPiMPTranscodeToMP4 files.
  * TV Transcode plugin - support !MediaPortal plugin version compatibility checks.
  * TV Transcode plugin - updated Handbrake to v0.9.5
