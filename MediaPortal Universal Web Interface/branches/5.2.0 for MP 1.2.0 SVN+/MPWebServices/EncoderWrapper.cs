@@ -108,7 +108,7 @@ namespace uWiMP.TVServer.MPWebServices
         }
         else
         {
-            StartProcess(filename, encoderOutput.Url);
+            StartProcess(filename);
         }
         if (encCfg.outputMethod != TransportMethod.None)
         {
