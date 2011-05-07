@@ -94,7 +94,7 @@ Partial Public Class TVSeriesEpisode
         Dim watched As String = CType(jo("watched"), String)
         Dim image As String = CType(jo("image"), String)
         Dim filename As String = CType(jo("filename"), String)
-        Dim imagePath As String = GetThumb(friendly, String.Format("tvepisodethumb:{0}", compositeID))
+        Dim imagePath As String = GetThumb(friendly, String.Format("tvepisodethumb:{0}", compositeID), compositeID)
 
         markup += "<div class=""iMenu"" >"
         markup += String.Format("<h3>{0} - {1}</h3>", friendly, name)
@@ -120,8 +120,9 @@ Partial Public Class TVSeriesEpisode
 
     End Function
 
-    Function GetThumb(ByVal friendly As String, ByVal thumb As String) As String
+    Function GetThumb(ByVal friendly As String, ByVal thumb As String, ByVal compositeID As String) As String
 
+        Dim relativePath As String = String.Format("../../images/{0}", Split(thumb, ":")(0))
         Dim mpRequest As New uWiMP.TVServer.MPClient.Request
         mpRequest.Action = "getfile"
         mpRequest.Value = thumb
@@ -130,13 +131,12 @@ Partial Public Class TVSeriesEpisode
         Dim response As String = uWiMP.TVServer.MPClientRemoting.SendSyncMessage(friendly, mpRequest)
         Dim jo As JsonObject = CType(JsonConvert.Import(response), JsonObject)
         Dim success As Boolean = CType(jo("result"), Boolean)
-        If Not success Then Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
+        If Not success Then Return String.Format("{0}/blank.png", relativePath) 'Throw New Exception(String.Format("Error with iPiMP remoting...<br>Client: {0}<br>Action: {1}", friendly, mpRequest.Action))
         Dim filetype As String = CType(jo("filetype"), String)
         Dim filename As String = CType(jo("filename"), String)
         Dim data As String = CType(jo("data"), String)
 
-        Dim relativePath As String = String.Format("../../images/{0}", Split(thumb, ":")(0))
-        Dim imagePath As String = String.Format("{0}/{1}", relativePath, filename)
+        Dim imagePath As String = String.Format("{0}/{1}.{2}", relativePath, compositeID, filetype)
         Dim format As System.Drawing.Imaging.ImageFormat
         Select Case filetype.ToLower
             Case "jpeg"
