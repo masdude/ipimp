@@ -14,7 +14,7 @@ Section MPClientPlugin
   File "..\..\MPClientController\bin\Release\MPClientController.dll"
   File "..\..\MPClientController\bin\Release\Jayrock.Json.dll"
 
-  SetOutPath "$ClientPath\InputDeviceMappings\defaults"
+  SetOutPath "$ClientPath\defaults\InputDeviceMappings"
   File "..\Include\Remote\iPiMP.xml"
 
   DetailPrint "Adding URL reservation for http listener"
