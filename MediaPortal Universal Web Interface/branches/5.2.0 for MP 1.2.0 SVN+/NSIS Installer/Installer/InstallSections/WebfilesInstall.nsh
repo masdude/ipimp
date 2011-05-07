@@ -24,8 +24,8 @@ Section InstallWebFiles
   File "..\Include\Database\uWiMP.db"
     
   IfFileExists "$TEMP\uWiMP.db" 0 +5
-    ;Delete "$INSTDIR\Aspx\App_Data\uWiMP.db"
-    ;!insertmacro RestoreFile "$INSTDIR\Aspx\App_Data" "uWiMP.db"
+    Delete "$INSTDIR\Aspx\App_Data\uWiMP.db"
+    !insertmacro RestoreFile "$INSTDIR\Aspx\App_Data" "uWiMP.db"
     Delete "$TEMP\uWiMP.db"
     
     
