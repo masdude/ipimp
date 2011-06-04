@@ -263,7 +263,8 @@ Namespace MPClientController
                 Dim broadcastAddress As IPAddress
                 Dim sendbuf As Byte() = Encoding.ASCII.GetBytes(String.Format("{0},{1},{2},{3},{4}", hostname, MACAddress, port, isMovingPicturesPresent, isTVSeriesPresent))
 
-                Do
+                Dim i As Integer = 1
+                Do Until i = 5 'Broadcast for 5 minutes
                     broadcastAddresses = GetDirectBroadcastAddresses()
                     For Each address As String In broadcastAddresses
                         broadcastAddress = IPAddress.Parse(address)
@@ -273,8 +274,10 @@ Namespace MPClientController
                     Next
                     Log.Debug("plugin: MPClientController - iPiMP ping data {0}", Encoding.ASCII.GetString(sendbuf))
                     System.Threading.Thread.Sleep(1000 * 60) 'sleep for one minute
+                    i += 1
                 Loop
             End Using
+			Log.Info("plugin: MPClientController - stopped broadcasting on UDP")
         End Sub
 
         Private Shared Function GetDirectBroadcastAddresses() As List(Of String)
