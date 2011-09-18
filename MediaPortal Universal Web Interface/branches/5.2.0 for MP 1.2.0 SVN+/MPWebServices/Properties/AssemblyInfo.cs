@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CheezeySoft :-)")]
 [assembly: AssemblyProduct("MPWebServices")]
-[assembly: AssemblyCopyright("Copyright © Team MediaPortal 2010")]
+[assembly: AssemblyCopyright("Copyright © Team MediaPortal 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.2.0.801")]
-[assembly: AssemblyFileVersion("5.2.0.801")]
+[assembly: AssemblyVersion("5.2.0.818")]
+[assembly: AssemblyFileVersion("5.2.0.818")]

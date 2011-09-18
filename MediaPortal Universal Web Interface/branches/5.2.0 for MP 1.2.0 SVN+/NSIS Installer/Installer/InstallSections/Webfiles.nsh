@@ -34,20 +34,17 @@
   File "..\Include\Aspx\bin\TVDatabase.dll"
   File "..\Include\Aspx\bin\TvLibrary.Interfaces.dll"
   File "..\Include\Aspx\bin\uWiMPMPWebServices.dll"
-  File "..\Include\Aspx\bin\uWiMPMPWebServices.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.dll"
   File "..\Include\Aspx\bin\uWiMPweb.pdb"
   File "..\Include\Aspx\bin\uWiMPweb.xml"
 
   SetOutPath "$INSTDIR\Aspx\Desktop"
   File "..\Include\Aspx\Desktop\Default.aspx"
-  File "..\Include\Aspx\Desktop\Desktop.Master"
   File "..\Include\Aspx\Desktop\Login.aspx"
   File "..\Include\Aspx\Desktop\Logout.aspx"
   File "..\Include\Aspx\Desktop\ProgramDetails.aspx"
   File "..\Include\Aspx\Desktop\RecordProgram.aspx"
   File "..\Include\Aspx\Desktop\SearchTVGuide.aspx"
-  File "..\Include\Aspx\Desktop\TVGuide.aspx"
   File "..\Include\Aspx\Desktop\Web.config"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\css"
@@ -57,14 +54,15 @@
   SetOutPath "$INSTDIR\Aspx\Desktop\Players"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\Players\Flash"
-  File "..\Include\Aspx\Desktop\Players\Flash\5.0.swf"
+  File "..\Include\Aspx\Desktop\Players\Flash\5.3.swf"
   File "..\Include\Aspx\Desktop\Players\Flash\Flash.htm"
-  File "..\Include\Aspx\Desktop\Players\Flash\SmoothStreamingProvider.swf"
+  File "..\Include\Aspx\Desktop\Players\Flash\SmoothStreamingProvider-1.4.17.swf"
   File "..\Include\Aspx\Desktop\Players\Flash\swfobject.js"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\Players\Silverlight"
   File "..\Include\Aspx\Desktop\Players\Silverlight\MediaPlayerTemplate.xap"
   File "..\Include\Aspx\Desktop\Players\Silverlight\Silverlight.htm"
+  File "..\Include\Aspx\Desktop\Players\Silverlight\SmoothStreaming.xap"
 
   SetOutPath "$INSTDIR\Aspx\Desktop\scripts"
   File "..\Include\Aspx\Desktop\scripts\jquery.tools.min.js"
@@ -149,6 +147,9 @@
   File "..\Include\Aspx\images\remote\volup.png"
   File "..\Include\Aspx\images\remote\weather.png"
   File "..\Include\Aspx\images\remote\yellow.png"
+
+  SetOutPath "$INSTDIR\Aspx\images\tvepisodethumb"
+  File "..\Include\Aspx\images\tvepisodethumb\blank.png"
 
   SetOutPath "$INSTDIR\Aspx\images\tvseries"
   File "..\Include\Aspx\images\tvseries\blank.png"
@@ -287,8 +288,6 @@
   File "..\Include\Aspx\iPhone\Recording\RecordingsMultiDeleteConfirm.aspx"
   File "..\Include\Aspx\iPhone\Recording\RecordingsMultiDeleteForDrive.aspx"
   File "..\Include\Aspx\iPhone\Recording\RecordingsMultiDeleteResult.aspx"
-  File "..\Include\Aspx\iPhone\Recording\RecordingTranscode.aspx"
-  File "..\Include\Aspx\iPhone\Recording\RecordingTranscodeResult.aspx"
 
   SetOutPath "$INSTDIR\Aspx\iPhone\Schedule"
   File "..\Include\Aspx\iPhone\Schedule\MainMenu.aspx"

@@ -11,7 +11,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("iPhone interface for MediaPortal")> 
 <Assembly: AssemblyCompany("CheezeySoft :-)")> 
 <Assembly: AssemblyProduct("iPhone interface for MediaPortal")> 
-<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2010")> 
+<Assembly: AssemblyCopyright("Copyright © CheezeySoft 2011")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -30,5 +30,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("5.2.0.801")> 
-<Assembly: AssemblyFileVersion("5.2.0.801")> 
+<Assembly: AssemblyVersion("5.2.0.825")> 
+<Assembly: AssemblyFileVersion("5.2.0.825")> 

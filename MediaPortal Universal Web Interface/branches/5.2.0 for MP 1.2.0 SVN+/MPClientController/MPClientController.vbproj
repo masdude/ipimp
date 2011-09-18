@@ -123,9 +123,8 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TVDatabase, Version=1.0.4.39114, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TVDatabase.dll</HintPath>
+    <Reference Include="TVDatabase">
+      <HintPath>..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal TV Server\TVDatabase.dll</HintPath>
     </Reference>
     <Reference Include="TvPlugin, Version=1.1.1.11894, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
