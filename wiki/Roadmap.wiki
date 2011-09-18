@@ -24,6 +24,8 @@ This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  The
 
  * Add My Pictures
 
+ * Add video playlist functions
+
  * ~~Allow TV Guide number of days to be configurable~~ DONE
 
  * Handle scheduled transcodings being interrupted
