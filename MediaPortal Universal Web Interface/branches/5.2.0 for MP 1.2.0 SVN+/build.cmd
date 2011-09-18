@@ -1,7 +1,27 @@
 @ECHO OFF
+REM ====================
+REM Get build version
+REM ====================
 SET /P BUILDVER=Enter the build version (e.g. 5.1.0): 
 ECHO Build version is %BUILDVER%
+SET /P AGREE=Is this correct? 
+IF /I %AGREE% NEQ Y GOTO :EOF
 
+REM ====================
+REM Get build type
+REM ====================
+ECHO.
+ECHO.
+SET /P BUILDTYPE=Enter the build type (D=Debug, R=Release): 
+IF /I %BUILDTYPE% EQU D SET BUILDTYPE=DEBUG
+IF /I %BUILDTYPE% EQU R SET BUILDTYPE=RELEASE
+
+SET VALID=FALSE
+IF /I %BUILDTYPE% EQU DEBUG   SET VALID=TRUE
+IF /I %BUILDTYPE% EQU RELEASE SET VALID=TRUE
+IF VALID EQU FALSE ECHO Invalid build type %BUILDTYPE% && GOTO :EOF
+
+ECHO Build type is %BUILDTYPE%
 SET /P AGREE=Is this correct? 
 IF /I %AGREE% NEQ Y GOTO :EOF
 
@@ -15,7 +35,7 @@ REM iPiMPTranscodeToMP4
 REM ====================
 CALL :BUILD iPiMPTranscodeToMP4 vb
 REM Update the installer
-COPY /Y "%CD%\NSIS Installer\Installer\InstallSections\TVServerPlugin_Release.nsh" "%CD%\NSIS Installer\Installer\InstallSections\TVServerPlugin.nsh"
+COPY /Y "%CD%\NSIS Installer\Installer\InstallSections\TVServerPlugin_%BUILDTYPE%.nsh" "%CD%\NSIS Installer\Installer\InstallSections\TVServerPlugin.nsh"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM ====================
@@ -23,14 +43,14 @@ REM MPClientController
 REM ====================
 CALL :BUILD MPClientController vb
 REM Update the installer
-COPY /Y "%CD%\NSIS Installer\Installer\InstallSections\MPClientPlugin_Release.nsh" "%CD%\NSIS Installer\Installer\InstallSections\MPClientPlugin.nsh"
+COPY /Y "%CD%\NSIS Installer\Installer\InstallSections\MPClientPlugin_%BUILDTYPE%.nsh" "%CD%\NSIS Installer\Installer\InstallSections\MPClientPlugin.nsh"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM ====================
 REM MPWebServices
 REM ====================
 CALL :BUILD MPWebServices cs
-@ECHO ON
+
 REM ==================
 REM Website
 REM ==================
@@ -42,11 +62,11 @@ RD /S /Q "NSIS Installer\Include\Aspx\"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Copy all reference DLLs
-XCOPY bin\Release\*.dll "..\NSIS Installer\Include\Aspx\bin" /Y /I
+XCOPY bin\%BUILDTYPE%\*.dll "..\NSIS Installer\Include\Aspx\bin" /Y /I
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Publish the website project
-%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /target:_CopyWebApplication /property:OutDir=..\NSISIn~1\Include\Aspx\;WebProjectOutputDir=..\NSISIn~1\Include\Aspx\ /p:Configuration=Release
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /target:_CopyWebApplication /property:OutDir=..\NSISIn~1\Include\Aspx\;WebProjectOutputDir=..\NSISIn~1\Include\Aspx\ /p:Configuration=%BUILDTYPE%
 POPD
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
@@ -67,7 +87,7 @@ REM Update installer revision with website SVN revision
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Build the installer
-"C:\Program Files (x86)\NSIS\makensis.exe" /V4 /NOTIFYHWND 1640592 "%CD%\NSIS Installer\Installer\Main installer.nsi"
+"C:\Program Files (x86)\NSIS\makensis.exe" /V4 /NOTIFYHWND 1640592 "%CD%\NSIS Installer\Installer\Main installer %BUILDTYPE%.nsi"
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 PAUSE
@@ -79,7 +99,7 @@ SET LANGUAGE=%2
 ECHO Compiling %PROJECT%
 
 REM Clear down the bin folder
-DEL /Q %PROJECT%\bin\Release\*.*
+RD /S /Q %PROJECT%\bin\%BUILDTYPE%
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Update assembly version
@@ -98,7 +118,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 
 REM Build the project
 PUSHD %PROJECT%
-%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=Release
+%WINDIR%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe /p:Configuration=%BUILDTYPE%
 IF %ERRORLEVEL% NEQ 0 GOTO ERROR
 POPD
 GOTO :EOF
