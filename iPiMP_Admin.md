@@ -1,0 +1,6 @@
+The following administration links are available:
+  * iPiMP settings - this allows users to configure some aspects of iPiMP behaviour.
+  * Appearance - this allows userd to alter the colour of the title bar and background.
+  * MediaPortal Clients - this allows MediaPortal client details for remote control.
+
+[Next](iPiMP_Settings.md)

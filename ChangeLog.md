@@ -1,0 +1,234 @@
+
+---
+
+5.2.0 updates unclude (not yet released)
+  * Web - Updated to 1.4.19 RC19 smooth streaming technology (more stable)
+  * Web - Streaming radio
+  * Web - SmoothStreaming detection - stream can be launched when ready
+  * Web - Russian translation - thanks to Fasterpast
+  * Web - Added an EPG page for desktop browsers - browse EPG and schedule programs
+  * Web - Fixed buttons showing in Firefox
+  * Web - Small bug fixes
+  * Web - Fix for issue [38](http://code.google.com/p/ipimp/issues/detail?id=38&can=1)
+  * Web - Fix for issue [43](http://code.google.com/p/ipimp/issues/detail?id=43&can=1)
+  * Web - Fix for issue [46](http://code.google.com/p/ipimp/issues/detail?id=46&can=1)
+  * Web - Fix for issue [47](http://code.google.com/p/ipimp/issues/detail?id=47&can=1)
+  * Web - Watching recordings is only be available via SmoothStreaming. iPiMP web app no longer uses iPiMPTranscodeToMP4 files.
+  * TV Transcode plugin - support MediaPortal plugin version compatibility checks.
+  * TV Transcode plugin - updated Handbrake to v0.9.5
+  * MP client plugin - support MediaPortal plugin version compatibility checks.
+5.1.0 updates unclude (13 Nov 2010)
+  * Installer - updated to support Radio logos
+  * Installer - included Italian (thanks g.sigalotti) and Spanish (thanks bodiroga) translations
+  * TV transcode plugin - reverted to ffmpeg for thumbnail generation (reduced the number of utilities)
+  * TV transcode plugin - consolidated ffmpeg versions
+  * Web - tweaked live TV transcode parameters
+  * Web - updated Apache conf for use in existing Apache installs
+  * Web - added Italian translations (thanks g.sigalotti)
+  * Web - updated Spanish translations (thanks bodiroga)
+  * Web - added list sorting option in settings - channel groups can now be returned in MediaPortal order
+  * Web - added new setting to allow number of days to show in TV & Radio guides (4,7,10,14)
+  * Web - Refactored all pages which interact with MediaPortal clients due to changes in MP client plugin
+  * Web - Added TV Series functionality - browse, play and **stream** your TV Series episodes
+  * Web - Auto-registers MP clients and determines whether MovingPictures and TVSeries are used.
+  * Web - Updated MPWebServices component to allow live streaming of files
+  * Web - Added Flash player (alongside existing Silverlight player)
+  * Web - Added 3rd page to remote control - numeric & channel up/down
+  * Web - Updated to SmoothStreaming 1.4.8
+  * Web - Recordings can now be streamed from source, no need to transcode first
+  * MP client plugin - MP clients will now auto register with iPiMP web app
+  * MP client plugin - Lots & lots of changes to support [Yatse](http://yatse.leetzone.org/redmine) (thanks to Tolriq for the help & patches)
+  * MP client plugin - Added TV Series
+  * MP client plugin - Added minimum version checks for TV Series (2.6.3), MovingPictures (1.0.6) and FanArt handler (2.2.1)
+  * MP client plugin - Now returns Now Playing infor for TV Series
+  * MP client plugin - Fixed incorrect status when starting a movie or tv series
+  * MP client plugin - Now honours MediaPortal enqueue next setting
+
+5.0.1 updates include (13th Jun 2010)
+  * Web - modified SmoothStreaming arguments for correct playback on other players
+  * Web - added Silverlight player for desktop browsers - Google Chrome is recommended
+  * Web - updated Streaming Status page to allow existing stream to be rejoined
+
+
+5.0.0 updates include (11th Jun 2010)
+  * Web - Added stream live TV - EXPERIMENTAL
+  * Web - Removed dirty hack to link UK channels to iphone.tvcatchup.com
+  * Web - Added Radio Guide functionality (same functions as TV Guide - NO streaming yet)
+  * Web - can now search program descriptions as well as titles
+  * Web - added -Z to correctly use Handbrake presets
+  * Web - added Spanish translations - thanks bodiroga
+  * Web - updated view schedules by date to show up-coming schedules
+  * TV transcode plugin - added -Z to correctly use Handbrake presets
+  * TV transcode plugin - fixed browse buttons so can set MP4 path
+  * TV transcode plugin - added ability to set utilities location
+  * Installer - Updated for pre-existing Apache installs
+  * Installer - Updated to use Apache smooth streaming
+  * Installer - Patched ffmpeg to add fragmented MP4 support
+
+4.2.0 updates include (23rd Mar 2010)
+  * Web - Dirty hack to link UK channels to iphone.tvcatchup.com to get access to live TV streams TV Server channel names **MUST** match TVCatchup channel names - sorry only for UK channels only :(
+  * Web - updated to [WebApp.Net](http://webapp-net.com/) 0.52
+  * Web - manual transcode includes all changes made to TV transcode plugin below
+  * TV transcode plugin - added use of MTN for thumbnail generation
+  * TV transcode plugin - added support for [HandBrake](http://handbrake.fr/) transcoder (can still use ffmpeg)
+  * TV transcode plugin - added support for FFMpeg libx264 presets
+  * TV transcode plugin - refactored scheduling code
+  * TV transcode plugin - added option to exclude channel groups from being transcoded
+  * TV transcode plugin - removed video & audio bitrate settings, use custom command line parameters if needed
+  * TV transcode plugin - added ability to modify the transcode process priority
+  * TV transcode plugin - added Handbrake preset for the Nexus One (thanks CHli)
+  * Installer - added Handbrake / ffmpeg selection
+  * Installer - Installing the transcoding plugin will now enable the plugin by default & restart TV server
+  * Installer - Installs Handbrake GUI instead of iPiMPTranscodeClient utility
+
+4.1.0 updates include (16th Jan 2010)
+  * Web - added configurable main menu
+  * Web - added configurable recordings menu
+  * Web - added manual scheduling on channel menu
+  * Web - updated numeric input fields to display iPhone numeric keyboard
+  * Web - added ability to change appearance (colour scheme)
+  * MP client plugin - Added Moving Pictures support **(needs Moving Pictures 1.0 Beta 1+)**
+
+4.0.2 updates include (24th Dec 2009)
+  * Web - Swedish language - thanks to umlaut (and his girlfriend)
+  * Web - French language - thanks to truffe
+  * Web - Removed additional hard coded English phrases (thanks umlaut)
+  * Web - Modified WebApp.Net buttons to allow for wider strings to support other languages
+  * Web - Fixed typo in Schedule Results pages
+  * Web - Fix for defects 22
+  * TV transcode plugin - Fix for defects 20
+  * Installer - Swedish language
+  * Installer - French language
+
+4.0.1 updates include (28th Nov 2009)
+  * Web - Danish language - thanks to sbp
+  * Web - Dutch language - thanks to minvis
+  * Web - Fixes for defects 10,11,12,13,19
+  * Web - Updated to WebApp.Net release 0.5.0
+  * MP client plugin - Added extra logging
+  * Installer - Dutch language
+
+4.0.0 updates include (25th Oct 2009)
+  * Web - Completely rewritten to support multiple languages
+  * Web - English language - thanks to cheezey :-)
+  * Web - German language - thanks to rhartinger
+  * Web - Norwegian language - thanks to Reon
+  * Web - New iPiMP logo
+  * Web - Added a loading page for fullscreen app layout
+  * Web - All buttons have been moved to the title bar to give a common layout to all screens
+  * Web - All music sections have a new common layout making it easier to select what to play
+  * Web - Added an option to view all tracks by an artist
+  * Web - Added a Next Day link to a channel's daily program view
+  * Web - Added View cover art for music
+  * Web - Added a 'Remoter' role - allows you to grant remote control permissions to users
+  * Web - Updated to latest version of WebApp.Net
+  * Web - Added a donate button - feel free ;-)
+  * Web - Removed option to configure TV server MP4 path (use plugin config)
+  * MP client plugin - Completely rewritten to use JSON
+  * MP client plugin - Now supports non TV plugin MP installs
+  * MP client plugin - Added a Power Option to close MediaPortal
+  * MP client plugin - Added a Global Message option to send a message to all clients
+  * Installer - Completely rewritten to support multiple languages
+  * Installer - English & German languages
+
+3.5.0 updates include (23rd May 2009)
+  * MP client plugin - Added Now Playing screen
+  * MP client plugin - My Music can now enqueue tracks & albums
+  * MP client plugin - Now jumps to client if only one is added
+  * Installer - fixed MP version checks
+
+3.4.1 updates include  (11th Apr 2009)
+  * All - Compiled for MediaPortal 1.0.1 - this is now the minimum version
+  * TV transcode plugin - Added '-async 2' to the default transcode parameters for better audio sync
+  * Installer - added a minimum MediaPortal version check
+
+3.4.0 updates include (21st Mar 2009)
+  * All - Updated compile options - hopefully run OK on 64bit now
+  * All - Updated Gentle settings - hopefully no more Gentle.Config errors on install
+  * Web - Updated to WebApp.Net v0.5 RC4 - cool new animations with hardware acceleration
+  * Web - Updated IMDB page in MP Client\My Videos
+  * Web - Added paging to recordings
+  * Web - Updated manage clients page (now works)
+  * Web - Fixed TV guide search / record program navigation
+  * Web - Fixed transcode program
+  * Web - Added stop timeshifting facility
+  * MP remote control plugin - Improved client/server communications
+  * MP remote control plugin - Added My Music - browse or search by Genre, Artist, Album, Year, Playlist then play or shuffle music
+  * MP remote control plugin - Added power events (Standby, Hibernate, Restart, Shutdown)
+  * Installer - Removed blank TV Logo path error
+  * Installer - Single installer now supports MediaPortal 1.0 and later SVNs
+
+3.3.0 updates include (31st Jan 2009)
+  * Web - Expanded search to search by genre
+  * Web - Now reads pre/post recording times from TV server settings
+  * Web - Added additional categories to the list recordings by date (last month etc.)
+  * Web - Added recording duration to the recorded program summary screen
+  * Web - Added WOL option for MP clients if iPiMP cannot connect
+  * Web - Added program end time to schedule page
+  * Web - Added persistent login cookies (remember your login details when Safari is closed)
+  * Web - Added paging on My Videos lists (this will be added to other long lists in future versions)
+  * Installer/TV transcode plugin - Now accepts UNC paths for TVLogos and MP4s
+  * MP remote control plugin - Increased iPiMP client message size for music playlists (now see all playlists)
+  * MP remote control plugin - Added My Videos (browse all, by year or by genre)
+  * MP remote control plugin - Added messaging
+  * TV transcode plugin - Now allow ffmpeg parameter editing
+
+3.2.0 updates include (9th Jan 2009)
+  * All - fixed to work with MP 1.0 final (**MP 1.0 is now the minimum requirement**)
+  * Web - fixed case sensitive searching (it's now case insensitive)
+  * Web - added playlist pages for MediaPortal clients
+  * TV transcode plugin - added additional error handling
+  * TV transcode plugin - optionally delete MP4's when recordings are deleted from MP
+  * MP remote control plugin - added music playing code
+  * MP remote control plugin - improved remote control responsiveness
+  * Installer - completely re-written - now offers standard and advanced installs
+  * Documentation - wrote a more complete iPiMP install doc
+
+3.0.0 updates include  (20th Dec 2008
+  * Web - updated administration pages to accommodate MediaPortal client remote control
+  * Web - added remote control pages
+  * MediaPortal client plugin - added
+
+2.2.0 updates include (8th Dec 2008
+  * Web - add option to transcode a recording
+  * Web - add transcode status page
+  * Web - updated some text to fix button alignment on record screen
+  * TV transcode plugin - add option to transcode on demand
+  * Installer - add option to transcode on demand
+  * Installer - add option for web interface logout timeout (30mins by default)
+
+2.1.1 updates include (2nd Dec 2008)
+  * Web - username is no longer case sensitive
+  * Web - added TV server status screens
+  * Web - added a version number on the about screen
+  * TV transcode plugin - fixed some logging text
+  * TV transcode client - moved to the correct folder so the shortcut works (duh)
+  * Installer - backs up & restores user database to maintain user accounts between releases
+
+2.1.0 updates include (29th Nov 2008)
+  * Web - TV search is back :)
+  * Web - Added delete multi recordings page
+  * Web - Refactored to use AJAX more (should be faster page loads)
+  * Web - Tidied up a lot of screens
+  * Web - Changed page confirmations so navigation is easier
+  * Web - tv search zero results gives a nice page
+  * Web - only admin users see create/delete users and settings menus
+  * TV transcode plugin - Browse button on TV plugin setup form works now
+  * TV transcode plugin - added ability to change video & audio bitrate
+  * TV transcode plugin - added the option to transcode at a specified time instead of as soon as a recording finishes (I now transcode overnight - big WAF improvement!!)
+  * TV transcode client - added ability to change video & audio bitrate
+  * Installer - detects your TV server install path
+
+2.0.1 updates include (18th Nov 2008)
+  * Fixed setting user permissions.
+  * Fixed settings facility -now updates path of web site and tv server plugin
+  * Fixed installer - now updates web site and tv server plugin settings - you just need to enable the tv server plugin.
+  * Added additional page for watch, delete and keep recordings.
+  * Added additional page for delete schedules.
+  * Added user permission specific menus to tv guide, recordings & schedules - e.g. you only see delete if you're a 'deleter'
+
+2.0.0 Migrated to [WebApp.Net](http://webapp.net.free.fr/) (16th Nov 2008)
+  * Added transcode tv server plugin
+  * Added client transcode utility
+
+1.0.0 Initial release (5th Nov 2008)

@@ -1,0 +1,9 @@
+The iPiMP web application uses the fantastic [WebApp.net](http://webapp-net.com) iPhone framework which mimics the native look/feel and navigation of the iPhone.
+
+The top bar will always have a back button which (not surprisingly) takes you back to your previous page, the top bar will have a home button on pages which are further than one back click away from the default page.
+
+iPiMP is made up of lots of lists, list items with a ‘>’ sign at the right side can be clicked to navigate further into the application.
+
+There are also buttons appearing now and again when appropriate.
+
+The best way to find out though is to go look for yourself, so have fun with iPiMP, and please post any issues or suggestions on the iPiMP forum thread.

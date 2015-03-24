@@ -1,0 +1,23 @@
+iPiMP is a web interface for MediaPortal specifically designed for the iPhone, it uses MediaPortal interfaces to communicate with both the TV Server and MediaPortal client components.
+
+You can use iPiMP to interact with your MediaPortal TV Server allowing you to view your TV guide, read program details, schedule programs to be recorded, email program details as well as view,  manage & watch your existing recordings.  Watching live TV though is not possible (yet!).
+
+You can also use iPiMP to interact with your MediaPortal clients, you can use it as a remote control as well as view & play music playlists on your MediaPortal clients.  This will be extended to provide additional features for the music, video and other MediaPortal plugins.
+
+To deliver all this iPiMP consists of a number of components:
+  * Apache 2.2.14 web server with the mod\_aspdotnet module
+  * iPiMP web application
+  * iPiMP TV server transcode plugin, ffmpeg & Handbrake
+  * iPiMP MediaPortal client controller
+
+The iPiMP installer provides standard and advanced install options to hopefully cover everyone’s needs.
+
+Some useful links …
+| **Team MediaPortal** | [Team MediaPortal](http://www.team-mediaportal.com/) |
+|:---------------------|:-----------------------------------------------------|
+| **iPiMP 4.2.0 forum thread** | [MediaPortal Forums](http://forum.team-mediaportal.com/ipimp-518/) |
+| **ffmpeg** | http://ffmpeg.mplayerhq.hu/ |
+| **Handbrake** | http://handbrake.fr/ |
+| **WebApp.net** | http://webapp.net.free.fr |
+
+[Next](Install_overview.md)

@@ -1,0 +1,29 @@
+# Introduction #
+
+This is a process plugin for MediaPortal which provides tcp/http remoting interfaces to MediaPortal clients.  It is currently used by [iPiMP](http://code.google.com/p/ipimp/) and [Yatse2](http://yatse.leetzone.org/redmine/projects/yatse2)
+
+Installation is very straight forward, the install is provided as an MPEI (MediaPortal Extension Installer).  You just download it, run, click next a few times and that's it. If you are installing iPiMP you will not need to do this as the iPiMP Installer does it for you.
+
+# Installation #
+
+Download the MPClientController._a.b.c.dddd_.MPEI from the featured downloads on the [iPiMP home page](http://code.google.com/p/ipimp/).
+
+Launch the file
+
+http://www.vanderboon.co.uk/ipimp/Capture1.PNG
+
+Click Yes
+
+http://www.vanderboon.co.uk/ipimp/Capture2.PNG
+
+Click Next
+
+http://www.vanderboon.co.uk/ipimp/Capture3.PNG
+
+Click Next
+
+http://www.vanderboon.co.uk/ipimp/Capture4.PNG
+
+Click Finish
+
+Once installed, you can configure it following [these](http://code.google.com/p/ipimp/wiki/Client_Plugin_Setup) instructions.

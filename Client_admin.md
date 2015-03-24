@@ -1,0 +1,26 @@
+**Add client**
+
+This allows you to add a MediaPortal client ready for remote control. The following fields can be supplied:
+  * Friendly name - **Mandatory** - this is the name which will appear on the iPiMP menus.
+
+  * Hostname or IP Address - **Optional** - this is the PC hostname or IP Address of your MediaPortal client. If this field is not populated iPiMP will try to connect to your MediaPortal client using its Friendly name.
+
+  * TCP port - **Optional** - this is the TCP port configured in the iPiMP client plugin config screen.  If this field is not populated it will default to 55667.
+
+  * MAC Address - **Optional** - this is the MAC Address (or Hardware address) of the network interface in the MediaPortal client PC.  If this field is populated and a client connection cannot be established then iPiMP will allow you to send a Wake On LAN packet which can be used to power on a client.  Details of how to determine your MAC Address can be found on the [Client details](Client_Details.md) page.
+
+http://www.vanderboon.co.uk/ipimp/IMG_0103.PNG
+
+**Delete client**
+
+This allows you to delete a MediaPortal client.  Simply select the required client to delete.
+
+http://www.vanderboon.co.uk/ipimp/IMG_0104.PNG
+
+**Update client**
+
+This allows you to update a MediaPortal clients' details such as hostname, IP address, MAC address etc.  Simply select the required client and update the required details.
+
+http://www.vanderboon.co.uk/ipimp/IMG_0105.PNG
+
+[Message ends](iPiMPWiki.md)

@@ -1,0 +1,10 @@
+iPiMP uses uses video streaming technology by [CodeShop](http://smoothstreaming.code-shop.com/) to bring live Smooth Streaming of TV channels.
+
+The Smooth Streaming feature can generates a single adaptive bitrate stream which can be played on the iPhone as well as with Silverlight or Flash players. Adaptive bitrate means that the quality of the video/audio can be adjusted depending on the network connection you have, so higher bitrates when you're on wifi and lower if you're on 3G or Edge.
+
+The initial implementation will only have one video bitrate, this will be expanded in future versions.
+
+**Note** - This feature will launch a transcoding process on your PC which will consume a significant amount of CPU.
+
+**Usage**
+  * Ensure you stop the stream after you've finished otherwise you will lock a tuner and the transcode process will continue.  You can stop a stream either by pressing on the stop button on the stream launch page or via the Streaming status page in the TV Server status section.

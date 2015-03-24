@@ -1,0 +1,26 @@
+**Change password**
+
+This allows you to change your own password.  Enter your old password, then your new one twice.  Click the **Change** button to submit.
+
+http://www.vanderboon.co.uk/ipimp/IMG_0095.PNG
+
+**Create user**
+
+This allows you to create users.  Enter the username, the password twice and select which permissions you want to grant the user, these permissions control what menu items are displayed in the application.  The permission names should be sel explanatory but:
+  * Recorder - allows a user to schedule a recording
+  * Watcher - allows a user to watch recordings (and hopefully live TV if it ever gets working :-s )
+  * Deleter - allows a user to delete recordings and schedules.
+  * Remoter - allows a user to remotely control MediaPortal clients.
+  * Administrator - has God access.
+
+Click the **Add** button to submit.
+
+http://www.vanderboon.co.uk/ipimp/IMG_0096.PNG
+
+**Delete user**
+
+This allows you to delete users.  Select the user you want to delete, then click the **Delete** button to submit.
+
+http://www.vanderboon.co.uk/ipimp/IMG_0097.PNG
+
+[Next](iPiMP_Admin.md)

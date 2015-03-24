@@ -1,0 +1,13 @@
+You need to enable the iPiMP MediaPortal remote control plugin, to do this launch the MediaPortal client configuration utility, select the plugins branch and scroll down to the process plugins section.
+
+**NOTE:  YOU MAY HAVE TO SWITCH TO EXPERT MODE TO SEE THE MPCLIENTCONTROLLER PLUGIN.**
+
+http://www.vanderboon.co.uk/ipimp/iPiMP4.0.0-016.PNG
+
+There is little to configure with this plugin, only the TCP port it uses to communicate with the iPiMP web application, by default this is 55667 which shouldn’t clash with anything else on your PC so can be left alone. The plugin also provides an HTTP interface which listens on the tcp port +1 (e.g. 55668).
+
+http://www.vanderboon.co.uk/ipimp/Capture5.PNG
+
+You can then close the MediaPortal client configuration utility.
+
+[Next](Existing_Apache_Install.md)

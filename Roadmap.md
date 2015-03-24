@@ -1,0 +1,39 @@
+This isn't a proper roadmap, just a list of things I plan to do with iPiMP.  These are in no particular order.
+
+  * ~~Add TVSeries to MP client plugin~~ Now with streaming :-)
+
+  * Add a proper TV guide facility (view multiple channels at once)
+
+  * Get movie and music streaming from MP clients working
+
+  * Expand MP client remote control to allow keyboard strings
+
+  * ~~Expand remote control to give a numpad page 3~~
+
+  * Migrate to GemX's web services plugin (depending on how development of that goes)
+
+  * Make iPiMP PowerScheduler friendly
+
+  * Add Last.FM to MP client plugin
+
+  * Add PIN protection for Moving Pictures
+
+  * Expand customised menus
+
+  * Add My Pictures
+
+  * Add video playlist functions
+
+  * ~~Allow TV Guide number of days to be configurable~~ DONE
+
+  * Handle scheduled transcodings being interrupted
+
+  * ~~Get live TV working~~ DONE
+
+  * ~~Add [MovingPictures](http://code.google.com/p/moving-pictures/) to MP client plugin~~  DONE
+
+  * ~~Add Handbrake support~~  DONE
+
+  * ~~Add My Radio~~ DONE
+
+  * ~~Update installer for existing Apache installs~~ DONE
